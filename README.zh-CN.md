@@ -134,6 +134,7 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 - [AIMLAPI](https://aimlapi.com) — 一个 OpenAI/Anthropic 兼容端点打通 400+ 模型（对话/图像/视频/音频/向量）；预付费，OpenRouter 式聚合器。
 - [Novita AI](https://novita.ai) — 统一 API 接入 200+ 开源模型（DeepSeek/Qwen/Llama…），自带负载均衡、弹性扩缩与故障转移；另有 GPU 云。
 - [FlintAPI](https://flintapi.ai) — 面向国产开源模型的托管 OpenAI 兼容网关；自称用自研 “PPU” 芯片运行 Qwen2.5-72B，比 OpenRouter 低约 30%。较新且未经核实——投产前请先验证模型保真度（可用 [canary_check.py](scripts/canary_check.py)）。
+- [FlowBar](https://flowbarai.com) — 统一 API 接入 50+ AI 模型（GPT、Claude、Gemini、DeepSeek、Qwen、GLM、Kimi）。OpenAI 兼容，支持微信/支付宝/USDT/PayPal 支付，比 OpenRouter 便宜 5-10%。
 - [Glama Gateway](https://glama.ai/ai/gateway) — OpenAI 兼容网关，接入 100+ 模型，统一账单、缓存与日志（开源内核 [glama-ai/lightport](https://github.com/glama-ai/lightport)）。
 
 > 💡 任何网关都能再省一笔：开**语义缓存**（Kong、Bifrost、Zuplo），设**消费上限**（Cloudflare、Zuplo、Pydantic/Logfire），简单请求路由到便宜模型（见[智能路由](#-智能路由与模型选择)）。
