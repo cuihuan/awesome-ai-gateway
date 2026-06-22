@@ -229,6 +229,7 @@ Stars auto-refresh daily. ✅ built-in · ➕ via plugin/paid tier · ❌ not av
 - [Obot](https://github.com/obot-platform/obot) <!--s:obot-platform/obot-->⭐ 841<!--/s--> — Open-source agent platform with an MCP gateway for governing tool access.
 - [Director](https://github.com/fdmtl/director) <!--s:fdmtl/director-->⭐ 479<!--/s--> — Middleware to run, secure and observe MCP servers behind one connection.
 - [Lasso MCP Gateway](https://github.com/lasso-security/mcp-gateway) <!--s:lasso-security/mcp-gateway-->⭐ 376<!--/s--> — Security-first MCP gateway: plugin guardrails, secret masking, threat detection.
+- [fak](https://github.com/anthony-chaudhary/fak) <!--s:anthony-chaudhary/fak-->⭐ 0<!--/s--> — Single static Go binary fronting OpenAI/Anthropic/MCP backends (Ollama, vLLM, SGLang, cloud): a default-deny capability allow-list adjudicates every tool call, suspicious tool results are quarantined out of the model’s context, plus bearer/`x-api-key` auth, an `X-Trace-Id` audit trail and Prometheus `/metrics` — zero external dependencies. Apache-2.0.
 - [Pomerium](https://github.com/pomerium/pomerium) <!--s:pomerium/pomerium-->⭐ 4.9k<!--/s--> — Identity-aware access proxy with MCP support: policy-based auth in front of MCP servers.
 
 ## 🔧 More by capability (cross-cutting)
