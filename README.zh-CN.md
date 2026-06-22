@@ -228,6 +228,7 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 - [Obot](https://github.com/obot-platform/obot) <!--s:obot-platform/obot-->⭐ 841<!--/s--> — 开源 Agent 平台，自带 MCP 网关管控工具访问。
 - [Director](https://github.com/fdmtl/director) <!--s:fdmtl/director-->⭐ 479<!--/s--> — 中间件：在一个连接后运行、加固并观测 MCP server。
 - [Lasso MCP Gateway](https://github.com/lasso-security/mcp-gateway) <!--s:lasso-security/mcp-gateway-->⭐ 376<!--/s--> — 安全优先的 MCP 网关：插件式护栏、密钥脱敏、威胁检测。
+- [Armorer Guard](https://github.com/ArmorerLabs/Armorer-Guard) <!--s:ArmorerLabs/Armorer-Guard-->⭐ 40<!--/s--> — 本地 Rust MCP 代理，可包装 stdio server，并在执行前检查工具调用参数中的 Prompt 注入、凭据泄露、外传请求与高风险操作。
 - [Pomerium](https://github.com/pomerium/pomerium) <!--s:pomerium/pomerium-->⭐ 4.9k<!--/s--> — 身份感知访问代理，新增 MCP 支持：在 MCP server 前做基于策略的鉴权。
 
 ## 🔧 更多按能力分（横切关注点）
