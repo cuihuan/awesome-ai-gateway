@@ -157,6 +157,7 @@ Stars auto-refresh daily. ✅ built-in · ➕ via plugin/paid tier · ❌ not av
 - [Shepherd Model Gateway (SMG)](https://github.com/lightseekorg/smg) <!--s:lightseekorg/smg-->⭐ 344<!--/s--> — Engine-agnostic gateway in Rust: one OpenAI/Anthropic-compatible endpoint over vLLM/SGLang/TRT-LLM + cloud providers, with KV-cache-aware routing and WASM plugins.
 - [RelayPlane](https://github.com/RelayPlane/proxy) <!--s:RelayPlane/proxy-->⭐ 184<!--/s--> — MIT, local-first proxy (npm): 11 providers behind one endpoint with per-request cost attribution and hard daily/hourly budget caps.
 - [SentryNode Gateway](https://github.com/nehadangwal/sentrynode-gateway) <!--s:nehadangwal/sentrynode-gateway-->⭐ 0<!--/s--> — Open-core (Apache-2.0) AI proxy for cost governance / FinOps routing: adaptive model routing, budget caps and audit logging. Early-stage; the public repo currently ships a demo scaffold.
+- [OpenPaths](https://github.com/lee101/openpaths) <!--s:lee101/openpaths-->⭐ 0<!--/s--> — Open-source, OpenAI-compatible model router/AI gateway; routes chat, image, video, music, speech, transcription, embeddings and reasoning models to the lowest-latency/highest-throughput provider through one unified API.
 - ⚠️ Stale but historically notable: [BricksLLM](https://github.com/bricks-cloud/BricksLLM) <!--s:bricks-cloud/BricksLLM-->⭐ 1.2k<!--/s--> (PII masking, per-key limits; inactive since early 2025), [Glide](https://github.com/EinStack/glide) <!--s:EinStack/glide-->⭐ 161<!--/s--> (inactive since 2024).
 
 ## 🏢 Enterprise & compliance
