@@ -234,6 +234,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [MCP Gateway & Registry](https://github.com/agentic-community/mcp-gateway-registry) <!--s:agentic-community/mcp-gateway-registry-->⭐ 790<!--/s--> — 企业级 MCP 网关 + 注册中心，把众多 MCP server 集中到一个受 OAuth 保护的端点之后，带虚拟 MCP server、语义化工具发现、A2A Agent 发现与细粒度治理/审计；与 AWS 生态对齐。
 - [Nexus (Grafbase)](https://github.com/Nexus-Router/nexus) <!--s:Nexus-Router/nexus-->⭐ 436<!--/s--> — Grafbase 出品的 Rust AI 路由器，把 MCP server（STDIO/SSE/HTTP）与 LLM 厂商聚合到一个端点之后，带上下文感知的模糊工具搜索、OAuth2/TLS 安全、限流与 OpenTelemetry。
 - [Pomerium](https://github.com/pomerium/pomerium) <!--s:pomerium/pomerium-->⭐ 4.9k<!--/s--> — 身份感知访问代理，新增 MCP 支持：在 MCP server 前做基于策略的鉴权。
+- [PassControl](https://github.com/Vertias3u/PassControl) — 面向 AI agent 的身份优先网关：每个 agent 持有一个 Ed25519「护照」，通过签名挑战换取短时效的「工作签证」，无需持有你的 provider 密钥；网关验证签证、检查 scope + 预算 + kill switch，再从 vault 注入真实密钥并代理请求。支持按 agent 的 scope、token/美元预算，以及即时的按 agent kill switch。可自托管（Next.js + Supabase + Redis），BSL-1.1，六家 provider。*(早期 — v0.1.x)*
 
 ## 🔧 更多按能力分（横切关注点）
 
