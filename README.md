@@ -234,6 +234,7 @@ _Pain point: "Agents call tools now — govern MCP traffic like you govern APIs.
 - [MCP Gateway & Registry](https://github.com/agentic-community/mcp-gateway-registry) <!--s:agentic-community/mcp-gateway-registry-->⭐ 790<!--/s--> — Enterprise MCP gateway + registry centralizing access to many MCP servers behind one OAuth-protected endpoint, with virtual MCP servers, semantic tool discovery, A2A agent discovery and fine-grained governance/audit; AWS-aligned.
 - [Nexus (Grafbase)](https://github.com/Nexus-Router/nexus) <!--s:Nexus-Router/nexus-->⭐ 436<!--/s--> — Rust AI router from Grafbase that aggregates MCP servers (STDIO/SSE/HTTP) and LLM providers behind one endpoint with context-aware fuzzy tool search, OAuth2/TLS security, rate limiting and OpenTelemetry.
 - [Pomerium](https://github.com/pomerium/pomerium) <!--s:pomerium/pomerium-->⭐ 4.9k<!--/s--> — Identity-aware access proxy with MCP support: policy-based auth in front of MCP servers.
+- [PassControl](https://github.com/Vertias3u/PassControl) — Identity-first gateway for AI agents: each agent holds an Ed25519 passport and signs a challenge for a short-lived work-visa instead of ever holding your provider key; the gateway verifies it, checks scope + budget + kill switch, then injects the real key from a vault and proxies the call. Per-agent scopes, token/USD budgets, instant per-agent kill switch. Self-hostable (Next.js + Supabase + Redis), BSL-1.1, six providers. *(Early — v0.1.x.)*
 
 ## 🔧 More by capability (cross-cutting)
 
