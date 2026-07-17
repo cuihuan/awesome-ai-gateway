@@ -5,21 +5,70 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-07-16T04:34:48Z</updated>
+  <updated>2026-07-17T02:00:00Z</updated>
   <author><name>Awesome AI Gateway</name></author>
   <entry>
-    <title>maximhq/bifrost helm-chart-v2.1.29</title>
-    <link href="https://github.com/maximhq/bifrost/releases/tag/helm-chart-v2.1.29" />
-    <id>https://github.com/maximhq/bifrost/releases/tag/helm-chart-v2.1.29</id>
-    <updated>2026-07-16T04:34:48Z</updated>
-    <summary>maximhq/bifrost released Helm Chart v2.1.29.</summary>
+    <title>Wei-Shaw/sub2api v0.1.159</title>
+    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.159" />
+    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.159</id>
+    <updated>2026-07-17T02:00:00Z</updated>
+    <summary>Wei-Shaw/sub2api released Sub2API 0.1.159.</summary>
   </entry>
   <entry>
-    <title>router-for-me/CLIProxyAPI v7.2.80</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.80" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.80</id>
-    <updated>2026-07-15T22:04:34Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v7.2.80.</summary>
+    <title>router-for-me/CLIProxyAPI v7.2.81</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.81" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.81</id>
+    <updated>2026-07-16T19:50:33Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v7.2.81.</summary>
+  </entry>
+  <entry>
+    <title>pomerium/pomerium v0.33.0</title>
+    <link href="https://github.com/pomerium/pomerium/releases/tag/v0.33.0" />
+    <id>https://github.com/pomerium/pomerium/releases/tag/v0.33.0</id>
+    <updated>2026-07-16T18:24:42Z</updated>
+    <summary>pomerium/pomerium released v0.33.0.</summary>
+  </entry>
+  <entry>
+    <title>yym68686/uni-api v1.7.188</title>
+    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.188" />
+    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.188</id>
+    <updated>2026-07-16T17:09:31Z</updated>
+    <summary>yym68686/uni-api released Release 1.7.188.</summary>
+  </entry>
+  <entry>
+    <title>agentic-community/mcp-gateway-registry 1.27.1</title>
+    <link href="https://github.com/agentic-community/mcp-gateway-registry/releases/tag/1.27.1" />
+    <id>https://github.com/agentic-community/mcp-gateway-registry/releases/tag/1.27.1</id>
+    <updated>2026-07-16T17:03:19Z</updated>
+    <summary>agentic-community/mcp-gateway-registry released 1.27.1 - Routing Observability, Security Hardening, and the airegistry-tools Fix.</summary>
+  </entry>
+  <entry>
+    <title>stacklok/toolhive v0.39.0</title>
+    <link href="https://github.com/stacklok/toolhive/releases/tag/v0.39.0" />
+    <id>https://github.com/stacklok/toolhive/releases/tag/v0.39.0</id>
+    <updated>2026-07-16T15:44:11Z</updated>
+    <summary>stacklok/toolhive released v0.39.0.</summary>
+  </entry>
+  <entry>
+    <title>smart-mcp-proxy/mcpproxy-go v0.51.0</title>
+    <link href="https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.51.0" />
+    <id>https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.51.0</id>
+    <updated>2026-07-16T14:48:53Z</updated>
+    <summary>smart-mcp-proxy/mcpproxy-go released v0.51.0.</summary>
+  </entry>
+  <entry>
+    <title>decolua/9router v0.5.35</title>
+    <link href="https://github.com/decolua/9router/releases/tag/v0.5.35" />
+    <id>https://github.com/decolua/9router/releases/tag/v0.5.35</id>
+    <updated>2026-07-16T11:14:39Z</updated>
+    <summary>decolua/9router released feat: Grok Imagine video, Copilot Claude route, i18n th/fa version 0.5.35.</summary>
+  </entry>
+  <entry>
+    <title>maximhq/bifrost ent-v2.0.0-prerelease2-base</title>
+    <link href="https://github.com/maximhq/bifrost/releases/tag/ent-v2.0.0-prerelease2-base" />
+    <id>https://github.com/maximhq/bifrost/releases/tag/ent-v2.0.0-prerelease2-base</id>
+    <updated>2026-07-16T09:38:30Z</updated>
+    <summary>maximhq/bifrost released Enterprise v2.0.0-prerelease2 base.</summary>
   </entry>
   <entry>
     <title>ENTERPILOT/GoModel v0.1.52</title>
@@ -27,20 +76,6 @@
     <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.52</id>
     <updated>2026-07-15T18:46:39Z</updated>
     <summary>ENTERPILOT/GoModel released v0.1.52.</summary>
-  </entry>
-  <entry>
-    <title>stacklok/toolhive v0.38.0</title>
-    <link href="https://github.com/stacklok/toolhive/releases/tag/v0.38.0" />
-    <id>https://github.com/stacklok/toolhive/releases/tag/v0.38.0</id>
-    <updated>2026-07-15T17:26:10Z</updated>
-    <summary>stacklok/toolhive released v0.38.0.</summary>
-  </entry>
-  <entry>
-    <title>yym68686/uni-api v1.7.184</title>
-    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.184" />
-    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.184</id>
-    <updated>2026-07-15T16:25:38Z</updated>
-    <summary>yym68686/uni-api released Release 1.7.184.</summary>
   </entry>
   <entry>
     <title>archestra-ai/archestra platform-v1.3.10</title>
@@ -64,20 +99,6 @@
     <summary>traceloop/hub released 0.10.1.</summary>
   </entry>
   <entry>
-    <title>Wei-Shaw/sub2api v0.1.156</title>
-    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.156" />
-    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.156</id>
-    <updated>2026-07-15T08:51:11Z</updated>
-    <summary>Wei-Shaw/sub2api released Sub2API 0.1.156.</summary>
-  </entry>
-  <entry>
-    <title>agentic-community/mcp-gateway-registry 1.27.0</title>
-    <link href="https://github.com/agentic-community/mcp-gateway-registry/releases/tag/1.27.0" />
-    <id>https://github.com/agentic-community/mcp-gateway-registry/releases/tag/1.27.0</id>
-    <updated>2026-07-14T19:56:31Z</updated>
-    <summary>agentic-community/mcp-gateway-registry released 1.27.0 - OBO, Application-Level Rate Limiting and a Broad Security-Hardening Pass.</summary>
-  </entry>
-  <entry>
     <title>obot-platform/obot v0.23.4</title>
     <link href="https://github.com/obot-platform/obot/releases/tag/v0.23.4" />
     <id>https://github.com/obot-platform/obot/releases/tag/v0.23.4</id>
@@ -90,13 +111,6 @@
     <id>https://github.com/1mcp-app/agent/releases/tag/v0.34.2</id>
     <updated>2026-07-14T16:03:36Z</updated>
     <summary>1mcp-app/agent released Release v0.34.2.</summary>
-  </entry>
-  <entry>
-    <title>smart-mcp-proxy/mcpproxy-go v0.50.0</title>
-    <link href="https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.50.0" />
-    <id>https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.50.0</id>
-    <updated>2026-07-14T07:36:49Z</updated>
-    <summary>smart-mcp-proxy/mcpproxy-go released v0.50.0.</summary>
   </entry>
   <entry>
     <title>kgateway-dev/kgateway v2.3.6</title>
@@ -183,13 +197,6 @@
     <summary>IBM/mcp-context-forge released v1.0.5 - API Versioning, Auth Hardening, A2A Compatibility, and Build Consolidation.</summary>
   </entry>
   <entry>
-    <title>decolua/9router v0.5.20</title>
-    <link href="https://github.com/decolua/9router/releases/tag/v0.5.20" />
-    <id>https://github.com/decolua/9router/releases/tag/v0.5.20</id>
-    <updated>2026-07-07T09:30:44Z</updated>
-    <summary>decolua/9router released feat: thinking level picker + suffix support across providers version 0.5.20.</summary>
-  </entry>
-  <entry>
     <title>algorithmicsuperintelligence/optillm v0.3.21</title>
     <link href="https://github.com/algorithmicsuperintelligence/optillm/releases/tag/v0.3.21" />
     <id>https://github.com/algorithmicsuperintelligence/optillm/releases/tag/v0.3.21</id>
@@ -209,12 +216,5 @@
     <id>https://github.com/tbphp/gpt-load/releases/tag/v1.4.9</id>
     <updated>2026-07-02T06:40:43Z</updated>
     <summary>tbphp/gpt-load released v1.4.9.</summary>
-  </entry>
-  <entry>
-    <title>lightseekorg/smg v1.7.0</title>
-    <link href="https://github.com/lightseekorg/smg/releases/tag/v1.7.0" />
-    <id>https://github.com/lightseekorg/smg/releases/tag/v1.7.0</id>
-    <updated>2026-06-29T22:18:33Z</updated>
-    <summary>lightseekorg/smg released v1.7.0.</summary>
   </entry>
 </feed>
