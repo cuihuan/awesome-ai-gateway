@@ -5,21 +5,56 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-07-17T02:00:00Z</updated>
+  <updated>2026-07-17T23:09:39Z</updated>
   <author><name>Awesome AI Gateway</name></author>
   <entry>
-    <title>Wei-Shaw/sub2api v0.1.159</title>
-    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.159" />
-    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.159</id>
-    <updated>2026-07-17T02:00:00Z</updated>
-    <summary>Wei-Shaw/sub2api released Sub2API 0.1.159.</summary>
+    <title>yym68686/uni-api v1.7.190</title>
+    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.190" />
+    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.190</id>
+    <updated>2026-07-17T23:09:39Z</updated>
+    <summary>yym68686/uni-api released Release 1.7.190.</summary>
   </entry>
   <entry>
-    <title>router-for-me/CLIProxyAPI v7.2.81</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.81" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.81</id>
-    <updated>2026-07-16T19:50:33Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v7.2.81.</summary>
+    <title>router-for-me/CLIProxyAPI v7.2.86</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.86" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.86</id>
+    <updated>2026-07-17T19:58:57Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v7.2.86.</summary>
+  </entry>
+  <entry>
+    <title>ENTERPILOT/GoModel v0.1.53</title>
+    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.53" />
+    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.53</id>
+    <updated>2026-07-17T17:06:12Z</updated>
+    <summary>ENTERPILOT/GoModel released v0.1.53.</summary>
+  </entry>
+  <entry>
+    <title>stacklok/toolhive v0.40.0</title>
+    <link href="https://github.com/stacklok/toolhive/releases/tag/v0.40.0" />
+    <id>https://github.com/stacklok/toolhive/releases/tag/v0.40.0</id>
+    <updated>2026-07-17T15:42:56Z</updated>
+    <summary>stacklok/toolhive released v0.40.0.</summary>
+  </entry>
+  <entry>
+    <title>BlockRunAI/ClawRouter v0.12.227</title>
+    <link href="https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.227" />
+    <id>https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.227</id>
+    <updated>2026-07-17T14:47:53Z</updated>
+    <summary>BlockRunAI/ClawRouter released v0.12.227.</summary>
+  </entry>
+  <entry>
+    <title>1mcp-app/agent v0.34.3</title>
+    <link href="https://github.com/1mcp-app/agent/releases/tag/v0.34.3" />
+    <id>https://github.com/1mcp-app/agent/releases/tag/v0.34.3</id>
+    <updated>2026-07-17T12:30:28Z</updated>
+    <summary>1mcp-app/agent released Release v0.34.3.</summary>
+  </entry>
+  <entry>
+    <title>Wei-Shaw/sub2api v0.1.160</title>
+    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.160" />
+    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.160</id>
+    <updated>2026-07-17T08:47:56Z</updated>
+    <summary>Wei-Shaw/sub2api released Sub2API 0.1.160.</summary>
   </entry>
   <entry>
     <title>pomerium/pomerium v0.33.0</title>
@@ -29,25 +64,11 @@
     <summary>pomerium/pomerium released v0.33.0.</summary>
   </entry>
   <entry>
-    <title>yym68686/uni-api v1.7.188</title>
-    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.188" />
-    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.188</id>
-    <updated>2026-07-16T17:09:31Z</updated>
-    <summary>yym68686/uni-api released Release 1.7.188.</summary>
-  </entry>
-  <entry>
     <title>agentic-community/mcp-gateway-registry 1.27.1</title>
     <link href="https://github.com/agentic-community/mcp-gateway-registry/releases/tag/1.27.1" />
     <id>https://github.com/agentic-community/mcp-gateway-registry/releases/tag/1.27.1</id>
     <updated>2026-07-16T17:03:19Z</updated>
     <summary>agentic-community/mcp-gateway-registry released 1.27.1 - Routing Observability, Security Hardening, and the airegistry-tools Fix.</summary>
-  </entry>
-  <entry>
-    <title>stacklok/toolhive v0.39.0</title>
-    <link href="https://github.com/stacklok/toolhive/releases/tag/v0.39.0" />
-    <id>https://github.com/stacklok/toolhive/releases/tag/v0.39.0</id>
-    <updated>2026-07-16T15:44:11Z</updated>
-    <summary>stacklok/toolhive released v0.39.0.</summary>
   </entry>
   <entry>
     <title>smart-mcp-proxy/mcpproxy-go v0.51.0</title>
@@ -69,13 +90,6 @@
     <id>https://github.com/maximhq/bifrost/releases/tag/ent-v2.0.0-prerelease2-base</id>
     <updated>2026-07-16T09:38:30Z</updated>
     <summary>maximhq/bifrost released Enterprise v2.0.0-prerelease2 base.</summary>
-  </entry>
-  <entry>
-    <title>ENTERPILOT/GoModel v0.1.52</title>
-    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.52" />
-    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.52</id>
-    <updated>2026-07-15T18:46:39Z</updated>
-    <summary>ENTERPILOT/GoModel released v0.1.52.</summary>
   </entry>
   <entry>
     <title>archestra-ai/archestra platform-v1.3.10</title>
@@ -106,13 +120,6 @@
     <summary>obot-platform/obot released v0.23.4.</summary>
   </entry>
   <entry>
-    <title>1mcp-app/agent v0.34.2</title>
-    <link href="https://github.com/1mcp-app/agent/releases/tag/v0.34.2" />
-    <id>https://github.com/1mcp-app/agent/releases/tag/v0.34.2</id>
-    <updated>2026-07-14T16:03:36Z</updated>
-    <summary>1mcp-app/agent released Release v0.34.2.</summary>
-  </entry>
-  <entry>
     <title>kgateway-dev/kgateway v2.3.6</title>
     <link href="https://github.com/kgateway-dev/kgateway/releases/tag/v2.3.6" />
     <id>https://github.com/kgateway-dev/kgateway/releases/tag/v2.3.6</id>
@@ -132,13 +139,6 @@
     <id>https://github.com/theopenco/llmgateway/releases/tag/v1.8.0</id>
     <updated>2026-07-13T10:13:48Z</updated>
     <summary>theopenco/llmgateway released v1.8.0.</summary>
-  </entry>
-  <entry>
-    <title>BlockRunAI/ClawRouter v0.12.220</title>
-    <link href="https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.220" />
-    <id>https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.220</id>
-    <updated>2026-07-12T19:52:03Z</updated>
-    <summary>BlockRunAI/ClawRouter released v0.12.220 — direct Polymarket betting (blockrun_polymarket).</summary>
   </entry>
   <entry>
     <title>mnfst/manifest manifest@6.15.1</title>
