@@ -5,8 +5,43 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-07-19T03:43:37Z</updated>
+  <updated>2026-07-20T00:16:10Z</updated>
   <author><name>Awesome AI Gateway</name></author>
+  <entry>
+    <title>NadirRouter/NadirClaw v0.22.0</title>
+    <link href="https://github.com/NadirRouter/NadirClaw/releases/tag/v0.22.0" />
+    <id>https://github.com/NadirRouter/NadirClaw/releases/tag/v0.22.0</id>
+    <updated>2026-07-20T00:16:10Z</updated>
+    <summary>NadirRouter/NadirClaw released v0.22.0 — v3+gate default routing.</summary>
+  </entry>
+  <entry>
+    <title>ENTERPILOT/GoModel v0.1.54</title>
+    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.54" />
+    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.54</id>
+    <updated>2026-07-19T19:13:51Z</updated>
+    <summary>ENTERPILOT/GoModel released v0.1.54.</summary>
+  </entry>
+  <entry>
+    <title>router-for-me/CLIProxyAPI v7.2.91</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.91" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.91</id>
+    <updated>2026-07-19T18:07:11Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v7.2.91.</summary>
+  </entry>
+  <entry>
+    <title>labring/aiproxy v0.6.6</title>
+    <link href="https://github.com/labring/aiproxy/releases/tag/v0.6.6" />
+    <id>https://github.com/labring/aiproxy/releases/tag/v0.6.6</id>
+    <updated>2026-07-19T16:15:19Z</updated>
+    <summary>labring/aiproxy released Version 0.6.6.</summary>
+  </entry>
+  <entry>
+    <title>BerriAI/litellm v1.93.0</title>
+    <link href="https://github.com/BerriAI/litellm/releases/tag/v1.93.0" />
+    <id>https://github.com/BerriAI/litellm/releases/tag/v1.93.0</id>
+    <updated>2026-07-19T07:57:31Z</updated>
+    <summary>BerriAI/litellm released v1.93.0.</summary>
+  </entry>
   <entry>
     <title>yym68686/uni-api v1.7.191</title>
     <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.191" />
@@ -20,13 +55,6 @@
     <id>https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.230</id>
     <updated>2026-07-19T01:40:00Z</updated>
     <summary>BlockRunAI/ClawRouter released v0.12.230 — fix #213: Kimi K3 nameless tool-call recovery.</summary>
-  </entry>
-  <entry>
-    <title>router-for-me/CLIProxyAPI v7.2.88</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.88" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.88</id>
-    <updated>2026-07-18T15:37:00Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v7.2.88.</summary>
   </entry>
   <entry>
     <title>lightseekorg/smg v1.8.0</title>
@@ -48,13 +76,6 @@
     <id>https://github.com/algorithmicsuperintelligence/optillm/releases/tag/v0.3.22</id>
     <updated>2026-07-18T12:38:31Z</updated>
     <summary>algorithmicsuperintelligence/optillm released v0.3.22.</summary>
-  </entry>
-  <entry>
-    <title>ENTERPILOT/GoModel v0.1.53</title>
-    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.53" />
-    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.53</id>
-    <updated>2026-07-17T17:06:12Z</updated>
-    <summary>ENTERPILOT/GoModel released v0.1.53.</summary>
   </entry>
   <entry>
     <title>stacklok/toolhive v0.40.0</title>
@@ -162,13 +183,6 @@
     <summary>mnfst/manifest released manifest v6.15.1.</summary>
   </entry>
   <entry>
-    <title>BerriAI/litellm v1.92.0</title>
-    <link href="https://github.com/BerriAI/litellm/releases/tag/v1.92.0" />
-    <id>https://github.com/BerriAI/litellm/releases/tag/v1.92.0</id>
-    <updated>2026-07-12T01:55:00Z</updated>
-    <summary>BerriAI/litellm released v1.92.0.</summary>
-  </entry>
-  <entry>
     <title>QuantumNous/new-api v1.0.0-rc.21</title>
     <link href="https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.21" />
     <id>https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.21</id>
@@ -202,19 +216,5 @@
     <id>https://github.com/krakend/krakend-ce/releases/tag/v2.13.8</id>
     <updated>2026-07-08T13:47:27Z</updated>
     <summary>krakend/krakend-ce released v2.13.8.</summary>
-  </entry>
-  <entry>
-    <title>IBM/mcp-context-forge v1.0.5</title>
-    <link href="https://github.com/IBM/mcp-context-forge/releases/tag/v1.0.5" />
-    <id>https://github.com/IBM/mcp-context-forge/releases/tag/v1.0.5</id>
-    <updated>2026-07-07T14:56:56Z</updated>
-    <summary>IBM/mcp-context-forge released v1.0.5 - API Versioning, Auth Hardening, A2A Compatibility, and Build Consolidation.</summary>
-  </entry>
-  <entry>
-    <title>gpustack/gpustack v2.2.1</title>
-    <link href="https://github.com/gpustack/gpustack/releases/tag/v2.2.1" />
-    <id>https://github.com/gpustack/gpustack/releases/tag/v2.2.1</id>
-    <updated>2026-07-03T11:18:35Z</updated>
-    <summary>gpustack/gpustack released v2.2.1.</summary>
   </entry>
 </feed>
