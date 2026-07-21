@@ -5,28 +5,91 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-07-20T00:16:10Z</updated>
+  <updated>2026-07-21T05:18:17Z</updated>
   <author><name>Awesome AI Gateway</name></author>
+  <entry>
+    <title>router-for-me/CLIProxyAPI v7.2.93</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.93" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.93</id>
+    <updated>2026-07-21T05:18:17Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v7.2.93.</summary>
+  </entry>
+  <entry>
+    <title>agentgateway/agentgateway v1.4.0-alpha.2</title>
+    <link href="https://github.com/agentgateway/agentgateway/releases/tag/v1.4.0-alpha.2" />
+    <id>https://github.com/agentgateway/agentgateway/releases/tag/v1.4.0-alpha.2</id>
+    <updated>2026-07-21T03:07:45Z</updated>
+    <summary>agentgateway/agentgateway released v1.4.0-alpha.2.</summary>
+  </entry>
+  <entry>
+    <title>katanemo/plano 0.4.28</title>
+    <link href="https://github.com/katanemo/plano/releases/tag/0.4.28" />
+    <id>https://github.com/katanemo/plano/releases/tag/0.4.28</id>
+    <updated>2026-07-21T01:03:09Z</updated>
+    <summary>katanemo/plano released release 0.4.28.</summary>
+  </entry>
+  <entry>
+    <title>andrewyng/aisuite v0.1.3</title>
+    <link href="https://github.com/andrewyng/aisuite/releases/tag/v0.1.3" />
+    <id>https://github.com/andrewyng/aisuite/releases/tag/v0.1.3</id>
+    <updated>2026-07-20T20:16:27Z</updated>
+    <summary>andrewyng/aisuite released OpenWorker 0.1.3.</summary>
+  </entry>
+  <entry>
+    <title>BlockRunAI/ClawRouter v0.12.232</title>
+    <link href="https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.232" />
+    <id>https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.232</id>
+    <updated>2026-07-20T16:19:07Z</updated>
+    <summary>BlockRunAI/ClawRouter released v0.12.232 — fix: max_completion_tokens was never read.</summary>
+  </entry>
+  <entry>
+    <title>musistudio/claude-code-router v3.0.15</title>
+    <link href="https://github.com/musistudio/claude-code-router/releases/tag/v3.0.15" />
+    <id>https://github.com/musistudio/claude-code-router/releases/tag/v3.0.15</id>
+    <updated>2026-07-20T14:35:10Z</updated>
+    <summary>musistudio/claude-code-router released v3.0.15.</summary>
+  </entry>
+  <entry>
+    <title>ENTERPILOT/GoModel v0.1.55</title>
+    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.55" />
+    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.55</id>
+    <updated>2026-07-20T13:54:02Z</updated>
+    <summary>ENTERPILOT/GoModel released v0.1.55.</summary>
+  </entry>
+  <entry>
+    <title>theopenco/llmgateway v1.9.0</title>
+    <link href="https://github.com/theopenco/llmgateway/releases/tag/v1.9.0" />
+    <id>https://github.com/theopenco/llmgateway/releases/tag/v1.9.0</id>
+    <updated>2026-07-20T10:07:14Z</updated>
+    <summary>theopenco/llmgateway released v1.9.0.</summary>
+  </entry>
+  <entry>
+    <title>mnfst/manifest manifest@6.15.2</title>
+    <link href="https://github.com/mnfst/manifest/releases/tag/manifest%406.15.2" />
+    <id>https://github.com/mnfst/manifest/releases/tag/manifest%406.15.2</id>
+    <updated>2026-07-20T09:05:49Z</updated>
+    <summary>mnfst/manifest released manifest v6.15.2.</summary>
+  </entry>
+  <entry>
+    <title>Wei-Shaw/sub2api v0.1.162</title>
+    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.162" />
+    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.162</id>
+    <updated>2026-07-20T08:43:04Z</updated>
+    <summary>Wei-Shaw/sub2api released Sub2API 0.1.162.</summary>
+  </entry>
+  <entry>
+    <title>stacklok/toolhive v0.40.1</title>
+    <link href="https://github.com/stacklok/toolhive/releases/tag/v0.40.1" />
+    <id>https://github.com/stacklok/toolhive/releases/tag/v0.40.1</id>
+    <updated>2026-07-20T08:32:36Z</updated>
+    <summary>stacklok/toolhive released v0.40.1.</summary>
+  </entry>
   <entry>
     <title>NadirRouter/NadirClaw v0.22.0</title>
     <link href="https://github.com/NadirRouter/NadirClaw/releases/tag/v0.22.0" />
     <id>https://github.com/NadirRouter/NadirClaw/releases/tag/v0.22.0</id>
     <updated>2026-07-20T00:16:10Z</updated>
     <summary>NadirRouter/NadirClaw released v0.22.0 — v3+gate default routing.</summary>
-  </entry>
-  <entry>
-    <title>ENTERPILOT/GoModel v0.1.54</title>
-    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.54" />
-    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.54</id>
-    <updated>2026-07-19T19:13:51Z</updated>
-    <summary>ENTERPILOT/GoModel released v0.1.54.</summary>
-  </entry>
-  <entry>
-    <title>router-for-me/CLIProxyAPI v7.2.91</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.91" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.91</id>
-    <updated>2026-07-19T18:07:11Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v7.2.91.</summary>
   </entry>
   <entry>
     <title>labring/aiproxy v0.6.6</title>
@@ -50,13 +113,6 @@
     <summary>yym68686/uni-api released Release 1.7.191.</summary>
   </entry>
   <entry>
-    <title>BlockRunAI/ClawRouter v0.12.230</title>
-    <link href="https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.230" />
-    <id>https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.230</id>
-    <updated>2026-07-19T01:40:00Z</updated>
-    <summary>BlockRunAI/ClawRouter released v0.12.230 — fix #213: Kimi K3 nameless tool-call recovery.</summary>
-  </entry>
-  <entry>
     <title>lightseekorg/smg v1.8.0</title>
     <link href="https://github.com/lightseekorg/smg/releases/tag/v1.8.0" />
     <id>https://github.com/lightseekorg/smg/releases/tag/v1.8.0</id>
@@ -64,25 +120,11 @@
     <summary>lightseekorg/smg released V1.8.0.</summary>
   </entry>
   <entry>
-    <title>Wei-Shaw/sub2api v0.1.161</title>
-    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.161" />
-    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.161</id>
-    <updated>2026-07-18T14:18:14Z</updated>
-    <summary>Wei-Shaw/sub2api released Sub2API 0.1.161.</summary>
-  </entry>
-  <entry>
     <title>algorithmicsuperintelligence/optillm v0.3.22</title>
     <link href="https://github.com/algorithmicsuperintelligence/optillm/releases/tag/v0.3.22" />
     <id>https://github.com/algorithmicsuperintelligence/optillm/releases/tag/v0.3.22</id>
     <updated>2026-07-18T12:38:31Z</updated>
     <summary>algorithmicsuperintelligence/optillm released v0.3.22.</summary>
-  </entry>
-  <entry>
-    <title>stacklok/toolhive v0.40.0</title>
-    <link href="https://github.com/stacklok/toolhive/releases/tag/v0.40.0" />
-    <id>https://github.com/stacklok/toolhive/releases/tag/v0.40.0</id>
-    <updated>2026-07-17T15:42:56Z</updated>
-    <summary>stacklok/toolhive released v0.40.0.</summary>
   </entry>
   <entry>
     <title>1mcp-app/agent v0.34.3</title>
@@ -134,13 +176,6 @@
     <summary>archestra-ai/archestra released platform: v1.3.10.</summary>
   </entry>
   <entry>
-    <title>musistudio/claude-code-router v3.0.14</title>
-    <link href="https://github.com/musistudio/claude-code-router/releases/tag/v3.0.14" />
-    <id>https://github.com/musistudio/claude-code-router/releases/tag/v3.0.14</id>
-    <updated>2026-07-15T15:04:08Z</updated>
-    <summary>musistudio/claude-code-router released v3.0.14.</summary>
-  </entry>
-  <entry>
     <title>traceloop/hub 0.10.1</title>
     <link href="https://github.com/traceloop/hub/releases/tag/0.10.1" />
     <id>https://github.com/traceloop/hub/releases/tag/0.10.1</id>
@@ -169,20 +204,6 @@
     <summary>diegosouzapw/OmniRoute released v3.8.48.</summary>
   </entry>
   <entry>
-    <title>theopenco/llmgateway v1.8.0</title>
-    <link href="https://github.com/theopenco/llmgateway/releases/tag/v1.8.0" />
-    <id>https://github.com/theopenco/llmgateway/releases/tag/v1.8.0</id>
-    <updated>2026-07-13T10:13:48Z</updated>
-    <summary>theopenco/llmgateway released v1.8.0.</summary>
-  </entry>
-  <entry>
-    <title>mnfst/manifest manifest@6.15.1</title>
-    <link href="https://github.com/mnfst/manifest/releases/tag/manifest%406.15.1" />
-    <id>https://github.com/mnfst/manifest/releases/tag/manifest%406.15.1</id>
-    <updated>2026-07-12T18:12:26Z</updated>
-    <summary>mnfst/manifest released manifest v6.15.1.</summary>
-  </entry>
-  <entry>
     <title>QuantumNous/new-api v1.0.0-rc.21</title>
     <link href="https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.21" />
     <id>https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.21</id>
@@ -195,26 +216,5 @@
     <id>https://github.com/looplj/axonhub/releases/tag/v1.0.0-beta5</id>
     <updated>2026-07-11T03:13:18Z</updated>
     <summary>looplj/axonhub released v1.0.0-beta5.</summary>
-  </entry>
-  <entry>
-    <title>ascending-llc/jarvis-registry asc0.5.2</title>
-    <link href="https://github.com/ascending-llc/jarvis-registry/releases/tag/asc0.5.2" />
-    <id>https://github.com/ascending-llc/jarvis-registry/releases/tag/asc0.5.2</id>
-    <updated>2026-07-10T17:04:03Z</updated>
-    <summary>ascending-llc/jarvis-registry released Jarvis Registry asc0.5.2.</summary>
-  </entry>
-  <entry>
-    <title>katanemo/plano 0.4.27</title>
-    <link href="https://github.com/katanemo/plano/releases/tag/0.4.27" />
-    <id>https://github.com/katanemo/plano/releases/tag/0.4.27</id>
-    <updated>2026-07-09T20:42:18Z</updated>
-    <summary>katanemo/plano released 0.4.27.</summary>
-  </entry>
-  <entry>
-    <title>krakend/krakend-ce v2.13.8</title>
-    <link href="https://github.com/krakend/krakend-ce/releases/tag/v2.13.8" />
-    <id>https://github.com/krakend/krakend-ce/releases/tag/v2.13.8</id>
-    <updated>2026-07-08T13:47:27Z</updated>
-    <summary>krakend/krakend-ce released v2.13.8.</summary>
   </entry>
 </feed>
