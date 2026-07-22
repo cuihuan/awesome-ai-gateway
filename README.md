@@ -336,6 +336,7 @@ _Pain point: "Routing to self-hosted models (vLLM/Ollama) inside the cluster, GP
 | China models + team key billing | **new-api** | [China ecosystem](#-china-ecosystem) |
 | Enterprise K8s + audit | **Kong** / **Higress** | [Enterprise](#-enterprise--compliance) |
 | Strongest compliance (HIPAA/FedRAMP) | **Azure** / **Bedrock** | [First-party](#️-first-party-gateways-cloud--model-vendors) |
+| Sensitive prompts — who sees / logs / trains on them? | **Self-host** or **ZDR-default** (Vercel / Requesty) | [Who sees your prompts](#-who-sees-your-prompts--the-data-retention-matrix) |
 | Govern agents / MCP traffic | **agentgateway** | [MCP & agents](#-mcp--agent-gateways) |
 
 <details>

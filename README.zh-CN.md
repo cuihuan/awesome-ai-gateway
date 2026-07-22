@@ -336,6 +336,7 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 | 国产模型 + 团队 Key 计费 | **new-api** | [国内生态](#-国内生态) |
 | 企业 K8s + 审计 | **Kong** / **Higress** | [企业合规](#-企业合规) |
 | 最强合规（HIPAA/FedRAMP） | **Azure** / **Bedrock** | [原厂直连](#️-原厂直连云厂商模型厂商) |
+| 敏感 prompt——谁看得到/记录/拿去训练？ | **自托管** 或 **默认零留存**（Vercel / Requesty） | [谁看得到你的 prompt](#-谁看得到你的-prompt-数据留存矩阵) |
 | 治理 Agent / MCP 流量 | **agentgateway** | [MCP 与 Agent](#-mcp-与-agent-网关) |
 
 <details>
