@@ -46,22 +46,22 @@ The most-starred, most-authoritative projects in the list — a fast orientation
 
 | Gateway | Stars | What it is | Jump to |
 |---|---|---|---|
-| [LiteLLM](https://github.com/BerriAI/litellm) | <!--s:BerriAI/litellm-->⭐ 54.2k<!--/s--> | The default OSS proxy + SDK — OpenAI format to 100+ providers | [Self-hosted](#-self-hosted-open-source) |
+| [LiteLLM](https://github.com/BerriAI/litellm) | <!--s:BerriAI/litellm-->⭐ 54.3k<!--/s--> | The default OSS proxy + SDK — OpenAI format to 100+ providers | [Self-hosted](#-self-hosted-open-source) |
 | [Kong](https://github.com/Kong/kong) | <!--s:Kong/kong-->⭐ 43.8k<!--/s--> | Mature API gateway with AI plugins (semantic cache, guard) | [Enterprise](#-enterprise--compliance) |
-| [new-api](https://github.com/QuantumNous/new-api) | <!--s:QuantumNous/new-api-->⭐ 42.9k<!--/s--> | The most active relay/billing hub for teams | [China](#-china-ecosystem) |
-| [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) ⚠️ | <!--s:router-for-me/CLIProxyAPI-->⭐ 43.9k<!--/s--> | Wraps coding-CLI subscriptions (Claude Code, Codex…) into APIs | [Self-hosted](#-self-hosted-open-source) |
-| [Claude Code Router](https://github.com/musistudio/claude-code-router) | <!--s:musistudio/claude-code-router-->⭐ 36k<!--/s--> | Route Claude Code and agent CLIs to any model/provider | [Smart routing](#-smart-routing--model-selection) |
-| [one-api](https://github.com/songquanpeng/one-api) | <!--s:songquanpeng/one-api-->⭐ 35.8k<!--/s--> | The original LLM API management / distribution system | [China](#-china-ecosystem) |
-| [sub2api](https://github.com/Wei-Shaw/sub2api) ⚠️ | <!--s:Wei-Shaw/sub2api-->⭐ 33.2k<!--/s--> | Pools subscription accounts behind one endpoint | [China](#-china-ecosystem) |
+| [new-api](https://github.com/QuantumNous/new-api) | <!--s:QuantumNous/new-api-->⭐ 43k<!--/s--> | The most active relay/billing hub for teams | [China](#-china-ecosystem) |
+| [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) ⚠️ | <!--s:router-for-me/CLIProxyAPI-->⭐ 44.1k<!--/s--> | Wraps coding-CLI subscriptions (Claude Code, Codex…) into APIs | [Self-hosted](#-self-hosted-open-source) |
+| [Claude Code Router](https://github.com/musistudio/claude-code-router) | <!--s:musistudio/claude-code-router-->⭐ 36.1k<!--/s--> | Route Claude Code and agent CLIs to any model/provider | [Smart routing](#-smart-routing--model-selection) |
+| [one-api](https://github.com/songquanpeng/one-api) | <!--s:songquanpeng/one-api-->⭐ 35.9k<!--/s--> | The original LLM API management / distribution system | [China](#-china-ecosystem) |
+| [sub2api](https://github.com/Wei-Shaw/sub2api) ⚠️ | <!--s:Wei-Shaw/sub2api-->⭐ 33.4k<!--/s--> | Pools subscription accounts behind one endpoint | [China](#-china-ecosystem) |
 | [MLflow AI Gateway](https://github.com/mlflow/mlflow) | <!--s:mlflow/mlflow-->⭐ 27.1k<!--/s--> | Unified endpoints + governance in the MLflow platform | [Observability](#-observability--cost-tracking) |
-| [9router](https://github.com/decolua/9router) ⚠️ | <!--s:decolua/9router-->⭐ 22.9k<!--/s--> | BYOK local proxy, subscription→cheap→free fallback | [Self-hosted](#-self-hosted-open-source) |
+| [9router](https://github.com/decolua/9router) ⚠️ | <!--s:decolua/9router-->⭐ 23k<!--/s--> | BYOK local proxy, subscription→cheap→free fallback | [Self-hosted](#-self-hosted-open-source) |
 | [Apache APISIX](https://github.com/apache/apisix) | <!--s:apache/apisix-->⭐ 16.9k<!--/s--> | Cloud-native API + AI gateway (`ai-proxy` plugins) | [Enterprise](#-enterprise--compliance) |
 | [aisuite](https://github.com/andrewyng/aisuite) | <!--s:andrewyng/aisuite-->⭐ 15k<!--/s--> | Andrew Ng's unified multi-provider client (a library) | [Self-hosted](#-self-hosted-open-source) |
-| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) ⚠️ | <!--s:diegosouzapw/OmniRoute-->⭐ 22.2k<!--/s--> | Coding-agent token-saver across 231+ providers | [Self-hosted](#-self-hosted-open-source) |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) ⚠️ | <!--s:diegosouzapw/OmniRoute-->⭐ 23.9k<!--/s--> | Coding-agent token-saver across 231+ providers | [Self-hosted](#-self-hosted-open-source) |
 | [Portkey Gateway](https://github.com/Portkey-AI/gateway) | <!--s:Portkey-AI/gateway-->⭐ 12.5k<!--/s--> | Fast TypeScript gateway, 1,600+ models, 50+ guardrails | [Self-hosted](#-self-hosted-open-source) |
 | [Higress](https://github.com/higress-group/higress) | <!--s:higress-group/higress-->⭐ 8.9k<!--/s--> | Alibaba's AI-native gateway on Envoy/Istio | [China](#-china-ecosystem) |
-| [NVIDIA Dynamo](https://github.com/ai-dynamo/dynamo) | <!--s:ai-dynamo/dynamo-->⭐ 7.5k<!--/s--> | Datacenter-scale, KV-cache-aware inference routing | [K8s](#️-kubernetes-native--inference-infra) |
-| [Bifrost](https://github.com/maximhq/bifrost) | <!--s:maximhq/bifrost-->⭐ 6.6k<!--/s--> | Go gateway, lowest independently-measured overhead | [Self-hosted](#-self-hosted-open-source) |
+| [NVIDIA Dynamo](https://github.com/ai-dynamo/dynamo) | <!--s:ai-dynamo/dynamo-->⭐ 7.6k<!--/s--> | Datacenter-scale, KV-cache-aware inference routing | [K8s](#️-kubernetes-native--inference-infra) |
+| [Bifrost](https://github.com/maximhq/bifrost) | <!--s:maximhq/bifrost-->⭐ 6.7k<!--/s--> | Go gateway, lowest independently-measured overhead | [Self-hosted](#-self-hosted-open-source) |
 
 > **Hosted leaders** (SaaS, no GitHub stars): [OpenRouter](https://openrouter.ai) (400+ models, ~5.5% fee) · [Vercel AI Gateway](https://vercel.com/ai-gateway) & [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) (0% markup) → [Cost-first](#-cost-first-cheapest-multi-model-access).
 >
@@ -123,25 +123,25 @@ _One of the most-asked questions in the ecosystem, and the internet's answers ar
 
 _Pain point: "My keys, my infra, no per-token middleman fee."_
 
-- [LiteLLM](https://github.com/BerriAI/litellm) <!--s:BerriAI/litellm-->⭐ 54.2k<!--/s--> — The default choice: Python SDK + proxy server speaking OpenAI format to 100+ providers, with virtual keys, budgets, load balancing and guardrails.
+- [LiteLLM](https://github.com/BerriAI/litellm) <!--s:BerriAI/litellm-->⭐ 54.3k<!--/s--> — The default choice: Python SDK + proxy server speaking OpenAI format to 100+ providers, with virtual keys, budgets, load balancing and guardrails.
 - [Portkey Gateway](https://github.com/Portkey-AI/gateway) <!--s:Portkey-AI/gateway-->⭐ 12.5k<!--/s--> — Fast TypeScript gateway (1,600+ models, 50+ guardrails) that also powers Portkey's commercial LLMOps platform.
-- [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) <!--s:router-for-me/CLIProxyAPI-->⭐ 43.9k<!--/s--> — Go gateway that wraps coding-agent CLI subscriptions (Claude Code, Codex, Gemini, Grok, Antigravity) into OpenAI/Gemini/Claude/Codex-compatible APIs with multi-account pools, round-robin load balancing and a management API; one of the highest-starred OSS gateways in the space. BYO accounts — but routing OAuth coding-tier subscriptions through an API can violate provider ToS, so weigh account-ban risk.
-- [9router](https://github.com/decolua/9router) <!--s:decolua/9router-->⭐ 22.9k<!--/s--> — MIT self-hosted BYOK local proxy that auto-routes across 40+ providers with subscription→cheap→free fallback, multi-account load balancing and token compression; cost-first and very popular, but its free/OAuth coding-tier routing (Claude Code, Codex, Kiro) carries provider-ToS/account-ban risk.
-- [OmniRoute](https://github.com/diegosouzapw/OmniRoute) <!--s:diegosouzapw/OmniRoute-->⭐ 22.2k<!--/s--> — MIT self-hosted TypeScript gateway: one endpoint to 231+ providers (50+ free), plugging Claude Code / Codex / Cursor / Cline / Copilot into free Claude/GPT/Gemini with stacked token compression (15–95% savings), 17 routing strategies, smart auto-fallback and MCP/A2A. A 2026 breakout of the coding-agent "token-saver" wave — genuine code (not a relay farm), but its free/OAuth coding-tier routing carries provider-ToS/account-ban risk.
+- [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) <!--s:router-for-me/CLIProxyAPI-->⭐ 44.1k<!--/s--> — Go gateway that wraps coding-agent CLI subscriptions (Claude Code, Codex, Gemini, Grok, Antigravity) into OpenAI/Gemini/Claude/Codex-compatible APIs with multi-account pools, round-robin load balancing and a management API; one of the highest-starred OSS gateways in the space. BYO accounts — but routing OAuth coding-tier subscriptions through an API can violate provider ToS, so weigh account-ban risk.
+- [9router](https://github.com/decolua/9router) <!--s:decolua/9router-->⭐ 23k<!--/s--> — MIT self-hosted BYOK local proxy that auto-routes across 40+ providers with subscription→cheap→free fallback, multi-account load balancing and token compression; cost-first and very popular, but its free/OAuth coding-tier routing (Claude Code, Codex, Kiro) carries provider-ToS/account-ban risk.
+- [OmniRoute](https://github.com/diegosouzapw/OmniRoute) <!--s:diegosouzapw/OmniRoute-->⭐ 23.9k<!--/s--> — MIT self-hosted TypeScript gateway: one endpoint to 231+ providers (50+ free), plugging Claude Code / Codex / Cursor / Cline / Copilot into free Claude/GPT/Gemini with stacked token compression (15–95% savings), 17 routing strategies, smart auto-fallback and MCP/A2A. A 2026 breakout of the coding-agent "token-saver" wave — genuine code (not a relay farm), but its free/OAuth coding-tier routing carries provider-ToS/account-ban risk.
 - [Chat Nio (CoAI)](https://github.com/coaidev/coai) <!--s:coaidev/coai-->⭐ 9.2k<!--/s--> — Multi-tenant "one-stop" gateway with a built-in admin + credit/subscription billing panel over 200+ models / 35+ providers, priority-based load balancing and model caching — the same commercial-panel genre as the new-api / one-api / VoAPI entries here.
 - [TensorZero](https://github.com/tensorzero/tensorzero) <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s--> — ⚠️ **Archived June 2026** (company wound down; repo read-only, Apache-2.0 code + community forks remain). Rust gateway unified with observability, evals, experimentation and optimization.
-- [Bifrost](https://github.com/maximhq/bifrost) <!--s:maximhq/bifrost-->⭐ 6.6k<!--/s--> — Go gateway from Maxim AI claiming ~50x LiteLLM throughput; adaptive load balancing, cluster mode, MCP support.
+- [Bifrost](https://github.com/maximhq/bifrost) <!--s:maximhq/bifrost-->⭐ 6.7k<!--/s--> — Go gateway from Maxim AI claiming ~50x LiteLLM throughput; adaptive load balancing, cluster mode, MCP support.
 - [Traceloop Hub](https://github.com/traceloop/hub) <!--s:traceloop/hub-->⭐ 221<!--/s--> — High-scale gateway written in Rust from the [Traceloop](https://www.traceloop.com/) team (OpenLLMetry / OTel-for-LLMs); OpenTelemetry-native observability built in.
 - [Helicone](https://github.com/Helicone/helicone) <!--s:Helicone/helicone-->⭐ 6k<!--/s--> — Observability-first platform (YC W23) with a Rust [ai-gateway](https://github.com/Helicone/ai-gateway) <!--s:Helicone/ai-gateway-->⭐ 614<!--/s-->.
 - [Plano](https://github.com/katanemo/plano) <!--s:katanemo/plano-->⭐ 6.9k<!--/s--> — AI-native proxy and data plane for agents (formerly Arch Gateway / archgw).
-- [AxonHub](https://github.com/looplj/axonhub) <!--s:looplj/axonhub-->⭐ 4.7k<!--/s--> — Go gateway: call 100+ LLMs from any SDK behind one OpenAI/Anthropic-compatible endpoint, with built-in failover, load balancing, cost control and end-to-end tracing. BYOK self-hosted.
+- [AxonHub](https://github.com/looplj/axonhub) <!--s:looplj/axonhub-->⭐ 4.8k<!--/s--> — Go gateway: call 100+ LLMs from any SDK behind one OpenAI/Anthropic-compatible endpoint, with built-in failover, load balancing, cost control and end-to-end tracing. BYOK self-hosted.
 - [Manifest](https://github.com/mnfst/manifest) <!--s:mnfst/manifest-->⭐ 7.3k<!--/s--> — Self-hosted TypeScript router (MIT): one OpenAI-compatible `/auto` endpoint (plus `/v1/messages` for Anthropic clients) over 300+ models / 31+ providers, mixing API keys, local models (Ollama/LM Studio) and coding-tier subscriptions with complexity/header-based routing, cost tracking, budgets and failover. BYO accounts — routing OAuth coding-tier subscriptions through an API can carry provider-ToS risk.
 - [LLM Gateway](https://github.com/theopenco/llmgateway) <!--s:theopenco/llmgateway-->⭐ 1.4k<!--/s--> — Open-source OpenRouter alternative: route, manage and analyze requests across providers.
 - [APIPark](https://github.com/APIParkLab/APIPark) <!--s:APIParkLab/APIPark-->⭐ 1.8k<!--/s--> — Cloud-native LLM API management and distribution platform.
 - [Pydantic AI Gateway](https://github.com/pydantic/pydantic-ai-gateway) <!--s:pydantic/pydantic-ai-gateway-->⭐ 192<!--/s--> — BYOK gateway with cost caps and OTel; ⚠️ repo archived, now folded into Pydantic Logfire.
 - [OptiLLM](https://github.com/algorithmicsuperintelligence/optillm) <!--s:algorithmicsuperintelligence/optillm-->⭐ 4.2k<!--/s--> — Optimizing inference proxy that boosts accuracy via test-time compute techniques.
 - [aisuite](https://github.com/andrewyng/aisuite) <!--s:andrewyng/aisuite-->⭐ 15k<!--/s--> — Andrew Ng's unified multi-provider client. A library rather than a deployable proxy — fits when you don't want network hops.
-- [Shepherd Model Gateway (SMG)](https://github.com/lightseekorg/smg) <!--s:lightseekorg/smg-->⭐ 408<!--/s--> — Engine-agnostic gateway in Rust: one OpenAI/Anthropic-compatible endpoint over vLLM/SGLang/TRT-LLM + cloud providers, with KV-cache-aware routing and WASM plugins.
+- [Shepherd Model Gateway (SMG)](https://github.com/lightseekorg/smg) <!--s:lightseekorg/smg-->⭐ 411<!--/s--> — Engine-agnostic gateway in Rust: one OpenAI/Anthropic-compatible endpoint over vLLM/SGLang/TRT-LLM + cloud providers, with KV-cache-aware routing and WASM plugins.
 - [RelayPlane](https://github.com/RelayPlane/proxy) <!--s:RelayPlane/proxy-->⭐ 192<!--/s--> — MIT, local-first proxy (npm): 11 providers behind one endpoint with per-request cost attribution and hard daily/hourly budget caps.
 - [SentryNode Gateway](https://github.com/nehadangwal/sentrynode-gateway) <!--s:nehadangwal/sentrynode-gateway-->⭐ 0<!--/s--> — Open-core (Apache-2.0) AI proxy for cost governance / FinOps routing: adaptive model routing, budget caps and audit logging. Early-stage; the public repo currently ships a demo scaffold.
 - [GoModel](https://github.com/ENTERPILOT/GoModel) <!--s:ENTERPILOT/GoModel-->⭐ 1k<!--/s--> — Lightweight single-binary Go gateway (open-source LiteLLM alternative) exposing one OpenAI/Anthropic-compatible API across 18+ providers with caching, guardrails and usage/cost tracking; fast-growing, though its throughput-vs-LiteLLM figures are vendor-run.
@@ -164,7 +164,7 @@ _Pain point: "Audit logs, PII redaction, RBAC, on-prem, and the EU AI Act (enfor
 - [F5 AI Gateway](https://www.f5.com) — Containerized AI traffic gateway; data-leakage detection via the LeakSignal acquisition (announced Jul 2025).
 - [IBM API Connect AI Gateway](https://www.ibm.com) — Policy enforcement, masking and audit for LLM traffic.
 - [MuleSoft AI / Omni Gateway](https://www.mulesoft.com/platform/ai-gateway) — Governs LLM, MCP and agent traffic alongside classic APIs.
-- [Lunar.dev](https://github.com/TheLunarCompany/lunar) <!--s:TheLunarCompany/lunar-->⭐ 469<!--/s--> — Egress consumption gateway repositioned around MCP/agent governance.
+- [Lunar.dev](https://github.com/TheLunarCompany/lunar) <!--s:TheLunarCompany/lunar-->⭐ 470<!--/s--> — Egress consumption gateway repositioned around MCP/agent governance.
 - [KrakenD AI Gateway](https://www.krakend.io/docs/ai-gateway/) — High-performance, stateless Go API gateway ([krakend/krakend-ce](https://github.com/krakend/krakend-ce) <!--s:krakend/krakend-ce-->⭐ 2.7k<!--/s-->) with an AI proxy + prompt-security layer.
 - [Broadcom Layer7 AI Gateway](https://www.broadcom.com/products/software/api-management) — LLM traffic governance, threat protection and quotas on the mature Layer7 API platform.
 - [Cequence AI Gateway](https://www.cequence.ai) — API-security-first AI gateway: discovery, guardrails and threat protection for LLM/agent traffic.
@@ -189,8 +189,8 @@ _Pain point: "We're already committed to one cloud — give us the native path."
 
 _Pain point: "Domestic models (Qwen/DeepSeek/GLM/Kimi), CNY payment, key distribution & billing for teams."_
 
-- [new-api](https://github.com/QuantumNous/new-api) <!--s:QuantumNous/new-api-->⭐ 42.9k<!--/s--> — The most active one-api fork, now a "unified AI model hub": protocol conversion, billing, Rerank/Realtime endpoints. AGPL-3.0.
-- [one-api](https://github.com/songquanpeng/one-api) <!--s:songquanpeng/one-api-->⭐ 35.8k<!--/s--> — The original LLM API management & distribution system (OpenAI/Azure/Claude/Gemini/DeepSeek/Doubao…); development has slowed.
+- [new-api](https://github.com/QuantumNous/new-api) <!--s:QuantumNous/new-api-->⭐ 43k<!--/s--> — The most active one-api fork, now a "unified AI model hub": protocol conversion, billing, Rerank/Realtime endpoints. AGPL-3.0.
+- [one-api](https://github.com/songquanpeng/one-api) <!--s:songquanpeng/one-api-->⭐ 35.9k<!--/s--> — The original LLM API management & distribution system (OpenAI/Azure/Claude/Gemini/DeepSeek/Doubao…); development has slowed.
 - [Higress](https://github.com/higress-group/higress) <!--s:higress-group/higress-->⭐ 8.9k<!--/s--> — Alibaba's AI-native gateway on Envoy/Istio, first-class Tongyi/DeepSeek support; hosted version at higress.ai.
 - [GPT-Load](https://github.com/tbphp/gpt-load) <!--s:tbphp/gpt-load-->⭐ 6.3k<!--/s--> — Smart API-key rotation multi-channel proxy in Go.
 - [one-hub](https://github.com/MartialBE/one-hub) <!--s:MartialBE/one-hub-->⭐ 2.9k<!--/s--> — one-api fork with better non-OpenAI function calling and stats.
@@ -200,9 +200,9 @@ _Pain point: "Domestic models (Qwen/DeepSeek/GLM/Kimi), CNY payment, key distrib
 - [uni-api](https://github.com/yym68686/uni-api) <!--s:yym68686/uni-api-->⭐ 1.2k<!--/s--> — Lightweight single-config unified API manager, no frontend.
 - [APIPark](https://github.com/APIParkLab/APIPark) <!--s:APIParkLab/APIPark-->⭐ 1.8k<!--/s--> — China-origin, cloud-native AI & API gateway with an open developer portal.
 - [VoAPI](https://github.com/VoAPI/VoAPI) <!--s:VoAPI/VoAPI-->⭐ 1.1k<!--/s--> — Polished new-api-lineage relay/billing panel (Go), focused on UI and operations.
-- [done-hub](https://github.com/deanxv/done-hub) <!--s:deanxv/done-hub-->⭐ 793<!--/s--> — one-api/new-api fork with richer billing and channel management.
-- [sub2api](https://github.com/Wei-Shaw/sub2api) <!--s:Wei-Shaw/sub2api-->⭐ 33.2k<!--/s--> — Go relay platform that pools Claude/OpenAI/Gemini/Antigravity subscription accounts (OAuth, session keys, API keys) behind one OpenAI/Anthropic-compatible endpoint, adding cost-sharing "carpool" billing (Stripe/Alipay/WeChat), key distribution and per-token rate limits. One of 2026's fastest-rising China-ecosystem relays — but account-pooling sits adjacent to the resold-relay category this list excludes; BYO accounts and vet before use.
-- [AI Proxy](https://github.com/labring/aiproxy) <!--s:labring/aiproxy-->⭐ 510<!--/s--> — Self-hosted Go gateway from the Sealos team that accepts OpenAI/Claude/Gemini protocols, converts between them, and adds multi-channel routing, load balancing, rate limiting, multi-tenant isolation, and a caching/web-search/reasoning plugin layer.
+- [done-hub](https://github.com/deanxv/done-hub) <!--s:deanxv/done-hub-->⭐ 794<!--/s--> — one-api/new-api fork with richer billing and channel management.
+- [sub2api](https://github.com/Wei-Shaw/sub2api) <!--s:Wei-Shaw/sub2api-->⭐ 33.4k<!--/s--> — Go relay platform that pools Claude/OpenAI/Gemini/Antigravity subscription accounts (OAuth, session keys, API keys) behind one OpenAI/Anthropic-compatible endpoint, adding cost-sharing "carpool" billing (Stripe/Alipay/WeChat), key distribution and per-token rate limits. One of 2026's fastest-rising China-ecosystem relays — but account-pooling sits adjacent to the resold-relay category this list excludes; BYO accounts and vet before use.
+- [AI Proxy](https://github.com/labring/aiproxy) <!--s:labring/aiproxy-->⭐ 511<!--/s--> — Self-hosted Go gateway from the Sealos team that accepts OpenAI/Claude/Gemini protocols, converts between them, and adds multi-channel routing, load balancing, rate limiting, multi-tenant isolation, and a caching/web-search/reasoning plugin layer.
 - [metapi](https://github.com/cita-777/metapi) <!--s:cita-777/metapi-->⭐ 3.1k<!--/s--> — Self-hosted "router of routers": aggregates your accounts across new-api/one-api/OneHub/DoneHub/Veloera/AnyRouter/sub2api into one key, with cost/balance/utilization-weighted smart routing, channel cool-down/retry, model auto-discovery and OpenAI⇄Claude conversion (TypeScript, MIT). Routing software only — vet the upstream relays it points at.
 - [Volcengine AI Gateway](https://www.volcengine.com/docs/6569/1356167) — ByteDance's cloud AI gateway: unified access, routing and governance for Doubao + third-party models.
 
@@ -213,7 +213,7 @@ _Pain point: "Domestic models (Qwen/DeepSeek/GLM/Kimi), CNY payment, key distrib
 _Pain point: "Agents call tools now — govern MCP traffic like you govern APIs."_ The newest category (2025–2026).
 
 - [agentgateway](https://github.com/agentgateway/agentgateway) <!--s:agentgateway/agentgateway-->⭐ 4k<!--/s--> — CNCF proxy for agentic traffic: MCP governance and agent-to-agent (A2A) communication.
-- [Lunar.dev MCPX](https://github.com/TheLunarCompany/lunar) <!--s:TheLunarCompany/lunar-->⭐ 469<!--/s--> — Gateway for managing MCP server consumption.
+- [Lunar.dev MCPX](https://github.com/TheLunarCompany/lunar) <!--s:TheLunarCompany/lunar-->⭐ 470<!--/s--> — Gateway for managing MCP server consumption.
 - [Tetrate Agent Router Service](https://tetrate.io/products/tetrate-agent-router-service) — Managed Envoy AI Gateway fleet: LLM + MCP gateway with guardrails (~5% fee).
 - [Zuplo AI Gateway](https://zuplo.com/ai-gateway) — Programmable policies: USD spend limits, prompt-injection detection, secret masking, MCP support.
 - [NetFoundry MCP/LLM Gateways](https://netfoundry.io) — Zero-trust gateways for AI deployments (launched June 2026).
@@ -222,19 +222,19 @@ _Pain point: "Agents call tools now — govern MCP traffic like you govern APIs.
 - [Docker MCP Gateway](https://github.com/docker/mcp-gateway) <!--s:docker/mcp-gateway-->⭐ 1.5k<!--/s--> — Docker-maintained `docker mcp` CLI plugin that runs and federates MCP servers as containers behind one endpoint, with secret management, call interception and per-tool access control.
 - [MetaMCP](https://github.com/metatool-ai/metamcp) <!--s:metatool-ai/metamcp-->⭐ 2.5k<!--/s--> — Aggregates MCP servers into one endpoint with middleware (auth, filtering) and a management UI.
 - [ToolHive](https://github.com/stacklok/toolhive) <!--s:stacklok/toolhive-->⭐ 2k<!--/s--> — Go platform that runs MCP servers in isolated containers and fronts them with a unified, secured gateway (access policies, "virtual MCP" aggregation).
-- [Microsoft MCP Gateway](https://github.com/microsoft/mcp-gateway) <!--s:microsoft/mcp-gateway-->⭐ 745<!--/s--> — Microsoft-maintained reverse proxy + management layer for MCP servers: session-aware stateful routing and lifecycle management on Kubernetes.
+- [Microsoft MCP Gateway](https://github.com/microsoft/mcp-gateway) <!--s:microsoft/mcp-gateway-->⭐ 748<!--/s--> — Microsoft-maintained reverse proxy + management layer for MCP servers: session-aware stateful routing and lifecycle management on Kubernetes.
 - [1MCP](https://github.com/1mcp-app/agent) <!--s:1mcp-app/agent-->⭐ 476<!--/s--> — Unified MCP server (TypeScript) aggregating many MCP servers behind one endpoint, with HTTP access and CLI-based discovery for agents.
 - [mcpproxy-go](https://github.com/smart-mcp-proxy/mcpproxy-go) <!--s:smart-mcp-proxy/mcpproxy-go-->⭐ 296<!--/s--> — Local Go MCP proxy that federates multiple MCP servers behind one endpoint, with BM25 tool-search filtering, token reduction, and auto-quarantine/security scanning of new servers.
 - [MCPJungle](https://github.com/mcpjungle/MCPJungle) <!--s:mcpjungle/MCPJungle-->⭐ 1.2k<!--/s--> — Self-hosted MCP registry + gateway for central tool governance in enterprises.
-- [Obot](https://github.com/obot-platform/obot) <!--s:obot-platform/obot-->⭐ 901<!--/s--> — Open-source agent platform with an MCP gateway for governing tool access.
+- [Obot](https://github.com/obot-platform/obot) <!--s:obot-platform/obot-->⭐ 903<!--/s--> — Open-source agent platform with an MCP gateway for governing tool access.
 - [Director](https://github.com/fdmtl/director) <!--s:fdmtl/director-->⭐ 480<!--/s--> — Middleware to run, secure and observe MCP servers behind one connection.
-- [Lasso MCP Gateway](https://github.com/lasso-security/mcp-gateway) <!--s:lasso-security/mcp-gateway-->⭐ 380<!--/s--> — Security-first MCP gateway: plugin guardrails, secret masking, threat detection.
+- [Lasso MCP Gateway](https://github.com/lasso-security/mcp-gateway) <!--s:lasso-security/mcp-gateway-->⭐ 381<!--/s--> — Security-first MCP gateway: plugin guardrails, secret masking, threat detection.
 - [Armorer Guard](https://github.com/ArmorerLabs/Armorer-Guard) <!--s:ArmorerLabs/Armorer-Guard-->⭐ 41<!--/s--> — Local Rust MCP proxy that wraps stdio servers and inspects tool-call arguments for prompt injection, credential leakage, exfiltration, and risky actions.
 - [fak](https://github.com/anthony-chaudhary/fak) <!--s:anthony-chaudhary/fak-->⭐ 16<!--/s--> — Security-first agent/MCP firewall: a single dependency-free Go binary (Apache-2.0) fronting any OpenAI/Anthropic/MCP backend, where a default-deny capability allow-list adjudicates every tool call and suspicious tool results are quarantined out of the model's context, plus bearer/`x-api-key` auth, an `X-Trace-Id` audit trail and Prometheus `/metrics`. New and early-stage.
 - [Archestra](https://github.com/archestra-ai/archestra) <!--s:archestra-ai/archestra-->⭐ 4k<!--/s--> — Kubernetes-native MCP gateway with OAuth On-Behalf-Of user-delegated tool access, an A2A agent-to-agent gateway, and deterministic dual-LLM / "lethal trifecta" guardrails plus per-environment egress and cost limits, built for enterprise agent deployments ($13.5M funding).
 - [Unla](https://github.com/AmoyLab/Unla) <!--s:AmoyLab/Unla-->⭐ 2.2k<!--/s--> — Lightweight Go MCP gateway that turns existing REST/gRPC APIs and MCP servers into standardized MCP endpoints with zero code changes, behind one gateway with multi-tenant sessions, OAuth, hot-reload config and a management UI.
-- [Jarvis Registry](https://github.com/ascending-llc/jarvis-registry) <!--s:ascending-llc/jarvis-registry-->⭐ 2.3k<!--/s--> — Enterprise MCP/agent gateway fronting internal tools behind one authenticated MCP-over-SSE/HTTP endpoint with OAuth2/OIDC identity (Keycloak/Cognito/Entra), tool-level RBAC/ACL, agent orchestration, and OpenTelemetry/Prometheus observability.
-- [MCP Gateway & Registry](https://github.com/agentic-community/mcp-gateway-registry) <!--s:agentic-community/mcp-gateway-registry-->⭐ 816<!--/s--> — Enterprise MCP gateway + registry centralizing access to many MCP servers behind one OAuth-protected endpoint, with virtual MCP servers, semantic tool discovery, A2A agent discovery and fine-grained governance/audit; AWS-aligned.
+- [Jarvis Registry](https://github.com/ascending-llc/jarvis-registry) <!--s:ascending-llc/jarvis-registry-->⭐ 2.4k<!--/s--> — Enterprise MCP/agent gateway fronting internal tools behind one authenticated MCP-over-SSE/HTTP endpoint with OAuth2/OIDC identity (Keycloak/Cognito/Entra), tool-level RBAC/ACL, agent orchestration, and OpenTelemetry/Prometheus observability.
+- [MCP Gateway & Registry](https://github.com/agentic-community/mcp-gateway-registry) <!--s:agentic-community/mcp-gateway-registry-->⭐ 819<!--/s--> — Enterprise MCP gateway + registry centralizing access to many MCP servers behind one OAuth-protected endpoint, with virtual MCP servers, semantic tool discovery, A2A agent discovery and fine-grained governance/audit; AWS-aligned.
 - [Nexus (Grafbase)](https://github.com/Nexus-Router/nexus) <!--s:Nexus-Router/nexus-->⭐ 437<!--/s--> — Rust AI router from Grafbase that aggregates MCP servers (STDIO/SSE/HTTP) and LLM providers behind one endpoint with context-aware fuzzy tool search, OAuth2/TLS security, rate limiting and OpenTelemetry.
 - [Pomerium](https://github.com/pomerium/pomerium) <!--s:pomerium/pomerium-->⭐ 4.9k<!--/s--> — Identity-aware access proxy with MCP support: policy-based auth in front of MCP servers.
 
@@ -255,17 +255,17 @@ _Pain point: "Send each prompt to the cheapest model that can handle it."_
 - [OpenRouter Auto](https://openrouter.ai) — One model id (`openrouter/auto`) that routes per-prompt.
 - [Unify](https://unify.ai) — Early neural LLM router (company since pivoted to agents).
 - [Bifrost adaptive load balancing](https://github.com/maximhq/bifrost) / [Cloudflare dynamic routing](https://developers.cloudflare.com/ai-gateway/) — routing built into gateways themselves.
-- [Claude Code Router](https://github.com/musistudio/claude-code-router) <!--s:musistudio/claude-code-router-->⭐ 36k<!--/s--> — Route Claude Code (and other agent CLIs) to any model/provider — DeepSeek, Qwen, local — by request type.
+- [Claude Code Router](https://github.com/musistudio/claude-code-router) <!--s:musistudio/claude-code-router-->⭐ 36.1k<!--/s--> — Route Claude Code (and other agent CLIs) to any model/provider — DeepSeek, Qwen, local — by request type.
 - [ClawRouter](https://github.com/BlockRunAI/ClawRouter) <!--s:BlockRunAI/ClawRouter-->⭐ 6.7k<!--/s--> — Agent-native LLM router (TypeScript) with local sub-ms routing across 41+ models, built so autonomous agents can pay per call via x402/USDC with no signup or API key. The routing client is open-source — but its account-less hosted access (8 free models + crypto pay-per-use) is **resold access**: verify model fidelity with [canary_check.py](scripts/canary_check.py) and prefer your own keys in production.
-- [workweave/router](https://github.com/workweave/router) <!--s:workweave/router-->⭐ 865<!--/s--> — Go router for agentic systems: routes each prompt to the right model in <50ms behind one OpenAI-compatible endpoint, pitched as a drop-in endpoint swap that cuts 40–70% of cost.
+- [workweave/router](https://github.com/workweave/router) <!--s:workweave/router-->⭐ 866<!--/s--> — Go router for agentic systems: routes each prompt to the right model in <50ms behind one OpenAI-compatible endpoint, pitched as a drop-in endpoint swap that cuts 40–70% of cost.
 - [UncommonRoute](https://github.com/CommonstackAI/UncommonRoute) <!--s:CommonstackAI/UncommonRoute-->⭐ 682<!--/s--> — MIT drop-in OpenAI proxy that routes by prompt difficulty; markets hard numbers (≈82% cost savings, 79.4% accuracy, 93.4% pass rate) and integrates with Claude Code / Cursor / Codex.
 - [OrcaRouter Lite](https://github.com/Continuum-AI-Corp/OrcaRouter-Lite) <!--s:Continuum-AI-Corp/OrcaRouter-Lite-->⭐ 415<!--/s--> — MIT self-hosted single-workspace router (BYOK, OpenAI-compatible) from Continuum AI with a managed hosted upgrade path; ranks at/near the top of the [RouterArena](https://github.com/RouteWorks/RouterArena) leaderboard.
 - [RouterArena](https://github.com/RouteWorks/RouterArena) <!--s:RouteWorks/RouterArena-->⭐ 113<!--/s--> — Open evaluation framework + live leaderboard for LLM routers (standardized datasets, cost/quality metrics) — pick a router on data, in the spirit of this list's benchmarks.
 - [vLLM Semantic Router](https://github.com/vllm-project/semantic-router) <!--s:vllm-project/semantic-router-->⭐ 5k<!--/s--> — Mixture-of-models router that picks a model per prompt by intent/complexity; a vLLM project.
-- [NVIDIA LLM Router](https://github.com/NVIDIA-AI-Blueprints/llm-router) <!--s:NVIDIA-AI-Blueprints/llm-router-->⭐ 326<!--/s--> — NIM-based blueprint routing each prompt to the best model by task and complexity.
+- [NVIDIA LLM Router](https://github.com/NVIDIA-AI-Blueprints/llm-router) <!--s:NVIDIA-AI-Blueprints/llm-router-->⭐ 327<!--/s--> — NIM-based blueprint routing each prompt to the best model by task and complexity.
 - [LLMRouter](https://github.com/ulab-uiuc/LLMRouter) <!--s:ulab-uiuc/LLMRouter-->⭐ 2.1k<!--/s--> — Research framework for graph/learned cost–quality model routing.
 - [Orq.ai](https://orq.ai) — Hosted routing control plane: 500+ models across 30+ providers with retries, fallbacks, caching and governance (BYOK).
-- [NadirClaw](https://github.com/NadirRouter/NadirClaw) <!--s:NadirRouter/NadirClaw-->⭐ 617<!--/s--> — Self-hosted, OpenAI-compatible router (Python) that sends simple prompts to cheap/local models and hard ones to premium, with a trained cascade verifier to cut API cost 40–70%.
+- [NadirClaw](https://github.com/NadirRouter/NadirClaw) <!--s:NadirRouter/NadirClaw-->⭐ 618<!--/s--> — Self-hosted, OpenAI-compatible router (Python) that sends simple prompts to cheap/local models and hard ones to premium, with a trained cascade verifier to cut API cost 40–70%.
 - [ngrok AI Gateway](https://ngrok.com/docs/ai-gateway/overview) — Managed proxy routing to OpenAI/Anthropic/Google + local Ollama/vLLM/LM Studio, with automatic failover, key rotation, and CEL traffic-policy controls (PII redaction).
 
 ### 💾 Prompt caching through a gateway — the money question
@@ -305,18 +305,18 @@ _Pain point: "Who spent what, on which model, and why did quality drop?"_
 
 _Pain point: "Routing to self-hosted models (vLLM/Ollama) inside the cluster, GPU-aware."_
 
-- [Gateway API Inference Extension](https://github.com/kubernetes-sigs/gateway-api-inference-extension) <!--s:kubernetes-sigs/gateway-api-inference-extension-->⭐ 719<!--/s--> — The Kubernetes standard for inference-aware routing.
+- [Gateway API Inference Extension](https://github.com/kubernetes-sigs/gateway-api-inference-extension) <!--s:kubernetes-sigs/gateway-api-inference-extension-->⭐ 721<!--/s--> — The Kubernetes standard for inference-aware routing.
 - [AIBrix](https://github.com/vllm-project/aibrix) <!--s:vllm-project/aibrix-->⭐ 5k<!--/s--> — Cost-efficient control plane for vLLM on K8s (ByteDance-origin).
-- [llm-d](https://github.com/llm-d/llm-d) <!--s:llm-d/llm-d-->⭐ 3.8k<!--/s--> — K8s-native distributed inference serving (Red Hat/Google/IBM-backed).
+- [llm-d](https://github.com/llm-d/llm-d) <!--s:llm-d/llm-d-->⭐ 3.9k<!--/s--> — K8s-native distributed inference serving (Red Hat/Google/IBM-backed).
 - [Higress](https://github.com/higress-group/higress) <!--s:higress-group/higress-->⭐ 8.9k<!--/s--> / [Kong](https://github.com/Kong/kong) <!--s:Kong/kong-->⭐ 43.8k<!--/s--> / [Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway) <!--s:envoyproxy/ai-gateway-->⭐ 1.9k<!--/s--> — all implement inference-extension-style routing.
 - [Traefik Hub AI Gateway](https://traefik.io) — LLM routing/security in Traefik's commercial runtime.
-- [Inference Gateway](https://github.com/inference-gateway/inference-gateway) <!--s:inference-gateway/inference-gateway-->⭐ 159<!--/s--> — Small cloud-native gateway unifying cloud + local (Ollama) providers.
-- [Olla](https://github.com/thushan/olla) <!--s:thushan/olla-->⭐ 258<!--/s--> — Lightweight Go proxy + load balancer for LLM infra: intelligent routing and automatic failover across inference backends (Ollama, vLLM, LM Studio, OpenAI-compatible).
+- [Inference Gateway](https://github.com/inference-gateway/inference-gateway) <!--s:inference-gateway/inference-gateway-->⭐ 275<!--/s--> — Small cloud-native gateway unifying cloud + local (Ollama) providers.
+- [Olla](https://github.com/thushan/olla) <!--s:thushan/olla-->⭐ 261<!--/s--> — Lightweight Go proxy + load balancer for LLM infra: intelligent routing and automatic failover across inference backends (Ollama, vLLM, LM Studio, OpenAI-compatible).
 - [KServe](https://github.com/kserve/kserve) <!--s:kserve/kserve-->⭐ 5.7k<!--/s--> — The standard model-inference platform on K8s; LLM serving with an inference-gateway / OpenAI-compatible runtime.
 - [GPUStack](https://github.com/gpustack/gpustack) <!--s:gpustack/gpustack-->⭐ 5.4k<!--/s--> — Manage GPU clusters and serve LLMs behind one OpenAI-compatible endpoint.
 - [vLLM Production Stack](https://github.com/vllm-project/production-stack) <!--s:vllm-project/production-stack-->⭐ 2.5k<!--/s--> — Reference K8s stack to serve vLLM at scale with a KV-cache-aware routing layer.
-- [NVIDIA Dynamo](https://github.com/ai-dynamo/dynamo) <!--s:ai-dynamo/dynamo-->⭐ 7.5k<!--/s--> — NVIDIA's datacenter-scale distributed inference framework whose Endpoint Picker (EPP) plugin for the Gateway API Inference Extension does KV-cache-aware, LLM-aware request routing at the gateway layer over vLLM/SGLang/TensorRT-LLM backends.
-- [llmaz](https://github.com/InftyAI/llmaz) <!--s:InftyAI/llmaz-->⭐ 309<!--/s--> — K8s-native inference platform fronting heterogeneous backends (vLLM, SGLang, TGI, llama.cpp, TensorRT-LLM) with Envoy AI Gateway-based model routing and token rate-limiting, Gateway-API inference-pool routing, and LLM-metric HPA plus Karpenter autoscaling. Maintained but slower cadence (still v0.1.x).
+- [NVIDIA Dynamo](https://github.com/ai-dynamo/dynamo) <!--s:ai-dynamo/dynamo-->⭐ 7.6k<!--/s--> — NVIDIA's datacenter-scale distributed inference framework whose Endpoint Picker (EPP) plugin for the Gateway API Inference Extension does KV-cache-aware, LLM-aware request routing at the gateway layer over vLLM/SGLang/TensorRT-LLM backends.
+- [llmaz](https://github.com/InftyAI/llmaz) <!--s:InftyAI/llmaz-->⭐ 310<!--/s--> — K8s-native inference platform fronting heterogeneous backends (vLLM, SGLang, TGI, llama.cpp, TensorRT-LLM) with Envoy AI Gateway-based model routing and token rate-limiting, Gateway-API inference-pool routing, and LLM-metric HPA plus Karpenter autoscaling. Maintained but slower cadence (still v0.1.x).
 
 ## Which gateway should I use
 
@@ -382,16 +382,16 @@ Stars auto-refresh daily. ✅ built-in · ➕ via plugin/paid tier · ❌ not av
 
 | Project | Type | Stars | License | Multi-provider | Fallback / LB | Caching | Guardrails | Cost tracking |
 |---|---|---|---|---|---|---|---|---|
-| [LiteLLM](https://github.com/BerriAI/litellm) | OSS proxy + SDK | <!--s:BerriAI/litellm-->⭐ 54.2k<!--/s--> | MIT¹ | ✅ 100+ | ✅ | ✅ | ✅ | ✅ |
-| [new-api](https://github.com/QuantumNous/new-api) | OSS relay/billing | <!--s:QuantumNous/new-api-->⭐ 42.9k<!--/s--> | AGPL-3.0 | ✅ | ✅ | ➕ | ➕ | ✅ |
-| [one-api](https://github.com/songquanpeng/one-api) | OSS relay/billing | <!--s:songquanpeng/one-api-->⭐ 35.8k<!--/s--> | MIT | ✅ | ✅ | ❌ | ❌ | ✅ |
+| [LiteLLM](https://github.com/BerriAI/litellm) | OSS proxy + SDK | <!--s:BerriAI/litellm-->⭐ 54.3k<!--/s--> | MIT¹ | ✅ 100+ | ✅ | ✅ | ✅ | ✅ |
+| [new-api](https://github.com/QuantumNous/new-api) | OSS relay/billing | <!--s:QuantumNous/new-api-->⭐ 43k<!--/s--> | AGPL-3.0 | ✅ | ✅ | ➕ | ➕ | ✅ |
+| [one-api](https://github.com/songquanpeng/one-api) | OSS relay/billing | <!--s:songquanpeng/one-api-->⭐ 35.9k<!--/s--> | MIT | ✅ | ✅ | ❌ | ❌ | ✅ |
 | [Kong AI Gateway](https://github.com/Kong/kong) | OSS API gateway | <!--s:Kong/kong-->⭐ 43.8k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ semantic | ✅ | ✅ |
 | [Apache APISIX](https://github.com/apache/apisix) | OSS API gateway | <!--s:apache/apisix-->⭐ 16.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ➕ | ➕ | ➕ |
 | [Portkey Gateway](https://github.com/Portkey-AI/gateway) | OSS gateway + SaaS | <!--s:Portkey-AI/gateway-->⭐ 12.5k<!--/s--> | MIT | ✅ 1600+ | ✅ | ✅ | ✅ 50+ | ➕ SaaS |
 | [TensorZero](https://github.com/tensorzero/tensorzero) | OSS LLMOps · ⚠️ archived '26 | <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ | ➕ | ✅ |
 | [Higress](https://github.com/higress-group/higress) | OSS AI-native gateway | <!--s:higress-group/higress-->⭐ 8.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [GPT-Load](https://github.com/tbphp/gpt-load) | OSS key-pool proxy | <!--s:tbphp/gpt-load-->⭐ 6.3k<!--/s--> | MIT | ✅ | ✅ key rotation | ❌ | ❌ | ➕ |
-| [Bifrost](https://github.com/maximhq/bifrost) | OSS gateway (Go) | <!--s:maximhq/bifrost-->⭐ 6.6k<!--/s--> | Apache-2.0 | ✅ | ✅ adaptive | ✅ | ✅ | ✅ |
+| [Bifrost](https://github.com/maximhq/bifrost) | OSS gateway (Go) | <!--s:maximhq/bifrost-->⭐ 6.7k<!--/s--> | Apache-2.0 | ✅ | ✅ adaptive | ✅ | ✅ | ✅ |
 | [Helicone](https://github.com/Helicone/helicone) | OSS observability + gateway | <!--s:Helicone/helicone-->⭐ 6k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ | ➕ | ✅ |
 | [Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway) | OSS K8s gateway | <!--s:envoyproxy/ai-gateway-->⭐ 1.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ➕ | ➕ | ✅ |
 | [OpenRouter](https://openrouter.ai) | SaaS marketplace | — | Commercial | ✅ 400+ | ✅ | ✅ | ➕ | ✅ |
@@ -566,18 +566,18 @@ _Curated monthly. Last review: 2026-06-30._
 ## 🚀 Recent releases (auto-updated)
 
 <!-- RELEASES:START -->
-- **2026-07-21** · [router-for-me/CLIProxyAPI v7.2.93](https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.93) — v7.2.93
+- **2026-07-22** · [yym68686/uni-api v1.7.194](https://github.com/yym68686/uni-api/releases/tag/v1.7.194) — Release 1.7.194
+- **2026-07-21** · [router-for-me/CLIProxyAPI v7.2.94](https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.94) — v7.2.94
+- **2026-07-21** · [IBM/mcp-context-forge v1.0.6](https://github.com/IBM/mcp-context-forge/releases/tag/v1.0.6) — v1.0.6 - OAuth Token Exchange, Vault Credentials, MCP Apps, Dataplane Publish...
+- **2026-07-21** · [maximhq/bifrost helm-chart-v2.1.31](https://github.com/maximhq/bifrost/releases/tag/helm-chart-v2.1.31) — Helm Chart v2.1.31
+- **2026-07-21** · [1mcp-app/agent v0.34.4](https://github.com/1mcp-app/agent/releases/tag/v0.34.4) — Release v0.34.4
+- **2026-07-21** · [ENTERPILOT/GoModel v0.1.56](https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.56) — v0.1.56
+- **2026-07-21** · [archestra-ai/archestra platform-v1.3.12](https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.12) — platform: v1.3.12
 - **2026-07-21** · [agentgateway/agentgateway v1.4.0-alpha.2](https://github.com/agentgateway/agentgateway/releases/tag/v1.4.0-alpha.2) — v1.4.0-alpha.2
 - **2026-07-21** · [katanemo/plano 0.4.28](https://github.com/katanemo/plano/releases/tag/0.4.28) — release 0.4.28
 - **2026-07-20** · [andrewyng/aisuite v0.1.3](https://github.com/andrewyng/aisuite/releases/tag/v0.1.3) — OpenWorker 0.1.3
 - **2026-07-20** · [BlockRunAI/ClawRouter v0.12.232](https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.232) — v0.12.232 — fix: max_completion_tokens was never read
 - **2026-07-20** · [musistudio/claude-code-router v3.0.15](https://github.com/musistudio/claude-code-router/releases/tag/v3.0.15) — v3.0.15
-- **2026-07-20** · [ENTERPILOT/GoModel v0.1.55](https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.55) — v0.1.55
-- **2026-07-20** · [theopenco/llmgateway v1.9.0](https://github.com/theopenco/llmgateway/releases/tag/v1.9.0) — v1.9.0
-- **2026-07-20** · [mnfst/manifest manifest@6.15.2](https://github.com/mnfst/manifest/releases/tag/manifest%406.15.2) — manifest v6.15.2
-- **2026-07-20** · [Wei-Shaw/sub2api v0.1.162](https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.162) — Sub2API 0.1.162
-- **2026-07-20** · [stacklok/toolhive v0.40.1](https://github.com/stacklok/toolhive/releases/tag/v0.40.1) — v0.40.1
-- **2026-07-20** · [NadirRouter/NadirClaw v0.22.0](https://github.com/NadirRouter/NadirClaw/releases/tag/v0.22.0) — v0.22.0 — v3+gate default routing
 <!-- RELEASES:END -->
 
 ## ⚡ 10-second answers
