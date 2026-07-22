@@ -163,6 +163,7 @@ _Pain point: "Audit logs, PII redaction, RBAC, on-prem, and the EU AI Act (enfor
 - [WSO2 AI Gateway](https://wso2.com/api-manager/usecases/ai-gateway/) — Egress management for LLM traffic: model routing, semantic caching, guardrails.
 - [F5 AI Gateway](https://www.f5.com) — Containerized AI traffic gateway; data-leakage detection via the LeakSignal acquisition (announced Jul 2025).
 - [IBM API Connect AI Gateway](https://www.ibm.com) — Policy enforcement, masking and audit for LLM traffic.
+- [IBM DataPower Interact Gateway](https://www.ibm.com/products/datapower-interact-gateway) — AI-mediation gateway built on DataPower Nano Gateway: governs LLM and MCP traffic with token-based rate limiting, response caching and policy enforcement, and can republish existing REST APIs as MCP tools for agents (announced at Think 2026).
 - [MuleSoft AI / Omni Gateway](https://www.mulesoft.com/platform/ai-gateway) — Governs LLM, MCP and agent traffic alongside classic APIs.
 - [Lunar.dev](https://github.com/TheLunarCompany/lunar) <!--s:TheLunarCompany/lunar-->⭐ 470<!--/s--> — Egress consumption gateway repositioned around MCP/agent governance.
 - [KrakenD AI Gateway](https://www.krakend.io/docs/ai-gateway/) — High-performance, stateless Go API gateway ([krakend/krakend-ce](https://github.com/krakend/krakend-ce) <!--s:krakend/krakend-ce-->⭐ 2.7k<!--/s-->) with an AI proxy + prompt-security layer.
