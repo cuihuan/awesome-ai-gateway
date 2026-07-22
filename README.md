@@ -246,7 +246,7 @@ _These cut across the need-based sections above — routing intelligence, observ
 
 _Pain point: "Send each prompt to the cheapest model that can handle it."_
 
-> ⚠️ **The most common gateway failure isn't routing — it's translation.** Across 2025–26 issue trackers, the single largest bug category on every major gateway is corrupted **tool-call / thinking-block / streaming translation**: Portkey's most-commented issue ([#980](https://github.com/Portkey-AI/gateway/issues/980), tool_use ids lost), OpenRouter's AI-SDK thinking-mode breakage (filed three times: [#245](https://github.com/OpenRouterTeam/ai-sdk-provider/issues/245)), Claude Code erroring through LiteLLM ([#13373](https://github.com/BerriAI/litellm/issues/13373)) and new-api ([#1854](https://github.com/QuantumNous/new-api/issues/1854)) — "claude code" appears in **413 LiteLLM issues** since 2025. "OpenAI-compatible" is a spectrum, not a checkbox ([LangChain's own compat issue](https://github.com/langchain-ai/langchain/issues/34328)). **Before committing: run your actual agent (tool calls + streaming + thinking) through the gateway, not just a hello-world completion.**
+> ⚠️ **The most common gateway failure isn't routing — it's translation.** Across 2025–26 issue trackers, the single largest bug category on every major gateway is corrupted **tool-call / thinking-block / streaming translation**: Portkey's most-commented issue ([#980](https://github.com/Portkey-AI/gateway/issues/980), tool_use ids lost), OpenRouter's AI-SDK thinking-mode breakage (filed three times: [#245](https://github.com/OpenRouterTeam/ai-sdk-provider/issues/245)), Claude Code erroring through LiteLLM ([#13373](https://github.com/BerriAI/litellm/issues/13373)) and new-api ([#1854](https://github.com/QuantumNous/new-api/issues/1854)) — "claude code" appears in **413 LiteLLM issues** since 2025. "OpenAI-compatible" is a spectrum, not a checkbox ([LangChain's own compat issue](https://github.com/langchain-ai/langchain/issues/34328)). **We measured it** — pointing Claude Code at an OpenAI model, [LiteLLM and Bifrost translate cleanly (3/3) while Portkey OSS doesn't offer the path](https://cuihuan.github.io/llm-gateway-bench/article.html?slug=does-your-gateway-break-claude-code) (and the `/v1/messages` transport shifts across versions, so pin it). **Before committing, still run your actual agent (tool calls + streaming + thinking) through the gateway, not just a hello-world completion.**
 
 - [Not Diamond](https://www.notdiamond.ai) — SOTA model-routing intelligence; powers OpenRouter's Auto router.
 - [Martian](https://withmartian.com) — Pioneer commercial model router; Accenture partnership.
@@ -332,6 +332,7 @@ _Pain point: "Routing to self-hosted models (vLLM/Ollama) inside the cluster, GP
 | Zero markup on my own keys | **Vercel** / **Cloudflare** | [Cost-first](#-cost-first-cheapest-multi-model-access) |
 | Self-host, broadest features | **LiteLLM** | [Self-hosted](#-self-hosted-open-source) |
 | Self-host, lowest overhead | **Bifrost** (Go) | [Self-hosted](#-self-hosted-open-source) |
+| Route Claude Code / Codex to another model | **LiteLLM** / **Bifrost** (both measured 3/3) | [Smart routing](#-smart-routing--model-selection) |
 | China models + team key billing | **new-api** | [China ecosystem](#-china-ecosystem) |
 | Enterprise K8s + audit | **Kong** / **Higress** | [Enterprise](#-enterprise--compliance) |
 | Strongest compliance (HIPAA/FedRAMP) | **Azure** / **Bedrock** | [First-party](#️-first-party-gateways-cloud--model-vendors) |
@@ -592,7 +593,7 @@ The questions people actually ask ([sourced from real threads](#-essential-readi
 | "Will my prompt-cache discount still work through it?" | **Often no — and it's silent.** The most under-claimed discount in most bills → [caching through a gateway](#-prompt-caching-through-a-gateway--the-money-question) |
 | "Who sees my prompts?" | The gateway does, always — and routers range from **ZDR-by-default** to **training on your prompts by ToS**. See the [data-retention matrix](#-who-sees-your-prompts--the-data-retention-matrix) |
 | "Sick of LiteLLM — what else?" | [LiteLLM alternatives, compared honestly](compare/litellm-alternatives-2026.md) (overhead-measured: it's 10× heavier than Bifrost) |
-| "Will it break my Claude Code / Codex / Cursor?" | **The #1 gateway failure in 2025–26 issue trackers** — broken tool-call/thinking-block translation. Test _your_ agent through it first → [coding-agent routers](#-smart-routing--model-selection) |
+| "Will it break my Claude Code / Codex / Cursor?" | **The #1 gateway failure — but we measured it.** Routing Claude Code to an OpenAI model, **LiteLLM & Bifrost translate cleanly (3/3); Portkey OSS doesn't offer the path** → [the independent test](https://cuihuan.github.io/llm-gateway-bench/article.html?slug=does-your-gateway-break-claude-code). Still run _your_ agent (tools + streaming) through it, and **pin the version** |
 
 ## 📚 Essential reading
 

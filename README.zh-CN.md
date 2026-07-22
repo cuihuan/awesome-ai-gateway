@@ -246,7 +246,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 
 *痛点："每条 prompt 都路由到能胜任的最便宜模型。"*
 
-> ⚠️ **网关最常见的故障不是路由，是翻译。** 纵观 2025–26 各家 issue 区，每个主流网关最大的 bug 类别都是**工具调用 / thinking 块 / 流式翻译损坏**：Portkey 评论最多的 issue（[#980](https://github.com/Portkey-AI/gateway/issues/980)，tool_use id 丢失）、OpenRouter AI-SDK 的 thinking 模式三度报修（[#245](https://github.com/OpenRouterTeam/ai-sdk-provider/issues/245)）、Claude Code 过 LiteLLM 报错（[#13373](https://github.com/BerriAI/litellm/issues/13373)）、过 new-api 报错（[#1854](https://github.com/QuantumNous/new-api/issues/1854)）——2025 年以来 **413 个 LiteLLM issue 提到 "claude code"**。"OpenAI 兼容"是个光谱，不是复选框（[LangChain 自己的兼容性 issue](https://github.com/langchain-ai/langchain/issues/34328)）。**上生产前：拿你真实的 Agent（带工具调用 + 流式 + thinking）过一遍网关，别只测 hello-world。**
+> ⚠️ **网关最常见的故障不是路由，是翻译。** 纵观 2025–26 各家 issue 区，每个主流网关最大的 bug 类别都是**工具调用 / thinking 块 / 流式翻译损坏**：Portkey 评论最多的 issue（[#980](https://github.com/Portkey-AI/gateway/issues/980)，tool_use id 丢失）、OpenRouter AI-SDK 的 thinking 模式三度报修（[#245](https://github.com/OpenRouterTeam/ai-sdk-provider/issues/245)）、Claude Code 过 LiteLLM 报错（[#13373](https://github.com/BerriAI/litellm/issues/13373)）、过 new-api 报错（[#1854](https://github.com/QuantumNous/new-api/issues/1854)）——2025 年以来 **413 个 LiteLLM issue 提到 "claude code"**。"OpenAI 兼容"是个光谱，不是复选框（[LangChain 自己的兼容性 issue](https://github.com/langchain-ai/langchain/issues/34328)）。**我们实测过了**——把 Claude Code 指向 OpenAI 模型，[LiteLLM 与 Bifrost 都能干净翻译（3/3），Portkey OSS 不提供这条路](https://cuihuan.github.io/llm-gateway-bench/article.html?slug=does-your-gateway-break-claude-code)（且该 `/v1/messages` 传输路径跨版本会变，记得锁版本）。**上生产前仍建议拿你真实的 Agent（带工具调用 + 流式 + thinking）过一遍网关，别只测 hello-world。**
 
 - [Not Diamond](https://www.notdiamond.ai) — SOTA 模型路由智能，OpenRouter Auto 的幕后引擎。
 - [Martian](https://withmartian.com) — 模型路由商业先驱，与埃森哲合作。
@@ -332,6 +332,7 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 | 用自己的 Key、0 加价 | **Vercel** / **Cloudflare** | [性价比优先](#-性价比优先) |
 | 自托管、功能最全 | **LiteLLM** | [自托管开源](#-自托管开源) |
 | 自托管、开销最低 | **Bifrost**（Go） | [自托管开源](#-自托管开源) |
+| 把 Claude Code / Codex 路由到别的模型 | **LiteLLM** / **Bifrost**（均实测 3/3） | [智能路由](#-智能路由与模型选择) |
 | 国产模型 + 团队 Key 计费 | **new-api** | [国内生态](#-国内生态) |
 | 企业 K8s + 审计 | **Kong** / **Higress** | [企业合规](#-企业合规) |
 | 最强合规（HIPAA/FedRAMP） | **Azure** / **Bedrock** | [原厂直连](#️-原厂直连云厂商模型厂商) |
@@ -592,7 +593,7 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 | "缓存折扣过了网关还在吗？" | **经常不在——而且悄无声息。** 多数账单里最大的一笔没领的折扣 → [缓存过网关](#-缓存过网关钱的问题) |
 | "谁看得到我的 prompt？" | 网关永远看得到——而且路由从**默认 ZDR**到**按 ToS 拿去训练**都有。见[数据留存矩阵](#-谁看得到你的-prompt-数据留存矩阵) |
 | "受够 LiteLLM 了，还有啥？" | [LiteLLM 替代品诚实对比](compare/litellm-alternatives-2026.md)（开销实测：它比 Bifrost 重 10×） |
-| "会不会弄坏我的 Claude Code / Codex / Cursor？" | **2025–26 各网关 issue 区的头号故障**——工具调用/thinking 块翻译损坏。先拿你的 Agent 实测再上 → [编码 Agent 路由](#-智能路由与模型选择) |
+| "会不会弄坏我的 Claude Code / Codex / Cursor？" | **头号故障——但我们实测过了。** 把 Claude Code 指向 OpenAI 模型，**LiteLLM 与 Bifrost 都能干净翻译（3/3），Portkey OSS 不提供这条路** → [独立实测](https://cuihuan.github.io/llm-gateway-bench/article.html?slug=does-your-gateway-break-claude-code)。仍建议拿你自己的 Agent（带工具 + 流式）过一遍，并**锁版本** |
 
 ## 📚 必读精选
 
