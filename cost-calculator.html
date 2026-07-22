@@ -75,6 +75,7 @@
 </div>
 
 <p class="headline" id="headline">…</p>
+<p id="feenote" style="font-size:13.5px;color:var(--mut);margin:-6px 0 16px;line-height:1.5"></p>
 <table id="t"><thead><tr>
   <th data-k="name">Model</th><th data-k="provider">Provider</th>
   <th data-k="pin" class="num">$/M in</th><th data-k="pout" class="num">$/M out</th>
@@ -121,6 +122,11 @@ function render(){
   document.getElementById('headline').innerHTML = spread
     ? `This workload costs <b class="cheap">${fmt(lo)}</b> on ${cheapest.name} vs <b class="dear">${fmt(hi)}</b> on ${priciest.name} — a <b>${spread}×</b> spread. The gateway you route through decides how easily you exploit that.`
     : `Cheapest <b class="cheap">${fmt(lo)}</b> (${cheapest.name}).`;
+  // Answer the #1 question — "is the ~5.5% gateway fee worth it?" — on THIS workload.
+  const fee = lo * 0.055;
+  document.getElementById('feenote').innerHTML = spread
+    ? `<b>Is the gateway fee worth it?</b> A hosted marketplace's ~5.5% credit fee (e.g. OpenRouter) adds <b>${fmt(fee)}</b> on the cheapest option — small next to the ${spread}× <em>model</em> spread, so pick the model first. But it's pure overhead that compounds at volume: <b>0%-markup</b> routes (<a href="https://github.com/cuihuan/awesome-ai-gateway#-cost-first-cheapest-multi-model-access">Vercel / Cloudflare / self-host</a>) skip it entirely. → <a href="reduce-llm-api-costs.html">cut costs further</a>`
+    : '';
   history.replaceState(null, '', '#in=' + inTok + '&out=' + outTok + '&runs=' + runs);
 }
 const pc = document.getElementById('presets');
