@@ -83,6 +83,7 @@
     "etalab-ia/OpenGateLLM",
     "BlockRunAI/ClawRouter",
     "RouteWorks/RouterArena",
-    "mnfst/manifest"
+    "mnfst/manifest",
+    "aurorallm/aurora"
   ]
 }

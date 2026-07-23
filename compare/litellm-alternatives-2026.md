@@ -24,6 +24,7 @@ Here's the honest, data-backed map. Scores are ★1–5 from the [scorecard rubr
 | **Cloudflare AI Gateway** | Hosted | 0% | ★4.0 | You want a free, 0-markup hosted gateway with DLP/PII scanning |
 | **Vercel AI Gateway** | Hosted | 0% | ★3.5 | You're on Vercel and want true 0% markup incl. BYOK |
 | **new-api / one-api** | Self-hosted | $0 | ★1.5–2.0 | You need a China-friendly relay panel — *and will patch aggressively* |
+| **Aurora Gateway** | Self-hosted (Go) | $0 | ★3.5 | You want auto-discovery + built-in caching + audit logging without running Python |
 
 > Same task, the **model behind the gateway can cost 100× more** ($0.03 vs $3.01 for one 100K-token report — a [106× spread](../BENCHMARKS.md)). Every alternative below lets you route cheap-by-default and escalate only when needed — that, not the gateway's own fee, is where the money is.
 
@@ -33,6 +34,7 @@ Here's the honest, data-backed map. Scores are ★1–5 from the [scorecard rubr
 - **[Portkey Gateway (OSS)](https://github.com/Portkey-AI/gateway)** — Apache-2.0, <1ms overhead, with **guardrails, circuit breakers, fallbacks and MCP OAuth 2.1 free to self-hosters**. The richest governance feature set of the open-source options; upgrade path to the managed cloud if you scale.
 - **[Kong AI Gateway](https://github.com/Kong/kong)** — if you already run Kong or APISIX, the AI plugins (PII sanitization across 20+ categories/12 languages, AI Prompt Guard, Model Armor, RBAC) bolt onto infrastructure you already operate. Highest security score here (★4.5).
 - **[Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway)** — built on Envoy, native to Kubernetes/Istio, with multi-provider routing and an MCP gateway (OAuth + CEL authz). No semantic cache or per-key budgets yet, but the cleanest fit for a CNCF-aligned platform team.
+- **[Aurora Gateway](https://github.com/aurorallm/aurora)** — Go-native single-binary gateway with auto-discovery from env vars (set a key, restart — provider appears), provider pools with health-aware failover, 3-layer caching (semantic vector + exact Redis + native prompt caching), guardrails, and full audit logging. Apache 2.0. Zero config files needed to start.
 
 ## If you'd rather not run a server (hosted alternatives)
 
