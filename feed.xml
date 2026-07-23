@@ -5,21 +5,56 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-07-22T05:26:42Z</updated>
+  <updated>2026-07-22T22:28:10Z</updated>
   <author><name>Awesome AI Gateway</name></author>
   <entry>
-    <title>yym68686/uni-api v1.7.194</title>
-    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.194" />
-    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.194</id>
-    <updated>2026-07-22T05:26:42Z</updated>
-    <summary>yym68686/uni-api released Release 1.7.194.</summary>
+    <title>katanemo/plano 0.4.29</title>
+    <link href="https://github.com/katanemo/plano/releases/tag/0.4.29" />
+    <id>https://github.com/katanemo/plano/releases/tag/0.4.29</id>
+    <updated>2026-07-22T22:28:10Z</updated>
+    <summary>katanemo/plano released release 0.4.29.</summary>
   </entry>
   <entry>
-    <title>router-for-me/CLIProxyAPI v7.2.94</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.94" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.94</id>
-    <updated>2026-07-21T19:30:32Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v7.2.94.</summary>
+    <title>archestra-ai/archestra platform-v1.3.15</title>
+    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.15" />
+    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.15</id>
+    <updated>2026-07-22T19:13:49Z</updated>
+    <summary>archestra-ai/archestra released platform: v1.3.15.</summary>
+  </entry>
+  <entry>
+    <title>ENTERPILOT/GoModel v0.1.58</title>
+    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.58" />
+    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.58</id>
+    <updated>2026-07-22T16:29:42Z</updated>
+    <summary>ENTERPILOT/GoModel released v0.1.58.</summary>
+  </entry>
+  <entry>
+    <title>router-for-me/CLIProxyAPI v7.2.95</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.95" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.95</id>
+    <updated>2026-07-22T14:47:25Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v7.2.95.</summary>
+  </entry>
+  <entry>
+    <title>yym68686/uni-api v1.7.201</title>
+    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.201" />
+    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.201</id>
+    <updated>2026-07-22T12:56:49Z</updated>
+    <summary>yym68686/uni-api released Release 1.7.201.</summary>
+  </entry>
+  <entry>
+    <title>Wei-Shaw/sub2api v0.1.163</title>
+    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.163" />
+    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.163</id>
+    <updated>2026-07-22T09:08:38Z</updated>
+    <summary>Wei-Shaw/sub2api released Sub2API 0.1.163.</summary>
+  </entry>
+  <entry>
+    <title>ai-dynamo/dynamo v1.3.0</title>
+    <link href="https://github.com/ai-dynamo/dynamo/releases/tag/v1.3.0" />
+    <id>https://github.com/ai-dynamo/dynamo/releases/tag/v1.3.0</id>
+    <updated>2026-07-22T08:46:26Z</updated>
+    <summary>ai-dynamo/dynamo released Dynamo v1.3.0.</summary>
   </entry>
   <entry>
     <title>IBM/mcp-context-forge v1.0.6</title>
@@ -43,32 +78,11 @@
     <summary>1mcp-app/agent released Release v0.34.4.</summary>
   </entry>
   <entry>
-    <title>ENTERPILOT/GoModel v0.1.56</title>
-    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.56" />
-    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.56</id>
-    <updated>2026-07-21T14:41:10Z</updated>
-    <summary>ENTERPILOT/GoModel released v0.1.56.</summary>
-  </entry>
-  <entry>
-    <title>archestra-ai/archestra platform-v1.3.12</title>
-    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.12" />
-    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.12</id>
-    <updated>2026-07-21T12:10:44Z</updated>
-    <summary>archestra-ai/archestra released platform: v1.3.12.</summary>
-  </entry>
-  <entry>
     <title>agentgateway/agentgateway v1.4.0-alpha.2</title>
     <link href="https://github.com/agentgateway/agentgateway/releases/tag/v1.4.0-alpha.2" />
     <id>https://github.com/agentgateway/agentgateway/releases/tag/v1.4.0-alpha.2</id>
     <updated>2026-07-21T03:07:45Z</updated>
     <summary>agentgateway/agentgateway released v1.4.0-alpha.2.</summary>
-  </entry>
-  <entry>
-    <title>katanemo/plano 0.4.28</title>
-    <link href="https://github.com/katanemo/plano/releases/tag/0.4.28" />
-    <id>https://github.com/katanemo/plano/releases/tag/0.4.28</id>
-    <updated>2026-07-21T01:03:09Z</updated>
-    <summary>katanemo/plano released release 0.4.28.</summary>
   </entry>
   <entry>
     <title>andrewyng/aisuite v0.1.3</title>
@@ -104,13 +118,6 @@
     <id>https://github.com/mnfst/manifest/releases/tag/manifest%406.15.2</id>
     <updated>2026-07-20T09:05:49Z</updated>
     <summary>mnfst/manifest released manifest v6.15.2.</summary>
-  </entry>
-  <entry>
-    <title>Wei-Shaw/sub2api v0.1.162</title>
-    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.162" />
-    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.162</id>
-    <updated>2026-07-20T08:43:04Z</updated>
-    <summary>Wei-Shaw/sub2api released Sub2API 0.1.162.</summary>
   </entry>
   <entry>
     <title>stacklok/toolhive v0.40.1</title>
@@ -209,12 +216,5 @@
     <id>https://github.com/diegosouzapw/OmniRoute/releases/tag/v3.8.48</id>
     <updated>2026-07-13T21:19:15Z</updated>
     <summary>diegosouzapw/OmniRoute released v3.8.48.</summary>
-  </entry>
-  <entry>
-    <title>QuantumNous/new-api v1.0.0-rc.21</title>
-    <link href="https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.21" />
-    <id>https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.21</id>
-    <updated>2026-07-11T15:01:26Z</updated>
-    <summary>QuantumNous/new-api released v1.0.0-rc.21.</summary>
   </entry>
 </feed>
