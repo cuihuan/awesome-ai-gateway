@@ -5,8 +5,64 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-07-22T22:28:10Z</updated>
+  <updated>2026-07-24T03:43:32Z</updated>
   <author><name>Awesome AI Gateway</name></author>
+  <entry>
+    <title>smart-mcp-proxy/mcpproxy-go v0.52.0</title>
+    <link href="https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.52.0" />
+    <id>https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.52.0</id>
+    <updated>2026-07-24T03:43:32Z</updated>
+    <summary>smart-mcp-proxy/mcpproxy-go released v0.52.0.</summary>
+  </entry>
+  <entry>
+    <title>obot-platform/obot v0.24.0</title>
+    <link href="https://github.com/obot-platform/obot/releases/tag/v0.24.0" />
+    <id>https://github.com/obot-platform/obot/releases/tag/v0.24.0</id>
+    <updated>2026-07-24T01:26:02Z</updated>
+    <summary>obot-platform/obot released v0.24.0.</summary>
+  </entry>
+  <entry>
+    <title>router-for-me/CLIProxyAPI v7.2.97</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.97" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.97</id>
+    <updated>2026-07-23T17:24:30Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v7.2.97.</summary>
+  </entry>
+  <entry>
+    <title>kgateway-dev/kgateway v2.4.0</title>
+    <link href="https://github.com/kgateway-dev/kgateway/releases/tag/v2.4.0" />
+    <id>https://github.com/kgateway-dev/kgateway/releases/tag/v2.4.0</id>
+    <updated>2026-07-23T16:32:41Z</updated>
+    <summary>kgateway-dev/kgateway released v2.4.0.</summary>
+  </entry>
+  <entry>
+    <title>archestra-ai/archestra platform-v1.3.16</title>
+    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.16" />
+    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.16</id>
+    <updated>2026-07-23T13:04:15Z</updated>
+    <summary>archestra-ai/archestra released platform: v1.3.16.</summary>
+  </entry>
+  <entry>
+    <title>yym68686/uni-api v1.7.204</title>
+    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.204" />
+    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.204</id>
+    <updated>2026-07-23T10:58:01Z</updated>
+    <summary>yym68686/uni-api released Release 1.7.204.</summary>
+  </entry>
+  <entry>
+    <title>Wei-Shaw/sub2api v0.1.164</title>
+    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.164" />
+    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.164</id>
+    <updated>2026-07-23T09:54:02Z</updated>
+    <summary>Wei-Shaw/sub2api released Sub2API 0.1.164.</summary>
+  </entry>
+  <entry>
+    <title>mnfst/manifest manifest@6.16.0</title>
+    <link href="https://github.com/mnfst/manifest/releases/tag/manifest%406.16.0" />
+    <id>https://github.com/mnfst/manifest/releases/tag/manifest%406.16.0</id>
+    <updated>2026-07-23T09:26:52Z</updated>
+    <summary>mnfst/manifest released manifest v6.16.0.</summary>
+  </entry>
   <entry>
     <title>katanemo/plano 0.4.29</title>
     <link href="https://github.com/katanemo/plano/releases/tag/0.4.29" />
@@ -15,39 +71,11 @@
     <summary>katanemo/plano released release 0.4.29.</summary>
   </entry>
   <entry>
-    <title>archestra-ai/archestra platform-v1.3.15</title>
-    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.15" />
-    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.15</id>
-    <updated>2026-07-22T19:13:49Z</updated>
-    <summary>archestra-ai/archestra released platform: v1.3.15.</summary>
-  </entry>
-  <entry>
     <title>ENTERPILOT/GoModel v0.1.58</title>
     <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.58" />
     <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.58</id>
     <updated>2026-07-22T16:29:42Z</updated>
     <summary>ENTERPILOT/GoModel released v0.1.58.</summary>
-  </entry>
-  <entry>
-    <title>router-for-me/CLIProxyAPI v7.2.95</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.95" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.95</id>
-    <updated>2026-07-22T14:47:25Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v7.2.95.</summary>
-  </entry>
-  <entry>
-    <title>yym68686/uni-api v1.7.201</title>
-    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.201" />
-    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.201</id>
-    <updated>2026-07-22T12:56:49Z</updated>
-    <summary>yym68686/uni-api released Release 1.7.201.</summary>
-  </entry>
-  <entry>
-    <title>Wei-Shaw/sub2api v0.1.163</title>
-    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.163" />
-    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.163</id>
-    <updated>2026-07-22T09:08:38Z</updated>
-    <summary>Wei-Shaw/sub2api released Sub2API 0.1.163.</summary>
   </entry>
   <entry>
     <title>ai-dynamo/dynamo v1.3.0</title>
@@ -113,13 +141,6 @@
     <summary>theopenco/llmgateway released v1.9.0.</summary>
   </entry>
   <entry>
-    <title>mnfst/manifest manifest@6.15.2</title>
-    <link href="https://github.com/mnfst/manifest/releases/tag/manifest%406.15.2" />
-    <id>https://github.com/mnfst/manifest/releases/tag/manifest%406.15.2</id>
-    <updated>2026-07-20T09:05:49Z</updated>
-    <summary>mnfst/manifest released manifest v6.15.2.</summary>
-  </entry>
-  <entry>
     <title>stacklok/toolhive v0.40.1</title>
     <link href="https://github.com/stacklok/toolhive/releases/tag/v0.40.1" />
     <id>https://github.com/stacklok/toolhive/releases/tag/v0.40.1</id>
@@ -176,13 +197,6 @@
     <summary>agentic-community/mcp-gateway-registry released 1.27.1 - Routing Observability, Security Hardening, and the airegistry-tools Fix.</summary>
   </entry>
   <entry>
-    <title>smart-mcp-proxy/mcpproxy-go v0.51.0</title>
-    <link href="https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.51.0" />
-    <id>https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.51.0</id>
-    <updated>2026-07-16T14:48:53Z</updated>
-    <summary>smart-mcp-proxy/mcpproxy-go released v0.51.0.</summary>
-  </entry>
-  <entry>
     <title>decolua/9router v0.5.35</title>
     <link href="https://github.com/decolua/9router/releases/tag/v0.5.35" />
     <id>https://github.com/decolua/9router/releases/tag/v0.5.35</id>
@@ -195,20 +209,6 @@
     <id>https://github.com/traceloop/hub/releases/tag/0.10.1</id>
     <updated>2026-07-15T11:46:36Z</updated>
     <summary>traceloop/hub released 0.10.1.</summary>
-  </entry>
-  <entry>
-    <title>obot-platform/obot v0.23.4</title>
-    <link href="https://github.com/obot-platform/obot/releases/tag/v0.23.4" />
-    <id>https://github.com/obot-platform/obot/releases/tag/v0.23.4</id>
-    <updated>2026-07-14T18:02:42Z</updated>
-    <summary>obot-platform/obot released v0.23.4.</summary>
-  </entry>
-  <entry>
-    <title>kgateway-dev/kgateway v2.3.6</title>
-    <link href="https://github.com/kgateway-dev/kgateway/releases/tag/v2.3.6" />
-    <id>https://github.com/kgateway-dev/kgateway/releases/tag/v2.3.6</id>
-    <updated>2026-07-13T22:56:55Z</updated>
-    <summary>kgateway-dev/kgateway released v2.3.6.</summary>
   </entry>
   <entry>
     <title>diegosouzapw/OmniRoute v3.8.48</title>
