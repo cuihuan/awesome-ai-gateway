@@ -5,8 +5,29 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-07-25T03:29:49Z</updated>
+  <updated>2026-07-25T20:21:39Z</updated>
   <author><name>Awesome AI Gateway</name></author>
+  <entry>
+    <title>ENTERPILOT/GoModel v0.1.60</title>
+    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.60" />
+    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.60</id>
+    <updated>2026-07-25T20:21:39Z</updated>
+    <summary>ENTERPILOT/GoModel released v0.1.60.</summary>
+  </entry>
+  <entry>
+    <title>router-for-me/CLIProxyAPI v7.2.100</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.100" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.100</id>
+    <updated>2026-07-25T16:25:37Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v7.2.100.</summary>
+  </entry>
+  <entry>
+    <title>Wei-Shaw/sub2api v0.1.165</title>
+    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.165" />
+    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.165</id>
+    <updated>2026-07-25T13:58:52Z</updated>
+    <summary>Wei-Shaw/sub2api released Sub2API 0.1.165.</summary>
+  </entry>
   <entry>
     <title>yym68686/uni-api v1.7.207</title>
     <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.207" />
@@ -20,20 +41,6 @@
     <id>https://github.com/agentgateway/agentgateway/releases/tag/v1.4.0-beta.1</id>
     <updated>2026-07-25T00:30:47Z</updated>
     <summary>agentgateway/agentgateway released v1.4.0-beta.1.</summary>
-  </entry>
-  <entry>
-    <title>router-for-me/CLIProxyAPI v7.2.99</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.99" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.99</id>
-    <updated>2026-07-24T23:53:16Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v7.2.99.</summary>
-  </entry>
-  <entry>
-    <title>ENTERPILOT/GoModel v0.1.59</title>
-    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.59" />
-    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.59</id>
-    <updated>2026-07-24T21:20:40Z</updated>
-    <summary>ENTERPILOT/GoModel released v0.1.59.</summary>
   </entry>
   <entry>
     <title>maximhq/bifrost ent-v1.5.6-base</title>
@@ -97,13 +104,6 @@
     <id>https://github.com/kgateway-dev/kgateway/releases/tag/v2.4.0</id>
     <updated>2026-07-23T16:32:41Z</updated>
     <summary>kgateway-dev/kgateway released v2.4.0.</summary>
-  </entry>
-  <entry>
-    <title>Wei-Shaw/sub2api v0.1.164</title>
-    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.164" />
-    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.164</id>
-    <updated>2026-07-23T09:54:02Z</updated>
-    <summary>Wei-Shaw/sub2api released Sub2API 0.1.164.</summary>
   </entry>
   <entry>
     <title>mnfst/manifest manifest@6.16.0</title>
