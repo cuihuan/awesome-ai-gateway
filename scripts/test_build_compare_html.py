@@ -5,11 +5,14 @@ import unittest
 from build_compare_html import (
     build_sitemap,
     extract_description,
+    extract_faq,
     extract_lastmod,
     extract_title,
     md_to_html,
+    question_form,
     render_hub,
     render_inline,
+    render_page,
     rewrite_link,
     slug_lang,
 )
@@ -197,6 +200,99 @@ class TestHub(unittest.TestCase):
     def test_no_markdown_or_placeholder_leak(self):
         html = render_hub(self.ARTICLES)
         self.assertNotIn("\x00", html)
+
+
+class TestQuestionForm(unittest.TestCase):
+    def test_literal_questions_kept_verbatim(self):
+        self.assertEqual(question_form("What about TensorZero?"), "What about TensorZero?")
+        self.assertEqual(question_form("So, should you actually leave LiteLLM?"),
+                         "So, should you actually leave LiteLLM?")
+
+    def test_convention_headings_become_questions(self):
+        self.assertEqual(question_form("TL;DR — pick by your actual constraint"), "What's the TL;DR?")
+        self.assertEqual(question_form("Verdict"), "What's the verdict?")
+        self.assertEqual(question_form("The honest verdict"), "What's the verdict?")
+        self.assertEqual(question_form("Pick by your actual constraint"),
+                         "How do you pick — by your actual constraint?")
+        self.assertEqual(question_form("If your reason is the markup (you want 0%)"),
+                         "What if your reason is the markup (you want 0%)?")
+        self.assertEqual(question_form("If you'd rather not run a server (hosted alternatives)"),
+                         "What if you'd rather not run a server (hosted alternatives)?")
+        self.assertEqual(question_form("What the ToS actually say"), "What do the ToS actually say?")
+        self.assertEqual(question_form("What we'd do"), "What would we do?")
+        self.assertEqual(question_form("The three mechanism tiers"),
+                         "What about the three mechanism tiers?")
+        self.assertEqual(question_form("What OpenRouter still wins at"),
+                         "What OpenRouter still wins at?")
+        self.assertEqual(question_form("Claimed savings vs. measured reality"),
+                         "Claimed savings vs. measured reality — how do they compare?")
+
+    def test_non_faq_headings_rejected(self):
+        # nav / table-intro / fragment headings must not be forced into questions
+        for h in ("Quick comparison", "See all 50+ gateways", "What neither is",
+                  "Where they're the same", "Security: patch discipline matters more than the logo"):
+            self.assertIsNone(question_form(h))
+
+
+class TestExtractFaq(unittest.TestCase):
+    MD = (
+        "# Title\n\n*Last updated 2026-07-27*\n\nLede paragraph.\n\n"
+        "## Quick comparison\n\n| A | B |\n|---|---|\n| 1 | 2 |\n\n"
+        "## What about security?\n\nPatch discipline **matters** most.\n\n"
+        "## Verdict\n\n- Most teams → X.\n- Perf → Y.\n\n"
+        "---\n\n*Found this useful? Star the list.*\n"
+    )
+
+    def test_builds_qa_from_sections(self):
+        faqs = extract_faq(self.MD)
+        self.assertEqual(faqs, [
+            ("What about security?", "Patch discipline matters most."),
+            ("What's the verdict?", "Most teams → X. Perf → Y."),
+        ])
+
+    def test_table_only_section_skipped(self):
+        # 'Quick comparison' has a question-less heading AND no prose — either
+        # alone must keep it out
+        self.assertNotIn("Quick comparison", str(extract_faq(self.MD)))
+
+    def test_footer_after_rule_never_leaks_into_answers(self):
+        for _, a in extract_faq(self.MD):
+            self.assertNotIn("Found this useful", a)
+
+    def test_answers_truncated_on_word_boundary(self):
+        md = "# T\n\n## What about security?\n\n" + "word " * 100
+        (_, a), = extract_faq(md)
+        self.assertLessEqual(len(a), 301)
+        self.assertTrue(a.endswith("…"))
+        self.assertNotIn("wor…", a)
+
+    def test_cap_at_five(self):
+        md = "# T\n\n" + "".join(f"## What about option {i}?\n\ntext {i}\n\n" for i in range(8))
+        self.assertEqual(len(extract_faq(md)), 5)
+
+
+class TestRenderPageFaq(unittest.TestCase):
+    MD = "# T\n\n## What about security?\n\nPatch discipline matters.\n\n## Verdict\n\nPick X.\n"
+
+    def test_en_page_carries_parseable_faqpage(self):
+        import json
+        import re
+        page = render_page(self.MD, "some-comparison-2026.md")
+        blocks = re.findall(r'<script type="application/ld\+json">(.*?)</script>', page, re.DOTALL)
+        faq = [json.loads(b) for b in blocks if '"FAQPage"' in b]
+        self.assertEqual(len(faq), 1)
+        names = [q["name"] for q in faq[0]["mainEntity"]]
+        self.assertEqual(names, ["What about security?", "What's the verdict?"])
+        self.assertEqual(faq[0]["mainEntity"][0]["acceptedAnswer"]["text"],
+                         "Patch discipline matters.")
+
+    def test_zh_page_gets_no_faqpage(self):
+        page = render_page(self.MD, "some-comparison-2026.zh-CN.md")
+        self.assertNotIn('"FAQPage"', page)
+
+    def test_page_without_faq_sections_gets_no_empty_block(self):
+        page = render_page("# T\n\n## Quick comparison\n\n| A |\n|---|\n| 1 |\n", "x.md")
+        self.assertNotIn('"FAQPage"', page)
 
 
 class TestSitemap(unittest.TestCase):

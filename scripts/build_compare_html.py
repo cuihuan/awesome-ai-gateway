@@ -5,8 +5,9 @@ The deep-dive comparison articles target high-intent search queries ("litellm
 alternatives 2026", "cloudflare vs vercel ai gateway"). As raw .md they only
 exist as GitHub blobs, so their SEO value accrues to github.com, not the Pages
 site. This builds a real HTML page per article — with title/description,
-canonical, Open Graph, Twitter and JSON-LD Article/Breadcrumb metadata — that
-lives on the Pages domain and is listed in sitemap.xml.
+canonical, Open Graph, Twitter and JSON-LD Article/Breadcrumb metadata (plus,
+on EN pages, a FAQPage block derived from the article's own Q&A-shaped
+sections) — that lives on the Pages domain and is listed in sitemap.xml.
 
 Stdlib only. The markdown→HTML conversion + link rewriting + metadata extraction
 are pure and unit-tested; only build_all() touches the filesystem.
@@ -282,6 +283,102 @@ def slug_lang(filename: str) -> tuple[str, str]:
     return name, "en"
 
 
+# ── FAQ extraction (FAQPage JSON-LD) ─────────────────────────────────────────
+
+_FAQ_MAX = 5
+_FAQ_ANSWER_LIMIT = 300
+
+
+def question_form(heading: str) -> str | None:
+    """Render an H2 heading into its natural question form, or None when the
+    heading isn't FAQ-shaped (nav sections, table intros). Pattern-level rules
+    for this repo's heading conventions — mirrors the converter's stance of
+    supporting exactly what the articles use; never per-page hardcoding."""
+    h = heading.strip()
+    if h.endswith("?"):
+        return h
+    if re.match(r"(?i)^tl;dr\b", h):
+        return "What's the TL;DR?"
+    if re.search(r"(?i)\bverdict\b", h):
+        return "What's the verdict?"
+    m = re.match(r"(?i)^pick by (.+)$", h)
+    if m:
+        return f"How do you pick — by {m.group(1)}?"
+    m = re.match(r"(?i)^if (you\b.+|your\b.+)$", h)
+    if m:
+        return f"What if {m.group(1)}?"
+    m = re.match(r"^What the (.+)$", h)
+    if m:
+        return f"What do the {m.group(1)}?"
+    m = re.match(r"^What (\w+)'d (.+)$", h)
+    if m:
+        return f"What would {m.group(1)} {m.group(2)}?"
+    if re.search(r"\bvs\.? ", h):  # "Claimed savings vs. measured reality"
+        return f"{h} — how do they compare?"
+    m = re.match(r"^The (.+)$", h)
+    if m:
+        return f"What about the {m.group(1)}?"
+    # A heading already phrased as an (uncapped) question — require enough words
+    # that appending '?' stays grammatical ("What OpenRouter still wins at?"
+    # works; a 3-word fragment like "What neither is" would not).
+    if re.match(r"(?i)^(what|which|how|why|should|can|do|does|is|are)\b", h) and len(h.split()) >= 4:
+        return h + "?"
+    return None
+
+
+def _truncate(text: str, limit: int) -> str:
+    if len(text) <= limit:
+        return text
+    cut = text[:limit].rsplit(" ", 1)[0]
+    return cut.rstrip(",.;:—-") + "…"
+
+
+def extract_faq(md: str, limit: int = _FAQ_MAX) -> list[tuple[str, str]]:
+    """[(question, plain_text_answer)] built from the article's own H2 sections:
+    the heading in question form (question_form), the section's prose (tables
+    excluded — they don't read as text) truncated to ~300 chars as the answer.
+    Sections whose heading has no question form, or with no prose, are skipped.
+    A `---` rule ends the section (it conventionally separates the footer)."""
+    lines = _STAR_SPAN.sub(r"\1", md.replace("\r\n", "\n")).split("\n")
+    sections: list[tuple[str, list[str]]] = []
+    body: list[str] | None = None
+    seen_h1 = False
+    for line in lines:
+        s = line.strip()
+        if s.startswith("# ") and not seen_h1:
+            seen_h1 = True
+            continue
+        if s.startswith("## ") or s.startswith("# "):
+            body = []
+            sections.append((s.lstrip("#").strip(), body))
+            continue
+        if re.fullmatch(r"-{3,}", s):
+            body = None
+            continue
+        if body is not None:
+            body.append(s)
+    faqs: list[tuple[str, str]] = []
+    for heading, section in sections:
+        q = question_form(_plain(heading))
+        if not q:
+            continue
+        parts = []
+        for s in section:
+            if not s or s.startswith("|"):
+                continue
+            s = re.sub(r"^>\s?", "", s)
+            s = re.sub(r"^[-*]\s+", "", s)
+            s = re.sub(r"^\d+\.\s+", "", s)
+            parts.append(s)
+        answer = _plain(" ".join(parts))
+        if not answer:
+            continue
+        faqs.append((q, _truncate(answer, _FAQ_ANSWER_LIMIT)))
+        if len(faqs) == limit:
+            break
+    return faqs
+
+
 # ── Page template ────────────────────────────────────────────────────────────
 
 def render_page(md: str, filename: str) -> str:
@@ -316,6 +413,22 @@ def render_page(md: str, filename: str) -> str:
         '"publisher":{"@type":"Organization","name":"Awesome AI Gateway"},'
         f'"isPartOf":"{SITE}","url":"{url}"}}'
     )
+    # FAQPage from the article's own Q&A-shaped sections (EN only — the question
+    # templates are English). Answers are the page's visible prose, so the markup
+    # never claims content the reader can't see.
+    faq = extract_faq(md) if lang == "en" else []
+    faq_script = ""
+    if faq:
+        entities = ",".join(
+            f'{{"@type":"Question","name":{_json(q)},'
+            f'"acceptedAnswer":{{"@type":"Answer","text":{_json(a)}}}}}'
+            for q, a in faq
+        )
+        faq_script = (
+            '<script type="application/ld+json">'
+            '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":['
+            + entities + "]}</script>\n"
+        )
     return f"""<!doctype html>
 <html lang="{lang}">
 <head>
@@ -337,7 +450,7 @@ def render_page(md: str, filename: str) -> str:
 <meta name="twitter:image" content="{OG_IMAGE}" />
 <script type="application/ld+json">{article_ld}</script>
 <script type="application/ld+json">{breadcrumb}</script>
-<style>
+{faq_script}<style>
   :root{{--bg:#0d1117;--card:#161b22;--border:#30363d;--fg:#f0f6fc;--mut:#8b949e;--blue:#58a6ff;--green:#3fb950;--red:#f85149}}
   *{{box-sizing:border-box}}
   body{{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}}
