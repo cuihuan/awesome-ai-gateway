@@ -23,6 +23,9 @@ _Built the hard way: **I burned $788 on AI coding in a single day** — one flag
 
 ## Contents
 
+- **Decide first — the ~10-second layer**
+  - [Which gateway should I use](#which-gateway-should-i-use) · [⚡ 10-second answers](#-10-second-answers)
+  - [Save money on Claude Code / Cursor / coding agents](#-smart-routing--model-selection)
 - [🔥 Top gateways (by stars)](#-top-gateways-by-stars)
 - **Browse by need**
   - [💰 Cost-first — cheapest multi-model access](#-cost-first-cheapest-multi-model-access) · [🆓 free tiers that still work](#-free-tiers-that-still-work--the-verified-limits-table)
@@ -32,13 +35,87 @@ _Built the hard way: **I burned $788 on AI coding in a single day** — one flag
   - [🇨🇳 China ecosystem](#-china-ecosystem)
   - [🤖 MCP & agent gateways](#-mcp--agent-gateways)
   - [🔧 More by capability](#-more-by-capability-cross-cutting) — [routing](#-smart-routing--model-selection) · [caching](#-prompt-caching-through-a-gateway--the-money-question) · [observability](#-observability--cost-tracking) · [K8s](#️-kubernetes-native--inference-infra)
-- **Decide & compare**
-  - [Which gateway should I use](#which-gateway-should-i-use) · [Quick comparison](#quick-comparison) · [The requirements map](#the-requirements-map)
+- **Compare & vet**
+  - [Quick comparison](#quick-comparison) · [The requirements map](#the-requirements-map)
   - [How to choose safely](#how-to-choose-safely) — [data-retention matrix](#-who-sees-your-prompts--the-data-retention-matrix) · [relay watch-list](#community-relay-watch-list)
 - **Signal & reference**
   - [📊 Latest evaluations](#-latest-evaluations) · [📰 What's new](#-whats-new) · [🚀 Recent releases](#-recent-releases-auto-updated)
-  - [⚡ 10-second answers](#-10-second-answers) · [📚 Essential reading](#-essential-reading) · [Guides & comparisons](#guides--comparisons)
+  - [📚 Essential reading](#-essential-reading) · [Guides & comparisons](#guides--comparisons)
   - [FAQ](#faq) · [Glossary](#glossary) · [Why this exists](#why-this-exists) · [🔌 Use the data](#-use-the-data--its-an-api)
+
+## Which gateway should I use
+
+<p align="center">
+  <img src="assets/decision-tree.png" alt="Decision tree: which AI gateway should you use? Hosted (OpenRouter, Vercel, Cloudflare, Bedrock, Azure, Vertex, Portkey) vs self-hosted open source (LiteLLM, Bifrost, new-api, one-api, GPT-Load, Kong, Higress, APISIX, Envoy AI Gateway, agentgateway), chosen by what you need." width="840">
+</p>
+
+**⚡ Fast answer** — one sane default per need (alternatives in each linked section):
+
+| I need… | Start with | Drill into |
+|---|---|---|
+| Cheapest access to many models, zero ops | **OpenRouter** | [Cost-first](#-cost-first-cheapest-multi-model-access) |
+| Zero markup on my own keys | **Vercel** / **Cloudflare** | [Cost-first](#-cost-first-cheapest-multi-model-access) |
+| Self-host, broadest features | **LiteLLM** | [Self-hosted](#-self-hosted-open-source) |
+| Self-host, lowest overhead | **Bifrost** (Go) | [Self-hosted](#-self-hosted-open-source) |
+| Route Claude Code / Codex to another model | **LiteLLM** / **Bifrost** (both measured 3/3) | [Smart routing](#-smart-routing--model-selection) |
+| China models + team key billing | **new-api** | [China ecosystem](#-china-ecosystem) |
+| Enterprise K8s + audit | **Kong** / **Higress** | [Enterprise](#-enterprise--compliance) |
+| Strongest compliance (HIPAA/FedRAMP) | **Azure** / **Bedrock** | [First-party](#️-first-party-gateways-cloud--model-vendors) |
+| Sensitive prompts — who sees / logs / trains on them? | **Self-host** or **ZDR-default** (Vercel / Requesty) | [Who sees your prompts](#-who-sees-your-prompts--the-data-retention-matrix) |
+| Govern agents / MCP traffic | **agentgateway** | [MCP & agents](#-mcp--agent-gateways) |
+
+<details>
+<summary>📋 The full decision tree — every branch, copy-pasteable</summary>
+
+```text
+Do you want to self-host?
+│
+├─ NO — hosted, minimal ops
+│   ├─ Cheapest access to many models ──────────▶ OpenRouter · Vercel AI Gateway (0% markup)
+│   ├─ Free control plane over your own keys ───▶ Cloudflare AI Gateway
+│   ├─ EU data residency matters ───────────────▶ Requesty · Eden AI · nexos.ai
+│   └─ Already on one cloud ────────────────────▶ AWS Bedrock · Azure APIM · Vertex AI
+│
+└─ YES — self-hosted / open source
+    ├─ Python stack, broadest features ─────────▶ LiteLLM
+    ├─ Raw performance (Go/Rust/TS) ────────────▶ Bifrost · Portkey Gateway
+    ├─ Built-in evals + observability ──────────▶ Helicone · LiteLLM · Bifrost
+    ├─ Key distribution / billing / CN models ──▶ new-api · one-api · GPT-Load
+    ├─ Enterprise K8s, audit, guardrails ───────▶ Kong · Higress · APISIX · Envoy AI Gateway
+    └─ Governing AI agents & MCP traffic ───────▶ agentgateway · Lunar.dev
+```
+
+</details>
+
+### ✅ Why trust this list
+- **Independent — no vendor money, no affiliate links, CC0.** Unlike affiliate-driven relay "rankings," nobody pays to appear here.
+- **Reproducible, not asserted.** Every cost cell is computed from [open pricing data](data/models.json) by a [unit-tested script](scripts/cost_calc.py); stars refresh daily via CI.
+- **Honest about risk.** We disclose CVEs, label archived/stale projects, and [exclude gray-market relays](#how-to-choose-safely) — with the research to back it.
+
+---
+
+> **Why this matters:** the same task can cost **100× more** depending on the model behind your gateway. An **AI gateway** sits between your code and LLM providers — one endpoint, one key, many models — handling routing, failover, caching, rate limits, cost tracking and guardrails, so you change a `base_url` instead of rewriting your app. Pick the gateway here, then the [evaluation set](BENCHMARKS.md) shows which model to route to.
+
+<p align="center">
+  <a href="BENCHMARKS.md"><img src="assets/cost-spread.png" alt="Cost to write one 100K-token report: $0.03 on DeepSeek vs $3.01 on GPT-5.5 — a 106x spread, computed by a unit-tested script" width="760"></a>
+</p>
+
+⭐ **Found this useful? [Star it](https://github.com/cuihuan/awesome-ai-gateway)** — that's how the next engineer choosing a gateway finds it. CC0, no signup, no tracking, no vendor money.
+
+## ⚡ 10-second answers
+
+The questions people actually ask ([sourced from real threads](#-essential-reading)) — answered first:
+
+| You're asking… | The answer |
+|---|---|
+| "Cheapest way to hit many models right now?" | **OpenRouter** (~5.5% credit fee, ~340 models) — or **0% markup on your own keys**: Vercel / Cloudflare AI Gateway → [Cost-first](#-cost-first-cheapest-multi-model-access) |
+| "Which free tiers still work, and what are the real limits?" | OpenRouter `:free`: **50 req/day** (<$10 credits) or **1,000/day** ($10+ top-up), 20 req/min shared ([official limits](https://openrouter.ai/docs/api-reference/limits)). Eleven providers verified row-by-row in the [free-tier table](#-free-tiers-that-still-work--the-verified-limits-table). The catch with "free": your prompts may train someone's model — check the fine print |
+| "How much does the _model_ choice matter?" | **106×** — the same 100K-token report costs $0.03 (DeepSeek) vs $3.01 (GPT-5.5) → [computed tables](BENCHMARKS.md#part-3--real-world-token-cost-computed) · [calculator](https://cuihuan.github.io/awesome-ai-gateway/cost-calculator.html) |
+| "How much latency does the gateway itself add?" | **Independently measured** (nobody else does): Bifrost **0.56 ms** · Portkey OSS **2.69 ms** · LiteLLM **5.41 ms** per request → [data](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json) |
+| "Will my prompt-cache discount still work through it?" | **Often no — and it's silent.** The most under-claimed discount in most bills → [caching through a gateway](#-prompt-caching-through-a-gateway--the-money-question) |
+| "Who sees my prompts?" | The gateway does, always — and routers range from **ZDR-by-default** to **training on your prompts by ToS**. See the [data-retention matrix](#-who-sees-your-prompts--the-data-retention-matrix) |
+| "Sick of LiteLLM — what else?" | [LiteLLM alternatives, compared honestly](compare/litellm-alternatives-2026.md) (overhead-measured: it's 10× heavier than Bifrost) |
+| "Will it break my Claude Code / Codex / Cursor?" | **The #1 gateway failure — but we measured it.** Routing Claude Code to an OpenAI model, **LiteLLM & Bifrost translate cleanly (3/3); Portkey OSS doesn't offer the path** → [the independent test](https://cuihuan.github.io/llm-gateway-bench/article.html?slug=does-your-gateway-break-claude-code). Still run _your_ agent (tools + streaming) through it, and **pin the version** |
 
 ## 🔥 Top gateways (by stars)
 
@@ -323,65 +400,6 @@ _Pain point: "Routing to self-hosted models (vLLM/Ollama) inside the cluster, GP
 - [NVIDIA Dynamo](https://github.com/ai-dynamo/dynamo) <!--s:ai-dynamo/dynamo-->⭐ 7.6k<!--/s--> — NVIDIA's datacenter-scale distributed inference framework whose Endpoint Picker (EPP) plugin for the Gateway API Inference Extension does KV-cache-aware, LLM-aware request routing at the gateway layer over vLLM/SGLang/TensorRT-LLM backends.
 - [llmaz](https://github.com/InftyAI/llmaz) <!--s:InftyAI/llmaz-->⭐ 309<!--/s--> — K8s-native inference platform fronting heterogeneous backends (vLLM, SGLang, TGI, llama.cpp, TensorRT-LLM) with Envoy AI Gateway-based model routing and token rate-limiting, Gateway-API inference-pool routing, and LLM-metric HPA plus Karpenter autoscaling. Maintained but slower cadence (still v0.1.x).
 
-## Which gateway should I use
-
-<p align="center">
-  <img src="assets/decision-tree.png" alt="Decision tree: which AI gateway should you use? Hosted (OpenRouter, Vercel, Cloudflare, Bedrock, Azure, Vertex, Portkey) vs self-hosted open source (LiteLLM, Bifrost, new-api, one-api, GPT-Load, Kong, Higress, APISIX, Envoy AI Gateway, agentgateway), chosen by what you need." width="840">
-</p>
-
-**⚡ Fast answer** — one sane default per need (alternatives in each linked section):
-
-| I need… | Start with | Drill into |
-|---|---|---|
-| Cheapest access to many models, zero ops | **OpenRouter** | [Cost-first](#-cost-first-cheapest-multi-model-access) |
-| Zero markup on my own keys | **Vercel** / **Cloudflare** | [Cost-first](#-cost-first-cheapest-multi-model-access) |
-| Self-host, broadest features | **LiteLLM** | [Self-hosted](#-self-hosted-open-source) |
-| Self-host, lowest overhead | **Bifrost** (Go) | [Self-hosted](#-self-hosted-open-source) |
-| Route Claude Code / Codex to another model | **LiteLLM** / **Bifrost** (both measured 3/3) | [Smart routing](#-smart-routing--model-selection) |
-| China models + team key billing | **new-api** | [China ecosystem](#-china-ecosystem) |
-| Enterprise K8s + audit | **Kong** / **Higress** | [Enterprise](#-enterprise--compliance) |
-| Strongest compliance (HIPAA/FedRAMP) | **Azure** / **Bedrock** | [First-party](#️-first-party-gateways-cloud--model-vendors) |
-| Sensitive prompts — who sees / logs / trains on them? | **Self-host** or **ZDR-default** (Vercel / Requesty) | [Who sees your prompts](#-who-sees-your-prompts--the-data-retention-matrix) |
-| Govern agents / MCP traffic | **agentgateway** | [MCP & agents](#-mcp--agent-gateways) |
-
-<details>
-<summary>📋 The full decision tree — every branch, copy-pasteable</summary>
-
-```text
-Do you want to self-host?
-│
-├─ NO — hosted, minimal ops
-│   ├─ Cheapest access to many models ──────────▶ OpenRouter · Vercel AI Gateway (0% markup)
-│   ├─ Free control plane over your own keys ───▶ Cloudflare AI Gateway
-│   ├─ EU data residency matters ───────────────▶ Requesty · Eden AI · nexos.ai
-│   └─ Already on one cloud ────────────────────▶ AWS Bedrock · Azure APIM · Vertex AI
-│
-└─ YES — self-hosted / open source
-    ├─ Python stack, broadest features ─────────▶ LiteLLM
-    ├─ Raw performance (Go/Rust/TS) ────────────▶ Bifrost · Portkey Gateway
-    ├─ Built-in evals + observability ──────────▶ Helicone · LiteLLM · Bifrost
-    ├─ Key distribution / billing / CN models ──▶ new-api · one-api · GPT-Load
-    ├─ Enterprise K8s, audit, guardrails ───────▶ Kong · Higress · APISIX · Envoy AI Gateway
-    └─ Governing AI agents & MCP traffic ───────▶ agentgateway · Lunar.dev
-```
-
-</details>
-
-### ✅ Why trust this list
-- **Independent — no vendor money, no affiliate links, CC0.** Unlike affiliate-driven relay "rankings," nobody pays to appear here.
-- **Reproducible, not asserted.** Every cost cell is computed from [open pricing data](data/models.json) by a [unit-tested script](scripts/cost_calc.py); stars refresh daily via CI.
-- **Honest about risk.** We disclose CVEs, label archived/stale projects, and [exclude gray-market relays](#how-to-choose-safely) — with the research to back it.
-
----
-
-> **Why this matters:** the same task can cost **100× more** depending on the model behind your gateway. An **AI gateway** sits between your code and LLM providers — one endpoint, one key, many models — handling routing, failover, caching, rate limits, cost tracking and guardrails, so you change a `base_url` instead of rewriting your app. Pick the gateway here, then the [evaluation set](BENCHMARKS.md) shows which model to route to.
-
-<p align="center">
-  <a href="BENCHMARKS.md"><img src="assets/cost-spread.png" alt="Cost to write one 100K-token report: $0.03 on DeepSeek vs $3.01 on GPT-5.5 — a 106x spread, computed by a unit-tested script" width="760"></a>
-</p>
-
-⭐ **Found this useful? [Star it](https://github.com/cuihuan/awesome-ai-gateway)** — that's how the next engineer choosing a gateway finds it. CC0, no signup, no tracking, no vendor money.
-
 ## Quick comparison
 
 Stars auto-refresh daily. ✅ built-in · ➕ via plugin/paid tier · ❌ not available.
@@ -586,21 +604,6 @@ _Curated monthly. Last review: 2026-06-30._
 - **2026-07-24** · [obot-platform/obot v0.24.1](https://github.com/obot-platform/obot/releases/tag/v0.24.1) — v0.24.1
 - **2026-07-24** · [archestra-ai/archestra platform-v1.3.18](https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.18) — platform: v1.3.18
 <!-- RELEASES:END -->
-
-## ⚡ 10-second answers
-
-The questions people actually ask ([sourced from real threads](#-essential-reading)) — answered first:
-
-| You're asking… | The answer |
-|---|---|
-| "Cheapest way to hit many models right now?" | **OpenRouter** (~5.5% credit fee, ~340 models) — or **0% markup on your own keys**: Vercel / Cloudflare AI Gateway → [Cost-first](#-cost-first-cheapest-multi-model-access) |
-| "Which free tiers still work, and what are the real limits?" | OpenRouter `:free`: **50 req/day** (<$10 credits) or **1,000/day** ($10+ top-up), 20 req/min shared ([official limits](https://openrouter.ai/docs/api-reference/limits)). Eleven providers verified row-by-row in the [free-tier table](#-free-tiers-that-still-work--the-verified-limits-table). The catch with "free": your prompts may train someone's model — check the fine print |
-| "How much does the _model_ choice matter?" | **106×** — the same 100K-token report costs $0.03 (DeepSeek) vs $3.01 (GPT-5.5) → [computed tables](BENCHMARKS.md#part-3--real-world-token-cost-computed) · [calculator](https://cuihuan.github.io/awesome-ai-gateway/cost-calculator.html) |
-| "How much latency does the gateway itself add?" | **Independently measured** (nobody else does): Bifrost **0.56 ms** · Portkey OSS **2.69 ms** · LiteLLM **5.41 ms** per request → [data](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json) |
-| "Will my prompt-cache discount still work through it?" | **Often no — and it's silent.** The most under-claimed discount in most bills → [caching through a gateway](#-prompt-caching-through-a-gateway--the-money-question) |
-| "Who sees my prompts?" | The gateway does, always — and routers range from **ZDR-by-default** to **training on your prompts by ToS**. See the [data-retention matrix](#-who-sees-your-prompts--the-data-retention-matrix) |
-| "Sick of LiteLLM — what else?" | [LiteLLM alternatives, compared honestly](compare/litellm-alternatives-2026.md) (overhead-measured: it's 10× heavier than Bifrost) |
-| "Will it break my Claude Code / Codex / Cursor?" | **The #1 gateway failure — but we measured it.** Routing Claude Code to an OpenAI model, **LiteLLM & Bifrost translate cleanly (3/3); Portkey OSS doesn't offer the path** → [the independent test](https://cuihuan.github.io/llm-gateway-bench/article.html?slug=does-your-gateway-break-claude-code). Still run _your_ agent (tools + streaming) through it, and **pin the version** |
 
 ## 📚 Essential reading
 

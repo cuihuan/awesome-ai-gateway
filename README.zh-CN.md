@@ -23,6 +23,9 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 
 ## 目录
 
+- **先决策——10 秒答案层**
+  - [我该用哪个网关](#我该用哪个网关) · [⚡ 10 秒答案](#-10-秒答案)
+  - [给 Claude Code / Cursor / 编码 Agent 省钱](#-智能路由与模型选择)
 - [🔥 最高星网关（按 Star 排序）](#-最高星网关按-star-排序)
 - **按需浏览**
   - [💰 性价比优先——最省钱的多模型接入](#-性价比优先) · [🆓 还活着的免费额度](#-哪些免费额度还活着-核实限额表)
@@ -32,13 +35,87 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
   - [🇨🇳 国内生态](#-国内生态)
   - [🤖 MCP 与 Agent 网关](#-mcp-与-agent-网关)
   - [🔧 更多按能力分](#-更多按能力分横切关注点) —— [路由](#-智能路由与模型选择) · [缓存](#-缓存过网关钱的问题) · [可观测](#-可观测与成本核算) · [K8s](#️-kubernetes-原生与推理基础设施)
-- **选型与对比**
-  - [我该用哪个网关](#我该用哪个网关) · [快速对比](#快速对比) · [诉求速查表](#诉求速查表)
+- **对比与甄别**
+  - [快速对比](#快速对比) · [诉求速查表](#诉求速查表)
   - [如何安全选型](#如何安全选型) —— [数据留存矩阵](#-谁看得到你的-prompt-数据留存矩阵) · [中转避雷观察名单](#社区中转避雷观察名单)
 - **动态与参考**
   - [📊 评测速递](#-评测速递) · [📰 行业动态](#-行业动态) · [🚀 最新版本发布](#-最新版本发布自动更新)
-  - [⚡ 10 秒答案](#-10-秒答案) · [📚 必读精选](#-必读精选) · [指南与对比](#指南与对比)
+  - [📚 必读精选](#-必读精选) · [指南与对比](#指南与对比)
   - [常见问题 FAQ](#常见问题-faq) · [术语表](#术语表) · [为什么做这个](#为什么做这个) · [🔌 直接用数据](#-直接用数据它就是-api)
+
+## 我该用哪个网关？
+
+<p align="center">
+  <img src="assets/decision-tree.zh-CN.png" alt="决策树：我该用哪个 AI 网关？托管（OpenRouter、Vercel、Cloudflare、Bedrock、Azure、Vertex、Portkey）vs 自托管开源（LiteLLM、Bifrost、new-api、one-api、GPT-Load、Kong、Higress、APISIX、Envoy AI Gateway、agentgateway），按你的需求来选。" width="840">
+</p>
+
+**⚡ 快速答案** —— 每个需求一个稳妥默认项（备选见各分区链接）：
+
+| 我要… | 首选 | 细读 |
+|---|---|---|
+| 最低成本接入多模型、零运维 | **OpenRouter** | [性价比优先](#-性价比优先) |
+| 用自己的 Key、0 加价 | **Vercel** / **Cloudflare** | [性价比优先](#-性价比优先) |
+| 自托管、功能最全 | **LiteLLM** | [自托管开源](#-自托管开源) |
+| 自托管、开销最低 | **Bifrost**（Go） | [自托管开源](#-自托管开源) |
+| 把 Claude Code / Codex 路由到别的模型 | **LiteLLM** / **Bifrost**（均实测 3/3） | [智能路由](#-智能路由与模型选择) |
+| 国产模型 + 团队 Key 计费 | **new-api** | [国内生态](#-国内生态) |
+| 企业 K8s + 审计 | **Kong** / **Higress** | [企业合规](#-企业合规) |
+| 最强合规（HIPAA/FedRAMP） | **Azure** / **Bedrock** | [原厂直连](#️-原厂直连云厂商模型厂商) |
+| 敏感 prompt——谁看得到/记录/拿去训练？ | **自托管** 或 **默认零留存**（Vercel / Requesty） | [谁看得到你的 prompt](#-谁看得到你的-prompt-数据留存矩阵) |
+| 治理 Agent / MCP 流量 | **agentgateway** | [MCP 与 Agent](#-mcp-与-agent-网关) |
+
+<details>
+<summary>📋 完整决策树 —— 每条分支、可复制</summary>
+
+```text
+要不要自己部署？
+│
+├─ 不部署 — 托管服务，省运维
+│   ├─ 最低成本接入多模型 ──────────▶ OpenRouter · Vercel AI Gateway（0 加价）
+│   ├─ 用自己的 Key + 免费控制面 ───▶ Cloudflare AI Gateway
+│   ├─ 在意欧盟数据合规 ────────────▶ Requesty · Eden AI · nexos.ai
+│   └─ 已绑定某朵云 ────────────────▶ AWS Bedrock · Azure APIM · Vertex AI
+│
+└─ 要部署 — 自托管 / 开源
+    ├─ Python 技术栈、功能最全 ─────▶ LiteLLM
+    ├─ 追求极致性能（Go/Rust/TS）──▶ Bifrost · Portkey Gateway
+    ├─ 自带评测 + 可观测 ───────────▶ Helicone · LiteLLM · Bifrost
+    ├─ 国产模型、Key 分发/计费 ─────▶ new-api · one-api · GPT-Load
+    ├─ 企业 K8s、审计、护栏 ────────▶ Kong · Higress · APISIX · Envoy AI Gateway
+    └─ 治理 Agent / MCP 流量 ───────▶ agentgateway · Lunar.dev
+```
+
+</details>
+
+### ✅ 为什么可信
+- **独立——不收厂商钱、无返利链接、CC0。** 不像那些靠返利的中转"榜单"，这里没人花钱就能上榜。
+- **可复现，而非口说。** 每个成本数字都由[带单测的脚本](scripts/cost_calc.py)从[公开定价数据](data/models.json)算出；星数由 CI 每日刷新。
+- **对风险诚实。** 我们披露 CVE、标注已归档/停更项目、并[排除灰产中转](#如何安全选型)——且有研究佐证。
+
+---
+
+> **为什么重要：** 同一个任务，取决于网关背后用哪个模型，成本能差 **100 倍**。**AI 网关**位于你的代码与大模型厂商之间——一个端点、一把 Key、打通所有模型——负责路由、故障转移、缓存、限流、成本核算与护栏，你只需改一个 `base_url`，而非为每家厂商重写应用。先在这里选对网关，[评测集](BENCHMARKS.zh-CN.md)再告诉你该路由到哪个模型。
+
+<p align="center">
+  <a href="BENCHMARKS.zh-CN.md"><img src="assets/cost-spread.png" alt="写一份 10 万 token 报告的成本：DeepSeek $0.03 vs GPT-5.5 $3.01——106 倍价差，由带单测的脚本计算" width="760"></a>
+</p>
+
+⭐ **觉得有用就点个 [Star](https://github.com/cuihuan/awesome-ai-gateway)** —— 下一个在选网关的工程师就是这样找到它的。CC0 授权，无需注册、无追踪、不收厂商一分钱。
+
+## ⚡ 10 秒答案
+
+大家真正在问的问题（[出处见真实帖子](#-必读精选)）——先回答：
+
+| 你在问… | 答案 |
+|---|---|
+| "现在最便宜地打通一堆模型？" | **OpenRouter**（~5.5% 充值费、~340 模型）——或**自己的 key 0 加价**：Vercel / Cloudflare AI Gateway → [性价比优先](#-性价比优先) |
+| "哪些免费额度还活着，真实限流是多少？" | OpenRouter `:free`：**50 次/天**（充值 <$10）或 **1,000 次/天**（充值 $10+），共享 20 次/分钟（[官方限流文档](https://openrouter.ai/docs/api-reference/limits)）。11 家厂商逐行核实见[免费额度表](#-哪些免费额度还活着-核实限额表)。"免费"的代价：你的 prompt 可能被拿去训练——看清条款 |
+| "选*模型*到底差多少钱？" | **106×**——同一份 10 万 token 报告，DeepSeek $0.03 vs GPT-5.5 $3.01 → [脚本算的表](BENCHMARKS.zh-CN.md) · [计算器](https://cuihuan.github.io/awesome-ai-gateway/cost-calculator.zh-CN.html) |
+| "网关本身加多少延迟？" | **独立实测**（全网仅此一家）：每请求 Bifrost **0.56ms** · Portkey OSS **2.69ms** · LiteLLM **5.41ms** → [数据](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json) |
+| "缓存折扣过了网关还在吗？" | **经常不在——而且悄无声息。** 多数账单里最大的一笔没领的折扣 → [缓存过网关](#-缓存过网关钱的问题) |
+| "谁看得到我的 prompt？" | 网关永远看得到——而且路由从**默认 ZDR**到**按 ToS 拿去训练**都有。见[数据留存矩阵](#-谁看得到你的-prompt-数据留存矩阵) |
+| "受够 LiteLLM 了，还有啥？" | [LiteLLM 替代品诚实对比](compare/litellm-alternatives-2026.md)（开销实测：它比 Bifrost 重 10×） |
+| "会不会弄坏我的 Claude Code / Codex / Cursor？" | **头号故障——但我们实测过了。** 把 Claude Code 指向 OpenAI 模型，**LiteLLM 与 Bifrost 都能干净翻译（3/3），Portkey OSS 不提供这条路** → [独立实测](https://cuihuan.github.io/llm-gateway-bench/article.html?slug=does-your-gateway-break-claude-code)。仍建议拿你自己的 Agent（带工具 + 流式）过一遍，并**锁版本** |
 
 ## 🔥 最高星网关（按 Star 排序）
 
@@ -321,65 +398,6 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 - [NVIDIA Dynamo](https://github.com/ai-dynamo/dynamo) <!--s:ai-dynamo/dynamo-->⭐ 7.6k<!--/s--> — NVIDIA 数据中心级分布式推理框架，其 Endpoint Picker（EPP）插件对接 Gateway API Inference Extension，在网关层对 vLLM/SGLang/TensorRT-LLM 后端做 KV 缓存感知、LLM 感知的请求路由。
 - [llmaz](https://github.com/InftyAI/llmaz) <!--s:InftyAI/llmaz-->⭐ 309<!--/s--> — K8s 原生推理平台，统一管理异构后端（vLLM、SGLang、TGI、llama.cpp、TensorRT-LLM），带基于 Envoy AI Gateway 的模型路由与 token 限流、Gateway-API 推理池路由，以及 LLM 指标 HPA 与 Karpenter 自动扩缩。维护中但节奏较慢（仍为 v0.1.x）。
 
-## 我该用哪个网关？
-
-<p align="center">
-  <img src="assets/decision-tree.zh-CN.png" alt="决策树：我该用哪个 AI 网关？托管（OpenRouter、Vercel、Cloudflare、Bedrock、Azure、Vertex、Portkey）vs 自托管开源（LiteLLM、Bifrost、new-api、one-api、GPT-Load、Kong、Higress、APISIX、Envoy AI Gateway、agentgateway），按你的需求来选。" width="840">
-</p>
-
-**⚡ 快速答案** —— 每个需求一个稳妥默认项（备选见各分区链接）：
-
-| 我要… | 首选 | 细读 |
-|---|---|---|
-| 最低成本接入多模型、零运维 | **OpenRouter** | [性价比优先](#-性价比优先) |
-| 用自己的 Key、0 加价 | **Vercel** / **Cloudflare** | [性价比优先](#-性价比优先) |
-| 自托管、功能最全 | **LiteLLM** | [自托管开源](#-自托管开源) |
-| 自托管、开销最低 | **Bifrost**（Go） | [自托管开源](#-自托管开源) |
-| 把 Claude Code / Codex 路由到别的模型 | **LiteLLM** / **Bifrost**（均实测 3/3） | [智能路由](#-智能路由与模型选择) |
-| 国产模型 + 团队 Key 计费 | **new-api** | [国内生态](#-国内生态) |
-| 企业 K8s + 审计 | **Kong** / **Higress** | [企业合规](#-企业合规) |
-| 最强合规（HIPAA/FedRAMP） | **Azure** / **Bedrock** | [原厂直连](#️-原厂直连云厂商模型厂商) |
-| 敏感 prompt——谁看得到/记录/拿去训练？ | **自托管** 或 **默认零留存**（Vercel / Requesty） | [谁看得到你的 prompt](#-谁看得到你的-prompt-数据留存矩阵) |
-| 治理 Agent / MCP 流量 | **agentgateway** | [MCP 与 Agent](#-mcp-与-agent-网关) |
-
-<details>
-<summary>📋 完整决策树 —— 每条分支、可复制</summary>
-
-```text
-要不要自己部署？
-│
-├─ 不部署 — 托管服务，省运维
-│   ├─ 最低成本接入多模型 ──────────▶ OpenRouter · Vercel AI Gateway（0 加价）
-│   ├─ 用自己的 Key + 免费控制面 ───▶ Cloudflare AI Gateway
-│   ├─ 在意欧盟数据合规 ────────────▶ Requesty · Eden AI · nexos.ai
-│   └─ 已绑定某朵云 ────────────────▶ AWS Bedrock · Azure APIM · Vertex AI
-│
-└─ 要部署 — 自托管 / 开源
-    ├─ Python 技术栈、功能最全 ─────▶ LiteLLM
-    ├─ 追求极致性能（Go/Rust/TS）──▶ Bifrost · Portkey Gateway
-    ├─ 自带评测 + 可观测 ───────────▶ Helicone · LiteLLM · Bifrost
-    ├─ 国产模型、Key 分发/计费 ─────▶ new-api · one-api · GPT-Load
-    ├─ 企业 K8s、审计、护栏 ────────▶ Kong · Higress · APISIX · Envoy AI Gateway
-    └─ 治理 Agent / MCP 流量 ───────▶ agentgateway · Lunar.dev
-```
-
-</details>
-
-### ✅ 为什么可信
-- **独立——不收厂商钱、无返利链接、CC0。** 不像那些靠返利的中转"榜单"，这里没人花钱就能上榜。
-- **可复现，而非口说。** 每个成本数字都由[带单测的脚本](scripts/cost_calc.py)从[公开定价数据](data/models.json)算出；星数由 CI 每日刷新。
-- **对风险诚实。** 我们披露 CVE、标注已归档/停更项目、并[排除灰产中转](#如何安全选型)——且有研究佐证。
-
----
-
-> **为什么重要：** 同一个任务，取决于网关背后用哪个模型，成本能差 **100 倍**。**AI 网关**位于你的代码与大模型厂商之间——一个端点、一把 Key、打通所有模型——负责路由、故障转移、缓存、限流、成本核算与护栏，你只需改一个 `base_url`，而非为每家厂商重写应用。先在这里选对网关，[评测集](BENCHMARKS.zh-CN.md)再告诉你该路由到哪个模型。
-
-<p align="center">
-  <a href="BENCHMARKS.zh-CN.md"><img src="assets/cost-spread.png" alt="写一份 10 万 token 报告的成本：DeepSeek $0.03 vs GPT-5.5 $3.01——106 倍价差，由带单测的脚本计算" width="760"></a>
-</p>
-
-⭐ **觉得有用就点个 [Star](https://github.com/cuihuan/awesome-ai-gateway)** —— 下一个在选网关的工程师就是这样找到它的。CC0 授权，无需注册、无追踪、不收厂商一分钱。
-
 ## 快速对比
 
 星数每日自动刷新。✅ 内置 · ➕ 插件/付费版 · ❌ 不支持。
@@ -584,21 +602,6 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 - **2026-07-24** · [obot-platform/obot v0.24.1](https://github.com/obot-platform/obot/releases/tag/v0.24.1) — v0.24.1
 - **2026-07-24** · [archestra-ai/archestra platform-v1.3.18](https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.18) — platform: v1.3.18
 <!-- RELEASES:END -->
-
-## ⚡ 10 秒答案
-
-大家真正在问的问题（[出处见真实帖子](#-必读精选)）——先回答：
-
-| 你在问… | 答案 |
-|---|---|
-| "现在最便宜地打通一堆模型？" | **OpenRouter**（~5.5% 充值费、~340 模型）——或**自己的 key 0 加价**：Vercel / Cloudflare AI Gateway → [性价比优先](#-性价比优先) |
-| "哪些免费额度还活着，真实限流是多少？" | OpenRouter `:free`：**50 次/天**（充值 <$10）或 **1,000 次/天**（充值 $10+），共享 20 次/分钟（[官方限流文档](https://openrouter.ai/docs/api-reference/limits)）。11 家厂商逐行核实见[免费额度表](#-哪些免费额度还活着-核实限额表)。"免费"的代价：你的 prompt 可能被拿去训练——看清条款 |
-| "选*模型*到底差多少钱？" | **106×**——同一份 10 万 token 报告，DeepSeek $0.03 vs GPT-5.5 $3.01 → [脚本算的表](BENCHMARKS.zh-CN.md) · [计算器](https://cuihuan.github.io/awesome-ai-gateway/cost-calculator.zh-CN.html) |
-| "网关本身加多少延迟？" | **独立实测**（全网仅此一家）：每请求 Bifrost **0.56ms** · Portkey OSS **2.69ms** · LiteLLM **5.41ms** → [数据](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json) |
-| "缓存折扣过了网关还在吗？" | **经常不在——而且悄无声息。** 多数账单里最大的一笔没领的折扣 → [缓存过网关](#-缓存过网关钱的问题) |
-| "谁看得到我的 prompt？" | 网关永远看得到——而且路由从**默认 ZDR**到**按 ToS 拿去训练**都有。见[数据留存矩阵](#-谁看得到你的-prompt-数据留存矩阵) |
-| "受够 LiteLLM 了，还有啥？" | [LiteLLM 替代品诚实对比](compare/litellm-alternatives-2026.md)（开销实测：它比 Bifrost 重 10×） |
-| "会不会弄坏我的 Claude Code / Codex / Cursor？" | **头号故障——但我们实测过了。** 把 Claude Code 指向 OpenAI 模型，**LiteLLM 与 Bifrost 都能干净翻译（3/3），Portkey OSS 不提供这条路** → [独立实测](https://cuihuan.github.io/llm-gateway-bench/article.html?slug=does-your-gateway-break-claude-code)。仍建议拿你自己的 Agent（带工具 + 流式）过一遍，并**锁版本** |
 
 ## 📚 必读精选
 
