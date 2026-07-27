@@ -29,8 +29,8 @@ Here's the honest, data-backed map. Scores are ★1–5 from the [scorecard rubr
 
 ## If you want to stay self-hosted (just better than LiteLLM)
 
-- **[Bifrost](https://github.com/maximhq/bifrost)** — the closest drop-in *upgrade*. Go-native, ~11µs overhead at 5k RPS (vendor benchmark), adaptive load balancing, cluster mode, 1000+ models, and **no known CVEs**. If your reason for leaving LiteLLM is performance or security hygiene, start here.
-- **[Portkey Gateway (OSS)](https://github.com/Portkey-AI/gateway)** — Apache-2.0, <1ms overhead, with **guardrails, circuit breakers, fallbacks and MCP OAuth 2.1 free to self-hosters**. The richest governance feature set of the open-source options; upgrade path to the managed cloud if you scale.
+- **[Bifrost](https://github.com/maximhq/bifrost)** — the closest drop-in *upgrade*. Go-native, **0.56 ms** measured added latency per request — ~10× lighter than LiteLLM's 5.41 ms ([independent harness](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json); the vendor's ~11µs claim did not reproduce there) — adaptive load balancing, cluster mode, 1000+ models, and **no known CVEs**. If your reason for leaving LiteLLM is performance or security hygiene, start here.
+- **[Portkey Gateway (OSS)](https://github.com/Portkey-AI/gateway)** — Apache-2.0, 2.69 ms measured overhead (marketed "<1ms" did not reproduce independently), with **guardrails, circuit breakers, fallbacks and MCP OAuth 2.1 free to self-hosters**. The richest governance feature set of the open-source options; upgrade path to the managed cloud if you scale.
 - **[Kong AI Gateway](https://github.com/Kong/kong)** — if you already run Kong or APISIX, the AI plugins (PII sanitization across 20+ categories/12 languages, AI Prompt Guard, Model Armor, RBAC) bolt onto infrastructure you already operate. Highest security score here (★4.5).
 - **[Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway)** — built on Envoy, native to Kubernetes/Istio, with multi-provider routing and an MCP gateway (OAuth + CEL authz). No semantic cache or per-key budgets yet, but the cleanest fit for a CNCF-aligned platform team.
 

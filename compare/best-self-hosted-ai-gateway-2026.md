@@ -8,20 +8,20 @@ If you want one OpenAI-compatible endpoint for every model — but on **your own
 
 ## Quick comparison
 
-| Gateway | Language | Best at | Overhead | License | Stars |
+| Gateway | Language | Best at | Overhead (measured¹) | License | Stars |
 |---|---|---|---|---|---|
-| **LiteLLM** | Python | Breadth (100+ providers), features | moderate | MIT | <!--s:BerriAI/litellm-->⭐ 54.8k<!--/s--> |
-| **Bifrost** | Go | Raw throughput | ~11µs @ 5k RPS¹ | Apache-2.0 | <!--s:maximhq/bifrost-->⭐ 6.8k<!--/s--> |
-| **Portkey Gateway** | TypeScript | Guardrails + governance built in | <1ms¹ | Apache-2.0 | <!--s:Portkey-AI/gateway-->⭐ 12.6k<!--/s--> |
+| **LiteLLM** | Python | Breadth (100+ providers), features | 5.41 ms | MIT | <!--s:BerriAI/litellm-->⭐ 54.8k<!--/s--> |
+| **Bifrost** | Go | Raw throughput | 0.56 ms | Apache-2.0 | <!--s:maximhq/bifrost-->⭐ 6.8k<!--/s--> |
+| **Portkey Gateway** | TypeScript | Guardrails + governance built in | 2.69 ms | Apache-2.0 | <!--s:Portkey-AI/gateway-->⭐ 12.6k<!--/s--> |
 | **Kong AI Gateway** | Lua/Go | Enterprise K8s + mature plugins | low | Apache-2.0 | <!--s:Kong/kong-->⭐ 43.9k<!--/s--> |
 
-¹ Vendor-published benchmarks — treat cross-vendor "Nx faster" claims as marketing until independently reproduced.
+¹ Independently measured mean added latency per request ([llm-gateway-bench data](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json), self-hosted defaults). The vendor-marketed figures — Bifrost "~11µs @ 5k RPS", Portkey "<1ms" — did not reproduce in that harness; treat cross-vendor "Nx faster" claims as marketing until independently reproduced. Kong: not yet measured ("low" per vendor).
 
 ## Pick by what you care about
 
 - **Broadest features, fastest to adopt → LiteLLM.** The default. Virtual keys, budgets, load balancing, guardrails, 100+ providers. Python, huge community. Downside: it's feature-heavy and its broad surface has been a security target (see below).
-- **Maximum throughput, minimal footprint → Bifrost.** Go, adaptive load balancing, cluster mode, claims ~11µs overhead. Pick it when the gateway must not be your bottleneck.
-- **Guardrails and governance built in → Portkey Gateway (OSS).** TypeScript, Apache-2.0, <1ms overhead, with a 50+ guardrail set, circuit breakers, fallbacks and MCP OAuth 2.1 free to self-hosters. Pick it when you want policy enforcement *in* the gateway, with a clean upgrade path to the managed cloud if you scale.
+- **Maximum throughput, minimal footprint → Bifrost.** Go, adaptive load balancing, cluster mode; the lowest independently measured overhead (0.56 ms added per request — its marketed ~11µs did not reproduce). Pick it when the gateway must not be your bottleneck.
+- **Guardrails and governance built in → Portkey Gateway (OSS).** TypeScript, Apache-2.0, 2.69 ms measured overhead (marketed "<1ms" did not reproduce), with a 50+ guardrail set, circuit breakers, fallbacks and MCP OAuth 2.1 free to self-hosters. Pick it when you want policy enforcement *in* the gateway, with a clean upgrade path to the managed cloud if you scale.
 - **Already run Kubernetes / need mature governance → Kong AI Gateway.** AI plugins (semantic caching, prompt guard, PII sanitization across 20+ categories) on a battle-tested gateway. One less new service if Kong is already in your stack. (Higress and Apache APISIX are strong alternatives here.)
 
 ## What about TensorZero?
