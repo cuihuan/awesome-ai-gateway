@@ -5,8 +5,22 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-07-27T04:45:49Z</updated>
+  <updated>2026-07-27T08:57:24Z</updated>
   <author><name>Awesome AI Gateway</name></author>
+  <entry>
+    <title>Wei-Shaw/sub2api v0.1.166</title>
+    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.166" />
+    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.166</id>
+    <updated>2026-07-27T08:57:24Z</updated>
+    <summary>Wei-Shaw/sub2api released Sub2API 0.1.166.</summary>
+  </entry>
+  <entry>
+    <title>seakee/CPA-Manager-Plus v1.11.9</title>
+    <link href="https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.11.9" />
+    <id>https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.11.9</id>
+    <updated>2026-07-27T04:48:05Z</updated>
+    <summary>seakee/CPA-Manager-Plus released v1.11.9.</summary>
+  </entry>
   <entry>
     <title>yym68686/uni-api v1.7.208</title>
     <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.208" />
@@ -20,6 +34,27 @@
     <id>https://github.com/RelayPlane/proxy/releases/tag/v1.9.40</id>
     <updated>2026-07-27T04:38:10Z</updated>
     <summary>RelayPlane/proxy released v1.9.40.</summary>
+  </entry>
+  <entry>
+    <title>oomol-lab/open-connector v1.3.2</title>
+    <link href="https://github.com/oomol-lab/open-connector/releases/tag/v1.3.2" />
+    <id>https://github.com/oomol-lab/open-connector/releases/tag/v1.3.2</id>
+    <updated>2026-07-27T02:36:02Z</updated>
+    <summary>oomol-lab/open-connector released v1.3.2.</summary>
+  </entry>
+  <entry>
+    <title>tsouth89/toolport v1.9.6</title>
+    <link href="https://github.com/tsouth89/toolport/releases/tag/v1.9.6" />
+    <id>https://github.com/tsouth89/toolport/releases/tag/v1.9.6</id>
+    <updated>2026-07-27T01:40:14Z</updated>
+    <summary>tsouth89/toolport released v1.9.6.</summary>
+  </entry>
+  <entry>
+    <title>askalf/dario v5.4.21</title>
+    <link href="https://github.com/askalf/dario/releases/tag/v5.4.21" />
+    <id>https://github.com/askalf/dario/releases/tag/v5.4.21</id>
+    <updated>2026-07-27T01:01:08Z</updated>
+    <summary>askalf/dario released v5.4.21.</summary>
   </entry>
   <entry>
     <title>ENTERPILOT/GoModel v0.1.62</title>
@@ -36,6 +71,20 @@
     <summary>router-for-me/CLIProxyAPI released v7.2.102.</summary>
   </entry>
   <entry>
+    <title>tashfeenahmed/freellmapi v0.6.0</title>
+    <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.6.0" />
+    <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.6.0</id>
+    <updated>2026-07-26T19:55:53Z</updated>
+    <summary>tashfeenahmed/freellmapi released v0.6.0 — Settings dialog, 60 languages, router discipline.</summary>
+  </entry>
+  <entry>
+    <title>lidge-jun/opencodex v2.7.41</title>
+    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.7.41" />
+    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.7.41</id>
+    <updated>2026-07-26T15:44:52Z</updated>
+    <summary>lidge-jun/opencodex released v2.7.41.</summary>
+  </entry>
+  <entry>
     <title>QuantumNous/new-api v1.0.0-rc.22</title>
     <link href="https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.22" />
     <id>https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.22</id>
@@ -50,11 +99,11 @@
     <summary>musistudio/claude-code-router released v3.0.16.</summary>
   </entry>
   <entry>
-    <title>Wei-Shaw/sub2api v0.1.165</title>
-    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.165" />
-    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.165</id>
-    <updated>2026-07-25T13:58:52Z</updated>
-    <summary>Wei-Shaw/sub2api released Sub2API 0.1.165.</summary>
+    <title>aurorallm/aurora v1.0.38</title>
+    <link href="https://github.com/aurorallm/aurora/releases/tag/v1.0.38" />
+    <id>https://github.com/aurorallm/aurora/releases/tag/v1.0.38</id>
+    <updated>2026-07-26T11:36:31Z</updated>
+    <summary>aurorallm/aurora released v1.0.38.</summary>
   </entry>
   <entry>
     <title>agentgateway/agentgateway v1.4.0-beta.1</title>
@@ -167,54 +216,5 @@
     <id>https://github.com/andrewyng/aisuite/releases/tag/v0.1.3</id>
     <updated>2026-07-20T20:16:27Z</updated>
     <summary>andrewyng/aisuite released OpenWorker 0.1.3.</summary>
-  </entry>
-  <entry>
-    <title>BlockRunAI/ClawRouter v0.12.232</title>
-    <link href="https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.232" />
-    <id>https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.232</id>
-    <updated>2026-07-20T16:19:07Z</updated>
-    <summary>BlockRunAI/ClawRouter released v0.12.232 — fix: max_completion_tokens was never read.</summary>
-  </entry>
-  <entry>
-    <title>theopenco/llmgateway v1.9.0</title>
-    <link href="https://github.com/theopenco/llmgateway/releases/tag/v1.9.0" />
-    <id>https://github.com/theopenco/llmgateway/releases/tag/v1.9.0</id>
-    <updated>2026-07-20T10:07:14Z</updated>
-    <summary>theopenco/llmgateway released v1.9.0.</summary>
-  </entry>
-  <entry>
-    <title>stacklok/toolhive v0.40.1</title>
-    <link href="https://github.com/stacklok/toolhive/releases/tag/v0.40.1" />
-    <id>https://github.com/stacklok/toolhive/releases/tag/v0.40.1</id>
-    <updated>2026-07-20T08:32:36Z</updated>
-    <summary>stacklok/toolhive released v0.40.1.</summary>
-  </entry>
-  <entry>
-    <title>NadirRouter/NadirClaw v0.22.0</title>
-    <link href="https://github.com/NadirRouter/NadirClaw/releases/tag/v0.22.0" />
-    <id>https://github.com/NadirRouter/NadirClaw/releases/tag/v0.22.0</id>
-    <updated>2026-07-20T00:16:10Z</updated>
-    <summary>NadirRouter/NadirClaw released v0.22.0 — v3+gate default routing.</summary>
-  </entry>
-  <entry>
-    <title>BerriAI/litellm v1.93.0</title>
-    <link href="https://github.com/BerriAI/litellm/releases/tag/v1.93.0" />
-    <id>https://github.com/BerriAI/litellm/releases/tag/v1.93.0</id>
-    <updated>2026-07-19T07:57:31Z</updated>
-    <summary>BerriAI/litellm released v1.93.0.</summary>
-  </entry>
-  <entry>
-    <title>lightseekorg/smg v1.8.0</title>
-    <link href="https://github.com/lightseekorg/smg/releases/tag/v1.8.0" />
-    <id>https://github.com/lightseekorg/smg/releases/tag/v1.8.0</id>
-    <updated>2026-07-18T14:51:26Z</updated>
-    <summary>lightseekorg/smg released V1.8.0.</summary>
-  </entry>
-  <entry>
-    <title>algorithmicsuperintelligence/optillm v0.3.22</title>
-    <link href="https://github.com/algorithmicsuperintelligence/optillm/releases/tag/v0.3.22" />
-    <id>https://github.com/algorithmicsuperintelligence/optillm/releases/tag/v0.3.22</id>
-    <updated>2026-07-18T12:38:31Z</updated>
-    <summary>algorithmicsuperintelligence/optillm released v0.3.22.</summary>
   </entry>
 </feed>
