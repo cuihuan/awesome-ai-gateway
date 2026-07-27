@@ -162,7 +162,7 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 - [Eden AI](https://www.edenai.co) — 统一 API 接入 500+ 模型及视觉/OCR/语音；欧盟公司，平台费约 5.5%。
 - [Helicone AI Gateway（云版）](https://www.helicone.ai) — **0 加价**直通计费，可观测能力打包赠送。
 - [GPT-Load](https://github.com/tbphp/gpt-load) <!--s:tbphp/gpt-load-->⭐ 6.3k<!--/s--> — Go 写的高性能多渠道密钥轮询代理，把每把 Key 的额度榨干。
-- [freellmapi](https://github.com/tashfeenahmed/freellmapi) <!--s:tashfeenahmed/freellmapi-->⭐ 17.1k<!--/s--> — OpenAI 兼容代理（MIT），把 28 家厂商的免费额度叠加在一个 `/v1` 端点之后——智能路由、自动故障转移、按 Key 额度追踪、密钥加密存储。⚠️ 把各家免费额度池化到一个端点可能触碰厂商 ToS / 封号风险——仓库自己就标注"仅供个人实验"——且运营方另售托管高级版（$19/年）：建议自托管、用自己的 Key。
+- [freellmapi](https://github.com/tashfeenahmed/freellmapi) <!--s:tashfeenahmed/freellmapi-->⭐ 17.1k<!--/s--> — OpenAI 兼容代理（MIT），把 28 家厂商的免费额度叠加在一个 `/v1` 端点之后——智能路由、自动故障转移、按 Key 额度追踪、密钥加密存储。⚠️ 把各家免费额度池化到一个端点可能触碰厂商 ToS / 封号风险——仓库自己就标注"仅供个人实验"——运营方另售付费实时模型目录订阅（$19/年；路由器本体始终 MIT、自托管、用自己的 Key）。
 - [AIMLAPI](https://aimlapi.com) — 一个 OpenAI/Anthropic 兼容端点打通 400+ 模型（对话/图像/视频/音频/向量）；预付费，OpenRouter 式聚合器。
 - [Novita AI](https://novita.ai) — 统一 API 接入 200+ 开源模型（DeepSeek/Qwen/Llama…），自带负载均衡、弹性扩缩与故障转移；另有 GPU 云。
 - [Glama Gateway](https://glama.ai/ai/gateway) — OpenAI 兼容网关，接入 100+ 模型，统一账单、缓存与日志（开源内核 [glama-ai/lightport](https://github.com/glama-ai/lightport)）。
@@ -258,7 +258,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [WSO2 AI Gateway](https://wso2.com/api-manager/usecases/ai-gateway/) — LLM 出口流量管理：模型路由、语义缓存、护栏。
 - [F5 AI Gateway](https://www.f5.com) — 容器化 AI 流量网关；通过收购 LeakSignal 增加数据泄露检测（2025-07 公布）。
 - [IBM API Connect AI Gateway](https://www.ibm.com/docs/en/api-connect/software/10.0.x_cd?topic=definitions-using-ai-gateway-support-apis-ai-applications) — IBM API Connect 内置的 AI Gateway 能力：LLM 流量的策略执行、脱敏与审计（其独立文档线已迁移至下方的独立产品 DataPower Interact Gateway）。
-- [IBM DataPower Interact Gateway](https://www.ibm.com/products/datapower-interact-gateway) — 基于 DataPower Nano Gateway 的独立网关，在运行时治理 LLM 与 MCP 流量：MCP Gateway 把现有 API 暴露为可被 AI Agent 发现调用的 MCP 工具，LLM Gateway 提供访问外部 LLM 提供商的受治理端点（2026-06 发布）。
+- [IBM DataPower Interact Gateway](https://www.ibm.com/products/datapower-interact-gateway) — 基于 DataPower Nano Gateway 的独立网关，在运行时治理 LLM 与 MCP 流量：MCP Gateway 把现有 API 暴露为可被 AI Agent 发现调用的 MCP 工具，LLM Gateway 提供访问外部 LLM 提供商的受治理端点（2026-07 发布）。
 - [MuleSoft AI / Omni Gateway](https://www.mulesoft.com/platform/ai-gateway) — 把 LLM、MCP、Agent 流量与传统 API 一起治理。
 - [Lunar.dev](https://github.com/TheLunarCompany/lunar) <!--s:TheLunarCompany/lunar-->⭐ 472<!--/s--> — 出口消费网关，已转向 MCP/Agent 治理。
 - [KrakenD AI Gateway](https://www.krakend.io/docs/ai-gateway/) — 高性能、无状态的 Go API 网关（[krakend/krakend-ce](https://github.com/krakend/krakend-ce) <!--s:krakend/krakend-ce-->⭐ 2.7k<!--/s-->），带 AI 代理 + Prompt 安全层。
@@ -428,7 +428,7 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 | [LiteLLM](https://github.com/BerriAI/litellm) | 开源代理 + SDK | <!--s:BerriAI/litellm-->⭐ 54.8k<!--/s--> | MIT¹ | ✅ 100+ | ✅ | ✅ | ✅ | ✅ | ✅ 需数据库 | ✅ |
 | [new-api](https://github.com/QuantumNous/new-api) | 开源中转/计费 | <!--s:QuantumNous/new-api-->⭐ 43.5k<!--/s--> | AGPL-3.0 | ✅ | ✅ | ➕ | ➕ | ✅ | ✅ | 未注明 |
 | [one-api](https://github.com/songquanpeng/one-api) | 开源中转/计费 | <!--s:songquanpeng/one-api-->⭐ 36k<!--/s--> | MIT | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
-| [Kong AI Gateway](https://github.com/Kong/kong) | 开源 API 网关 | <!--s:Kong/kong-->⭐ 43.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ 语义缓存 | ✅ | ✅ | ➕ Kong Manager | ✅ |
+| [Kong AI Gateway](https://github.com/Kong/kong) | 开源 API 网关 | <!--s:Kong/kong-->⭐ 43.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ 语义缓存 | ✅ | ✅ | ✅ Kong Manager | ✅ |
 | [Apache APISIX](https://github.com/apache/apisix) | 开源 API 网关 | <!--s:apache/apisix-->⭐ 16.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ➕ | ➕ | ➕ | ➕ 独立 Dashboard | ➕ OpenAI 兼容 |
 | [Portkey Gateway](https://github.com/Portkey-AI/gateway) | 开源网关 + SaaS | <!--s:Portkey-AI/gateway-->⭐ 12.6k<!--/s--> | MIT | ✅ 1600+ | ✅ | ✅ | ✅ 50+ | ➕ SaaS | ✅ 日志控制台 | ✅ |
 | [TensorZero](https://github.com/tensorzero/tensorzero) | 开源 LLMOps · ⚠️ 已归档'26 | <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ | ➕ | ✅ | ✅ | ✅ OpenAI 兼容 |
@@ -595,7 +595,7 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 
 *人工每月更新。最近审阅：2026-07-27。*
 
-- **2026-07** · **据报道 Stripe 正洽购 OpenRouter，估值约 100 亿美元**（华尔街日报，7 月 23 日——**未经证实**：谈判仍可能破裂，也可能出现其他买家）——约为其 5 月 B 轮 13 亿美元估值的 7 倍，也是下方整合趋势线（Portkey→Palo Alto、Helicone→Mintlify、TensorZero 关停）迄今最强的信号。（[TNW](https://thenextweb.com/news/stripe-openrouter-10-billion-ai-model-marketplace-acquisition)、[PYMNTS](https://www.pymnts.com/news/artificial-intelligence/2026/stripe-eyes-10-billion-deal-for-ai-model-marketplace-openrouter/)）
+- **2026-07** · **据报道 Stripe 正洽购 OpenRouter，估值约 100 亿美元**（华尔街日报，7 月 23 日——**未经证实**：谈判仍可能破裂，也可能出现其他买家）——约为其 5 月 B 轮 13 亿美元估值的 7.7 倍，也是下方整合趋势线（Portkey→Palo Alto、Helicone→Mintlify、TensorZero 关停）迄今最强的信号。（[TNW](https://thenextweb.com/news/stripe-openrouter-10-billion-ai-model-marketplace-acquisition)、[PYMNTS](https://www.pymnts.com/news/artificial-intelligence/2026/stripe-eyes-10-billion-deal-for-ai-model-marketplace-openrouter/)）
 - **2026-06** · **LiteLLM 的 RCE 被列入 CISA KEV 目录** —— CVE-2026-42271（MCP 命令注入）与 Starlette 鉴权绕过串联成免鉴权远程代码执行，可触及主密钥与各厂商凭证（6 月 8 日入列，6 月 16–22 日又披露多枚 CVE）。这与 3 月的 PyPI 供应链投毒是两回事——请打补丁并收紧网关控制面。（[CSA](https://labs.cloudsecurityalliance.org/research/csa-research-note-litellm-cve-2026-42271-ai-gateway-exploita/)）
 - **2026-06** · **Envoy AI Gateway 发布 v1.0**（6 月 23 日）—— 首个基于 CNCF Envoy 的生产级稳定开源 AI 网关：一套 API 打通 16 家供应商，并内置原生 MCP 网关（Tetrate、彭博、Nutanix、腾讯背书）。（[发布公告](https://aigateway.envoyproxy.io/blog/v1.0-release-announcement/)）
 - **2026-06** · **云厂商齐齐押注 AI 网关治理** —— Databricks 在 Data+AI Summit 上线 **Unity AI Gateway**（智能路由 + 硬性消费上限），Azure **API Management 的 AI 网关**能力在 Build 上转正 GA，AWS 在纽约峰会扩展 **Bedrock AgentCore Gateway**。运行时治理已成标配。（[Databricks](https://www.databricks.com/blog/ai-governance-data-ai-summit-2026-whats-new-unity-ai-gateway)）

@@ -34,7 +34,7 @@
 - **2026-02-20——灰色地带正式关闭。** Anthropic 更新合规文档,禁止在第三方产品中使用订阅 OAuth(Free/Pro/Max),开发者"必须改用 API key 认证"([报道,2026-02](https://alternativeto.net/news/2026/2/anthropic-officially-bans-using-subscription-authentication-for-third-party-claude-use))。
 - **Anthropic 明说的执法对象**:"a small number of users are violating our usage policies by **sharing and reselling accounts**… we're taking appropriate action to stop it."。Anthropic 员工澄清:持有多个 Max 账号*不*违规——"enforcement is aimed at people using accounts to **resell tokens**"([2026-02-19](https://piunikaweb.com/2026/02/19/anthropic-claude-max-ban-agent-sdk-clarification/)、[背景](https://metricnexus.ai/blog/anthropic-banning-multiple-claude-accounts))。这就是对第 3 档的精确描述。
 - **OpenAI 使用条款**:"You may not share your account credentials or make your account available to anyone else and are responsible for all activities that occur under your account"([条款](https://openai.com/policies/row-terms-of-use/);页面有反爬,措辞引自 [OpenAI 账号共享政策的公开转述](https://help.openai.com/en/articles/10471989-openai-account-sharing-policy))。对 ChatGPT 账号池(opencodex 的池模式、CLIProxyAPI、sub2api)含义相同。
-- **规模**:一篇引用 Anthropic Transparency Hub 的第三方封号指南称 **2025 下半年封禁 145 万账号**、申诉成功率仅 **3.3%**([指南](https://teamorouter.com/blogs/claude-code-banned-guide))——我们未能在一手来源核实这组数字,当作"有报道"而非"已证实"。
+- **规模——没有可靠的公开数字。** Anthropic 的 [Transparency Hub](https://www.anthropic.com/transparency) 不发布账号处置统计,流传的第三方封号指南(如[这篇](https://teamorouter.com/blogs/claude-code-banned-guide))也只讲封号原因与申诉流程、没有总量数字(两处均核查于 2026-07-27)。看到任何「封禁 X 万账号」的总数,都当作无出处对待。
 
 ## 封号证据,逐个工具看
 
@@ -66,7 +66,7 @@
 
 - **任何正经用途——工作代码、客户的仓库、承载你历史记录的账号:只用第 1 档。** BYOK API key 挂在 Claude Code Router 后面(需要跨格式翻译就用 LiteLLM/Bifrost),默认路由便宜模型、按需升级。83 倍的模型价差才是钱的所在,而且从没有人因为这条路径被封号。
 - **第 2 档(自有 OAuth 路由:9router、OmniRoute、CLIProxyAPI、opencodex 池模式)——只用你真赔得起的小号**,隔离账号、没有工作历史。2026-02-20 之后这已明确违反 Anthropic 的公开政策,上面的封号报告全是真实且有日期的,"这工具有伪装功能"应该读作警告,不是安心丸。
-- **第 3 档(sub2api 式账号池分发)——我们不会碰。** 做池主,你就是 Anthropic 明说要封的对象(其赞助商生态里的反风控工具说明池主们心知肚明);做买家,你买到的是无法验证的转售容量——[2026 年独立指纹研究](https://arxiv.org/abs/2603.01919)测出**45.8% 的转售中转模型身份不符**。
+- **第 3 档(sub2api 式账号池分发)——我们不会碰。** 做池主,你就是 Anthropic 明说要封的对象(其赞助商生态里的反风控工具说明池主们心知肚明);做买家,你买到的是无法验证的转售容量——[2026 年针对转售中转的独立指纹研究](https://arxiv.org/abs/2603.01919)测出**45.8% 的指纹测试模型身份验证失败**。
 
 完整成本表、SWE-bench-vs-成本图和网关记分卡见**[评测集 →](../BENCHMARKS.zh-CN.md)**。按需求浏览全部网关见 **[Awesome AI Gateway →](../README.zh-CN.md)**。
 
