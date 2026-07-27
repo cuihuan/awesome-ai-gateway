@@ -7,7 +7,7 @@
 
 > **Pick the right AI gateway for your need in ~10 seconds — then trust the answer.** A decision tree, a reproducible cost benchmark, and independent evidence for what we exclude. Organized by what you actually need, not by vendor.
 
-_Built the hard way: **I burned $788 on AI coding in a single day** — one flagship model ate 78% of it, just because I'd defaulted everything to the priciest option. So I mapped the whole gateway landscape. → [the story](#why-this-exists)_
+_Built the hard way: **I burned $788 on AI coding in a single day** — one flagship model ate 78% of it, just because I'd defaulted everything to the priciest option. So I mapped the whole gateway landscape. → [the story](#why-this-exists) · [the full comparison](compare/coding-agent-routers-2026.md)_
 
 **Languages:** English · [简体中文](README.zh-CN.md)
 
@@ -25,7 +25,7 @@ _Built the hard way: **I burned $788 on AI coding in a single day** — one flag
 
 - **Decide first — the ~10-second layer**
   - [Which gateway should I use](#which-gateway-should-i-use) · [⚡ 10-second answers](#-10-second-answers)
-  - [Save money on Claude Code / Cursor / coding agents](#-smart-routing--model-selection)
+  - [Save money on Claude Code / Cursor / coding agents](compare/coding-agent-routers-2026.md)
 - [🔥 Top gateways (by stars)](#-top-gateways-by-stars)
 - **Browse by need**
   - [💰 Cost-first — cheapest multi-model access](#-cost-first-cheapest-multi-model-access) · [🆓 free tiers that still work](#-free-tiers-that-still-work--the-verified-limits-table)
@@ -58,6 +58,7 @@ _Built the hard way: **I burned $788 on AI coding in a single day** — one flag
 | Self-host, broadest features | **LiteLLM** | [Self-hosted](#-self-hosted-open-source) |
 | Self-host, lowest overhead | **Bifrost** (Go) | [Self-hosted](#-self-hosted-open-source) |
 | Route Claude Code / Codex to another model | **LiteLLM** / **Bifrost** (both measured 3/3) | [Smart routing](#-smart-routing--model-selection) |
+| Cut my Claude Code / Cursor bill — without a ban | **claude-code-router** (BYO-key, zero ban reports) | [Coding-agent routers compared](compare/coding-agent-routers-2026.md) |
 | China models + team key billing | **new-api** | [China ecosystem](#-china-ecosystem) |
 | Enterprise K8s + audit | **Kong** / **Higress** | [Enterprise](#-enterprise--compliance) |
 | Strongest compliance (HIPAA/FedRAMP) | **Azure** / **Bedrock** | [First-party](#️-first-party-gateways-cloud--model-vendors) |
@@ -346,6 +347,8 @@ _These cut across the need-based sections above — routing intelligence, observ
 ### 🧠 Smart routing & model selection
 
 _Pain point: "Send each prompt to the cheapest model that can handle it."_
+
+> 💸 **Routing a coding agent specifically (Claude Code / Codex / Cursor)?** The dedicated deep-dive classifies claude-code-router, OmniRoute, 9router, CLIProxyAPI and sub2api by *mechanism* — BYO-key vs own-OAuth vs pooled accounts — with the actual ToS clauses and dated ban reports: [Coding-agent routers (2026): savings vs. ban risk](compare/coding-agent-routers-2026.md).
 
 > 🧭 **The theory behind these picks** — cost-aware cascades, learned routers, multi-model ensembling, self-routing, and the benchmarks that test them (with the honest counter-evidence on when routing *doesn't* pay): see the [routing & model-selection landscape](docs/routing-landscape.md) — a dated, sourced research map, the sibling of the [observability survey](docs/observability-landscape.md).
 
@@ -685,6 +688,7 @@ _A short, vetted shelf — every link below was HTTP-checked live (2026-06-15). 
 
 In-depth, data-backed comparisons for the questions people actually search:
 
+- [**Coding-agent routers (2026)**](compare/coding-agent-routers-2026.md) — claude-code-router vs OmniRoute vs 9router vs CLIProxyAPI vs sub2api: savings vs. ban risk
 - [**LiteLLM vs OpenRouter vs Portkey (2026)**](compare/litellm-vs-openrouter-vs-portkey-2026.md) — which AI gateway should you use?
 - [**LiteLLM alternatives (2026)**](compare/litellm-alternatives-2026.md) — 8 gateways compared by cost, security & self-hosting
 - [**OpenRouter alternatives (2026)**](compare/openrouter-alternatives-2026.md) — 0%-markup, EU-residency & self-hosted options compared

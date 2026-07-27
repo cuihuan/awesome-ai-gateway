@@ -7,7 +7,7 @@
 
 > **按你的诉求，约 10 秒选对 AI 网关——而且这个答案可信。** 一棵决策树、可复现的成本评测，外加我们排除灰产的独立证据。按真实诉求分类，而非按厂商罗列。
 
-_这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**——一个旗舰模型就吃掉 78%，只因为我把所有请求都默认打给了最贵的那个。于是我把整个网关生态摸了一遍。→ [完整故事](#为什么做这个)_
+_这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**——一个旗舰模型就吃掉 78%，只因为我把所有请求都默认打给了最贵的那个。于是我把整个网关生态摸了一遍。→ [完整故事](#为什么做这个) · [完整对比](compare/coding-agent-routers-2026.zh-CN.md)_
 
 **语言：** [English](README.md) · 简体中文
 
@@ -25,7 +25,7 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 
 - **先决策——10 秒答案层**
   - [我该用哪个网关](#我该用哪个网关) · [⚡ 10 秒答案](#-10-秒答案)
-  - [给 Claude Code / Cursor / 编码 Agent 省钱](#-智能路由与模型选择)
+  - [给 Claude Code / Cursor / 编码 Agent 省钱](compare/coding-agent-routers-2026.zh-CN.md)
 - [🔥 最高星网关（按 Star 排序）](#-最高星网关按-star-排序)
 - **按需浏览**
   - [💰 性价比优先——最省钱的多模型接入](#-性价比优先) · [🆓 还活着的免费额度](#-哪些免费额度还活着-核实限额表)
@@ -58,6 +58,7 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 | 自托管、功能最全 | **LiteLLM** | [自托管开源](#-自托管开源) |
 | 自托管、开销最低 | **Bifrost**（Go） | [自托管开源](#-自托管开源) |
 | 把 Claude Code / Codex 路由到别的模型 | **LiteLLM** / **Bifrost**（均实测 3/3） | [智能路由](#-智能路由与模型选择) |
+| 给 Claude Code / Cursor 省钱——还不想被封号 | **claude-code-router**（自带 API key，零封号记录） | [编码 Agent 路由器对比](compare/coding-agent-routers-2026.zh-CN.md) |
 | 国产模型 + 团队 Key 计费 | **new-api** | [国内生态](#-国内生态) |
 | 企业 K8s + 审计 | **Kong** / **Higress** | [企业合规](#-企业合规) |
 | 最强合规（HIPAA/FedRAMP） | **Azure** / **Bedrock** | [原厂直连](#️-原厂直连云厂商模型厂商) |
@@ -346,6 +347,8 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 ### 🧠 智能路由与模型选择
 
 *痛点："每条 prompt 都路由到能胜任的最便宜模型。"*
+
+> 💸 **专门给编码 Agent（Claude Code / Codex / Cursor）选路由器？** 专题深挖把 claude-code-router、OmniRoute、9router、CLIProxyAPI、sub2api 按*机制*分层——自带 API key vs 自有订阅 OAuth vs 拼车账号池——附真实 ToS 条款与带日期的封号记录：[编码 Agent 省钱路由器对比（2026）：省多少 vs 封号风险](compare/coding-agent-routers-2026.zh-CN.md)。
 
 > ⚠️ **网关最常见的故障不是路由，是翻译。** 纵观 2025–26 各家 issue 区，每个主流网关最大的 bug 类别都是**工具调用 / thinking 块 / 流式翻译损坏**：Portkey 评论最多的 issue（[#980](https://github.com/Portkey-AI/gateway/issues/980)，tool_use id 丢失）、OpenRouter AI-SDK 的 thinking 模式三度报修（[#245](https://github.com/OpenRouterTeam/ai-sdk-provider/issues/245)）、Claude Code 过 LiteLLM 报错（[#13373](https://github.com/BerriAI/litellm/issues/13373)）、过 new-api 报错（[#1854](https://github.com/QuantumNous/new-api/issues/1854)）——2025 年以来 **413 个 LiteLLM issue 提到 "claude code"**。"OpenAI 兼容"是个光谱，不是复选框（[LangChain 自己的兼容性 issue](https://github.com/langchain-ai/langchain/issues/34328)）。**我们实测过了**——把 Claude Code 指向 OpenAI 模型，[LiteLLM 与 Bifrost 都能干净翻译（3/3），Portkey OSS 不提供这条路](https://cuihuan.github.io/llm-gateway-bench/article.html?slug=does-your-gateway-break-claude-code)（且该 `/v1/messages` 传输路径跨版本会变，记得锁版本）。**上生产前仍建议拿你真实的 Agent（带工具调用 + 流式 + thinking）过一遍网关，别只测 hello-world。**
 
@@ -683,6 +686,7 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 
 针对大家真实搜索的问题,做了数据支撑的深度对比:
 
+- [**编码 Agent 省钱路由器对比 (2026)**](compare/coding-agent-routers-2026.zh-CN.md) — claude-code-router vs OmniRoute vs 9router vs CLIProxyAPI vs sub2api：省多少 vs 封号风险
 - [**one-api vs new-api vs LiteLLM**](compare/one-api-vs-new-api-vs-litellm.zh-CN.md) — 国内大模型 API 中转/网关怎么选(2026)
 - [**LiteLLM vs OpenRouter vs Portkey (2026)**](compare/litellm-vs-openrouter-vs-portkey-2026.md) — 该用哪个 AI 网关?(英文)
 - [**LiteLLM alternatives (2026)**](compare/litellm-alternatives-2026.md) — LiteLLM 替代方案:8 个网关按成本/安全/自托管对比(英文)
