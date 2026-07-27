@@ -27,6 +27,12 @@ jobs:
       - name: Rebuild the release feed from refreshed data
         run: python scripts/build_feed.py
 
+      # The refresh also rewrites star spans inside compare/*.md, and CI's
+      # build_compare_html --check requires the published HTML to match its
+      # markdown source — so the same run must regenerate the pages.
+      - name: Rebuild compare pages from refreshed sources
+        run: python scripts/build_compare_html.py
+
       - name: Commit if content changed
         run: |
           if git diff --quiet; then
@@ -34,7 +40,7 @@ jobs:
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add README.md README.zh-CN.md data/releases.json feed.xml
+            git add README.md README.zh-CN.md compare data/releases.json feed.xml sitemap.xml
             git commit -m "docs: daily refresh — stars & releases ($(date -u +%F))"
             git push
           fi

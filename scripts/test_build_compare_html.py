@@ -109,6 +109,19 @@ class TestMdToHtml(unittest.TestCase):
         self.assertNotIn("](", out)
         self.assertNotIn("\x00", out)  # no leftover placeholders
 
+    def test_star_spans_collapse_to_display_text(self):
+        """Live star spans (kept fresh by update_readme.py) must render as their
+        display text — an unstripped marker would be HTML-escaped and visible."""
+        sample = (
+            "# T\n\nMost starred (<!--s:BerriAI/litellm-->⭐ 54.8k<!--/s-->).\n\n"
+            "| G | Stars |\n|---|---|\n| **B** | <!--s:maximhq/bifrost-->⭐ 6.8k<!--/s--> |"
+        )
+        out = md_to_html(sample)
+        self.assertIn("(⭐ 54.8k)", out)
+        self.assertIn("<td>⭐ 6.8k</td>", out)
+        self.assertNotIn("s:BerriAI/litellm", out)
+        self.assertNotIn("&lt;!--", out)
+
 
 class TestMetadata(unittest.TestCase):
     def test_extract_title(self):
@@ -124,6 +137,10 @@ class TestMetadata(unittest.TestCase):
               "The real lede paragraph that should become the description.\n\n## Next")
         self.assertEqual(extract_description(md),
                          "The real lede paragraph that should become the description.")
+
+    def test_extract_description_strips_star_spans(self):
+        md = "# T\n\nLiteLLM (<!--s:BerriAI/litellm-->⭐ 54.8k<!--/s-->) leads the pack today.\n\n## Next"
+        self.assertEqual(extract_description(md), "LiteLLM (⭐ 54.8k) leads the pack today.")
 
     def test_extract_description_truncates_on_word_boundary(self):
         md = "# T\n\n" + "word " * 60

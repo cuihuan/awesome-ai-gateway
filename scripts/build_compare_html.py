@@ -61,6 +61,11 @@ def rewrite_link(href: str) -> str:
 
 # ── Inline rendering ─────────────────────────────────────────────────────────
 
+# Star-count spans (kept live by scripts/update_readme.py) collapse to their
+# display text: the HTML page shows "⭐ 54.8k", never the comment markers —
+# md_to_html escapes literal text, so an unstripped marker would render visibly.
+_STAR_SPAN = re.compile(r"<!--s:[\w.\-]+/[\w.\-]+-->\s*(.*?)\s*<!--/s-->", re.DOTALL)
+
 _CODE = re.compile(r"`([^`]+)`")
 _LINK = re.compile(r"\[([^\]]+)\]\(([^()]*(?:\([^()]*\)[^()]*)*)\)")  # tolerate one level of ()s in the URL
 _BOLD = re.compile(r"\*\*([^*]+)\*\*")
@@ -122,7 +127,7 @@ def _table(rows: list[str]) -> str:
 def md_to_html(md: str) -> str:
     """Convert the supported markdown subset to an HTML fragment (the <article>
     body). Pure — no I/O. Skips a leading H1 (it becomes the page <h1>/title)."""
-    lines = md.replace("\r\n", "\n").split("\n")
+    lines = _STAR_SPAN.sub(r"\1", md.replace("\r\n", "\n")).split("\n")
     out: list[str] = []
     i = 0
     seen_h1 = False
@@ -194,6 +199,7 @@ def md_to_html(md: str) -> str:
 # ── Metadata extraction ──────────────────────────────────────────────────────
 
 _STRIP_MD = [
+    (_STAR_SPAN, r"\1"),  # first, so the inner "⭐ n" text survives for the rules below
     (re.compile(r"`([^`]+)`"), r"\1"),
     (re.compile(r"\[([^\]]+)\]\([^)]+\)"), r"\1"),
     (re.compile(r"\*\*([^*]+)\*\*"), r"\1"),

@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 """Daily content refresher for awesome-ai-gateway.
 
-Updates, in README.md and README.zh-CN.md:
-  1. Star counts inside ``<!--s:owner/repo-->...<!--/s-->`` markers.
-  2. The "Top gateways (by stars)" table between ``<!-- TOP-GATEWAYS:START -->``
-     and ``<!-- TOP-GATEWAYS:END -->`` — rows re-sorted descending so the
-     heading's by-stars promise survives the refreshed counts.
-  3. The "Recent releases" block between ``<!-- RELEASES:START -->`` and
-     ``<!-- RELEASES:END -->`` (latest releases of repos listed in
-     data/projects.json).
+Updates, in README.md, README.zh-CN.md and compare/*.md:
+  1. Star counts inside ``<!--s:owner/repo-->...<!--/s-->`` markers — in the
+     READMEs *and* every compare/*.md source, so no reader-facing star count
+     is ever hand-typed (the compare HTML is rebuilt from the md by
+     scripts/build_compare_html.py, which renders the span's display text).
+  2. READMEs only: the "Top gateways (by stars)" table between
+     ``<!-- TOP-GATEWAYS:START -->`` and ``<!-- TOP-GATEWAYS:END -->`` — rows
+     re-sorted descending so the heading's by-stars promise survives the
+     refreshed counts.
+  3. READMEs only: the "Recent releases" block between
+     ``<!-- RELEASES:START -->`` and ``<!-- RELEASES:END -->`` (latest
+     releases of repos listed in data/projects.json).
 
 Also writes data/releases.json for programmatic consumers.
 
@@ -29,6 +33,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 README_FILES = [ROOT / "README.md", ROOT / "README.zh-CN.md"]
+COMPARE_DIR = ROOT / "compare"
 PROJECTS_FILE = ROOT / "data" / "projects.json"
 RELEASES_FILE = ROOT / "data" / "releases.json"
 
@@ -49,6 +54,15 @@ def format_stars(count: int) -> str:
     value = count / 1000
     text = f"{value:.1f}".rstrip("0").rstrip(".")
     return f"{text}k"
+
+
+def star_span_files(root: Path = ROOT) -> list[Path]:
+    """Every file whose ``<!--s:-->`` spans the refresh owns: the two READMEs
+    plus each compare/*.md source. Compare pages quote star counts in prose
+    and tables; giving those spans too means one pipeline feeds every
+    reader-facing count instead of leaving hand-typed copies to rot."""
+    readmes = [root / p.name for p in README_FILES]
+    return readmes + sorted((root / "compare").glob("*.md"))
 
 
 def collect_marked_repos(text: str) -> list[str]:
@@ -198,8 +212,9 @@ def fetch_latest_releases(repos: list[str]) -> list[dict]:
 def main() -> int:
     tracked = json.loads(PROJECTS_FILE.read_text(encoding="utf-8"))["release_tracked_repos"]
 
+    span_files = star_span_files()
     marked_repos: list[str] = []
-    for path in README_FILES:
+    for path in span_files:
         for slug in collect_marked_repos(path.read_text(encoding="utf-8")):
             if slug not in marked_repos:
                 marked_repos.append(slug)
@@ -211,11 +226,12 @@ def main() -> int:
 
     block = render_releases_block(releases)
     changed_files = []
-    for path in README_FILES:
+    for path in span_files:
         original = path.read_text(encoding="utf-8")
         updated = replace_star_markers(original, stars)
-        updated = sort_top_gateways_table(updated)
-        updated = replace_between_markers(updated, RELEASES_START, RELEASES_END, block)
+        if path in README_FILES:  # table + releases blocks only exist there
+            updated = sort_top_gateways_table(updated)
+            updated = replace_between_markers(updated, RELEASES_START, RELEASES_END, block)
         if updated != original:
             path.write_text(updated, encoding="utf-8")
             changed_files.append(path.name)

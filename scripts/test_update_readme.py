@@ -1,8 +1,11 @@
 """Unit tests for the pure functions in update_readme.py (no network)."""
 
+import re
 import unittest
+from pathlib import Path
 
 from update_readme import (
+    STAR_MARKER_RE,
     collect_marked_repos,
     format_stars,
     parse_displayed_stars,
@@ -10,7 +13,10 @@ from update_readme import (
     replace_between_markers,
     replace_star_markers,
     sort_top_gateways_table,
+    star_span_files,
 )
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
 class TestFormatStars(unittest.TestCase):
@@ -65,6 +71,44 @@ class TestReplaceBetweenMarkers(unittest.TestCase):
     def test_missing_markers_raise(self):
         with self.assertRaises(ValueError):
             replace_between_markers("no markers", "<!-- X:START -->", "<!-- X:END -->", "x")
+
+
+class TestStarSpanFiles(unittest.TestCase):
+    def test_covers_readmes_then_every_compare_source(self):
+        files = star_span_files()
+        self.assertEqual([p.name for p in files[:2]], ["README.md", "README.zh-CN.md"])
+        compare_sources = sorted((REPO_ROOT / "compare").glob("*.md"))
+        self.assertTrue(compare_sources, "compare/*.md sources vanished?")
+        self.assertEqual(files[2:], compare_sources)
+
+
+class TestNoHandTypedStarCounts(unittest.TestCase):
+    """Every reader-facing star count must live inside a ``<!--s:-->`` span.
+
+    Hand-typed counts rot silently — the compare pages said 51k★ while the
+    daily-refreshed README said 54.8k for the same repo. Strip the live spans,
+    then fail on any star-count-shaped text left behind. (Rubric scores like
+    '★4.5' put the star glyph first and are not matched.)
+    """
+
+    HAND_TYPED = re.compile(
+        r"[\d][\d.,]*\s*k?\s*★"                        # '51k★', '4★', '约 40k★'
+        r"|⭐\s*~?[\d]"                                 # span display text outside a span
+        r"|[\d][\d.,]*k\s+(?:GitHub\s+)?[Ss]tars?\b"   # '51k stars'
+    )
+
+    def test_readmes_and_compare_sources_carry_no_hand_typed_counts(self):
+        offenders = []
+        for path in star_span_files():
+            text = STAR_MARKER_RE.sub("", path.read_text(encoding="utf-8"))
+            for lineno, line in enumerate(text.split("\n"), 1):
+                for match in self.HAND_TYPED.finditer(line):
+                    offenders.append(f"{path.name}:{lineno}: {match.group(0)!r}")
+        self.assertEqual(
+            offenders,
+            [],
+            "hand-typed star counts outside <!--s:--> spans:\n" + "\n".join(offenders),
+        )
 
 
 class TestParseDisplayedStars(unittest.TestCase):
