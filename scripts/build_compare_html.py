@@ -462,12 +462,13 @@ def _json(s: str) -> str:
 def build_sitemap(articles: list[tuple[str, str | None]]) -> str:
     """articles: [(slug, lastmod_or_None), ...]. The home page has no lastmod
     (its 'daily' changefreq already signals freshness)."""
+    # litellm-vs-openrouter.html, openrouter-alternatives.html and
+    # self-hosted-llm-gateway.html are deliberately absent: they canonicalize to
+    # their compare/ successors (same query, one indexed winner), and a sitemap
+    # should list canonical URLs only. Their zh-CN twins remain canonical pages.
     rows = [(SITE, "1.0", "daily", None)]
-    rows.append((SITE + "litellm-vs-openrouter.html", "0.7", "monthly", None))  # comparison article
     rows.append((SITE + "litellm-vs-openrouter.zh-CN.html", "0.6", "monthly", None))  # zh-CN localization
-    rows.append((SITE + "openrouter-alternatives.html", "0.7", "monthly", None))  # comparison article
     rows.append((SITE + "openrouter-alternatives.zh-CN.html", "0.6", "monthly", None))  # zh-CN localization
-    rows.append((SITE + "self-hosted-llm-gateway.html", "0.7", "monthly", None))  # guide article
     rows.append((SITE + "self-hosted-llm-gateway.zh-CN.html", "0.6", "monthly", None))  # zh-CN localization
     rows.append((SITE + "reduce-llm-api-costs.html", "0.7", "monthly", None))  # guide article
     rows.append((SITE + "reduce-llm-api-costs.zh-CN.html", "0.6", "monthly", None))  # zh-CN localization

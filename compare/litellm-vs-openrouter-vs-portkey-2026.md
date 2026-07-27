@@ -53,6 +53,8 @@ There's no single winner — there's a winner *for your constraint*:
 
 ## See all 50+ gateways
 
+Just weighing LiteLLM against OpenRouter? The condensed [LiteLLM vs OpenRouter guide](https://cuihuan.github.io/awesome-ai-gateway/litellm-vs-openrouter.html) covers those two head-to-head, including how to run them together.
+
 This is three of them. The full list — organized by *what you need* (cost, compliance, self-hosting, China models, MCP/agents), with a decision tree, comparison tables, and the reproducible cost + scorecard data — is here:
 
 👉 **[Awesome AI Gateway](https://github.com/cuihuan/awesome-ai-gateway)** · [interactive site](https://cuihuan.github.io/awesome-ai-gateway/) · [简体中文](../README.zh-CN.md)

@@ -217,6 +217,18 @@ class TestSitemap(unittest.TestCase):
         undated_block = xml.split("compare/undated.html")[1].split("</url>")[0]
         self.assertNotIn("<lastmod>", undated_block)
 
+    def test_canonicalized_guides_stay_out_zh_twins_stay_in(self):
+        # The three root guides canonicalize to their compare/ successors, so a
+        # sitemap (canonical URLs only) must not list them — while their zh-CN
+        # twins are still canonical pages and must stay.
+        xml = build_sitemap([])
+        for gone in ("litellm-vs-openrouter.html", "openrouter-alternatives.html",
+                     "self-hosted-llm-gateway.html"):
+            self.assertNotIn(f"awesome-ai-gateway/{gone}", xml)
+        for kept in ("litellm-vs-openrouter.zh-CN.html", "openrouter-alternatives.zh-CN.html",
+                     "self-hosted-llm-gateway.zh-CN.html", "reduce-llm-api-costs.html"):
+            self.assertIn(f"awesome-ai-gateway/{kept}", xml)
+
 
 if __name__ == "__main__":
     unittest.main()

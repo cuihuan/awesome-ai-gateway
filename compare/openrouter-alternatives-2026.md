@@ -57,7 +57,7 @@ Be fair: OpenRouter is hard to beat on **breadth and time-to-first-call** (<!--o
 - **Hard compliance certs** → Azure / Bedrock / Vertex or Portkey
 - **Keys on your infra** → LiteLLM or Bifrost
 
-Full scorecard (compliance / markup / security / stability for 20+ gateways) and the reproducible cost tables are in the **[evaluation set →](../BENCHMARKS.md)**. Browse all gateways by need in **[Awesome AI Gateway →](../README.md)**.
+Full scorecard (compliance / markup / security / stability for 20+ gateways) and the reproducible cost tables are in the **[evaluation set →](../BENCHMARKS.md)**. Browse all gateways by need in **[Awesome AI Gateway →](../README.md)**. Prefer a one-screen version? The condensed [by-reason shortlist guide](https://cuihuan.github.io/awesome-ai-gateway/openrouter-alternatives.html) walks the same decision.
 
 ---
 

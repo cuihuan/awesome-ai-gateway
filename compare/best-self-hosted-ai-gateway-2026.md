@@ -49,5 +49,7 @@ The gateway is $0-markup; your bill is the **model**. Same 100K-token report: **
 - **Guardrails/governance in the gateway → Portkey.**
 - **K8s / enterprise governance → Kong / Higress / Envoy AI Gateway.**
 
+Still deciding *whether* to self-host at all? The condensed [self-hosted gateway how-to-choose guide](https://cuihuan.github.io/awesome-ai-gateway/self-hosted-llm-gateway.html) covers the why and the one-line picks.
+
 See all 50+ gateways organized by need, with decision tree and data:
 👉 **[Awesome AI Gateway](https://github.com/cuihuan/awesome-ai-gateway)** · [interactive site](https://cuihuan.github.io/awesome-ai-gateway/)
