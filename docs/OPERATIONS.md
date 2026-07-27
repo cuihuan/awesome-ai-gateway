@@ -119,7 +119,7 @@ Subreddit etiquette: read each sub's self-promo rules; r/LLMDevs **bans** self-p
 - **Topics** ✅ (20, incl. `benchmark`, `cost-optimization`, `llm-gateway`, `llmops`, `mcp`, `openrouter`, `litellm`).
 - **Description** ✅ ("100+ …", keyword-rich).
 - **Website field** ✅ (Pages site).
-- **Social-preview image** ⬜👤 — upload a 1280×640 card (decision-tree or price-spread chart) at Settings → Social preview. Drives click-through on every share.
+- **Social-preview image** ✅ — uploaded (og:image verified 2026-07-27: `repository-images.githubusercontent.com` custom card). Every share unfurls with it.
 - **Profile README + pinned repos** ⬜👤 — pin all three repos; cross-link them (READMEs already cross-link ✅).
 - **Trending** = star *velocity vs. own baseline* + issues/PRs/forks. Concentrate launch pushes to create velocity; keep activity flowing after.
 
@@ -145,12 +145,26 @@ Total stars + **weekly velocity** (star-history.com) · **GitHub Insights → Tr
 ✅ artifacts complete (llms.txt/sitemap/feed/JSON-LD/CITATION/SECURITY) ·
 ✅ launch-post drafts (`docs/launch-posts.md`) · ✅ +8 verified gateways (coverage audit) · ✅ batch pushed live (Pages verified) ·
 ✅ 3 awesome-list backlink PRs open (kelvins#216, tensorchord#572, Hannibal046#682) ·
-⬜👤 social-preview image · ⬜👤 pin+profile README · ⬜👤 execute forum launch (drafts ready).
+✅ social-preview image (uploaded; og:image verified 2026-07-27) · ⬜👤 pin+profile README · ⬜👤 execute forum launch (drafts ready).
 
 ### Maintenance / growth log
 - **2026-06-24 · accuracy audit** — all 66 GitHub-backed entries verified via `gh api`: 61 active, 5 stale/archived (TensorZero, pydantic-ai-gateway, BricksLLM, Glide, RouteLLM) — **all 5 already correctly labeled** in the list. 0 uncorrected issues; the "active within 12 months or labeled stale" promise holds. Re-run quarterly (or after big additions).
 - **2026-06-24 · growth actions executed (agent-doable):** +8 verified gateways · cost-calculator.html live · 3 `good first issue`s (#11–13) · 3 awesome-list backlink PRs (kelvins#216, tensorchord#572, Hannibal046#682) · 阮一峰周刊 self-rec ([ruanyf/weekly#10435](https://github.com/ruanyf/weekly/issues/10435)).
 - **Still 👤 (needs you — live presence / your account):** the real-time forum launch (HN Show HN, r/LocalLLaMA, r/selfhosted, V2EX, linux.do — drafts in `launch-posts.md`), social-preview image upload, pin repos, sindresorhus/awesome PR. These move stars most but backfire if fired without you present.
+- **2026-07-27 · full-cycle audit → ship batch.** A multi-agent audit (5 reader personas + SEO/GEO + market trends + growth-state + accuracy verification) produced 13 ranked actions; the agent-ownable ones all shipped same-day. By rank:
+  1. Cost-first curated — 10 track-record picks up front, 16 unverified relays folded into one details block (`55416b6`).
+  2. Decision layer moved above the catalog; TOC gained the user-task entry (`071fed5`).
+  3. Numbers pipeline sealed — top-table sort CI-enforced (`71abcf7`), hand-typed star counts single-sourced (`e3d80fe`), OpenRouter model count single-sourced (`61fa219`), compare pages carry measured overhead (`3f3a427`), 6 fact-check corrections (`383bd24`).
+  4. Watch-list canary seeding — 👤 pending; exact commands + cost estimate prepped in the maintainer action memo.
+  5. Coding-agent routers deep-dive shipped — mechanism tiers, ToS reality, dated ban evidence (`06c8b8b`) — and wired into TOC / hero / fast-answer / smart-routing / guides in both languages (`52f27c6`).
+  6. Missed fast-risers added (freellmapi, opencodex, CPA-Manager-Plus, ccglass et al., `5500b1e`); July market events + star-farming caution in What's new (`a3b77fe`).
+  7. Launch burst — 👤 pending; every channel draft refreshed to 71★ + the three new assets, daily.dev draft added (`bef75ac`).
+  8. Data-retention matrix joined the freshness watch (`c04c8a0`).
+  9. SEO consolidation — canonical pairing old guides → 2026 deep-dives (`0893379`), index links every money page (`f9926f2`), llms.txt gained Guides + Tools (`3dc0b65`), sitemap lastmod from git history (`453bce2`), §9c status brought honest (`a703cc3`).
+  10. GEO schema — ItemList + SoftwareApplication + honest dateModified (`7c602b6`), FAQPage on all EN deep-dives (`7d35b7d`).
+  11. Homelab questions answered in-list — UI / Ollama / deploy-weight columns (`f861654`).
+  12. SSO-tax identity & governance matrix, primary-sourced, BENCHMARKS Part 7 (`581db03`).
+  13. Hygiene batch — external PRs #39/#40/#41 merged with evidence-based edits (`6da5855` / `c35c619` / `db3dbc0`); social-preview + HelloGitHub statuses corrected in this doc; duplicate self-rec close-notes, GoModel discussion reply and canary runbook drafted for 👤 (see decision memo below for sindresorhus).
 
 _Sources & full research: condensed from a 2026 competitive-research pass (HN/Reddit/周刊/awesome-list mechanics, GitHub Trending, issue-ops). The bottleneck is distribution + issue-ops + backlinks — not more artifacts._
 
@@ -208,7 +222,7 @@ A 6-agent research pass (how comparable awesome-lists + LLM-gateway projects act
 4. **Latent Space + AINews (smol.ai)** — the AI-engineering canon + a discovery flywheel (AINews auto-summarizes top AI Discords/subreddits). Amplifier, not a post target.
 5. **AI Engineer community / World's Fair** — highest practitioner density; the SF World's Fair ran Jun 29–Jul 2 2026. Gateway/inference/ops angle is on-topic.
 6. **MLOps Community Slack** (~70k) — genuine LLMOps/AgentOps discussion.
-7. **HelloGitHub 【开源自荐】** ([521xueweihan/HelloGitHub](https://github.com/521xueweihan/HelloGitHub), ~163k★) — best single submit-once move for a CN audience (site + WeChat + Weibo). **NEW target, do this.**
+7. **HelloGitHub 【开源自荐】** ([521xueweihan/HelloGitHub](https://github.com/521xueweihan/HelloGitHub), ~163k★) — best single submit-once move for a CN audience (site + WeChat + Weibo). ✅ **submitted 2026-07-08** ([#3426](https://github.com/521xueweihan/HelloGitHub/issues/3426), open). ⚠️ A duplicate self-rec from repo-creation day ([#3345](https://github.com/521xueweihan/HelloGitHub/issues/3345), 2026-06-11) is still open — 👤 close it with a pointer to #3426 (two open self-recs on one repo reads as spam to the curator). Same cleanup applies at ruanyf/weekly: close [#10290](https://github.com/ruanyf/weekly/issues/10290) (dup, 06-11) pointing at [#10435](https://github.com/ruanyf/weekly/issues/10435).
 8. **阮一峰周刊 【开源自荐】** — already submitted ([ruanyf/weekly#10435](https://github.com/ruanyf/weekly/issues/10435)); the other high-leverage CN submit-once.
 Runner-ups (CN human discussion): linux.do 开发调优, 掘金/知乎 writeups, GitHub-Chinese-Top-Charts (auto-ranks on star velocity). **New in 2026:** r/AI_Agents surged to ~392k (routing lives inside agent-stack talk); **Datadog "State of AI Engineering"** (verified 2026-07-07: https://www.datadoghq.com/state-of-ai-engineering/, telemetry from 1,000+ orgs, Apr 2026) is a citation-magnet anchor — verified framing: **>70% run 3+ models** (press release said 69%), **rate limits ≈ ⅓ of LLM errors (Mar 2026, 8.4M)**, only 28% of calls show cached input, OpenAI share 75%→63%. Now cited in the README digest + Essential reading — reuse these stats in posts. Low fit: r/MachineLearning (research-skewed), lobste.rs (invite-only, AI-cool), dev.to.
 
@@ -261,3 +275,12 @@ The gateway scorecard is now **compliance · markup · security · stability · 
 - **Re-review cadence:** rides the existing `check_freshness.py` 30-day gate on `gateways_eval.json` (`as_of`). On each refresh, spot-check the 3 most volatile: **Portkey OSS** (score jumps to ~4.5 the day the 2.0 branch ships a stable release — watch releases), **Kong OSS** (features drift Enterprise-ward; verify against the OSS source tree, not docs), **Requesty/Eden/Martian** (sparse docs — "not documented" ≠ absent, revisit).
 - **New gateway added to the scorecard ⇒ must get all 5 axes** incl. an observability_note; `export_csv.py` exports the column (tests enforce the field).
 - **Adding a 6th axis someday:** follow this precedent — publish the rubric row first, evidence-note per gateway in the JSON, sweep the Part-4 heading anchor repo-wide (10+ refs incl. compare/*.md sources → regenerate HTML), bump `as_of`.
+
+## 12. Decision memo — sindresorhus/awesome submission (needs a 👤 call, 2026-07-27)
+
+**The contradiction, on record for 16+ days:** the age gate passed 2026-07-11 and §9e-2/§9f still call this "the imminent high-value move," while `docs/awesome-lint-triage.md`'s 07-03 PoC concluded a lint-green pass requires **flattening every emoji-decorated table** — a UX sacrifice it recommended against. Net effect: the item is neither being done nor formally dropped. Pick one:
+
+- **Option (a) — formally deprioritize per the triage PoC.** Keep the emoji tables and the double-link money anchors (they serve readers; the lint rules punish exactly what makes this list scannable). Accept losing the single biggest evergreen backlink. Agent then edits §9e-2/§9f to "deprioritized per triage PoC" and closes the loop.
+- **Option (b) — accept emoji-flattening and let the agent drive lint-to-green.** Mechanical but large, and **the bill grows with the list**: verified 2026-07-27 by running `npx awesome-lint` against the live repo — **1,191 errors + 11 warnings**, up ~2× from the ~656 in the 07-03 triage snapshot (breakdown: 599 table-pipe-alignment · 247 awesome-list-item · 231 double-link · 108 table-cell-padding · 3 no-emphasis-as-heading · 1 emphasis-marker · rest singletons). Every content addition since 07-03 deepened the gap, and future growth keeps deepening it — so option (b) also implies keeping lint green forever (a CI gate), not a one-time cleanup. After green: 👤 reviews 4 other PRs + posts `unicorn`.
+
+**Recommendation (agent):** (a). The doubling in three weeks is the argument — lint debt scales with exactly the growth we want, and the flattened tables would degrade the product for every reader to win one backlink. But this is a strategy call: 👤 decides; agent syncs whichever answer into §9e/§9f the same day.
