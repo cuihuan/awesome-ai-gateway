@@ -1,11 +1,23 @@
-"""Unit tests for check_freshness.py pure functions (no filesystem/network)."""
+"""Unit tests for check_freshness.py pure functions (no filesystem/network),
+plus a small repo-level check that the WATCH list covers what it must."""
 
 import datetime
 import unittest
 
-from check_freshness import parse_date, stale_entries
+from check_freshness import TRACKED, load_tracked_dates, parse_date, stale_entries
 
 TODAY = datetime.date(2026, 6, 23)
+
+
+class TestTrackedCoverage(unittest.TestCase):
+    def test_retention_matrix_is_watched(self):
+        """The 'who sees your prompts' matrix is the list's self-declared #1
+        trust answer — it must never again sit outside the freshness watch."""
+        self.assertIn("data/data_retention.json", [path for _, path in TRACKED])
+
+    def test_every_tracked_file_yields_a_parseable_as_of(self):
+        for label, datestr in load_tracked_dates():
+            parse_date(datestr)  # raises on a missing/malformed date
 
 
 class TestParseDate(unittest.TestCase):

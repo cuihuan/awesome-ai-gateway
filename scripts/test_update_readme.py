@@ -6,15 +6,18 @@ from pathlib import Path
 
 from update_readme import (
     OMC_MARKER_RE,
+    RVD_MARKER_RE,
     STAR_MARKER_RE,
     collect_marked_repos,
     format_stars,
     load_openrouter_model_count,
+    load_retention_as_of,
     parse_displayed_stars,
     render_openrouter_model_count,
     render_releases_block,
     replace_between_markers,
     replace_model_count_markers,
+    replace_retention_date_markers,
     replace_star_markers,
     sort_top_gateways_table,
     star_span_files,
@@ -139,6 +142,27 @@ class TestOpenRouterModelCount(unittest.TestCase):
     def test_both_readmes_carry_spans(self):
         for path in star_span_files()[:2]:
             self.assertIn("<!--omc-->", path.read_text(encoding="utf-8"), path.name)
+
+
+class TestRetentionVerifiedDate(unittest.TestCase):
+    def test_replace_rewrites_stale_spans(self):
+        text = "primary sources, verified <!--rvd-->2026-01-01<!--/rvd-->."
+        self.assertEqual(
+            replace_retention_date_markers(text, "2026-07-08"),
+            "primary sources, verified <!--rvd-->2026-07-08<!--/rvd-->.",
+        )
+
+    def test_readme_dates_match_the_json_as_of(self):
+        """The 'verified <date>' prose next to the retention matrix must equal
+        data/data_retention.json's as_of — it drifted silently before."""
+        expected = f"<!--rvd-->{load_retention_as_of()}<!--/rvd-->"
+        for path in star_span_files():
+            for match in RVD_MARKER_RE.finditer(path.read_text(encoding="utf-8")):
+                self.assertEqual(match.group(0), expected, path.name)
+
+    def test_both_readmes_carry_the_span(self):
+        for path in star_span_files()[:2]:
+            self.assertIn("<!--rvd-->", path.read_text(encoding="utf-8"), path.name)
 
 
 class TestParseDisplayedStars(unittest.TestCase):

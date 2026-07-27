@@ -499,7 +499,7 @@ Then, whatever tier you're in:
 
 ### 🔒 Who sees your prompts? — the data-retention matrix
 
-_The #1 trust question, with no neutral cross-vendor answer anywhere. Here's one, from primary sources ([machine-readable](data/data_retention.json), verified 2026-07-08). Self-hosted gateways are omitted — you own the data plane._
+_The #1 trust question, with no neutral cross-vendor answer anywhere. Here's one, from primary sources ([machine-readable](data/data_retention.json), verified <!--rvd-->2026-07-08<!--/rvd-->). Self-hosted gateways are omitted — you own the data plane._
 
 | Hosted gateway | Logs bodies by default | ZDR / no-log mode | Trains on your prompts | Default retention |
 |---|---|---|---|---|

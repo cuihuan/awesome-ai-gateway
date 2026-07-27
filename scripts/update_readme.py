@@ -2,12 +2,16 @@
 """Daily content refresher for awesome-ai-gateway.
 
 Updates, in README.md, README.zh-CN.md and compare/*.md:
-  1. Star counts inside ``<!--s:owner/repo-->...<!--/s-->`` markers and the
-     OpenRouter model count inside ``<!--omc-->...<!--/omc-->`` markers
-     (canonical value: data/models.json ``openrouter_model_count``) — in the
-     READMEs *and* every compare/*.md source, so no reader-facing count is
-     ever hand-typed (the compare HTML is rebuilt from the md by
-     scripts/build_compare_html.py, which renders each span's display text).
+  1. Live-data spans — in the READMEs *and* every compare/*.md source, so no
+     reader-facing number is ever hand-typed (the compare HTML is rebuilt from
+     the md by scripts/build_compare_html.py, which renders each span's
+     display text):
+       - star counts inside ``<!--s:owner/repo-->...<!--/s-->``;
+       - the OpenRouter model count inside ``<!--omc-->...<!--/omc-->``
+         (canonical value: data/models.json ``openrouter_model_count``);
+       - the data-retention matrix's verified-date inside
+         ``<!--rvd-->...<!--/rvd-->`` (canonical value:
+         data/data_retention.json ``as_of``).
   2. READMEs only: the "Top gateways (by stars)" table between
      ``<!-- TOP-GATEWAYS:START -->`` and ``<!-- TOP-GATEWAYS:END -->`` — rows
      re-sorted descending so the heading's by-stars promise survives the
@@ -38,6 +42,7 @@ README_FILES = [ROOT / "README.md", ROOT / "README.zh-CN.md"]
 COMPARE_DIR = ROOT / "compare"
 PROJECTS_FILE = ROOT / "data" / "projects.json"
 MODELS_FILE = ROOT / "data" / "models.json"
+RETENTION_FILE = ROOT / "data" / "data_retention.json"
 RELEASES_FILE = ROOT / "data" / "releases.json"
 
 STAR_MARKER_RE = re.compile(r"<!--s:([\w.\-]+/[\w.\-]+)-->.*?<!--/s-->", re.DOTALL)
@@ -48,6 +53,8 @@ TOP_GATEWAYS_END = "<!-- TOP-GATEWAYS:END -->"
 DISPLAYED_STARS_RE = re.compile(r"<!--s:[\w.\-]+/[\w.\-]+-->[^0-9<]*([0-9.]+)\s*(k?)", re.IGNORECASE)
 # OpenRouter model count — single-sourced from data/models.json (openrouter_model_count).
 OMC_MARKER_RE = re.compile(r"<!--omc-->.*?<!--/omc-->", re.DOTALL)
+# Retention-matrix verified-date — single-sourced from data/data_retention.json as_of.
+RVD_MARKER_RE = re.compile(r"<!--rvd-->.*?<!--/rvd-->", re.DOTALL)
 MAX_RELEASES_SHOWN = 12
 API_BASE = "https://api.github.com"
 
@@ -113,6 +120,22 @@ def replace_model_count_markers(text: str, display: str) -> str:
 
 def load_openrouter_model_count(models_file: Path = MODELS_FILE) -> int:
     return json.loads(models_file.read_text(encoding="utf-8"))["openrouter_model_count"]["count"]
+
+
+def load_retention_as_of(retention_file: Path = RETENTION_FILE) -> str:
+    return json.loads(retention_file.read_text(encoding="utf-8"))["as_of"]
+
+
+def replace_retention_date_markers(text: str, as_of: str) -> str:
+    """Rewrite every ``<!--rvd-->…<!--/rvd-->`` span to the matrix's as_of date.
+
+    The READMEs print 'verified <date>' next to the data-retention matrix; the
+    date used to be hand-typed prose that nothing compared against
+    data/data_retention.json. Rendering it from the JSON (whose as_of only a
+    real re-review moves, enforced by check_freshness.py) means the prose can
+    never claim a verification the data file doesn't back.
+    """
+    return RVD_MARKER_RE.sub(f"<!--rvd-->{as_of}<!--/rvd-->", text)
 
 
 def parse_displayed_stars(row: str) -> int | None:
@@ -254,11 +277,13 @@ def main() -> int:
 
     block = render_releases_block(releases)
     model_count_display = render_openrouter_model_count(load_openrouter_model_count())
+    retention_as_of = load_retention_as_of()
     changed_files = []
     for path in span_files:
         original = path.read_text(encoding="utf-8")
         updated = replace_star_markers(original, stars)
         updated = replace_model_count_markers(updated, model_count_display)
+        updated = replace_retention_date_markers(updated, retention_as_of)
         if path in README_FILES:  # table + releases blocks only exist there
             updated = sort_top_gateways_table(updated)
             updated = replace_between_markers(updated, RELEASES_START, RELEASES_END, block)

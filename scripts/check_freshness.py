@@ -2,9 +2,10 @@
 """Freshness guard for the hand-maintained dated snapshots.
 
 The daily CI auto-refreshes star counts and releases, but the pricing/benchmark
-snapshot (`data/models.json`) and the gateway scorecard (`data/gateways_eval.json`)
-carry a manual `as_of` date that only a human review should move. Left unwatched
-they silently rot while the page still advertises "updated daily".
+snapshot (`data/models.json`), the gateway scorecard (`data/gateways_eval.json`),
+the free-tier table and the data-retention matrix carry a manual `as_of` date
+that only a human review should move. Left unwatched they silently rot while
+the page still advertises "updated daily".
 
 This script asserts each tracked `as_of` is within --max-age-days of today and
 exits non-zero (listing the stale ones) otherwise. It is a forcing function to
@@ -33,6 +34,10 @@ TRACKED = [
     ("data/models.json (pricing & benchmark snapshot)", "data/models.json"),
     ("data/gateways_eval.json (gateway scorecard snapshot)", "data/gateways_eval.json"),
     ("data/free_tiers.json (verified free-tier / rate-limit table)", "data/free_tiers.json"),
+    # The README calls this matrix the answer to "the #1 trust question" and
+    # prints its verified-date in prose — the one snapshot that most needs a
+    # rot alarm (it sat unwatched while everything else had one).
+    ("data/data_retention.json (who-sees-your-prompts retention matrix)", "data/data_retention.json"),
 ]
 
 
