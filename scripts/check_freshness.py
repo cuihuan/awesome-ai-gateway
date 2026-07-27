@@ -3,7 +3,8 @@
 
 The daily CI auto-refreshes star counts and releases, but the pricing/benchmark
 snapshot (`data/models.json`), the gateway scorecard (`data/gateways_eval.json`),
-the free-tier table and the data-retention matrix carry a manual `as_of` date
+the free-tier table, the data-retention matrix and the identity/governance
+(SSO-tax) matrix carry a manual `as_of` date
 that only a human review should move. Left unwatched they silently rot while
 the page still advertises "updated daily".
 
@@ -38,6 +39,10 @@ TRACKED = [
     # prints its verified-date in prose — the one snapshot that most needs a
     # rot alarm (it sat unwatched while everything else had one).
     ("data/data_retention.json (who-sees-your-prompts retention matrix)", "data/data_retention.json"),
+    # Tier gates move without announcement (LiteLLM freed 5-user SSO in
+    # v1.76.0; Kong reshuffled its docs mid-2026) — an identity matrix that
+    # quotes exact pricing-page wording rots as fast as the pricing pages.
+    ("data/identity_matrix.json (identity & governance / SSO-tax matrix)", "data/identity_matrix.json"),
 ]
 
 

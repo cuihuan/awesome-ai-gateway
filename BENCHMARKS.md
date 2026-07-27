@@ -15,6 +15,7 @@ Every number here is **sourced and dated**. Cost cells are *computed* from a pub
 - [Part 4 — Gateway scorecard: compliance · price · security · stability · observability](#part-4--gateway-scorecard-compliance--price--security--stability--observability)
 - [Part 5 — Real-world reviews: what production users report](#part-5--real-world-reviews-what-production-users-report)
 - [Part 6 — Gateway observability: the factors that matter](#part-6--gateway-observability-the-factors-that-matter)
+- [Part 7 — Identity & governance: the SSO-tax table](#part-7--identity--governance-the-sso-tax-table)
 - [Methodology & caveats](#methodology--caveats)
 - [Sources](#sources)
 
@@ -316,6 +317,35 @@ Benchmarks rank capability; this ranks **what actually breaks once a gateway is 
 > - Under ZDR / self-host, **what observability do I lose** (typically you keep metadata/metrics, drop prompt bodies)?
 
 > **Grounded in** the [OpenTelemetry GenAI semantic conventions](https://github.com/open-telemetry/semantic-conventions-genai) ([spans](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-spans.md) · [metrics](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-metrics.md)). Most `gen_ai.*` attributes are still **Development** status in 2026 (`error.type` / `server.*` are Stable) — pin `OTEL_SEMCONV_STABILITY_OPT_IN=gen_ai_latest_experimental` so dashboards don't silently break across releases. Reference label sets: [LiteLLM Prometheus](https://docs.litellm.ai/docs/proxy/prometheus), [OpenLLMetry/Traceloop](https://github.com/traceloop/openllmetry), [OpenInference](https://github.com/Arize-ai/openinference). Last reviewed **2026-06-25**.
+
+---
+
+## Part 7 — Identity & governance: the SSO-tax table
+
+Enterprise evaluations burn hours on four unglamorous questions — **SSO, SCIM, RBAC, audit logs** — and no neutral party has published the tier gates on one page. Here they are, from primary vendor docs only ([machine-readable with per-cell quotes + URLs](data/identity_matrix.json), verified **2026-07-27**). Control-plane features only: data-plane auth plugins (APISIX `openid-connect`, Higress `key-auth`, …) protect *proxied* traffic, not the gateway's own console, and don't count. "Not documented" = the vendor's docs are silent, **not** a confirmed "no". The recurring pattern is the **SSO tax**: identity and governance are precisely where open source and low tiers stop and the enterprise contract begins.
+
+**Legend:** ✅ available at the stated tier · 💰 paid/enterprise gate · ❌ absent · ❔ not documented
+
+### Self-hosted / open-core
+
+| Vendor | SSO (admin / control plane) | SCIM provisioning | RBAC | Audit logs |
+|---|---|---|---|---|
+| **LiteLLM** | ✅ OIDC + SAML, **free ≤5 users** (v1.76.0+) · 💰 Enterprise beyond | 💰 Enterprise (`/scim`, 6 IdPs; deprovision also deletes the user's API keys) | ✅ global roles + teams/keys free · 💰 org/team-admin roles Enterprise | 💰 Enterprise (key/team/user/model changes; UI + S3 JSON export) |
+| **Portkey** | 💰 Enterprise (OIDC + SAML, hosted control plane) · ❌ not in OSS gateway | ✅ users + groups→workspaces (Azure AD, Okta) · tier ❔ (docs sit under "Enterprise Offering") | ⚠️ vendor self-conflict: pricing says Production $49/mo, docs banner says Enterprise · ❌ not in OSS | 💰 Enterprise (admin actions, indefinite retention, JSON Admin API; no bulk file export) |
+| **Kong** | 💰 Konnect Enterprise (OIDC + SAML) · ❌ none in OSS | ❔ not documented for the gateway (Kong's SCIM is Insomnia-only) | 💰 Konnect Plus+ / Gateway Enterprise · ❌ zero `rbac` keys in OSS `kong.conf.default` | 💰 Enterprise (Konnect SIEM webhook, CEF/JSON — ⚠️ **7-day retention**, then deleted) |
+| **Apache APISIX / API7** | ❌ OSS (single shared admin key) · 💰 API7 Enterprise (OIDC/SAML/LDAP) | ❔ OSS · 💰 API7 Enterprise (Okta, Entra ID) | ❌ OSS · 💰 API7 Enterprise (custom roles + IAM-style policies) | ❔ OSS · 💰 API7 Enterprise (180-day default, JSON/CSV export) |
+| **Higress (OSS)** | ❌ single local admin account (console login mgmt is a roadmap item) | ❔ not documented | ❌ single-admin model, no console roles | ❔ not documented |
+
+### Hosted
+
+| Vendor | SSO | SCIM | RBAC | Audit logs |
+|---|---|---|---|---|
+| **OpenRouter** | 💰 Enterprise (SAML: Okta, Entra ID, Google Workspace, custom) | 💰 Enterprise (group→workspace mappings; IdP deactivation kills org-scoped keys) | ✅ 2 roles only (Admin/Member) + per-workspace assignment · tier ❔ | ❔ **no admin-action audit log documented** — only usage CSV/PDF export |
+| **Vercel AI Gateway** | 💰 Enterprise, or Pro add-on at **$300/month** (SAML, 20+ IdPs) | 💰 Enterprise only (Directory Sync — not purchasable on Pro at any price) | ✅ Pro team-level · 💰 Enterprise adds project-level | 💰 Enterprise (CSV + SIEM streaming / Audit Log Drains) |
+| **Cloudflare AI Gateway** | ✅ **free on all plans** (dashboard SSO, any Cloudflare One IdP, SAML incl.) | 💰 Enterprise only (Okta, Entra ID, Authentik) | ✅ 70+ account roles + domain/resource scoping (domain-scoped shipped to Enterprise; docs silent on tier today) | ✅ all plans, 18-month retention, CSV/API · 💰 Logpush export Enterprise |
+| **Higress hosted (Alibaba Cloud APIG)** | ✅ free (RAM SAML 2.0, account plane) | ✅ CloudSSO SCIM 2.0 (Okta, Entra ID, Keycloak) | ✅ RAM roles + custom JSON policies, resource-level (service code `apig`) | ✅ ActionTrail (90-day free, SLS/OSS delivery) |
+
+> **How to read the SSO tax.** (1) **Six of the nine vendors gate SSO behind a paid or enterprise tier.** Cloudflare is the only gateway vendor shipping dashboard SSO free on every plan; Vercel is the only one with a public sticker price for the tax ($300/month on Pro); LiteLLM has the only OSS carve-out (free up to 5 users since v1.76.0); Higress OSS has no console SSO at any price. (2) **Don't confuse data-plane auth with control-plane identity.** APISIX's `openid-connect`/`saml-auth` and Higress's auth plugins protect *proxied* APIs — the OSS consoles behind them are single-admin with no SSO, RBAC, or audit trail documented at all. (3) **Audit-log fine print bites hardest.** Kong Konnect keeps audit logs **7 days** then deletes them (the SIEM webhook is effectively mandatory); OpenRouter documents no admin-action audit log at all; LiteLLM and Portkey put audit logs behind Enterprise. (4) **Check *where* the feature lives.** Portkey's OSS repo is the data plane only — every identity feature requires the hosted/enterprise control plane; Cloudflare, Vercel and Alibaba Cloud inherit identity from the platform account, not the gateway product — fine if you're all-in on that platform, an extra dependency if not. Per-cell vendor quotes and source URLs: [`data/identity_matrix.json`](data/identity_matrix.json).
 
 ---
 

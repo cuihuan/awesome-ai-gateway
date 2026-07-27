@@ -247,6 +247,8 @@ _Pain point: "My keys, my infra, no per-token middleman fee."_
 
 _Pain point: "Audit logs, PII redaction, RBAC, on-prem, and the EU AI Act (enforceable Aug 2026)."_
 
+> **Who paywalls SSO / SCIM / RBAC / audit logs?** Six of nine vendors gate SSO behind an enterprise tier — Cloudflare is the only one shipping it free on every plan, and Vercel the only one with a sticker price for the tax ($300/month). Full tier-by-tier matrix, primary-sourced: [the SSO-tax table](BENCHMARKS.md#part-7--identity--governance-the-sso-tax-table) ([machine-readable](data/identity_matrix.json)).
+
 - [Kong AI Gateway](https://github.com/Kong/kong) <!--s:Kong/kong-->⭐ 43.9k<!--/s--> — Mature API gateway with AI plugins: semantic caching/routing, prompt guard, token rate-limiting; Konnect for managed control plane.
 - [Apache APISIX](https://github.com/apache/apisix) <!--s:apache/apisix-->⭐ 16.9k<!--/s--> — Cloud-native API + AI gateway with `ai-proxy` / `ai-proxy-multi` plugins.
 - [Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway) <!--s:envoyproxy/ai-gateway-->⭐ 1.9k<!--/s--> — CNCF-aligned GenAI access on Envoy Gateway, backed by Tetrate and Bloomberg.

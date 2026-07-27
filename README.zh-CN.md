@@ -247,6 +247,8 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 
 *痛点："审计日志、PII 脱敏、RBAC、私有化部署，外加 2026 年 8 月生效的欧盟 AI 法案。"*
 
+> **谁把 SSO / SCIM / RBAC / 审计日志关在付费墙后？** 九家厂商里六家把 SSO 锁进企业档——只有 Cloudflare 在所有套餐免费提供，只有 Vercel 给这笔税公开标价（$300/月）。逐档位一手来源对照表：[SSO 税对照表](BENCHMARKS.zh-CN.md#第七部分--身份与治理sso-税对照表)（[机器可读](data/identity_matrix.json)）。
+
 - [Kong AI Gateway](https://github.com/Kong/kong) <!--s:Kong/kong-->⭐ 43.9k<!--/s--> — 成熟 API 网关 + AI 插件：语义缓存/路由、Prompt 防护、token 限流；Konnect 提供托管控制面。
 - [Apache APISIX](https://github.com/apache/apisix) <!--s:apache/apisix-->⭐ 16.9k<!--/s--> — 云原生 API + AI 网关，`ai-proxy` / `ai-proxy-multi` 插件。
 - [Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway) <!--s:envoyproxy/ai-gateway-->⭐ 1.9k<!--/s--> — 基于 Envoy Gateway 的 CNCF 系 GenAI 接入层，Tetrate 与彭博背书。

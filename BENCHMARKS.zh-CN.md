@@ -15,6 +15,7 @@
 - [第四部分 — 网关五维评分：合规·价格·安全·稳定·可观测](#第四部分--网关五维评分合规价格安全稳定可观测)
 - [第五部分 — 真实评测：生产环境里用户怎么说](#第五部分--真实评测生产环境里用户怎么说)
 - [第六部分 — 网关可观测性：真正该看的因素](#第六部分--网关可观测性真正该看的因素)
+- [第七部分 — 身份与治理：SSO 税对照表](#第七部分--身份与治理sso-税对照表)
 - [方法论与注意事项](#方法论与注意事项)
 - [数据来源](#数据来源)
 
@@ -314,6 +315,35 @@
 > - 在 ZDR/自托管下，我**会失去哪些可观测性**（通常保留元数据/指标、丢掉 prompt 正文）？
 
 > **依据**：[OpenTelemetry GenAI 语义约定](https://github.com/open-telemetry/semantic-conventions-genai)（[spans](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-spans.md) · [metrics](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-metrics.md)）。2026 年多数 `gen_ai.*` 属性仍是 **Development** 状态（`error.type`/`server.*` 为 Stable）——固定 `OTEL_SEMCONV_STABILITY_OPT_IN=gen_ai_latest_experimental` 以免看板跨版本静默失效。参考标签集：[LiteLLM Prometheus](https://docs.litellm.ai/docs/proxy/prometheus)、[OpenLLMetry/Traceloop](https://github.com/traceloop/openllmetry)、[OpenInference](https://github.com/Arize-ai/openinference)。最近审阅 **2026-06-25**。
+
+---
+
+## 第七部分 — 身份与治理：SSO 税对照表
+
+企业选型最耗时的是四个不起眼的问题——**SSO、SCIM、RBAC、审计日志**——而没有任何中立方把各家的付费门槛整理到一页上。这里是答案，全部来自厂商一手文档（[机器可读版含逐格原文引用 + 链接](data/identity_matrix.json)，核实于 **2026-07-27**）。只统计控制面能力：数据面认证插件（APISIX `openid-connect`、Higress `key-auth` 等）保护的是*被代理的流量*，不是网关自己的控制台，不计入。"未见文档记载" = 厂商文档没写，**不等于**确认没有。反复出现的模式就是 **SSO 税**：身份与治理恰恰是开源版和低价档止步、企业合同开始的地方。
+
+**图例：** ✅ 所述档位可用 · 💰 付费/企业档门槛 · ❌ 没有 · ❔ 未见文档记载
+
+### 自托管 / 开源核心
+
+| 厂商 | SSO（管理/控制面） | SCIM 自动开通 | RBAC | 审计日志 |
+|---|---|---|---|---|
+| **LiteLLM** | ✅ OIDC + SAML，**≤5 用户免费**（v1.76.0+）· 💰 超出需企业版 | 💰 企业版（`/scim`，6 家 IdP；SCIM 移除用户会连带删其 API key） | ✅ 全局角色 + 团队/虚拟 key 免费 · 💰 组织/团队管理员角色企业版 | 💰 企业版（key/团队/用户/模型变更；UI + S3 JSON 导出） |
+| **Portkey** | 💰 企业版（OIDC + SAML，托管控制面）· ❌ 开源网关没有 | ✅ 用户 + 组→工作区（Azure AD、Okta）· 档位 ❔（文档挂在"Enterprise Offering"下） | ⚠️ 厂商自相矛盾：定价页写 Production $49/月，文档横幅写企业版 · ❌ 开源版没有 | 💰 企业版（管理操作、无限期留存、JSON Admin API；无批量文件导出） |
+| **Kong** | 💰 Konnect 企业版（OIDC + SAML）· ❌ 开源版没有 | ❔ 网关侧未见文档记载（Kong 的 SCIM 只属于 Insomnia 产品） | 💰 Konnect Plus 起 / Gateway 企业版 · ❌ 开源 `kong.conf.default` 里零个 `rbac` 配置项 | 💰 企业版（Konnect SIEM webhook，CEF/JSON——⚠️ **仅留存 7 天**即删） |
+| **Apache APISIX / API7** | ❌ 开源版（单一共享 admin key）· 💰 API7 企业版（OIDC/SAML/LDAP） | ❔ 开源版 · 💰 API7 企业版（Okta、Entra ID） | ❌ 开源版 · 💰 API7 企业版（自定义角色 + IAM 式策略） | ❔ 开源版 · 💰 API7 企业版（默认 180 天，JSON/CSV 导出） |
+| **Higress（开源）** | ❌ 单一本地管理员账号（控制台登录管理还在路线图上） | ❔ 未见文档记载 | ❌ 单管理员模型，控制台无角色 | ❔ 未见文档记载 |
+
+### 托管服务
+
+| 厂商 | SSO | SCIM | RBAC | 审计日志 |
+|---|---|---|---|---|
+| **OpenRouter** | 💰 企业版（SAML：Okta、Entra ID、Google Workspace、自定义） | 💰 企业版（组→工作区映射；IdP 停用即失效其组织级 key） | ✅ 仅 2 种角色（Admin/Member）+ 按工作区分配 · 档位 ❔ | ❔ **未见管理操作审计日志的文档**——只有用量 CSV/PDF 导出 |
+| **Vercel AI Gateway** | 💰 企业版，或 Pro 付费加购 **$300/月**（SAML，20+ IdP） | 💰 仅企业版（Directory Sync——Pro 加钱也买不到） | ✅ Pro 团队级 · 💰 企业版加项目级 | 💰 仅企业版（CSV + SIEM 流式 / Audit Log Drains） |
+| **Cloudflare AI Gateway** | ✅ **所有套餐免费**（仪表盘 SSO，任意 Cloudflare One IdP，含 SAML） | 💰 仅企业版（Okta、Entra ID、Authentik） | ✅ 70+ 账号角色 + 域名/资源级作用域（域名级当年面向企业版发布；现文档未写档位） | ✅ 所有套餐，留存 18 个月，CSV/API · 💰 Logpush 导出企业版 |
+| **Higress 托管（阿里云 APIG）** | ✅ 免费（RAM SAML 2.0，账号面） | ✅ CloudSSO SCIM 2.0（Okta、Entra ID、Keycloak） | ✅ RAM 角色 + 自定义 JSON 策略，资源级（服务代码 `apig`） | ✅ ActionTrail（90 天免费，可投递 SLS/OSS） |
+
+> **怎么读这张 SSO 税表。**（1）**九家里六家把 SSO 关在付费/企业档后面。** Cloudflare 是唯一在所有套餐免费提供仪表盘 SSO 的网关厂商；Vercel 是唯一给这笔税公开标价的（Pro 档 $300/月）；LiteLLM 是唯一的开源豁免（v1.76.0 起 ≤5 用户免费）；Higress 开源版则花钱也没有控制台 SSO。（2）**别把数据面认证当控制面身份。** APISIX 的 `openid-connect`/`saml-auth` 和 Higress 的认证插件保护的是*被代理的 API*——它们背后的开源控制台是单管理员，文档里完全没有 SSO、RBAC 或审计。（3）**审计日志的小字最要命。** Kong Konnect 审计日志**只留 7 天**即删（SIEM webhook 实际上是必配项）；OpenRouter 干脆没有管理操作审计日志的文档；LiteLLM 和 Portkey 把审计日志关在企业版后面。（4）**看清能力长在哪一层。** Portkey 开源仓只是数据面——所有身份能力都要托管/企业控制面；Cloudflare、Vercel、阿里云的身份能力继承自平台账号而非网关产品——全押该平台没问题，否则是多一层依赖。逐格厂商原文引用与来源链接：[`data/identity_matrix.json`](data/identity_matrix.json)。
 
 ---
 
