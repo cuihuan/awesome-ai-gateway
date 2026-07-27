@@ -17,8 +17,19 @@ class TestLlmsTxt(unittest.TestCase):
         self.assertIn("\n> ", self.txt)
 
     def test_required_sections_present(self):
-        for h in ["## Core", "## Comparisons", "## Data (machine-readable, CC0)", "## Companion tools (same author)"]:
+        for h in ["## Core", "## Comparisons", "## Guides", "## Tools (interactive)",
+                  "## Data (machine-readable, CC0)", "## Companion tools (same author)"]:
             self.assertIn(h, self.txt)
+
+    def test_guides_and_tools_list_canonical_pages_only(self):
+        # The interactive tools and the one canonical guide must be present…
+        for url in ("reduce-llm-api-costs.html", "gateway-picker.html", "cost-calculator.html"):
+            self.assertIn(f"https://cuihuan.github.io/awesome-ai-gateway/{url}", self.txt)
+        # …while the three guides that canonicalize to compare/ successors stay out
+        # (their winners are already listed under Comparisons).
+        for gone in ("litellm-vs-openrouter.html", "openrouter-alternatives.html",
+                     "self-hosted-llm-gateway.html"):
+            self.assertNotIn(f"awesome-ai-gateway/{gone}", self.txt)
 
     def test_every_comparison_listed_with_absolute_url(self):
         articles = build_llms_txt._articles()

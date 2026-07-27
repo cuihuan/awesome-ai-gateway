@@ -45,6 +45,18 @@ Use it to pick an AI gateway by need (cost-first, self-hosted, enterprise & comp
 - [How to choose safely]({BLOB}/README.md#how-to-choose-safely): trust-tier-to-data matching, the canary model-fidelity test, and the gray-relay exclusion policy.
 """
 
+# Canonical pages only: litellm-vs-openrouter.html, openrouter-alternatives.html
+# and self-hosted-llm-gateway.html canonicalize to their compare/ successors
+# (already listed under Comparisons), so listing them here would hand AI crawlers
+# duplicate, non-canonical URLs. reduce-llm-api-costs.html is its own canonical.
+GUIDES_AND_TOOLS = f"""## Guides
+- [How to reduce LLM API costs]({SITE}reduce-llm-api-costs.html): the ranked cost levers — model choice (up to ~106× per task), caching, routing and 0%-markup gateways.
+
+## Tools (interactive)
+- [Gateway picker]({SITE}gateway-picker.html): answer one question, get a vetted gateway recommendation by need (cost, self-hosting, enterprise, China, MCP/agents).
+- [Cost calculator]({SITE}cost-calculator.html): enter your input/output token mix and see what your task costs across every model in the benchmark — and the spread.
+"""
+
 FOOTER_SECTIONS = f"""## Data (machine-readable, CC0)
 - [data/models.json]({BLOB}/data/models.json): per-model prices and benchmark scores (source of the cost tables).
 - [data/cost_table.csv]({BLOB}/data/cost_table.csv): per-task USD costs computed from models.json.
@@ -77,6 +89,7 @@ def render() -> str:
     for a in _articles():
         lines.append(f"- [{a['title']}]({SITE}compare/{a['slug']}.html): {a['description']}")
     lines.append("")
+    lines.append(GUIDES_AND_TOOLS)
     lines.append(FOOTER_SECTIONS)
     return "\n".join(lines).rstrip() + "\n"
 
