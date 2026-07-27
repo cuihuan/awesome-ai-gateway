@@ -84,6 +84,12 @@
     "BlockRunAI/ClawRouter",
     "RouteWorks/RouterArena",
     "mnfst/manifest",
-    "aurorallm/aurora"
+    "aurorallm/aurora",
+    "tashfeenahmed/freellmapi",
+    "lidge-jun/opencodex",
+    "oomol-lab/open-connector",
+    "seakee/CPA-Manager-Plus",
+    "askalf/dario",
+    "tsouth89/toolport"
   ]
 }
