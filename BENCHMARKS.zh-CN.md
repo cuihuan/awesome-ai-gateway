@@ -228,7 +228,7 @@
 | 网关 | 合规 | 安全 | 稳定 | 可观测 | 一句话 |
 |---|---|---|---|---|---|
 | **Portkey Gateway**（开源） | ★★★🏠 | ★★★★ | ★★★★ | ★★ | Apache-2.0；完整护栏、MCP OAuth、故障转移免费；<1ms 开销 |
-| **Kong AI Gateway** | ★★★½ | ★★★★½ | ★★★★ | ★★★½ | PII 脱敏（20+ 类）、Prompt Guard、RBAC，基于成熟 Kong 血统 |
+| **Kong AI Gateway** | ★★★½ | ★★★★½ | ★★★★ | ★★★½ | PII 脱敏（20+ 类）、Prompt Guard；RBAC 属企业版（开源 `kong.conf` 无此项） |
 | **Envoy AI Gateway** | ★★★🏠 | ★★★★ | ★★★★ | ★★★★ | 多厂商 + MCP 网关（OAuth+CEL 鉴权）；原生 K8s/Istio |
 | **Bifrost**（Maxim） | ★★★🏠 | ★★★½ | ★★★★½ | ★★★★★ | Go；~11µs 开销基准、集群模式；无已知 CVE |
 | **TensorZero** | ★★★🏠 | ★★★ | ★★★★ | ★★★★½ | Rust；万级 QPS 下 <1ms p99；路由 + 内置可观测；⚠️ 2026-06 已归档 |

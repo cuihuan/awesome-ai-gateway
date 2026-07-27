@@ -60,7 +60,7 @@ _Built the hard way: **I burned $788 on AI coding in a single day** — one flag
 | Route Claude Code / Codex to another model | **LiteLLM** / **Bifrost** (both measured 3/3) | [Smart routing](#-smart-routing--model-selection) |
 | Cut my Claude Code / Cursor bill — without a ban | **claude-code-router** (BYO-key, zero ban reports) | [Coding-agent routers compared](compare/coding-agent-routers-2026.md) |
 | China models + team key billing | **new-api** | [China ecosystem](#-china-ecosystem) |
-| Enterprise K8s + audit | **Kong** / **Higress** | [Enterprise](#-enterprise--compliance) |
+| Enterprise K8s + audit | **Kong** / **Higress** — audit logs are paid/hosted-tier on both ([tiers](BENCHMARKS.md#part-7--identity--governance-the-sso-tax-table)) | [Enterprise](#-enterprise--compliance) |
 | Strongest compliance (HIPAA/FedRAMP) | **Azure** / **Bedrock** | [First-party](#️-first-party-gateways-cloud--model-vendors) |
 | Sensitive prompts — who sees / logs / trains on them? | **Self-host** or **ZDR-default** (Vercel / Requesty) | [Who sees your prompts](#-who-sees-your-prompts--the-data-retention-matrix) |
 | Govern agents / MCP traffic | **agentgateway** | [MCP & agents](#-mcp--agent-gateways) |

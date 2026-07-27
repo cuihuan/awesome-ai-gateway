@@ -228,7 +228,7 @@ This is the part buyers actually lose sleep over. Models are interchangeable; th
 | Gateway | Compliance | Security | Stability | Obsv | One-line |
 |---|---|---|---|---|---|
 | **Portkey Gateway** (OSS) | ★★★🏠 | ★★★★ | ★★★★ | ★★ | Apache-2.0; full guardrails, MCP OAuth, fallbacks free; <1ms overhead |
-| **Kong AI Gateway** | ★★★½ | ★★★★½ | ★★★★ | ★★★½ | PII sanitization (20+ types), Prompt Guard, RBAC on mature Kong lineage |
+| **Kong AI Gateway** | ★★★½ | ★★★★½ | ★★★★ | ★★★½ | PII sanitization (20+ types), Prompt Guard; RBAC is Enterprise-tier (not in OSS `kong.conf`) |
 | **Envoy AI Gateway** | ★★★🏠 | ★★★★ | ★★★★ | ★★★★ | Multi-provider + MCP gateway w/ OAuth+CEL authz; native K8s/Istio |
 | **Bifrost** (Maxim) | ★★★🏠 | ★★★½ | ★★★★½ | ★★★★★ | Go; ~11µs overhead benchmark, cluster mode; no known CVEs |
 | **TensorZero** | ★★★🏠 | ★★★ | ★★★★ | ★★★★½ | Rust; <1ms p99 at 10k+ QPS; routing + built-in observability; ⚠️ archived Jun 2026 |
