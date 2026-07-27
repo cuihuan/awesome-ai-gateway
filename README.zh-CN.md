@@ -85,7 +85,7 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 - [TeamoRouter](https://teamorouter.com) — 托管 SaaS 网关，兼容 OpenAI、Anthropic Messages 与 Gemini 三种协议，覆盖 500+ 供应商；主打按质量/延迟/成本的"智能路由"与"通道稀释检测"（某供应商输出质量下降时自动切换），原生支持 Claude Code / Codex，支持 MCP，按量付费 + 套餐（支付宝/微信）。较新且未经核实（社区推荐；路由与质量检测能力为运营方自述）——投产前请先用 [canary_check.py](scripts/canary_check.py) 验证模型保真度。
 - [KeepRouter](https://keeprouter.com) — OpenAI 与 Anthropic 双兼容网关：一个密钥聚合 50+ 模型（Claude、GPT、Gemini、Mistral、Qwen、Kimi、GLM、DeepSeek、MiMo、MiniMax）。原生 /v1/messages，可直接用于 Claude Code 和 Anthropic SDK，不止 OpenAI SDK。预付费按量计费、按成本 **0% token 加价**（充值费 8%+$0.35）；含一个真正 $0 的免费模型，新账户另有试用额度。中英双语，收单方 Paddle；中国大陆不可用。**新服务，尚未验证** — 投产前请用 [canary_check.py](scripts/canary_check.py) 核实真伪。
 - [AI快站 (aifast.club)](https://www.aifast.club) — 运营方自荐的 OpenAI/Anthropic 兼容中转，面向国内市场（提供 Cursor / Claude Code / Codex / Dify 集成文档）。实时模型清单与倍率见 [`/api/ratio_config`](https://www.aifast.club/api/ratio_config)，运行状态见 [`/api/status`](https://www.aifast.club/api/status)——以这两处为准，不引用固定快照。**新服务，尚未验证**（闭源、自荐）— 投产前请用 [canary_check.py](scripts/canary_check.py) 核实真伪。
-- [ApiFlux](https://apiflux.ai) — 托管的 OpenAI / Anthropic / Gemini 兼容网关，提供 Claude Code、Codex CLI、OpenCode 的官方接入指南，控制台按 Key 提供用量与请求日志。**新服务，尚未验证**（自荐）— 投产前请用 [canary_check.py](scripts/canary_check.py) 核实真伪。
+- [ApiFlux](https://apiflux.ai) — 托管的 OpenAI / Anthropic / Gemini 兼容网关，提供 Claude Code、Codex CLI、OpenCode 的专门接入指南，控制台按 Key 提供用量与请求日志；运营方宣称全部模型按官方定价的 85% 计费。**新服务，尚未验证**（自荐；低于官方定价更需独立核实模型保真度）— 投产前请用 [canary_check.py](scripts/canary_check.py) 核实真伪。
 - [NovAI](https://aiapi-pro.com) — 托管 OpenAI 兼容中转，一个 key 接入国产前沿模型（DeepSeek、Qwen、GLM、Kimi、MiniMax、Doubao、Hunyuan）；与此处其它国产模型中转不同，它在同一端点上还提供图像（Doubao Seedream）与视频（Doubao Seedance）生成，按 token 计费，新账户赠体验额度。较新且未经核实（自荐）——投产前请先验证模型保真度（可用 [canary_check.py](scripts/canary_check.py)）。
 - [Novita AI](https://novita.ai) — 统一 API 接入 200+ 开源模型（DeepSeek/Qwen/Llama…），自带负载均衡、弹性扩缩与故障转移；另有 GPU 云。
 - [FlintAPI](https://flintapi.ai) ([仓库](https://github.com/moozechen/flintapi)) — 托管 OpenAI 兼容中转，覆盖国产大模型（DeepSeek、Qwen、Kimi、GLM、MiniMax）；运营方现称其为"智能路由"引擎——把每个 prompt 分派给最适合的模型，而非单纯聚合，新账户赠体验额度。较新且未经核实（"智能路由"为运营方自述）——投产前请先验证模型保真度（可用 [canary_check.py](scripts/canary_check.py)）。
@@ -503,6 +503,7 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 | [AI快站 (aifast.club)](https://www.aifast.club) | 性价比优先 | ⚠️ 未验证——用前自测 | 运营方自荐的国内中转（OpenAI+Anthropic 双兼容）；实时模型清单/倍率见 `/api/ratio_config`，状态见 `/api/status`；闭源，模型保真度未经核实。 |
 | [TierUp](https://tierup.ai) | 性价比优先 | ⚠️ 未验证——用前自测 | 档位制中转，经 OpenRouter 转售、约零售价 50%（透明补贴、个人开发、生产用户约零——均为自我披露）；`api.tierup.ai/v1` 在线（OpenAI 格式）；转售访问，模型保真度未经核实。 |
 | [OpenPaths](https://openpaths.io) ([仓库](https://github.com/lee101/openpaths)) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管的多厂商路由（15+ 厂商、多模态）带自动路由；其"开源"GitHub 仓库实为无代码、无协议的展示镜像，指向第三方平台，应视作闭源托管；模型保真度未经核实。 |
+| [ApiFlux](https://apiflux.ai) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管多协议中转（OpenAI/Anthropic/Gemini），提供 Claude Code / Codex CLI / OpenCode 接入指南；`apiflux.ai/v1` 存活（401）；运营方宣称全部模型按官方定价 85% 计费——低于官方定价本身即需权衡的信号；自荐；模型保真度未经核实。 |
 
 *目前没有 ⛔ 确认有问题 的条目——该状态需要可复现的 canary 判定或有据可查的事故，绝不凭传闻。*
 
