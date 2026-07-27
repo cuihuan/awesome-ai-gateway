@@ -162,8 +162,8 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Gravitee Agent Mesh](https://www.gravitee.io) — APIM 内置 LLM Proxy、MCP Proxy 与 A2A。
 - [WSO2 AI Gateway](https://wso2.com/api-manager/usecases/ai-gateway/) — LLM 出口流量管理：模型路由、语义缓存、护栏。
 - [F5 AI Gateway](https://www.f5.com) — 容器化 AI 流量网关；通过收购 LeakSignal 增加数据泄露检测（2025-07 公布）。
-- [IBM API Connect AI Gateway](https://www.ibm.com) — LLM 流量的策略执行、脱敏与审计。
-- [IBM DataPower Interact Gateway](https://www.ibm.com/products/datapower-interact-gateway) — 基于 DataPower Nano Gateway，位于请求路径上治理 LLM 与 MCP 流量：MCP Gateway 把现有 API 暴露为符合 MCP 规范、可被 AI Agent 发现和调用的工具；LLM Gateway 为应用和 AI Agent 提供访问外部 LLM 提供商 API 的受治理端点。较新且未经核实（自荐）——投产前请先用 [canary_check.py](scripts/canary_check.py) 验证模型保真度。
+- [IBM API Connect AI Gateway](https://www.ibm.com/docs/en/api-connect/software/10.0.x_cd?topic=definitions-using-ai-gateway-support-apis-ai-applications) — IBM API Connect 内置的 AI Gateway 能力：LLM 流量的策略执行、脱敏与审计（其独立文档线已迁移至下方的独立产品 DataPower Interact Gateway）。
+- [IBM DataPower Interact Gateway](https://www.ibm.com/products/datapower-interact-gateway) — 基于 DataPower Nano Gateway 的独立网关，在运行时治理 LLM 与 MCP 流量：MCP Gateway 把现有 API 暴露为可被 AI Agent 发现调用的 MCP 工具，LLM Gateway 提供访问外部 LLM 提供商的受治理端点（2026-06 发布）。
 - [MuleSoft AI / Omni Gateway](https://www.mulesoft.com/platform/ai-gateway) — 把 LLM、MCP、Agent 流量与传统 API 一起治理。
 - [Lunar.dev](https://github.com/TheLunarCompany/lunar) <!--s:TheLunarCompany/lunar-->⭐ 470<!--/s--> — 出口消费网关，已转向 MCP/Agent 治理。
 - [KrakenD AI Gateway](https://www.krakend.io/docs/ai-gateway/) — 高性能、无状态的 Go API 网关（[krakend/krakend-ce](https://github.com/krakend/krakend-ce) <!--s:krakend/krakend-ce-->⭐ 2.7k<!--/s-->），带 AI 代理 + Prompt 安全层。
