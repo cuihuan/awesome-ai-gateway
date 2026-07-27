@@ -5,6 +5,12 @@
     "benchmarks": "Artificial Analysis Intelligence Index v4.0, Arena (ex-LMArena), SWE-bench, vendor model cards (see BENCHMARKS.md Sources)",
     "pricing": "Official provider pricing pages + Artificial Analysis; all 16 headline prices re-verified against the litellm price library 2026-07-03 (unchanged; US-region markups excluded in favor of global list price)"
   },
+  "openrouter_model_count": {
+    "_comment": "Single source of truth for every 'OpenRouter has N models' mention; rendered into <!--omc-->...<!--/omc--> spans by scripts/update_readme.py as ~(count rounded to the nearest 10).",
+    "count": 342,
+    "source": "https://openrouter.ai/api/v1/models (live API list; OpenRouter's homepage markets '400+ Models')",
+    "as_of": "2026-07-27"
+  },
   "models": [
     {
       "name": "Claude Fable 5",

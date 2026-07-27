@@ -4,7 +4,7 @@
 
 > 📊 **Key numbers** · OpenRouter adds **~5.5%** on credits; **Vercel AI Gateway** and **Helicone** pass through at **0% markup**. But the bigger lever is the model, not the fee: a 100K-token report spans **$0.03 → $3.01** (a **~106×** spread, [reproducible benchmark](../BENCHMARKS.md#part-3--real-world-token-cost-computed), computed 2026-06). Provider loyalty is also short-lived: enterprise LLM-API spend flipped to Anthropic 40% · OpenAI 27% (was 50% in 2023) · Google 21% in two years ([Menlo Ventures, n=495](https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/); Menlo is an Anthropic investor) — pick an alternative that doesn't hard-wire you to any one of them.
 
-**[OpenRouter](https://openrouter.ai)** is the default hosted AI gateway — change one `base_url`, get 400+ models behind a single key, with auto-failover and a smart `auto` router. It's the fastest way to start. But teams go looking for alternatives for four honest reasons:
+**[OpenRouter](https://openrouter.ai)** is the default hosted AI gateway — change one `base_url`, get <!--omc-->~340<!--/omc--> models behind a single key, with auto-failover and a smart `auto` router. It's the fastest way to start. But teams go looking for alternatives for four honest reasons:
 
 1. **The ~5.5% credit fee.** OpenRouter takes a cut on top of provider pricing. At scale, a **0%-markup** gateway or self-hosting saves real money.
 2. **Compliance gaps.** Its SOC 2 Type II is **unverified** and there's **no public SLA outside enterprise** — a blocker for regulated teams.
@@ -50,7 +50,7 @@ Here's the honest, data-backed map. Scores are ★1–5 from the [scorecard rubr
 
 ## What OpenRouter still wins at
 
-Be fair: OpenRouter is hard to beat on **breadth and time-to-first-call** (400+ models, one key, five minutes), its **`auto` router** picks a model per prompt for you, and its **free zero-data-retention + EU region-lock** cover many privacy needs. Leave it when you have a *specific* constraint:
+Be fair: OpenRouter is hard to beat on **breadth and time-to-first-call** (<!--omc-->~340<!--/omc--> models, one key, five minutes), its **`auto` router** picks a model per prompt for you, and its **free zero-data-retention + EU region-lock** cover many privacy needs. Leave it when you have a *specific* constraint:
 
 - **Cost / 0% markup** → Cloudflare or Vercel
 - **EU residency** → Requesty or Eden AI

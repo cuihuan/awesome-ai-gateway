@@ -122,6 +122,12 @@ class TestMdToHtml(unittest.TestCase):
         self.assertNotIn("s:BerriAI/litellm", out)
         self.assertNotIn("&lt;!--", out)
 
+    def test_model_count_spans_collapse_to_display_text(self):
+        out = md_to_html("# T\n\nGet <!--omc-->~340<!--/omc--> models behind one key.")
+        self.assertIn("Get ~340 models", out)
+        self.assertNotIn("omc", out)
+        self.assertNotIn("&lt;!--", out)
+
 
 class TestMetadata(unittest.TestCase):
     def test_extract_title(self):

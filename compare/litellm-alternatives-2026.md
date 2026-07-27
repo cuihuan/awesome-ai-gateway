@@ -20,7 +20,7 @@ Here's the honest, data-backed map. Scores are ★1–5 from the [scorecard rubr
 | **Portkey Gateway (OSS)** | Self-hosted (Apache-2.0) | $0 | ★4.0 | You want guardrails + circuit breakers + MCP OAuth built in |
 | **Kong AI Gateway** | Self-hosted | $0 core | ★4.5 | You already run Kong, or need PII sanitization + RBAC |
 | **Envoy AI Gateway** | Self-hosted (K8s) | $0 | ★4.0 | You're Kubernetes/Istio-native and want a CNCF-aligned proxy |
-| **OpenRouter** | Hosted | ~5.5% | ★3.0 | You want zero ops and 400+ models in five minutes |
+| **OpenRouter** | Hosted | ~5.5% | ★3.0 | You want zero ops and <!--omc-->~340<!--/omc--> models in five minutes |
 | **Cloudflare AI Gateway** | Hosted | 0% | ★4.0 | You want a free, 0-markup hosted gateway with DLP/PII scanning |
 | **Vercel AI Gateway** | Hosted | 0% | ★3.5 | You're on Vercel and want true 0% markup incl. BYOK |
 | **new-api / one-api** | Self-hosted | $0 | ★1.5–2.0 | You need a China-friendly relay panel — *and will patch aggressively* |
@@ -36,7 +36,7 @@ Here's the honest, data-backed map. Scores are ★1–5 from the [scorecard rubr
 
 ## If you'd rather not run a server (hosted alternatives)
 
-- **[OpenRouter](https://openrouter.ai)** — the fastest start: change `base_url`, get 400+ models behind one key, auto-failover, free zero-data-retention, EU region-lock. ~5.5% credit fee; no public SLA outside enterprise.
+- **[OpenRouter](https://openrouter.ai)** — the fastest start: change `base_url`, get <!--omc-->~340<!--/omc--> models behind one key, auto-failover, free zero-data-retention, EU region-lock. ~5.5% credit fee; no public SLA outside enterprise.
 - **[Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/)** — **0% markup**, SOC 2 II / ISO 27001 / PCI / GDPR, with free DLP + PII scanning, guardrails and fallback. 100% SLA on Business+. The strongest free hosted option on compliance.
 - **[Vercel AI Gateway](https://vercel.com/docs/ai-gateway)** — **true 0% markup including BYOK**, SOC 2 II, 99.99% SLA (Enterprise), ZDR option. The obvious choice if you already deploy on Vercel.
 

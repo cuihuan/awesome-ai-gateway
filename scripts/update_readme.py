@@ -2,10 +2,12 @@
 """Daily content refresher for awesome-ai-gateway.
 
 Updates, in README.md, README.zh-CN.md and compare/*.md:
-  1. Star counts inside ``<!--s:owner/repo-->...<!--/s-->`` markers — in the
-     READMEs *and* every compare/*.md source, so no reader-facing star count
-     is ever hand-typed (the compare HTML is rebuilt from the md by
-     scripts/build_compare_html.py, which renders the span's display text).
+  1. Star counts inside ``<!--s:owner/repo-->...<!--/s-->`` markers and the
+     OpenRouter model count inside ``<!--omc-->...<!--/omc-->`` markers
+     (canonical value: data/models.json ``openrouter_model_count``) — in the
+     READMEs *and* every compare/*.md source, so no reader-facing count is
+     ever hand-typed (the compare HTML is rebuilt from the md by
+     scripts/build_compare_html.py, which renders each span's display text).
   2. READMEs only: the "Top gateways (by stars)" table between
      ``<!-- TOP-GATEWAYS:START -->`` and ``<!-- TOP-GATEWAYS:END -->`` — rows
      re-sorted descending so the heading's by-stars promise survives the
@@ -35,6 +37,7 @@ ROOT = Path(__file__).resolve().parent.parent
 README_FILES = [ROOT / "README.md", ROOT / "README.zh-CN.md"]
 COMPARE_DIR = ROOT / "compare"
 PROJECTS_FILE = ROOT / "data" / "projects.json"
+MODELS_FILE = ROOT / "data" / "models.json"
 RELEASES_FILE = ROOT / "data" / "releases.json"
 
 STAR_MARKER_RE = re.compile(r"<!--s:([\w.\-]+/[\w.\-]+)-->.*?<!--/s-->", re.DOTALL)
@@ -43,6 +46,8 @@ RELEASES_END = "<!-- RELEASES:END -->"
 TOP_GATEWAYS_START = "<!-- TOP-GATEWAYS:START -->"
 TOP_GATEWAYS_END = "<!-- TOP-GATEWAYS:END -->"
 DISPLAYED_STARS_RE = re.compile(r"<!--s:[\w.\-]+/[\w.\-]+-->[^0-9<]*([0-9.]+)\s*(k?)", re.IGNORECASE)
+# OpenRouter model count — single-sourced from data/models.json (openrouter_model_count).
+OMC_MARKER_RE = re.compile(r"<!--omc-->.*?<!--/omc-->", re.DOTALL)
 MAX_RELEASES_SHOWN = 12
 API_BASE = "https://api.github.com"
 
@@ -85,6 +90,29 @@ def replace_star_markers(text: str, stars: dict[str, int]) -> str:
         return f"<!--s:{slug}-->⭐ {format_stars(stars[slug])}<!--/s-->"
 
     return STAR_MARKER_RE.sub(repl, text)
+
+
+def render_openrouter_model_count(count: int) -> str:
+    """Display form of the OpenRouter model count: 342 → '~340'.
+
+    Rounded to the nearest 10 because the live list moves week to week; the
+    exact count and its source/date live in data/models.json.
+    """
+    return f"~{round(count, -1)}"
+
+
+def replace_model_count_markers(text: str, display: str) -> str:
+    """Rewrite every ``<!--omc-->…<!--/omc-->`` span to the canonical display.
+
+    The READMEs once said '~340 models' in one table and '400+' (the vendor's
+    marketing figure) three sections later; rendering every mention from
+    data/models.json makes that class of self-contradiction unrepresentable.
+    """
+    return OMC_MARKER_RE.sub(f"<!--omc-->{display}<!--/omc-->", text)
+
+
+def load_openrouter_model_count(models_file: Path = MODELS_FILE) -> int:
+    return json.loads(models_file.read_text(encoding="utf-8"))["openrouter_model_count"]["count"]
 
 
 def parse_displayed_stars(row: str) -> int | None:
@@ -225,10 +253,12 @@ def main() -> int:
     releases = fetch_latest_releases(tracked)
 
     block = render_releases_block(releases)
+    model_count_display = render_openrouter_model_count(load_openrouter_model_count())
     changed_files = []
     for path in span_files:
         original = path.read_text(encoding="utf-8")
         updated = replace_star_markers(original, stars)
+        updated = replace_model_count_markers(updated, model_count_display)
         if path in README_FILES:  # table + releases blocks only exist there
             updated = sort_top_gateways_table(updated)
             updated = replace_between_markers(updated, RELEASES_START, RELEASES_END, block)

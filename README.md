@@ -109,7 +109,7 @@ The questions people actually ask ([sourced from real threads](#-essential-readi
 
 | You're asking… | The answer |
 |---|---|
-| "Cheapest way to hit many models right now?" | **OpenRouter** (~5.5% credit fee, ~340 models) — or **0% markup on your own keys**: Vercel / Cloudflare AI Gateway → [Cost-first](#-cost-first-cheapest-multi-model-access) |
+| "Cheapest way to hit many models right now?" | **OpenRouter** (~5.5% credit fee, <!--omc-->~340<!--/omc--> models) — or **0% markup on your own keys**: Vercel / Cloudflare AI Gateway → [Cost-first](#-cost-first-cheapest-multi-model-access) |
 | "Which free tiers still work, and what are the real limits?" | OpenRouter `:free`: **50 req/day** (<$10 credits) or **1,000/day** ($10+ top-up), 20 req/min shared ([official limits](https://openrouter.ai/docs/api-reference/limits)). Eleven providers verified row-by-row in the [free-tier table](#-free-tiers-that-still-work--the-verified-limits-table). The catch with "free": your prompts may train someone's model — check the fine print |
 | "How much does the _model_ choice matter?" | **106×** — the same 100K-token report costs $0.03 (DeepSeek) vs $3.01 (GPT-5.5) → [computed tables](BENCHMARKS.md#part-3--real-world-token-cost-computed) · [calculator](https://cuihuan.github.io/awesome-ai-gateway/cost-calculator.html) |
 | "How much latency does the gateway itself add?" | **Independently measured** (nobody else does): Bifrost **0.56 ms** · Portkey OSS **2.69 ms** · LiteLLM **5.41 ms** per request → [data](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json) |
@@ -143,7 +143,7 @@ The most-starred, most-authoritative projects in the list — a fast orientation
 | [Bifrost](https://github.com/maximhq/bifrost) | <!--s:maximhq/bifrost-->⭐ 6.8k<!--/s--> | Go gateway, lowest independently-measured overhead | [Self-hosted](#-self-hosted-open-source) |
 <!-- TOP-GATEWAYS:END -->
 
-> **Hosted leaders** (SaaS, no GitHub stars): [OpenRouter](https://openrouter.ai) (400+ models, ~5.5% fee) · [Vercel AI Gateway](https://vercel.com/ai-gateway) & [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) (0% markup) → [Cost-first](#-cost-first-cheapest-multi-model-access).
+> **Hosted leaders** (SaaS, no GitHub stars): [OpenRouter](https://openrouter.ai) (<!--omc-->~340<!--/omc--> models, ~5.5% fee) · [Vercel AI Gateway](https://vercel.com/ai-gateway) & [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) (0% markup) → [Cost-first](#-cost-first-cheapest-multi-model-access).
 >
 > _Stars measure popularity, not fitness for **your** need — that's what the category sections and the evidence-based [scorecard](BENCHMARKS.md) are for._
 
@@ -155,7 +155,7 @@ _Pain point: "I want many models for the least money and zero ops."_
 
 **Start here — the options with a track record:**
 
-- [OpenRouter](https://openrouter.ai) — The dominant model marketplace: 400+ models behind one OpenAI-compatible API, pay-as-you-go with automatic failover; ~5.5% fee when buying credits. $113M Series B (May 2026), ~8M users.
+- [OpenRouter](https://openrouter.ai) — The dominant model marketplace: <!--omc-->~340<!--/omc--> models (live API count) behind one OpenAI-compatible API, pay-as-you-go with automatic failover; ~5.5% fee when buying credits. $113M Series B (May 2026), ~8M users.
 - [Vercel AI Gateway](https://vercel.com/ai-gateway) — Hundreds of models at **provider list price (0% markup)**, $5/month free credits, zero-data-retention option; pairs naturally with the AI SDK.
 - [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) — Free control plane in front of your own provider keys: caching, dynamic routing, unified billing, and dollar-denominated spend limits (2026 beta).
 - [Requesty](https://requesty.ai) — EU-friendly OpenRouter alternative: 400+ models, sub-20ms failover, ~5% markup.
@@ -439,7 +439,7 @@ Stars auto-refresh daily. ✅ built-in · ➕ via plugin/paid tier · ❌ not av
 | [Bifrost](https://github.com/maximhq/bifrost) | OSS gateway (Go) | <!--s:maximhq/bifrost-->⭐ 6.8k<!--/s--> | Apache-2.0 | ✅ | ✅ adaptive | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [Helicone](https://github.com/Helicone/helicone) | OSS observability + gateway | <!--s:Helicone/helicone-->⭐ 6k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ | ➕ | ✅ | ✅ | ➕ SDK logging |
 | [Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway) | OSS K8s gateway | <!--s:envoyproxy/ai-gateway-->⭐ 1.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ➕ | ➕ | ✅ | ❌ | ➕ OpenAI-format |
-| [OpenRouter](https://openrouter.ai) | SaaS marketplace | — | Commercial | ✅ 400+ | ✅ | ✅ | ➕ | ✅ | ✅ | ❌ |
+| [OpenRouter](https://openrouter.ai) | SaaS marketplace | — | Commercial | ✅ <!--omc-->~340<!--/omc--> | ✅ | ✅ | ➕ | ✅ | ✅ | ❌ |
 | [Vercel AI Gateway](https://vercel.com/ai-gateway) | SaaS (0% markup) | — | Commercial | ✅ 100s | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ |
 | [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) | SaaS control plane | — | Commercial (free tier) | ✅ | ✅ dynamic | ✅ | ✅ | ✅ budgets | ✅ | n/d |
 
@@ -704,7 +704,7 @@ A _router_ decides _which model_ gets each request (e.g. cheap vs flagship); a _
 [LiteLLM](https://github.com/BerriAI/litellm) is the default for breadth (Python, 100+ providers). For raw performance pick [Bifrost](https://github.com/maximhq/bifrost) (Go); for enterprise K8s pick [Kong](https://github.com/Kong/kong) or [Higress](https://github.com/higress-group/higress). Full list under [self-hosted](#-self-hosted-open-source).
 
 **LiteLLM vs OpenRouter — which should I use?**
-OpenRouter is hosted (zero ops, ~5.5% fee, 400+ models); LiteLLM is self-hosted (your keys, your infra, $0 markup). Hosted to start, self-host when volume justifies it. Cost math in the [evaluation set](BENCHMARKS.md#part-3--real-world-token-cost-computed).
+OpenRouter is hosted (zero ops, ~5.5% fee, <!--omc-->~340<!--/omc--> models); LiteLLM is self-hosted (your keys, your infra, $0 markup). Hosted to start, self-host when volume justifies it. Cost math in the [evaluation set](BENCHMARKS.md#part-3--real-world-token-cost-computed).
 
 **What's the cheapest way to call many LLMs?**
 For zero ops: [Vercel AI Gateway](https://vercel.com/ai-gateway) or [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) (0% markup). For lowest token cost, route bulk work to cheap models — a 100K-token report runs **$0.03 on DeepSeek vs $3.01 on GPT-5.5**. See [cost-first](#-cost-first-cheapest-multi-model-access).

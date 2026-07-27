@@ -5,12 +5,16 @@ import unittest
 from pathlib import Path
 
 from update_readme import (
+    OMC_MARKER_RE,
     STAR_MARKER_RE,
     collect_marked_repos,
     format_stars,
+    load_openrouter_model_count,
     parse_displayed_stars,
+    render_openrouter_model_count,
     render_releases_block,
     replace_between_markers,
+    replace_model_count_markers,
     replace_star_markers,
     sort_top_gateways_table,
     star_span_files,
@@ -109,6 +113,32 @@ class TestNoHandTypedStarCounts(unittest.TestCase):
             [],
             "hand-typed star counts outside <!--s:--> spans:\n" + "\n".join(offenders),
         )
+
+
+class TestOpenRouterModelCount(unittest.TestCase):
+    def test_render_rounds_to_the_nearest_ten(self):
+        self.assertEqual(render_openrouter_model_count(342), "~340")
+        self.assertEqual(render_openrouter_model_count(347), "~350")
+        self.assertEqual(render_openrouter_model_count(400), "~400")
+
+    def test_replace_rewrites_stale_spans(self):
+        text = "OpenRouter (<!--omc-->400+<!--/omc--> models), again <!--omc-->old<!--/omc-->."
+        self.assertEqual(
+            replace_model_count_markers(text, "~340"),
+            "OpenRouter (<!--omc-->~340<!--/omc--> models), again <!--omc-->~340<!--/omc-->.",
+        )
+
+    def test_every_rendered_mention_matches_the_canonical_count(self):
+        """The READMEs once said ~340 and 400+ for the same thing three sections
+        apart. Every <!--omc--> span must equal what data/models.json declares."""
+        expected = f"<!--omc-->{render_openrouter_model_count(load_openrouter_model_count())}<!--/omc-->"
+        for path in star_span_files():
+            for match in OMC_MARKER_RE.finditer(path.read_text(encoding="utf-8")):
+                self.assertEqual(match.group(0), expected, path.name)
+
+    def test_both_readmes_carry_spans(self):
+        for path in star_span_files()[:2]:
+            self.assertIn("<!--omc-->", path.read_text(encoding="utf-8"), path.name)
 
 
 class TestParseDisplayedStars(unittest.TestCase):

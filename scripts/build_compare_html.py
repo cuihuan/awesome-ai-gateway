@@ -61,10 +61,14 @@ def rewrite_link(href: str) -> str:
 
 # ── Inline rendering ─────────────────────────────────────────────────────────
 
-# Star-count spans (kept live by scripts/update_readme.py) collapse to their
-# display text: the HTML page shows "⭐ 54.8k", never the comment markers —
-# md_to_html escapes literal text, so an unstripped marker would render visibly.
-_STAR_SPAN = re.compile(r"<!--s:[\w.\-]+/[\w.\-]+-->\s*(.*?)\s*<!--/s-->", re.DOTALL)
+# Live-data spans (kept fresh by scripts/update_readme.py) collapse to their
+# display text: the HTML page shows "⭐ 54.8k" / "~340", never the comment
+# markers — md_to_html escapes literal text, so an unstripped marker would
+# render visibly. Covers star counts (s:owner/repo) and the OpenRouter model
+# count (omc, canonical value in data/models.json).
+_STAR_SPAN = re.compile(
+    r"<!--(?:s:[\w.\-]+/[\w.\-]+|omc)-->\s*(.*?)\s*<!--/(?:s|omc)-->", re.DOTALL
+)
 
 _CODE = re.compile(r"`([^`]+)`")
 _LINK = re.compile(r"\[([^\]]+)\]\(([^()]*(?:\([^()]*\)[^()]*)*)\)")  # tolerate one level of ()s in the URL

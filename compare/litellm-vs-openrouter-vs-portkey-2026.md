@@ -13,7 +13,7 @@ The three names everyone compares when they pick an AI gateway are **LiteLLM, Op
 | **What it is** | Self-hosted OSS proxy + SDK | Hosted model marketplace | OSS gateway + managed LLMOps |
 | **Setup** | Deploy it yourself | Sign up, change `base_url` | Self-host OR use cloud |
 | **Markup** | $0 (you pay infra) | ~5.5% on credits | Free OSS / usage-priced cloud |
-| **Models** | 100+ providers | 400+ models | 1,600+ models |
+| **Models** | 100+ providers | <!--omc-->~340<!--/omc--> models | 1,600+ models |
 | **Best for** | Full control, no middleman fee | Zero ops, fastest start | Guardrails + observability at scale |
 | **License** | MIT (core) | Commercial | MIT (gateway) |
 | **Stars** | <!--s:BerriAI/litellm-->⭐ 54.8k<!--/s--> | — (closed) | <!--s:Portkey-AI/gateway-->⭐ 12.6k<!--/s--> |
@@ -22,7 +22,7 @@ The three names everyone compares when they pick an AI gateway are **LiteLLM, Op
 
 ## Pick by your actual constraint
 
-- **"I want zero ops and the fastest possible start"** → **OpenRouter**. Change two lines, get 400+ models, pay ~5.5%. You're calling models in five minutes.
+- **"I want zero ops and the fastest possible start"** → **OpenRouter**. Change two lines, get <!--omc-->~340<!--/omc--> models, pay ~5.5%. You're calling models in five minutes.
 - **"My keys, my infra, no per-token middleman fee"** → **LiteLLM**. The default self-hosted choice: virtual keys, budgets, load balancing, 100+ providers. You run it; you pay only infra.
 - **"Enterprise guardrails, RBAC, audit, and deep observability"** → **Portkey**. 50+ guardrails, virtual-key management, SSO, and a 99.99% SLA on the cloud tier. Self-host the OSS gateway or use the managed platform.
 
