@@ -122,24 +122,26 @@ The questions people actually ask ([sourced from real threads](#-essential-readi
 
 The most-starred, most-authoritative projects in the list — a fast orientation. Stars auto-refresh daily; full context (features, license, caveats) is in each linked section. ⚠️ flags a project whose coding-subscription / account-pool routing can carry provider-ToS or account-ban risk.
 
+<!-- TOP-GATEWAYS:START -->
 | Gateway | Stars | What it is | Jump to |
 |---|---|---|---|
 | [LiteLLM](https://github.com/BerriAI/litellm) | <!--s:BerriAI/litellm-->⭐ 54.8k<!--/s--> | The default OSS proxy + SDK — OpenAI format to 100+ providers | [Self-hosted](#-self-hosted-open-source) |
+| [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) ⚠️ | <!--s:router-for-me/CLIProxyAPI-->⭐ 45.1k<!--/s--> | Wraps coding-CLI subscriptions (Claude Code, Codex…) into APIs | [Self-hosted](#-self-hosted-open-source) |
 | [Kong](https://github.com/Kong/kong) | <!--s:Kong/kong-->⭐ 43.9k<!--/s--> | Mature API gateway with AI plugins (semantic cache, guard) | [Enterprise](#-enterprise--compliance) |
 | [new-api](https://github.com/QuantumNous/new-api) | <!--s:QuantumNous/new-api-->⭐ 43.5k<!--/s--> | The most active relay/billing hub for teams | [China](#-china-ecosystem) |
-| [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) ⚠️ | <!--s:router-for-me/CLIProxyAPI-->⭐ 45.1k<!--/s--> | Wraps coding-CLI subscriptions (Claude Code, Codex…) into APIs | [Self-hosted](#-self-hosted-open-source) |
 | [Claude Code Router](https://github.com/musistudio/claude-code-router) | <!--s:musistudio/claude-code-router-->⭐ 36.2k<!--/s--> | Route Claude Code and agent CLIs to any model/provider | [Smart routing](#-smart-routing--model-selection) |
 | [one-api](https://github.com/songquanpeng/one-api) | <!--s:songquanpeng/one-api-->⭐ 36k<!--/s--> | The original LLM API management / distribution system | [China](#-china-ecosystem) |
 | [sub2api](https://github.com/Wei-Shaw/sub2api) ⚠️ | <!--s:Wei-Shaw/sub2api-->⭐ 34.5k<!--/s--> | Pools subscription accounts behind one endpoint | [China](#-china-ecosystem) |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) ⚠️ | <!--s:diegosouzapw/OmniRoute-->⭐ 31.3k<!--/s--> | Coding-agent token-saver across 231+ providers | [Self-hosted](#-self-hosted-open-source) |
 | [MLflow AI Gateway](https://github.com/mlflow/mlflow) | <!--s:mlflow/mlflow-->⭐ 27.2k<!--/s--> | Unified endpoints + governance in the MLflow platform | [Observability](#-observability--cost-tracking) |
 | [9router](https://github.com/decolua/9router) ⚠️ | <!--s:decolua/9router-->⭐ 23.7k<!--/s--> | BYOK local proxy, subscription→cheap→free fallback | [Self-hosted](#-self-hosted-open-source) |
 | [Apache APISIX](https://github.com/apache/apisix) | <!--s:apache/apisix-->⭐ 16.9k<!--/s--> | Cloud-native API + AI gateway (`ai-proxy` plugins) | [Enterprise](#-enterprise--compliance) |
 | [aisuite](https://github.com/andrewyng/aisuite) | <!--s:andrewyng/aisuite-->⭐ 15.5k<!--/s--> | Andrew Ng's unified multi-provider client (a library) | [Self-hosted](#-self-hosted-open-source) |
-| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) ⚠️ | <!--s:diegosouzapw/OmniRoute-->⭐ 31.3k<!--/s--> | Coding-agent token-saver across 231+ providers | [Self-hosted](#-self-hosted-open-source) |
 | [Portkey Gateway](https://github.com/Portkey-AI/gateway) | <!--s:Portkey-AI/gateway-->⭐ 12.6k<!--/s--> | Fast TypeScript gateway, 1,600+ models, 50+ guardrails | [Self-hosted](#-self-hosted-open-source) |
 | [Higress](https://github.com/higress-group/higress) | <!--s:higress-group/higress-->⭐ 8.9k<!--/s--> | Alibaba's AI-native gateway on Envoy/Istio | [China](#-china-ecosystem) |
 | [NVIDIA Dynamo](https://github.com/ai-dynamo/dynamo) | <!--s:ai-dynamo/dynamo-->⭐ 7.6k<!--/s--> | Datacenter-scale, KV-cache-aware inference routing | [K8s](#️-kubernetes-native--inference-infra) |
 | [Bifrost](https://github.com/maximhq/bifrost) | <!--s:maximhq/bifrost-->⭐ 6.8k<!--/s--> | Go gateway, lowest independently-measured overhead | [Self-hosted](#-self-hosted-open-source) |
+<!-- TOP-GATEWAYS:END -->
 
 > **Hosted leaders** (SaaS, no GitHub stars): [OpenRouter](https://openrouter.ai) (400+ models, ~5.5% fee) · [Vercel AI Gateway](https://vercel.com/ai-gateway) & [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) (0% markup) → [Cost-first](#-cost-first-cheapest-multi-model-access).
 >

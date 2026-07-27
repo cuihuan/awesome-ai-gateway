@@ -5,9 +5,11 @@ import unittest
 from update_readme import (
     collect_marked_repos,
     format_stars,
+    parse_displayed_stars,
     render_releases_block,
     replace_between_markers,
     replace_star_markers,
+    sort_top_gateways_table,
 )
 
 
@@ -63,6 +65,75 @@ class TestReplaceBetweenMarkers(unittest.TestCase):
     def test_missing_markers_raise(self):
         with self.assertRaises(ValueError):
             replace_between_markers("no markers", "<!-- X:START -->", "<!-- X:END -->", "x")
+
+
+class TestParseDisplayedStars(unittest.TestCase):
+    def test_thousands_suffix(self):
+        row = "| [A](https://github.com/o/a) | <!--s:o/a-->⭐ 54.8k<!--/s--> | x |"
+        self.assertEqual(parse_displayed_stars(row), 54800)
+
+    def test_round_thousands(self):
+        row = "| [A](https://github.com/o/a) | <!--s:o/a-->⭐ 36k<!--/s--> | x |"
+        self.assertEqual(parse_displayed_stars(row), 36000)
+
+    def test_plain_count(self):
+        row = "- [B](https://github.com/o/b) <!--s:o/b-->⭐ 823<!--/s-->"
+        self.assertEqual(parse_displayed_stars(row), 823)
+
+    def test_row_without_span_is_none(self):
+        self.assertIsNone(parse_displayed_stars("| [C](https://c.example) | — | x |"))
+
+
+class TestSortTopGatewaysTable(unittest.TestCase):
+    @staticmethod
+    def table(*rows):
+        return (
+            "intro text\n\n"
+            "<!-- TOP-GATEWAYS:START -->\n"
+            "| Gateway | Stars | What it is | Jump to |\n"
+            "|---|---|---|---|\n" + "".join(f"{row}\n" for row in rows) +
+            "<!-- TOP-GATEWAYS:END -->\n\n"
+            "> footer note\n"
+        )
+
+    ROW_SMALL = "| [Small](https://github.com/o/small) | <!--s:o/small-->⭐ 823<!--/s--> | tiny | [S](#s) |"
+    ROW_MID = "| [Mid](https://github.com/o/mid) | <!--s:o/mid-->⭐ 36k<!--/s--> | middle | [M](#m) |"
+    ROW_BIG = "| [Big](https://github.com/o/big) | <!--s:o/big-->⭐ 45.1k<!--/s--> | large | [B](#b) |"
+    ROW_NO_SPAN = "| [Hosted](https://hosted.example) | — | SaaS, no repo | [H](#h) |"
+
+    def test_out_of_order_rows_get_sorted_descending(self):
+        out = sort_top_gateways_table(self.table(self.ROW_MID, self.ROW_SMALL, self.ROW_BIG))
+        self.assertEqual(out, self.table(self.ROW_BIG, self.ROW_MID, self.ROW_SMALL))
+
+    def test_sorted_input_is_unchanged(self):
+        text = self.table(self.ROW_BIG, self.ROW_MID, self.ROW_SMALL)
+        self.assertEqual(sort_top_gateways_table(text), text)
+
+    def test_rows_without_a_count_sink_to_the_bottom(self):
+        out = sort_top_gateways_table(
+            self.table(self.ROW_NO_SPAN, self.ROW_SMALL, self.ROW_BIG)
+        )
+        self.assertEqual(out, self.table(self.ROW_BIG, self.ROW_SMALL, self.ROW_NO_SPAN))
+
+    def test_content_outside_markers_is_untouched(self):
+        out = sort_top_gateways_table(self.table(self.ROW_MID, self.ROW_BIG))
+        self.assertTrue(out.startswith("intro text\n\n"))
+        self.assertTrue(out.endswith("> footer note\n"))
+
+    def test_missing_markers_raise(self):
+        with self.assertRaises(ValueError):
+            sort_top_gateways_table("| Gateway | Stars |\n|---|---|\n| a | 1 |\n")
+
+    def test_both_readmes_carry_markers_and_stay_sorted(self):
+        """The real files must keep the markers and the by-stars promise."""
+        from pathlib import Path
+
+        root = Path(__file__).resolve().parent.parent
+        for name in ("README.md", "README.zh-CN.md"):
+            text = (root / name).read_text(encoding="utf-8")
+            self.assertEqual(
+                sort_top_gateways_table(text), text, f"{name}: top-gateways table is out of order"
+            )
 
 
 class TestRenderReleases(unittest.TestCase):

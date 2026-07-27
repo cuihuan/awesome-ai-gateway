@@ -3,7 +3,10 @@
 
 Updates, in README.md and README.zh-CN.md:
   1. Star counts inside ``<!--s:owner/repo-->...<!--/s-->`` markers.
-  2. The "Recent releases" block between ``<!-- RELEASES:START -->`` and
+  2. The "Top gateways (by stars)" table between ``<!-- TOP-GATEWAYS:START -->``
+     and ``<!-- TOP-GATEWAYS:END -->`` — rows re-sorted descending so the
+     heading's by-stars promise survives the refreshed counts.
+  3. The "Recent releases" block between ``<!-- RELEASES:START -->`` and
      ``<!-- RELEASES:END -->`` (latest releases of repos listed in
      data/projects.json).
 
@@ -32,6 +35,9 @@ RELEASES_FILE = ROOT / "data" / "releases.json"
 STAR_MARKER_RE = re.compile(r"<!--s:([\w.\-]+/[\w.\-]+)-->.*?<!--/s-->", re.DOTALL)
 RELEASES_START = "<!-- RELEASES:START -->"
 RELEASES_END = "<!-- RELEASES:END -->"
+TOP_GATEWAYS_START = "<!-- TOP-GATEWAYS:START -->"
+TOP_GATEWAYS_END = "<!-- TOP-GATEWAYS:END -->"
+DISPLAYED_STARS_RE = re.compile(r"<!--s:[\w.\-]+/[\w.\-]+-->[^0-9<]*([0-9.]+)\s*(k?)", re.IGNORECASE)
 MAX_RELEASES_SHOWN = 12
 API_BASE = "https://api.github.com"
 
@@ -65,6 +71,56 @@ def replace_star_markers(text: str, stars: dict[str, int]) -> str:
         return f"<!--s:{slug}-->⭐ {format_stars(stars[slug])}<!--/s-->"
 
     return STAR_MARKER_RE.sub(repl, text)
+
+
+def parse_displayed_stars(row: str) -> int | None:
+    """Approximate count from a row's rendered star span: '⭐ 54.8k' → 54800.
+
+    Reads the display text (not the API) so sorting works offline and stays
+    consistent with what the reader actually sees.
+    """
+    match = DISPLAYED_STARS_RE.search(row)
+    if not match:
+        return None
+    try:
+        value = float(match.group(1))
+    except ValueError:
+        return None
+    return round(value * 1000) if match.group(2) else round(value)
+
+
+def sort_top_gateways_table(text: str) -> str:
+    """Re-sort the 'Top gateways (by stars)' table rows, highest stars first.
+
+    The heading promises a by-stars ordering, but hand-inserted rows and the
+    daily star refresh let the table drift out of order — so the same script
+    that refreshes the numbers restores the promise. The table sits between
+    the TOP-GATEWAYS markers; the header and separator rows stay put, data
+    rows are sorted descending by their displayed count, and rows without a
+    parsable count sink to the bottom in their original relative order.
+    Raises ValueError when the markers are missing so a README restructure
+    cannot silently drop the guarantee.
+    """
+    pattern = re.compile(
+        re.escape(TOP_GATEWAYS_START) + r"(.*?)" + re.escape(TOP_GATEWAYS_END),
+        re.DOTALL,
+    )
+    match = pattern.search(text)
+    if not match:
+        raise ValueError(f"markers {TOP_GATEWAYS_START!r}/{TOP_GATEWAYS_END!r} not found")
+    lines = match.group(1).strip("\n").split("\n")
+    if len(lines) < 3:  # header + separator + at least one data row
+        return text
+    header, separator, rows = lines[0], lines[1], lines[2:]
+
+    def key(row: str) -> int:
+        stars = parse_displayed_stars(row)
+        return -1 if stars is None else stars
+
+    body = "\n".join([header, separator] + sorted(rows, key=key, reverse=True))
+    return pattern.sub(
+        lambda _: f"{TOP_GATEWAYS_START}\n{body}\n{TOP_GATEWAYS_END}", text, count=1
+    )
 
 
 def replace_between_markers(text: str, start: str, end: str, body: str) -> str:
@@ -158,6 +214,7 @@ def main() -> int:
     for path in README_FILES:
         original = path.read_text(encoding="utf-8")
         updated = replace_star_markers(original, stars)
+        updated = sort_top_gateways_table(updated)
         updated = replace_between_markers(updated, RELEASES_START, RELEASES_END, block)
         if updated != original:
             path.write_text(updated, encoding="utf-8")
