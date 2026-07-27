@@ -80,7 +80,8 @@ Do you want to self-host?
     ├─ Python stack, broadest features ─────────▶ LiteLLM
     ├─ Raw performance (Go/Rust/TS) ────────────▶ Bifrost · Portkey Gateway
     ├─ Built-in evals + observability ──────────▶ Helicone · LiteLLM · Bifrost
-    ├─ Key distribution / billing / CN models ──▶ new-api · one-api · GPT-Load
+    ├─ Multi-user keys + budgets + admin UI ────▶ LiteLLM · new-api   (family / small team)
+    ├─ CN models + CNY billing ─────────────────▶ new-api · one-api · GPT-Load
     ├─ Enterprise K8s, audit, guardrails ───────▶ Kong · Higress · APISIX · Envoy AI Gateway
     └─ Governing AI agents & MCP traffic ───────▶ agentgateway · Lunar.dev
 ```
@@ -212,14 +213,14 @@ _One of the most-asked questions in the ecosystem, and the internet's answers ar
 
 _Pain point: "My keys, my infra, no per-token middleman fee."_
 
-- [LiteLLM](https://github.com/BerriAI/litellm) <!--s:BerriAI/litellm-->⭐ 54.8k<!--/s--> — The default choice: Python SDK + proxy server speaking OpenAI format to 100+ providers, with virtual keys, budgets, load balancing and guardrails.
+- [LiteLLM](https://github.com/BerriAI/litellm) <!--s:BerriAI/litellm-->⭐ 54.8k<!--/s--> — The default choice: Python SDK + proxy server speaking OpenAI format to 100+ providers (local Ollama included), with virtual keys, budgets, load balancing and guardrails; the admin UI / virtual keys need a Postgres database.
 - [Portkey Gateway](https://github.com/Portkey-AI/gateway) <!--s:Portkey-AI/gateway-->⭐ 12.6k<!--/s--> — Fast TypeScript gateway (1,600+ models, 50+ guardrails) that also powers Portkey's commercial LLMOps platform.
 - [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) <!--s:router-for-me/CLIProxyAPI-->⭐ 45.1k<!--/s--> — Go gateway that wraps coding-agent CLI subscriptions (Claude Code, Codex, Gemini, Grok, Antigravity) into OpenAI/Gemini/Claude/Codex-compatible APIs with multi-account pools, round-robin load balancing and a management API; one of the highest-starred OSS gateways in the space. BYO accounts — but routing OAuth coding-tier subscriptions through an API can violate provider ToS, so weigh account-ban risk. Companion: [CPA-Manager-Plus](https://github.com/seakee/CPA-Manager-Plus) <!--s:seakee/CPA-Manager-Plus-->⭐ 2.2k<!--/s--> — a self-hosted management panel + observability dashboard for it (requests, usage, cost, quota, failures, account health); the same ToS caveat applies.
 - [9router](https://github.com/decolua/9router) <!--s:decolua/9router-->⭐ 23.7k<!--/s--> — MIT self-hosted BYOK local proxy that auto-routes across 40+ providers with subscription→cheap→free fallback, multi-account load balancing and token compression; cost-first and very popular, but its free/OAuth coding-tier routing (Claude Code, Codex, Kiro) carries provider-ToS/account-ban risk.
 - [OmniRoute](https://github.com/diegosouzapw/OmniRoute) <!--s:diegosouzapw/OmniRoute-->⭐ 31.3k<!--/s--> — MIT self-hosted TypeScript gateway: one endpoint to 231+ providers (50+ free), plugging Claude Code / Codex / Cursor / Cline / Copilot into free Claude/GPT/Gemini with stacked token compression (15–95% savings), 17 routing strategies, smart auto-fallback and MCP/A2A. A 2026 breakout of the coding-agent "token-saver" wave — genuine code (not a relay farm), but its free/OAuth coding-tier routing carries provider-ToS/account-ban risk.
 - [Chat Nio (CoAI)](https://github.com/coaidev/coai) <!--s:coaidev/coai-->⭐ 9.3k<!--/s--> — Multi-tenant "one-stop" gateway with a built-in admin + credit/subscription billing panel over 200+ models / 35+ providers, priority-based load balancing and model caching — the same commercial-panel genre as the new-api / one-api / VoAPI entries here.
 - [TensorZero](https://github.com/tensorzero/tensorzero) <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s--> — ⚠️ **Archived June 2026** (company wound down; repo read-only, Apache-2.0 code + community forks remain). Rust gateway unified with observability, evals, experimentation and optimization.
-- [Bifrost](https://github.com/maximhq/bifrost) <!--s:maximhq/bifrost-->⭐ 6.8k<!--/s--> — Go gateway from Maxim AI claiming ~50x LiteLLM throughput; adaptive load balancing, cluster mode, MCP support.
+- [Bifrost](https://github.com/maximhq/bifrost) <!--s:maximhq/bifrost-->⭐ 6.8k<!--/s--> — Go gateway from Maxim AI claiming ~50x LiteLLM throughput; adaptive load balancing, cluster mode, MCP support, a built-in web UI, and documented Ollama support for local models — zero-config start via `npx` or Docker.
 - [Traceloop Hub](https://github.com/traceloop/hub) <!--s:traceloop/hub-->⭐ 222<!--/s--> — High-scale gateway written in Rust from the [Traceloop](https://www.traceloop.com/) team (OpenLLMetry / OTel-for-LLMs); OpenTelemetry-native observability built in.
 - [Helicone](https://github.com/Helicone/helicone) <!--s:Helicone/helicone-->⭐ 6k<!--/s--> — Observability-first platform (YC W23) with a Rust [ai-gateway](https://github.com/Helicone/ai-gateway) <!--s:Helicone/ai-gateway-->⭐ 615<!--/s-->.
 - [Plano](https://github.com/katanemo/plano) <!--s:katanemo/plano-->⭐ 6.9k<!--/s--> — AI-native proxy and data plane for agents (formerly Arch Gateway / archgw).
@@ -282,7 +283,7 @@ _Pain point: "We're already committed to one cloud — give us the native path."
 
 _Pain point: "Domestic models (Qwen/DeepSeek/GLM/Kimi), CNY payment, key distribution & billing for teams."_
 
-- [new-api](https://github.com/QuantumNous/new-api) <!--s:QuantumNous/new-api-->⭐ 43.5k<!--/s--> — The most active one-api fork, now a "unified AI model hub": protocol conversion, billing, Rerank/Realtime endpoints. AGPL-3.0.
+- [new-api](https://github.com/QuantumNous/new-api) <!--s:QuantumNous/new-api-->⭐ 43.5k<!--/s--> — The most active one-api fork, now a "unified AI model hub": protocol conversion, multi-user key distribution and billing behind a polished admin UI, Rerank/Realtime endpoints. Not China-only — the panel fronts OpenAI-compatible, Claude and Gemini channels too, a fit for any family or small team wanting per-user keys and budgets. AGPL-3.0.
 - [one-api](https://github.com/songquanpeng/one-api) <!--s:songquanpeng/one-api-->⭐ 36k<!--/s--> — The original LLM API management & distribution system (OpenAI/Azure/Claude/Gemini/DeepSeek/Doubao…); development has slowed.
 - [Higress](https://github.com/higress-group/higress) <!--s:higress-group/higress-->⭐ 8.9k<!--/s--> — Alibaba's AI-native gateway on Envoy/Istio, first-class Tongyi/DeepSeek support; hosted version at higress.ai.
 - [GPT-Load](https://github.com/tbphp/gpt-load) <!--s:tbphp/gpt-load-->⭐ 6.3k<!--/s--> — Smart API-key rotation multi-channel proxy in Go.
@@ -420,27 +421,29 @@ _Pain point: "Routing to self-hosted models (vLLM/Ollama) inside the cluster, GP
 
 ## Quick comparison
 
-Stars auto-refresh daily. ✅ built-in · ➕ via plugin/paid tier · ❌ not available.
+Stars auto-refresh daily. ✅ built-in · ➕ via plugin/paid tier · ❌ not available · **n/d** = not documented in the project's own docs.
 
-| Project | Type | Stars | License | Multi-provider | Fallback / LB | Caching | Guardrails | Cost tracking |
-|---|---|---|---|---|---|---|---|---|
-| [LiteLLM](https://github.com/BerriAI/litellm) | OSS proxy + SDK | <!--s:BerriAI/litellm-->⭐ 54.8k<!--/s--> | MIT¹ | ✅ 100+ | ✅ | ✅ | ✅ | ✅ |
-| [new-api](https://github.com/QuantumNous/new-api) | OSS relay/billing | <!--s:QuantumNous/new-api-->⭐ 43.5k<!--/s--> | AGPL-3.0 | ✅ | ✅ | ➕ | ➕ | ✅ |
-| [one-api](https://github.com/songquanpeng/one-api) | OSS relay/billing | <!--s:songquanpeng/one-api-->⭐ 36k<!--/s--> | MIT | ✅ | ✅ | ❌ | ❌ | ✅ |
-| [Kong AI Gateway](https://github.com/Kong/kong) | OSS API gateway | <!--s:Kong/kong-->⭐ 43.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ semantic | ✅ | ✅ |
-| [Apache APISIX](https://github.com/apache/apisix) | OSS API gateway | <!--s:apache/apisix-->⭐ 16.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ➕ | ➕ | ➕ |
-| [Portkey Gateway](https://github.com/Portkey-AI/gateway) | OSS gateway + SaaS | <!--s:Portkey-AI/gateway-->⭐ 12.6k<!--/s--> | MIT | ✅ 1600+ | ✅ | ✅ | ✅ 50+ | ➕ SaaS |
-| [TensorZero](https://github.com/tensorzero/tensorzero) | OSS LLMOps · ⚠️ archived '26 | <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ | ➕ | ✅ |
-| [Higress](https://github.com/higress-group/higress) | OSS AI-native gateway | <!--s:higress-group/higress-->⭐ 8.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [GPT-Load](https://github.com/tbphp/gpt-load) | OSS key-pool proxy | <!--s:tbphp/gpt-load-->⭐ 6.3k<!--/s--> | MIT | ✅ | ✅ key rotation | ❌ | ❌ | ➕ |
-| [Bifrost](https://github.com/maximhq/bifrost) | OSS gateway (Go) | <!--s:maximhq/bifrost-->⭐ 6.8k<!--/s--> | Apache-2.0 | ✅ | ✅ adaptive | ✅ | ✅ | ✅ |
-| [Helicone](https://github.com/Helicone/helicone) | OSS observability + gateway | <!--s:Helicone/helicone-->⭐ 6k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ | ➕ | ✅ |
-| [Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway) | OSS K8s gateway | <!--s:envoyproxy/ai-gateway-->⭐ 1.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ➕ | ➕ | ✅ |
-| [OpenRouter](https://openrouter.ai) | SaaS marketplace | — | Commercial | ✅ 400+ | ✅ | ✅ | ➕ | ✅ |
-| [Vercel AI Gateway](https://vercel.com/ai-gateway) | SaaS (0% markup) | — | Commercial | ✅ 100s | ✅ | ❌ | ❌ | ✅ |
-| [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) | SaaS control plane | — | Commercial (free tier) | ✅ | ✅ dynamic | ✅ | ✅ | ✅ budgets |
+| Project | Type | Stars | License | Multi-provider | Fallback / LB | Caching | Guardrails | Cost tracking | Web UI | Local (Ollama) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| [LiteLLM](https://github.com/BerriAI/litellm) | OSS proxy + SDK | <!--s:BerriAI/litellm-->⭐ 54.8k<!--/s--> | MIT¹ | ✅ 100+ | ✅ | ✅ | ✅ | ✅ | ✅ needs DB | ✅ |
+| [new-api](https://github.com/QuantumNous/new-api) | OSS relay/billing | <!--s:QuantumNous/new-api-->⭐ 43.5k<!--/s--> | AGPL-3.0 | ✅ | ✅ | ➕ | ➕ | ✅ | ✅ | n/d |
+| [one-api](https://github.com/songquanpeng/one-api) | OSS relay/billing | <!--s:songquanpeng/one-api-->⭐ 36k<!--/s--> | MIT | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
+| [Kong AI Gateway](https://github.com/Kong/kong) | OSS API gateway | <!--s:Kong/kong-->⭐ 43.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ semantic | ✅ | ✅ | ➕ Kong Manager | ✅ |
+| [Apache APISIX](https://github.com/apache/apisix) | OSS API gateway | <!--s:apache/apisix-->⭐ 16.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ➕ | ➕ | ➕ | ➕ separate Dashboard | ➕ OpenAI-compat |
+| [Portkey Gateway](https://github.com/Portkey-AI/gateway) | OSS gateway + SaaS | <!--s:Portkey-AI/gateway-->⭐ 12.6k<!--/s--> | MIT | ✅ 1600+ | ✅ | ✅ | ✅ 50+ | ➕ SaaS | ✅ logs console | ✅ |
+| [TensorZero](https://github.com/tensorzero/tensorzero) | OSS LLMOps · ⚠️ archived '26 | <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ | ➕ | ✅ | ✅ | ✅ OpenAI-compat |
+| [Higress](https://github.com/higress-group/higress) | OSS AI-native gateway | <!--s:higress-group/higress-->⭐ 8.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ console | ✅ |
+| [GPT-Load](https://github.com/tbphp/gpt-load) | OSS key-pool proxy | <!--s:tbphp/gpt-load-->⭐ 6.3k<!--/s--> | MIT | ✅ | ✅ key rotation | ❌ | ❌ | ➕ | ✅ | n/d |
+| [Bifrost](https://github.com/maximhq/bifrost) | OSS gateway (Go) | <!--s:maximhq/bifrost-->⭐ 6.8k<!--/s--> | Apache-2.0 | ✅ | ✅ adaptive | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Helicone](https://github.com/Helicone/helicone) | OSS observability + gateway | <!--s:Helicone/helicone-->⭐ 6k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ | ➕ | ✅ | ✅ | ➕ SDK logging |
+| [Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway) | OSS K8s gateway | <!--s:envoyproxy/ai-gateway-->⭐ 1.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ➕ | ➕ | ✅ | ❌ | ➕ OpenAI-format |
+| [OpenRouter](https://openrouter.ai) | SaaS marketplace | — | Commercial | ✅ 400+ | ✅ | ✅ | ➕ | ✅ | ✅ | ❌ |
+| [Vercel AI Gateway](https://vercel.com/ai-gateway) | SaaS (0% markup) | — | Commercial | ✅ 100s | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ |
+| [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) | SaaS control plane | — | Commercial (free tier) | ✅ | ✅ dynamic | ✅ | ✅ | ✅ budgets | ✅ | n/d |
 
 ¹ LiteLLM core is MIT; the repo contains a separately licensed enterprise directory.
+
+**Deploy weight** (self-hosted rows, each from its own deploy docs — often the deciding factor on a home server): single process with SQLite/config-file state — **Bifrost** (npx or Docker, zero-config start), **GPT-Load**, **new-api**, **one-api** (SQLite default; MySQL/Postgres optional), **Portkey OSS** (Node/npx); needs external state — **LiteLLM** (Postgres required for virtual keys / budgets / admin UI), **Kong** (Postgres, or DB-less declarative config), **APISIX** (etcd, or standalone YAML mode), **TensorZero** (ClickHouse), **Helicone** (all-in-one Docker image bundling Postgres + ClickHouse + MinIO), **Higress** (Docker Compose or K8s). "Local (Ollama)" = the project's own docs name Ollama (or, where marked, a generic OpenAI-compatible/self-hosted backend path).
 
 > 📂 **Browse the raw data** (machine-readable, CC0): [models & pricing JSON](data/models.json) · [cost table CSV](data/cost_table.csv) · [gateway scorecard CSV](data/gateways_scorecard.csv). Every cost cell is regenerated from this data by a [unit-tested script](scripts/cost_calc.py).
 
@@ -452,7 +455,7 @@ Stars auto-refresh daily. ✅ built-in · ➕ via plugin/paid tier · ❌ not av
 
 ## The requirements map
 
-Gateways get bought for **eight distinct jobs**. Find yours, jump straight to the evidence:
+Gateways get bought for **nine distinct jobs**. Find yours, jump straight to the evidence:
 
 | Your requirement | The question it answers | Where to look |
 |---|---|---|
@@ -462,7 +465,8 @@ Gateways get bought for **eight distinct jobs**. Find yours, jump straight to th
 | 🛡️ **Security & compliance** | "Can I prove to an auditor where prompts went?" | [Enterprise & compliance](#-enterprise--compliance) · [scorecard](BENCHMARKS.md#part-4--gateway-scorecard-compliance--price--security--stability--observability) |
 | 📦 **Supply-chain trust** | "Is the gateway itself safe to run?" | [How to choose safely](#how-to-choose-safely) (step 8) |
 | ⚡ **Caching & rate limits** | "Stop paying twice for the same answer; survive 429s" | [Quick comparison](#quick-comparison) cache column |
-| ☸️ **Self-hosted models / K8s** | "Route to vLLM/Ollama inside my cluster, GPU-aware" | [Kubernetes-native & inference infra](#️-kubernetes-native--inference-infra) |
+| 🏠 **Local models on one box** (Ollama / LM Studio) | "One proxy on my home server fronting OpenAI + Anthropic + local Ollama" | The **Local (Ollama)** column in [Quick comparison](#quick-comparison) — e.g. LiteLLM, Bifrost, one-api — plus [Manifest](#-self-hosted-open-source) and [Olla](#️-kubernetes-native--inference-infra) |
+| ☸️ **K8s / GPU cluster** | "Route to vLLM/Ollama inside my cluster, GPU-aware" | [Kubernetes-native & inference infra](#️-kubernetes-native--inference-infra) |
 | 🤖 **Agent & MCP governance** | "My agents call tools — who's watching that traffic?" | [MCP & agent gateways](#-mcp--agent-gateways) |
 | 🔍 **Model fidelity / relay trust** | "Am I getting the model I'm paying for?" | [canary_check.py](scripts/canary_check.py) · [watch-list](#community-relay-watch-list) |
 
