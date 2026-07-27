@@ -162,7 +162,8 @@ _Pain point: "Audit logs, PII redaction, RBAC, on-prem, and the EU AI Act (enfor
 - [Gravitee Agent Mesh](https://www.gravitee.io) — LLM Proxy, MCP Proxy and A2A support inside Gravitee APIM.
 - [WSO2 AI Gateway](https://wso2.com/api-manager/usecases/ai-gateway/) — Egress management for LLM traffic: model routing, semantic caching, guardrails.
 - [F5 AI Gateway](https://www.f5.com) — Containerized AI traffic gateway; data-leakage detection via the LeakSignal acquisition (announced Jul 2025).
-- [IBM API Connect AI Gateway](https://www.ibm.com) — Policy enforcement, masking and audit for LLM traffic.
+- [IBM API Connect AI Gateway](https://www.ibm.com/docs/en/api-connect/software/10.0.x_cd?topic=definitions-using-ai-gateway-support-apis-ai-applications) — AI Gateway capability inside IBM API Connect: policy enforcement, masking and audit for LLM traffic (its dedicated docs line has since moved to the standalone DataPower Interact Gateway below).
+- [IBM DataPower Interact Gateway](https://www.ibm.com/products/datapower-interact-gateway) — Standalone gateway built on the DataPower Nano Gateway governing LLM and MCP traffic at runtime: an MCP gateway exposing existing APIs as agent-discoverable MCP tools, plus governed endpoints to external LLM providers (announced Jun 2026).
 - [MuleSoft AI / Omni Gateway](https://www.mulesoft.com/platform/ai-gateway) — Governs LLM, MCP and agent traffic alongside classic APIs.
 - [Lunar.dev](https://github.com/TheLunarCompany/lunar) <!--s:TheLunarCompany/lunar-->⭐ 472<!--/s--> — Egress consumption gateway repositioned around MCP/agent governance.
 - [KrakenD AI Gateway](https://www.krakend.io/docs/ai-gateway/) — High-performance, stateless Go API gateway ([krakend/krakend-ce](https://github.com/krakend/krakend-ce) <!--s:krakend/krakend-ce-->⭐ 2.7k<!--/s-->) with an AI proxy + prompt-security layer.
