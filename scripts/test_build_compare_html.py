@@ -313,6 +313,29 @@ class TestSitemap(unittest.TestCase):
         undated_block = xml.split("compare/undated.html")[1].split("</url>")[0]
         self.assertNotIn("<lastmod>", undated_block)
 
+    def test_lastmod_provider_stamps_static_pages_and_home(self):
+        dates = {"index.html": "2026-07-27", "cost-calculator.html": "2026-07-22",
+                 "compare/undated.md": "2026-07-01"}
+        xml = build_sitemap([("undated", None), ("dated", "2026-06-16")], lastmod_for=dates.get)
+        home = xml.split("<loc>https://cuihuan.github.io/awesome-ai-gateway/</loc>")[1].split("</url>")[0]
+        self.assertIn("<lastmod>2026-07-27</lastmod>", home)
+        calc = xml.split("cost-calculator.html")[1].split("</url>")[0]
+        self.assertIn("<lastmod>2026-07-22</lastmod>", calc)
+        # byline-less article falls back to its .md git date…
+        und = xml.split("compare/undated.html")[1].split("</url>")[0]
+        self.assertIn("<lastmod>2026-07-01</lastmod>", und)
+        # …but an article's own byline always wins over the provider
+        dated = xml.split("compare/dated.html")[1].split("</url>")[0]
+        self.assertIn("<lastmod>2026-06-16</lastmod>", dated)
+
+    def test_lastmod_provider_none_omits_element(self):
+        # pages the provider has no date for (uncommitted / shallow clone) must
+        # omit <lastmod> entirely — never carry a fabricated date
+        xml = build_sitemap([("undated", None)], lastmod_for=lambda p: None)
+        for page in ("gateway-picker.html", "compare/undated.html"):
+            block = xml.split(page)[1].split("</url>")[0]
+            self.assertNotIn("<lastmod>", block)
+
     def test_canonicalized_guides_stay_out_zh_twins_stay_in(self):
         # The three root guides canonicalize to their compare/ successors, so a
         # sitemap (canonical URLs only) must not list them — while their zh-CN

@@ -14,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          # Full history: the sitemap rebuild stamps <lastmod> from per-file git
+          # dates; a shallow clone would silently drop (never fabricate) them.
+          fetch-depth: 0
 
       - uses: actions/setup-python@v6
         with:

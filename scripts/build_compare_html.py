@@ -27,7 +27,9 @@ from __future__ import annotations
 import argparse
 import html
 import re
+import subprocess
 import sys
+from functools import lru_cache
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -572,25 +574,67 @@ def _json(s: str) -> str:
 
 # ── Sitemap ──────────────────────────────────────────────────────────────────
 
-def build_sitemap(articles: list[tuple[str, str | None]]) -> str:
-    """articles: [(slug, lastmod_or_None), ...]. The home page has no lastmod
-    (its 'daily' changefreq already signals freshness)."""
+@lru_cache(maxsize=1)
+def _full_git_history() -> bool:
+    """True when we're in a git repo with full (non-shallow) history. In a
+    shallow clone `git log -1 -- <file>` reports the tip commit for every file
+    — a fabricated date — so lastmod stamping must refuse to answer there
+    (the workflows check out with fetch-depth: 0 for this reason)."""
+    try:
+        out = subprocess.run(
+            ["git", "rev-parse", "--is-shallow-repository"],
+            cwd=ROOT, capture_output=True, text=True, check=True,
+        ).stdout.strip()
+        return out == "false"
+    except Exception:
+        return False
+
+
+def git_lastmod(rel_path: str) -> str | None:
+    """Last git commit date (YYYY-MM-DD) of a repo-relative file — the honest
+    <lastmod> for hand-edited pages. None (lastmod omitted, never fabricated)
+    for uncommitted files or when history is unavailable/shallow."""
+    if not _full_git_history():
+        return None
+    try:
+        out = subprocess.run(
+            ["git", "log", "-1", "--format=%cs", "--", rel_path],
+            cwd=ROOT, capture_output=True, text=True, check=True,
+        ).stdout.strip()
+        return out or None
+    except Exception:
+        return None
+
+
+def build_sitemap(articles: list[tuple[str, str | None]], lastmod_for=None) -> str:
+    """articles: [(slug, lastmod_or_None), ...]. `lastmod_for` maps a
+    repo-relative path to its last-modified date (build_all passes git_lastmod)
+    so every URL can carry a real <lastmod>; None omits the element rather than
+    fabricating a date. An article's own 'Last updated' byline wins over git
+    history — the byline is the content date, git also moves on mechanical
+    refreshes (star spans)."""
     # litellm-vs-openrouter.html, openrouter-alternatives.html and
     # self-hosted-llm-gateway.html are deliberately absent: they canonicalize to
     # their compare/ successors (same query, one indexed winner), and a sitemap
     # should list canonical URLs only. Their zh-CN twins remain canonical pages.
-    rows = [(SITE, "1.0", "daily", None)]
-    rows.append((SITE + "litellm-vs-openrouter.zh-CN.html", "0.6", "monthly", None))  # zh-CN localization
-    rows.append((SITE + "openrouter-alternatives.zh-CN.html", "0.6", "monthly", None))  # zh-CN localization
-    rows.append((SITE + "self-hosted-llm-gateway.zh-CN.html", "0.6", "monthly", None))  # zh-CN localization
-    rows.append((SITE + "reduce-llm-api-costs.html", "0.7", "monthly", None))  # guide article
-    rows.append((SITE + "reduce-llm-api-costs.zh-CN.html", "0.6", "monthly", None))  # zh-CN localization
-    rows.append((SITE + "gateway-picker.html", "0.8", "monthly", None))   # interactive decision tool
-    rows.append((SITE + "cost-calculator.html", "0.8", "monthly", None))  # interactive tool
-    lastmods = [lm for _, lm in articles if lm]
-    rows.append((SITE + "compare/", "0.7", "weekly", max(lastmods) if lastmods else None))
+    lm = lastmod_for or (lambda p: None)
+    rows = [(SITE, "1.0", "daily", lm("index.html"))]
+    for page, pr, cf in (
+        ("litellm-vs-openrouter.zh-CN.html", "0.6", "monthly"),    # zh-CN localization
+        ("openrouter-alternatives.zh-CN.html", "0.6", "monthly"),  # zh-CN localization
+        ("self-hosted-llm-gateway.zh-CN.html", "0.6", "monthly"),  # zh-CN localization
+        ("reduce-llm-api-costs.html", "0.7", "monthly"),           # guide article
+        ("reduce-llm-api-costs.zh-CN.html", "0.6", "monthly"),     # zh-CN localization
+        ("gateway-picker.html", "0.8", "monthly"),                 # interactive decision tool
+        ("cost-calculator.html", "0.8", "monthly"),                # interactive tool
+    ):
+        rows.append((SITE + page, pr, cf, lm(page)))
+    lastmods = [l for _, l in articles if l]
+    rows.append((SITE + "compare/", "0.7", "weekly",
+                 max(lastmods) if lastmods else lm("compare/index.html")))
     for slug, lastmod in sorted(articles):
-        rows.append((f"{SITE}compare/{slug}.html", "0.8", "monthly", lastmod))
+        rows.append((f"{SITE}compare/{slug}.html", "0.8", "monthly",
+                     lastmod or lm(f"compare/{slug}.md")))
     parts = []
     for loc, pr, cf, lm in rows:
         lm_line = f"\n    <lastmod>{lm}</lastmod>" if lm else ""
@@ -635,7 +679,7 @@ def build_all(check: bool = False) -> int:
             html_path.write_text(rendered, encoding="utf-8")
 
     hub = render_hub(metas)
-    sitemap = build_sitemap([(m["slug"], m["lastmod"]) for m in metas])
+    sitemap = build_sitemap([(m["slug"], m["lastmod"]) for m in metas], lastmod_for=git_lastmod)
     if check:
         diff(COMPARE / "index.html", hub)
         diff(ROOT / "sitemap.xml", sitemap)
