@@ -272,6 +272,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Red Hat Connectivity Link](https://www.redhat.com/en/technologies/cloud-computing/connectivity-link) — 基于 Kuadrant 项目（3scale 的继任者）的 Kubernetes 原生网关，统一 AI 网关、API 管理与多集群连接；作为 OpenShift AI「模型即服务」的前门，治理外部与自托管 LLM 端点。
 - [Sensedia AI Gateway](https://www.sensedia.com/product/ai-gateway) — Gartner 认可的 APIM 厂商出品的中立 AI 网关，以多模型路由、护栏、成本控制与可观测治理 LLM、MCP server 与 AI Agent，构成多云控制面。
 - [Ambassador Edge Stack](https://www.getambassador.io/products/edge-stack/api-gateway) — 基于 Envoy 的 Kubernetes 原生 API 网关（开源内核 [emissary-ingress](https://github.com/emissary-ingress/emissary) <!--s:emissary-ingress/emissary-->⭐ 4.5k<!--/s-->），其 AI Gateway 层增加 LLM 厂商路由、token 限流与兜底——API 厂商阵营里 Kong/Tyk/APISIX 的同类。
+- [Shim](https://getshim.tech) — 面向合规的 AI 网关：基于 Presidio 的 PII 脱敏（含土耳其 TCKN/VKN 标识符）、带每日 Merkle 锚点的防篡改哈希链审计日志（用于欧盟 AI Act 与 KVKK 举证），并提供语义缓存与按标签的成本归集。
 
 ## 🌐 原厂直连（云厂商/模型厂商）
 
