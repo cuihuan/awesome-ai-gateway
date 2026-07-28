@@ -209,7 +209,7 @@ A 6-agent research pass (how comparable awesome-lists + LLM-gateway projects act
 
 ### 9e. 👤 Maintainer-only — the moves that actually move stars now (agent has maxed the prep)
 1. **Create a Bing Webmaster Tools account** (bing.com/webmasters) → *Import from Google Search Console* (1-click) → submit `sitemap.xml` → record the June-2026 **Citation Share** baseline (it can't be backfilled, so every week of delay loses trend history). This unlocks the IndexNow pings already firing.
-2. **Submit to sindresorhus/awesome** — ⏳ **NOT YET ELIGIBLE.** The repo was created **2026-06-11**, and sindresorhus auto-closes lists **< 30 days old** — so the earliest valid submission is **~2026-07-11**. Topics (`awesome`+`awesome-list`) ✅ and branch `main` ✅ already pass; only the age blocks it. *(Correcting an earlier note that claimed we clear the age gate — we don't until mid-July.)* When eligible: agent preps (`npx awesome-lint` to zero via `docs/awesome-lint-triage.md`, PR body); you open the PR, **review 4 other open PRs**, post `unicorn` in one sitting. No star minimum exists. This is the single biggest evergreen backlink — worth doing the day it's eligible.
+2. **Submit to sindresorhus/awesome** — ✅ **READY (lint green + CI-gated 2026-07-28; see §12).** Remaining is the 👤 ritual: open the prepped PR, review 4 other open PRs, comment `unicorn`. ~~Original note:~~ The repo was created **2026-06-11**, and sindresorhus auto-closes lists **< 30 days old** — so the earliest valid submission is **~2026-07-11**. Topics (`awesome`+`awesome-list`) ✅ and branch `main` ✅ already pass; only the age blocks it. *(Correcting an earlier note that claimed we clear the age gate — we don't until mid-July.)* When eligible: agent preps (`npx awesome-lint` to zero via `docs/awesome-lint-triage.md`, PR body); you open the PR, **review 4 other open PRs**, post `unicorn` in one sitting. No star minimum exists. This is the single biggest evergreen backlink — worth doing the day it's eligible.
 3. **Run the 48–72h launch burst** (§3) — HN (factual title, $788 first comment) + r/LocalLLaMA + r/selfhosted + one newsletter, channel-distinct posts, present to answer. Drafts in `docs/launch-posts.md` (agent keeps them channel-distinct).
 4. **Warm 1:1 outreach** to people who already engaged (issue reporters, the #14 contributor, anyone who forked) — the proven path to the first ~100 real stars.
 
@@ -239,7 +239,7 @@ Runner-ups (CN human discussion): linux.do 开发调优, 掘金/知乎 writeups,
 | [InftyAI/Awesome-LLMOps](https://github.com/InftyAI/Awesome-LLMOps) (~252★) | literal **AI Gateway** + **LLM Router** sections | ⚠️ earlier flagged bad-for-*meta-list*; fits a **tool entry**, not listing our list |
 | [EthicalML/awesome-production-machine-learning](https://github.com/EthicalML/awesome-production-machine-learning) (~20.7k★) | MLOps meta | highest authority, but MLOps-lean → acceptance less certain |
 
-**sindresorhus/awesome:** eligibility opens **~2026-07-11** (30-day age gate; repo created 2026-06-11). Landing it cascades passive backlinks into awesome.ecosyste.ms / trackawesomelist / project-awesome automatically. Agent preps lint+body; 👤 opens + reviews 4 PRs + `unicorn`. **This is the imminent high-value move.**
+**sindresorhus/awesome:** ✅ all agent-side prerequisites cleared 2026-07-28 (age gate passed 07-11; lint 1,339→0 + blocking CI — see §12). Landing it cascades passive backlinks into awesome.ecosyste.ms / trackawesomelist / project-awesome automatically. 👤 opens the prepped PR + reviews 4 PRs + `unicorn`.
 
 ## 10. Growth research v3 (2026-07-06) — the star-velocity playbook + content strategy
 
@@ -280,7 +280,13 @@ The gateway scorecard is now **compliance · markup · security · stability · 
 - **New gateway added to the scorecard ⇒ must get all 5 axes** incl. an observability_note; `export_csv.py` exports the column (tests enforce the field).
 - **Adding a 6th axis someday:** follow this precedent — publish the rubric row first, evidence-note per gateway in the JSON, sweep the Part-4 heading anchor repo-wide (10+ refs incl. compare/*.md sources → regenerate HTML), bump `as_of`.
 
-## 12. Decision memo — sindresorhus/awesome submission (needs a 👤 call, 2026-07-27)
+## 12. Decision memo — sindresorhus/awesome submission (RESOLVED 2026-07-28)
+
+**👤 chose option (b) on 2026-07-28 and the agent executed it the same day — with a better outcome than either option promised.** The 07-03 triage's "destructive flatten" premise was wrong: `table-pipe-alignment@4` aligns by UTF-16 source offsets (not visual width), so `scripts/format_tables.mjs` cleared all 812 table errors with every emoji intact; the list-item rule's text-first skip + description-dash path preserved the star spans; double-link dedup mostly became a deep-anchor upgrade. Net: **1,339 → 0 errors**, tables/emoji/spans intact, ToC now strict-generated (`scripts/build_toc.mjs`), zh-CN untouched, and the CI lint gate is **blocking** so growth can't silently re-open the debt. Full record: `docs/awesome-lint-triage.md` (resolution banner). Remaining: the 👤 submission ritual (open PR with the prepped body, review 4 other open PRs, comment `unicorn`) — prepped in the 2026-07-28 human-actions memo.
+
+<details><summary>Historical memo (superseded)</summary>
+
+### Original decision memo (2026-07-27)
 
 **The contradiction, on record for 16+ days:** the age gate passed 2026-07-11 and §9e-2/§9f still call this "the imminent high-value move," while `docs/awesome-lint-triage.md`'s 07-03 PoC concluded a lint-green pass requires **flattening every emoji-decorated table** — a UX sacrifice it recommended against. Net effect: the item is neither being done nor formally dropped. Pick one:
 
@@ -288,3 +294,5 @@ The gateway scorecard is now **compliance · markup · security · stability · 
 - **Option (b) — accept emoji-flattening and let the agent drive lint-to-green.** Mechanical but large, and **the bill grows with the list**: verified 2026-07-27 by running `npx awesome-lint` against the live repo — **1,191 errors + 11 warnings**, up ~2× from the ~656 in the 07-03 triage snapshot (breakdown: 599 table-pipe-alignment · 247 awesome-list-item · 231 double-link · 108 table-cell-padding · 3 no-emphasis-as-heading · 1 emphasis-marker · rest singletons). Every content addition since 07-03 deepened the gap, and future growth keeps deepening it — so option (b) also implies keeping lint green forever (a CI gate), not a one-time cleanup. After green: 👤 reviews 4 other PRs + posts `unicorn`.
 
 **Recommendation (agent):** (a). The doubling in three weeks is the argument — lint debt scales with exactly the growth we want, and the flattened tables would degrade the product for every reader to win one backlink. But this is a strategy call: 👤 decides; agent syncs whichever answer into §9e/§9f the same day.
+
+</details>
