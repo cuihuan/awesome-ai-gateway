@@ -563,6 +563,7 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 
 | 日期 | 分类 | 结论 | 来源 |
 |---|---|---|---|
+| 2026-07-28 | 💰 定价 | **月度核验：13 项模型定价逐一对照官方页，12 项完全一致。** 唯一破的不是涨价而是**静默退役**——Grok 4（2026-05-15 退役）旧 slug 仍在服务、按 grok-4.3 计费（$1.25/$2.50），**比我们记录的 $3/$15 便宜 2.4 倍**。给网关配置的教训：按带日期的 slug 固定模型、盯退役公告而不只是价格页——退役 slug 会同时悄悄换模型和换账单。 | [models.json](data/models.json) |
 | 2026-07-27 | 💰 定价 | API 定价市场已覆盖 **15 家供应商、194 个模型**——全输入/输出区间价差约 **2,500×**：在列最便宜输入 **Llama 3.1 8B（$0.02/百万）** vs 最贵输出 **Claude Mythos 5（$50.00/百万）**（据站内标价自行计算）；最便宜旗舰输入仍是 **DeepSeek V4 Flash（$0.14/百万）**。 | [aipricing.guru](https://aipricing.guru) |
 | 2026-07-10 | 🔌 跨格式 | **最难的路径，横跨 3 个网关实测**——Anthropic 客户端（如 Claude Code）路由到 OpenAI 模型，被报最多的"工具调用坏了"。中立 CI 跑机：**LiteLLM v1.91.1 — 3/3 · Bifrost — 3/3 · Portkey OSS — 不提供该路径**（其 `/v1/messages` 只认 anthropic provider）。LiteLLM 与 Bifrost 都能干净翻译；Portkey OSS 在 header 自托管配置下不暴露这条路。版本提醒：LiteLLM 的 `/v1/messages` 传输路径变过（≤1.57.x 走 Chat Completions → ≥~1.9x 与 Bifrost 都走 OpenAI **Responses API**，指向只支持 chat-completions 的上游会 `KeyError('created_at')`）——**务必锁版本**。可复现：`node probe/xformat.mjs`。 | [xformat.json](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/xformat.json) |
 | 2026-07-09 | 🆓 免费额度 | **11 家厂商免费额度逐行审计，全部对照厂商自己的文档核实**：Google 已把 Gemini 免费档限额藏进登录后台；Mistral 免费模式**默认拿你的数据训练**（需手动关闭）；Together AI 的 `-free` 模型**已全部下线**（最低预充 $5）；Kimi 从来不免费（先充 $1）。机器可读，CI 强制 ≤30 天复审。 | [free_tiers.json](data/free_tiers.json) |
@@ -599,8 +600,9 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 
 ## 📰 行业动态
 
-*人工每月更新。最近审阅：2026-07-27。*
+*人工每月更新。最近审阅：2026-07-28。*
 
+- **2026-07-28** · **7 月旗舰潮把整个记分板重排了** ——Claude Opus 5（7 月 24 日）同时拿下 AA 指数第一（v4.1 口径 60.7）与 SWE-bench Verified 榜首（96.0），Fable 5 在 Arena 稳定登顶（1508±6），Kimi K3（7 月 16 日发布、27 日开源权重）成为开源权重新王，GPT-5.6 Sol/Terra/Luna（7 月 9 日）、Grok 4.5（7 月 8 日）、Gemini 3.6 Flash（7 月 21 日）补齐这个月。本清单的记分板与成本表已按 v4.1 口径、单一来源列重建（[BENCHMARKS](BENCHMARKS.zh-CN.md)）；月度定价核验 **13 项里 12 项与官方页完全一致**——唯一破的那项见评测速递。
 - **2026-07** · **据报道 Stripe 正洽购 OpenRouter，估值约 100 亿美元**（华尔街日报，7 月 23 日——**未经证实**：谈判仍可能破裂，也可能出现其他买家）——约为其 5 月 B 轮 13 亿美元估值的 7.7 倍，也是下方整合趋势线（Portkey→Palo Alto、Helicone→Mintlify、TensorZero 关停）迄今最强的信号。（[TNW](https://thenextweb.com/news/stripe-openrouter-10-billion-ai-model-marketplace-acquisition)、[PYMNTS](https://www.pymnts.com/news/artificial-intelligence/2026/stripe-eyes-10-billion-deal-for-ai-model-marketplace-openrouter/)）
 - **2026-06** · **LiteLLM 的 RCE 被列入 CISA KEV 目录** —— CVE-2026-42271（MCP 命令注入）与 Starlette 鉴权绕过串联成免鉴权远程代码执行，可触及主密钥与各厂商凭证（6 月 8 日入列，6 月 16–22 日又披露多枚 CVE）。这与 3 月的 PyPI 供应链投毒是两回事——请打补丁并收紧网关控制面。（[CSA](https://labs.cloudsecurityalliance.org/research/csa-research-note-litellm-cve-2026-42271-ai-gateway-exploita/)）
 - **2026-06** · **Envoy AI Gateway 发布 v1.0**（6 月 23 日）—— 首个基于 CNCF Envoy 的生产级稳定开源 AI 网关：一套 API 打通 16 家供应商，并内置原生 MCP 网关（Tetrate、彭博、Nutanix、腾讯背书）。（[发布公告](https://aigateway.envoyproxy.io/blog/v1.0-release-announcement/)）

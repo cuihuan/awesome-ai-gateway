@@ -25,35 +25,42 @@
 
 模型有多强？以下是审阅日最被引用的公开基准。**务必结合[注意事项](#方法论与注意事项)阅读**——榜单会被刷分和数据污染，请与人类盲评（Arena）和下面的真实成本表交叉验证。
 
-按 **Artificial Analysis 智能指数**（最常被引用的综合分）排序。此处为 **v4.0** 口径的数值；AA 之后已发布 **v4.1**——它更偏重 Agent 任务，并已*吸收* Terminal-Bench、τ³ 与 GDPval，因此别把这几项当作独立于该指数的证据。`♦` = GPQA Diamond。`—` = 审阅时未核实。
+按 **Artificial Analysis 智能指数**（最常被引用的综合分）排序，采用当前 **v4.1** 口径（2026-06-15 重定标、加重 Agent 任务权重——分数普遍比 v4.0 低约 5 分，**绝不可跨口径比较**）。每列刻意单一来源：GPQA♦ 与 HLE 为 AA 独立复测；SWE-bench Verified 取独立的 [BenchLM](https://benchlm.ai/benchmarks/sweVerified) 榜（榜单日期 2026-07-27）——厂商模型卡自报分数但独立榜未收录时，显示 `—` 而非厂商数字。推理模型按其最高推理档展示（AA 头条口径）。`♦` = GPQA Diamond。
 
-| # | 模型 | 厂商 | 权重 | 上下文 | GPQA♦ | SWE-bench Verified | AIME | Arena Elo | AA 指数 |
+| # | 模型 | 厂商 | 权重 | 上下文 | GPQA♦ | SWE-bench Verified | HLE | Arena Elo | AA 指数 |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | **Claude Fable 5** | Anthropic | 闭源 | 1M | 95.0% | 95.0% | — | —ᵗ | **65** 🥇 |
-| 2 | **Claude Opus 4.8** | Anthropic | 闭源 | 1M | 93.6% | 88.6% | — | —ᵗ | **61.4** |
-| 3 | **GPT-5.5** | OpenAI | 闭源 | ~1M | 93.6% | 88.7% | — | 1402ᵗ | **60.2** |
-| 4 | **Gemini 3.1 Pro** | Google | 闭源 | 1M | 94.3% | 80.6% | 98.2%¹ | 1406 | **57.2** |
-| 5 | **Qwen3.7 Max** | 阿里 | 闭源 | 1M | 92.4% | — | 75%² | — | **56.6** |
-| 6 | **Gemini 3.5 Flash** | Google | 闭源 | 1M | — | — | — | — | **55.3** |
-| 7 | **Kimi K2.6** | 月之暗面 | 🔓 开源 | 256K | 90.5% | 80.2% | 96.4%¹ | — | **53.9** |
-| 8 | **Grok 4.3** | xAI | 闭源 | 1M | ~89%³ | ~75%³ | ~95%³ | — | **53.2** |
-| 9 | **Muse Spark** | Meta | 闭源 | 262K | — | — | — | — | **52.1** |
-| 10 | **DeepSeek V4 Pro** | 深度求索 | 🔓 开源·MIT | 1M | 90.1% | 80.6% | 89.3%² | — | **51.5** |
-| 11 | **GLM-5.1** | 智谱 Z.ai | 🔓 开源 | 200K | 86.2% | — | 95.3%¹ | — | **51.4** |
-| 12 | **Claude Haiku 4.5** | Anthropic | 闭源 | 200K | — | 73.3% | — | — | — |
-| 13 | **Mistral Large 3** | Mistral | 🔓 开源 | 256K | 43.9% | — | — | — | **22.8** |
+| 1 | **Claude Opus 5** | Anthropic | 闭源 | 1M | 93.2% | **96.0%** 🥇 | 52.6% | 1495ˢ | **60.7** 🥇 |
+| 2 | **Claude Fable 5** | Anthropic | 闭源 | 1M | 92.6% | 95.0% | **53.3%** 🥇 | **1508** 🥇 | **59.9** |
+| 3 | **GPT-5.6 Sol** | OpenAI | 闭源 | ~1M | 94.1% | — | 47.2% | 1485 | **58.9** |
+| 4 | **Kimi K3** | 月之暗面 | 🔓 开源 | 1M | 93.5% | — | 44.4% | 1486ˢ | **57.1** |
+| 5 | **Claude Opus 4.8** | Anthropic | 闭源 | 1M | 92.0% | 88.6% | 45.7% | 1484 | **55.7** |
+| 6 | **GPT-5.5** | OpenAI | 闭源 | ~1M | 93.5% | — | 44.3% | 1482 | **54.8** |
+| 7 | **Grok 4.5** | xAI | 闭源 | 500K | 93.1% | — | 40.3% | 1468 | **53.8** |
+| 8 | **GLM-5.2** | 智谱 Z.ai | 🔓 开源·MIT | 1M | 89.5% | — | 40.1% | 1469 | **51.1** |
+| 9 | **Muse Spark 1.1** | Meta | 闭源 | 262K | 89.8% | — | 45.1% | 1491 | **50.6** |
+| 10 | **Gemini 3.5 Flash** | Google | 闭源 | 1M | 92.2% | — | 41.0% | 1476 | **50.2** |
+| 11 | **Gemini 3.6 Flash** | Google | 闭源 | 1M | 92.8% | — | 38.3% | 1482 | **50.1** |
+| 12 | **Gemini 3.1 Pro** | Google | 闭源 | 1M | 94.1% | — | 44.7% | 1486 | **46.5** |
+| 13 | **Qwen3.7 Max** | 阿里 | 闭源 | 1M | 92.3% | 80.4%⁴ | 38.1% | 1475 | **46.0** |
+| 14 | **DeepSeek V4 Pro** | 深度求索 | 🔓 开源·MIT | 1M | 88.8% | 80.6% | 35.9% | 1457 | **44.3** |
+| 15 | **Kimi K2.6** | 月之暗面 | 🔓 开源 | 256K | 91.1% | 80.2% | 35.9% | 1461 | **44.2** |
+| 16 | **GLM-5.1** | 智谱 Z.ai | 🔓 开源 | 200K | 86.8% | — | 28.0% | 1469 | **40.2** |
+| 17 | **Grok 4.3** | xAI | 闭源 | 1M | 90.1% | — | 35.0% | 1443 | **37.6** |
+| 18 | **Claude Haiku 4.5** | Anthropic | 闭源 | 200K | 67.2% | 73.3% | 9.7% | 1412 | **29.6** |
+| 19 | **Mistral Large 3** | Mistral | 🔓 开源 | 256K | 68.0% | — | 4.1% | 1415 | **15.9** |
 
-ᵗ Arena Elo 为更早的 GPT-5.2 快照；2026 年 5 月后发布的模型（Fable 5、Opus 4.8、GPT-5.5）在 Arena 上尚未稳定——能力与人类偏好排名会脱节，没有数字不代表弱。
-¹ AIME 2026 · ² AIME 2025（不同年份、"带工具/不带工具"变体**不可直接比较**）· ³ Grok 4.3 数据由 Grok 4 外推——近似值。
+ˢ Arena Elo 尚未稳定——Claude Opus 5 仅约 2,400 票（±12）、Kimi K3 约 3,600 票；这两行按临时值看待。Fable 5 的 1508（±6，1.6 万票）已稳定。
+⁴ BenchLM 将 Qwen3.7 Max（及 Pro 榜的 Gemini 3.5 Flash）行标记为较低置信度。
 
-> 🛡️ **抗污染交叉验证。** 在更难刷分的 **SWE-bench Pro** 上：Fable 5 **80.3%** 🥇 · Opus 4.8 69.2% · GPT-5.5 / Kimi K2.6 ~58.6% · GLM-5.1 58.4%。在 **Humanity's Last Exam** 上：Fable 5 ~59% · Gemini 3.1 Pro 44.4%。前沿模型在 GPQA 上已挤在 90–95%——这个天花板下 1–2 分的差距属于噪声。
+> 🛡️ **抗污染交叉验证。** 在更难刷分的 **SWE-bench Pro** 上（[BenchLM](https://benchlm.ai/benchmarks/swePro)）：Fable 5 **80.0%** 🥇 · Opus 5 79.2% · Opus 4.8 69.2% · Grok 4.5 64.7% · GPT-5.6 Sol 64.6% · GLM-5.2 62.1% · Muse Spark 1.1 61.5% · GPT-5.5 / Kimi K2.6 58.6% · GLM-5.1 58.4%。（限量供应的 Claude Mythos 5 为 80.3%——常被误记到 Fable 5 头上的正是这个数字。）前沿模型在 GPQA 上已挤在 89–94%——这个天花板下 1–2 分的差距属于噪声；**真正还能拉开差距的是 HLE**（4–53% 的跨度）。
 
 **各列含义**
-- **GPQA Diamond** — 研究生级科学题，设计上"搜不到答案"。
-- **SWE-bench Verified** — 修复真实 GitHub issue；最具代表性的*智能体编码*分。
-- **AIME** — 竞赛数学（精确答案、推理抗压）。
+- **GPQA Diamond** — 研究生级科学题，设计上"搜不到答案"（AA 独立复测）。
+- **SWE-bench Verified** — 修复真实 GitHub issue；最具代表性的*智能体编码*分（BenchLM 独立复测）。
+- **HLE（Humanity's Last Exam）** — 前沿难度闭卷考试；目前区分度最强的一列（AA 独立复测）。
 - **Arena Elo** — [Arena（原 LMArena）](https://arena.ai/leaderboard) 上的盲测人类偏好；最难刷的指标。
-- **AA 指数** — [Artificial Analysis](https://artificialanalysis.ai) 智能指数，跨智能体/编码/推理/知识的综合分。
+- **AA 指数** — [Artificial Analysis](https://artificialanalysis.ai) 智能指数 v4.1，跨智能体/编码/推理/知识的综合分。
+- AIME 数学分（如有官方发布）保留在 [`data/models.json`](data/models.json)；因覆盖太稀，此表撤下该列。
 
 ---
 
@@ -63,13 +70,13 @@
 
 | 你的任务 | 🏆 能力之选 | 💸 性价比之选（够用又便宜） | 原因 |
 |---|---|---|---|
-| **智能体编码**（SWE-bench） | Claude Fable 5 / Opus 4.8 | Kimi K2.6 · DeepSeek V4 Pro | 开源模型以零头成本达到 ~80% SWE-bench Verified |
+| **智能体编码**（SWE-bench） | Claude Opus 5（96.0）/ Fable 5 | Kimi K2.6 · DeepSeek V4 Pro | 开源模型以零头成本达到 ~80% SWE-bench Verified |
 | **长上下文 / RAG**（10 万+） | Gemini 3.1 Pro（1M 上下文） | DeepSeek V4-Flash（1M 上下文） | 输入密集任务的成本地板；注意 Gemini >20 万的加价 |
 | **硬核推理 / 数学** | Gemini 3.1 Pro（98.2 AIME'26） | GLM-5.1 · Kimi K2.6 | 开源模型 AIME 已达 95%+——数学是最被"平民化"的前沿能力 |
 | **批量生成**（邮件、内容） | Claude Haiku 4.5 | DeepSeek V4-Flash · GPT-5.4 nano | 输出密集→输出价格主导，见 [3.1](#31-写一封-10-万-token-的报告输出密集) |
 | **最便宜的可用对话** | GPT-5.4 nano | DeepSeek V4-Flash | 百万 token 月成本约 $0.21，GPT-5.5 要 $17.50 |
-| **开放式对话**（人类偏好） | Gemini 3.1 Pro（Arena 1406）· GPT-5.5 | — | Arena Elo 是最贴合"用着舒服"的指标 |
-| **私有化 / 数据主权** | DeepSeek V4 Pro（MIT）· GLM-5.1 | Kimi K2.6 | 开源权重可跑在自己 VPC 内——零数据出境 |
+| **开放式对话**（人类偏好） | Claude Fable 5（Arena 1508，第 1）· Muse Spark 1.1 | GLM-5.2（1469，输入 $1.40/M） | Arena Elo 是最贴合"用着舒服"的指标 |
+| **私有化 / 数据主权** | Kimi K3 · DeepSeek V4 Pro（MIT） | GLM-5.2（MIT）· Kimi K2.6 | 开源权重可跑在自己 VPC 内——零数据出境 |
 | **强合规企业** | Claude Opus 4.8 / GPT-5.5 经 Azure / Bedrock / Vertex | — | 让旗舰模型走[原厂云](#第四部分--网关五维评分合规价格安全稳定可观测)，拿 HIPAA/FedRAMP |
 
 > **网关**正是让你无需改代码就能落地上表的东西：把能力之选设为主、性价比之选设为兜底，或按任务逐请求路由。这就是这份[清单](README.zh-CN.md)的意义。
@@ -91,13 +98,16 @@
 | 2 | GPT-5.4 nano | OpenAI | $0.13 |
 | 3 | Mistral Large 3 | Mistral | $0.15 |
 | 4 | Kimi K2.6 | Moonshot | $0.40 |
-| 5 | GLM-5.1 | Z.ai (Zhipu) | $0.44 |
+| 5 | GLM-5.2 | Z.ai (Zhipu) | $0.44 |
 | 6 | Claude Haiku 4.5 | Anthropic | $0.50 |
 | 7 | Grok 4.5 | xAI | $0.60 |
-| 8 | Gemini 3.5 Flash | Google | $0.90 |
+| 8 | Gemini 3.6 Flash | Google | $0.75 |
 | 9 | Gemini 3.1 Pro | Google | $1.20 |
-| 10 | Claude Opus 4.8 | Anthropic | $2.51 |
-| 11 | GPT-5.5 | OpenAI | $3.01 |
+| 10 | Kimi K3 | Moonshot | $1.51 |
+| 11 | Claude Opus 5 | Anthropic | $2.51 |
+| 12 | Claude Opus 4.8 | Anthropic | $2.51 |
+| 13 | GPT-5.6 Sol | OpenAI | $3.01 |
+| 14 | GPT-5.5 | OpenAI | $3.01 |
 
 > 📊 最便宜的比最贵的低约 **106×**。
 <!-- COST:email:END -->
@@ -114,12 +124,15 @@
 | 3 | Mistral Large 3 | Mistral | $0.053 |
 | 4 | Kimi K2.6 | Moonshot | $0.10 |
 | 5 | Claude Haiku 4.5 | Anthropic | $0.11 |
-| 6 | GLM-5.1 | Z.ai (Zhipu) | $0.15 |
-| 7 | Gemini 3.5 Flash | Google | $0.17 |
+| 6 | GLM-5.2 | Z.ai (Zhipu) | $0.15 |
+| 7 | Gemini 3.6 Flash | Google | $0.17 |
 | 8 | Grok 4.5 | xAI | $0.21 |
 | 9 | Gemini 3.1 Pro | Google | $0.22 |
-| 10 | Claude Opus 4.8 | Anthropic | $0.55 |
-| 11 | GPT-5.5 | OpenAI | $0.56 |
+| 10 | Kimi K3 | Moonshot | $0.33 |
+| 11 | Claude Opus 5 | Anthropic | $0.55 |
+| 12 | Claude Opus 4.8 | Anthropic | $0.55 |
+| 13 | GPT-5.6 Sol | OpenAI | $0.56 |
+| 14 | GPT-5.5 | OpenAI | $0.56 |
 
 > 📊 最便宜的比最贵的低约 **38×**。
 <!-- COST:summarize:END -->
@@ -127,10 +140,10 @@
 ### 3.3 编码 Agent 会话（混合 + 推理 token）
 
 <p align="center">
-  <img src="assets/coding-value.png" alt="编码能力 vs. 成本：SWE-bench Verified 对单次编码 Agent 会话成本。开源的 DeepSeek V4 Pro 与 Kimi K2.6 拿到约 80%——与 Gemini 3.1 Pro 持平——成本却只是零头；95% 的天花板（Claude Fable 5）比最便宜的 80% 档模型贵约 46 倍。" width="820">
+  <img src="assets/coding-value.png" alt="编码能力 vs. 成本：SWE-bench Verified 对单次编码 Agent 会话成本。开源的 DeepSeek V4 Pro 与 Kimi K2.6 拿到约 80%，成本只是旗舰零头；96% 的天花板（Claude Opus 5）比最便宜的 80% 档模型贵约 23 倍。" width="820">
 </p>
 
-> **能力与成本放在同一张图上。** 图中是所有"同时有公开 SWE-bench Verified 分数和价格"的模型，统一按编码 Agent 会话计价。开源模型（绿色）拿到约 80%——旗舰**级**编码能力——花费却只是零头：**DeepSeek V4 Pro 以约 1/11 成本打平 Gemini 3.1 Pro（80.6%）**，而 95% 的天花板（Fable 5）比最便宜的 80% 档模型贵约 46×。成本轴复用下方带单测的引擎计算，能力轴取自带日期的 `swe_bench_verified`。由 [`scripts/make_coding_chart.py`](scripts/make_coding_chart.py) 渲染——重跑一次得到同一张图。
+> **能力与成本放在同一张图上。** 图中是所有"同时有独立 SWE-bench Verified 分数（BenchLM）和价格"的模型，统一按编码 Agent 会话计价。开源模型（绿色）拿到约 80%——旗舰**级**编码能力——花费却只是零头：**DeepSeek V4 Pro（80.6%）单次会话约 $0.07**，而 96% 的天花板（Claude Opus 5）要贵约 23×、Arena 榜首的 Fable 5 约 46×。成本轴复用下方带单测的引擎计算，能力轴取自带日期的 `swe_bench_verified`（无独立分数的模型不入图——如 BenchLM 榜上缺席的 Gemini 3.1 Pro）。由 [`scripts/make_coding_chart.py`](scripts/make_coding_chart.py) 渲染——重跑一次得到同一张图。
 
 <!-- COST:coding:START -->
 **编码 Agent 会话** (输入 50,000 tok · 输出 20,000 tok · 推理模型另计 30,000 思考 token)
@@ -142,12 +155,15 @@
 | 3 | GPT-5.4 nano | OpenAI | $0.073 |
 | 4 | Kimi K2.6 | Moonshot | $0.13 |
 | 5 | Claude Haiku 4.5 | Anthropic | $0.15 |
-| 6 | GLM-5.1 | Z.ai (Zhipu) | $0.29 |
+| 6 | GLM-5.2 | Z.ai (Zhipu) | $0.29 |
 | 7 | Grok 4.5 | xAI | $0.40 |
-| 8 | Gemini 3.5 Flash | Google | $0.53 |
+| 8 | Gemini 3.6 Flash | Google | $0.45 |
 | 9 | Gemini 3.1 Pro | Google | $0.70 |
-| 10 | Claude Opus 4.8 | Anthropic | $1.50 |
-| 11 | GPT-5.5 | OpenAI | $1.75 |
+| 10 | Kimi K3 | Moonshot | $0.90 |
+| 11 | Claude Opus 5 | Anthropic | $1.50 |
+| 12 | Claude Opus 4.8 | Anthropic | $1.50 |
+| 13 | GPT-5.6 Sol | OpenAI | $1.75 |
+| 14 | GPT-5.5 | OpenAI | $1.75 |
 
 > 📊 最便宜的比最贵的低约 **83×**。
 <!-- COST:coding:END -->
@@ -163,13 +179,16 @@
 | 2 | GPT-5.4 nano | OpenAI | $0.72 |
 | 3 | Mistral Large 3 | Mistral | $1.00 |
 | 4 | Kimi K2.6 | Moonshot | $2.48 |
-| 5 | GLM-5.1 | Z.ai (Zhipu) | $2.90 |
+| 5 | GLM-5.2 | Z.ai (Zhipu) | $2.90 |
 | 6 | Claude Haiku 4.5 | Anthropic | $3.00 |
 | 7 | Grok 4.5 | xAI | $4.00 |
-| 8 | Gemini 3.5 Flash | Google | $5.25 |
+| 8 | Gemini 3.6 Flash | Google | $4.50 |
 | 9 | Gemini 3.1 Pro | Google | $7.00 |
-| 10 | Claude Opus 4.8 | Anthropic | $15.00 |
-| 11 | GPT-5.5 | OpenAI | $17.50 |
+| 10 | Kimi K3 | Moonshot | $9.00 |
+| 11 | Claude Opus 5 | Anthropic | $15.00 |
+| 12 | Claude Opus 4.8 | Anthropic | $15.00 |
+| 13 | GPT-5.6 Sol | OpenAI | $17.50 |
+| 14 | GPT-5.5 | OpenAI | $17.50 |
 
 > 📊 最便宜的比最贵的低约 **83×**。
 <!-- COST:chatbot:END -->

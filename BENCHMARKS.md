@@ -25,35 +25,42 @@ Every number here is **sourced and dated**. Cost cells are *computed* from a pub
 
 How capable is each model? These are the most-cited public benchmarks as of the review date. **Read them with the [caveats](#methodology--caveats)** — leaderboards get gamed and contaminated; pair them with the human-preference Arena and the real-world cost tables below.
 
-Ranked by the **Artificial Analysis Intelligence Index** (the most-cited one-number composite). These are **v4.0**-scale numbers; AA has since shipped **v4.1**, which re-weights toward agentic work and now *absorbs* Terminal-Bench, τ³ and GDPval — so don't read those as independent of the Index. `♦` = GPQA Diamond. `—` = not verified at review time.
+Ranked by the **Artificial Analysis Intelligence Index** (the most-cited one-number composite), on the current **v4.1** scale (rebased 2026-06-15, re-weighted toward agentic work — scores sit ~5 points below v4.0, so **never compare across scales**). Sourcing is deliberately single-source per column: GPQA♦ and HLE are AA's own independent runs; SWE-bench Verified is the independent [BenchLM](https://benchlm.ai/benchmarks/sweVerified) harness (board dated 2026-07-27) — where a vendor card claims a score but the independent board doesn't carry the model, we show `—`, not the vendor's number. Reasoning models appear in their highest-effort config (what AA headline-lists). `♦` = GPQA Diamond.
 
-| # | Model | Provider | Weights | Context | GPQA♦ | SWE-bench Verified | AIME | Arena Elo | AA Index |
+| # | Model | Provider | Weights | Context | GPQA♦ | SWE-bench Verified | HLE | Arena Elo | AA Index |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | **Claude Fable 5** | Anthropic | Closed | 1M | 95.0% | 95.0% | — | —ᵗ | **65** 🥇 |
-| 2 | **Claude Opus 4.8** | Anthropic | Closed | 1M | 93.6% | 88.6% | — | —ᵗ | **61.4** |
-| 3 | **GPT-5.5** | OpenAI | Closed | ~1M | 93.6% | 88.7% | — | 1402ᵗ | **60.2** |
-| 4 | **Gemini 3.1 Pro** | Google | Closed | 1M | 94.3% | 80.6% | 98.2%¹ | 1406 | **57.2** |
-| 5 | **Qwen3.7 Max** | Alibaba | Closed | 1M | 92.4% | — | 75%² | — | **56.6** |
-| 6 | **Gemini 3.5 Flash** | Google | Closed | 1M | — | — | — | — | **55.3** |
-| 7 | **Kimi K2.6** | Moonshot | 🔓 Open | 256K | 90.5% | 80.2% | 96.4%¹ | — | **53.9** |
-| 8 | **Grok 4.3** | xAI | Closed | 1M | ~89%³ | ~75%³ | ~95%³ | — | **53.2** |
-| 9 | **Muse Spark** | Meta | Closed | 262K | — | — | — | — | **52.1** |
-| 10 | **DeepSeek V4 Pro** | DeepSeek | 🔓 Open · MIT | 1M | 90.1% | 80.6% | 89.3%² | — | **51.5** |
-| 11 | **GLM-5.1** | Z.ai (Zhipu) | 🔓 Open | 200K | 86.2% | — | 95.3%¹ | — | **51.4** |
-| 12 | **Claude Haiku 4.5** | Anthropic | Closed | 200K | — | 73.3% | — | — | — |
-| 13 | **Mistral Large 3** | Mistral | 🔓 Open | 256K | 43.9% | — | — | — | **22.8** |
+| 1 | **Claude Opus 5** | Anthropic | Closed | 1M | 93.2% | **96.0%** 🥇 | 52.6% | 1495ˢ | **60.7** 🥇 |
+| 2 | **Claude Fable 5** | Anthropic | Closed | 1M | 92.6% | 95.0% | **53.3%** 🥇 | **1508** 🥇 | **59.9** |
+| 3 | **GPT-5.6 Sol** | OpenAI | Closed | ~1M | 94.1% | — | 47.2% | 1485 | **58.9** |
+| 4 | **Kimi K3** | Moonshot | 🔓 Open | 1M | 93.5% | — | 44.4% | 1486ˢ | **57.1** |
+| 5 | **Claude Opus 4.8** | Anthropic | Closed | 1M | 92.0% | 88.6% | 45.7% | 1484 | **55.7** |
+| 6 | **GPT-5.5** | OpenAI | Closed | ~1M | 93.5% | — | 44.3% | 1482 | **54.8** |
+| 7 | **Grok 4.5** | xAI | Closed | 500K | 93.1% | — | 40.3% | 1468 | **53.8** |
+| 8 | **GLM-5.2** | Z.ai (Zhipu) | 🔓 Open · MIT | 1M | 89.5% | — | 40.1% | 1469 | **51.1** |
+| 9 | **Muse Spark 1.1** | Meta | Closed | 262K | 89.8% | — | 45.1% | 1491 | **50.6** |
+| 10 | **Gemini 3.5 Flash** | Google | Closed | 1M | 92.2% | — | 41.0% | 1476 | **50.2** |
+| 11 | **Gemini 3.6 Flash** | Google | Closed | 1M | 92.8% | — | 38.3% | 1482 | **50.1** |
+| 12 | **Gemini 3.1 Pro** | Google | Closed | 1M | 94.1% | — | 44.7% | 1486 | **46.5** |
+| 13 | **Qwen3.7 Max** | Alibaba | Closed | 1M | 92.3% | 80.4%⁴ | 38.1% | 1475 | **46.0** |
+| 14 | **DeepSeek V4 Pro** | DeepSeek | 🔓 Open · MIT | 1M | 88.8% | 80.6% | 35.9% | 1457 | **44.3** |
+| 15 | **Kimi K2.6** | Moonshot | 🔓 Open | 256K | 91.1% | 80.2% | 35.9% | 1461 | **44.2** |
+| 16 | **GLM-5.1** | Z.ai (Zhipu) | 🔓 Open | 200K | 86.8% | — | 28.0% | 1469 | **40.2** |
+| 17 | **Grok 4.3** | xAI | Closed | 1M | 90.1% | — | 35.0% | 1443 | **37.6** |
+| 18 | **Claude Haiku 4.5** | Anthropic | Closed | 200K | 67.2% | 73.3% | 9.7% | 1412 | **29.6** |
+| 19 | **Mistral Large 3** | Mistral | 🔓 Open | 256K | 68.0% | — | 4.1% | 1415 | **15.9** |
 
-ᵗ Arena Elo shown is the prior GPT-5.2 snapshot; models released after May 2026 (Fable 5, Opus 4.8, GPT-5.5) are not yet settled on Arena — capabilities and human-preference ranking diverge, so don't read absence as weakness.
-¹ AIME 2026 · ² AIME 2025 (different years and "with tools / no tools" variants are **not directly comparable**) · ³ Grok 4.3 figures extrapolated from Grok 4 reporting — approximate.
+ˢ Arena Elo still settling — Claude Opus 5 has only ~2.4K votes (±12), Kimi K3 ~3.6K; read those two as provisional. Fable 5's 1508 (±6, 16K votes) is settled.
+⁴ BenchLM marks the Qwen3.7 Max (and Gemini 3.5 Flash Pro-board) rows as lower-confidence.
 
-> 🛡️ **Contamination-resistant cross-check.** On **SWE-bench Pro** (harder to game than Verified): Fable 5 **80.3%** 🥇 · Opus 4.8 69.2% · GPT-5.5 / Kimi K2.6 ~58.6% · GLM-5.1 58.4%. On **Humanity's Last Exam**: Fable 5 ~59% · Gemini 3.1 Pro 44.4%. The frontier clusters at 90–95% on GPQA — at that ceiling, 1–2 point gaps are noise.
+> 🛡️ **Contamination-resistant cross-check.** On **SWE-bench Pro** (harder to game than Verified, [BenchLM](https://benchlm.ai/benchmarks/swePro)): Fable 5 **80.0%** 🥇 · Opus 5 79.2% · Opus 4.8 69.2% · Grok 4.5 64.7% · GPT-5.6 Sol 64.6% · GLM-5.2 62.1% · Muse Spark 1.1 61.5% · GPT-5.5 / Kimi K2.6 58.6% · GLM-5.1 58.4%. (Claude Mythos 5, limited availability, posts 80.3% — the figure sometimes misattributed to Fable 5.) The frontier clusters at 89–94% on GPQA — at that ceiling, 1–2 point gaps are noise; **HLE is the column that still separates** (4–53% spread).
 
 **What each column means**
-- **GPQA Diamond** — graduate-level science questions, Google-proof by design.
-- **SWE-bench Verified** — fixes real GitHub issues; the headline *agentic coding* score.
-- **AIME** — competition math (exact-answer reasoning under pressure).
+- **GPQA Diamond** — graduate-level science questions, Google-proof by design (AA independent runs).
+- **SWE-bench Verified** — fixes real GitHub issues; the headline *agentic coding* score (BenchLM independent harness).
+- **HLE (Humanity's Last Exam)** — frontier-difficulty closed-book exam; the strongest remaining separator (AA independent runs).
 - **Arena Elo** — blind human preference on [Arena (ex-LMArena)](https://arena.ai/leaderboard); the hardest metric to game.
-- **AA Index** — [Artificial Analysis](https://artificialanalysis.ai) Intelligence Index, a composite across agentic/coding/reasoning/knowledge benchmarks.
+- **AA Index** — [Artificial Analysis](https://artificialanalysis.ai) Intelligence Index v4.1, a composite across agentic/coding/reasoning/knowledge benchmarks.
+- AIME math figures (where published) remain in [`data/models.json`](data/models.json); the column was retired here for sparse coverage.
 
 ---
 
@@ -63,13 +70,13 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 
 | Your job | 🏆 Capability pick | 💸 Value pick (good-enough, far cheaper) | Why |
 |---|---|---|---|
-| **Agentic coding** (SWE-bench) | Claude Fable 5 / Opus 4.8 | Kimi K2.6 · DeepSeek V4 Pro | Open models hit ~80% SWE-bench Verified at a fraction of flagship cost |
+| **Agentic coding** (SWE-bench) | Claude Opus 5 (96.0) / Fable 5 | Kimi K2.6 · DeepSeek V4 Pro | Open models hit ~80% SWE-bench Verified at a fraction of flagship cost |
 | **Long-context / RAG** (100K+) | Gemini 3.1 Pro (1M ctx) | DeepSeek V4-Flash (1M ctx) | Cost floor on input-heavy work; mind Gemini's >200K surcharge |
 | **Hard reasoning / math** | Gemini 3.1 Pro (98.2 AIME'26) | GLM-5.1 · Kimi K2.6 | Open models reach 95%+ AIME — math is the most commoditized frontier skill |
 | **Bulk generation** (emails, content) | Claude Haiku 4.5 | DeepSeek V4-Flash · GPT-5.4 nano | Output-heavy → output price dominates; see [3.1](#31-write-a-100k-token-report-generation-heavy) |
 | **Cheapest acceptable chat** | GPT-5.4 nano | DeepSeek V4-Flash | ~$0.21 per 1M-token chatbot month vs $17.50 for GPT-5.5 |
-| **Open-ended chat** (human pref) | Gemini 3.1 Pro (Arena 1406) · GPT-5.5 | — | Arena Elo is the metric that tracks "feels good to use" |
-| **On-prem / data-sovereign** | DeepSeek V4 Pro (MIT) · GLM-5.1 | Kimi K2.6 | Open weights you can run inside your own VPC — zero data egress |
+| **Open-ended chat** (human pref) | Claude Fable 5 (Arena 1508, #1) · Muse Spark 1.1 | GLM-5.2 (1469 at $1.40/M in) | Arena Elo is the metric that tracks "feels good to use" |
+| **On-prem / data-sovereign** | Kimi K3 · DeepSeek V4 Pro (MIT) | GLM-5.2 (MIT) · Kimi K2.6 | Open weights you can run inside your own VPC — zero data egress |
 | **Compliance-bound enterprise** | Claude Opus 4.8 / GPT-5.5 via Azure / Bedrock / Vertex | — | Route flagships through a [first-party cloud](#part-4--gateway-scorecard-compliance--price--security--stability--observability) with HIPAA/FedRAMP |
 
 > A **gateway** is what lets you act on this table without rewriting code: set the capability pick as primary and the value pick as fallback, or route per-request by task. That's the whole point of the [list](README.md).
@@ -91,13 +98,16 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 | 2 | GPT-5.4 nano | OpenAI | $0.13 |
 | 3 | Mistral Large 3 | Mistral | $0.15 |
 | 4 | Kimi K2.6 | Moonshot | $0.40 |
-| 5 | GLM-5.1 | Z.ai (Zhipu) | $0.44 |
+| 5 | GLM-5.2 | Z.ai (Zhipu) | $0.44 |
 | 6 | Claude Haiku 4.5 | Anthropic | $0.50 |
 | 7 | Grok 4.5 | xAI | $0.60 |
-| 8 | Gemini 3.5 Flash | Google | $0.90 |
+| 8 | Gemini 3.6 Flash | Google | $0.75 |
 | 9 | Gemini 3.1 Pro | Google | $1.20 |
-| 10 | Claude Opus 4.8 | Anthropic | $2.51 |
-| 11 | GPT-5.5 | OpenAI | $3.01 |
+| 10 | Kimi K3 | Moonshot | $1.51 |
+| 11 | Claude Opus 5 | Anthropic | $2.51 |
+| 12 | Claude Opus 4.8 | Anthropic | $2.51 |
+| 13 | GPT-5.6 Sol | OpenAI | $3.01 |
+| 14 | GPT-5.5 | OpenAI | $3.01 |
 
 > 📊 Cheapest is **~106×** less than the most expensive for this task.
 <!-- COST:email:END -->
@@ -114,12 +124,15 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 | 3 | Mistral Large 3 | Mistral | $0.053 |
 | 4 | Kimi K2.6 | Moonshot | $0.10 |
 | 5 | Claude Haiku 4.5 | Anthropic | $0.11 |
-| 6 | GLM-5.1 | Z.ai (Zhipu) | $0.15 |
-| 7 | Gemini 3.5 Flash | Google | $0.17 |
+| 6 | GLM-5.2 | Z.ai (Zhipu) | $0.15 |
+| 7 | Gemini 3.6 Flash | Google | $0.17 |
 | 8 | Grok 4.5 | xAI | $0.21 |
 | 9 | Gemini 3.1 Pro | Google | $0.22 |
-| 10 | Claude Opus 4.8 | Anthropic | $0.55 |
-| 11 | GPT-5.5 | OpenAI | $0.56 |
+| 10 | Kimi K3 | Moonshot | $0.33 |
+| 11 | Claude Opus 5 | Anthropic | $0.55 |
+| 12 | Claude Opus 4.8 | Anthropic | $0.55 |
+| 13 | GPT-5.6 Sol | OpenAI | $0.56 |
+| 14 | GPT-5.5 | OpenAI | $0.56 |
 
 > 📊 Cheapest is **~38×** less than the most expensive for this task.
 <!-- COST:summarize:END -->
@@ -127,10 +140,10 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 ### 3.3 Coding-agent session (mixed + reasoning tokens)
 
 <p align="center">
-  <img src="assets/coding-value.png" alt="Coding capability vs. cost: SWE-bench Verified against the cost of one coding-agent session. Open-weight DeepSeek V4 Pro and Kimi K2.6 reach ~80% — level with Gemini 3.1 Pro — at a fraction of the cost; the 95% ceiling (Claude Fable 5) costs ~46x the cheapest model that still clears 80%." width="820">
+  <img src="assets/coding-value.png" alt="Coding capability vs. cost: SWE-bench Verified against the cost of one coding-agent session. Open-weight DeepSeek V4 Pro and Kimi K2.6 reach ~80% at a fraction of flagship cost; the 96% ceiling (Claude Opus 5) costs ~23x the cheapest model that still clears 80%." width="820">
 </p>
 
-> **Capability *and* cost on one axis.** Every model with both a published SWE-bench Verified score and a price, plotted on the shared coding-agent session. Open weights (green) hit ~80% — flagship-*tier* coding — for a fraction of the spend: **DeepSeek V4 Pro ties Gemini 3.1 Pro (80.6%) at ~11× less**, and the 95% ceiling (Fable 5) costs ~46× the cheapest model that still clears 80%. The cost axis reuses the unit-tested engine below; capability is the dated `swe_bench_verified` figure. Rendered by [`scripts/make_coding_chart.py`](scripts/make_coding_chart.py) — re-run it and you get the same picture.
+> **Capability *and* cost on one axis.** Every model with both an independent SWE-bench Verified score (BenchLM) and a price, plotted on the shared coding-agent session. Open weights (green) hit ~80% — flagship-*tier* coding — for a fraction of the spend: **DeepSeek V4 Pro (80.6%) costs ~$0.07 a session**, while the 96% ceiling (Claude Opus 5) runs ~23× that and Arena-topping Fable 5 ~46×. The cost axis reuses the unit-tested engine below; capability is the dated `swe_bench_verified` figure (models without an independent score — e.g. Gemini 3.1 Pro, absent from the BenchLM board — don't appear). Rendered by [`scripts/make_coding_chart.py`](scripts/make_coding_chart.py) — re-run it and you get the same picture.
 
 <!-- COST:coding:START -->
 **Coding-agent session** (input 50,000 tok · output 20,000 tok · +30,000 thinking for reasoning models)
@@ -142,12 +155,15 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 | 3 | GPT-5.4 nano | OpenAI | $0.073 |
 | 4 | Kimi K2.6 | Moonshot | $0.13 |
 | 5 | Claude Haiku 4.5 | Anthropic | $0.15 |
-| 6 | GLM-5.1 | Z.ai (Zhipu) | $0.29 |
+| 6 | GLM-5.2 | Z.ai (Zhipu) | $0.29 |
 | 7 | Grok 4.5 | xAI | $0.40 |
-| 8 | Gemini 3.5 Flash | Google | $0.53 |
+| 8 | Gemini 3.6 Flash | Google | $0.45 |
 | 9 | Gemini 3.1 Pro | Google | $0.70 |
-| 10 | Claude Opus 4.8 | Anthropic | $1.50 |
-| 11 | GPT-5.5 | OpenAI | $1.75 |
+| 10 | Kimi K3 | Moonshot | $0.90 |
+| 11 | Claude Opus 5 | Anthropic | $1.50 |
+| 12 | Claude Opus 4.8 | Anthropic | $1.50 |
+| 13 | GPT-5.6 Sol | OpenAI | $1.75 |
+| 14 | GPT-5.5 | OpenAI | $1.75 |
 
 > 📊 Cheapest is **~83×** less than the most expensive for this task.
 <!-- COST:coding:END -->
@@ -163,13 +179,16 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 | 2 | GPT-5.4 nano | OpenAI | $0.72 |
 | 3 | Mistral Large 3 | Mistral | $1.00 |
 | 4 | Kimi K2.6 | Moonshot | $2.48 |
-| 5 | GLM-5.1 | Z.ai (Zhipu) | $2.90 |
+| 5 | GLM-5.2 | Z.ai (Zhipu) | $2.90 |
 | 6 | Claude Haiku 4.5 | Anthropic | $3.00 |
 | 7 | Grok 4.5 | xAI | $4.00 |
-| 8 | Gemini 3.5 Flash | Google | $5.25 |
+| 8 | Gemini 3.6 Flash | Google | $4.50 |
 | 9 | Gemini 3.1 Pro | Google | $7.00 |
-| 10 | Claude Opus 4.8 | Anthropic | $15.00 |
-| 11 | GPT-5.5 | OpenAI | $17.50 |
+| 10 | Kimi K3 | Moonshot | $9.00 |
+| 11 | Claude Opus 5 | Anthropic | $15.00 |
+| 12 | Claude Opus 4.8 | Anthropic | $15.00 |
+| 13 | GPT-5.6 Sol | OpenAI | $17.50 |
+| 14 | GPT-5.5 | OpenAI | $17.50 |
 
 > 📊 Cheapest is **~83×** less than the most expensive for this task.
 <!-- COST:chatbot:END -->

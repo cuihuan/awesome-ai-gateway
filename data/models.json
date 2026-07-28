@@ -1,142 +1,225 @@
 {
-  "_comment": "Benchmark + pricing snapshot for the evaluation set. Pricing drives scripts/cost_calc.py (reproducible cost tables). Benchmarks are dated public figures; null = not verified at review time. Prices USD per 1M tokens.",
-  "as_of": "2026-07-03",
+  "_comment": "Benchmark + pricing snapshot for the evaluation set. Pricing drives scripts/cost_calc.py (reproducible cost tables). Benchmarks are dated public figures; null = not published by the source at review time (never interpolated). Prices USD per 1M tokens. Benchmark sourcing convention (since 2026-07-28): aa_index = Artificial Analysis Intelligence Index v4.1 scale (rebased 2026-06-15, ~5 pts lower than v4.0 — never compare across scales); gpqa_diamond + hle = AA independent runs; swe_bench_verified + swe_bench_pro = BenchLM boards (independent; a model absent from the board is null even if a vendor card claims a score); arena_elo = arena.ai text/overall style-control board.",
+  "as_of": "2026-07-28",
   "sources": {
-    "benchmarks": "Artificial Analysis Intelligence Index v4.0, Arena (ex-LMArena), SWE-bench, vendor model cards (see BENCHMARKS.md Sources)",
-    "pricing": "Official provider pricing pages + Artificial Analysis; all 16 headline prices re-verified against the litellm price library 2026-07-03 (unchanged; US-region markups excluded in favor of global list price)"
+    "benchmarks": "Artificial Analysis Intelligence Index v4.1 (artificialanalysis.ai/models) · Arena (arena.ai/leaderboard) · BenchLM SWE-bench Verified/Pro (benchlm.ai, boards dated 2026-07-27) · AA independent GPQA-Diamond/HLE runs — all extracted 2026-07-28",
+    "pricing": "Official provider pricing pages only; all 16 headline prices re-verified 2026-07-28 (12/13 pre-existing entries matched exactly; the exception was the retired Grok 4 — see the Grok 4.5 entry). Aggregator conflicts resolved in favor of the official page."
   },
   "openrouter_model_count": {
     "_comment": "Single source of truth for every 'OpenRouter has N models' mention; rendered into <!--omc-->...<!--/omc--> spans by scripts/update_readme.py as ~(count rounded to the nearest 10).",
-    "count": 342,
+    "count": 341,
     "source": "https://openrouter.ai/api/v1/models (live API list; OpenRouter's homepage markets '400+ Models')",
-    "as_of": "2026-07-27"
+    "as_of": "2026-07-28"
   },
   "models": [
+    {
+      "name": "Claude Opus 5",
+      "provider": "Anthropic",
+      "open": false,
+      "context_tokens": 1000000,
+      "benchmarks": {"aa_index": 60.7, "gpqa_diamond": 0.932, "swe_bench_verified": 0.96, "swe_bench_pro": 0.792, "hle": 0.526, "arena_elo": 1495, "aime": null, "mmlu_pro": null},
+      "pricing_usd_per_mtok": {"input": 5.0, "output": 25.0, "cached_input": 0.5},
+      "reasoning": true,
+      "scenario_cost": true,
+      "benchmark_table": true,
+      "notes": "Released 2026-07-24. AA v4.1 #1 (max config) and SWE-bench Verified leader (96.0). Arena Elo still settling (~2.4K votes, +/-12). Same list price as Opus 4.8."
+    },
     {
       "name": "Claude Fable 5",
       "provider": "Anthropic",
       "open": false,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 65.0, "gpqa_diamond": 0.95, "swe_bench_verified": 0.95, "swe_bench_pro": 0.803, "hle": 0.59, "arena_elo": null, "aime": null, "mmlu_pro": null},
+      "benchmarks": {"aa_index": 59.9, "gpqa_diamond": 0.926, "swe_bench_verified": 0.95, "swe_bench_pro": 0.80, "hle": 0.533, "arena_elo": 1508, "aime": null, "mmlu_pro": null},
       "pricing_usd_per_mtok": {"input": 10.0, "output": 50.0, "cached_input": 1.0},
       "reasoning": true,
       "scenario_cost": false,
       "benchmark_table": true,
-      "notes": "AA Index #1 and SWE-bench Pro #1 as of review date. Arena Elo not yet settled."
+      "notes": "Arena #1 (1508+/-6, 16K votes — settled) and HLE leader. AA lists it in an adaptive-reasoning config with Opus 4.8 fallback. SWE-bench Pro 80.0 — the 80.3 figure previously here belongs to Claude Mythos 5 (limited availability)."
+    },
+    {
+      "name": "GPT-5.6 Sol",
+      "provider": "OpenAI",
+      "open": false,
+      "context_tokens": 1000000,
+      "benchmarks": {"aa_index": 58.9, "gpqa_diamond": 0.941, "swe_bench_verified": null, "swe_bench_pro": 0.646, "hle": 0.472, "arena_elo": 1485, "aime": null, "mmlu_pro": null},
+      "pricing_usd_per_mtok": {"input": 5.0, "output": 30.0, "cached_input": 0.5},
+      "reasoning": true,
+      "scenario_cost": true,
+      "benchmark_table": true,
+      "notes": "Released 2026-07-09; OpenAI's current flagship (GPT-5.6 family: Sol / Terra $2.50/$15 / Luna $1/$6). Same list price as GPT-5.5. AA score is the max-effort config."
+    },
+    {
+      "name": "Kimi K3",
+      "provider": "Moonshot",
+      "open": true,
+      "context_tokens": 1000000,
+      "benchmarks": {"aa_index": 57.1, "gpqa_diamond": 0.935, "swe_bench_verified": null, "swe_bench_pro": null, "hle": 0.444, "arena_elo": 1486, "aime": null, "mmlu_pro": null},
+      "pricing_usd_per_mtok": {"input": 3.0, "output": 15.0, "cached_input": 0.3},
+      "reasoning": true,
+      "scenario_cost": true,
+      "benchmark_table": true,
+      "notes": "New top open-weights model on AA v4.1 (takes the crown from GLM-5.2/K2.6); weights on HF 2026-07-27. Arena Elo still settling (~3.6K votes). Flagship-tier price for an open model."
     },
     {
       "name": "Claude Opus 4.8",
       "provider": "Anthropic",
       "open": false,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 61.4, "gpqa_diamond": 0.936, "swe_bench_verified": 0.886, "swe_bench_pro": 0.692, "hle": null, "arena_elo": null, "aime": null, "mmlu_pro": null},
+      "benchmarks": {"aa_index": 55.7, "gpqa_diamond": 0.920, "swe_bench_verified": 0.886, "swe_bench_pro": 0.692, "hle": 0.457, "arena_elo": 1484, "aime": null, "mmlu_pro": null},
       "pricing_usd_per_mtok": {"input": 5.0, "output": 25.0, "cached_input": 0.5},
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": true,
-      "notes": "Flagship-tier capability, ceiling-tier price."
+      "notes": "Now docs-listed under 'Legacy models' (still Active; retirement floor 2027-05-28). Superseded by Opus 5 at the same price."
     },
     {
       "name": "GPT-5.5",
       "provider": "OpenAI",
       "open": false,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 60.2, "gpqa_diamond": 0.936, "swe_bench_verified": 0.887, "swe_bench_pro": 0.586, "hle": null, "arena_elo": 1402, "aime": null, "mmlu_pro": null},
+      "benchmarks": {"aa_index": 54.8, "gpqa_diamond": 0.935, "swe_bench_verified": null, "swe_bench_pro": 0.586, "hle": 0.443, "arena_elo": 1482, "aime": null, "mmlu_pro": null},
       "pricing_usd_per_mtok": {"input": 5.0, "output": 30.0, "cached_input": 0.5},
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": true,
-      "notes": "Unified agentic/reasoning model; emits hidden thinking tokens billed as output. Arena Elo shown is the prior GPT-5.2 snapshot. 1M-token context via the API (the 400K figure is the Codex cap only)."
+      "notes": "Unified agentic/reasoning model; emits hidden thinking tokens billed as output. Long-context tier above 272K input bills $10/$45. 1M-token context via the API (the 400K figure is the Codex cap only). AA score is the xhigh config."
     },
     {
-      "name": "Gemini 3.1 Pro",
-      "provider": "Google",
+      "name": "Grok 4.5",
+      "provider": "xAI",
       "open": false,
-      "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 57.2, "gpqa_diamond": 0.943, "swe_bench_verified": 0.806, "swe_bench_pro": null, "hle": 0.444, "arena_elo": 1406, "aime": 0.982, "aime_year": 2026, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 2.0, "output": 12.0, "cached_input": 0.2},
+      "context_tokens": 500000,
+      "benchmarks": {"aa_index": 53.8, "gpqa_diamond": 0.931, "swe_bench_verified": null, "swe_bench_pro": 0.647, "hle": 0.403, "arena_elo": 1468, "aime": null, "mmlu_pro": null},
+      "pricing_usd_per_mtok": {"input": 2.0, "output": 6.0, "cached_input": 0.3},
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": true,
-      "notes": "Price doubles above 200k context ($4/$18). Top of Arena."
+      "notes": "Current xAI flagship (released 2026-07-08); represents the Grok line in the cost set. Price doubles above 200K context. Replaces the retired Grok 4 (grok-4-0709, retired 2026-05-15, was $3/$15)."
     },
     {
-      "name": "Qwen3.7 Max",
-      "provider": "Alibaba",
-      "open": false,
+      "name": "GLM-5.2",
+      "provider": "Z.ai (Zhipu)",
+      "open": true,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 56.6, "gpqa_diamond": 0.924, "swe_bench_verified": null, "swe_bench_pro": null, "hle": null, "arena_elo": null, "aime": 0.75, "aime_year": 2025, "mmlu_pro": 0.838},
-      "reasoning": false,
+      "benchmarks": {"aa_index": 51.1, "gpqa_diamond": 0.895, "swe_bench_verified": null, "swe_bench_pro": 0.621, "hle": 0.401, "arena_elo": 1469, "aime": null, "mmlu_pro": null},
+      "pricing_usd_per_mtok": {"input": 1.4, "output": 4.4, "cached_input": 0.26},
+      "reasoning": true,
+      "scenario_cost": true,
+      "benchmark_table": true,
+      "notes": "MIT-licensed 744B MoE (40B active), open-weighted 2026-06-16; was the open-weights AA leader until Kimi K3. Same list price as GLM-5.1, which it supersedes in the cost set."
+    },
+    {
+      "name": "Muse Spark 1.1",
+      "provider": "Meta (Superintelligence Labs)",
+      "open": false,
+      "context_tokens": 262000,
+      "benchmarks": {"aa_index": 50.6, "gpqa_diamond": 0.898, "swe_bench_verified": null, "swe_bench_pro": 0.615, "hle": 0.451, "arena_elo": 1491, "aime": null, "mmlu_pro": null},
+      "reasoning": true,
       "scenario_cost": false,
       "benchmark_table": true,
-      "notes": "DashScope USD pricing RMB-derived and promo-heavy — excluded from cost tables to avoid stale FX."
+      "notes": "Closed-source frontier model from Meta Superintelligence Labs (released 2026-07-10; the original Muse Spark scores 43.1 on AA v4.1). Arena #8. No official API pricing published — excluded from cost tables."
     },
     {
       "name": "Gemini 3.5 Flash",
       "provider": "Google",
       "open": false,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 55.3, "gpqa_diamond": null, "swe_bench_verified": null, "swe_bench_pro": null, "hle": null, "arena_elo": null, "aime": null, "mmlu_pro": null},
+      "benchmarks": {"aa_index": 50.2, "gpqa_diamond": 0.922, "swe_bench_verified": null, "swe_bench_pro": 0.551, "hle": 0.410, "arena_elo": 1476, "aime": null, "mmlu_pro": null},
       "pricing_usd_per_mtok": {"input": 1.5, "output": 9.0, "cached_input": 0.15},
-      "reasoning": true,
-      "scenario_cost": true,
-      "benchmark_table": true,
-      "notes": "Cost-tier Gemini; no long-context surcharge."
-    },
-    {
-      "name": "Kimi K2.6",
-      "provider": "Moonshot",
-      "open": true,
-      "context_tokens": 256000,
-      "benchmarks": {"aa_index": 53.9, "gpqa_diamond": 0.905, "swe_bench_verified": 0.802, "swe_bench_pro": 0.586, "hle": null, "arena_elo": null, "aime": 0.964, "aime_year": 2026, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 0.95, "output": 4.0, "cached_input": 0.16},
-      "reasoning": false,
-      "scenario_cost": true,
-      "benchmark_table": true,
-      "notes": "Highest open-weights AA Index; coding/agentic specialist."
-    },
-    {
-      "name": "Grok 4.3",
-      "provider": "xAI",
-      "open": false,
-      "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 53.2, "gpqa_diamond": 0.89, "swe_bench_verified": 0.75, "swe_bench_pro": null, "hle": null, "arena_elo": null, "aime": 0.95, "aime_year": 2025, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 1.25, "output": 2.5, "cached_input": 0.2},
       "reasoning": true,
       "scenario_cost": false,
       "benchmark_table": true,
-      "notes": "GPQA/SWE/AIME extrapolated from Grok 4 reporting — treat as approximate. Price doubles above 200K context; retired Grok 4 slugs are served by grok-4.3 and billed at these rates. Grok 4.5 represents xAI in the cost set."
+      "notes": "Cost-tier Gemini; no long-context surcharge. Superseded in the cost set by Gemini 3.6 Flash (same input price, cheaper output). AA score is the high-reasoning config."
+    },
+    {
+      "name": "Gemini 3.6 Flash",
+      "provider": "Google",
+      "open": false,
+      "context_tokens": 1000000,
+      "benchmarks": {"aa_index": 50.1, "gpqa_diamond": 0.928, "swe_bench_verified": null, "swe_bench_pro": null, "hle": 0.383, "arena_elo": 1482, "aime": null, "mmlu_pro": null},
+      "pricing_usd_per_mtok": {"input": 1.5, "output": 7.5, "cached_input": 0.15},
+      "reasoning": true,
+      "scenario_cost": true,
+      "benchmark_table": true,
+      "notes": "GA 2026-07-21; matches 3.5 Flash intelligence at a cheaper output rate ($7.50 vs $9). Gemini 3.5 Flash-Lite ($0.30/$2.50) is the new floor of the family."
+    },
+    {
+      "name": "Gemini 3.1 Pro",
+      "provider": "Google",
+      "open": false,
+      "context_tokens": 1000000,
+      "benchmarks": {"aa_index": 46.5, "gpqa_diamond": 0.941, "swe_bench_verified": null, "swe_bench_pro": null, "hle": 0.447, "arena_elo": 1486, "aime": 0.982, "aime_year": 2026, "mmlu_pro": null},
+      "pricing_usd_per_mtok": {"input": 2.0, "output": 12.0, "cached_input": 0.2},
+      "reasoning": true,
+      "scenario_cost": true,
+      "benchmark_table": true,
+      "notes": "Price doubles above 200k context ($4/$18). Arena #10 (86K votes); still 'Preview' status in Google's docs. Absent from the BenchLM SWE boards at review time."
+    },
+    {
+      "name": "Qwen3.7 Max",
+      "provider": "Alibaba",
+      "open": false,
+      "context_tokens": 1000000,
+      "benchmarks": {"aa_index": 46.0, "gpqa_diamond": 0.923, "swe_bench_verified": 0.804, "swe_bench_pro": 0.606, "hle": 0.381, "arena_elo": 1475, "aime": 0.75, "aime_year": 2025, "mmlu_pro": 0.838},
+      "reasoning": false,
+      "scenario_cost": false,
+      "benchmark_table": true,
+      "notes": "DashScope USD pricing RMB-derived and promo-heavy — excluded from cost tables to avoid stale FX. BenchLM flags its SWE rows lower-confidence."
     },
     {
       "name": "DeepSeek V4 Pro",
       "provider": "DeepSeek",
       "open": true,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 51.5, "gpqa_diamond": 0.901, "swe_bench_verified": 0.806, "swe_bench_pro": null, "hle": null, "arena_elo": null, "aime": 0.893, "aime_year": 2025, "mmlu_pro": null},
+      "benchmarks": {"aa_index": 44.3, "gpqa_diamond": 0.888, "swe_bench_verified": 0.806, "swe_bench_pro": 0.554, "hle": 0.359, "arena_elo": 1457, "aime": 0.893, "aime_year": 2025, "mmlu_pro": null},
       "pricing_usd_per_mtok": {"input": 0.435, "output": 0.87, "cached_input": 0.003625},
       "reasoning": true,
       "scenario_cost": false,
       "benchmark_table": true,
-      "notes": "MIT-licensed open weights. AIME figure is the V3.2 baseline; V4-Pro-specific reproduction pending."
+      "notes": "MIT-licensed open weights. AA/BenchLM figures are the Max-effort variant (base = 73.6/52.1 on SWE V/Pro). AIME figure is the V3.2 baseline; V4-Pro-specific reproduction pending."
+    },
+    {
+      "name": "Kimi K2.6",
+      "provider": "Moonshot",
+      "open": true,
+      "context_tokens": 256000,
+      "benchmarks": {"aa_index": 44.2, "gpqa_diamond": 0.911, "swe_bench_verified": 0.802, "swe_bench_pro": 0.586, "hle": 0.359, "arena_elo": 1461, "aime": 0.964, "aime_year": 2026, "mmlu_pro": null},
+      "pricing_usd_per_mtok": {"input": 0.95, "output": 4.0, "cached_input": 0.16},
+      "reasoning": false,
+      "scenario_cost": true,
+      "benchmark_table": true,
+      "notes": "Coding/agentic value pick — ~80% SWE-bench Verified at a fraction of flagship price. No longer the open-weights AA leader (Kimi K3 is). Moonshot legacy V1 platform sunsets 2026-08-31."
     },
     {
       "name": "GLM-5.1",
       "provider": "Z.ai (Zhipu)",
       "open": true,
       "context_tokens": 200000,
-      "benchmarks": {"aa_index": 51.4, "gpqa_diamond": 0.862, "swe_bench_verified": null, "swe_bench_pro": 0.584, "hle": null, "arena_elo": null, "aime": 0.953, "aime_year": 2026, "mmlu_pro": null},
+      "benchmarks": {"aa_index": 40.2, "gpqa_diamond": 0.868, "swe_bench_verified": null, "swe_bench_pro": 0.584, "hle": 0.280, "arena_elo": 1469, "aime": 0.953, "aime_year": 2026, "mmlu_pro": null},
       "pricing_usd_per_mtok": {"input": 1.4, "output": 4.4, "cached_input": 0.26},
       "reasoning": true,
-      "scenario_cost": true,
+      "scenario_cost": false,
       "benchmark_table": true,
-      "notes": "First Chinese model to top SWE-bench Pro (58.4). Self-reported figures."
+      "notes": "First Chinese model to top SWE-bench Pro (58.4, self-reported at launch; BenchLM independent = 58.4 confirmed). Superseded by GLM-5.2 at the same price."
+    },
+    {
+      "name": "Grok 4.3",
+      "provider": "xAI",
+      "open": false,
+      "context_tokens": 1000000,
+      "benchmarks": {"aa_index": 37.6, "gpqa_diamond": 0.901, "swe_bench_verified": null, "swe_bench_pro": null, "hle": 0.350, "arena_elo": 1443, "aime": null, "mmlu_pro": null},
+      "pricing_usd_per_mtok": {"input": 1.25, "output": 2.5, "cached_input": 0.2},
+      "reasoning": true,
+      "scenario_cost": false,
+      "benchmark_table": true,
+      "notes": "AA v4.1 independent figures replace the earlier Grok-4 extrapolations. Price doubles above 200K context; retired Grok 4 slugs are served by grok-4.3 and billed at these rates. Grok 4.5 represents xAI in the cost set."
     },
     {
       "name": "Claude Haiku 4.5",
       "provider": "Anthropic",
       "open": false,
       "context_tokens": 200000,
-      "benchmarks": {"aa_index": null, "gpqa_diamond": null, "swe_bench_verified": 0.733, "swe_bench_pro": null, "hle": null, "arena_elo": null, "aime": null, "mmlu_pro": null},
+      "benchmarks": {"aa_index": 29.6, "gpqa_diamond": 0.672, "swe_bench_verified": 0.733, "swe_bench_pro": null, "hle": 0.097, "arena_elo": 1412, "aime": null, "mmlu_pro": null},
       "pricing_usd_per_mtok": {"input": 1.0, "output": 5.0, "cached_input": 0.1},
       "reasoning": false,
       "scenario_cost": true,
@@ -144,27 +227,16 @@
       "notes": "Cheapest Claude; strong SWE-bench for its tier."
     },
     {
-      "name": "Muse Spark",
-      "provider": "Meta (Superintelligence Labs)",
-      "open": false,
-      "context_tokens": 262000,
-      "benchmarks": {"aa_index": 52.1, "gpqa_diamond": null, "swe_bench_verified": null, "swe_bench_pro": null, "hle": null, "arena_elo": null, "aime": null, "mmlu_pro": null},
-      "reasoning": false,
-      "scenario_cost": false,
-      "benchmark_table": true,
-      "notes": "Closed-source frontier model from Meta Superintelligence Labs (Meta split its strategy: Llama 5 open, Muse Spark closed); trails the Chinese open models on coding."
-    },
-    {
       "name": "Mistral Large 3",
       "provider": "Mistral",
       "open": true,
       "context_tokens": 256000,
-      "benchmarks": {"aa_index": 22.8, "gpqa_diamond": 0.439, "swe_bench_verified": null, "swe_bench_pro": null, "hle": null, "arena_elo": null, "aime": null, "mmlu_pro": 0.807},
+      "benchmarks": {"aa_index": 15.9, "gpqa_diamond": 0.680, "swe_bench_verified": null, "swe_bench_pro": null, "hle": 0.041, "arena_elo": 1415, "aime": null, "mmlu_pro": 0.807},
       "pricing_usd_per_mtok": {"input": 0.5, "output": 1.5, "cached_input": null},
       "reasoning": false,
       "scenario_cost": true,
       "benchmark_table": true,
-      "notes": "European open-weights MoE; value pick. 'Large 3' = $0.50/$1.50 (legacy Large was $2/$6)."
+      "notes": "European open-weights MoE; value pick. 'Large 3' = $0.50/$1.50 (legacy Large was $2/$6). Official page states cached input is '-90%' without publishing a per-MTok figure."
     },
     {
       "name": "GPT-5.4 nano",
@@ -176,7 +248,7 @@
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": false,
-      "notes": "Cheapest OpenAI reasoning tier; cost-table representative."
+      "notes": "Cheapest OpenAI reasoning tier; cost-table representative. Official cached price $0.02 (aggregators claiming $0.005 are wrong)."
     },
     {
       "name": "DeepSeek V4-Flash",
@@ -188,19 +260,7 @@
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": false,
-      "notes": "Cost floor across every scenario. Cache reads ~98% off. Reasoner alias = thinking mode."
-    },
-    {
-      "name": "Grok 4.5",
-      "provider": "xAI",
-      "open": false,
-      "context_tokens": 500000,
-      "benchmarks": {},
-      "pricing_usd_per_mtok": {"input": 2.0, "output": 6.0, "cached_input": 0.3},
-      "reasoning": true,
-      "scenario_cost": true,
-      "benchmark_table": false,
-      "notes": "Current xAI flagship (released 2026-07-08); represents the Grok line in cost tables. Price doubles above 200K context. Replaces the retired Grok 4 (grok-4-0709, retired 2026-05-15, was $3/$15)."
+      "notes": "Cost floor across every scenario. Cache reads ~98% off. Legacy deepseek-chat/deepseek-reasoner aliases were discontinued 2026-07-24."
     }
   ]
 }
