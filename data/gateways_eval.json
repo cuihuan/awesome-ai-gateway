@@ -1,6 +1,6 @@
 {
   "_comment": "Gateway scorecard snapshot. Scores ★1-5 per the rubric in BENCHMARKS.md. markup = gateway fee on top of provider token cost. self_hosted: compliance/security burden is the operator's; score reflects controls the software provides. Verify live certs before an audit. observability: 5-pillar evidence rubric (metrics export / OTel traces / per-key token+cost attribution / log export / dashboard) — see BENCHMARKS.md Part 4 rubric + Part 6; evidence per gateway in observability_note (docs reviewed 2026-07-06).",
-  "as_of": "2026-07-06",
+  "as_of": "2026-07-28",
   "rubric": "BENCHMARKS.md#scoring-rubric-apply-consistently",
   "gateways": [
     {
@@ -61,7 +61,7 @@
       "observability": 3.0,
       "observability_note": "Console analytics + per-key cost breakdowns + CSV/PDF export; no OTel, no log-export integrations documented.",
       "self_hosted": false,
-      "note": "EU residency (Frankfurt) + PII masking + ZDR; SOC 2 Type II still in progress — official security page still shows 'expected Q2 2026', now overdue (re-checked 2026-07-03); not yet Type II."
+      "note": "EU residency (Frankfurt) + PII masking + ZDR; SOC 2 Type II still in progress — official security page now says 'expected Q3 2026' (slipped from Q2; re-checked 2026-07-28), while the same page's FAQ markup already claims compliance — trust the badge, not the FAQ. Not yet Type II."
     },
     {
       "name": "OpenRouter",
@@ -85,7 +85,7 @@
       "observability": 3.0,
       "observability_note": "Cost per response + consumption API filterable by key/user + dashboard; no tracing or log export documented.",
       "self_hosted": false,
-      "note": "France-based, EU-default residency, GDPR-first, no-training; SOC 2 status UNVERIFIED; 99.99% self-reported."
+      "note": "France-based, EU-default residency, GDPR-first, no-training; ⚠️ marketing pages say 'SOC 2 and ISO 27001 certified' but Eden AI's own trust center (trust.edenai.co) lists both as In progress (checked 2026-07-28) — treat as in-progress; 99.99% self-reported. Docs moved to www.edenai.co/docs; changelog quiet since 2026-06-10."
     },
     {
       "name": "Martian",
@@ -97,7 +97,7 @@
       "observability": 2.5,
       "observability_note": "Dashboard usage/perf stats + token usage in responses; no per-key attribution, tracing or export documented.",
       "self_hosted": false,
-      "note": "Airlock model-compliance vetting + cost routing; SOC 2/ISO details UNVERIFIED."
+      "note": "Airlock model-compliance vetting + cost routing; SOC 2/ISO details UNVERIFIED (Vanta trust center exists at trust.withmartian.com but is client-rendered). ⚠️ Vendor-viability caveat: homepage has pivoted to an interpretability research lab, the old router landing page (route.withmartian.com) is dead, docs/blog quiet since 2026-04; gateway docs remain live (checked 2026-07-28)."
     },
     {
       "name": "Azure OpenAI",
@@ -155,21 +155,21 @@
       "security": 4.0,
       "stability": 4.0,
       "observability": 2.0,
-      "observability_note": "v1.15.x stable ships near-zero observability; Prometheus/OTLP/logs land in the unreleased 2.0 branch; analytics UI is the hosted control plane.",
+      "observability_note": "v1.15.x stable ships near-zero observability; Prometheus/OTLP/logs land only in the 2.0 branch, which is frozen (see note) — the 'score jumps on 2.0 stable' trigger looks unlikely to fire. Analytics UI is the hosted control plane. Re-checked 2026-07-28.",
       "self_hosted": true,
-      "note": "Apache-2.0 (Gateway 2.0); guardrails, circuit breakers, MCP OAuth 2.1, fallbacks free to self-hosters; <1ms overhead."
+      "note": "MIT (the 2.0.0 branch's package.json says MIT and carries no LICENSE file — the earlier 'Apache-2.0 Gateway 2.0' claim is not in the source); guardrails, circuit breakers, MCP OAuth 2.1, fallbacks free to self-hosters; <1ms overhead claim did not reproduce independently (2.69ms measured). ⚠️ Repo frozen: no stable 2.0 release, 2.0 branch unchanged since 2026-03-14, zero pushes since 2026-05-25 — four days before Palo Alto Networks closed its acquisition (2026-05-29); PANW's release is silent on the OSS future."
     },
     {
       "name": "Kong AI Gateway",
       "type": "self-hosted",
       "compliance": 3.5,
       "markup": "$0 core",
-      "security": 4.5,
+      "security": 4.0,
       "stability": 4.0,
       "observability": 3.5,
       "observability_note": "Prometheus ai_* token/cost metrics + log serializer + Grafana templates (OSS ≤3.9); gen_ai.* spans and consumer-label cost are Enterprise 3.11+.",
       "self_hosted": true,
-      "note": "PII sanitization (20+ categories, 12 langs), AI Prompt Guard, Model Armor guardrails, RBAC; Enterprise carries Kong certs."
+      "note": "OSS security = AI Prompt Guard + Kong's mature general plugin suite (authn/z, mTLS, rate limiting) and the category's best supply-chain process (CNA, cosign/SLSA); PII sanitization (20+ categories, 12 langs), Model Armor guardrails and RBAC are Enterprise-only — verified absent from the OSS tree (kong/plugins/, tag 3.9.3, checked 2026-07-28). Enterprise carries Kong certs."
     },
     {
       "name": "Envoy AI Gateway",

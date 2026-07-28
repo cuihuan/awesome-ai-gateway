@@ -246,7 +246,7 @@
 
 | 网关 | 合规 | 安全 | 稳定 | 可观测 | 一句话 |
 |---|---|---|---|---|---|
-| **Portkey Gateway**（开源） | ★★★🏠 | ★★★★ | ★★★★ | ★★ | Apache-2.0；完整护栏、MCP OAuth、故障转移免费；<1ms 开销 |
+| **Portkey Gateway**（开源） | ★★★🏠 | ★★★★ | ★★★★ | ★★ | MIT；完整护栏、MCP OAuth、故障转移免费；<1ms 开销宣称（实测 2.69ms） |
 | **Kong AI Gateway** | ★★★½ | ★★★★½ | ★★★★ | ★★★½ | PII 脱敏（20+ 类）、Prompt Guard；RBAC 属企业版（开源 `kong.conf` 无此项） |
 | **Envoy AI Gateway** | ★★★🏠 | ★★★★ | ★★★★ | ★★★★ | 多厂商 + MCP 网关（OAuth+CEL 鉴权）；原生 K8s/Istio |
 | **Bifrost**（Maxim） | ★★★🏠 | ★★★½ | ★★★★½ | ★★★★★ | Go；~11µs 开销基准、集群模式；无已知 CVE |
@@ -392,4 +392,4 @@
 
 *作为 [Awesome AI Gateway](README.zh-CN.md) 的一部分维护。模型分数与价格变化很快；本评测集按公开节奏审阅，每个数字都在其来源处标注日期。*
 
-**最近审阅：2026-07-06** · 基准与价格快照见 [`data/models.json`](data/models.json)，网关评分见 [`data/gateways_eval.json`](data/gateways_eval.json)。
+**最近审阅：2026-07-28** · 基准与价格快照见 [`data/models.json`](data/models.json)，网关评分见 [`data/gateways_eval.json`](data/gateways_eval.json)。

@@ -17,8 +17,8 @@ Here's the honest, data-backed map. Scores are ★1–5 from the [scorecard rubr
 | Alternative | Type | Markup | Security | Reach for it when |
 |---|---|---|---|---|
 | **Bifrost** | Self-hosted (Go) | $0 | ★3.5 · no known CVEs | You want LiteLLM's job but faster and with a clean CVE record |
-| **Portkey Gateway (OSS)** | Self-hosted (Apache-2.0) | $0 | ★4.0 | You want guardrails + circuit breakers + MCP OAuth built in |
-| **Kong AI Gateway** | Self-hosted | $0 core | ★4.5 | You already run Kong, or need PII sanitization + RBAC |
+| **Portkey Gateway (OSS)** | Self-hosted (MIT) | $0 | ★4.0 | You want guardrails + circuit breakers + MCP OAuth built in |
+| **Kong AI Gateway** | Self-hosted | $0 core | ★4.0 | You already run Kong (PII sanitization + RBAC need the Enterprise tier) |
 | **Envoy AI Gateway** | Self-hosted (K8s) | $0 | ★4.0 | You're Kubernetes/Istio-native and want a CNCF-aligned proxy |
 | **OpenRouter** | Hosted | ~5.5% | ★3.0 | You want zero ops and <!--omc-->~340<!--/omc--> models in five minutes |
 | **Cloudflare AI Gateway** | Hosted | 0% | ★4.0 | You want a free, 0-markup hosted gateway with DLP/PII scanning |
@@ -30,8 +30,8 @@ Here's the honest, data-backed map. Scores are ★1–5 from the [scorecard rubr
 ## If you want to stay self-hosted (just better than LiteLLM)
 
 - **[Bifrost](https://github.com/maximhq/bifrost)** — the closest drop-in *upgrade*. Go-native, **0.56 ms** measured added latency per request — ~10× lighter than LiteLLM's 5.41 ms ([independent harness](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json); the vendor's ~11µs claim did not reproduce there) — adaptive load balancing, cluster mode, 1000+ models, and **no known CVEs**. If your reason for leaving LiteLLM is performance or security hygiene, start here.
-- **[Portkey Gateway (OSS)](https://github.com/Portkey-AI/gateway)** — Apache-2.0, 2.69 ms measured overhead (marketed "<1ms" did not reproduce independently), with **guardrails, circuit breakers, fallbacks and MCP OAuth 2.1 free to self-hosters**. The richest governance feature set of the open-source options; upgrade path to the managed cloud if you scale.
-- **[Kong AI Gateway](https://github.com/Kong/kong)** — if you already run Kong or APISIX, the AI plugins (PII sanitization across 20+ categories/12 languages, AI Prompt Guard, Model Armor, RBAC) bolt onto infrastructure you already operate. Highest security score here (★4.5).
+- **[Portkey Gateway (OSS)](https://github.com/Portkey-AI/gateway)** — MIT, 2.69 ms measured overhead (marketed "<1ms" did not reproduce independently), with **guardrails, circuit breakers, fallbacks and MCP OAuth 2.1 free to self-hosters**. The richest governance feature set of the open-source options; upgrade path to the managed cloud if you scale.
+- **[Kong AI Gateway](https://github.com/Kong/kong)** — if you already run Kong or APISIX, AI Prompt Guard plus Kong's mature auth/mTLS/rate-limit plugins bolt onto infrastructure you already operate (★4.0 security, tied for the self-hosted top; note PII sanitization, Model Armor and RBAC sit in the Enterprise tier, not OSS).
 - **[Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway)** — built on Envoy, native to Kubernetes/Istio, with multi-provider routing and an MCP gateway (OAuth + CEL authz). No semantic cache or per-key budgets yet, but the cleanest fit for a CNCF-aligned platform team.
 
 ## If you'd rather not run a server (hosted alternatives)

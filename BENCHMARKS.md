@@ -246,8 +246,8 @@ This is the part buyers actually lose sleep over. Models are interchangeable; th
 
 | Gateway | Compliance | Security | Stability | Obsv | One-line |
 |---|---|---|---|---|---|
-| **Portkey Gateway** (OSS) | ★★★🏠 | ★★★★ | ★★★★ | ★★ | Apache-2.0; full guardrails, MCP OAuth, fallbacks free; <1ms overhead |
-| **Kong AI Gateway** | ★★★½ | ★★★★½ | ★★★★ | ★★★½ | PII sanitization (20+ types), Prompt Guard; RBAC is Enterprise-tier (not in OSS `kong.conf`) |
+| **Portkey Gateway** (OSS) | ★★★🏠 | ★★★★ | ★★★★ | ★★ | MIT; full guardrails, MCP OAuth, fallbacks free; <1ms overhead |
+| **Kong AI Gateway** | ★★★½ | ★★★★ | ★★★★ | ★★★½ | Prompt Guard + mature general security plugins (OSS); PII sanitization, Model Armor and RBAC are Enterprise-only (verified absent from the OSS tree, 2026-07-28) |
 | **Envoy AI Gateway** | ★★★🏠 | ★★★★ | ★★★★ | ★★★★ | Multi-provider + MCP gateway w/ OAuth+CEL authz; native K8s/Istio |
 | **Bifrost** (Maxim) | ★★★🏠 | ★★★½ | ★★★★½ | ★★★★★ | Go; ~11µs overhead benchmark, cluster mode; no known CVEs |
 | **TensorZero** | ★★★🏠 | ★★★ | ★★★★ | ★★★★½ | Rust; <1ms p99 at 10k+ QPS; routing + built-in observability; ⚠️ archived Jun 2026 |
@@ -394,4 +394,4 @@ Per-cell sources are listed in [`data/models.json`](data/models.json) and the ga
 
 *Maintained as part of [Awesome AI Gateway](README.md). Model scores and prices change fast; this set is reviewed on a published cadence and every figure is dated at its source.*
 
-**Last reviewed: 2026-07-06** · benchmark & pricing snapshot in [`data/models.json`](data/models.json), gateway scores in [`data/gateways_eval.json`](data/gateways_eval.json).
+**Last reviewed: 2026-07-28** · benchmark & pricing snapshot in [`data/models.json`](data/models.json), gateway scores in [`data/gateways_eval.json`](data/gateways_eval.json).
