@@ -6,6 +6,23 @@ structural and editorial changes.
 
 ## [Unreleased]
 
+### 2026-07-28 — user-value batch: supply-chain matrix + July scoreboard rebase
+
+- **🛡️ Supply-chain security matrix (new buying axis)** — per-gateway release signing / SBOM /
+  SECURITY.md / 2025–26 advisories, machine-checked against repos, registries and CVE.org, plus a
+  primary-sourced incident record (LiteLLM PyPI backdoor & the TeamPCP chain, Shai-Hulud worms,
+  the malicious-relay measurement study) and a debunked-claims list (two blogspam Kong CVEs that
+  don't exist). Machine-readable `data/supply_chain.json`, 30-day freshness CI, both languages.
+- **📊 Benchmark table rebased to consistent single sources** — AA Index v4.1 (the v4.0 column was
+  a dead scale), AA independent GPQA/HLE runs, BenchLM SWE boards, arena.ai Elo. Five July
+  flagships added (Claude Opus 5, GPT-5.6 Sol, Kimi K3, GLM-5.2, Gemini 3.6 Flash); the
+  Fable-5-vs-Mythos-5 SWE-Pro misattribution fixed.
+- **💰 Pricing re-verified 12/13 exact** against official pages; the exception was the *retired*
+  Grok 4 whose stand-in price was 2.4× the real successor rate — cost tables and charts rebuilt,
+  every previously-cited figure (83×/106× spreads, $0.21-vs-$17.50) still holds.
+- **Otari (Mozilla AI) added** to Self-hosted (66→344★ in three weeks); DEEIX-Chat evaluated and
+  kept off-list (workspace/UI, not on the request path).
+
 ## [1.1.0] - 2026-07-08
 
 The "evidence engine" release — three things **no other gateway list measures**, plus an answer-first rebuild grounded in what developers actually ask.
