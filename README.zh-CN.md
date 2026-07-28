@@ -37,7 +37,7 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
   - [🔧 更多按能力分](#-更多按能力分横切关注点) —— [路由](#-智能路由与模型选择) · [缓存](#-缓存过网关钱的问题) · [可观测](#-可观测与成本核算) · [K8s](#️-kubernetes-原生与推理基础设施)
 - **对比与甄别**
   - [快速对比](#快速对比) · [诉求速查表](#诉求速查表)
-  - [如何安全选型](#如何安全选型) —— [数据留存矩阵](#-谁看得到你的-prompt-数据留存矩阵) · [中转避雷观察名单](#社区中转避雷观察名单)
+  - [如何安全选型](#如何安全选型) —— [数据留存矩阵](#-谁看得到你的-prompt-数据留存矩阵) · [🛡️ 供应链矩阵](#️-供应链安全谁给发布签名谁真被打穿过) · [中转避雷观察名单](#社区中转避雷观察名单)
 - **动态与参考**
   - [📊 评测速递](#-评测速递) · [📰 行业动态](#-行业动态) · [🚀 最新版本发布](#-最新版本发布自动更新)
   - [📚 必读精选](#-必读精选) · [指南与对比](#指南与对比)
@@ -469,7 +469,7 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 | 💰 **成本控制** | "谁能花多少钱，花到哪里会被拦住？" | [性价比优先](#-性价比优先) · [成本表](BENCHMARKS.zh-CN.md) · [计算器](https://cuihuan.github.io/awesome-ai-gateway/cost-calculator.zh-CN.html) |
 | 📊 **可观测性** | "哪个 key、哪个模型、哪条 prompt——质量为什么掉了？" | [可观测章节](#-可观测与成本核算) · [该测什么](BENCHMARKS.zh-CN.md) · [研究综述](docs/observability-landscape.zh-CN.md) |
 | 🛡️ **安全与合规** | "能向审计员证明 prompt 都去了哪里吗？" | [企业合规](#-企业合规) · [评分卡](BENCHMARKS.zh-CN.md) |
-| 📦 **供应链可信** | "网关本身跑起来安全吗？" | [如何安全选型](#如何安全选型)（第 8 条） |
+| 📦 **供应链可信** | "网关本身跑起来安全吗？" | [🛡️ 供应链矩阵](#️-供应链安全谁给发布签名谁真被打穿过)（谁签名、谁被打穿过） |
 | ⚡ **缓存与限流** | "别为同一个答案付两次钱；扛住 429" | [快速对比](#快速对比) 缓存列 |
 | 🏠 **单机本地模型**（Ollama / LM Studio） | "家用服务器上一个代理，前置 OpenAI + Anthropic + 本地 Ollama" | [快速对比](#快速对比)的**本地模型（Ollama）**列——如 LiteLLM、Bifrost、one-api——另见 [Manifest](#-自托管开源) 与 [Olla](#️-kubernetes-原生与推理基础设施) |
 | ☸️ **K8s / GPU 集群** | "把请求路由到集群里的 vLLM/Ollama，感知 GPU" | [Kubernetes 原生与推理基础设施](#️-kubernetes-原生与推理基础设施) |
@@ -499,7 +499,7 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 5. **看项目健康度。** 星数 ≠ 维护。看最近 release 日期——几个曾经热门的网关（BricksLLM、Glide、RouteLLM）实际已停更，本清单都打了标。星数还可能是买的：新出现的「router/proxy 2026」类新仓库越来越多呈现刷星模式，信 GitHub 按星排序的搜索结果之前，先对照仓库创建日期与星数增长曲线（以及 issue/fork 活跃度）。
 6. **远离灰产中转**（逆向接口、盗刷额度转售）。除封号风险外，2026 年研究还抓到中转投放被投毒的模型、窃取预埋密钥（[*Your Agent Is Mine*](https://arxiv.org/abs/2604.08407)）——而且最显眼的中转"榜单"往往是付费稿或带返利链接。封号和数据泄露的风险在你，不在它。**抓到哪家在换模型、收数据、或卷款跑路？[带证据来举报](https://github.com/cuihuan/awesome-ai-gateway/issues/new?template=report-relay.yml)——我们一起把社区避雷板建起来。**
 7. **当心 2026 年的新钓法："无限量"套餐暗中限速。** 套路话术已经升级——从假中转变成_官方但便宜的订阅套餐_，被悄悄限速到没法用："实际上确实无限量，因为慢到你根本花不完额度……按量付费的 API 比订阅快几个数量级"（[r/ClaudeCode 谈 Z.ai GLM 编码套餐](https://www.reddit.com/r/ClaudeCode/comments/1qijtjx/)，[另一帖](https://www.reddit.com/r/ClaudeCode/comments/1q3sssl/)印证）。买任何包月套餐前：拿它的_吞吐_对比同厂商按量付费 API——差 10 倍速度就是信号。
-8. **把网关本身当作供应链来审。** 它看得到你的每条 prompt、拿着你所有厂商密钥，所以它自己的安全水位就是选型标准：**2026 年 3 月** LiteLLM 的 PyPI 发布 v1.82.7/.8 因 CI token 失窃被植入后门（约 3 小时下架）；**2026 年 6 月** 一条 LiteLLM RCE 利用链（[CVE-2026-42271](https://labs.cloudsecurityalliance.org/research/csa-research-note-litellm-cve-2026-42271-ai-gateway-exploita/)）进入 CISA KEV 名录——一个季度内、在部署量最大的开源网关上，出现两种完全不同的失效模式。实操卫生：**锁定精确版本**（别用 `latest`）、盯项目安全公告 + KEV、控制面快速打补丁、管理后台不暴露公网，接第三方中转前先用 [api-relay-audit](https://github.com/toby-bridges/api-relay-audit) <!--s:toby-bridges/api-relay-audit-->⭐ 769<!--/s--> 这类审计工具过一遍（检查 prompt 注入、模型偷换、工具调用改写、SSE 异常）。
+8. **把网关本身当作供应链来审。** 它看得到你的每条 prompt、拿着你所有厂商密钥，所以它自己的安全水位就是选型标准：**2026 年 3 月** LiteLLM 的 PyPI 发布 v1.82.7/.8 因 CI token 失窃被植入后门（约 3 小时下架）；**2026 年 6 月** 一条 LiteLLM RCE 利用链（[CVE-2026-42271](https://labs.cloudsecurityalliance.org/research/csa-research-note-litellm-cve-2026-42271-ai-gateway-exploita/)）进入 CISA KEV 名录——一个季度内、在部署量最大的开源网关上，出现两种完全不同的失效模式。实操卫生：**锁定精确版本**（别用 `latest`）、盯项目安全公告 + KEV、控制面快速打补丁、管理后台不暴露公网，接第三方中转前先用 [api-relay-audit](https://github.com/toby-bridges/api-relay-audit) <!--s:toby-bridges/api-relay-audit-->⭐ 769<!--/s--> 这类审计工具过一遍（检查 prompt 注入、模型偷换、工具调用改写、SSE 异常）。逐网关的姿态——谁给发布签名、谁发 SBOM、谁真被打穿过——见下方[供应链矩阵](#️-供应链安全谁给发布签名谁真被打穿过)。
 
 ### 🔒 谁看得到你的 prompt？—— 数据留存矩阵
 
@@ -524,6 +524,32 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 | [OpenAI（直连 API）](https://developers.openai.com/api/docs/guides/your-data) | ✅ **是**（30 天滥用监控） | ⚠️ 需审批（走销售） | ❌ 否（API，自 2023 起） | 30 天——⚠️ **但受 NYT 法院保全令**，尽管承诺 30 天删除，API 内容正被强制保留 |
 
 > **所有人都漏掉的两点：** (1) **在任何路由上，你的真实暴露面取决于你路由到的_上游_，而非路由自身的政策**——"默认 ZDR"的路由，只要不开 ZDR-only / 禁训练过滤，照样会打到会留存（或训练）的上游。(2) **"30 天后删除"未必有约束力**——OpenAI 的 API 删除当前被法院保全令覆盖，Azure 也悄悄撤掉了 30 天承诺。真要紧时，把 ZDR 写进_合同_，并读你具体上游端点的政策，而不是看门面营销。逐行证据 + 来源链接见 [`data/data_retention.json`](data/data_retention.json)。
+
+### 🛡️ 供应链安全——谁给发布签名、谁真被打穿过
+
+*网关拿着你所有厂商密钥、看得到你每条 prompt——它是你 AI 栈里价值最高的那台机器；2026 年攻击者已经不再硬闯，而是直接把后门装好了再发给你。以下姿态数据全部机器核验自仓库、软件源与 CVE.org（[完整证据 + 事件记录](data/supply_chain.json)，核验于 2026-07-28）。*
+
+**先学会读"公告数"这一列：** 公告多 + 修得快 = *披露流程在正常运转*，不是更危险；这张表里最糟的一行，是那个"一条 CVE 没修、仓库停摆"的。
+
+| 网关 | 发布签名 | SBOM / 溯源 | SECURITY.md | 2025–26 安全公告（要点） |
+|---|---|---|---|---|
+| [LiteLLM](https://github.com/BerriAI/litellm/security/advisories) | ✅ cosign（Docker，v1.83.0 起） | ❌ | ✅ | **12** 条——3 条 critical（Host 头认证绕过、key 校验 SQL 注入、OIDC 缓存碰撞）+ 进 KEV 的 MCP RCE 链；修复很快——跑 ≥1.84.0 |
+| [new-api](https://github.com/QuantumNous/new-api/security/advisories) | ✅ cosign | ✅ SBOM + 校验和 | ✅ | **14** 条——critical 计费整数溢出（可自充负账单）与 root token 泄漏；Stripe webhook 签名绕过；4 次 SSRF——靠它卖额度的请立刻升级 |
+| [one-api](https://www.cve.org/CVERecord?id=CVE-2025-3801) | ❌ 裸二进制、无校验和 | ❌ | ❌ | **1 条——未修复** XSS；最后一次发版 2025 年 2 月 |
+| [Kong](https://developer.konghq.com/how-to/verify-build-provenance-for-signed-images/) | ✅ cosign（企业版镜像） | ✅ SLSA 有文档 | ✅ | 1 条（企业版请求走私，按分支修复）；OSS 仓库：无公开公告 |
+| [APISIX](https://downloads.apache.org/apisix/) | ✅ GPG（ASF） | ASF 流程 | ✅ | **7** 条——2026 年集中在认证插件绕过（jwt-auth、openid-connect、cas-auth）——LLM 路由前挂了认证插件的请跑 ≥3.17.0 |
+| [Portkey Gateway](https://github.com/advisories/GHSA-hhh5-2cvx-vmfp) | ❌ npm 无 attestation | ❌ | ✅ | 1 条（SSRF，1.14.0 已修） |
+| [Bifrost](https://github.com/maximhq/bifrost/security/advisories) | ❌ 未发现 | ❌ | ✅ | 1 条（SSRF 黑名单缺口，1.5.16 已修） |
+| [Higress](https://github.com/higress-group/higress/security) | ❌ 未发现 | ❌ | ✅ | 0 条公开——没有公告 ≠ 没有漏洞 |
+| [Helicone ai-gateway](https://github.com/advisories/GHSA-9fxj-mchq-843p) | ❔ 未知 | ❌ | ❌ | 1 条低危 SSRF——**未列出修复版本** |
+
+三张"真实收据"，说明这是选型维度、不是被害妄想：
+
+- **2026-03-24——PyPI 上被后门的是*正牌* LiteLLM 包**（v1.82.7/.8）：凭证窃取器 + `.pth` 持久化，*每次* Python 启动都会执行，偷走 SSH 密钥与云/CI 密钥。不是仿冒包——攻击者通过其 CI 里被投毒的 Trivy 偷走了项目自己的 PyPI 发布 token（TeamPCP 攻击链：一周内 Trivy → npm 蠕虫 → Checkmarx Actions → PyPI）。当天下架（[厂商口径](https://docs.litellm.ai/blog/security-update-march-2026)约 40 分钟、[NHS 时间线](https://digital.nhs.uk/cyber-alerts/2026/cc-4761)约 3 小时）；其响应——Mandiant 取证、重建 CI、cosign 签名——为整个品类立了披露标杆。（[Datadog Security Labs](https://securitylabs.datadoghq.com/articles/litellm-compromised-pypi-teampcp-supply-chain-campaign/)）
+- **Shai-Hulud npm 蠕虫专挑 AI 工具当伪装**：2025 年 11 月波次（796 个包）把提交伪装成 *Anthropic Claude Code GitHub App*、用假 `api.anthropic[.]com` 域名外传数据；2026 年 5 月波次打中了 Mistral AI 与 Guardrails AI 的包，OpenAI 因两台员工设备暴露而轮换了代码签名证书。你的网关依赖树只要碰 npm，这就是你的爆炸半径。（[Wiz](https://www.wiz.io/blog/shai-hulud-2-0-ongoing-supply-chain-attack)）
+- **开公共中转本身就可以是攻击，不只是生意**：2026 年对 428 个公共中转的测量抓到 **9 个在返回的工具调用里主动注入恶意代码**（两个还带自适应逃避——满 50 次调用才触发、或只在 YOLO 模式的 Agent 会话里触发）、17 个窃取预埋的 AWS 凭证、1 个转走了预埋私钥里的 ETH（[*Your Agent Is Mine*](https://arxiv.org/abs/2604.08407)）——和包投毒是同一课：**验证，别信任**（[canary 对比测试](#如何安全选型)就是干这个的）。
+
+再补一张"反收据"，因为证据是双向的：AI 洗稿文里流传的两条"Kong 严重认证绕过 CVE"（CVE-2026-29413/-29414）在 CVE.org **查无此记录**——本表只统计注册库可查证的公告。
 
 ### 🧰 配套工具——验证你选的网关
 
@@ -761,6 +787,7 @@ OpenRouter 是托管（零运维、约 5.5% 手续费、<!--omc-->~340<!--/omc--
 | 模型定价 + 基准快照 | [`data/models.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/models.json) · [成本 CSV](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/cost_table.csv) | ≤30 天复审（CI 强制） |
 | 网关事故/现实核查 | [`data/gateway_reality.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/gateway_reality.json) | 变更即更新（drift 门） |
 | **数据留存 / ZDR / 日志姿态**（逐托管网关 + 云） | [`data/data_retention.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/data_retention.json) | 政策变更时 |
+| **供应链安全姿态**（逐开源网关的签名/SBOM/公告 + 事件记录） | [`data/supply_chain.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/supply_chain.json) | ≤30 天复审（CI 强制） |
 | **核实版免费额度 / 限流表**（11 家厂商 + 已取消名单） | [`data/free_tiers.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/free_tiers.json) | ≤30 天复审（CI 强制） |
 | ~80 个网关的星标 + 最新版本 | [`data/projects.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/projects.json) · [`data/releases.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/releases.json) | 每日 |
 | **网关开销实测**（Bifrost/Portkey/LiteLLM） | [`overhead.json`](https://raw.githubusercontent.com/cuihuan/llm-gateway-bench/main/data/overhead.json) | 每月 CI |

@@ -1,0 +1,132 @@
+{
+  "_comment": "Supply-chain security posture per major OSS gateway, from primary sources (repo files, release assets, registry attestations, published security advisories — machine-checked via the GitHub API and CVE.org). Answers 'who signs their releases, publishes SBOMs, runs a disclosure process — and what actually got exploited?'. IMPORTANT reading rule: a high advisory count with fast fixes signals a working disclosure process (transparency), NOT extra danger; the worst posture is an unpatched advisory on a dormant repo. 'none found' = we searched the repo, workflows, release assets and registries and found no evidence — not proof of absence.",
+  "as_of": "2026-07-28",
+  "legend": {
+    "signed_releases": "release artifacts cryptographically signed (cosign/GPG): yes (how) | none found | unknown",
+    "provenance_sbom": "SLSA provenance and/or SBOM published: yes (how) | none found",
+    "security_md": "a SECURITY.md / disclosure policy in the repo: yes | no",
+    "advisories_2025_26": "count of security advisories published 2025-2026 (repo GHSAs + CNA records verified at CVE.org), with the notable ones",
+    "posture_note": "one-line honest read of the row"
+  },
+  "gateways": [
+    {
+      "repo": "BerriAI/litellm",
+      "signed_releases": "yes — cosign-signed Docker images since v1.83.0 (introduced after the March 2026 PyPI compromise; fixed public key cosign.pub, verify commands embedded in every release)",
+      "provenance_sbom": "none found (no SLSA, no SBOM)",
+      "security_md": "yes",
+      "advisories_2025_26": "12 published GHSAs, all 2026 — 3 critical: auth bypass via Host header injection (CVE-2026-49468, 9.8, fixed 1.84.0), SQL injection in proxy key verification (CVE-2026-42208, 9.8, fixed 1.83.7), OIDC cache-key-collision auth bypass (CVE-2026-35030, fixed 1.83.0); plus the KEV-listed MCP command-exec chain (CVE-2026-42271, fixed 1.83.7)",
+      "posture_note": "Most-deployed OSS gateway = most-attacked; disclosure process works and fixes land fast — pin >=1.84.0 and keep the control plane off the public internet",
+      "sources": ["https://github.com/BerriAI/litellm/security/advisories", "https://github.com/BerriAI/litellm/blob/litellm_internal_staging/security.md", "https://docs.litellm.ai/blog/security-update-march-2026"]
+    },
+    {
+      "repo": "QuantumNous/new-api",
+      "signed_releases": "yes — cosign-signed Docker images + manifests",
+      "provenance_sbom": "yes — buildx SBOM enabled; release binaries ship checksums",
+      "security_md": "yes",
+      "advisories_2025_26": "14 published GHSAs — critical: quota-billing integer overflow enabling negative charges / self-crediting (GHSA-8r8v-xf7q-rcpr, fixed 1.0.0-rc.18), User-List API leaking the root access token (CVE-2026-64859, fixed v1.0.0-rc.7); high: Stripe webhook signature bypass = unlimited quota fraud (CVE-2026-41432, fixed 0.12.10), unauthenticated payment-webhook DoS, four separate SSRF bypasses (2025-10 through 2026-07)",
+      "posture_note": "Strong release hygiene (cosign + SBOM), but the billing/webhook attack surface is where its critical bugs cluster — if you sell quota through it, patch immediately and egress-restrict",
+      "sources": ["https://github.com/QuantumNous/new-api/security/advisories"]
+    },
+    {
+      "repo": "songquanpeng/one-api",
+      "signed_releases": "none found — raw binaries, no checksums, no cosign",
+      "provenance_sbom": "none found",
+      "security_md": "no",
+      "advisories_2025_26": "1 — XSS in System Setting (CVE-2025-3801, medium): UNPATCHED, latest release v0.6.10 (2025-02-02) is still affected",
+      "posture_note": "The worst pattern on this table: a known CVE with no fixed version on an effectively dormant project — prefer new-api for new deployments",
+      "sources": ["https://www.cve.org/CVERecord?id=CVE-2025-3801", "https://github.com/songquanpeng/one-api/releases"]
+    },
+    {
+      "repo": "Kong/kong",
+      "signed_releases": "yes (Enterprise images) — cosign via GitHub OIDC since EE 3.5.0.2; OSS image signing not documented",
+      "provenance_sbom": "yes — SLSA build provenance documented with verify instructions",
+      "security_md": "yes",
+      "advisories_2025_26": "1 — HTTP request smuggling in Kong Gateway Enterprise 3.4-3.14 (CVE-2026-6338, Kong CNA, 2026-06-11, fixed per-branch); zero GHSAs on the OSS repo",
+      "posture_note": "Mature process (CNA, PSA page, provenance docs); note two widely-circulated 'critical Kong CVEs' (CVE-2026-29413/-29414) do not exist at CVE.org — AI-generated blogspam",
+      "sources": ["https://developer.konghq.com/how-to/verify-build-provenance-for-signed-images/", "https://www.cve.org/CVERecord?id=CVE-2026-6338"]
+    },
+    {
+      "repo": "apache/apisix",
+      "signed_releases": "yes — GPG-signed source releases (.asc + .sha512 on ASF mirrors)",
+      "provenance_sbom": "ASF release process; no SBOM found",
+      "security_md": "yes",
+      "advisories_2025_26": "7 CVEs (Apache CNA, verified at CVE.org) — the 2026 cluster is auth-plugin bypasses: jwt-auth algorithm confusion (CVE-2026-39999), openid-connect header spoofing in default config (CVE-2026-44087), cas-auth session injection (CVE-2026-49871) — all fixed in 3.17.0; plus forward-auth header injection (fixed 3.16.0), basic-auth creds logged (CVE-2025-62232, fixed 3.14)",
+      "posture_note": "Textbook ASF hygiene; the pattern to watch is auth-plugin bypasses — run >=3.17.0 if any auth plugin fronts your LLM routes",
+      "sources": ["https://downloads.apache.org/apisix/", "https://apisix.apache.org/blog/2025/10/31/cve-2025-62232/"]
+    },
+    {
+      "repo": "Portkey-AI/gateway",
+      "signed_releases": "none found — npm package ships without provenance attestations",
+      "provenance_sbom": "none found",
+      "security_md": "yes",
+      "advisories_2025_26": "1 — SSRF via Custom Host (CVE-2025-66405, medium, fixed 1.14.0, 2025-12-01)",
+      "posture_note": "Light OSS surface, light process; the commercial cloud is where its compliance story lives",
+      "sources": ["https://github.com/advisories/GHSA-hhh5-2cvx-vmfp"]
+    },
+    {
+      "repo": "maximhq/bifrost",
+      "signed_releases": "none found",
+      "provenance_sbom": "none found",
+      "security_md": "yes",
+      "advisories_2025_26": "1 — SSRF deny-list gaps (CGNAT/6to4/NAT64 ranges allowed) in FetchAndEncodeURL (CVE-2026-55245, high, fixed 1.5.16, 2026-07-21)",
+      "posture_note": "Young project, one high SSRF fixed promptly; no signing story yet — pin exact versions",
+      "sources": ["https://github.com/maximhq/bifrost/security/advisories"]
+    },
+    {
+      "repo": "higress-group/higress",
+      "signed_releases": "none found (hgctl tarballs unsigned)",
+      "provenance_sbom": "none found",
+      "security_md": "yes",
+      "advisories_2025_26": "0 published (repo GHSAs and NVD both empty — absence of advisories is not evidence of absence of bugs)",
+      "posture_note": "No public disclosure track record either way; judge by the Alibaba-backed release cadence, not by the empty advisory page",
+      "sources": ["https://github.com/higress-group/higress/security"]
+    },
+    {
+      "repo": "Helicone/ai-gateway",
+      "signed_releases": "unknown",
+      "provenance_sbom": "none found",
+      "security_md": "no",
+      "advisories_2025_26": "1 — SSRF toward the AWS metadata service in build_target_url (CVE-2026-15508, low, <=0.2.0-beta.30): no patched version listed",
+      "posture_note": "Beta-stage with an open low-severity advisory and no disclosure policy; the hosted product is the maintained path (post-Mintlify acquisition)",
+      "sources": ["https://github.com/advisories/GHSA-9fxj-mchq-843p"]
+    }
+  ],
+  "incidents": [
+    {
+      "id": "litellm-pypi-backdoor",
+      "date": "2026-03-24",
+      "what": "Backdoored releases of the REAL litellm package on PyPI (v1.82.7 / v1.82.8) — not a typosquat. Credential stealer (SSH keys, cloud + CI/CD secrets) with .pth-file persistence that executed on every Python start; encrypted exfil to models.litellm[.]cloud. Root cause: PyPI publishing tokens stolen via a compromised Trivy in the project's own CI (TeamPCP campaign). Pulled the same day — ~40 min per the vendor, ~3 h per NHS England's timeline (both primary, conflicting). Response set the bar: Mandiant forensics, rebuilt CI, cosign image signing from v1.83.0.",
+      "sources": ["https://docs.litellm.ai/blog/security-update-march-2026", "https://securitylabs.datadoghq.com/articles/litellm-compromised-pypi-teampcp-supply-chain-campaign/", "https://digital.nhs.uk/cyber-alerts/2026/cc-4761"]
+    },
+    {
+      "id": "teampcp-campaign",
+      "date": "2026-03",
+      "what": "The wider campaign behind the LiteLLM hit: Trivy compromised (Mar 19) -> self-propagating npm worm across 44+ packages + Aqua Security org defacement (Mar 20-22) -> Checkmarx GitHub Actions + OpenVSX extensions (Mar 23) -> litellm and telnyx on PyPI (Mar 24/27). One stolen-credential chain, five ecosystems — the exact CI exposure any gateway operator has.",
+      "sources": ["https://securitylabs.datadoghq.com/articles/litellm-compromised-pypi-teampcp-supply-chain-campaign/"]
+    },
+    {
+      "id": "shai-hulud-worms",
+      "date": "2025-09/2025-11/2026-05",
+      "what": "Self-replicating npm-worm waves: 796 packages in the Nov 2025 wave (Zapier, Postman, PostHog, AsyncAPI); the May 2026 wave hit 172 npm+PyPI packages including Mistral AI and Guardrails AI, and OpenAI rotated code-signing certs after two employee devices were exposed. Gateway-relevant camouflage: commits spoofed as the Anthropic Claude Code GitHub App, a fake api.anthropic[.]com/v1/api exfil endpoint, and three npm typosquats impersonating Claude Code.",
+      "sources": ["https://www.wiz.io/blog/shai-hulud-2-0-ongoing-supply-chain-attack", "https://www.securityweek.com/", "https://socket.dev/blog"]
+    },
+    {
+      "id": "malicious-relays-study",
+      "date": "2026-04-09",
+      "what": "'Your Agent Is Mine' (arXiv 2604.08407) measured 400 free + 28 paid public LLM relays (largely one-api/new-api-template deployments): 9 actively injected malicious code into returned tool calls (2 with adaptive evasion — triggering only after 50 calls or only in YOLO-mode agent sessions), 17 used planted AWS canary credentials, 1 drained ETH from a planted private key. The package-supply-chain lesson and the relay lesson are the same: verify, don't trust.",
+      "sources": ["https://arxiv.org/abs/2604.08407"]
+    }
+  ],
+  "debunked": [
+    {
+      "claim": "'Critical Kong auth-bypass CVE-2026-29413 / CVE-2026-29414, KEV-listed'",
+      "verdict": "Both IDs return CVE_RECORD_DNE at CVE.org (2026-07-28) — AI-generated blogspam; do not cite",
+      "sources": ["https://www.cve.org/CVERecord?id=CVE-2026-29413"]
+    },
+    {
+      "claim": "'Apache APISIX RCE CVE-2026-25130'",
+      "verdict": "CVE-2026-25130 is a command-injection bug in the 'Cybersecurity AI' (CAI) agent tool, not APISIX — misattribution",
+      "sources": ["https://www.cve.org/CVERecord?id=CVE-2026-25130"]
+    }
+  ]
+}

@@ -43,6 +43,9 @@ TRACKED = [
     # v1.76.0; Kong reshuffled its docs mid-2026) — an identity matrix that
     # quotes exact pricing-page wording rots as fast as the pricing pages.
     ("data/identity_matrix.json (identity & governance / SSO-tax matrix)", "data/identity_matrix.json"),
+    # Advisory counts and "fixed in X" claims rot with every new CVE; a signing
+    # posture can flip in one release (LiteLLM gained cosign mid-incident).
+    ("data/supply_chain.json (supply-chain security posture matrix)", "data/supply_chain.json"),
 ]
 
 
