@@ -5,8 +5,64 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-07-27T08:57:24Z</updated>
+  <updated>2026-07-28T00:44:44Z</updated>
   <author><name>Awesome AI Gateway</name></author>
+  <entry>
+    <title>yym68686/uni-api v1.7.213</title>
+    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.213" />
+    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.213</id>
+    <updated>2026-07-28T00:44:44Z</updated>
+    <summary>yym68686/uni-api released Release 1.7.213.</summary>
+  </entry>
+  <entry>
+    <title>router-for-me/CLIProxyAPI v7.2.103</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.103" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.103</id>
+    <updated>2026-07-27T21:19:59Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v7.2.103.</summary>
+  </entry>
+  <entry>
+    <title>kgateway-dev/kgateway v2.4.1</title>
+    <link href="https://github.com/kgateway-dev/kgateway/releases/tag/v2.4.1" />
+    <id>https://github.com/kgateway-dev/kgateway/releases/tag/v2.4.1</id>
+    <updated>2026-07-27T20:50:11Z</updated>
+    <summary>kgateway-dev/kgateway released v2.4.1.</summary>
+  </entry>
+  <entry>
+    <title>agentgateway/agentgateway v1.4.0</title>
+    <link href="https://github.com/agentgateway/agentgateway/releases/tag/v1.4.0" />
+    <id>https://github.com/agentgateway/agentgateway/releases/tag/v1.4.0</id>
+    <updated>2026-07-27T17:51:00Z</updated>
+    <summary>agentgateway/agentgateway released v1.4.0.</summary>
+  </entry>
+  <entry>
+    <title>lidge-jun/opencodex v2.7.42</title>
+    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.7.42" />
+    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.7.42</id>
+    <updated>2026-07-27T17:48:15Z</updated>
+    <summary>lidge-jun/opencodex released v2.7.42.</summary>
+  </entry>
+  <entry>
+    <title>askalf/dario v5.4.23</title>
+    <link href="https://github.com/askalf/dario/releases/tag/v5.4.23" />
+    <id>https://github.com/askalf/dario/releases/tag/v5.4.23</id>
+    <updated>2026-07-27T16:44:12Z</updated>
+    <summary>askalf/dario released v5.4.23.</summary>
+  </entry>
+  <entry>
+    <title>labring/aiproxy v0.6.8</title>
+    <link href="https://github.com/labring/aiproxy/releases/tag/v0.6.8" />
+    <id>https://github.com/labring/aiproxy/releases/tag/v0.6.8</id>
+    <updated>2026-07-27T15:29:15Z</updated>
+    <summary>labring/aiproxy released Version 0.6.8.</summary>
+  </entry>
+  <entry>
+    <title>theopenco/llmgateway v1.10.0</title>
+    <link href="https://github.com/theopenco/llmgateway/releases/tag/v1.10.0" />
+    <id>https://github.com/theopenco/llmgateway/releases/tag/v1.10.0</id>
+    <updated>2026-07-27T10:23:35Z</updated>
+    <summary>theopenco/llmgateway released v1.10.0.</summary>
+  </entry>
   <entry>
     <title>Wei-Shaw/sub2api v0.1.166</title>
     <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.166" />
@@ -20,13 +76,6 @@
     <id>https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.11.9</id>
     <updated>2026-07-27T04:48:05Z</updated>
     <summary>seakee/CPA-Manager-Plus released v1.11.9.</summary>
-  </entry>
-  <entry>
-    <title>yym68686/uni-api v1.7.208</title>
-    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.208" />
-    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.208</id>
-    <updated>2026-07-27T04:45:49Z</updated>
-    <summary>yym68686/uni-api released Release 1.7.208.</summary>
   </entry>
   <entry>
     <title>RelayPlane/proxy v1.9.40</title>
@@ -50,13 +99,6 @@
     <summary>tsouth89/toolport released v1.9.6.</summary>
   </entry>
   <entry>
-    <title>askalf/dario v5.4.21</title>
-    <link href="https://github.com/askalf/dario/releases/tag/v5.4.21" />
-    <id>https://github.com/askalf/dario/releases/tag/v5.4.21</id>
-    <updated>2026-07-27T01:01:08Z</updated>
-    <summary>askalf/dario released v5.4.21.</summary>
-  </entry>
-  <entry>
     <title>ENTERPILOT/GoModel v0.1.62</title>
     <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.62" />
     <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.62</id>
@@ -64,25 +106,11 @@
     <summary>ENTERPILOT/GoModel released v0.1.62.</summary>
   </entry>
   <entry>
-    <title>router-for-me/CLIProxyAPI v7.2.102</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.102" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.102</id>
-    <updated>2026-07-26T20:54:47Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v7.2.102.</summary>
-  </entry>
-  <entry>
     <title>tashfeenahmed/freellmapi v0.6.0</title>
     <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.6.0" />
     <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.6.0</id>
     <updated>2026-07-26T19:55:53Z</updated>
     <summary>tashfeenahmed/freellmapi released v0.6.0 — Settings dialog, 60 languages, router discipline.</summary>
-  </entry>
-  <entry>
-    <title>lidge-jun/opencodex v2.7.41</title>
-    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.7.41" />
-    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.7.41</id>
-    <updated>2026-07-26T15:44:52Z</updated>
-    <summary>lidge-jun/opencodex released v2.7.41.</summary>
   </entry>
   <entry>
     <title>QuantumNous/new-api v1.0.0-rc.22</title>
@@ -104,13 +132,6 @@
     <id>https://github.com/aurorallm/aurora/releases/tag/v1.0.38</id>
     <updated>2026-07-26T11:36:31Z</updated>
     <summary>aurorallm/aurora released v1.0.38.</summary>
-  </entry>
-  <entry>
-    <title>agentgateway/agentgateway v1.4.0-beta.1</title>
-    <link href="https://github.com/agentgateway/agentgateway/releases/tag/v1.4.0-beta.1" />
-    <id>https://github.com/agentgateway/agentgateway/releases/tag/v1.4.0-beta.1</id>
-    <updated>2026-07-25T00:30:47Z</updated>
-    <summary>agentgateway/agentgateway released v1.4.0-beta.1.</summary>
   </entry>
   <entry>
     <title>maximhq/bifrost ent-v1.5.6-base</title>
@@ -148,6 +169,13 @@
     <summary>ascending-llc/jarvis-registry released Jarvis Registry asc0.5.3.</summary>
   </entry>
   <entry>
+    <title>mozilla-ai/otari v0.4.0</title>
+    <link href="https://github.com/mozilla-ai/otari/releases/tag/v0.4.0" />
+    <id>https://github.com/mozilla-ai/otari/releases/tag/v0.4.0</id>
+    <updated>2026-07-24T16:37:47Z</updated>
+    <summary>mozilla-ai/otari released v0.4.0.</summary>
+  </entry>
+  <entry>
     <title>gpustack/gpustack v2.2.2</title>
     <link href="https://github.com/gpustack/gpustack/releases/tag/v2.2.2" />
     <id>https://github.com/gpustack/gpustack/releases/tag/v2.2.2</id>
@@ -155,25 +183,11 @@
     <summary>gpustack/gpustack released v2.2.2.</summary>
   </entry>
   <entry>
-    <title>labring/aiproxy v0.6.7</title>
-    <link href="https://github.com/labring/aiproxy/releases/tag/v0.6.7" />
-    <id>https://github.com/labring/aiproxy/releases/tag/v0.6.7</id>
-    <updated>2026-07-24T14:46:22Z</updated>
-    <summary>labring/aiproxy released Version 0.6.7.</summary>
-  </entry>
-  <entry>
     <title>smart-mcp-proxy/mcpproxy-go v0.52.1</title>
     <link href="https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.52.1" />
     <id>https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.52.1</id>
     <updated>2026-07-24T07:13:46Z</updated>
     <summary>smart-mcp-proxy/mcpproxy-go released v0.52.1.</summary>
-  </entry>
-  <entry>
-    <title>kgateway-dev/kgateway v2.4.0</title>
-    <link href="https://github.com/kgateway-dev/kgateway/releases/tag/v2.4.0" />
-    <id>https://github.com/kgateway-dev/kgateway/releases/tag/v2.4.0</id>
-    <updated>2026-07-23T16:32:41Z</updated>
-    <summary>kgateway-dev/kgateway released v2.4.0.</summary>
   </entry>
   <entry>
     <title>mnfst/manifest manifest@6.16.0</title>
@@ -202,19 +216,5 @@
     <id>https://github.com/IBM/mcp-context-forge/releases/tag/v1.0.6</id>
     <updated>2026-07-21T17:21:30Z</updated>
     <summary>IBM/mcp-context-forge released v1.0.6 - OAuth Token Exchange, Vault Credentials, MCP Apps, Dataplane Publishing, and Security Hardening.</summary>
-  </entry>
-  <entry>
-    <title>1mcp-app/agent v0.34.4</title>
-    <link href="https://github.com/1mcp-app/agent/releases/tag/v0.34.4" />
-    <id>https://github.com/1mcp-app/agent/releases/tag/v0.34.4</id>
-    <updated>2026-07-21T16:16:38Z</updated>
-    <summary>1mcp-app/agent released Release v0.34.4.</summary>
-  </entry>
-  <entry>
-    <title>andrewyng/aisuite v0.1.3</title>
-    <link href="https://github.com/andrewyng/aisuite/releases/tag/v0.1.3" />
-    <id>https://github.com/andrewyng/aisuite/releases/tag/v0.1.3</id>
-    <updated>2026-07-20T20:16:27Z</updated>
-    <summary>andrewyng/aisuite released OpenWorker 0.1.3.</summary>
   </entry>
 </feed>
