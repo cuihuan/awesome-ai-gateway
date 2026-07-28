@@ -17,16 +17,17 @@ GitHub Trending ranks by star **velocity vs. *your own* baseline** (plus forks/i
 - [ ] **Then sustain** over the next 1–2 weeks with the slower channels (周刊 async, V2EX, linux.do, r/selfhosted) **and reply to every issue/PR** — ongoing engagement keeps feeding Trending's signal after the initial burst.
 - [ ] **Never solicit upvotes** anywhere (esp. HN) — it gets the post flagged and undoes the whole launch.
 
-> **Where you actually are (2026-07-27):** **71★** (GitHub API, checked 2026-07-27 — doubled from the 35★ noted on 07-03), ~1–2 organic stars/day from search discovery (Google is the #1 external referrer), **but the concentrated launch burst has still never fired.** The day-1 seed added 16★ in hours; a real multi-channel burst is the single biggest lever left to 100+. Three assets shipped since the last draft pass and are now woven into every channel draft below: the **coding-agent routers deep-dive** (mechanism tiers + dated ban evidence), the **SSO-tax table** (BENCHMARKS Part 7, primary-sourced), and the **curated Cost-first section** (10 track-record picks up front, unverified relays folded away).
+> **Where you actually are (2026-07-28):** **73★** (GitHub API, checked 2026-07-28), ~19★/week natural velocity, **but the concentrated launch burst has still never fired.** The day-1 seed added 16★ in hours; a real multi-channel burst is the single biggest lever left to 100+. Assets woven into the drafts below — from 07-27: the **coding-agent routers deep-dive** (mechanism tiers + dated ban evidence), the **SSO-tax table** (BENCHMARKS Part 7, primary-sourced), the **curated Cost-first section**; and from 07-28: the **🛡️ supply-chain security matrix** (who signs releases, who got backdoored — machine-checked, with two circulating fake Kong CVEs debunked), the **July v4.1 scoreboard rebase** (Opus 5 / GPT-5.6 / Kimi K3 / GLM-5.2 / Gemini 3.6 Flash), and the **12/13 pricing-verification story** (the one miss was a silent retirement, not a reprice).
 
-### ⏱️ Timely news-peg — EXPIRED (news went stale mid-July; kept for the stat pack only)
-The **Anthropic Fable 5 / Mythos 5 export-control episode** (pulled offline globally Jun 12–13, restored ~Jul 1–2) was the live hook through early July. It has decayed — **use the $788 opener** (already the default in every draft below). If a comparable provider outage lands during launch week, revive this pattern:
+### ⏱️ Timely news-peg — LIVE AGAIN (window: ~Jul 28 – Aug 3)
+The **July flagship wave** is a fresh hook this week: **Kimi K3 weights hit HF Jul 27** (it's now the top open-weights model on AA v4.1 — r/LocalLLaMA catnip), **Claude Opus 5 landed Jul 24** (AA #1 + SWE-bench Verified 96.0), plus GPT-5.6 / Grok 4.5 / Gemini 3.6 Flash earlier in the month. Optional opener for Reddit (the $788 opener stays the default elsewhere):
 ```
-Two weeks ago Anthropic pulled Fable 5 offline *globally* for three weeks under an export-control
-order. If your stack was hard-wired to one provider, you were down — no failover, no fallback.
-That's the whole reason this list leads with multi-provider routing. So I mapped + benchmarked the
-entire gateway landscape:
+Kimi K3's weights dropped yesterday and it's now the top open-weights model on the (rebased) AA index;
+Opus 5 took the overall #1 four days ago. Every time this happens, the per-task cost math reshuffles —
+so I re-verified all 13 model prices in my gateway benchmark against official pages the same week.
+12 of 13 matched. The 13th had been silently *retired* and rebilled at a different model's rate.
 ```
+The old export-control pattern (kept in case a comparable provider outage lands during launch week): "provider X pulled model offline globally → no failover if you're single-provider → that's why the list leads with multi-provider routing."
 
 **Evergreen stat pack (Amplify 2026 AI Engineering Report, n>1,000 — cite freely, doesn't decay):**
 - **87%** of AI engineers actively run multiple models together (44% route by task type, 11% by cost) — multi-model routing is the default architecture.
@@ -54,7 +55,10 @@ how easily you exploit that.
 So I mapped the whole landscape (100+ gateways/proxies across 9 categories) and tried to make it
 the opposite of a vendor blog:
 - Every cost number is computed by a unit-tested script from open pricing data — reproducible, not asserted.
-- A 4-axis scorecard (compliance/price/security/stability) with honest CVE disclosure.
+- A 5-axis scorecard (compliance/price/security/stability/observability) with honest CVE disclosure.
+- A supply-chain matrix: which gateways sign releases / ship SBOMs, and what actually got exploited
+  (the LiteLLM PyPI backdoor, unpatched CVEs on dormant projects) — machine-checked against CVE.org,
+  including two widely-circulated "critical Kong CVEs" that turned out not to exist.
 - An evidence-based watch-list that names gray-market relays caught swapping/downgrading models — with a
   runnable canary-diff script, not hearsay.
 - A coding-agent router comparison (claude-code-router / OmniRoute / 9router / CLIProxyAPI / sub2api)
@@ -85,7 +89,8 @@ Happy to answer anything about the methodology or where it's wrong.
 于是我把整个 AI 网关/中转生态摸了一遍(100+ 个,分 9 类),做成一个尽量"反厂商软文"的清单:
 
 · 每个成本数字都由一个带单测的脚本从公开定价算出来——可复现,而不是嘴说。
-· 一张 4 维评分卡(合规/价格/安全/稳定),如实披露 CVE。
+· 一张 5 维评分卡(合规/价格/安全/稳定/可观测),如实披露 CVE;外加一张供应链安全矩阵——谁给发布签名、
+  谁真被投毒过(LiteLLM PyPI 后门事件),全部对 CVE.org 机器核验,还证伪了两条流传的假 CVE。
 · 一个基于证据的"避雷观察名单":点名那些被抓到偷换/降智模型的灰产中转,并附可运行的 canary 对比脚本,不靠传闻。
 · 一篇编码 Agent 省钱路由器对比(claude-code-router / OmniRoute / 9router / CLIProxyAPI / sub2api),
   按机制分层讲清"省多少 vs 封号风险",附真实 ToS 条款与带日期的封号记录。
@@ -112,7 +117,11 @@ I went down a rabbit hole and mapped the whole AI-gateway / LLM-proxy landscape 
 What I tried to do differently from the vendor blogs:
 - Cost numbers are computed by a unit-tested script from open pricing — reproducible. (Same 100K-token
   report: $0.03 on DeepSeek vs $3.01 on GPT-5.5.)
-- A 4-axis scorecard (compliance / price / security / stability) with CVE disclosure.
+- A 5-axis scorecard (compliance / price / security / stability / observability) with CVE disclosure.
+- Fresh this week: the whole benchmark table rebased to AA v4.1 with the July wave in it — Kimi K3
+  (new top open-weights, weights on HF since yesterday), Opus 5, GPT-5.6, GLM-5.2 — and a monthly
+  price re-verification where 12/13 matched official pages; the 13th had been silently retired and
+  rebilled at a different model's rate.
 - An evidence-based watch-list that names relays caught swapping or quantizing models — with a canary-diff
   script you can run yourself, not rumor.
 - For the Claude Code / Codex crowd: a router deep-dive (claude-code-router vs OmniRoute vs 9router vs
@@ -144,10 +153,14 @@ The reason it matters for self-hosters: for sensitive data you want a gateway in
 0%-markup hosted one), and the model behind it can cost 100× more for the same task. There's also a
 watch-list flagging gray-market relays that swap models — with a canary script to verify your own.
 
-Two additions this sub will appreciate: an SSO-tax table (in the sso.tax spirit) showing which of 9
-gateway vendors paywall SSO / SCIM / RBAC / audit logs — 6 of 9 gate SSO behind an enterprise tier,
-every cell linked to the vendor's own pricing page; and the hosted "cost-first" section now leads
-with the 10 track-record options, with all unverified relays folded behind a warning.
+Three additions this sub will appreciate: a supply-chain security matrix — which gateways cosign/GPG
+their releases, ship SBOMs, have a disclosure policy, and what actually got exploited (the real
+LiteLLM package was backdoored on PyPI in March via its own CI; one popular panel has an unpatched
+CVE and hasn't shipped a release since Feb 2025) — machine-checked against repos and CVE.org; an
+SSO-tax table (in the sso.tax spirit) showing which of 9 gateway vendors paywall SSO / SCIM / RBAC /
+audit logs — 6 of 9 gate SSO behind an enterprise tier, every cell linked to the vendor's own pricing
+page; and the hosted "cost-first" section now leads with the 10 track-record options, with all
+unverified relays folded behind a warning.
 
 Repo: https://github.com/cuihuan/awesome-ai-gateway  ·  Self-hosted section:
 https://github.com/cuihuan/awesome-ai-gateway#-self-hosted-open-source
@@ -167,7 +180,8 @@ https://github.com/cuihuan/awesome-ai-gateway#-self-hosted-open-source
 GPT-5.5 $3.01,差 106 倍。于是把 AI 网关/中转生态(100+,9 类)整理成了一个清单:
 
 · 成本由带单测的脚本从公开定价算出,可复现;
-· 4 维评分卡(合规/价格/安全/稳定),如实写 CVE;
+· 5 维评分卡(合规/价格/安全/稳定/可观测),如实写 CVE;新增供应链安全矩阵(谁给发布签名、谁被投毒过,
+  对 CVE.org 机器核验);
 · "避雷观察名单"用证据点名偷换模型的灰产中转,附可运行的 canary 对比脚本;
 · 最近新增:编码 Agent 路由器对比(claude-code-router / OmniRoute / 9router / CLIProxyAPI / sub2api),
   按"自带 key / 订阅 OAuth / 拼车账号池"三种机制分层,逐个附 ToS 条款和带日期的封号记录;
@@ -207,7 +221,7 @@ So I mapped every AI gateway worth knowing and benchmarked the cost. Open source
 it's >400×. The gateway you route through decides how easily you exploit that. [price-spread chart]
 
 3/ 100+ gateways across 9 categories. Every cost number computed by a unit-tested script from open
-pricing — reproducible, not asserted. Plus a 4-axis scorecard with honest CVE disclosure.
+pricing — reproducible, not asserted. Plus a 5-axis scorecard with honest CVE disclosure.
 
 4/ And an evidence-based watch-list that names gray-market relays caught swapping/downgrading models —
 with a canary-diff script you can run yourself. No affiliate links, no vendor money.
@@ -216,6 +230,15 @@ with a canary-diff script you can run yourself. No affiliate links, no vendor mo
 claude-code-router vs OmniRoute vs 9router vs CLIProxyAPI vs sub2api, with dated ban reports from
 their own issue trackers. Zero bans documented on the BYO-key path. Plus an SSO-tax table for the
 enterprise crowd.
+
+6/ This week's find: I re-verified all 13 model prices against official pages. 12 matched exactly.
+The 13th (Grok 4) had been silently *retired* in May — its old slug still answers, billed as a
+different model at 2.4× less than the list price we carried. Pin models by dated slug; watch
+retirement notices, not just price pages.
+
+7/ Also new: a supply-chain matrix for gateways — who cosigns releases, who ships SBOMs, what
+actually got backdoored (the real LiteLLM PyPI package, March) — and two viral "critical Kong CVEs"
+that don't exist at CVE.org. Evidence cuts both ways.
 
 → https://github.com/cuihuan/awesome-ai-gateway
 ```
