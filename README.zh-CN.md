@@ -31,13 +31,13 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
   - [💰 性价比优先——最省钱的多模型接入](#-性价比优先) · [🆓 还活着的免费额度](#-哪些免费额度还活着-核实限额表)
   - [🔓 自托管开源](#-自托管开源)
   - [🏢 企业合规](#-企业合规)
-  - [☁️ 原厂直连（云厂商/模型厂商）](#️-原厂直连云厂商模型厂商)
+  - [🌐 原厂直连（云厂商/模型厂商）](#-原厂直连云厂商模型厂商)
   - [🇨🇳 国内生态](#-国内生态)
   - [🤖 MCP 与 Agent 网关](#-mcp-与-agent-网关)
-  - [🔧 更多按能力分](#-更多按能力分横切关注点) —— [路由](#-智能路由与模型选择) · [缓存](#-缓存过网关钱的问题) · [可观测](#-可观测与成本核算) · [K8s](#️-kubernetes-原生与推理基础设施)
+  - [🔧 更多按能力分](#-更多按能力分横切关注点) —— [路由](#-智能路由与模型选择) · [缓存](#-缓存过网关钱的问题) · [可观测](#-可观测与成本核算) · [K8s](#-kubernetes-原生与推理基础设施)
 - **对比与甄别**
   - [快速对比](#快速对比) · [诉求速查表](#诉求速查表)
-  - [如何安全选型](#如何安全选型) —— [数据留存矩阵](#-谁看得到你的-prompt-数据留存矩阵) · [🛡️ 供应链矩阵](#️-供应链安全谁给发布签名谁真被打穿过) · [中转避雷观察名单](#社区中转避雷观察名单)
+  - [如何安全选型](#如何安全选型) —— [数据留存矩阵](#-谁看得到你的-prompt-数据留存矩阵) · [🔐 供应链矩阵](#-供应链安全谁给发布签名谁真被打穿过) · [中转避雷观察名单](#社区中转避雷观察名单)
 - **动态与参考**
   - [📊 评测速递](#-评测速递) · [📰 行业动态](#-行业动态) · [🚀 最新版本发布](#-最新版本发布自动更新)
   - [📚 必读精选](#-必读精选) · [指南与对比](#指南与对比)
@@ -61,7 +61,7 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 | 给 Claude Code / Cursor 省钱——还不想被封号 | **claude-code-router**（自带 API key，零封号记录） | [编码 Agent 路由器对比](compare/coding-agent-routers-2026.zh-CN.md) |
 | 国产模型 + 团队 Key 计费 | **new-api** | [国内生态](#-国内生态) |
 | 企业 K8s + 审计 | **Kong** / **Higress**——两者的审计日志均在付费/云版档([档位明细](BENCHMARKS.zh-CN.md#第七部分--身份与治理sso-税对照表)) | [企业合规](#-企业合规) |
-| 最强合规（HIPAA/FedRAMP） | **Azure** / **Bedrock** | [原厂直连](#️-原厂直连云厂商模型厂商) |
+| 最强合规（HIPAA/FedRAMP） | **Azure** / **Bedrock** | [原厂直连](#-原厂直连云厂商模型厂商) |
 | 敏感 prompt——谁看得到/记录/拿去训练？ | **自托管** 或 **默认零留存**（Vercel / Requesty） | [谁看得到你的 prompt](#-谁看得到你的-prompt-数据留存矩阵) |
 | 治理 Agent / MCP 流量 | **agentgateway** | [MCP 与 Agent](#-mcp-与-agent-网关) |
 
@@ -140,7 +140,7 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 | [aisuite](https://github.com/andrewyng/aisuite) | <!--s:andrewyng/aisuite-->⭐ 15.5k<!--/s--> | 吴恩达的统一多厂商客户端（是个库） | [自托管](#-自托管开源) |
 | [Portkey Gateway](https://github.com/Portkey-AI/gateway) | <!--s:Portkey-AI/gateway-->⭐ 12.6k<!--/s--> | 高性能 TypeScript 网关，1600+ 模型、50+ 护栏 | [自托管](#-自托管开源) |
 | [Higress](https://github.com/higress-group/higress) | <!--s:higress-group/higress-->⭐ 8.9k<!--/s--> | 阿里的 AI 原生网关，基于 Envoy/Istio | [国内](#-国内生态) |
-| [NVIDIA Dynamo](https://github.com/ai-dynamo/dynamo) | <!--s:ai-dynamo/dynamo-->⭐ 7.6k<!--/s--> | 数据中心级、KV-cache 感知的推理路由 | [K8s](#️-kubernetes-原生与推理基础设施) |
+| [NVIDIA Dynamo](https://github.com/ai-dynamo/dynamo) | <!--s:ai-dynamo/dynamo-->⭐ 7.6k<!--/s--> | 数据中心级、KV-cache 感知的推理路由 | [K8s](#-kubernetes-原生与推理基础设施) |
 | [Bifrost](https://github.com/maximhq/bifrost) | <!--s:maximhq/bifrost-->⭐ 6.8k<!--/s--> | Go 网关，实测开销最低 | [自托管](#-自托管开源) |
 <!-- TOP-GATEWAYS:END -->
 
@@ -273,7 +273,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Sensedia AI Gateway](https://www.sensedia.com/product/ai-gateway) — Gartner 认可的 APIM 厂商出品的中立 AI 网关，以多模型路由、护栏、成本控制与可观测治理 LLM、MCP server 与 AI Agent，构成多云控制面。
 - [Ambassador Edge Stack](https://www.getambassador.io/products/edge-stack/api-gateway) — 基于 Envoy 的 Kubernetes 原生 API 网关（开源内核 [emissary-ingress](https://github.com/emissary-ingress/emissary) <!--s:emissary-ingress/emissary-->⭐ 4.5k<!--/s-->），其 AI Gateway 层增加 LLM 厂商路由、token 限流与兜底——API 厂商阵营里 Kong/Tyk/APISIX 的同类。
 
-## ☁️ 原厂直连（云厂商/模型厂商）
+## 🌐 原厂直连（云厂商/模型厂商）
 
 *痛点："已经绑定某朵云，要官方原生方案。"*
 
@@ -408,7 +408,7 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 - [Respan](https://www.respan.ai/ai-gateway)（原 Keywords AI）— 一个端点接入 250+ 模型，带路由/兜底/缓存，外加内置可观测与 evals。
 - [ccglass](https://github.com/jianshuo/ccglass) <!--s:jianshuo/ccglass-->⭐ 639<!--/s--> — 本地代理 + Web 仪表盘（MIT），让你看清编码 Agent（Claude Code、Codex、Kimi）到底发了什么给模型。
 
-### ☸️ Kubernetes 原生与推理基础设施
+### 🚢 Kubernetes 原生与推理基础设施
 
 *痛点："集群内路由到自托管模型（vLLM/Ollama），还要懂 GPU。"*
 
@@ -469,10 +469,10 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 | 💰 **成本控制** | "谁能花多少钱，花到哪里会被拦住？" | [性价比优先](#-性价比优先) · [成本表](BENCHMARKS.zh-CN.md) · [计算器](https://cuihuan.github.io/awesome-ai-gateway/cost-calculator.zh-CN.html) |
 | 📊 **可观测性** | "哪个 key、哪个模型、哪条 prompt——质量为什么掉了？" | [可观测章节](#-可观测与成本核算) · [该测什么](BENCHMARKS.zh-CN.md) · [研究综述](docs/observability-landscape.zh-CN.md) |
 | 🛡️ **安全与合规** | "能向审计员证明 prompt 都去了哪里吗？" | [企业合规](#-企业合规) · [评分卡](BENCHMARKS.zh-CN.md) |
-| 📦 **供应链可信** | "网关本身跑起来安全吗？" | [🛡️ 供应链矩阵](#️-供应链安全谁给发布签名谁真被打穿过)（谁签名、谁被打穿过） |
+| 📦 **供应链可信** | "网关本身跑起来安全吗？" | [🔐 供应链矩阵](#-供应链安全谁给发布签名谁真被打穿过)（谁签名、谁被打穿过） |
 | ⚡ **缓存与限流** | "别为同一个答案付两次钱；扛住 429" | [快速对比](#快速对比) 缓存列 |
-| 🏠 **单机本地模型**（Ollama / LM Studio） | "家用服务器上一个代理，前置 OpenAI + Anthropic + 本地 Ollama" | [快速对比](#快速对比)的**本地模型（Ollama）**列——如 LiteLLM、Bifrost、one-api——另见 [Manifest](#-自托管开源) 与 [Olla](#️-kubernetes-原生与推理基础设施) |
-| ☸️ **K8s / GPU 集群** | "把请求路由到集群里的 vLLM/Ollama，感知 GPU" | [Kubernetes 原生与推理基础设施](#️-kubernetes-原生与推理基础设施) |
+| 🏠 **单机本地模型**（Ollama / LM Studio） | "家用服务器上一个代理，前置 OpenAI + Anthropic + 本地 Ollama" | [快速对比](#快速对比)的**本地模型（Ollama）**列——如 LiteLLM、Bifrost、one-api——另见 [Manifest](#-自托管开源) 与 [Olla](#-kubernetes-原生与推理基础设施) |
+| ☸️ **K8s / GPU 集群** | "把请求路由到集群里的 vLLM/Ollama，感知 GPU" | [Kubernetes 原生与推理基础设施](#-kubernetes-原生与推理基础设施) |
 | 🤖 **Agent 与 MCP 治理** | "我的 Agent 在调工具——谁在看这些流量？" | [MCP 与 Agent 网关](#-mcp-与-agent-网关) |
 | 🔍 **模型保真 / 中转可信** | "我拿到的真是我付钱买的那个模型吗？" | [canary_check.py](scripts/canary_check.py) · [观察名单](#社区中转避雷观察名单) |
 
@@ -499,7 +499,7 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 5. **看项目健康度。** 星数 ≠ 维护。看最近 release 日期——几个曾经热门的网关（BricksLLM、Glide、RouteLLM）实际已停更，本清单都打了标。星数还可能是买的：新出现的「router/proxy 2026」类新仓库越来越多呈现刷星模式，信 GitHub 按星排序的搜索结果之前，先对照仓库创建日期与星数增长曲线（以及 issue/fork 活跃度）。
 6. **远离灰产中转**（逆向接口、盗刷额度转售）。除封号风险外，2026 年研究还抓到中转投放被投毒的模型、窃取预埋密钥（[*Your Agent Is Mine*](https://arxiv.org/abs/2604.08407)）——而且最显眼的中转"榜单"往往是付费稿或带返利链接。封号和数据泄露的风险在你，不在它。**抓到哪家在换模型、收数据、或卷款跑路？[带证据来举报](https://github.com/cuihuan/awesome-ai-gateway/issues/new?template=report-relay.yml)——我们一起把社区避雷板建起来。**
 7. **当心 2026 年的新钓法："无限量"套餐暗中限速。** 套路话术已经升级——从假中转变成_官方但便宜的订阅套餐_，被悄悄限速到没法用："实际上确实无限量，因为慢到你根本花不完额度……按量付费的 API 比订阅快几个数量级"（[r/ClaudeCode 谈 Z.ai GLM 编码套餐](https://www.reddit.com/r/ClaudeCode/comments/1qijtjx/)，[另一帖](https://www.reddit.com/r/ClaudeCode/comments/1q3sssl/)印证）。买任何包月套餐前：拿它的_吞吐_对比同厂商按量付费 API——差 10 倍速度就是信号。
-8. **把网关本身当作供应链来审。** 它看得到你的每条 prompt、拿着你所有厂商密钥，所以它自己的安全水位就是选型标准：**2026 年 3 月** LiteLLM 的 PyPI 发布 v1.82.7/.8 因 CI token 失窃被植入后门（约 3 小时下架）；**2026 年 6 月** 一条 LiteLLM RCE 利用链（[CVE-2026-42271](https://labs.cloudsecurityalliance.org/research/csa-research-note-litellm-cve-2026-42271-ai-gateway-exploita/)）进入 CISA KEV 名录——一个季度内、在部署量最大的开源网关上，出现两种完全不同的失效模式。实操卫生：**锁定精确版本**（别用 `latest`）、盯项目安全公告 + KEV、控制面快速打补丁、管理后台不暴露公网，接第三方中转前先用 [api-relay-audit](https://github.com/toby-bridges/api-relay-audit) <!--s:toby-bridges/api-relay-audit-->⭐ 769<!--/s--> 这类审计工具过一遍（检查 prompt 注入、模型偷换、工具调用改写、SSE 异常）。逐网关的姿态——谁给发布签名、谁发 SBOM、谁真被打穿过——见下方[供应链矩阵](#️-供应链安全谁给发布签名谁真被打穿过)。
+8. **把网关本身当作供应链来审。** 它看得到你的每条 prompt、拿着你所有厂商密钥，所以它自己的安全水位就是选型标准：**2026 年 3 月** LiteLLM 的 PyPI 发布 v1.82.7/.8 因 CI token 失窃被植入后门（约 3 小时下架）；**2026 年 6 月** 一条 LiteLLM RCE 利用链（[CVE-2026-42271](https://labs.cloudsecurityalliance.org/research/csa-research-note-litellm-cve-2026-42271-ai-gateway-exploita/)）进入 CISA KEV 名录——一个季度内、在部署量最大的开源网关上，出现两种完全不同的失效模式。实操卫生：**锁定精确版本**（别用 `latest`）、盯项目安全公告 + KEV、控制面快速打补丁、管理后台不暴露公网，接第三方中转前先用 [api-relay-audit](https://github.com/toby-bridges/api-relay-audit) <!--s:toby-bridges/api-relay-audit-->⭐ 769<!--/s--> 这类审计工具过一遍（检查 prompt 注入、模型偷换、工具调用改写、SSE 异常）。逐网关的姿态——谁给发布签名、谁发 SBOM、谁真被打穿过——见下方[供应链矩阵](#-供应链安全谁给发布签名谁真被打穿过)。
 
 ### 🔒 谁看得到你的 prompt？—— 数据留存矩阵
 
@@ -525,7 +525,7 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 
 > **所有人都漏掉的两点：** (1) **在任何路由上，你的真实暴露面取决于你路由到的_上游_，而非路由自身的政策**——"默认 ZDR"的路由，只要不开 ZDR-only / 禁训练过滤，照样会打到会留存（或训练）的上游。(2) **"30 天后删除"未必有约束力**——OpenAI 的 API 删除当前被法院保全令覆盖，Azure 也悄悄撤掉了 30 天承诺。真要紧时，把 ZDR 写进_合同_，并读你具体上游端点的政策，而不是看门面营销。逐行证据 + 来源链接见 [`data/data_retention.json`](data/data_retention.json)。
 
-### 🛡️ 供应链安全——谁给发布签名、谁真被打穿过
+### 🔐 供应链安全——谁给发布签名、谁真被打穿过
 
 *网关拿着你所有厂商密钥、看得到你每条 prompt——它是你 AI 栈里价值最高的那台机器；2026 年攻击者已经不再硬闯，而是直接把后门装好了再发给你。以下姿态数据全部机器核验自仓库、软件源与 CVE.org（[完整证据 + 事件记录](data/supply_chain.json)，核验于 2026-07-28）。*
 
