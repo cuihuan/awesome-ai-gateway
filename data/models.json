@@ -101,10 +101,11 @@
       "open": false,
       "context_tokens": 1000000,
       "benchmarks": {"aa_index": 53.2, "gpqa_diamond": 0.89, "swe_bench_verified": 0.75, "swe_bench_pro": null, "hle": null, "arena_elo": null, "aime": 0.95, "aime_year": 2025, "mmlu_pro": null},
+      "pricing_usd_per_mtok": {"input": 1.25, "output": 2.5, "cached_input": 0.2},
       "reasoning": true,
       "scenario_cost": false,
       "benchmark_table": true,
-      "notes": "GPQA/SWE/AIME extrapolated from Grok 4 reporting — treat as approximate. Priced as Grok 4 in cost set."
+      "notes": "GPQA/SWE/AIME extrapolated from Grok 4 reporting — treat as approximate. Price doubles above 200K context; retired Grok 4 slugs are served by grok-4.3 and billed at these rates. Grok 4.5 represents xAI in the cost set."
     },
     {
       "name": "DeepSeek V4 Pro",
@@ -190,16 +191,16 @@
       "notes": "Cost floor across every scenario. Cache reads ~98% off. Reasoner alias = thinking mode."
     },
     {
-      "name": "Grok 4",
+      "name": "Grok 4.5",
       "provider": "xAI",
       "open": false,
-      "context_tokens": 256000,
+      "context_tokens": 500000,
       "benchmarks": {},
-      "pricing_usd_per_mtok": {"input": 3.0, "output": 15.0, "cached_input": null},
+      "pricing_usd_per_mtok": {"input": 2.0, "output": 6.0, "cached_input": 0.3},
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": false,
-      "notes": "Pricing stand-in for the Grok line in cost tables."
+      "notes": "Current xAI flagship (released 2026-07-08); represents the Grok line in cost tables. Price doubles above 200K context. Replaces the retired Grok 4 (grok-4-0709, retired 2026-05-15, was $3/$15)."
     }
   ]
 }

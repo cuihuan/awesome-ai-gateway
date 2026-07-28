@@ -93,9 +93,9 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 | 4 | Kimi K2.6 | Moonshot | $0.40 |
 | 5 | GLM-5.1 | Z.ai (Zhipu) | $0.44 |
 | 6 | Claude Haiku 4.5 | Anthropic | $0.50 |
-| 7 | Gemini 3.5 Flash | Google | $0.90 |
-| 8 | Gemini 3.1 Pro | Google | $1.20 |
-| 9 | Grok 4 | xAI | $1.51 |
+| 7 | Grok 4.5 | xAI | $0.60 |
+| 8 | Gemini 3.5 Flash | Google | $0.90 |
+| 9 | Gemini 3.1 Pro | Google | $1.20 |
 | 10 | Claude Opus 4.8 | Anthropic | $2.51 |
 | 11 | GPT-5.5 | OpenAI | $3.01 |
 
@@ -116,8 +116,8 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 | 5 | Claude Haiku 4.5 | Anthropic | $0.11 |
 | 6 | GLM-5.1 | Z.ai (Zhipu) | $0.15 |
 | 7 | Gemini 3.5 Flash | Google | $0.17 |
-| 8 | Gemini 3.1 Pro | Google | $0.22 |
-| 9 | Grok 4 | xAI | $0.33 |
+| 8 | Grok 4.5 | xAI | $0.21 |
+| 9 | Gemini 3.1 Pro | Google | $0.22 |
 | 10 | Claude Opus 4.8 | Anthropic | $0.55 |
 | 11 | GPT-5.5 | OpenAI | $0.56 |
 
@@ -143,9 +143,9 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 | 4 | Kimi K2.6 | Moonshot | $0.13 |
 | 5 | Claude Haiku 4.5 | Anthropic | $0.15 |
 | 6 | GLM-5.1 | Z.ai (Zhipu) | $0.29 |
-| 7 | Gemini 3.5 Flash | Google | $0.53 |
-| 8 | Gemini 3.1 Pro | Google | $0.70 |
-| 9 | Grok 4 | xAI | $0.90 |
+| 7 | Grok 4.5 | xAI | $0.40 |
+| 8 | Gemini 3.5 Flash | Google | $0.53 |
+| 9 | Gemini 3.1 Pro | Google | $0.70 |
 | 10 | Claude Opus 4.8 | Anthropic | $1.50 |
 | 11 | GPT-5.5 | OpenAI | $1.75 |
 
@@ -165,9 +165,9 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 | 4 | Kimi K2.6 | Moonshot | $2.48 |
 | 5 | GLM-5.1 | Z.ai (Zhipu) | $2.90 |
 | 6 | Claude Haiku 4.5 | Anthropic | $3.00 |
-| 7 | Gemini 3.5 Flash | Google | $5.25 |
-| 8 | Gemini 3.1 Pro | Google | $7.00 |
-| 9 | Grok 4 | xAI | $9.00 |
+| 7 | Grok 4.5 | xAI | $4.00 |
+| 8 | Gemini 3.5 Flash | Google | $5.25 |
+| 9 | Gemini 3.1 Pro | Google | $7.00 |
 | 10 | Claude Opus 4.8 | Anthropic | $15.00 |
 | 11 | GPT-5.5 | OpenAI | $17.50 |
 
