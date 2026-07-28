@@ -110,7 +110,7 @@ Most teams in 2026 sit at **L1**, with **L2/L3** where the differentiated router
 - [2025 Mid-Year LLM Market Update](https://menlovc.com/perspective/2025-mid-year-llm-market-update/) — Menlo Ventures, 2025 — The honest counterpoint to cost-routing: 66% of enterprise builders upgrade models *within* their existing provider and only 11% switch vendors, favoring frontier models over cheaper tiers — buyers often *don't* route for savings.
 
 ### Gateway routing mechanics
-The concrete retry/fallback/weighting mechanics you actually configure — **LiteLLM** (routing & load balancing, router architecture) and **Portkey** (load balancing) — are in [📚 Essential reading](../README.md#-essential-reading). Cloud first-party routers (AWS Bedrock, Azure AI Foundry, Vertex) are listed in [☁️ First-party gateways](../README.md#️-first-party-gateways-cloud--model-vendors).
+The concrete retry/fallback/weighting mechanics you actually configure — **LiteLLM** (routing & load balancing, router architecture) and **Portkey** (load balancing) — are in [📚 Essential reading](../README.md#-essential-reading). Cloud first-party routers (AWS Bedrock, Azure AI Foundry, Vertex) are listed in [🌐 First-party gateways](../README.md#-first-party-gateways-cloud--model-vendors).
 
 ---
 
