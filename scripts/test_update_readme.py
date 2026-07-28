@@ -250,7 +250,10 @@ class TestRenderReleases(unittest.TestCase):
                 }
             ]
         )
-        self.assertIn("**2026-06-10**", block)
+        # Plain-text date (not bold): items starting with a text node are
+        # skipped by awesome-lint's list-item rule, keeping the block green.
+        self.assertIn("- 2026-06-10 · ", block)
+        self.assertNotIn("**2026-06-10**", block)
         self.assertIn("[o/a v1.2.0](https://github.com/o/a/releases/tag/v1.2.0)", block)
         self.assertIn("Big release with newline", block)
 

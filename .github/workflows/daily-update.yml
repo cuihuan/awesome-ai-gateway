@@ -28,6 +28,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/update_readme.py
 
+      # Star-count changes alter table cell widths; realign so the blocking
+      # awesome-lint gate (table-pipe-alignment) stays green after every refresh.
+      - name: Realign README tables after the refresh
+        run: node scripts/format_tables.mjs README.md
+
       - name: Rebuild the release feed from refreshed data
         run: python scripts/build_feed.py
 

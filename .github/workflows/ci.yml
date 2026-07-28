@@ -65,12 +65,22 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
-      # Advisory on purpose. Most findings are design tensions (compact wide
-      # tables, a TOC that double-links sections, em-dash entry style), not
-      # defects — see docs/awesome-lint-triage.md for the categorized breakdown
-      # and the path to a sindresorhus/awesome submission. Flip to blocking once
-      # that conformance pass is done.
-      - name: awesome-lint (advisory)
+      # BLOCKING since 2026-07-28: the conformance pass is done (0 errors) and
+      # the sindresorhus/awesome submission depends on it staying that way.
+      # Growth deepens lint debt fast (656 -> 1,339 errors in 25 days while
+      # advisory), so regressions must fail the build. Formatting guidance:
+      # tables realign with scripts/format_tables.mjs, the Contents block
+      # regenerates with scripts/build_toc.mjs — both checked here.
+      - name: Table alignment matches the lint rules
         run: |
-          npx --yes awesome-lint && echo "awesome-lint clean" || \
-            echo "::warning::awesome-lint reported issues — triaged in docs/awesome-lint-triage.md (advisory until the conformance pass)"
+          node scripts/format_tables.mjs --check README.md || {
+            echo "::error::Tables are misaligned — run 'node scripts/format_tables.mjs README.md'"; exit 1;
+          }
+      - name: Contents block matches the heading tree
+        run: |
+          npm install --no-save --no-audit --no-fund github-slugger
+          node scripts/build_toc.mjs --check README.md || {
+            echo "::error::ToC is stale — run 'node scripts/build_toc.mjs README.md'"; exit 1;
+          }
+      - name: awesome-lint (blocking)
+        run: npx --yes awesome-lint

@@ -208,7 +208,9 @@ def render_releases_block(releases: list[dict]) -> str:
         title = " ".join(title.split())
         if len(title) > 80:
             title = title[:77] + "..."
-        lines.append(f"- **{date}** · [{rel['repo']} {rel['tag']}]({rel['url']}) — {title}")
+        # Plain-text date first: awesome-lint's list-item rule skips items that
+        # start with a text node, so the generated block stays lint-green.
+        lines.append(f"- {date} · [{rel['repo']} {rel['tag']}]({rel['url']}) — {title}")
     return "\n".join(lines)
 
 
