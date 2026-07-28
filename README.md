@@ -287,6 +287,7 @@ _Pain point: "Audit logs, PII redaction, RBAC, on-prem, and the EU AI Act (enfor
 - [Red Hat Connectivity Link](https://www.redhat.com/en/technologies/cloud-computing/connectivity-link) - Kubernetes-native gateway (built on the Kuadrant project, successor to 3scale) unifying AI gateway, API management and multicluster connectivity; powers OpenShift AI Models-as-a-Service as the front door governing external and self-hosted LLM endpoints.
 - [Sensedia AI Gateway](https://www.sensedia.com/product/ai-gateway) - Gartner-recognized APIM vendor's agnostic AI gateway governing LLMs, MCP servers and AI agents with multi-model routing, guardrails, cost controls and observability across a multi-cloud control plane.
 - [Ambassador Edge Stack](https://www.getambassador.io/products/edge-stack/api-gateway) - Envoy-based, Kubernetes-native API gateway (OSS core [emissary-ingress](https://github.com/emissary-ingress/emissary) <!--s:emissary-ingress/emissary-->⭐ 4.5k<!--/s-->) whose AI Gateway layer adds LLM-provider routing, token rate-limiting and fallback — a peer to Kong/Tyk/APISIX in the API-vendor cohort.
+- [Shim](https://getshim.tech) - Compliance-oriented AI gateway: Presidio-based PII redaction including Turkish TCKN/VKN identifiers, a tamper-evident hash-chain audit log with daily Merkle anchors for EU AI Act and KVKK evidence, plus semantic caching and per-tag cost attribution.
 
 ## 🌐 First-party gateways (cloud & model vendors)
 
