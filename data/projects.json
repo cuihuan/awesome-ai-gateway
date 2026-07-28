@@ -15,6 +15,7 @@
     "tensorzero/tensorzero",
     "higress-group/higress",
     "maximhq/bifrost",
+    "mozilla-ai/otari",
     "looplj/axonhub",
     "Helicone/helicone",
     "Helicone/ai-gateway",
