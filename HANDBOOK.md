@@ -11,6 +11,16 @@
 - Each chapter ends with **how to verify this yourself** — if you can't check it, we shouldn't have written it.
 - Failure modes come with receipts: the incident, the issue number, the bill.
 
+**Translation conventions** (so the Chinese twins stay consistent with each other):
+the switcher line is `**语言：** [English](…) · 简体中文` directly under the H1; vendor
+quotations stay in English inside the quote marks with the Chinese explanation around
+them; field names, function names, file paths and commit hashes stay in English; tables,
+code fences and URLs are structurally identical to the English source. Body punctuation
+in the chapters is the halfwidth-mixed style the first chapters established — a
+mechanical conversion to fullwidth was tried and rejected on 2026-07-29 because this
+content interleaves CJK and Latin so heavily that any positional rule produces a mix of
+both inside single sentences.
+
 ## Chapters
 
 | # | Chapter | Status | What you'll understand |

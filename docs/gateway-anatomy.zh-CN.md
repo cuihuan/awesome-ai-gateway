@@ -1,6 +1,6 @@
 # AI 网关解剖——请求生命周期、它在哪一环断裂,以及什么时候你压根不该上网关
 
-**语言:** [English](gateway-anatomy.md) · 简体中文
+**语言：** [English](gateway-anatomy.md) · 简体中文
 
 *最近更新 2026-07-29 · [Awesome AI Gateway](../README.zh-CN.md) 的一部分——唯一带[可复算成本基准](../BENCHMARKS.zh-CN.md)与[诚实安全记分卡](../BENCHMARKS.zh-CN.md#第四部分--网关五维评分合规价格安全稳定可观测)的 AI 网关榜单。[⭐ 点个 Star](https://github.com/cuihuan/awesome-ai-gateway)。*
 
