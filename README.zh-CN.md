@@ -5,16 +5,17 @@
 [![Data verified](https://img.shields.io/github/last-commit/cuihuan/awesome-ai-gateway?label=%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81&color=success&logo=githubactions&logoColor=white)](.github/workflows/daily-update.yml) [![CI](https://img.shields.io/github/actions/workflow/status/cuihuan/awesome-ai-gateway/ci.yml?label=168%20tests)](https://github.com/cuihuan/awesome-ai-gateway/actions/workflows/ci.yml)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md) [![License: CC0](https://img.shields.io/badge/license-CC0-lightgrey.svg)](LICENSE)
 
-> **按你的诉求，约 10 秒选对 AI 网关——而且这个答案可信。** 一棵决策树、可复现的成本评测，外加我们排除灰产的独立证据。按真实诉求分类，而非按厂商罗列。
+> **约 10 秒选对，弄懂为什么，每个数字都能自己复核。** 一棵覆盖 100+ 网关的决策树、一本讲清它们如何工作与如何失效的手册，加上可复现的成本评测与每条主张背后带日期的证据——包括我们排除了什么、为什么排除。CC0，无厂商赞助，无返利链接。
 
 _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**——一个旗舰模型就吃掉 78%，只因为我把所有请求都默认打给了最贵的那个。于是我把整个网关生态摸了一遍。→ [完整故事](#为什么做这个) · [完整对比](compare/coding-agent-routers-2026.zh-CN.md)_
 
 **语言：** [English](README.md) · 简体中文
 
 <p align="center">
-<a href="#我该用哪个网关"><kbd> &nbsp; 🧭 选网关 &nbsp; </kbd></a> &nbsp;
-<a href="https://cuihuan.github.io/awesome-ai-gateway/"><kbd> &nbsp; 🚀 在线交互页 &nbsp; </kbd></a> &nbsp;
-<a href="BENCHMARKS.zh-CN.md"><kbd> &nbsp; 📊 成本与评分卡 &nbsp; </kbd></a>
+<a href="#我该用哪个网关"><kbd> &nbsp; 🧭 选一个 &nbsp; </kbd></a> &nbsp;
+<a href="#-学ai-网关是怎么工作的"><kbd> &nbsp; 📖 学它怎么工作 &nbsp; </kbd></a> &nbsp;
+<a href="BENCHMARKS.zh-CN.md"><kbd> &nbsp; 📊 自己验数字 &nbsp; </kbd></a> &nbsp;
+<a href="https://cuihuan.github.io/awesome-ai-gateway/"><kbd> &nbsp; 🚀 在线交互页 &nbsp; </kbd></a>
 </p>
 
 <p align="center">

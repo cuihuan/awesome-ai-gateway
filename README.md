@@ -5,16 +5,17 @@
 [![Data verified](https://img.shields.io/github/last-commit/cuihuan/awesome-ai-gateway?label=data%20verified&color=success&logo=githubactions&logoColor=white)](.github/workflows/daily-update.yml) [![CI](https://img.shields.io/github/actions/workflow/status/cuihuan/awesome-ai-gateway/ci.yml?label=168%20tests)](https://github.com/cuihuan/awesome-ai-gateway/actions/workflows/ci.yml)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md) [![License: CC0](https://img.shields.io/badge/license-CC0-lightgrey.svg)](LICENSE)
 
-> **Pick the right AI gateway for your need in ~10 seconds — then trust the answer.** A decision tree, a reproducible cost benchmark, and independent evidence for what we exclude. Organized by what you actually need, not by vendor.
+> **Pick one in ~10 seconds, understand why, and check every number yourself.** A decision tree over 100+ gateways, a handbook that explains how they actually work (and fail), and a reproducible cost benchmark plus dated evidence behind every claim — including what we exclude and why. CC0, no vendor money, no affiliate links.
 
 💸 _Built the hard way: **I burned $788 on AI coding in a single day** — one flagship model ate 78% of it, just because I'd defaulted everything to the priciest option. So I mapped the whole gateway landscape. → full story in **Why this exists** below · [the full comparison](compare/coding-agent-routers-2026.md#the-three-mechanism-tiers)_
 
 **Languages:** English · [简体中文](README.zh-CN.md)
 
 <p align="center">
-<a href="#which-gateway-should-i-use"><kbd> &nbsp; 🧭 Pick a gateway &nbsp; </kbd></a> &nbsp;
-<a href="https://cuihuan.github.io/awesome-ai-gateway/"><kbd> &nbsp; 🚀 Live interactive site &nbsp; </kbd></a> &nbsp;
-<a href="BENCHMARKS.md"><kbd> &nbsp; 📊 Cost & scorecard &nbsp; </kbd></a>
+<a href="#which-gateway-should-i-use"><kbd> &nbsp; 🧭 Pick one &nbsp; </kbd></a> &nbsp;
+<a href="#-learn-how-ai-gateways-work"><kbd> &nbsp; 📖 Learn how they work &nbsp; </kbd></a> &nbsp;
+<a href="BENCHMARKS.md"><kbd> &nbsp; 📊 Verify the numbers &nbsp; </kbd></a> &nbsp;
+<a href="https://cuihuan.github.io/awesome-ai-gateway/"><kbd> &nbsp; 🚀 Live site &nbsp; </kbd></a>
 </p>
 
 <p align="center">
