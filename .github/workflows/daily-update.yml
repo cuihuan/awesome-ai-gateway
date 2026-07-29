@@ -42,6 +42,12 @@ jobs:
       - name: Rebuild compare pages from refreshed sources
         run: python scripts/build_compare_html.py
 
+      # llms.txt embeds each compare page's Key-numbers line, which contains star
+      # counts — so the refresh also invalidates it. Regenerate here or CI fails
+      # on the next push (it did, twice).
+      - name: Rebuild llms.txt from refreshed sources
+        run: python scripts/build_llms_txt.py
+
       - name: Commit if content changed
         run: |
           if git diff --quiet; then
