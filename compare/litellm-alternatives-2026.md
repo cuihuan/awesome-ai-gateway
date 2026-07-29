@@ -46,7 +46,7 @@ Here's the honest, data-backed map. Scores are ★1–5 from the [scorecard rubr
 
 ## So, should you actually leave LiteLLM?
 
-**Often, no.** Patched to `v1.83.7-stable` and kept off the public internet, LiteLLM is a healthy project with weekly releases and the broadest provider coverage. Leave it when you have a *specific* reason:
+**Often, no.** Patched to ≥1.84.0 (v1.83.7 fixed the headline pair, but 10 advisories followed) and kept off the public internet, LiteLLM is a healthy project with weekly releases and the broadest provider coverage. Leave it when you have a *specific* reason:
 
 - **Performance / clean CVE record** → Bifrost
 - **Built-in guardrails & governance** → Portkey

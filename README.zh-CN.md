@@ -79,7 +79,7 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 │
 └─ 要部署 — 自托管 / 开源
     ├─ Python 技术栈、功能最全 ─────▶ LiteLLM
-    ├─ 追求极致性能（Go/Rust/TS）──▶ Bifrost · Portkey Gateway
+    ├─ 追求极致性能（Go/Rust/TS）──▶ Bifrost（实测 0.56ms）· Portkey Gateway（2.69ms；保真度 1/3）
     ├─ 自带评测 + 可观测 ───────────▶ Helicone · LiteLLM · Bifrost
     ├─ 多用户 Key + 预算 + 管理面板 ─▶ LiteLLM · new-api（家庭/小团队）
     ├─ 国产模型、人民币计费 ────────▶ new-api · one-api · GPT-Load

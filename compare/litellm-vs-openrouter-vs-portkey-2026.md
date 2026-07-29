@@ -37,7 +37,7 @@ That's why the gateway *matters*: LiteLLM/Portkey let you route cheap-by-default
 
 ## What about security?
 
-- **LiteLLM** had two serious 2026 CVEs (a pre-auth SQLi and an unauth RCE on CISA's exploited list) — **both patched in v1.83.7**; pin to current stable and don't expose the admin panel.
+- **LiteLLM** had two serious 2026 CVEs (a pre-auth SQLi and an unauth RCE on CISA's exploited list) — **both patched in v1.83.7 — 10 further advisories followed, so run ≥1.84.0**; pin to current stable and don't expose the admin panel.
 - **OpenRouter** offers free zero-data-retention and EU region-locking, but publishes no hard uptime SLA outside enterprise.
 - **Portkey** carries SOC 2 Type II + ISO 27001 + HIPAA and the richest guardrail marketplace of the three.
 
@@ -51,7 +51,7 @@ There's no single winner — there's a winner *for your constraint*:
 - **Platform team that wants control** → LiteLLM, with a cheap model as default and a flagship as fallback.
 - **Enterprise with compliance + observability needs** → Portkey (or a first-party cloud like Azure/Bedrock behind it for failover).
 
-## See all 50+ gateways
+## See all 100+ gateways
 
 Just weighing LiteLLM against OpenRouter? The condensed [LiteLLM vs OpenRouter guide](https://cuihuan.github.io/awesome-ai-gateway/litellm-vs-openrouter.html) covers those two head-to-head, including how to run them together.
 

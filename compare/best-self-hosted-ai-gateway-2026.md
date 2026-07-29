@@ -32,7 +32,7 @@ You'll still see TensorZero (Rust; gateway + observability + evals in one binary
 
 Self-hosting means **you own the security**. Honest 2026 facts:
 
-- **LiteLLM** had two serious CVEs — a pre-auth SQLi (CVE-2026-42208) and an unauth RCE on CISA's exploited list (CVE-2026-42271) — **both patched in v1.83.7**. It's fine *if* you pin to current stable, restrict egress, and never expose the admin panel publicly.
+- **LiteLLM** had two serious CVEs — a pre-auth SQLi (CVE-2026-42208) and an unauth RCE on CISA's exploited list (CVE-2026-42271) — **both patched in v1.83.7**, with 10 further advisories since — treat ≥1.84.0 as the floor. It's fine *if* you pin to current stable, restrict egress, and never expose the admin panel publicly.
 - **Bifrost / Portkey**: no major CVEs surfaced — but absence of found CVEs ≠ proven secure (less scrutiny).
 - **Kong**: inherits Kong's mature, hardened auth/RBAC stack.
 
@@ -51,5 +51,5 @@ The gateway is $0-markup; your bill is the **model**. Same 100K-token report: **
 
 Still deciding *whether* to self-host at all? The condensed [self-hosted gateway how-to-choose guide](https://cuihuan.github.io/awesome-ai-gateway/self-hosted-llm-gateway.html) covers the why and the one-line picks.
 
-See all 50+ gateways organized by need, with decision tree and data:
+See all 100+ gateways organized by need, with decision tree and data:
 👉 **[Awesome AI Gateway](https://github.com/cuihuan/awesome-ai-gateway)** · [interactive site](https://cuihuan.github.io/awesome-ai-gateway/)
