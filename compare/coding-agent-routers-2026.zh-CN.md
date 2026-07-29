@@ -34,7 +34,7 @@
 - **2026-02-20——灰色地带正式关闭。** Anthropic 更新合规文档,禁止在第三方产品中使用订阅 OAuth(Free/Pro/Max),开发者"必须改用 API key 认证"([报道,2026-02](https://alternativeto.net/news/2026/2/anthropic-officially-bans-using-subscription-authentication-for-third-party-claude-use))。
 - **Anthropic 明说的执法对象**:"a small number of users are violating our usage policies by **sharing and reselling accounts**… we're taking appropriate action to stop it."。Anthropic 员工澄清:持有多个 Max 账号*不*违规——"enforcement is aimed at people using accounts to **resell tokens**"([2026-02-19](https://piunikaweb.com/2026/02/19/anthropic-claude-max-ban-agent-sdk-clarification/)、[背景](https://metricnexus.ai/blog/anthropic-banning-multiple-claude-accounts))。这就是对第 3 档的精确描述。
 - **OpenAI 使用条款**:"You may not share your account credentials or make your account available to anyone else and are responsible for all activities that occur under your account"([条款](https://openai.com/policies/row-terms-of-use/);页面有反爬,措辞引自 [OpenAI 账号共享政策的公开转述](https://help.openai.com/en/articles/10471989-openai-account-sharing-policy))。对 ChatGPT 账号池(opencodex 的池模式、CLIProxyAPI、sub2api)含义相同。
-- **规模——没有可靠的公开数字。** Anthropic 的 [Transparency Hub](https://www.anthropic.com/transparency) 不发布账号处置统计,流传的第三方封号指南(如[这篇](https://teamorouter.com/blogs/claude-code-banned-guide))也只讲封号原因与申诉流程、没有总量数字(两处均核查于 2026-07-27)。看到任何「封禁 X 万账号」的总数,都当作无出处对待。
+- **规模——没有可靠的公开数字。** Anthropic 的 [Transparency Hub](https://www.anthropic.com/transparency) 不发布账号处置统计,流传的封号指南也只讲封号原因与申诉流程、没有总量数字(两处均核查于 2026-07-27)。看到任何「封禁 X 万账号」的总数,都当作无出处对待。
 
 ## 封号证据,逐个工具看
 
