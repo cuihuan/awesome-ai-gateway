@@ -782,6 +782,18 @@ Two different "cheapest": **0% markup on your own keys** (Vercel / Cloudflare AI
 **Are AI gateways safe? Who sees my prompts?**
 Every gateway sees your prompts. For sensitive data self-host or require zero-data-retention in writing; check the gateway scorecard for compliance/security ratings and known CVEs.
 
+**Do I even need a gateway?**
+Often not yet. If you use one provider, one wire format, one team's budget, and can tolerate an outage longer than an hour, an SDK's built-in retries plus a fallback library cover it — and you skip a component that sits on 100% of your traffic and ships releases you must patch. The handbook works through the six conditions and the tripwires that flip the answer: [the case against a gateway](docs/gateway-anatomy.md#6-the-case-against-a-gateway).
+
+**Will a gateway retry my failed request?**
+Probably not, unless you configured it. Read at pinned commits across six open-source gateways, **exactly one retries at the LLM layer by default** — Bifrost, Portkey OSS and new-api all ship a default of 0, Kong OSS has no AI-level retry, and Envoy writes no retry count of its own. Details and per-gateway config: [retry vs failover](docs/failover-reliability.md#2-retry-within-a-group-vs-failover-across-groups).
+
+**Does prompt caching actually save money?**
+Only above a break-even hit rate. Reads cost 0.1× base input, but **writes cost 1.25–2×**, so caching a prefix you rarely hit again is a loss: the break-even is **21.7%** on Anthropic's 5-minute tier and OpenAI 5.6+, **52.6%** on Anthropic's 1-hour tier. The formula, and which variable actually dominates it: [caching economics](docs/caching-economics.md#2-the-savings-formula-and-what-actually-dominates-it).
+
+**Will a gateway break my coding agent?**
+It can, and four of the five ways are silent. Translating between Anthropic and OpenAI wire formats can drop tool-call identity, reshape or buffer the stream, misreport usage, truncate the system prompt, or strip `cache_control` — the last one bills cached input at 10× with no error anywhere. Each failure mode is anchored to a real issue, with a ten-minute self-test: [the five failure modes](docs/protocol-translation.md#3-the-five-failure-modes).
+
 ## Glossary
 
 <details>
