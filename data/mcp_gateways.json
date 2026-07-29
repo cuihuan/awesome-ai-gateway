@@ -1,5 +1,5 @@
 {
-  "_comment": "MCP/agent-gateway capability matrix: transports, MCP spec revision, per-tool authorization, OAuth on-behalf-of / RFC 8693 token exchange, secret brokering, audit of tool invocations — and whether each capability is open-source or commercial-tier. Companion data file for docs/mcp-agent-gateways.md (chapter 8), which had no data file until this one. IMPORTANT reading rules: (1) 'not_assessed: true' means we did not verify the row and are NOT guessing — read it as 'no data', never as 'no feature'; (2) 'unknown' inside a verified row means we looked and could not establish the value, and 'what_we_tried' says how we looked; (3) the highest-value column, spec_revision, is 'unknown' for almost every row on purpose — chapter 8 §8.6 names it the category's biggest open question and only agentgateway, Envoy AI Gateway, Lunar MCPX and IBM ContextForge yield a source-read data point; (4) a gateway with tool-level authorization can still be fail-open — read tool_level_authorization.default_posture before the value; (5) 'commercial' tier means the capability is gated behind a paid/enterprise licence even when the repo carries an OSS licence file. Every value names its source: a file at a pinned commit, a vendor doc URL, or chapter 8 with its own citation carried through.",
+  "_comment": "MCP/agent-gateway capability matrix: transports, MCP spec revision, per-tool authorization, OAuth on-behalf-of / RFC 8693 token exchange, secret brokering, audit of tool invocations — and whether each capability is open-source or commercial-tier. Companion data file for docs/mcp-agent-gateways.md (chapter 8), which had no data file until this one. IMPORTANT reading rules: (1) 'not_assessed: true' means we did not verify the row and are NOT guessing — read it as 'no data', never as 'no feature'; (2) 'unknown' inside a verified row means we looked and could not establish the value, and 'what_we_tried' says how we looked; (3) the highest-value column, spec_revision, is 'unknown' for almost every row on purpose — chapter 8 §8.6 names it the category's biggest open question and only agentgateway, Envoy AI Gateway, Lunar MCPX and IBM ContextForge yield a source-read data point; (4) a gateway with tool-level authorization can still be fail-open — read tool_level_authorization.default_posture before the value; (5) 'commercial' tier means the capability is gated behind a paid/enterprise licence even when the repo carries an OSS licence file. Every value names its source: a file at a pinned commit, a vendor doc URL, or chapter 8 with its own citation carried through. Re-probed 2026-07-29 via GitHub code search on the two markers the rewrite introduces/removes (`server/discover`, `Mcp-Session-Id`): agentgateway 3/18 — it implements the new discovery RPC while still speaking the old handshake; Lunar MCPX 0, Plano 0, Envoy AI Gateway 0/32, Docker MCP Gateway 0/0. One of five had adopted the 2026-07-28 revision within a day of publication.",
   "as_of": "2026-07-29",
   "spec_baseline": {
     "current_revision": "2026-07-28",
@@ -73,7 +73,8 @@
         "handles_2026_07_28_rewrite": "yes",
         "evidence": "crates/agentgateway/src/mcp/mod.rs at the pinned commit defines is_modern_version() with the doc comment 'True for protocol versions in the modern (2026-07-28+) era, which negotiate via `server/discover` plus per-request `_meta` rather than a session-establishing `initialize`', and the const REMOVED_METHODS_2026_07_28 listing initialize / ping / setLevel / subscribe / unsubscribe as 'Methods removed for the modern (2026-07-28+) protocol by SEP-2575/SEP-2567'; unsupported versions are answered with ErrorCode::UNSUPPORTED_PROTOCOL_VERSION carrying ProtocolVersion::KNOWN_VERSIONS. Legacy session machinery is retained alongside it (mod session, DEFAULT_SESSION_IDLE_TTL = 30 min, error variants MissingSessionHeader / UnknownSession / InvalidSessionIdHeader) — which is what dual-era means. crates/agentgateway/src/mcp/README.md §'Version Negotiation' states the design intent: 'This is particularly important for 2026-07-28+, which has a very different protocol than the other versions'.",
         "tier": "oss",
-        "correction": "This answers the question chapter 8 §8.6 lists as the category's single highest-value open item ('No product was source-read for revision support in this pass'). The evidence was in-tree at chapter 8's own pinned commit, in two files it did not open (mcp/mod.rs and mcp/README.md)."
+        "correction": "This answers the question chapter 8 §8.6 lists as the category's single highest-value open item ('No product was source-read for revision support in this pass'). The evidence was in-tree at chapter 8's own pinned commit, in two files it did not open (mcp/mod.rs and mcp/README.md).",
+        "adoption_probe_2026_07_29": "adopted — `server/discover` present (3 hits) plus a written version-negotiation design in crates/agentgateway/src/mcp/README.md that bridges pre- and post-2026-07-28 clients and servers"
       },
       "tool_level_authorization": {
         "value": "yes — CEL rule sets over ResourceType::{Tool, Prompt, Resource} (McpAuthorization)",
@@ -134,7 +135,8 @@
         "handles_2026_07_28_rewrite": "no",
         "evidence": "Two independent signals at the pinned commit. (1) mcpx/package-lock.json resolves packages/mcpx-server/node_modules/@modelcontextprotocol/sdk to version 1.29.0 (verified verbatim; the hoisted root copy is 1.26.0, and shared-model / webapp-protocol also resolve 1.29.0) — the TypeScript SDK release that speaks 2026-07-28 is 2.0.0, published 2026-07-27T23:55:41Z per chapter 8 §8.6. (2) downstream-transports.ts still branches on isInitializeRequest(req.body) and restores sessions from an InMemoryEventStore — the initialize handshake and stream resumability are exactly what SEP-2575 and SEP-2567 removed.",
         "tier": "oss",
-        "caveat": "Signal (2) is a one-file read, not a full data-path audit. It establishes that a legacy-era path exists, not that a modern-era path is absent."
+        "caveat": "Signal (2) is a one-file read, not a full data-path audit. It establishes that a legacy-era path exists, not that a modern-era path is absent.",
+        "adoption_probe_2026_07_29": "not adopted — zero `server/discover` hits; still on the pre-2026-07-28 session model"
       },
       "tool_level_authorization": {
         "value": "yes — tool-group ACL resolved across consumers / clientNames / defaultConsumer",
@@ -195,7 +197,8 @@
         "revision_supported": "unknown",
         "handles_2026_07_28_rewrite": "unknown",
         "what_we_tried": "GitHub code search for the literal '2026-07-28' scoped to docker/mcp-gateway returned total_count 0 on 2026-07-29 — but that searches the DEFAULT BRANCH, not the pinned commit, and a zero result is weak evidence: a gateway can implement the revision without the date string appearing in source. No SDK manifest or version-negotiation file was read.",
-        "tier": "unknown"
+        "tier": "unknown",
+        "adoption_probe_2026_07_29": "not adopted — zero `server/discover` hits; still on the pre-2026-07-28 session model"
       },
       "tool_level_authorization": {
         "value": "no — per-tool ENABLEMENT only, which is a different product",
@@ -496,7 +499,8 @@
         "revision_supported": "2025-06-18 appears hard-coded in tracing; the data path's revision is not established",
         "handles_2026_07_28_rewrite": "unknown, leaning no",
         "evidence": "internal/tracing/mcp.go:78 at the pinned commit, verified verbatim: `attribute.String(\"mcp.protocol.version\", \"2025-06-18\")`. Chapter 8 §8.6's caveat is carried through unchanged and matters: that is a tracing attribute, NOT proof of what the data path speaks. It does establish that a 2025-era constant was the one someone wrote down.",
-        "tier": "oss"
+        "tier": "oss",
+        "adoption_probe_2026_07_29": "not adopted — zero `server/discover` hits; still on the pre-2026-07-28 session model"
       },
       "tool_level_authorization": {
         "value": "yes — MCPRoute CRD rules matching tools against JWT scopes and claims (AND-ed), plus experimental CEL over request.mcp.tool / .method / .backend / .params; first-match-wins, max 32 rules",
