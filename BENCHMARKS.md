@@ -195,7 +195,7 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 
 **Pricing gotchas a gateway buyer must know**
 1. **Reasoning tokens are billed as output.** A "cheap" reasoning model can cost more than a flagship once it thinks for 30K tokens. The coding table above includes them.
-2. **Cached input is 5–10× cheaper.** Reusing a long system prompt? The cached-input rate, not the headline input rate, is your real cost.
+2. **Cached input is 5–10× cheaper on most models — and up to ~120× on DeepSeek.** Reusing a long system prompt? The cached-input rate, not the headline input rate, is your real cost. (Writes cost 1.25–2×, so it only pays above a break-even hit rate — see [caching economics](docs/caching-economics.md).)
 3. **Batch APIs are ~50% off** for non-interactive work (Anthropic, OpenAI, Google all offer this).
 4. **China models are priced in RMB** and often have off-peak discounts (DeepSeek) — the USD figures here are conversions and move with the exchange rate.
 
@@ -226,7 +226,7 @@ This is the part buyers actually lose sleep over. Models are interchangeable; th
 | **Portkey** (cloud) | ★★★★½ | usage-based | ★★★★½ | ★★★★ | ★★★★★ | SOC 2 II + ISO + HIPAA; 50+ guardrail marketplace, RBAC/SSO; 99.99% SLA |
 | **Vercel AI Gateway** | ★★★★ | **0%** | ★★★½ | ★★★★ | ★★★★ | SOC 2 II + 99.99% SLA (Enterprise); true 0% even on BYOK |
 | **Helicone** (cloud) | ★★★½ | **0%** passthrough | ★★★½ | ★★★ | ★★★★½ | SOC 2 + HIPAA (Team); PII detection; OSS core → VPC/self-host option |
-| **Requesty** | ★★★½ | ~5% | ★★★½ | ★★★ | ★★★ | EU residency + PII masking + ZDR; SOC 2 "in progress Q2'26" (not yet Type II) |
+| **Requesty** | ★★★½ | ~5% | ★★★½ | ★★★ | ★★★ | EU residency + PII masking + ZDR; SOC 2 Type II "in progress — expected Q3 2026" (slipped from Q2; the vendor's own FAQ markup contradicts the badge) |
 | **OpenRouter** | ★★★½ | ~5.5% credit fee | ★★★ | ★★★ | ★★★★½ | ~90 providers, auto-failover, free ZDR; **no public SLA** (enterprise only) |
 | **Eden AI** | ★★★½ | ~5.5% platform fee | ★★★ | ★★★½ | ★★★ | France-based, EU-default residency, GDPR-first; SOC 2 UNVERIFIED |
 | **Martian** | ★★★ | volume (undisclosed) | ★★★½ | ★★★ | ★★½ | "Airlock" compliance vetting + cost-routing; certs UNVERIFIED |
@@ -255,7 +255,7 @@ This is the part buyers actually lose sleep over. Models are interchangeable; th
 | **Apache APISIX** | ★★★🏠 | ★★★ | ★★★★ | ★★★½ | ai-proxy / ai-prompt-guard plugins on mature ASF gateway |
 | **LiteLLM** | ★★★🏠 | ★★½ ⚠️ | ★★★★ | ★★★★★ | SOC 2 I + ISO (Enterprise); **run ≥1.84.0** — 12 advisories published in 2026, 3 of them critical (one RCE chain on CISA's KEV list); all fixed, but the floor moved past 1.83.7 |
 | **GPT-Load** | ★★🏠 | ★★½ | ★★★½ | ★½ | Go key-pool rotation + encrypted key store + dual auth; proxy-level only |
-| **new-api** | ★★🏠 | ★½ ⚠️ | ★★★ | ★★½ | ~38k★ & active, but **cluster of 2026 CVEs** (IDOR/SSRF/SQLi) — sandbox + patch fast |
+| **new-api** | ★★🏠 | ★½ ⚠️ | ★★★ | ★★½ | Active, but **cluster of 2026 CVEs** (IDOR/SSRF/SQLi) — sandbox + patch fast |
 | **one-api** | ★★🏠 | ★★ | ★★½ | ★★ | The MIT original; maintenance slowed — new-api is the more active successor |
 
 > ⚠️ **CVE honesty.** Popularity makes OSS gateways targets. LiteLLM (pre-auth SQLi + unauth RCE) and new-api (IDOR/SSRF/SQLi) both had serious 2026 advisories — *patched*, but the lesson is: pin to current stable, restrict egress, and don't expose the admin panel publicly. Absence of found CVEs (TensorZero, Higress, Envoy, GPT-Load) ≠ proven-secure; it can mean less scrutiny.

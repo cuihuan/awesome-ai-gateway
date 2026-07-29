@@ -35,7 +35,7 @@ Here's the honest, data-backed map. Scores are ★1–5 from the [scorecard rubr
 
 ## If your reason is EU data residency / compliance
 
-- **[Requesty](https://requesty.ai)** — the closest drop-in: an EU-friendly OpenRouter-style router, 400+ models, sub-20ms failover, ~5% markup, with **Frankfurt residency, PII masking and ZDR**. (SOC 2 is "in progress, Q2 2026" per their page — verify before an audit.)
+- **[Requesty](https://requesty.ai)** — the closest drop-in: an EU-friendly OpenRouter-style router, 400+ models, sub-20ms failover, ~5% markup, with **Frankfurt residency, PII masking and ZDR**. (SOC 2 Type II is "in progress — expected Q3 2026" per their security page, slipped from Q2 — verify before an audit.)
 - **[Eden AI](https://www.edenai.co/)** — France-based, **EU-default residency, GDPR-first, no-training**, ~5.5% platform fee. Good when "data never leaves the EU" is the hard requirement.
 - **For the strongest certs**, go first-party: **[Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service)**, **[AWS Bedrock](https://aws.amazon.com/bedrock/)** and **[Google Vertex AI](https://cloud.google.com/vertex-ai)** carry HIPAA-BAA and FedRAMP High — at the cost of single-vendor lock-in (no cross-provider failover).
 

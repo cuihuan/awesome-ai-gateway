@@ -157,7 +157,7 @@
       "observability": 2.0,
       "observability_note": "v1.15.x stable ships near-zero observability; Prometheus/OTLP/logs land only in the 2.0 branch, which is frozen (see note) — the 'score jumps on 2.0 stable' trigger looks unlikely to fire. Analytics UI is the hosted control plane. Re-checked 2026-07-28.",
       "self_hosted": true,
-      "note": "MIT (the 2.0.0 branch's package.json says MIT and carries no LICENSE file — the earlier 'Apache-2.0 Gateway 2.0' claim is not in the source); guardrails, circuit breakers, MCP OAuth 2.1, fallbacks free to self-hosters; <1ms overhead claim did not reproduce independently (2.69ms measured). ⚠️ Repo frozen: no stable 2.0 release, 2.0 branch unchanged since 2026-03-14, zero pushes since 2026-05-25 — four days before Palo Alto Networks closed its acquisition (2026-05-29); PANW's release is silent on the OSS future."
+      "note": "MIT (the 2.0.0 branch's package.json says MIT and carries no LICENSE file — the earlier 'Apache-2.0 Gateway 2.0' claim is not in the source); guardrails, circuit breakers, MCP OAuth 2.1, fallbacks free to self-hosters; <1ms overhead claim did not reproduce independently (2.65ms measured). ⚠️ Repo frozen: no stable 2.0 release, 2.0 branch unchanged since 2026-03-14, zero pushes since 2026-05-25 — four days before Palo Alto Networks closed its acquisition (2026-05-29); PANW's release is silent on the OSS future."
     },
     {
       "name": "Kong AI Gateway",
@@ -281,7 +281,7 @@
         "CVE-2025-59146 (SSRF)",
         "CVE-2026-25591 (SQLi/DoS)"
       ],
-      "note": "~38k★, active, but cluster of 2026 CVEs; sandbox, restrict egress, patch aggressively."
+      "note": "Active, but cluster of 2026 CVEs; sandbox, restrict egress, patch aggressively."
     },
     {
       "name": "one-api",
