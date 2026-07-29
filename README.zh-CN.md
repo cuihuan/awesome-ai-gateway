@@ -258,6 +258,8 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 
 *痛点："审计日志、PII 脱敏、RBAC、私有化部署，外加 2026 年 8 月生效的欧盟 AI 法案。"*
 
+> ⚖️ **覆盖诚实度：** 下列厂商中只有 **Kong** 与 **Apache APISIX** 进入了五维记分卡——其余为**收录展示、未经评估**（多为闭源平台，我们的证据规则无法独立核验）。其能力描述请当作厂商口径看待；我们能核验的身份/治理付费墙在 SSO 税表里。
+
 > **谁把 SSO / SCIM / RBAC / 审计日志关在付费墙后？** 九家厂商里六家把 SSO 锁进企业档——只有 Cloudflare 在所有套餐免费提供，只有 Vercel 给这笔税公开标价（$300/月）。逐档位一手来源对照表：[SSO 税对照表](BENCHMARKS.zh-CN.md#第七部分--身份与治理sso-税对照表)（[机器可读](data/identity_matrix.json)）。
 
 - [Kong AI Gateway](https://github.com/Kong/kong) <!--s:Kong/kong-->⭐ 43.9k<!--/s--> — 成熟 API 网关 + AI 插件：语义缓存/路由、Prompt 防护、token 限流；Konnect 提供托管控制面。

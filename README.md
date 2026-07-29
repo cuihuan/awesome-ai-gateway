@@ -274,6 +274,8 @@ _Pain point: "My keys, my infra, no per-token middleman fee."_
 
 _Pain point: "Audit logs, PII redaction, RBAC, on-prem, and the EU AI Act (enforceable Aug 2026)."_
 
+> ⚖️ **Coverage honesty:** of the vendors below, only **Kong** and **Apache APISIX** carry scores in the 5-axis scorecard — the rest are **listed for coverage, not evaluated** (mostly closed-source platforms our evidence rubric can't independently verify). Treat their capability descriptions as vendor claims; the identity/governance paywalls we _could_ verify are in the SSO-tax table.
+
 > **Who paywalls SSO / SCIM / RBAC / audit logs?** Six of nine vendors gate SSO behind an enterprise tier — Cloudflare is the only one shipping it free on every plan, and Vercel the only one with a sticker price for the tax ($300/month). Full tier-by-tier matrix, primary-sourced: the SSO-tax table ([machine-readable](data/identity_matrix.json)).
 
 - [Kong AI Gateway](https://github.com/Kong/kong) <!--s:Kong/kong-->⭐ 43.9k<!--/s--> - Mature API gateway with AI plugins: semantic caching/routing, prompt guard, token rate-limiting; Konnect for managed control plane.
