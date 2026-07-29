@@ -2,6 +2,8 @@
 
 *A curated, honestly-sourced survey. Last reviewed **2026-06-26**. Part of [Awesome AI Gateway](../README.md).*
 
+**Languages:** English · [简体中文](observability-landscape.zh-CN.md)
+
 This is the **map of the field**: the classic theory it borrows from, how mature it actually is, the seminal papers and company writing, the standards and tools, and the problems still open. It complements [BENCHMARKS → Part 6](../BENCHMARKS.md#part-6--gateway-observability-the-factors-that-matter), which is the practical *how-to-evaluate-a-gateway's-observability* rubric. This doc is the *why and where-from*.
 
 > **Honesty up front.** "LLM observability" is **not** a settled academic field. The mature, peer-reviewed literature lives in **evaluation** (LLM-as-judge, eval harnesses) and **model drift**. The operational observability discourse — tracing, telemetry, dashboards — is **overwhelmingly vendor blogs + the OpenTelemetry GenAI conventions**, with only a thin, very recent (2025–2026) academic trickle. Throughout, we flag *peer-reviewed* vs *vendor/industry* vs *our own synthesis*. Anyone selling you a "canonical taxonomy of LLM observability" is overselling — there isn't one yet.

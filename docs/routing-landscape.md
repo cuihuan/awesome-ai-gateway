@@ -2,6 +2,8 @@
 
 *A curated, honestly-sourced survey. Last reviewed **2026-07-23**. Part of [Awesome AI Gateway](../README.md).*
 
+**Languages:** English · [简体中文](routing-landscape.zh-CN.md)
+
 This is the **map of the field** behind the [🧠 Smart routing & model selection](../README.md#-smart-routing--model-selection) section: the theory routing borrows from, how mature it actually is, the seminal papers and company writing, the evaluation benchmarks, and the problems still open. Where the section lists the *tools*, this doc is the *why and where-from* — read it before you trust any router's "we cut cost 70%" claim, because most of those numbers come from the papers below, measured on one benchmark that may not be yours.
 
 > **Honesty up front.** Unlike LLM *observability* (which is barely an academic field yet — see the [sibling survey](observability-landscape.md)), **LLM routing has a real, peer-reviewed literature**: cost-aware cascades, learned query routers, and multi-model ensembling each have canonical papers with reproducible benchmarks. But two caveats run through all of it. (1) **Almost every headline cost/quality number is benchmark-specific** — a router tuned on RouterBench or MT-Bench can lose its edge on your traffic; the gains rarely transfer unchanged. (2) **A large share of "routing" in production is not learned at all** — it's static rules (by task, by header, by cost tier), and a recent enterprise survey finds buyers often just [move to the single best model rather than route for savings](https://menlovc.com/perspective/2025-mid-year-llm-market-update/). We flag *peer-reviewed* vs *vendor/industry* vs *our own synthesis* throughout, and every claim is dated and linked so you can re-check it.
