@@ -317,17 +317,17 @@ _Pain point: "We're already committed to one cloud — give us the native path."
 
 _Pain point: "Domestic models (Qwen/DeepSeek/GLM/Kimi), CNY payment, key distribution & billing for teams."_
 
-- new-api <!--s:QuantumNous/new-api-->⭐ 43.7k<!--/s--> - The most active one-api fork, now a "unified AI model hub": protocol conversion, multi-user key distribution and billing behind a polished admin UI, Rerank/Realtime endpoints. Not China-only — the panel fronts OpenAI-compatible, Claude and Gemini channels too, a fit for any family or small team wanting per-user keys and budgets. AGPL-3.0.
+- [new-api](https://docs.newapi.pro) <!--s:QuantumNous/new-api-->⭐ 43.7k<!--/s--> - The most active one-api fork, now a "unified AI model hub": protocol conversion, multi-user key distribution and billing behind a polished admin UI, Rerank/Realtime endpoints. Not China-only — the panel fronts OpenAI-compatible, Claude and Gemini channels too, a fit for any family or small team wanting per-user keys and budgets. AGPL-3.0.
 - [one-api](https://github.com/songquanpeng/one-api) <!--s:songquanpeng/one-api-->⭐ 36k<!--/s--> - The original LLM API management & distribution system (OpenAI/Azure/Claude/Gemini/DeepSeek/Doubao…); development has slowed.
 - [Higress](https://github.com/higress-group/higress) <!--s:higress-group/higress-->⭐ 9k<!--/s--> - Alibaba's AI-native gateway on Envoy/Istio, first-class Tongyi/DeepSeek support; hosted version at higress.ai.
-- GPT-Load <!--s:tbphp/gpt-load-->⭐ 6.3k<!--/s--> - Smart API-key rotation multi-channel proxy in Go.
+- [GPT-Load](https://gpt-load.com) <!--s:tbphp/gpt-load-->⭐ 6.3k<!--/s--> - Smart API-key rotation multi-channel proxy in Go.
 - [one-hub](https://github.com/MartialBE/one-hub) <!--s:MartialBE/one-hub-->⭐ 2.9k<!--/s--> - Fork of one-api with better non-OpenAI function calling and stats.
 - [simple-one-api](https://github.com/fruitbars/simple-one-api) <!--s:fruitbars/simple-one-api-->⭐ 2.3k<!--/s--> - Single binary adapting Qianfan/Spark/Hunyuan/MiniMax/DeepSeek to the OpenAI interface.
 - [Octopus](https://github.com/bestruirui/octopus) <!--s:bestruirui/octopus-->⭐ 2.3k<!--/s--> - Personal LLM API aggregation gateway unifying multiple providers behind one endpoint, with load balancing and OpenAI/Anthropic protocol conversion (Go + Next.js).
 - [Veloera](https://github.com/Veloera/Veloera) <!--s:Veloera/Veloera-->⭐ 1.6k<!--/s--> - Newer relay platform in the one-api/new-api lineage.
 - [uni-api](https://github.com/yym68686/uni-api) <!--s:yym68686/uni-api-->⭐ 1.2k<!--/s--> - Lightweight single-config unified API manager, no frontend.
 - [CrossLink](https://github.com/HotRiceNoodles/CrossLink) <!--s:HotRiceNoodles/CrossLink-->⭐ 349<!--/s--> - Unified LLM proxy gateway (Apache-2.0) with load balancing, failover, rate limiting, budget management, content auditing, caching and an MCP gateway layer.
-- APIPark <!--s:APIParkLab/APIPark-->⭐ 1.8k<!--/s--> - China-origin, cloud-native AI & API gateway with an open developer portal.
+- [APIPark](https://www.apipark.com) <!--s:APIParkLab/APIPark-->⭐ 1.8k<!--/s--> - China-origin, cloud-native AI & API gateway with an open developer portal.
 - [VoAPI](https://github.com/VoAPI/VoAPI) <!--s:VoAPI/VoAPI-->⭐ 1.1k<!--/s--> - Polished new-api-lineage relay/billing panel (Go), focused on UI and operations.
 - [done-hub](https://github.com/deanxv/done-hub) <!--s:deanxv/done-hub-->⭐ 798<!--/s--> - Fork of one-api/new-api with richer billing and channel management.
 - [sub2api](https://github.com/Wei-Shaw/sub2api) <!--s:Wei-Shaw/sub2api-->⭐ 34.9k<!--/s--> - Go relay platform that pools Claude/OpenAI/Gemini/Antigravity subscription accounts (OAuth, session keys, API keys) behind one OpenAI/Anthropic-compatible endpoint, adding cost-sharing "carpool" billing (Stripe/Alipay/WeChat), key distribution and per-token rate limits. One of 2026's fastest-rising China-ecosystem relays — but account-pooling sits adjacent to the resold-relay category this list excludes; BYO accounts and vet before use.
@@ -342,7 +342,7 @@ _Pain point: "Domestic models (Qwen/DeepSeek/GLM/Kimi), CNY payment, key distrib
 _Pain point: "Agents call tools now — govern MCP traffic like you govern APIs."_ The newest category (2025–2026).
 
 - [agentgateway](https://github.com/agentgateway/agentgateway) <!--s:agentgateway/agentgateway-->⭐ 4.1k<!--/s--> - CNCF proxy for agentic traffic: MCP governance and agent-to-agent (A2A) communication.
-- Lunar.dev MCPX <!--s:TheLunarCompany/lunar-->⭐ 474<!--/s--> - Gateway for managing MCP server consumption.
+- [Lunar.dev MCPX](https://lunar.dev) <!--s:TheLunarCompany/lunar-->⭐ 474<!--/s--> - Gateway for managing MCP server consumption.
 - [Tetrate Agent Router Service](https://tetrate.io/products/tetrate-agent-router-service) - Managed Envoy AI Gateway fleet: LLM + MCP gateway with guardrails (~5% fee).
 - [Zuplo AI Gateway](https://zuplo.com/ai-gateway) - Programmable policies: USD spend limits, prompt-injection detection, secret masking, MCP support.
 - [NetFoundry MCP/LLM Gateways](https://netfoundry.io) - Zero-trust gateways for AI deployments (launched June 2026).
@@ -396,7 +396,7 @@ _Pain point: "Send each prompt to the cheapest model that can handle it."_
 - [workweave/router](https://github.com/workweave/router) <!--s:workweave/router-->⭐ 898<!--/s--> - Go router for agentic systems: routes each prompt to the right model in <50ms behind one OpenAI-compatible endpoint, pitched as a drop-in endpoint swap that cuts 40–70% of cost.
 - [UncommonRoute](https://github.com/CommonstackAI/UncommonRoute) <!--s:CommonstackAI/UncommonRoute-->⭐ 686<!--/s--> - MIT drop-in OpenAI proxy that routes by prompt difficulty; markets hard numbers (≈82% cost savings, 79.4% accuracy, 93.4% pass rate) and integrates with Claude Code / Cursor / Codex.
 - [OrcaRouter Lite](https://github.com/Continuum-AI-Corp/OrcaRouter-Lite) <!--s:Continuum-AI-Corp/OrcaRouter-Lite-->⭐ 416<!--/s--> - MIT self-hosted single-workspace router (BYOK, OpenAI-compatible) from Continuum AI with a managed hosted upgrade path; ranks at/near the top of the [RouterArena](https://github.com/RouteWorks/RouterArena) leaderboard.
-- RouterArena <!--s:RouteWorks/RouterArena-->⭐ 114<!--/s--> - Open evaluation framework + live leaderboard for LLM routers (standardized datasets, cost/quality metrics) — pick a router on data, in the spirit of this list's benchmarks.
+- [RouterArena](https://arxiv.org/abs/2510.00202) <!--s:RouteWorks/RouterArena-->⭐ 114<!--/s--> - Open evaluation framework + live leaderboard for LLM routers (standardized datasets, cost/quality metrics) — pick a router on data, in the spirit of this list's benchmarks.
 - [vLLM Semantic Router](https://github.com/vllm-project/semantic-router) <!--s:vllm-project/semantic-router-->⭐ 5.1k<!--/s--> - Mixture-of-models router that picks a model per prompt by intent/complexity; a vLLM project.
 - [NVIDIA LLM Router](https://github.com/NVIDIA-AI-Blueprints/llm-router) <!--s:NVIDIA-AI-Blueprints/llm-router-->⭐ 331<!--/s--> - NIM-based blueprint routing each prompt to the best model by task and complexity.
 - [LLMRouter](https://github.com/ulab-uiuc/LLMRouter) <!--s:ulab-uiuc/LLMRouter-->⭐ 2.2k<!--/s--> - Research framework for graph/learned cost–quality model routing.
@@ -429,8 +429,8 @@ _Pain point: "Who spent what, on which model, and why did quality drop?"_
 
 > 🔎 **How to evaluate a gateway's observability** (table-stakes vs differentiating vs advanced, grounded in the OpenTelemetry GenAI conventions): see [BENCHMARKS → Part 6](BENCHMARKS.md#part-6--gateway-observability-the-factors-that-matter). For the **research landscape — theory, seminal papers, company writing, standards & open problems**: see the observability survey.
 
-- Helicone <!--s:Helicone/helicone-->⭐ 6k<!--/s--> - Logs, costs, sessions, prompt experiments; one-line proxy integration.
-- TensorZero <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s--> - **Archived June 2026** ⚠️ (repo read-only; Apache-2.0 code + community forks remain). Gateway + observability + evals in one Rust binary, data stays in your ClickHouse.
+- [Helicone](https://docs.helicone.ai) <!--s:Helicone/helicone-->⭐ 6k<!--/s--> - Logs, costs, sessions, prompt experiments; one-line proxy integration.
+- [TensorZero](https://tensorzero.com) <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s--> - **Archived June 2026** ⚠️ (repo read-only; Apache-2.0 code + community forks remain). Gateway + observability + evals in one Rust binary, data stays in your ClickHouse.
 - [Portkey](https://portkey.ai) - Full LLMOps suite over its OSS gateway: traces, budgets, prompt management.
 - [vLLora (ex-LangDB)](https://github.com/vllora/vllora) <!--s:vllora/vllora-->⭐ 812<!--/s--> - Agent debugging and observability from the LangDB team.
 - [Braintrust Proxy](https://github.com/braintrustdata/braintrust-proxy) <!--s:braintrustdata/braintrust-proxy-->⭐ 406<!--/s--> - Caching proxy wired into Braintrust evals.
