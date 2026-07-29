@@ -318,3 +318,19 @@ A 5-lens research pass (learner persona · decider persona · 10K-repo structura
 **Queue (mid):** Ch. Anatomy + the CC0 request-lifecycle SVG (citation magnet) → Ch. Failover → Ch. Caching Economics → README top-level Pick/Learn/Verify identity + SPEC.md success-metric rewrite (when ≥3 new chapters live) → HN v2 + CN round 2 (≥5 chapters; any CN essay must pass the disclosure check — currently that gate is closed) → compare/kong-vs-envoy-vs-higress-vs-apisix + Enterprise unscored labels → monthly embedding replaces monthly backlink-PR (targets dried up; 20K-tier repos grow by being embedded, not listed) → message-discipline CI (single-source key numbers before chapter count grows).
 
 **Queue (long):** Build-a-minimal-gateway tutorial as the handbook capstone → build-your-own-x submission (532K★, no AI-gateway entry) + third HN angle · SKILL.md + /llms-full.txt + PDF/EPUB once chapters complete · **5K★ decision gate on record:** stay AI-gateway-scoped (ceiling ~10–20K) vs widen to LLM-infra cost handbook (higher ceiling, diluted identity) — a 方案-level call for the maintainer at the gate, not before.
+
+## 14. The consistency audit (2026-07-29) — what self-contradiction actually costs
+
+A five-tracer audit (numbers · gateway behaviour · project status · recommendations · term definitions) swept all 27 content files, then an adjudicator re-checked every allegation against primary sources and **rejected 22 of 59** as scope or rounding artefacts. The 37 it confirmed are the useful record:
+
+**The pattern, stated once so it is not re-learned:** every confirmed contradiction was a correction that reached *some* surfaces. This repo publishes the same fact in up to six places — the README table, its Chinese twin, BENCHMARKS, its twin, the data file that generates them, and a compare page — and fixing four of six is indistinguishable from fixing none for the reader who lands on the fifth. Twice today the fix reached the prose and missed the **data file that generates it**, which is the worst version: the machine-readable evidence the repo tells consumers to trust said the opposite of the page.
+
+**The damaging ones, for calibration.** A compare page told readers whose *"reason for leaving LiteLLM is security hygiene"* to pick Bifrost for its *"clean CVE record"* — pointing them at an unpinned high-severity SSRF. The scorecard called Bifrost *"no known CVEs"* while `data/supply_chain.json` documented one. Chapter 6 published a **dated correction of the README** that was never applied, so the repo publicly agreed it was wrong and stayed wrong for a day.
+
+**Mechanised since**, because these classes recur:
+- `scripts/test_scorecard_parity.py` — both scorecards must match `gateways_eval.json` and each other (Kong sat at 4.5/4.0/4.0 across the three).
+- `scripts/test_content_integrity.py` — mechanical edit damage in prose (half-applied replacements, duplicated clauses, links to files that do not exist).
+- `scripts/bilingual_figure_diff.py` — advisory, in `regen.sh`: figures present in a chapter but not its twin. Advisory on purpose; the blocking version reported 99 false differences.
+- `scripts/regen.sh` — every generator in dependency order, because three CI failures in one day were "which artefact did I invalidate?".
+
+**Standing rule this produced:** when a fact changes, grep the repo for it before committing — the data file first, then both languages, then the compare pages. The tests above cover the classes that have already bitten; they do not cover the class nobody has hit yet.
