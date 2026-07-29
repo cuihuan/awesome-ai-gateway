@@ -5,21 +5,91 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-07-28T00:44:44Z</updated>
+  <updated>2026-07-29T03:50:46Z</updated>
   <author><name>Awesome AI Gateway</name></author>
   <entry>
-    <title>yym68686/uni-api v1.7.213</title>
-    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.213" />
-    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.213</id>
-    <updated>2026-07-28T00:44:44Z</updated>
-    <summary>yym68686/uni-api released Release 1.7.213.</summary>
+    <title>Wei-Shaw/sub2api v0.1.168</title>
+    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.168" />
+    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.168</id>
+    <updated>2026-07-29T03:50:46Z</updated>
+    <summary>Wei-Shaw/sub2api released Sub2API 0.1.168.</summary>
   </entry>
   <entry>
-    <title>router-for-me/CLIProxyAPI v7.2.103</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.103" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.103</id>
-    <updated>2026-07-27T21:19:59Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v7.2.103.</summary>
+    <title>ascending-llc/jarvis-registry asc0.5.4</title>
+    <link href="https://github.com/ascending-llc/jarvis-registry/releases/tag/asc0.5.4" />
+    <id>https://github.com/ascending-llc/jarvis-registry/releases/tag/asc0.5.4</id>
+    <updated>2026-07-29T01:53:09Z</updated>
+    <summary>ascending-llc/jarvis-registry released Jarvis Registry asc0.5.4.</summary>
+  </entry>
+  <entry>
+    <title>tashfeenahmed/freellmapi v0.6.3</title>
+    <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.6.3" />
+    <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.6.3</id>
+    <updated>2026-07-28T23:11:00Z</updated>
+    <summary>tashfeenahmed/freellmapi released v0.6.3.</summary>
+  </entry>
+  <entry>
+    <title>BerriAI/litellm v1.94.0</title>
+    <link href="https://github.com/BerriAI/litellm/releases/tag/v1.94.0" />
+    <id>https://github.com/BerriAI/litellm/releases/tag/v1.94.0</id>
+    <updated>2026-07-28T21:26:24Z</updated>
+    <summary>BerriAI/litellm released v1.94.0.</summary>
+  </entry>
+  <entry>
+    <title>archestra-ai/archestra platform-v1.3.19</title>
+    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.19" />
+    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.19</id>
+    <updated>2026-07-28T18:26:24Z</updated>
+    <summary>archestra-ai/archestra released platform: v1.3.19.</summary>
+  </entry>
+  <entry>
+    <title>stacklok/toolhive v0.41.0</title>
+    <link href="https://github.com/stacklok/toolhive/releases/tag/v0.41.0" />
+    <id>https://github.com/stacklok/toolhive/releases/tag/v0.41.0</id>
+    <updated>2026-07-28T17:10:55Z</updated>
+    <summary>stacklok/toolhive released v0.41.0.</summary>
+  </entry>
+  <entry>
+    <title>looplj/axonhub v1.0.0-beta6</title>
+    <link href="https://github.com/looplj/axonhub/releases/tag/v1.0.0-beta6" />
+    <id>https://github.com/looplj/axonhub/releases/tag/v1.0.0-beta6</id>
+    <updated>2026-07-28T15:43:55Z</updated>
+    <summary>looplj/axonhub released v1.0.0-beta6.</summary>
+  </entry>
+  <entry>
+    <title>mnfst/manifest manifest@6.17.1</title>
+    <link href="https://github.com/mnfst/manifest/releases/tag/manifest%406.17.1" />
+    <id>https://github.com/mnfst/manifest/releases/tag/manifest%406.17.1</id>
+    <updated>2026-07-28T14:34:26Z</updated>
+    <summary>mnfst/manifest released manifest v6.17.1.</summary>
+  </entry>
+  <entry>
+    <title>musistudio/claude-code-router v3.0.17</title>
+    <link href="https://github.com/musistudio/claude-code-router/releases/tag/v3.0.17" />
+    <id>https://github.com/musistudio/claude-code-router/releases/tag/v3.0.17</id>
+    <updated>2026-07-28T12:52:32Z</updated>
+    <summary>musistudio/claude-code-router released v3.0.17.</summary>
+  </entry>
+  <entry>
+    <title>ENTERPILOT/GoModel v0.1.63</title>
+    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.63" />
+    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.63</id>
+    <updated>2026-07-28T11:43:03Z</updated>
+    <summary>ENTERPILOT/GoModel released v0.1.63.</summary>
+  </entry>
+  <entry>
+    <title>router-for-me/CLIProxyAPI v7.2.104</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.104" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.104</id>
+    <updated>2026-07-28T08:35:29Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v7.2.104.</summary>
+  </entry>
+  <entry>
+    <title>yym68686/uni-api v1.7.214</title>
+    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.214" />
+    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.214</id>
+    <updated>2026-07-28T07:14:21Z</updated>
+    <summary>yym68686/uni-api released Release 1.7.214.</summary>
   </entry>
   <entry>
     <title>kgateway-dev/kgateway v2.4.1</title>
@@ -64,13 +134,6 @@
     <summary>theopenco/llmgateway released v1.10.0.</summary>
   </entry>
   <entry>
-    <title>Wei-Shaw/sub2api v0.1.166</title>
-    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.166" />
-    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.166</id>
-    <updated>2026-07-27T08:57:24Z</updated>
-    <summary>Wei-Shaw/sub2api released Sub2API 0.1.166.</summary>
-  </entry>
-  <entry>
     <title>seakee/CPA-Manager-Plus v1.11.9</title>
     <link href="https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.11.9" />
     <id>https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.11.9</id>
@@ -99,32 +162,11 @@
     <summary>tsouth89/toolport released v1.9.6.</summary>
   </entry>
   <entry>
-    <title>ENTERPILOT/GoModel v0.1.62</title>
-    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.62" />
-    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.62</id>
-    <updated>2026-07-26T22:23:54Z</updated>
-    <summary>ENTERPILOT/GoModel released v0.1.62.</summary>
-  </entry>
-  <entry>
-    <title>tashfeenahmed/freellmapi v0.6.0</title>
-    <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.6.0" />
-    <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.6.0</id>
-    <updated>2026-07-26T19:55:53Z</updated>
-    <summary>tashfeenahmed/freellmapi released v0.6.0 — Settings dialog, 60 languages, router discipline.</summary>
-  </entry>
-  <entry>
     <title>QuantumNous/new-api v1.0.0-rc.22</title>
     <link href="https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.22" />
     <id>https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.22</id>
     <updated>2026-07-26T13:19:04Z</updated>
     <summary>QuantumNous/new-api released v1.0.0-rc.22.</summary>
-  </entry>
-  <entry>
-    <title>musistudio/claude-code-router v3.0.16</title>
-    <link href="https://github.com/musistudio/claude-code-router/releases/tag/v3.0.16" />
-    <id>https://github.com/musistudio/claude-code-router/releases/tag/v3.0.16</id>
-    <updated>2026-07-26T12:26:44Z</updated>
-    <summary>musistudio/claude-code-router released v3.0.16.</summary>
   </entry>
   <entry>
     <title>aurorallm/aurora v1.0.38</title>
@@ -155,20 +197,6 @@
     <summary>obot-platform/obot released v0.24.1.</summary>
   </entry>
   <entry>
-    <title>archestra-ai/archestra platform-v1.3.18</title>
-    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.18" />
-    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.18</id>
-    <updated>2026-07-24T17:19:18Z</updated>
-    <summary>archestra-ai/archestra released platform: v1.3.18.</summary>
-  </entry>
-  <entry>
-    <title>ascending-llc/jarvis-registry asc0.5.3</title>
-    <link href="https://github.com/ascending-llc/jarvis-registry/releases/tag/asc0.5.3" />
-    <id>https://github.com/ascending-llc/jarvis-registry/releases/tag/asc0.5.3</id>
-    <updated>2026-07-24T17:09:41Z</updated>
-    <summary>ascending-llc/jarvis-registry released Jarvis Registry asc0.5.3.</summary>
-  </entry>
-  <entry>
     <title>mozilla-ai/otari v0.4.0</title>
     <link href="https://github.com/mozilla-ai/otari/releases/tag/v0.4.0" />
     <id>https://github.com/mozilla-ai/otari/releases/tag/v0.4.0</id>
@@ -188,33 +216,5 @@
     <id>https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.52.1</id>
     <updated>2026-07-24T07:13:46Z</updated>
     <summary>smart-mcp-proxy/mcpproxy-go released v0.52.1.</summary>
-  </entry>
-  <entry>
-    <title>mnfst/manifest manifest@6.16.0</title>
-    <link href="https://github.com/mnfst/manifest/releases/tag/manifest%406.16.0" />
-    <id>https://github.com/mnfst/manifest/releases/tag/manifest%406.16.0</id>
-    <updated>2026-07-23T09:26:52Z</updated>
-    <summary>mnfst/manifest released manifest v6.16.0.</summary>
-  </entry>
-  <entry>
-    <title>katanemo/plano 0.4.29</title>
-    <link href="https://github.com/katanemo/plano/releases/tag/0.4.29" />
-    <id>https://github.com/katanemo/plano/releases/tag/0.4.29</id>
-    <updated>2026-07-22T22:28:10Z</updated>
-    <summary>katanemo/plano released release 0.4.29.</summary>
-  </entry>
-  <entry>
-    <title>ai-dynamo/dynamo v1.3.0</title>
-    <link href="https://github.com/ai-dynamo/dynamo/releases/tag/v1.3.0" />
-    <id>https://github.com/ai-dynamo/dynamo/releases/tag/v1.3.0</id>
-    <updated>2026-07-22T08:46:26Z</updated>
-    <summary>ai-dynamo/dynamo released Dynamo v1.3.0.</summary>
-  </entry>
-  <entry>
-    <title>IBM/mcp-context-forge v1.0.6</title>
-    <link href="https://github.com/IBM/mcp-context-forge/releases/tag/v1.0.6" />
-    <id>https://github.com/IBM/mcp-context-forge/releases/tag/v1.0.6</id>
-    <updated>2026-07-21T17:21:30Z</updated>
-    <summary>IBM/mcp-context-forge released v1.0.6 - OAuth Token Exchange, Vault Credentials, MCP Apps, Dataplane Publishing, and Security Hardening.</summary>
   </entry>
 </feed>
