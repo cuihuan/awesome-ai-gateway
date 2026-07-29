@@ -642,8 +642,9 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 
 ## 📰 行业动态
 
-*人工每月更新。最近审阅：2026-07-28。*
+*人工每月更新。最近审阅：2026-07-29。*
 
+- **2026-07-28** · **MCP 转向无状态——发布以来最大的一次协议破坏性变更。** 规范新版 [2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28/changelog) 移除了协议级会话与 `Mcp-Session-Id` 头、删掉了 `initialize`/`notifications/initialized` 握手（每个请求改为在 `_meta` 里自带协议版本与能力声明）、新增必须实现的 `server/discover` RPC、用单条 `subscriptions/listen` POST 流取代 HTTP GET 流与 `resources/subscribe`，并**取消了 SSE 断点续传**（`Last-Event-ID` 与事件 ID）——流断了就得重来。已于 2026-07-29 对着打标签的那个 commit 核实：新的 `schema/2026-07-28/schema.ts` 里 `InitializeRequest` 与 `sessionId` 出现 0 次，而 2025-11-25 版有 4 处。对所有跑 [MCP 网关](#-mcp-与-agent-网关)的人这是结构性影响：会话亲和路由不再必要、无状态请求可以自由负载均衡，但断流续传从此是网关的问题，不再是协议的问题。
 - **2026-07-28** · **7 月旗舰潮把整个记分板重排了** ——Claude Opus 5（7 月 24 日）同时拿下 AA 指数第一（v4.1 口径 60.7）与 SWE-bench Verified 榜首（96.0），Fable 5 在 Arena 稳定登顶（1508±6），Kimi K3（7 月 16 日发布、27 日开源权重）成为开源权重新王，GPT-5.6 Sol/Terra/Luna（7 月 9 日）、Grok 4.5（7 月 8 日）、Gemini 3.6 Flash（7 月 21 日）补齐这个月。本清单的记分板与成本表已按 v4.1 口径、单一来源列重建（[BENCHMARKS](BENCHMARKS.zh-CN.md)）；月度定价核验 **13 项里 12 项与官方页完全一致**——唯一破的那项见评测速递。
 - **2026-07** · **据报道 Stripe 正洽购 OpenRouter，估值约 100 亿美元**（华尔街日报，7 月 23 日——**未经证实**：谈判仍可能破裂，也可能出现其他买家）——约为其 5 月 B 轮 13 亿美元估值的 7.7 倍，也是下方整合趋势线（Portkey→Palo Alto、Helicone→Mintlify、TensorZero 关停）迄今最强的信号。（[TNW](https://thenextweb.com/news/stripe-openrouter-10-billion-ai-model-marketplace-acquisition)、[PYMNTS](https://www.pymnts.com/news/artificial-intelligence/2026/stripe-eyes-10-billion-deal-for-ai-model-marketplace-openrouter/)）
 - **2026-06** · **LiteLLM 的 RCE 被列入 CISA KEV 目录** —— CVE-2026-42271（MCP 命令注入）与 Starlette 鉴权绕过串联成免鉴权远程代码执行，可触及主密钥与各厂商凭证（6 月 8 日入列，6 月 16–22 日又披露多枚 CVE）。这与 3 月的 PyPI 供应链投毒是两回事——请打补丁并收紧网关控制面。（[CSA](https://labs.cloudsecurityalliance.org/research/csa-research-note-litellm-cve-2026-42271-ai-gateway-exploita/)）
