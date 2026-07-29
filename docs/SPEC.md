@@ -2,9 +2,18 @@
 
 ## Goal
 
-A curated, pain-point-oriented list of AI gateways / LLM proxies that becomes the
-default "which AI gateway should I use" reference. Success metric: 400+ GitHub stars,
-then listing in `sindresorhus/awesome` (eligible after day 30).
+A curated, pain-point-oriented list of AI gateways / LLM proxies **plus a handbook
+that explains how they work and fail**, together becoming the default answer to both
+"which AI gateway should I use" and "how do AI gateways actually work".
+
+**Success metric (revised 2026-07-29, when the handbook completed):** not a star count.
+Stars measure a launch; what this project is trying to be is *cited*. The metric is
+**weekly passive citations** — new referrer domains in Traffic Insights, unsolicited
+mentions in threads and vendor docs, and AI-answer-engine citation share — with star
+count kept only as a lagging sanity check. Rationale and the comparable-repo evidence
+are in `OPERATIONS.md` §13; the earlier "400+ stars, then sindresorhus/awesome" target
+was list-shaped thinking and is retired (the awesome-lint conformance it implied is
+done and CI-gated regardless).
 
 ## Principles
 
