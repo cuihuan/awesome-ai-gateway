@@ -6,6 +6,28 @@ structural and editorial changes.
 
 ## [Unreleased]
 
+### 2026-07-29 (night) — the handbook is complete: chapters 7 and 8
+
+- **Chapter 7: "Virtual Keys, Budgets & Metering"** — how a gateway counts your money and
+  where the count goes wrong. What a virtual key actually scopes across gateways (the term
+  means different things in each), pre-spend reservation vs post-hoc metering under
+  concurrency, how streamed/reasoning/cached tokens get counted when the provider sends no
+  usage object, what spend is lost if the process dies between the response and the write,
+  and the billing bugs that reached production — each linked to a verified issue or PR with
+  its real merge state.
+- **Chapter 8: "MCP & Agent Gateways"** — why agent traffic is not completion traffic: six
+  properties of a request change at once, and every governance primitive an LLM gateway
+  ships aims at the wrong noun. Covers the **2026-07-28 stateless MCP rewrite** (sessions,
+  the initialize handshake and SSE resumability all removed), tool-level authorization,
+  secret brokering and OAuth on-behalf-of, prompt-injection through tool results, and the
+  DNS-rebinding CVE class that landed in five separate codebases.
+- **The handbook is now eight chapters, all live**, and the README's first screen says so:
+  the nav is Pick one → Learn how they work → Verify the numbers.
+- Verifiers on this pair caught three headings that disagreed with their own tables, a PR
+  cited as an issue, two quotes trimmed of their mitigating clauses, a source attributed to
+  the wrong vendor page, a CVE listed in an appendix but never used, and a relative-time
+  claim ("yesterday") inside a dated block.
+
 ### 2026-07-29 (evening) — Chapters 5 and 6
 
 - **Chapter 5: "Failover & Reliability"** — read from six gateways' source at pinned

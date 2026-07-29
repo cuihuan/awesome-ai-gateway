@@ -146,7 +146,9 @@ _The list tells you **which** gateway; these chapters teach you **how they work 
 - 📙 [Anatomy of an AI gateway](docs/gateway-anatomy.md) - The request lifecycle read from seven gateways' source at pinned commits: where the cache, the budget check and the retry boundary actually sit, why metering rarely survives a crash, and the six conditions under which you shouldn't run a gateway at all.
 - 📕 [Failover & reliability](docs/failover-reliability.md) - What actually happens when a provider fails mid-request: only one of six gateways retries by default, what a client sees when the stream dies after the first token, whether a retry can be billed twice, and three providers' incompatible 429 contracts.
 - 📗 [Caching economics](docs/caching-economics.md) - Reads are 0.1× but writes are 1.25–2×, so caching _loses_ money below a 21.7% hit rate — the formula, the four providers' non-portable rules, semantic-cache false hits with receipts, and a 30-second self-test.
-- 🚧 Coming, roughly monthly: virtual keys & multi-tenancy · MCP & agent gateways — the full map lives in `HANDBOOK.md`.
+- 📘 [Virtual keys, budgets & metering](docs/virtual-keys-metering.md) - How a gateway counts your money: what a virtual key really scopes, pre-spend reservation vs post-hoc metering under concurrency, how streamed and reasoning and cached tokens get mis-counted, and what spend disappears when the process dies.
+- 📕 [MCP & agent gateways](docs/mcp-agent-gateways.md) - Why agent traffic is not completion traffic: six properties change at once, MCP went stateless on 2026-07-28, tool-level authorization and secret brokering, and the DNS-rebinding CVE class that hit five codebases.
+- ✅ All eight chapters are live — the map and reading order live in `HANDBOOK.md`, linked above.
 
 ## 🔥 Top gateways (by stars)
 
