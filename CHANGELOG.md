@@ -6,6 +6,30 @@ structural and editorial changes.
 
 ## [Unreleased]
 
+### 2026-07-29 (evening) — Chapters 5 and 6
+
+- **Chapter 5: "Failover & Reliability"** — read from six gateways' source at pinned
+  commits. Headline finding: **exactly one of the six retries a failed LLM request by
+  default** (LiteLLM, via `openai.DEFAULT_MAX_RETRIES` = 2); Bifrost, Portkey OSS and
+  new-api all ship a default of 0, Kong OSS has no AI-level retry and Envoy writes no
+  retry count of its own. Also: what bytes actually go back on the wire on a retry,
+  cooldown rules and why a single-deployment group loses the two that detect degradation,
+  mid-stream failure semantics, retry double-billing, three providers' incompatible 429
+  contracts side by side, and why health checks lie.
+- **Chapter 6: "Caching Economics"** — the arithmetic vendors skip: reads are 0.1× but
+  **writes cost 1.25–2×**, so below a **21.7%** hit rate (Anthropic 5-minute, OpenAI 5.6+)
+  or **52.6%** (Anthropic 1-hour) turning caching on *costs* you money. Plus what actually
+  dominates the savings formula, the four providers' non-portable cache contracts,
+  semantic-cache false hits with receipts, and why KV-cache-aware routing is not a cache.
+- Both chapters went through adversarial fact and style verification before merge; between
+  them the verifiers killed a false claim about LiteLLM cooldowns, an unmerged PR cited as
+  merged, two quotes that weren't verbatim, a misattributed source file and four drifted
+  line citations. Chapter 5's research also caught a wrong function name in chapter 4,
+  which was corrected first.
+- Internal: `scripts/regen.sh` runs every generator in dependency order, and
+  `scripts/test_content_integrity.py` guards the prose files against mechanical edit
+  damage — added after three self-inflicted defects shipped in one day.
+
 ### 2026-07-29 (later) — Chapter 4, and a stale measurement caught
 
 - **Handbook Chapter 4: "Anatomy of an AI gateway"** (EN+中文) — the canonical request

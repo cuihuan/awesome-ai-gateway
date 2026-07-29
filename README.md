@@ -143,7 +143,9 @@ _The list tells you **which** gateway; these chapters teach you **how they work 
 - 📗 [Routing & model selection: the research landscape](docs/routing-landscape.md) - Cost-aware cascades, learned routers, ensembling and self-routing — with the honest counter-evidence on when routing _doesn't_ pay.
 - 📘 [Observability: what to measure and why](docs/observability-landscape.md) - The OTel GenAI conventions, the metric tiers that separate instrumented from blind, and silent model drift.
 - 📙 [Anatomy of an AI gateway](docs/gateway-anatomy.md) - The request lifecycle read from seven gateways' source at pinned commits: where the cache, the budget check and the retry boundary actually sit, why metering rarely survives a crash, and the six conditions under which you shouldn't run a gateway at all.
-- 🚧 Coming, roughly monthly: failover & reliability · caching economics · virtual keys & multi-tenancy · MCP & agent gateways — the full map lives in `HANDBOOK.md`.
+- 📕 [Failover & reliability](docs/failover-reliability.md) - What actually happens when a provider fails mid-request: only one of six gateways retries by default, what a client sees when the stream dies after the first token, whether a retry can be billed twice, and three providers' incompatible 429 contracts.
+- 📗 [Caching economics](docs/caching-economics.md) - Reads are 0.1× but writes are 1.25–2×, so caching _loses_ money below a 21.7% hit rate — the formula, the four providers' non-portable rules, semantic-cache false hits with receipts, and a 30-second self-test.
+- 🚧 Coming, roughly monthly: virtual keys & multi-tenancy · MCP & agent gateways — the full map lives in `HANDBOOK.md`.
 
 ## 🔥 Top gateways (by stars)
 
