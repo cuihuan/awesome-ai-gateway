@@ -136,7 +136,9 @@ Subreddit etiquette: read each sub's self-promo rules; r/LLMDevs **bans** self-p
 
 ## 7. Metrics (only these)
 Total stars + **weekly velocity** (star-history.com) · **GitHub Insights → Traffic → Referrers**
-(which channel actually converts — double down) · issue first-response time · PR merge time. Ignore the rest.
+(which channel actually converts — double down) · issue first-response time · PR merge time · **weekly
+passive citations** (new referrer domains + HN/Reddit mentions + BWT citation share — the metric that
+matters after ~1K★; see §13). Ignore the rest.
 
 ---
 
@@ -296,3 +298,19 @@ The gateway scorecard is now **compliance · markup · security · stability · 
 **Recommendation (agent):** (a). The doubling in three weeks is the argument — lint debt scales with exactly the growth we want, and the flattened tables would degrade the product for every reader to win one backlink. But this is a strategy call: 👤 decides; agent syncs whichever answer into §9e/§9f the same day.
 
 </details>
+
+## 13. The Handbook strategy (adopted 2026-07-29) — learn it, pick it, verify it
+
+A 5-lens research pass (learner persona · decider persona · 10K-repo structural patterns · theory-curriculum map · growth mechanics) + adversarial synthesis set the roadmap toward the maintainer's tens-of-thousands-of-stars ambition. Full lens data: workflow wf_fc747864-b3f (session archive). What matters:
+
+**Diagnosis.** Pick + Verify layers are best-in-class; the Learn layer was the missing structural lever. Empirically, niche awesome lists cap at 2–6K★ (awesome-mlops 5.2K, tensorchord Awesome-LLMOps 5.9K); list + theory handbook is the 10–30K regime (ml-engineering 18.5K, GenAI_Agents 23.5K, RAG_Techniques 28.9K — all solo-maintained, 18–24 months of steady chapter cadence).
+
+**Star calibration (honest).** Launch ≈ 0→1K tool, not a 10K tool: expect +150–250★ median from the burst; 1K by early 2027 needs CN stack + sindresorhus + a handbook-framed HN v2. 10K = 24–36 months, conditional on the handbook maturing, an embedding network (courses/tool docs/build-your-own-x backlinks), and the agent cost-routing wave persisting. Downside risk on record: the independent-gateway category is consolidating (Portkey→PANW, Helicone→Mintlify, TensorZero dead); if the wave dies the ceiling drops to 3–5K — the hedge is precisely the education layer (concepts outlive vendors). After 1K, the leading metric switches from star velocity to **weekly passive citations** (HN/Reddit mentions, new referrer domains, BWT citation share) — added to §7.
+
+**The one legal HN re-launch** is reserved for the handbook: "Show HN: The AI Gateway Handbook — how LLM routing, caching and failover actually work (+reproducible benchmarks)". Educational content outprices list content on HN by two orders of magnitude (900+ vs 3–15 pts in comparable cases). Fire only when ≥5 chapters are live and ≥2 months past the first launch. Do NOT spend this slot on anything else.
+
+**Shipped 2026-07-29 (short-term batch):** entry-framing neutralization (maintainer decision: de-astroturf without identity linkage — recorded; the disclosure question stays closed unless the maintainer reopens it; CN-market content plays that would require disclosure stay off the roadmap accordingly) · six cross-surface consistency repairs · 📖 Learn section + HANDBOOK.md chapter map · Handbook Ch.1 "The Compatibility Surface" EN+zh (5 failure modes, 9 verified issues, measured-data explainers) · glossary 12→35 terms (both languages) · docs/routing-landscape.zh-CN.md parity · docs/event-playbook.md (4 event classes, 24h SLA, draft-only).
+
+**Queue (mid):** Ch. Anatomy + the CC0 request-lifecycle SVG (citation magnet) → Ch. Failover → Ch. Caching Economics → README top-level Pick/Learn/Verify identity + SPEC.md success-metric rewrite (when ≥3 new chapters live) → HN v2 + CN round 2 (≥5 chapters; any CN essay must pass the disclosure check — currently that gate is closed) → compare/kong-vs-envoy-vs-higress-vs-apisix + Enterprise unscored labels → monthly embedding replaces monthly backlink-PR (targets dried up; 20K-tier repos grow by being embedded, not listed) → message-discipline CI (single-source key numbers before chapter count grows).
+
+**Queue (long):** Build-a-minimal-gateway tutorial as the handbook capstone → build-your-own-x submission (532K★, no AI-gateway entry) + third HN angle · SKILL.md + /llms-full.txt + PDF/EPUB once chapters complete · **5K★ decision gate on record:** stay AI-gateway-scoped (ceiling ~10–20K) vs widen to LLM-infra cost handbook (higher ceiling, diluted identity) — a 方案-level call for the maintainer at the gate, not before.

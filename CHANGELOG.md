@@ -6,6 +6,25 @@ structural and editorial changes.
 
 ## [Unreleased]
 
+### 2026-07-29 — the Handbook turn: Learn layer + Chapter 1 + trust hardening
+
+- **📖 Learn layer** — new README section + `HANDBOOK.md` chapter map: the repo now teaches
+  how gateways work, not only which to pick. Existing theory docs (routing landscape,
+  observability landscape) promoted from buried blockquotes to first-class chapters;
+  routing landscape gained its Chinese twin.
+- **Chapter 1: "The Compatibility Surface — why gateways break Claude Code"** (EN+中文) —
+  the three wire protocols field-by-field, five translation failure modes each anchored to a
+  verified GitHub issue, the measured xformat/fidelity results explained, and a 10-minute
+  self-test. Every claim dated and linked; 9 issues verified via API before citing.
+- **Glossary 12 → 35 terms** (both languages), including the semantic-cache false-hit warning.
+- **Trust hardening** — an entry's unsubstantiated "community-recommended" framing removed and
+  a self-referential citation neutralized; six cross-surface consistency repairs (the
+  "cheapest" fork, Helicone maintenance-mode labels at recommendation points, gateway-count
+  drift, LiteLLM version-floor alignment across four compare pages, measured numbers in the
+  performance decision-tree row).
+- Internal: event-response playbook (4 event classes, 24h SLA, draft-only) + the Handbook
+  strategy recorded in OPERATIONS §13.
+
 ### 2026-07-28 — user-value batch: supply-chain matrix + July scoreboard rebase
 
 - **🛡️ Supply-chain security matrix (new buying axis)** — per-gateway release signing / SBOM /
