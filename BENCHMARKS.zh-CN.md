@@ -247,7 +247,7 @@
 | 网关 | 合规 | 安全 | 稳定 | 可观测 | 一句话 |
 |---|---|---|---|---|---|
 | **Portkey Gateway**（开源） | ★★★🏠 | ★★★★ | ★★★★ | ★★ | MIT；完整护栏、MCP OAuth、故障转移免费；实测开销 2.65 ms（宣称的 <1ms 未能复现） |
-| **Kong AI Gateway** | ★★★½ | ★★★★½ | ★★★★ | ★★★½ | PII 脱敏（20+ 类）、Prompt Guard；RBAC 属企业版（开源 `kong.conf` 无此项） |
+| **Kong AI Gateway** | ★★★½ | ★★★★ | ★★★★ | ★★★½ | 开源版安全 = Prompt Guard + Kong 成熟的通用插件（认证/mTLS/限流）；PII 脱敏（20+ 类）、Model Armor 与 RBAC 均为企业版专属——已于 2026-07-28 核实开源代码树中不存在 |
 | **Envoy AI Gateway** | ★★★🏠 | ★★★★ | ★★★★ | ★★★★ | 多厂商 + MCP 网关（OAuth+CEL 鉴权）；原生 K8s/Istio |
 | **Bifrost**（Maxim） | ★★★🏠 | ★★★½ | ★★★★½ | ★★★★★ | Go；实测开销 0.62 ms（~11µs 是厂商自测数字）；集群模式；一条高危 SSRF 公告，1.5.16 已修 |
 | **TensorZero** | ★★★🏠 | ★★★ | ★★★★ | ★★★★½ | Rust；万级 QPS 下 <1ms p99；路由 + 内置可观测；⚠️ 2026-06 已归档 |
@@ -255,7 +255,7 @@
 | **Apache APISIX** | ★★★🏠 | ★★★ | ★★★★ | ★★★½ | 成熟 ASF 网关上的 ai-proxy / ai-prompt-guard 插件 |
 | **LiteLLM** | ★★★🏠 | ★★½ ⚠️ | ★★★★ | ★★★★★ | SOC 2 I + ISO（企业版）；**请跑 ≥1.84.0**——2026 年共 12 条安全公告、3 条 critical（含一条进了 CISA KEV 的 RCE 链），均已修，但版本下限已越过 1.83.7 |
 | **GPT-Load** | ★★🏠 | ★★½ | ★★★½ | ★½ | Go 密钥池轮询 + 加密密钥存储 + 双重鉴权；仅代理层 |
-| **new-api** | ★★🏠 | ★½ ⚠️ | ★★★ | ★★½ | ~38k★ 且活跃，但 **2026 年一串 CVE**（IDOR/SSRF/SQLi）——隔离 + 尽快打补丁 |
+| **new-api** | ★★🏠 | ★½ ⚠️ | ★★★ | ★★½ | 活跃，但 **2026 年一串 CVE**（IDOR/SSRF/SQLi）——隔离 + 尽快打补丁 |
 | **one-api** | ★★🏠 | ★★ | ★★½ | ★★ | MIT 元祖；维护放缓——new-api 是更活跃的继任者 |
 
 > ⚠️ **CVE 诚实披露。** 越流行的开源网关越是攻击目标。LiteLLM（2026 年 12 条公告、3 条 critical,含预鉴权 SQLi 与进了 CISA KEV 的未鉴权 RCE）和 new-api（IDOR/SSRF/SQLi）都有严重通告——*已修复*，但教训是：锁定到最新 stable、限制出站、别把管理后台暴露到公网。没发现 CVE（TensorZero、Higress、Envoy、GPT-Load）≠ 已证明安全,也可能只是关注度低。
