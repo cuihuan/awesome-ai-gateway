@@ -6,7 +6,7 @@
 
 **[LiteLLM](https://github.com/BerriAI/litellm)** is the default self-hosted LLM gateway — one OpenAI-compatible proxy in front of 100+ providers, virtual keys, budgets, load balancing. It's popular for good reason. But people go looking for alternatives for three honest reasons:
 
-1. **Security posture.** LiteLLM had two serious 2026 CVEs — a pre-auth SQL injection (CVE-2026-42208) and an unauthenticated RCE that landed on CISA's Known-Exploited-Vulnerabilities list (CVE-2026-42271). **Both are fixed in `v1.83.7-stable`** — if you run LiteLLM, pin to current stable and never expose the admin panel — but the track record sends some teams looking.
+1. **Security posture.** LiteLLM published twelve advisories in 2026, three of them critical — a pre-auth SQL injection (CVE-2026-42208) and an unauthenticated RCE that landed on CISA's Known-Exploited-Vulnerabilities list (CVE-2026-42271). **Both are fixed in `v1.83.7-stable`** — if you run LiteLLM, pin to current stable and never expose the admin panel — but the track record sends some teams looking.
 2. **They don't want to run a server at all** → a *hosted* gateway.
 3. **They want lower latency or a different governance model** → a Go/Rust-native proxy, or an enterprise guardrail platform.
 
@@ -16,7 +16,7 @@ Here's the honest, data-backed map. Scores are ★1–5 from the [scorecard rubr
 
 | Alternative | Type | Markup | Security | Reach for it when |
 |---|---|---|---|---|
-| **Bifrost** | Self-hosted (Go) | $0 | ★3.5 · no known CVEs | You want LiteLLM's job but faster and with a clean CVE record |
+| **Bifrost** | Self-hosted (Go) | $0 | ★3.5 · 1 high SSRF, fixed | You want LiteLLM's job but faster and with a far thinner advisory record |
 | **Portkey Gateway (OSS)** | Self-hosted (MIT) | $0 | ★4.0 | You want guardrails + circuit breakers + MCP OAuth built in |
 | **Kong AI Gateway** | Self-hosted | $0 core | ★4.0 | You already run Kong (PII sanitization + RBAC need the Enterprise tier) |
 | **Envoy AI Gateway** | Self-hosted (K8s) | $0 | ★4.0 | You're Kubernetes/Istio-native and want a CNCF-aligned proxy |
@@ -29,7 +29,7 @@ Here's the honest, data-backed map. Scores are ★1–5 from the [scorecard rubr
 
 ## If you want to stay self-hosted (just better than LiteLLM)
 
-- **[Bifrost](https://github.com/maximhq/bifrost)** — the closest drop-in *upgrade*. Go-native, **0.62 ms** measured added latency per request — ~10× lighter than LiteLLM's 5.83 ms ([independent harness](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json); the vendor's ~11µs claim did not reproduce there) — adaptive load balancing, cluster mode, 1000+ models, and **no known CVEs**. If your reason for leaving LiteLLM is performance or security hygiene, start here.
+- **[Bifrost](https://github.com/maximhq/bifrost)** — the closest drop-in *upgrade*. Go-native, **0.62 ms** measured added latency per request — ~10× lighter than LiteLLM's 5.83 ms ([independent harness](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json); the vendor's ~11µs claim did not reproduce there) — adaptive load balancing, cluster mode, 1000+ models, and a much thinner advisory record — one high SSRF (CVE-2026-55245, fixed 1.5.16), against LiteLLM's twelve in 2026. If your reason for leaving LiteLLM is performance or security hygiene, start here, but pin ≥1.5.16 rather than assuming a clean slate.
 - **[Portkey Gateway (OSS)](https://github.com/Portkey-AI/gateway)** — MIT, 2.65 ms measured overhead (marketed "<1ms" did not reproduce independently), with **guardrails, circuit breakers, fallbacks and MCP OAuth 2.1 free to self-hosters**. The richest governance feature set of the open-source options; upgrade path to the managed cloud if you scale.
 - **[Kong AI Gateway](https://github.com/Kong/kong)** — if you already run Kong or APISIX, AI Prompt Guard plus Kong's mature auth/mTLS/rate-limit plugins bolt onto infrastructure you already operate (★4.0 security, tied for the self-hosted top; note PII sanitization, Model Armor and RBAC sit in the Enterprise tier, not OSS).
 - **[Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway)** — built on Envoy, native to Kubernetes/Istio, with multi-provider routing and an MCP gateway (OAuth + CEL authz). No semantic cache or per-key budgets yet, but the cleanest fit for a CNCF-aligned platform team.
@@ -48,7 +48,7 @@ Here's the honest, data-backed map. Scores are ★1–5 from the [scorecard rubr
 
 **Often, no.** Patched to ≥1.84.0 (v1.83.7 fixed the headline pair, but 10 advisories followed) and kept off the public internet, LiteLLM is a healthy project with weekly releases and the broadest provider coverage. Leave it when you have a *specific* reason:
 
-- **Performance / clean CVE record** → Bifrost
+- **Performance, and a far thinner advisory record** → Bifrost (one high SSRF, fixed 1.5.16)
 - **Built-in guardrails & governance** → Portkey
 - **Already on Kong/APISIX/Envoy/K8s** → the matching native gateway
 - **Zero ops** → OpenRouter (fastest) or Cloudflare/Vercel (0% markup)

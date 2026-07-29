@@ -32,8 +32,8 @@ You'll still see TensorZero (Rust; gateway + observability + evals in one binary
 
 Self-hosting means **you own the security**. Honest 2026 facts:
 
-- **LiteLLM** had two serious CVEs — a pre-auth SQLi (CVE-2026-42208) and an unauth RCE on CISA's exploited list (CVE-2026-42271) — **both patched in v1.83.7**, with 10 further advisories since — treat ≥1.84.0 as the floor. It's fine *if* you pin to current stable, restrict egress, and never expose the admin panel publicly.
-- **Bifrost / Portkey**: no major CVEs surfaced — but absence of found CVEs ≠ proven secure (less scrutiny).
+- **LiteLLM** published **twelve advisories in 2026**, three critical — including a pre-auth SQLi (CVE-2026-42208) and an unauth RCE on CISA's exploited list (CVE-2026-42271) — **both patched in v1.83.7**, with 10 further advisories since — treat ≥1.84.0 as the floor. It's fine *if* you pin to current stable, restrict egress, and never expose the admin panel publicly.
+- **Bifrost**: one high SSRF advisory (CVE-2026-55245, fixed 1.5.16) — pin at or above it. **Portkey OSS**: one medium SSRF (fixed 1.14.0). Far thinner records than LiteLLM's, but absence of *found* CVEs is not proof of security — it can mean less scrutiny.
 - **Kong**: inherits Kong's mature, hardened auth/RBAC stack.
 
 Full ★1–5 compliance/security/stability scores for 23 gateways: [gateway scorecard](../BENCHMARKS.md#part-4--gateway-scorecard-compliance--price--security--stability--observability).

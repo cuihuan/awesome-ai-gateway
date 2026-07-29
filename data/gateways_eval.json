@@ -1,6 +1,6 @@
 {
   "_comment": "Gateway scorecard snapshot. Scores ★1-5 per the rubric in BENCHMARKS.md. markup = gateway fee on top of provider token cost. self_hosted: compliance/security burden is the operator's; score reflects controls the software provides. Verify live certs before an audit. observability: 5-pillar evidence rubric (metrics export / OTel traces / per-key token+cost attribution / log export / dashboard) — see BENCHMARKS.md Part 4 rubric + Part 6; evidence per gateway in observability_note (docs reviewed 2026-07-06).",
-  "as_of": "2026-07-28",
+  "as_of": "2026-07-29",
   "rubric": "BENCHMARKS.md#scoring-rubric-apply-consistently",
   "gateways": [
     {
@@ -193,7 +193,10 @@
       "observability": 5.0,
       "observability_note": "All 5 pillars: native Prometheus /metrics + OTLP traces (GenAI semconv) + per-key cost/budgets + structured logs + built-in UI.",
       "self_hosted": true,
-      "note": "Go; ~11µs overhead at 5k RPS (vendor benchmark), adaptive LB, cluster mode, 1000+ models; no known CVEs."
+      "note": "Go; ~11µs overhead at 5k RPS (vendor benchmark) vs 0.62 ms measured independently, adaptive LB, cluster mode, 1000+ models; 1 high SSRF advisory (CVE-2026-55245, fixed 1.5.16) — pin >=1.5.16.",
+      "cve": [
+        "CVE-2026-55245 (SSRF deny-list gaps, high, fixed 1.5.16)"
+      ]
     },
     {
       "name": "TensorZero",
@@ -242,10 +245,13 @@
       "observability_note": "All 5 pillars: /metrics with per-key/team labels + OTLP traces + spend logs/budgets per key/team/tag + Langfuse/Datadog/S3 export + usage UI.",
       "self_hosted": true,
       "cve": [
-        "CVE-2026-42208 (pre-auth SQLi)",
-        "CVE-2026-42271 (unauth RCE, CISA KEV)"
+        "CVE-2026-49468 (Host-header auth bypass, critical, fixed 1.84.0)",
+        "CVE-2026-42208 (pre-auth SQLi, critical, fixed 1.83.7)",
+        "CVE-2026-35030 (OIDC cache-collision auth bypass, critical, fixed 1.83.0)",
+        "CVE-2026-42271 (unauth RCE, CISA KEV, fixed 1.83.7)",
+        "CVE-2026-59822 (MCP OAuth2 bypass, high, fixed 1.84.0)"
       ],
-      "note": "SOC 2 I + ISO (Enterprise); 2 serious 2026 CVEs both fixed in v1.83.7-stable — patch promptly. Weekly releases, healthy."
+      "note": "SOC 2 I + ISO (Enterprise); 12 published advisories in 2026, 3 critical — run >=1.84.0 (CVE-2026-49468 and CVE-2026-59822 are fixed only there). Weekly releases, healthy."
     },
     {
       "name": "GPT-Load",

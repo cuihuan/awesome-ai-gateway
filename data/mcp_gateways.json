@@ -1,0 +1,885 @@
+{
+  "_comment": "MCP/agent-gateway capability matrix: transports, MCP spec revision, per-tool authorization, OAuth on-behalf-of / RFC 8693 token exchange, secret brokering, audit of tool invocations — and whether each capability is open-source or commercial-tier. Companion data file for docs/mcp-agent-gateways.md (chapter 8), which had no data file until this one. IMPORTANT reading rules: (1) 'not_assessed: true' means we did not verify the row and are NOT guessing — read it as 'no data', never as 'no feature'; (2) 'unknown' inside a verified row means we looked and could not establish the value, and 'what_we_tried' says how we looked; (3) the highest-value column, spec_revision, is 'unknown' for almost every row on purpose — chapter 8 §8.6 names it the category's biggest open question and only agentgateway, Envoy AI Gateway, Lunar MCPX and IBM ContextForge yield a source-read data point; (4) a gateway with tool-level authorization can still be fail-open — read tool_level_authorization.default_posture before the value; (5) 'commercial' tier means the capability is gated behind a paid/enterprise licence even when the repo carries an OSS licence file. Every value names its source: a file at a pinned commit, a vendor doc URL, or chapter 8 with its own citation carried through.",
+  "as_of": "2026-07-29",
+  "spec_baseline": {
+    "current_revision": "2026-07-28",
+    "tag_commit": "5f5440bb26a62e2cf3440b92da5a667efa03b267",
+    "tag_published": "2026-07-28T16:47:49Z",
+    "what_it_changed": "Removed protocol-level sessions and the Mcp-Session-Id header, removed the initialize/notifications-initialized handshake (per-request _meta instead), added server/discover, removed server-initiated requests (MRTR), removed stream resumability (Last-Event-ID ignored, GET/DELETE answered 405), deprecated Roots/Sampling/Logging and OAuth DCR, moved Tasks to an extension, and set a minimum twelve-month deprecation window.",
+    "why_it_matters_for_this_file": "Two of the six client-era x server-era combinations the spec's own compatibility matrix enumerates fail outright, so 'dual-era translation' is a gateway duty through at least mid-2027. handles_2026_07_28_rewrite is therefore the single most load-bearing column here.",
+    "source": ["https://modelcontextprotocol.io/specification/2026-07-28/changelog", "https://modelcontextprotocol.io/specification/2026-07-28/basic/versioning", "docs/mcp-agent-gateways.md#2-the-protocol-surface-a-gateway-must-govern"]
+  },
+  "legend": {
+    "readme_section": "which README section lists this entry — 'MCP & agent gateways' unless noted; two adjacent rows (Envoy AI Gateway, Kong AI Gateway) are listed elsewhere in the repo but were source-read by chapter 8 and carry the most complete MCP evidence in the file",
+    "verification": "source_read = files read at the pinned commit named in pinned_commit | vendor_docs = vendor documentation only | readme_only = the project's own README at a pinned commit | not_assessed = no verification performed, fields are placeholders",
+    "pinned_commit": "the exact commit every source_read claim in the row is anchored to; carried through from chapter 8's appendix where chapter 8 established the fact",
+    "transports": "stdio / streamable_http / legacy_sse per direction where known. downstream = client-facing (agent -> gateway); upstream = server-facing (gateway -> MCP server). yes | no | unknown",
+    "spec_revision": "which MCP revision the gateway speaks, and specifically whether it handles the 2026-07-28 stateless rewrite (no sessions, no initialize handshake, per-request _meta, server/discover). dual_era = translates between the modern and legacy eras",
+    "tool_level_authorization": "authorization of the verb (tools/call params.name) per caller — NOT deployment-time tool enablement, which is a different product. default_posture matters as much as the value: allow-all vs deny-all is the failure direction when a config is incomplete",
+    "oauth_obo_token_exchange": "OAuth 2.0 on-behalf-of / RFC 8693 token exchange: does the gateway mint a separate downstream token for the end user rather than reusing the inbound one",
+    "secret_brokering": "does the agent ever hold the downstream credential? The spec is a MUST NOT here: 'MCP servers MUST NOT accept or transit any other tokens' and 'The MCP server MUST NOT pass through the token it received from the MCP client'. agent_holds_downstream_credential: no = the gateway brokers; yes = the credential reaches the agent/client; configurable = the operator can pick either",
+    "audit_of_tool_invocations": "a per-tools/call record with caller attribution. MCP has NO protocol primitive for this — the entire spec requirement is one client-side SHOULD ('Log tool usage for audit purposes'), and with sessions removed there is no protocol-level conversation id to group calls by. Anything here is the vendor's invention",
+    "tier": "oss = available under the project's open-source licence | commercial = gated behind a paid/enterprise licence or a SaaS plan | n/a = capability absent | unknown",
+    "evidence_note": "the one-line honest read of the row, including what the row does NOT establish",
+    "sources": "URLs and repo paths backing the row, retrieved on as_of"
+  },
+  "counts": {
+    "readme_mcp_section_entries": 27,
+    "rows_in_this_file": 29,
+    "rows_source_read_or_vendor_doc_verified": 9,
+    "rows_not_assessed": 20,
+    "rows_with_spec_revision_established": 6,
+    "gateways_verified_to_handle_the_2026_07_28_rewrite": ["agentgateway", "ToolHive (incl. Virtual MCP)", "Archestra"],
+    "gateways_evidenced_NOT_to_handle_it_yet": ["Lunar.dev MCPX", "IBM ContextForge (its own roadmap dates it 'late Q3 2026')", "Envoy AI Gateway (hard-coded 2025-06-18 tracing constant; leaning no, not proven)"],
+    "note": "27 rows mirror the README 'MCP & agent gateways' section 1:1; 2 extra rows (Envoy AI Gateway, Kong AI Gateway) are the adjacent entries chapter 8 §9 says belong in that section and for which it holds the most evidence."
+  },
+  "gateways": [
+    {
+      "gateway": "agentgateway",
+      "repo": "agentgateway/agentgateway",
+      "readme_section": "MCP & agent gateways",
+      "verification": "source_read",
+      "pinned_commit": "7cd564709f4834962d411e7a6219b30febdbd02f (2026-07-28)",
+      "licence": "Apache-2.0. Linux Foundation project, NOT CNCF — CHARTER.md at this commit opens 'Technical Charter (the \"Charter\") for agentgateway a Series of LF Projects, LLC'; the README section currently calls it a 'CNCF proxy' and is wrong (chapter 8 §9 note)",
+      "transports": {
+        "downstream": {"stdio": "no", "streamable_http": "yes", "legacy_sse": "yes"},
+        "upstream": {"stdio": "yes", "streamable_http": "yes", "legacy_sse": "yes"},
+        "extra": "OpenAPI upstreams in addition to MCP",
+        "evidence": "crates/agentgateway/src/mcp/upstream/ at the pinned commit contains exactly client.rs, mod.rs, openapi/, sse.rs, stdio.rs, streamablehttp.rs (directory listing verified 2026-07-29); crates/agentgateway/src/mcp/ itself carries sse.rs and streamablehttp.rs for the client-facing side",
+        "tier": "oss"
+      },
+      "spec_revision": {
+        "revision_supported": "dual-era: modern (2026-07-28) and legacy, with explicit negotiation between them",
+        "handles_2026_07_28_rewrite": "yes",
+        "evidence": "crates/agentgateway/src/mcp/mod.rs at the pinned commit defines is_modern_version() with the doc comment 'True for protocol versions in the modern (2026-07-28+) era, which negotiate via `server/discover` plus per-request `_meta` rather than a session-establishing `initialize`', and the const REMOVED_METHODS_2026_07_28 listing initialize / ping / setLevel / subscribe / unsubscribe as 'Methods removed for the modern (2026-07-28+) protocol by SEP-2575/SEP-2567'; unsupported versions are answered with ErrorCode::UNSUPPORTED_PROTOCOL_VERSION carrying ProtocolVersion::KNOWN_VERSIONS. Legacy session machinery is retained alongside it (mod session, DEFAULT_SESSION_IDLE_TTL = 30 min, error variants MissingSessionHeader / UnknownSession / InvalidSessionIdHeader) — which is what dual-era means. crates/agentgateway/src/mcp/README.md §'Version Negotiation' states the design intent: 'This is particularly important for 2026-07-28+, which has a very different protocol than the other versions'.",
+        "tier": "oss",
+        "correction": "This answers the question chapter 8 §8.6 lists as the category's single highest-value open item ('No product was source-read for revision support in this pass'). The evidence was in-tree at chapter 8's own pinned commit, in two files it did not open (mcp/mod.rs and mcp/README.md)."
+      },
+      "tool_level_authorization": {
+        "value": "yes — CEL rule sets over ResourceType::{Tool, Prompt, Resource} (McpAuthorization)",
+        "default_posture": "ALLOW-ALL when no rules are configured — McpAuthorizationSet::validate returns true if !self.0.has_rules()",
+        "evidence": "crates/agentgateway/src/mcp/rbac.rs:51-54 at the pinned commit, verified verbatim 2026-07-29: `pub fn validate(&self, res: &ResourceType, cel: &CelExecWrapper) -> bool { if !self.0.has_rules() { return true; }`",
+        "tier": "oss"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "yes — RFC 8693 token exchange, in-tree",
+        "evidence": "crates/agentgateway/src/http/oauth.rs:10 defines the grant type constant `urn:ietf:params:oauth:grant-type:token-exchange` (verified at the pinned commit), alongside jwt-bearer, access_token/id_token/id-jag/jwt token-type constants; chapter 8 §5.3 additionally cites apply_token_exchange(...) and an e2e test titled 'End-to-end on-behalf-of (OBO) token exchange over a CONNECT tunnel' with a mock STS",
+        "tier": "oss"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "configurable — the operator chooses",
+        "value": "Brokering is available (Key / Gcp / Aws / Azure / Copilot backend credentials, plus token exchange above) but so is pass-through",
+        "evidence": "crates/agentgateway/src/http/auth/mod.rs:34 `pub enum BackendAuthKind` at the pinned commit, verified verbatim: variant `Passthrough` is documented '/// Forward the validated incoming JWT to the backend.'; variant `Key` holds a SecretString serialized through `ser_redact`. Passthrough is exactly the pattern the spec forbids for MCP servers ('MCP servers MUST NOT accept or transit any other tokens' / 'The MCP server MUST NOT pass through the token it received from the MCP client') — it is a config choice here, not a default we verified.",
+        "tier": "oss"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "what_we_tried": "Listed crates/agentgateway/src/mcp/ at the pinned commit (README.md, apps.rs, auth.rs, guardrails/, handler.rs, mcp_tests.rs, mergestream.rs, mod.rs, rbac.rs, router.rs, session.rs, sse.rs, streamablehttp.rs, subscriptions.rs, upstream/) — no audit or tool-call-log module. Tracing exists elsewhere in the crate but was not read this pass; chapter 8 §8.4 names Lunar MCPX and Kong as the audit differentiators and does not list agentgateway.",
+        "tier": "unknown"
+      },
+      "extra": "mcpGuardrails external policy hooks: Outcome<T>::{Pass, Mutated(T), Reject(ErrorData)} across request and response phases, first rejection short-circuits the chain (chapter 8 §6.3, Apache-2.0). Checked negative worth not re-filing: Cargo.lock carries rmcp 0.10.0 (GHSA-89vp-x53w-74fx / RUSTSEC-2026-0189) but only as `legacy-rmcp` under [dev-dependencies]; production pins rmcp 3.0.0-beta.5 (chapter 8 §8.5).",
+      "evidence_note": "The most completely verified row in the file and the only one with confirmed 2026-07-28 dual-era support. Its authorization default is the opposite of Envoy AI Gateway's: an empty rule set means allow everything.",
+      "sources": [
+        "https://github.com/agentgateway/agentgateway/blob/7cd564709f4834962d411e7a6219b30febdbd02f/crates/agentgateway/src/mcp/mod.rs",
+        "https://github.com/agentgateway/agentgateway/blob/7cd564709f4834962d411e7a6219b30febdbd02f/crates/agentgateway/src/mcp/README.md",
+        "https://github.com/agentgateway/agentgateway/blob/7cd564709f4834962d411e7a6219b30febdbd02f/crates/agentgateway/src/mcp/rbac.rs",
+        "https://github.com/agentgateway/agentgateway/blob/7cd564709f4834962d411e7a6219b30febdbd02f/crates/agentgateway/src/http/oauth.rs",
+        "https://github.com/agentgateway/agentgateway/blob/7cd564709f4834962d411e7a6219b30febdbd02f/crates/agentgateway/src/http/auth/mod.rs",
+        "docs/mcp-agent-gateways.md"
+      ]
+    },
+    {
+      "gateway": "Lunar.dev MCPX",
+      "repo": "TheLunarCompany/lunar",
+      "readme_section": "MCP & agent gateways",
+      "verification": "source_read",
+      "pinned_commit": "c825cce7de2192b1e36c5ac7d6f333bde02a4579 (2026-07-28)",
+      "licence": "MIT (mcpx/LICENSE.MD) — but the repo README says 'It remains open-source at its core and free for non-production/personal use. For production environments, we offer advanced features through guided onboarding and platform tiers', which MIT does not restrict. No separate licence file gates the paid features, so WHICH capabilities are commercially gated is unresolved from the repo alone (chapter 8 §9)",
+      "transports": {
+        "downstream": {"stdio": "no", "streamable_http": "yes", "legacy_sse": "yes"},
+        "upstream": {"stdio": "yes", "streamable_http": "yes", "legacy_sse": "yes"},
+        "evidence": "mcpx/packages/mcpx-server/src/server/downstream-transports.ts at the pinned commit imports StreamableHTTPServerTransport and SSEServerTransport, registers /sse routes, and carries registerLegacySseMessagesRoute with the in-file comment 'Backward compatibility for legacy SSE clients posting to /messages?sessionId=...' (verified 2026-07-29). Upstream set from chapter 8 §9.",
+        "tier": "oss"
+      },
+      "spec_revision": {
+        "revision_supported": "legacy era (2025-11-25 and earlier) on the evidence available",
+        "handles_2026_07_28_rewrite": "no",
+        "evidence": "Two independent signals at the pinned commit. (1) mcpx/package-lock.json resolves packages/mcpx-server/node_modules/@modelcontextprotocol/sdk to version 1.29.0 (verified verbatim; the hoisted root copy is 1.26.0, and shared-model / webapp-protocol also resolve 1.29.0) — the TypeScript SDK release that speaks 2026-07-28 is 2.0.0, published 2026-07-27T23:55:41Z per chapter 8 §8.6. (2) downstream-transports.ts still branches on isInitializeRequest(req.body) and restores sessions from an InMemoryEventStore — the initialize handshake and stream resumability are exactly what SEP-2575 and SEP-2567 removed.",
+        "tier": "oss",
+        "caveat": "Signal (2) is a one-file read, not a full data-path audit. It establishes that a legacy-era path exists, not that a modern-era path is absent."
+      },
+      "tool_level_authorization": {
+        "value": "yes — tool-group ACL resolved across consumers / clientNames / defaultConsumer",
+        "default_posture": "per-consumer: default-allow (block-list) or default-block (allow-list), chosen in config",
+        "evidence": "mcpx/packages/mcpx-server/src/model/config/permissions.ts:1 at the pinned commit: `export type Permission = \"allow\" | \"block\";` (verified). Resolution across the three identity buckets from chapter 8 §4.",
+        "tier": "oss code; commercial gating unresolved per the licence note"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "no",
+        "evidence": "chapter 8 §5.3: grep for `on-behalf-of|obo|token_exchange|urn:ietf:params:oauth:grant-type:token-exchange` over mcpx-server/src at the pinned commit returns zero matches",
+        "tier": "n/a"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "no",
+        "value": "yes — outbound OAuth authorization-code flow (/oauth/callback -> completeOAuthByState) plus staticOauth literals, with three purpose-separated credential buckets",
+        "evidence": "mcpx/packages/mcpx-server/src/services/env-var-manager.ts:22-27 and :34-36 at the pinned commit, verified verbatim: three private Maps `profileSecrets` ('k8s-derived, user-referenceable in catalog config'), `oauthCredentials` ('admin static OAuth literals, used by mcpx OAuth flow'), `prefilledLiterals` ('catalog-derived synthetic MCPX_*_PREFILLED entries'), with the file's own comment 'The three scopes don't share a primary map, so a user-controlled profile secret cannot be reached by OAuth-name lookups and vice versa.' The cleanest scoping design read across this whole file.",
+        "tier": "oss",
+        "client_facing_auth_caveat": "Client-facing auth is a static API key, not OAuth: src/server/auth.ts at the pinned commit uses header `x-lunar-api-key` (DEFAULT_API_KEY_HEADER) and its own doc comment says the guard '401 when the header is missing / 403 when the key is present but wrong / calls `next()` when auth is disabled **or** the key is valid'. It is a NO-OP when config.auth.enabled is false, and it logs 'API key guard is enabled but no API key configured' and falls through when enabled without a key. Verified verbatim 2026-07-29."
+      },
+      "audit_of_tool_invocations": {
+        "value": "yes — a real per-invocation audit log with caller attribution",
+        "evidence": "mcpx/packages/mcpx-server/src/services/audit-log/ at the pinned commit contains audit-log-service.ts, audit-log-persistence.ts, audit-log-filter.ts, audit-log-diff.ts (+ tests), with a buffered flush on env.AUDIT_LOG_FLUSH_INTERVAL_IN_SEC. The event shape is src/model/audit-log-type.ts, verified verbatim: `ToolUsedPayload = { toolName: string; targetServerName: string; args?: Record<string, unknown>; consumerTag?: string }`, plus PromptUsedPayload, ResourceReadPayload, TargetServerAdded/Removed, AgentPermissionUpdated, ApprovedToolsChange, ApprovedPromptsChange.",
+        "tier": "oss code; commercial gating unresolved per the licence note"
+      },
+      "evidence_note": "Best-documented audit trail and best credential scoping in the file; no OBO, and the client-facing auth is a static key with a fail-open guard. The revision finding is the one to re-check first — it is a two-signal inference, not a wire test.",
+      "sources": [
+        "https://github.com/TheLunarCompany/lunar/blob/c825cce7de2192b1e36c5ac7d6f333bde02a4579/mcpx/packages/mcpx-server/src/model/audit-log-type.ts",
+        "https://github.com/TheLunarCompany/lunar/blob/c825cce7de2192b1e36c5ac7d6f333bde02a4579/mcpx/packages/mcpx-server/src/services/env-var-manager.ts",
+        "https://github.com/TheLunarCompany/lunar/blob/c825cce7de2192b1e36c5ac7d6f333bde02a4579/mcpx/packages/mcpx-server/src/server/auth.ts",
+        "https://github.com/TheLunarCompany/lunar/blob/c825cce7de2192b1e36c5ac7d6f333bde02a4579/mcpx/packages/mcpx-server/src/server/downstream-transports.ts",
+        "https://github.com/TheLunarCompany/lunar/blob/c825cce7de2192b1e36c5ac7d6f333bde02a4579/mcpx/packages/mcpx-server/src/model/config/permissions.ts",
+        "docs/mcp-agent-gateways.md"
+      ]
+    },
+    {
+      "gateway": "Docker MCP Gateway",
+      "repo": "docker/mcp-gateway",
+      "readme_section": "MCP & agent gateways",
+      "verification": "source_read",
+      "pinned_commit": "2bd20fe83dd04870e8d87dc1ed059d4d19fc7c68 (2026-07-23)",
+      "licence": "MIT",
+      "transports": {
+        "downstream": {"stdio": "yes (default)", "streamable_http": "yes", "legacy_sse": "yes"},
+        "upstream": {"stdio": "yes", "streamable_http": "unknown", "legacy_sse": "unknown"},
+        "evidence": "docs/generator/reference/mcp_gateway_run.md at the pinned commit documents `--transport` string, default `stdio`, help text verbatim: 'stdio, sse or streaming. Uses MCP_GATEWAY_AUTH_TOKEN environment variable for localhost authentication to prevent dns rebinding attacks.' `--port` int default 0 with '(default is to listen on stdio)'. Verified 2026-07-29. Upstream is containerised MCP servers (chapter 8 §9); their transports were not enumerated.",
+        "tier": "oss",
+        "correction": "chapter 8 §9's transport table leaves Docker MCP Gateway's downstream cell empty. The flag reference states it explicitly, and its help text also documents the DNS-rebinding mitigation that §8.1 identifies as the dominant 2026 failure class."
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "what_we_tried": "GitHub code search for the literal '2026-07-28' scoped to docker/mcp-gateway returned total_count 0 on 2026-07-29 — but that searches the DEFAULT BRANCH, not the pinned commit, and a zero result is weak evidence: a gateway can implement the revision without the date string appearing in source. No SDK manifest or version-negotiation file was read.",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {
+        "value": "no — per-tool ENABLEMENT only, which is a different product",
+        "default_posture": "static enable-list, identity-free: there is no caller to authorize",
+        "evidence": "docs/generator/reference/mcp_gateway_run.md at the pinned commit: `--tools` stringSlice 'List of tools to enable' and `--tools-config` stringSlice default [tools.yaml]; `--interceptor` stringArray 'List of interceptors to use (format: when:type:path...)'. And the negative, verified verbatim at the pinned commit: docs/generator/reference/mcp_policy.md describes `docker mcp policy` as 'Manage secret policies', with subcommands dump ('Dump the policy content') and set ('Set a policy for secret management in Docker Desktop') — secret policy, not tool authorization.",
+        "tier": "oss",
+        "correction": "This is the entry chapter 8 §4 flags as described wrong in the README: the README says 'per-tool access control'. Per-tool enablement is a deployment-time list; per-tool authorization answers 'which caller'. Only the first is what --tools provides."
+      },
+      "oauth_obo_token_exchange": {"value": "no", "evidence": "chapter 8 §5.3 found none at the pinned commit", "tier": "n/a"},
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "no",
+        "value": "yes — a credstore plus an outbound secret filter that is on by default",
+        "evidence": "cmd/docker-mcp/secret-management/ at the pinned commit (chapter 8 §5.3); mcp_gateway_run.md documents `--block-secrets` bool default `true` 'Block secrets from being/received sent to/from tools' and `--verify-signatures` bool default `true` 'Verify signatures of Docker MCP server images', plus `--block-network` 'Block tools from accessing forbidden network resources'. Verified verbatim 2026-07-29.",
+        "tier": "oss"
+      },
+      "audit_of_tool_invocations": {
+        "value": "yes — on by default, but without caller identity",
+        "evidence": "mcp_gateway_run.md at the pinned commit: `--log-calls` bool default `true` 'Log calls to the tools'. Verified verbatim 2026-07-29.",
+        "tier": "oss",
+        "caveat": "The gateway is identity-free (no OIDC/consumer concept was found), so the log attributes a call to a tool and a server, not to a user. Per chapter 8 §8.4 there is no protocol-level conversation id to group by either, since sessions were removed.",
+        "correction": "chapter 8 §8.4 names only Lunar MCPX and Kong as shipping tool-invocation audit; --log-calls default true is a third, and it is the default."
+      },
+      "evidence_note": "Strongest default-on safety posture in the file (block-secrets, verify-signatures, log-calls all default true) paired with the weakest authorization story (no caller identity at all). Both facts matter and the README currently states neither correctly.",
+      "sources": [
+        "https://github.com/docker/mcp-gateway/blob/2bd20fe83dd04870e8d87dc1ed059d4d19fc7c68/docs/generator/reference/mcp_gateway_run.md",
+        "https://github.com/docker/mcp-gateway/blob/2bd20fe83dd04870e8d87dc1ed059d4d19fc7c68/docs/generator/reference/mcp_policy.md",
+        "docs/mcp-agent-gateways.md"
+      ]
+    },
+    {
+      "gateway": "Pomerium",
+      "repo": "pomerium/pomerium",
+      "readme_section": "MCP & agent gateways",
+      "verification": "source_read",
+      "pinned_commit": "abbc8bf07c5b02c78a58385cf9ab36710b58fce0 (2026-07-28)",
+      "licence": "Apache-2.0 tree carries the MCP code",
+      "transports": {
+        "downstream": {"stdio": "no", "streamable_http": "yes", "legacy_sse": "unknown"},
+        "upstream": {"stdio": "no", "streamable_http": "unknown", "legacy_sse": "unknown"},
+        "evidence": "authorize/evaluator/mcp.go at the pinned commit gates on `if ht.Method != http.MethodPost` before parsing the JSON-RPC body — an HTTP POST path. internal/mcp/ contains an extproc/ subpackage (Envoy ext_proc integration) and no stdio bridge. Verified 2026-07-29. Chapter 8 §9 records downstream as HTTP and upstream as unread.",
+        "tier": "oss"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "what_we_tried": "GitHub code search for '2025-06-18' OR '2026-07-28' scoped to pomerium/pomerium returned total_count 0 on 2026-07-29 (default branch). Notable but NOT proof either way: internal/mcp/ at the pinned commit contains handler_cimd.go and client_id_metadata.go — Client ID Metadata Documents, the mechanism the 2026-07-28 revision names as the replacement for the now-deprecated OAuth DCR. CIMD is a separate IETF draft (draft-ietf-oauth-client-id-metadata-document-00) that can be implemented independently of the MCP revision, so this is suggestive, not dispositive.",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {
+        "value": "yes — the `mcp_tool` policy criterion, matching tool names by exact name, prefix, suffix or list",
+        "default_posture": "policy-defined (deny-based block lists and allow-lists both expressible)",
+        "evidence": "pkg/policy/criteria/mcp_tool.go at the pinned commit generates Rego that short-circuits to ReasonMCPNotAToolCall unless `input.mcp.method` exists and equals 'tools/call' (verified verbatim 2026-07-29); authorize/evaluator/mcp.go:65 carries the matching `if jsonRPCReq.Method == \"tools/call\"` branch. Authorization is genuinely on the verb, not on a route.",
+        "tier": "oss"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "no RFC 8693 token exchange found; upstream OAuth is an authorization-code brokering flow instead",
+        "what_we_tried": "Read internal/mcp/upstream_auth.go and listed internal/mcp/ at the pinned commit; the OAuth machinery present is authorization-code + PKCE + state (newPendingUpstreamAuth, PendingUpstreamAuth, TokenEndpoint discovery), not a token-exchange grant. No exhaustive repo-wide grep for the RFC 8693 grant type URN was run.",
+        "tier": "oss"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "no",
+        "value": "yes — the gateway holds and injects the upstream token; the client never sees it",
+        "evidence": "internal/mcp/upstream_auth.go at the pinned commit, verified verbatim: 'UpstreamAuthHandler implements extproc.UpstreamRequestHandler for MCP upstream OAuth flows. It handles token injection on the request path and 401/403 interception on the response path. All upstream auth modes (auto-discovery, pre-registered, fully static) use a unified UpstreamMCPToken storage path.' Supporting files at the same commit: handler_client_oauth_callback.go, handler_token.go, token.go, storage.go, cipher.go. internal/mcp/ssrf.go also exists — the spec's §8.2 SSRF mitigation for OAuth metadata discovery, implemented in-tree.",
+        "tier": "oss",
+        "correction": "chapter 8 §5.3 records Pomerium's upstream credential as vendor-docs-only ('MCP-aware bridge that manages upstream OAuth on behalf of your users') with OBO 'not verified in this pass'. The brokering half is now verified from source at chapter 8's own pinned commit; the RFC 8693 half remains not-found."
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "what_we_tried": "Listed internal/mcp/ and read authorize/evaluator/mcp.go and pkg/policy/criteria/mcp_tool.go at the pinned commit — no MCP-specific audit module. Pomerium ships general authorize-service logging, which was not read this pass and is not MCP-tool-shaped.",
+        "tier": "unknown"
+      },
+      "evidence_note": "The row that changed most against chapter 8: upstream OAuth brokering, CIMD handling and SSRF protection are all in the Apache-2.0 tree, not just the vendor docs. Revision support remains the open question.",
+      "sources": [
+        "https://github.com/pomerium/pomerium/blob/abbc8bf07c5b02c78a58385cf9ab36710b58fce0/internal/mcp/upstream_auth.go",
+        "https://github.com/pomerium/pomerium/blob/abbc8bf07c5b02c78a58385cf9ab36710b58fce0/pkg/policy/criteria/mcp_tool.go",
+        "https://github.com/pomerium/pomerium/blob/abbc8bf07c5b02c78a58385cf9ab36710b58fce0/authorize/evaluator/mcp.go",
+        "https://github.com/pomerium/pomerium/tree/abbc8bf07c5b02c78a58385cf9ab36710b58fce0/internal/mcp",
+        "https://www.pomerium.com/docs/capabilities/mcp",
+        "docs/mcp-agent-gateways.md"
+      ]
+    },
+    {
+      "gateway": "ToolHive (incl. Virtual MCP)",
+      "repo": "stacklok/toolhive",
+      "readme_section": "MCP & agent gateways",
+      "verification": "source_read",
+      "pinned_commit": "0a0cbd94929c050fa56e46b7f7da01c9b69f2dec",
+      "licence": "Apache-2.0",
+      "transports": {
+        "downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"},
+        "upstream": {"stdio": "yes (containerised MCP servers)", "streamable_http": "unknown", "legacy_sse": "unknown"},
+        "evidence": "Only the operator CRD types were read at this commit (cmd/thv-operator/api/v1beta1/), which do not enumerate transports. Chapter 8 §9 records upstream as 'containerised MCP servers' and leaves downstream blank. The MCP spec's own stdio-proxy escalation warning (chapter 8 §5.4) reads as a specification for exactly this containerisation model.",
+        "tier": "oss"
+      },
+      "spec_revision": {
+        "revision_supported": "dual-era: an explicit two-revision model, 2026-07-28 (Modern) and 2025-11-25 (Legacy)",
+        "handles_2026_07_28_rewrite": "yes",
+        "verified_at_commit": "ea71bd28ea914ad5e38ee438abba991c52b02c85 (2026-07-29T08:46:31Z) — the default-branch HEAD on the as_of date, NOT chapter 8's pinned commit 0a0cbd94929c050fa56e46b7f7da01c9b69f2dec. The two commits are different snapshots and this cell is anchored to the later one; every other ToolHive cell in this row is anchored to chapter 8's pin. Do not merge the two.",
+        "evidence": "pkg/mcp/revision.go at ea71bd28, verified verbatim 2026-07-29: `type Revision int` with `RevisionLegacy` documented 'the current 2025-11-25 MCP revision: session-based, initialize handshake, Mcp-Session-Id' and `RevisionModern` documented 'the 2026-07-28 MCP revision: stateless, no initialize, protocol metadata carried per-request in _meta'; `const MCPVersionModern = \"2026-07-28\"` and `const MCPVersionLegacy = \"2025-11-25\"`; and the reserved _meta keys io.modelcontextprotocol/{protocolVersion,clientInfo,clientCapabilities}. The surrounding files are the rest of the era shim: pkg/vmcp/client/modern.go, pkg/vmcp/server/modern_gate.go, pkg/vmcp/mrtr.go, pkg/vmcp/client/modern_mrtr.go and docs/arch/16-vmcp-mrtr.md — MRTR being the Multi Round-Trip Requests pattern the revision introduced to replace server-initiated requests.",
+        "tier": "oss (Apache-2.0 — pkg/mcp/revision.go carries `SPDX-License-Identifier: Apache-2.0`)",
+        "how_we_found_it": "Uniform code-search probe returned 78 hits for the literal '2026-07-28'; enumerating the paths surfaced pkg/mcp/revision.go, which was then read directly. This is the probe working as intended — a high hit count is a lead, and the lead was followed."
+      },
+      "tool_level_authorization": {
+        "value": "yes — Cedar policy plus OIDC, with per-tool per-user rate limiting",
+        "default_posture": "policy-defined; incomingAuth.type is an enum of anonymous | oidc, so an anonymous deployment has no caller to authorize",
+        "evidence": "cmd/thv-operator/api/v1beta1/virtualmcpserver_types.go at the pinned commit, verified 2026-07-29: line ~200 'Only cedarv1 MCPAuthzConfig resources are supported for VirtualMCPServer today; referencing a non-Cedar config fails reconciliation'; line ~179 `+kubebuilder:validation:Enum=anonymous;oidc`; and three CEL XValidation rules at lines 19-21 including 'per-tool perUser rate limiting requires incomingAuth.type oidc' and 'config.rateLimiting requires sessionStorage with provider redis'.",
+        "tier": "oss"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown — a backend-credential configuration surface exists; RFC 8693 not confirmed at this commit",
+        "evidence": "virtualmcpserver_types.go at the pinned commit defines OutgoingAuthConfig ('configures authentication from Virtual MCP to backend MCPServers') with Source = discovered | externalAuthConfigRef (BackendAuthTypeDiscovered / BackendAuthTypeExternalAuthConfigRef), a Default BackendAuthConfig and per-backend overrides; discovery reads the backend's MCPServer.spec.externalAuthConfigRef. Verified 2026-07-29. The referenced MCPExternalAuthConfig type was not read, so whether it can express a token-exchange grant is unestablished.",
+        "tier": "oss"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "no",
+        "value": "yes — backend credentials live in MCPExternalAuthConfig resources held by the operator, not by the calling agent",
+        "evidence": "OutgoingAuthConfig / BackendAuthConfig in virtualmcpserver_types.go at the pinned commit (above). Historical failure worth carrying: CVE-2025-47274 (published 2025-05-12, CVSS 4.0 base 2.4 LOW) — 'versions of ToolHive prior to 0.0.33 inadvertently store secrets in the run config files', fixed in 0.0.33 (chapter 8 §8.5).",
+        "tier": "oss"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown — an audit configuration surface exists but its content was not read",
+        "evidence": "virtualmcpserver_types.go:85 at the pinned commit carries the comment 'The audit config from here is also supported, but not required.' The referenced audit type was not read this pass, so whether it records per-tools/call events with caller attribution is unestablished.",
+        "tier": "unknown"
+      },
+      "evidence_note": "The only listed gateway with its own CVE. Authorization is the best-specified in Kubernetes terms (Cedar + OIDC + CEL admission validation); everything on the transport and revision axes is unread.",
+      "sources": [
+        "https://github.com/stacklok/toolhive/blob/0a0cbd94929c050fa56e46b7f7da01c9b69f2dec/cmd/thv-operator/api/v1beta1/virtualmcpserver_types.go",
+        "https://www.cve.org/CVERecord?id=CVE-2025-47274",
+        "docs/mcp-agent-gateways.md"
+      ]
+    },
+    {
+      "gateway": "IBM ContextForge",
+      "repo": "IBM/mcp-context-forge",
+      "readme_section": "MCP & agent gateways",
+      "verification": "readme_only",
+      "pinned_commit": "eb1e212bbab90bbcdb410d5b577eac27bf677b03 (2026-07-28)",
+      "licence": "Apache-2.0 (README line 1063: 'Licensed under the **Apache License 2.0**')",
+      "transports": {
+        "downstream": {"stdio": "yes", "streamable_http": "yes", "legacy_sse": "yes"},
+        "upstream": {"stdio": "yes", "streamable_http": "yes", "legacy_sse": "yes"},
+        "extra": "HTTP, JSON-RPC and WebSocket in addition to the MCP transports; gRPC-to-MCP translation via reflection-based service discovery",
+        "evidence": "README.md at the pinned commit, verified verbatim 2026-07-29 — line 76: 'Transport over HTTP, JSON-RPC, WebSocket, SSE (with configurable keepalive), stdio and streamable-HTTP'; lines 288-296: `python3 -m mcpgateway.translate --stdio \"uvx mcp-server-git\" --expose-sse --expose-streamable-http` with '# Now accessible via both /sse (SSE) and /mcp (streamable HTTP) endpoints'; line 654: 'The `mcpgateway.wrapper` lets you connect to the gateway over **stdio** while keeping JWT authentication'; line 984 shows a transports/ package 'SSE, WebSocket, stdio, streamable HTTP'.",
+        "tier": "oss",
+        "note": "Widest transport set in the file — the strongest reason to pick it if bridging eras is the job."
+      },
+      "spec_revision": {
+        "revision_supported": "legacy era; 2026-07-28 is on the roadmap, not in the product",
+        "handles_2026_07_28_rewrite": "no — the vendor dates it 'late Q3 2026'",
+        "evidence": "Two vendor statements, both verified verbatim 2026-07-29. (1) README.md line 92 at the pinned commit eb1e212b: 'Lets you choose your MCP protocol version (e.g., `2025-11-25`)' — a configurable-revision feature whose documented example predates the rewrite. (2) The decisive one: a code search for the literal '2026-07-28' across the whole repo at default-branch HEAD 4a2d41f530892f51c48ad1d5930362eed72d4c71 (2026-07-29T09:54:25Z) returns exactly ONE file, docs/docs/architecture/roadmap.md, where it appears under the heading '## ContextForge 2.0 - Coming late Q3 2026' as the bullet 'MCP 2026-07-28 Protocol', beside 'Streamlined Authentication, Authorization and Access Control'. A revision that appears only on the roadmap is not implemented.",
+        "tier": "oss",
+        "caveat": "The single-hit code search covers the default branch and cannot prove absence in principle — but here the one hit is itself the vendor saying it is future work, which is stronger than a null result.",
+        "note": "Chapter 8 §8.6 lists no ContextForge data point at all. This is now the clearest documented negative in the category, and it comes from the vendor."
+      },
+      "tool_level_authorization": {
+        "value": "unknown at tool granularity",
+        "what_we_tried": "Read README.md at the pinned commit. It says 'RBAC' (line 506, inside a Kubernetes 'Security' bullet listing 'RBAC, network policies, secret management') and 'Remote gateways validate tokens through existing auth middleware, preserving RBAC context' (line 826) — neither states per-tool or per-verb granularity. Chapter 8 §9 records the same phrase without establishing granularity. No source file was read.",
+        "tier": "unknown"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown — 'user-scoped OAuth tokens' are advertised; no token-exchange grant is named",
+        "evidence": "README.md line 78 at the pinned commit, verified verbatim: 'Built-in auth, retries, and rate-limiting with user-scoped OAuth tokens and unconditional X-Upstream-Authorization header support'. 'User-scoped' is not the same claim as RFC 8693 or OAuth OBO, and the README names no grant type.",
+        "tier": "unknown"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "yes, in the advertised modes",
+        "value": "The headline credential feature is header FORWARDING, not brokering",
+        "evidence": "README.md at the pinned commit, verified verbatim — line 78: 'unconditional X-Upstream-Authorization header support' (a caller-supplied header carried through to the upstream); line 826: 'Cross-gateway calls forward the user's bearer token via the `Authorization` header'; line 832: '✅ Bearer token forwarding: User authentication preserved across hops'. Read against the spec's MUST NOT — 'MCP servers MUST NOT accept or transit any other tokens' and 'The MCP server MUST NOT pass through the token it received from the MCP client' (chapter 8 §5.1) — forwarding is the pattern the specification prohibits. Note the honest caveat: X-Upstream-Authorization is a distinct header from the MCP client's own token, so this is not automatically the same violation; what is established is that the credential transits the client, not that the gateway mints a fresh one.",
+        "tier": "oss",
+        "confidence": "This cell is a README read, not a source read. It is the cell in this file most likely to be revised by an actual source-read, and it should be."
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown — federation attribution is documented; a per-tools/call log is not",
+        "evidence": "README.md line 832 at the pinned commit, verified verbatim: '✅ Audit trail: Source gateway and user tracked in headers'. That is cross-gateway hop attribution, not a record of tool invocations. OpenTelemetry observability is advertised at line 79 ('with Phoenix, Jaeger, Zipkin, and other OTLP backends') — which is what the spec suggests in place of the now-deprecated MCP Logging, but tracing is not audit (chapter 8 §8.4).",
+        "tier": "oss for the OTel path; audit-log content unknown"
+      },
+      "evidence_note": "Widest transports and the only configurable-revision claim in the file, against the weakest secret-brokering story. Every cell here is README-sourced at a pinned commit — treat the row as vendor claims verified to have been made, not as verified behaviour.",
+      "sources": [
+        "https://github.com/IBM/mcp-context-forge/blob/eb1e212bbab90bbcdb410d5b577eac27bf677b03/README.md",
+        "docs/mcp-agent-gateways.md"
+      ]
+    },
+    {
+      "gateway": "Archestra",
+      "repo": "archestra-ai/archestra",
+      "readme_section": "MCP & agent gateways",
+      "verification": "source_read",
+      "pinned_commit": "d45667b329fa9bf8d83ddf05b7d09c57d27e52b9 (2026-07-29)",
+      "licence": "AGPL-3.0-only by default per LICENSE.md's SPDX-header routing, with 59 enterprise-marked paths (chapter 8 §5.3/§9). The licence is per-FILE: a file carrying `// SPDX-License-Identifier: LicenseRef-Archestra-Enterprise` is commercial; a file with no SPDX header takes the AGPL default",
+      "transports": {
+        "downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"},
+        "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"},
+        "what_we_tried": "Only three backend files were read at the pinned commit (the two exchange strategies and dual-llm.ts); none touches transport. Chapter 8 §9 leaves both cells blank.",
+        "tier": "unknown"
+      },
+      "spec_revision": {
+        "revision_supported": "dual-era, and the most complete 2026-07-28 implementation read anywhere in this file",
+        "handles_2026_07_28_rewrite": "yes",
+        "verified_at_commit": "c6bc3e660159cf2f6b820c29b84ad08ce97f66b1 (2026-07-29T10:07:41Z) — the default-branch HEAD on the as_of date, NOT chapter 8's pin d45667b3 (also 2026-07-29, a few hours earlier). This cell alone is anchored to the later commit.",
+        "evidence": "platform/backend/src/routes/mcp-gateway.protocol.ts at c6bc3e66, verified verbatim 2026-07-29: `export const LEGACY_MCP_PROTOCOL_REVISION = \"2025-11-25\"` and `export const STATELESS_MCP_PROTOCOL_REVISION = \"2026-07-28\"`, advertised together in `SUPPORTED_MCP_PROTOCOL_REVISIONS`, with the file's own note that this 'is what the gateway *advertises*, not the full set it accepts: the pre-2025-11-25 revisions the bundled SDK still negotiates stay accepted ... so this negotiation layer cannot turn away a client that worked before it existed.' The same file defines the mirrored routing headers (mcp-protocol-version, mcp-method, mcp-name), the three reserved _meta keys, SERVER_DISCOVER_METHOD = 'server/discover', the two new error codes (-32020 HeaderMismatch, -32022 UnsupportedProtocolVersion) and the caching fields (LIST_CACHE_TTL_MS, PRIVATE_CACHE_SCOPE). Sibling files: mcp-gateway.mrtr.ts, mcp-gateway.protocol-negotiation.test.ts, mcp-gateway.protocol.test.ts.",
+        "tier": "oss (AGPL-3.0-only) — mcp-gateway.protocol.ts has NO SPDX header (line 1 is `import type { IncomingHttpHeaders } from \"node:http\";`), so LICENSE.md's default route applies. The era shim is open source even though the OBO code beside it is not.",
+        "how_we_found_it": "Uniform code-search probe returned 14 hits; the paths included platform/backend/src/routes/mcp-gateway.protocol.ts, which was then read directly."
+      },
+      "tool_level_authorization": {
+        "value": "RBAC / custom roles, per vendor pricing docs",
+        "default_posture": "unknown",
+        "evidence": "chapter 8 §9, sourced to https://archestra.ai/docs/platform-pricing-model. Not source-read; granularity (per-tool vs per-server) is not established.",
+        "tier": "commercial (Enterprise)"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "yes — both Microsoft Entra on-behalf-of and generic RFC 8693 token exchange",
+        "evidence": "Verified verbatim at the pinned commit 2026-07-29. platform/backend/src/services/identity-providers/enterprise-managed/exchange-strategies/rfc8693-token-exchange.ts line 1 is `// SPDX-License-Identifier: LicenseRef-Archestra-Enterprise` and it defines class Rfc8693TokenExchangeStrategy implementing EnterpriseCredentialExchangeStrategy, discovering the token endpoint via discoverOidcTokenEndpoint. entra-obo-strategy.ts line 1 carries the identical SPDX line and imports OAUTH_CLIENT_ASSERTION_TYPE / OAUTH_GRANT_TYPE / OAUTH_TOKEN_TYPE.",
+        "tier": "commercial — the SPDX header on both files is LicenseRef-Archestra-Enterprise, so the OBO capability is NOT available under the AGPL default"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "no (in the enterprise exchange path)",
+        "value": "yes — secrets vault plus the enterprise credential-exchange strategies above",
+        "evidence": "chapter 8 §5.3 for the vault; the exchange strategies verified above are the delegation half. Both exchange files are enterprise-licensed.",
+        "tier": "commercial for the exchange path; vault tier not established"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "what_we_tried": "No audit file was read at the pinned commit; chapter 8 does not list Archestra among the gateways shipping tool-invocation audit.",
+        "tier": "unknown"
+      },
+      "extra": {
+        "guardrails": "Deterministic dual-LLM / 'lethal trifecta' guardrail at platform/backend/src/agents/subagents/dual-llm.ts. Verified at the pinned commit 2026-07-29: the file has NO SPDX header (it opens with imports from @archestra/shared and the `ai` package), so the AGPL-3.0-only default route applies — this capability IS open source, unlike the OBO code above.",
+        "tier": "oss (AGPL-3.0-only)",
+        "efficacy_caveat": "Presence, not efficacy. Nobody in this category has published a prompt-injection detection-rate methodology we would accept, and per Simon Willison's own hedge (chapter 8 §6.1) '95% is very much a failing grade' in security terms."
+      },
+      "evidence_note": "The clearest OSS-vs-commercial split in the file, and it runs THROUGH the product rather than around it: the guardrail is AGPL, the delegation is enterprise. Read the SPDX header of the specific file, not the repo's licence badge.",
+      "sources": [
+        "https://github.com/archestra-ai/archestra/blob/d45667b329fa9bf8d83ddf05b7d09c57d27e52b9/platform/backend/src/services/identity-providers/enterprise-managed/exchange-strategies/rfc8693-token-exchange.ts",
+        "https://github.com/archestra-ai/archestra/blob/d45667b329fa9bf8d83ddf05b7d09c57d27e52b9/platform/backend/src/services/identity-providers/enterprise-managed/exchange-strategies/entra-obo-strategy.ts",
+        "https://github.com/archestra-ai/archestra/blob/d45667b329fa9bf8d83ddf05b7d09c57d27e52b9/platform/backend/src/agents/subagents/dual-llm.ts",
+        "https://archestra.ai/docs/platform-pricing-model",
+        "docs/mcp-agent-gateways.md"
+      ]
+    },
+    {
+      "gateway": "Envoy AI Gateway",
+      "repo": "envoyproxy/ai-gateway",
+      "readme_section": "Kubernetes-native & inference infra — NOT the MCP section. Chapter 8 §9 argues it belongs in the MCP section: it carries a default-Deny per-tool authorization CRD and is the open-source original behind Tetrate Agent Router Service, which IS listed there",
+      "verification": "source_read",
+      "pinned_commit": "6722cca8d33896c4464c12f2de5aaf1238a569b6 (2026-07-23)",
+      "licence": "Apache-2.0. v1.0.0 released 2026-06-23, but the MCP CRD is still api/v1beta1 at this commit",
+      "transports": {
+        "downstream": {"stdio": "no", "streamable_http": "yes", "legacy_sse": "no"},
+        "upstream": {"stdio": "via the aigw CLI only", "streamable_http": "yes", "legacy_sse": "unknown"},
+        "evidence": "api/v1beta1/mcp_route.go:56 at the pinned commit, verified verbatim: 'Path is the HTTP endpoint path that serves MCP requests over the Streamable HTTP transport.' (default /mcp). SSE is a response streaming mode here, not a transport. Chapter 8 §9: stdio only via the aigw CLI, which 'run[s] local Streamable HTTP proxies for each command'.",
+        "tier": "oss"
+      },
+      "spec_revision": {
+        "revision_supported": "2025-06-18 appears hard-coded in tracing; the data path's revision is not established",
+        "handles_2026_07_28_rewrite": "unknown, leaning no",
+        "evidence": "internal/tracing/mcp.go:78 at the pinned commit, verified verbatim: `attribute.String(\"mcp.protocol.version\", \"2025-06-18\")`. Chapter 8 §8.6's caveat is carried through unchanged and matters: that is a tracing attribute, NOT proof of what the data path speaks. It does establish that a 2025-era constant was the one someone wrote down.",
+        "tier": "oss"
+      },
+      "tool_level_authorization": {
+        "value": "yes — MCPRoute CRD rules matching tools against JWT scopes and claims (AND-ed), plus experimental CEL over request.mcp.tool / .method / .backend / .params; first-match-wins, max 32 rules",
+        "default_posture": "DENY — the strongest default in the file",
+        "evidence": "api/v1beta1/mcp_route.go:315-322 at the pinned commit, verified verbatim: 'MCPRouteAuthorization defines the authorization configuration for a MCPRoute. / DefaultAction is the action to take when no rules match. If unspecified, defaults to Deny.' with `+kubebuilder:default:=Deny`. Line 364 confirms the CEL attribute surface ('request.path: request path such as /mcp').",
+        "tier": "oss",
+        "contrast": "Same category, same Apache-2.0 licence, OPPOSITE failure direction to agentgateway: an incomplete Envoy config denies, an incomplete agentgateway config allows everything. This is not a feature-matrix column and it is the most consequential difference in the file."
+      },
+      "oauth_obo_token_exchange": {
+        "value": "no — key injection only",
+        "evidence": "api/v1beta1/mcp_route.go:194-208 at the pinned commit, verified: MCPBackendSecurityPolicy carries only an APIKey field ('APIKey is a mechanism to access a backend. The API key will be injected into the request headers'), backed by MCPBackendAPIKey from a k8s secretRef (key 'apiKey') or inline. Chapter 8 §5.3 found no token exchange in its pass either.",
+        "tier": "n/a"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "no",
+        "value": "yes but shallow — the gateway holds a static API key and injects it; there is no per-user delegation",
+        "evidence": "MCPBackendSecurityPolicy / MCPBackendAPIKey above; injected into a header (default Authorization, Bearer prefix) or a query param. Envoy's own API doc carries the warning, quoted in chapter 8 §5.3: 'Embedding credentials in URLs (including query parameters) is generally not recommended because URLs can be exposed in logs and intermediary systems; prefer header-based injection when possible.'",
+        "tier": "oss"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown — OpenTelemetry tracing of MCP exists; an audit log does not",
+        "evidence": "internal/tracing/mcp.go at the pinned commit emits MCP span attributes including mcp.protocol.version. Per chapter 8 §8.4, trace context is standardised (traceparent/tracestate/baggage are reserved _meta keys) but audit CONTENT is not — tracing is not an audit record with caller attribution, and no audit module was found.",
+        "tier": "unknown"
+      },
+      "evidence_note": "The default-Deny row. Everything about its authorization posture is verified; its revision support is the file's clearest 'known-stale constant, unknown behaviour' cell.",
+      "sources": [
+        "https://github.com/envoyproxy/ai-gateway/blob/6722cca8d33896c4464c12f2de5aaf1238a569b6/api/v1beta1/mcp_route.go",
+        "https://github.com/envoyproxy/ai-gateway/blob/6722cca8d33896c4464c12f2de5aaf1238a569b6/internal/tracing/mcp.go",
+        "docs/mcp-agent-gateways.md"
+      ]
+    },
+    {
+      "gateway": "Kong AI Gateway",
+      "repo": "Kong/kong (OSS) — the MCP capability is not in it",
+      "readme_section": "Enterprise & compliance — NOT the MCP section, and the entry currently mentions MCP nowhere. Chapter 8 §9 says it belongs in the MCP section with its tier answer attached",
+      "verification": "vendor_docs (carried from chapter 8, retrieved 2026-07-29; not independently re-fetched this pass) + one source-read negative",
+      "pinned_commit": "391ee48d3a68e8d0bbd0405ec1d02d75f768aa92 (2026-07-22) — used only to establish the negative",
+      "licence": "Every MCP capability below is Enterprise. The OSS repo has none of it",
+      "transports": {
+        "downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"},
+        "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"},
+        "what_we_tried": "Chapter 8 §9 leaves both cells blank; the ai-mcp-proxy plugin docs were not re-read for transport detail this pass.",
+        "tier": "commercial"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "what_we_tried": "No source to read — the capability is closed. The plugin documentation was not checked for a stated revision this pass.",
+        "tier": "commercial"
+      },
+      "tool_level_authorization": {
+        "value": "yes — MCP Tool ACLs on Consumers and Consumer Groups, filtering the tools/list response per authenticated user",
+        "default_posture": "default-deny posture supported",
+        "evidence": "Vendor blog, quoted in chapter 8 §4: 'Kong intercepts the response from your upstream API and filters the tool list based on the authenticated user's permissions'. This is discovery filtering, which the spec explicitly sanctions: the tools/list set 'MAY vary by the authorization presented on the request'.",
+        "tier": "commercial — plugin pages carry `tier: ai_gateway_enterprise`"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "yes — documented token exchange in the ai-mcp-oauth2 plugin from v3.14+ (minimum Gateway 3.12)",
+        "evidence": "chapter 8 §5.3, sourced to https://developer.konghq.com/plugins/ai-mcp-oauth2/",
+        "tier": "commercial"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown — token exchange implies brokering, but the credential path was not read",
+        "what_we_tried": "There is no source tree to read; the plugin docs were not re-fetched this pass.",
+        "tier": "commercial"
+      },
+      "audit_of_tool_invocations": {
+        "value": "yes",
+        "evidence": "chapter 8 §8.4 quotes the plugin documentation: 'All access attempts (allowed or denied) are written to the plugin's audit log'. Logging DENIED attempts is the harder half and the one most vendors skip.",
+        "tier": "commercial"
+      },
+      "source_read_negative": {
+        "claim": "Kong ships zero MCP capability in open source",
+        "evidence": "Full recursive tree of Kong/kong at 391ee48d3a68e8d0bbd0405ec1d02d75f768aa92 (2026-07-22) contains ZERO paths matching 'mcp'; kong/plugins/ holds 45 plugins of which 6 are ai-*, none MCP (chapter 8 §9 and §10 step 6, reproducible in one gh api call).",
+        "reproduce": "gh api \"repos/Kong/kong/git/trees/391ee48d3a68e8d0bbd0405ec1d02d75f768aa92?recursive=1\" --jq '.tree[].path' | grep -i mcp"
+      },
+      "own_cve": "CVE-2026-13341 — assigned by Kong against its own Konnect MCP server, published 2026-07-03, CVSS 7.4 HIGH: 'A vulnerability exists in the Kong Konnect Model Context Protocol (MCP) server prior to version 1.0.0, which could allow a remote attacker to perform an indirect prompt injection attack and execute unintended API requests.' The injected content arrives inside analytics data the tool RETURNS — the rear channel, not the user prompt (chapter 8 §6.2).",
+      "evidence_note": "The clearest commercial-tier row in the file: every MCP capability is Enterprise, and the OSS negative is machine-checkable in one call. Also the only vendor here that has filed a prompt-injection CVE against its own MCP server, which is a transparency signal, not a demerit.",
+      "sources": [
+        "https://developer.konghq.com/plugins/ai-mcp-proxy/",
+        "https://developer.konghq.com/plugins/ai-mcp-oauth2/",
+        "https://konghq.com/blog/product-releases/mcp-tool-acls-ai-gateway",
+        "https://www.cve.org/CVERecord?id=CVE-2026-13341",
+        "docs/mcp-agent-gateways.md"
+      ]
+    },
+    {
+      "gateway": "Tetrate Agent Router Service",
+      "repo": "n/a — SaaS",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "inherits_from": "Envoy AI Gateway — the vendor describes it as a managed fleet of that engine, so the Envoy AI Gateway row above is the best available proxy for its capabilities. We did NOT verify that the managed service exposes them, and a managed service can and does diverge from its upstream.",
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "commercial"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "commercial"},
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "commercial"},
+      "oauth_obo_token_exchange": {"value": "unknown", "tier": "commercial"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "commercial"},
+      "audit_of_tool_invocations": {"value": "unknown", "tier": "commercial"},
+      "what_we_tried": "Chapter 8 §9 records that router.tetrate.ai/pricing returned HTTP 404 on 2026-07-29, so even the pricing figure ('model cost plus a 5% fee') is blog/product-page sourced rather than from a live pricing page. No trial account was opened and no MCP endpoint was exercised. Capability verification for a SaaS requires either an account or vendor documentation at that level of detail, and neither was obtained.",
+      "evidence_note": "Listed in the MCP section while the open-source engine it resells is listed elsewhere — chapter 8 §9's point. Do not infer Envoy's default-Deny posture applies here without testing it.",
+      "sources": ["https://tetrate.io/products/tetrate-agent-router-service", "docs/mcp-agent-gateways.md"]
+    },
+    {
+      "gateway": "Zuplo AI Gateway",
+      "repo": "n/a — commercial platform",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "commercial"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "commercial"},
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "commercial"},
+      "oauth_obo_token_exchange": {"value": "unknown", "tier": "commercial"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "commercial"},
+      "audit_of_tool_invocations": {"value": "unknown", "tier": "commercial"},
+      "readme_claims_unverified": "Programmable policies: USD spend limits, prompt-injection detection, secret masking, MCP support — the repo's own list entry, restated here as a vendor claim, not as data.",
+      "what_we_tried": "Nothing beyond the repo's existing list entry. Chapter 8 does not source-read or vendor-doc-read Zuplo anywhere, so there was no evidence to carry through; no closed-source platform was exercised this pass.",
+      "sources": ["https://zuplo.com/ai-gateway"]
+    },
+    {
+      "gateway": "NetFoundry MCP/LLM Gateways",
+      "repo": "n/a — commercial platform",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "commercial"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "commercial"},
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "commercial"},
+      "oauth_obo_token_exchange": {"value": "unknown", "tier": "commercial"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "commercial"},
+      "audit_of_tool_invocations": {"value": "unknown", "tier": "commercial"},
+      "readme_claims_unverified": "Zero-trust gateways for AI deployments (launched June 2026).",
+      "what_we_tried": "Nothing beyond the repo's existing list entry; chapter 8 carries no NetFoundry evidence.",
+      "sources": ["https://netfoundry.io"]
+    },
+    {
+      "gateway": "AWS AgentCore Gateway",
+      "repo": "n/a — managed AWS service inside Bedrock AgentCore",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "commercial"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "commercial"},
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "commercial"},
+      "oauth_obo_token_exchange": {"value": "unknown", "tier": "commercial"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "commercial"},
+      "audit_of_tool_invocations": {"value": "unknown", "tier": "commercial"},
+      "what_we_tried": "Nothing beyond the repo's existing list entry; chapter 8 carries no AgentCore evidence. Adjacent AWS data point on record but NOT about this product: CVE-2026-15643 against the AWS HealthLake MCP Server (CVSS 9.2) appears in chapter 8 §8.1's NVD sweep.",
+      "sources": ["docs/mcp-agent-gateways.md"]
+    },
+    {
+      "gateway": "MetaMCP",
+      "repo": "metatool-ai/metamcp",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
+      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
+      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "what_we_tried": "One uniform probe, run 2026-07-29: GitHub code search for the literal '2026-07-28' scoped to the repo returned 0 hits, and a search for 'protocolVersion' also returned 0, at default-branch HEAD ff4ff2de9d25453c52dcc7be32680b30700a6012 (2026-06-22T16:50:48Z). Both are weak signals — code search covers the default branch and a project can implement a revision without the date string appearing. No source file was read. Named as a federating gateway in chapter 8 §8.3 (tool-name collision handling) but not source-read there.",
+      "sources": ["https://github.com/metatool-ai/metamcp"]
+    },
+    {
+      "gateway": "Microsoft MCP Gateway",
+      "repo": "microsoft/mcp-gateway",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
+      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
+      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' and 1 for 'protocolVersion' at default-branch HEAD 6f1b11afa3a8c852393e37c1105a1d56f89e2b59 (2026-06-26T23:51:11Z). No source read.",
+      "flag_for_reassessment": "The repo's list entry sells 'session-aware stateful routing' — the exact property the 2026-07-28 revision deleted (chapter 8 §7: 'Servers MUST NOT rely on prior requests over the same connection to establish context'). This is one of the two entries chapter 8 §7 says its demoted inference is directly testable against, and it says plainly: we have not tested it. Highest-value row in the not_assessed set.",
+      "sources": ["https://github.com/microsoft/mcp-gateway", "docs/mcp-agent-gateways.md"]
+    },
+    {
+      "gateway": "1MCP",
+      "repo": "1mcp-app/agent",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
+      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
+      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' but 52 for 'protocolVersion' at default-branch HEAD d31877a776828bb4d874670aa0e21839f670b992 (2026-07-27T15:21:17Z) — an actively version-aware codebase with no trace of the new revision at that HEAD. Suggestive of legacy-era only; NOT established, because code search does not prove absence. No source read. Named as a federating gateway in chapter 8 §8.3.",
+      "sources": ["https://github.com/1mcp-app/agent"]
+    },
+    {
+      "gateway": "mcpproxy-go",
+      "repo": "smart-mcp-proxy/mcpproxy-go",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "spec_revision": {
+        "revision_supported": "unknown — but the strongest positive signal in the not_assessed set",
+        "handles_2026_07_28_rewrite": "unknown",
+        "what_we_tried": "Uniform probe, 2026-07-29: 17 code-search hits for the literal '2026-07-28' and 28 for 'protocolVersion' at default-branch HEAD 255d11d8ba3a27fea3318074bd3960b81a7b41b8 (2026-07-29T08:39:38Z — committed the same day). The hits were NOT disambiguated between spec-revision constants and ordinary changelog dates, and code search covers the default branch, not a pinned commit. This is a lead, not a finding.",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
+      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
+      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "repo_sourced_claims_unverified": "Tool integrity checks plus auto-quarantine of newly-seen servers — chapter 8 §6.3 lists this as the direct answer to the Day-1/Day-7 tool-description rug pull, explicitly marked 'repo-sourced from the list, not source-read this pass'. Also named as a federating gateway in chapter 8 §8.3.",
+      "sources": ["https://github.com/smart-mcp-proxy/mcpproxy-go", "docs/mcp-agent-gateways.md"]
+    },
+    {
+      "gateway": "MCPJungle",
+      "repo": "mcpjungle/MCPJungle",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
+      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
+      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28', 7 for 'protocolVersion', at default-branch HEAD c2a2c8d9fba162c97ad043269ea0c7f3e347437e (2026-05-20T08:25:04Z) — the oldest HEAD of any GitHub-hosted entry in this file, predating the revision by two months. No source read.",
+      "sources": ["https://github.com/mcpjungle/MCPJungle"]
+    },
+    {
+      "gateway": "Obot",
+      "repo": "obot-platform/obot",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
+      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
+      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD eaabf13f780afba710b99aef27740112ea8e7531 (2026-07-29T02:09:20Z — same-day commit). No source read.",
+      "sources": ["https://github.com/obot-platform/obot"]
+    },
+    {
+      "gateway": "Director",
+      "repo": "fdmtl/director",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
+      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
+      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD d0f1fdf471098eaf3aa83508524fc6392ec0c7af (2026-07-10T06:22:20Z). No source read.",
+      "sources": ["https://github.com/fdmtl/director"]
+    },
+    {
+      "gateway": "Lasso MCP Gateway",
+      "repo": "lasso-security/mcp-gateway",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
+      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
+      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "repo_sourced_claims_unverified": "Plugin guardrails plus secret masking — chapter 8 §6.3, explicitly marked 'repo-sourced from the list, not source-read this pass'. Efficacy caveat applies (§6.1).",
+      "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD 7e7f1f6e5314819b3d0928128bb88eaea874b600 (2026-01-22T13:07:00Z) — six months stale, the least-recently-updated HEAD in this file. No source read.",
+      "sources": ["https://github.com/lasso-security/mcp-gateway", "docs/mcp-agent-gateways.md"]
+    },
+    {
+      "gateway": "Armorer Guard",
+      "repo": "ArmorerLabs/Armorer-Guard",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "claimed (wraps stdio servers) — unverified", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "claimed — unverified", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
+      "oauth_obo_token_exchange": {"value": "unknown — likely n/a: the spec says stdio implementations 'SHOULD NOT' follow the authorization specification and should retrieve credentials from the environment (chapter 8 §5.4)", "tier": "unknown"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
+      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "repo_sourced_claims_unverified": "Local Rust proxy that wraps stdio servers and inspects tool-call arguments for prompt injection, credential leakage, exfiltration and risky actions — chapter 8 §6.3, 'repo-sourced from the list, not source-read this pass'. Efficacy caveat applies (§6.1).",
+      "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD 674eb1009a56b50a54bc28163ea99e55c57f9d2a (2026-06-22T20:39:36Z). No source read.",
+      "sources": ["https://github.com/ArmorerLabs/Armorer-Guard", "docs/mcp-agent-gateways.md"]
+    },
+    {
+      "gateway": "fak",
+      "repo": "anthony-chaudhary/fak",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "spec_revision": {
+        "revision_supported": "unknown — second-strongest positive signal in the not_assessed set",
+        "handles_2026_07_28_rewrite": "unknown",
+        "what_we_tried": "Uniform probe, 2026-07-29: 9 code-search hits for the literal '2026-07-28' at default-branch HEAD 3769eb47ec970767d1e742424dbc286b8dc1c2ec (2026-07-29T09:05:56Z — committed hours before this file was written). Not disambiguated between spec-revision constants and dates. A lead, not a finding.",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {"value": "unknown — README claims a default-deny capability allow-list adjudicating every tool call", "default_posture": "claimed default-deny; unverified", "tier": "unknown (Apache-2.0 repo, single binary)"},
+      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
+      "audit_of_tool_invocations": {"value": "unknown — README claims an X-Trace-Id audit trail plus Prometheus /metrics", "tier": "unknown"},
+      "repo_sourced_claims_unverified": "Default-deny capability allow-list with quarantine of suspicious tool results out of the model's context — chapter 8 §6.3, 'repo-sourced from the list, not source-read this pass'. If verified, the default-deny claim would put it in the same posture class as Envoy AI Gateway and the opposite of agentgateway.",
+      "sources": ["https://github.com/anthony-chaudhary/fak", "docs/mcp-agent-gateways.md"]
+    },
+    {
+      "gateway": "Unla",
+      "repo": "AmoyLab/Unla",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
+      "oauth_obo_token_exchange": {"value": "unknown — README claims OAuth without naming a grant", "tier": "unknown"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
+      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD 96f0bb64ece764949fef2d6bce9c40bfc94110f9 (2026-06-08T05:31:53Z). No source read.",
+      "flag_for_reassessment": "The repo's list entry sells 'multi-tenant sessions' — the second of the two session-selling entries chapter 8 §7 identifies as directly testable against the statelessness change, and which it did not test.",
+      "sources": ["https://github.com/AmoyLab/Unla", "docs/mcp-agent-gateways.md"]
+    },
+    {
+      "gateway": "Jarvis Registry",
+      "repo": "ascending-llc/jarvis-registry",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "claimed (MCP-over-SSE/HTTP) — unverified", "legacy_sse": "claimed — unverified"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
+      "tool_level_authorization": {"value": "unknown — README claims tool-level RBAC/ACL, which if verified would be a genuine per-verb control", "default_posture": "unknown", "tier": "unknown"},
+      "oauth_obo_token_exchange": {"value": "unknown — README claims OAuth2/OIDC identity (Keycloak/Cognito/Entra) but names no exchange grant", "tier": "unknown"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
+      "audit_of_tool_invocations": {"value": "unknown — README claims OpenTelemetry/Prometheus observability, which is telemetry, not audit (chapter 8 §8.4)", "tier": "unknown"},
+      "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD cb8cdb8ed2ce56a3928b106aded77430ec8e3061 (2026-07-29T01:57:14Z — same-day commit). No source read.",
+      "sources": ["https://github.com/ascending-llc/jarvis-registry"]
+    },
+    {
+      "gateway": "MCP Gateway & Registry",
+      "repo": "agentic-community/mcp-gateway-registry",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "what_we_tried": "Uniform probe, 2026-07-29: 1 code-search hit for '2026-07-28' at default-branch HEAD 0d1e5bfe9d05102a2903954196c13d36690ed3c6 (2026-07-29T05:32:08Z — same-day commit). A single hit is as likely to be a changelog date as a constant; not disambiguated.", "tier": "unknown"},
+      "tool_level_authorization": {"value": "unknown — README claims fine-grained governance", "default_posture": "unknown", "tier": "unknown"},
+      "oauth_obo_token_exchange": {"value": "unknown — README claims an OAuth-protected endpoint but names no exchange grant", "tier": "unknown"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
+      "audit_of_tool_invocations": {"value": "unknown — README claims governance/audit; content unverified", "tier": "unknown"},
+      "sources": ["https://github.com/agentic-community/mcp-gateway-registry"]
+    },
+    {
+      "gateway": "Nexus (Grafbase)",
+      "repo": "Nexus-Router/nexus",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "claimed — unverified", "legacy_sse": "claimed — unverified"}, "upstream": {"stdio": "claimed (STDIO/SSE/HTTP aggregation) — unverified", "streamable_http": "claimed — unverified", "legacy_sse": "claimed — unverified"}, "tier": "unknown"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
+      "oauth_obo_token_exchange": {"value": "unknown — README claims OAuth2/TLS security but names no exchange grant", "tier": "unknown"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
+      "audit_of_tool_invocations": {"value": "unknown — README claims OpenTelemetry, which is telemetry, not audit", "tier": "unknown"},
+      "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD 70f9a2c915e432cabf13ddb2e301581235efccb9 (2025-10-21T13:08:58Z) — nine months stale, the oldest HEAD in this file. Named as a federating gateway in chapter 8 §8.3. No source read.",
+      "sources": ["https://github.com/Nexus-Router/nexus", "docs/mcp-agent-gateways.md"]
+    },
+    {
+      "gateway": "Open Connector",
+      "repo": "oomol-lab/open-connector",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
+      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown (Apache-2.0 repo)"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown — this is the row where the question matters most, since the product's stated job is governing agent-to-SaaS tool credentials across 1000+ providers", "value": "unknown", "tier": "unknown"},
+      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD 14eb1981bd858d446dc3c92c9cfc0d4849485ce2 (2026-07-29T10:17:52Z — the most recent HEAD of any entry in this file, committed while this file was being written). A zero hit count is a weak signal and is not recorded as a 'no'. No source file was read; chapter 8 carries no Open Connector evidence.",
+      "sources": ["https://github.com/oomol-lab/open-connector"]
+    },
+    {
+      "gateway": "toolport",
+      "repo": "tsouth89/toolport",
+      "readme_section": "MCP & agent gateways",
+      "verification": "not_assessed",
+      "not_assessed": true,
+      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
+      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
+      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown (MIT)"},
+      "secret_brokering": {"agent_holds_downstream_credential": "unknown — README claims secrets are kept in the OS keychain, which would put the credential in the local gateway rather than the agent process; unverified", "value": "unknown", "tier": "unknown"},
+      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "repo_sourced_claims_unverified": "Tool integrity checks plus quarantine of newly-seen servers — chapter 8 §6.3, 'repo-sourced from the list, not source-read this pass'. Also claims ~90% token savings from lazy tool discovery, which is the vendor's own figure and is not a security property.",
+      "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD 2f1ecf3223ff3e567da4a433bfa94aee36414cba (2026-07-29T05:06:12Z — same-day commit). Weak signal, not recorded as a 'no'. No source read.",
+      "sources": ["https://github.com/tsouth89/toolport", "docs/mcp-agent-gateways.md"]
+    }
+  ],
+  "category_findings": {
+    "authorization_default_is_the_real_axis": "Three verified rows, three different failure directions. agentgateway allows everything when its rule set is empty (rbac.rs:52-54). Envoy AI Gateway denies when no rule matches (+kubebuilder:default:=Deny). Docker MCP Gateway has no caller identity at all, so 'authorize' is not a question it can answer. Same category, two of the three under the same Apache-2.0 licence. No feature-matrix column captures this — read the default before the checkbox.",
+    "per_tool_enablement_is_not_per_tool_authorization": "The repo's list entries use 'per-tool access control' for both. Deployment-time enablement (Docker's --tools) answers 'which tools exist'; authorization (Pomerium's mcp_tool, Envoy's MCPRoute rules, ToolHive's Cedar, Kong's Consumer ACLs, Lunar's consumer ACLs) answers 'which caller'. Only the second survives a multi-tenant deployment.",
+    "audit_is_a_vendor_invention_everywhere": "MCP has no audit primitive — the entire spec requirement is one client-side SHOULD, 'Log tool usage for audit purposes', and with sessions removed there is no protocol-level conversation id to group calls by. Verified implementations differ enormously: Lunar MCPX persists a typed ToolUsedPayload with a consumerTag (caller attribution), Docker logs calls by default but has no caller, Kong logs allowed AND denied attempts but only under an Enterprise licence, and agentgateway, Pomerium, Envoy and ToolHive have no audit module we could find. W3C trace context (traceparent/tracestate/baggage as reserved _meta keys) standardises correlation but not content.",
+    "the_commercial_line_runs_through_products_not_between_them": "Archestra is the clearest case: its OBO and RFC 8693 token-exchange files carry `SPDX-License-Identifier: LicenseRef-Archestra-Enterprise` while its dual-LLM guardrail carries no SPDX header and takes the AGPL-3.0-only default. Kong is the opposite shape — the whole MCP capability is Enterprise and the OSS tree contains zero 'mcp' paths, which is machine-checkable in one call. Lunar MCPX is the unresolved case: MIT files, but a README that reserves production features for 'platform tiers' with no licence file gating anything.",
+    "spec_revision_is_now_partly_answered": "Chapter 8 §8.6 calls this the category's single highest-value unknown and declares every such claim INCONCLUSIVE. Six of 29 rows now have an answer, one day after the revision shipped. VERIFIED dual-era: agentgateway (is_modern_version + REMOVED_METHODS_2026_07_28, at chapter 8's own pin), ToolHive (pkg/mcp/revision.go: RevisionLegacy 2025-11-25 / RevisionModern 2026-07-28, at today's HEAD), Archestra (SUPPORTED_MCP_PROTOCOL_REVISIONS spanning both, plus mirrored headers, server/discover, -32020/-32022 and cacheScope — the most complete implementation read). EVIDENCED NOT YET: Lunar MCPX (SDK 1.29.0, still branching on isInitializeRequest), IBM ContextForge (the string appears only on its own roadmap, dated 'late Q3 2026'). STALE CONSTANT: Envoy AI Gateway (hard-coded 2025-06-18 in tracing, data path unproven). The remaining 23 rows are unknown, and a code-search miss is never recorded as a negative result. Note the shape of the answer: every verified implementation is DUAL-era, none is modern-only — exactly what chapter 8 §2.3 predicts from the twelve-month deprecation floor.",
+    "the_era_shim_is_open_source_even_where_the_product_is_not": "All three verified 2026-07-28 implementations are open source at the file level: agentgateway's under Apache-2.0, ToolHive's pkg/mcp/revision.go carries `SPDX-License-Identifier: Apache-2.0`, and Archestra's mcp-gateway.protocol.ts carries no SPDX header at all, so it takes the AGPL-3.0-only default — in the same repo where the OBO and RFC 8693 files are explicitly enterprise-licensed. Dual-era translation, the duty chapter 8 §1 ranks as durable through mid-2027, is not what anyone is charging for. Delegation is.",
+    "the_dominant_vulnerability_class_is_not_in_this_matrix": "Of the ~41 CVEs published in 2026 matching 'Model Context Protocol' (chapter 8 §8.1's own NVD query, method caveats stated there), the recurring root cause is DNS rebinding / missing Origin and Host validation — it hit the Rust SDK, the Go SDK and Google's MCP Toolbox independently. No amount of tool-level authorization in a gateway fixes it; it must be fixed at the MCP server or by never exposing servers directly. Docker MCP Gateway is the only row here whose own flag documentation names the mitigation (MCP_GATEWAY_AUTH_TOKEN for localhost auth 'to prevent dns rebinding attacks')."
+  },
+  "method": {
+    "what_counts_as_verified": "A capability is 'verified' only if we read the file at the named commit and can quote it, or a named vendor doc states it. Chapter 8's own source-reads are carried through WITH their pinned commits so a reader can re-check either.",
+    "what_we_did_this_pass": "Read ~20 files across 9 repos via the GitHub contents API on 2026-07-29, at chapter 8's pinned commits wherever chapter 8 had established the fact, and confirmed every claim carried through (agentgateway rbac.rs / oauth.rs / auth/mod.rs / mcp dir listing, Envoy mcp_route.go and tracing/mcp.go, Lunar auth.ts / env-var-manager.ts / permissions.ts / package-lock.json / downstream-transports.ts / audit-log-type.ts, Pomerium mcp_tool.go / evaluator/mcp.go / upstream_auth.go / internal/mcp listing, ToolHive virtualmcpserver_types.go, Docker mcp_gateway_run.md and mcp_policy.md, Archestra's three files, ContextForge README). Then a uniform low-cost probe against the un-source-read repos: one GitHub code search for the literal '2026-07-28' plus the default-branch HEAD sha and date, with the matching paths enumerated and the interesting files read wherever the hit count was non-trivial.",
+    "newly_established_beyond_chapter_8": [
+      "agentgateway speaks 2026-07-28 dual-era — at chapter 8's own pinned commit, in two files it did not open",
+      "ToolHive speaks 2026-07-28 dual-era — pkg/mcp/revision.go at today's HEAD",
+      "Archestra speaks 2026-07-28 dual-era, with the fullest feature coverage read (mirrored headers, server/discover, -32020/-32022, cacheScope, MRTR)",
+      "IBM ContextForge does NOT — the revision appears only on its roadmap, dated 'late Q3 2026' by the vendor",
+      "Lunar MCPX is legacy-era on two independent signals (SDK pin + isInitializeRequest branching)",
+      "Pomerium brokers upstream OAuth in the Apache-2.0 tree, and also ships CIMD and SSRF protection — chapter 8 had this as vendor-docs-only and 'not verified in this pass'",
+      "Docker MCP Gateway's downstream transports are documented (stdio default, sse, streaming) and it ships tool-call audit on by default (--log-calls true) — both blank or unlisted in chapter 8",
+      "agentgateway's BackendAuthKind::Passthrough 'Forward the validated incoming JWT to the backend' is a configurable mode that does the thing the spec's token non-passthrough MUST NOT forbids"
+    ],
+    "known_limits": "(1) GitHub code search covers the DEFAULT BRANCH, not a pinned commit, and cannot prove absence — a zero hit count is a weak signal and is never recorded as a 'no' anywhere in this file. (2) Three spec_revision cells (ToolHive, Archestra, IBM ContextForge) are anchored to today's default-branch HEAD rather than chapter 8's pinned commit, because that is where the evidence lives; each says so in place, and the two commits must not be merged. (3) The first probe run hit GitHub's 10-requests-per-minute code-search cap and was re-run at 15s pacing; all 27 GitHub-hosted rows were ultimately probed. (4) No gateway was exercised on the wire. Every 'handles_2026_07_28_rewrite' value is a source read, not a protocol test — chapter 8 §10 steps 3, 5 and 8 are the tests that would settle them and none has been run. (5) Kong's and Tetrate's vendor-doc cells were not re-fetched this pass; they carry chapter 8's 2026-07-29 retrieval. (6) The four closed-source rows (Zuplo, NetFoundry, AWS AgentCore, Tetrate) had no artefact to inspect at all — 'not_assessed' there means no method was available, not that one was skipped.",
+    "how_to_extend_this_file": "Highest value, in order. (1) Finish the spec_revision column: the probe leads not yet followed are mcpproxy-go (17 hits at HEAD 255d11d8) and fak (9 hits at HEAD 3769eb47) — enumerate the paths and read the constant, the same way ToolHive and Archestra were settled here. (2) Run chapter 8 §10 step 5 against Microsoft MCP Gateway and Unla, the two entries that sell sessions, and settle §7's demoted inference either way. (3) Source-read IBM ContextForge's X-Upstream-Authorization path — it is the cell in this file most likely to be revised, and it is currently the one row where the agent appears to hold the downstream credential. (4) Re-anchor ToolHive's and Archestra's non-revision cells to the newer commits so each row sits on one pin."
+  },
+  "corrections_to_chapter_8": [
+    {
+      "location": "docs/mcp-agent-gateways.md — key-numbers box (§ top) and Appendix 'Repo files'",
+      "claim": "'This repo lists **26** MCP & agent gateways (the MCP & agent gateways section, counted 2026-07-29)'",
+      "verdict": "WRONG — the section holds 27 entries, and held 27 at the commit that shipped the chapter",
+      "evidence": "`awk 'NR>=346 && NR<=380' README.md | grep -c '^- '` returns 27 on 2026-07-29 with a clean working tree. Re-counted at the chapter's own commit: `git show d18ebb0:README.md | awk '/^## 🤖 MCP & agent gateways/,/^## 🔧 More by capability/' | grep -c '^- '` also returns 27, so this was not entry drift after publication. The likely cause is that the sixth entry, 'AWS AgentCore Gateway', is the only one in the section with no markdown link, so a link-based count misses it.",
+      "appears_twice": true
+    },
+    {
+      "location": "docs/mcp-agent-gateways.md §8.6, first bullet, and §11 'Three things this chapter deliberately leaves open'",
+      "claim": "'Which MCP revision any listed gateway implements. No product was source-read for revision support in this pass. Every claim of the form \"gateway X supports 2026-07-28\" is INCONCLUSIVE'",
+      "verdict": "TRUE AS WRITTEN about the chapter's own pass, but materially overstated as a description of the category — the answer was already in the tree, including at the chapter's own pinned commit",
+      "evidence": "Three gateways are now source-verified dual-era and one is source-verified negative. (a) agentgateway: crates/agentgateway/src/mcp/mod.rs and crates/agentgateway/src/mcp/README.md at 7cd564709f4834962d411e7a6219b30febdbd02f — the chapter's OWN pin — carry is_modern_version(), REMOVED_METHODS_2026_07_28 and a 'Version Negotiation' design section explicitly about 2026-07-28. The chapter's appendix lists the files it read in that directory (rbac.rs, auth.rs, guardrails/mod.rs, upstream/*); mod.rs and README.md are not among them. (b) ToolHive: pkg/mcp/revision.go at ea71bd28 declares MCPVersionModern = '2026-07-28' and MCPVersionLegacy = '2025-11-25'. (c) Archestra: platform/backend/src/routes/mcp-gateway.protocol.ts at c6bc3e66 advertises both revisions and implements the mirrored headers, server/discover, -32020/-32022 and cacheScope. (d) IBM ContextForge: the string appears in exactly one file repo-wide, docs/docs/architecture/roadmap.md, under 'ContextForge 2.0 - Coming late Q3 2026' — a vendor-sourced negative.",
+      "severity": "not a factual error — the chapter scoped the claim to its own pass — but §11 promotes it to 'the single highest-value open question in this category right now', and for the three largest OSS entries it was answerable the same day from files the chapter had already pinned. The chapter should be narrowed to name which gateways remain open."
+    },
+    {
+      "location": "docs/mcp-agent-gateways.md §5.3, Pomerium row",
+      "claim": "RFC 8693 token exchange / OBO: 'not verified in this pass'; upstream credential sourced to vendor docs only",
+      "verdict": "The brokering half is now VERIFIED from source at the chapter's own pinned commit; the RFC 8693 half stands as not-found",
+      "evidence": "internal/mcp/upstream_auth.go at abbc8bf07c5b02c78a58385cf9ab36710b58fce0 defines UpstreamAuthHandler, which 'handles token injection on the request path and 401/403 interception on the response path. All upstream auth modes (auto-discovery, pre-registered, fully static) use a unified UpstreamMCPToken storage path.' The directory also holds handler_client_oauth_callback.go, handler_token.go, token.go, storage.go, cipher.go, handler_cimd.go, client_id_metadata.go and ssrf.go."
+    },
+    {
+      "location": "docs/mcp-agent-gateways.md §9 transport table, Docker MCP Gateway row; and §8.4",
+      "claim": "Docker MCP Gateway's downstream (client-facing) transport cell is left blank; §8.4 names only Lunar MCPX and Kong as shipping tool-invocation audit",
+      "verdict": "INCOMPLETE — both are documented in the vendor's own flag reference at the chapter's pinned commit",
+      "evidence": "docs/generator/reference/mcp_gateway_run.md at 2bd20fe83dd04870e8d87dc1ed059d4d19fc7c68: `--transport` string default `stdio`, 'stdio, sse or streaming. Uses MCP_GATEWAY_AUTH_TOKEN environment variable for localhost authentication to prevent dns rebinding attacks.'; and `--log-calls` bool default `true`, 'Log calls to the tools'."
+    },
+    {
+      "location": "docs/mcp-agent-gateways.md §8.6, Lunar MCPX SDK data point",
+      "claim": "'Lunar MCPX resolves @modelcontextprotocol/sdk 1.29.0 for mcpx-server in package-lock.json'",
+      "verdict": "CORRECT — re-checked and confirmed, with one nuance worth carrying",
+      "evidence": "At c825cce7de2192b1e36c5ac7d6f333bde02a4579, mcpx/package-lock.json resolves packages/mcpx-server/node_modules/@modelcontextprotocol/sdk to 1.29.0 exactly as stated (shared-model and webapp-protocol also 1.29.0). The nuance: the hoisted root node_modules/@modelcontextprotocol/sdk is 1.26.0, so a naive top-level grep of that lockfile returns the wrong number — the same class of lockfile false positive the chapter itself documents for agentgateway's rmcp in §8.5."
+    }
+  ]
+}

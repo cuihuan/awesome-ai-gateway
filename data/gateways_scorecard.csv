@@ -14,11 +14,11 @@ OpenAI (direct),first-party,False,4.0,n/a,4.0,4.0,4.0,
 Portkey Gateway (OSS),self-hosted,True,3.0,$0,4.0,4.0,2.0,
 Kong AI Gateway,self-hosted,True,3.5,$0 core,4.0,4.0,3.5,
 Envoy AI Gateway,self-hosted,True,3.0,$0,4.0,4.0,4.0,
-Bifrost (Maxim),self-hosted,True,3.0,$0,3.5,4.5,5.0,
+Bifrost (Maxim),self-hosted,True,3.0,$0,3.5,4.5,5.0,"CVE-2026-55245 (SSRF deny-list gaps, high, fixed 1.5.16)"
 TensorZero,self-hosted,True,3.0,$0,3.0,4.0,4.5,
 Higress,self-hosted,True,3.0,$0,3.5,4.0,4.5,
 Apache APISIX,self-hosted,True,3.0,$0,3.0,4.0,3.5,
-LiteLLM,self-hosted,True,3.0,$0,2.5,4.0,5.0,"CVE-2026-42208 (pre-auth SQLi); CVE-2026-42271 (unauth RCE, CISA KEV)"
+LiteLLM,self-hosted,True,3.0,$0,2.5,4.0,5.0,"CVE-2026-49468 (Host-header auth bypass, critical, fixed 1.84.0); CVE-2026-42208 (pre-auth SQLi, critical, fixed 1.83.7); CVE-2026-35030 (OIDC cache-collision auth bypass, critical, fixed 1.83.0); CVE-2026-42271 (unauth RCE, CISA KEV, fixed 1.83.7); CVE-2026-59822 (MCP OAuth2 bypass, high, fixed 1.84.0)"
 GPT-Load,self-hosted,True,2.0,$0,2.5,3.5,1.5,
 new-api,self-hosted,True,2.0,$0,1.5,3.0,2.5,CVE-2026-30886 (IDOR auth-bypass); CVE-2026-42339 (SSRF); CVE-2025-59146 (SSRF); CVE-2026-25591 (SQLi/DoS)
 one-api,self-hosted,True,2.0,$0,2.0,2.5,2.0,

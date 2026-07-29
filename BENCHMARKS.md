@@ -258,7 +258,7 @@ This is the part buyers actually lose sleep over. Models are interchangeable; th
 | **new-api** | ★★🏠 | ★½ ⚠️ | ★★★ | ★★½ | ~38k★ & active, but **cluster of 2026 CVEs** (IDOR/SSRF/SQLi) — sandbox + patch fast |
 | **one-api** | ★★🏠 | ★★ | ★★½ | ★★ | The MIT original; maintenance slowed — new-api is the more active successor |
 
-> ⚠️ **CVE honesty.** Popularity makes OSS gateways targets. LiteLLM (pre-auth SQLi + unauth RCE) and new-api (IDOR/SSRF/SQLi) both had serious 2026 advisories — *patched*, but the lesson is: pin to current stable, restrict egress, and don't expose the admin panel publicly. Absence of found CVEs (Bifrost, TensorZero, Higress, Envoy, GPT-Load) ≠ proven-secure; it can mean less scrutiny.
+> ⚠️ **CVE honesty.** Popularity makes OSS gateways targets. LiteLLM (pre-auth SQLi + unauth RCE) and new-api (IDOR/SSRF/SQLi) both had serious 2026 advisories — *patched*, but the lesson is: pin to current stable, restrict egress, and don't expose the admin panel publicly. Absence of found CVEs (TensorZero, Higress, Envoy, GPT-Load) ≠ proven-secure; it can mean less scrutiny.
 
 > 📊 **Obsv column** = the five-pillar observability score from the rubric; per-gateway evidence (which pillars, which docs) is machine-readable in [`data/gateways_eval.json`](data/gateways_eval.json). Standouts: **LiteLLM / Bifrost / Cloudflare / Portkey cloud** cover all five pillars; **Portkey OSS v1.x ships near-zero observability** (its telemetry lands in the unreleased 2.0 branch); **Envoy AI Gateway** is the strongest standards-first pick (OTel GenAI-semconv, no UI); CN-panel gateways (new-api/one-api/GPT-Load) invert — strong billing UI, no Prometheus/OTel.
 

@@ -258,7 +258,7 @@
 | **new-api** | ★★🏠 | ★½ ⚠️ | ★★★ | ★★½ | ~38k★ 且活跃，但 **2026 年一串 CVE**（IDOR/SSRF/SQLi）——隔离 + 尽快打补丁 |
 | **one-api** | ★★🏠 | ★★ | ★★½ | ★★ | MIT 元祖；维护放缓——new-api 是更活跃的继任者 |
 
-> ⚠️ **CVE 诚实披露。** 越流行的开源网关越是攻击目标。LiteLLM（预鉴权 SQLi + 未鉴权 RCE）和 new-api（IDOR/SSRF/SQLi）2026 年都有严重通告——*已修复*，但教训是：锁定到最新 stable、限制出站、别把管理后台暴露到公网。没发现 CVE（Bifrost、TensorZero、Higress、Envoy、GPT-Load）≠ 已证明安全，也可能只是关注度低。
+> ⚠️ **CVE 诚实披露。** 越流行的开源网关越是攻击目标。LiteLLM（2026 年 12 条公告、3 条 critical,含预鉴权 SQLi 与进了 CISA KEV 的未鉴权 RCE）和 new-api（IDOR/SSRF/SQLi）都有严重通告——*已修复*，但教训是：锁定到最新 stable、限制出站、别把管理后台暴露到公网。没发现 CVE（TensorZero、Higress、Envoy、GPT-Load）≠ 已证明安全,也可能只是关注度低。
 
 > ⏱️ **网关开销,独立实测。** 厂商们的开销宣传互相矛盾（微秒级 vs 毫秒级）且无第三方数据——本项目直接测：可复现基准（mock OpenAI 上游、轮次交错、中位数的中位数；无需任何 API key），每月在同一中立 CI 跑机上跑。2026-07 结果，每请求增加：**Bifrost 0.62 ms**（IQR 0.59–0.78）· **Portkey Gateway OSS v1.15.2 2.65 ms**（2.57–2.83）· **LiteLLM v1.91.1 5.83 ms**（5.55–5.86）。对照营销读：Bifrost「最快」方向属实（比 LiteLLM 低 ~10×——不是宣传的 50×，那说的是负载吞吐）；Portkey「<1ms」在共享 CI 硬件上未复现（快桌面机上能到 0.47ms）。数据：[`llm-gateway-bench/data/overhead.json`](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json) · [方法学](https://github.com/cuihuan/llm-gateway-bench/blob/main/docs/methodology.md)——欢迎 PR 加测 Kong/Envoy/Higress。
 
