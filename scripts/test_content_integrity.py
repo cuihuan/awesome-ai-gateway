@@ -50,7 +50,9 @@ def _strip_code(text: str) -> str:
     rather than deleted, so removing them can't fuse two words into a
     false "doubled word" or two dashes into a false empty pair."""
     text = re.sub(r"```.*?```", "\n", text, flags=re.S)
-    return re.sub(r"`[^`\n]*`", "CODE", text)
+    # A non-word placeholder: two adjacent inline-code spans must not read as
+    # a doubled word, and a stripped span must not fuse its neighbours.
+    return re.sub(r"`[^`\n]*`", "\u27e6c\u27e7", text)
 
 
 class TestNoEditDamage(unittest.TestCase):
