@@ -515,25 +515,25 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 
 ### 🔒 谁看得到你的 prompt？—— 数据留存矩阵
 
-_第一大信任问题，而全网没有一份中立的跨厂商答案。这里有一份，全部来自一手来源（[机器可读](data/data_retention.json)，<!--rvd-->2026-07-08<!--/rvd--> 核验）。自托管网关不列——数据面你自己掌控。_
+_第一大信任问题，而全网没有一份中立的跨厂商答案。这里有一份，全部来自一手来源（[机器可读](data/data_retention.json)，<!--rvd-->2026-07-29<!--/rvd--> 核验）。自托管网关不列——数据面你自己掌控。_
 
 | 托管网关 | 默认记录正文 | ZDR / 无日志 | 训练你的 prompt | 默认留存 |
 |---|---|---|---|---|
-| [Vercel AI Gateway](https://vercel.com/docs/ai-gateway/security-and-compliance/zdr) | ❌ 否 | ✅ **默认**（自身层） | ❌ 否（自身）；上游需开过滤 | 0 天（自身层） |
+| [Vercel AI Gateway](https://vercel.com/docs/ai-gateway/security-and-compliance/zdr) | ❌ 否 | ⚠️ 拆开看：自身层 ✅ 免费默认；**上游** ZDR 属 Pro/企业版 + $0.10/千次请求 | ❌ 否（自身）；上游需开过滤 | 自身层 0 天；被 ZDR 排除的模型 30 天 |
 | [Eden AI](https://www.edenai.co/privacy) | ❌ 否 | ✅ **默认** | ❌ 否（自身） | 处理后不留存 |
 | [Requesty](https://www.requesty.ai/security) | ❌ 否（正文） | ✅ **默认** | ❌ 否（自身）；上游需开 | 0 天（开日志则欧盟 30 天） |
-| [OpenRouter](https://openrouter.ai/privacy) | ❌ 否 | ✅ 可选开（`zdr:true`，全局/单请求） | ❌ 否（自身）；⚠️ **看上游**（免费线路可能训练） | 0 天，除非你开日志 |
-| [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/observability/logging/) | ✅ **是** | ⚠️ 仅可关（无正式 ZDR） | ❔ 未说明 | 按存储上限 |
+| [OpenRouter](https://openrouter.ai/privacy) | ❌ 否 | ✅ 可选开（`zdr:true`，全局/单请求） | ❌ 否（自身）；⚠️ **取决于上游**（免费/付费为两套隐私设置，务必逐一确认） | 0 天，除非你开日志 |
+| [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/observability/logging/) | ✅ **是** | ✅ 可自助开启（`zdr:true`/请求头）——**仅 OpenAI + Anthropic**，其他厂商静默回落 | ❌ 否（Trust Hub，附「未经客户同意」限定语） | 按存储上限 |
 | [Portkey（云）](https://portkey.ai/docs/introduction/what-is-portkey) | ✅ **是** | ⚠️ 可选开关（完整"不存"需销售开通） | ❔ 未说明 | 免费 3 天 · 生产 30 天 |
-| [Helicone（云）](https://docs.helicone.ai/features/advanced-usage/omit-logs) | ✅ **是**（日志代理） | ⚠️ 仅 omit 头，无品牌 ZDR | ❔ 未说明（2023-24 法律文件未涉及） | 免费 7 天 → 可配 |
+| [Helicone（云）](https://docs.helicone.ai/features/advanced-usage/omit-logs) | ✅ **是**（日志代理） | ⚠️ 仅 omit 头，无品牌 ZDR | ❔ 未说明（2023-24 法律文件未涉及） | 免费 7 天 · Pro 1 月 · Team 3 月 · 企业版**永久** |
 | [Martian](https://www.withmartian.com/terms-of-service) | ❔ 未说明 | ❌ **未说明** | 🔴 **是——按 ToS**（授权用你的 Input Data 训练其模型） | 未说明 |
 
 | 原厂云 | 默认记录正文 | ZDR | 训练你的 prompt | 默认留存 |
 |---|---|---|---|---|
-| [AWS Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/data-retention.html) | ❌ 否（默认关） | ✅ 可配（`data_retention_mode: none`） | ❌ 否（除非开 `provider_data_share`） | 0 天 |
+| [AWS Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/data-retention.html) | ⚠️ **取决于模型**——默认 `inherit`，并非零留存 | ⚠️ 可配置（`data_retention_mode: none`）——强制留存的模型需申请审批 | ❌ 否（除非开 `provider_data_share`） | 仅在你设置且获准 `none` 时为 0 天 |
 | [Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/data-privacy) | ⚙️ 仅人工复核标记内容 | ⚠️ 需审批（Limited Access 申请） | ❌ 否 | 有条件（⚠️ 旧的"30 天"表述已于 2025-10 移除） |
-| [Google Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance) | ⚙️ 可配——⚠️ **非发票制标准账号会被记录** | ⚠️ 可选开/企业级（关缓存 + 发票制计费） | ❌ 否 | 滥用日志 90 天 · 缓存 24 小时 · 全 ZDR 下 0 天 |
-| [OpenAI（直连 API）](https://developers.openai.com/api/docs/guides/your-data) | ✅ **是**（30 天滥用监控） | ⚠️ 需审批（走销售） | ❌ 否（API，自 2023 起） | 30 天——⚠️ **但受 NYT 法院保全令**，尽管承诺 30 天删除，API 内容正被强制保留 |
+| [Google Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention) | ⚙️ 可配置——⚠️ 分界在**合同**：GCP 服务条款客户在范围内，Master Agreement 客户默认豁免 | ⚠️ 需申请/企业版——⚠️ 对「Advanced AI」模型**被覆盖**（30 天滥用日志） | ❌ 否 | 滥用日志 90 天 · 缓存 24 小时 · Advanced-AI 附录下 30 天 · 其余才 0 天 |
+| [OpenAI（直连 API）](https://developers.openai.com/api/docs/guides/your-data) | ✅ **是**（30 天滥用监控） | ⚠️ 需审批（走销售） | ❌ 否（API，自 2023 起） | 30 天——✅ 纽约时报案**向前保全令已于 2025-09-26 终止**；残留保全与 Safety Retention 仍在 |
 
 > **所有人都漏掉的两点：** (1) **在任何路由上，你的真实暴露面取决于你路由到的_上游_，而非路由自身的政策**——"默认 ZDR"的路由，只要不开 ZDR-only / 禁训练过滤，照样会打到会留存（或训练）的上游。(2) **"30 天后删除"未必有约束力**——OpenAI 的 API 删除当前被法院保全令覆盖，Azure 也悄悄撤掉了 30 天承诺。真要紧时，把 ZDR 写进_合同_，并读你具体上游端点的政策，而不是看门面营销。逐行证据 + 来源链接见 [`data/data_retention.json`](data/data_retention.json)。
 

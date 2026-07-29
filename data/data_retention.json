@@ -1,6 +1,6 @@
 {
   "_comment": "Data-retention / logging / ZDR posture per hosted gateway and first-party model cloud, from primary sources (official docs, privacy policies, DPAs). Answers 'who sees/logs/trains on my prompts through this gateway?'. Self-hosted gateways are omitted: you own the data plane, so retention is whatever you configure. 'not documented' = the official docs are silent, NOT 'no'. On every router, real exposure is set by the UPSTREAM you route to, not just the router's own policy — enable a ZDR-only / no-training-providers filter, don't just trust the router. Verify against live policy before an audit.",
-  "as_of": "2026-07-08",
+  "as_of": "2026-07-29",
   "legend": {
     "logs_bodies_by_default": "does it store prompt+completion bodies by default? yes | no | configurable | not documented",
     "zdr": "zero-data-retention / no-log mode: default | opt-in (self-serve) | approval-gated | none | not documented",
@@ -8,17 +8,164 @@
     "retention": "stated retention of prompt/response bodies"
   },
   "gateways": [
-    {"name": "Cloudflare AI Gateway", "type": "hosted", "logs_bodies_by_default": "yes", "zdr": "opt-in (self-serve opt-out; no formal ZDR mode)", "trains_on_prompts": "not documented", "retention": "storage-limit based (Free 100k logs/acct, Paid 10M/gateway), no time period", "caveat": "Bodies persist by default — you must opt out (`cf-aig-collect-log-payload: false`); no documented ZDR guarantee or training statement.", "sources": ["https://developers.cloudflare.com/ai-gateway/observability/logging/", "https://developers.cloudflare.com/ai-gateway/reference/limits/"]},
-    {"name": "Portkey (cloud)", "type": "hosted", "logs_bodies_by_default": "yes", "zdr": "opt-in (self-serve `x-portkey-debug:false`; full 'nothing stored' is sales-gated)", "trains_on_prompts": "not documented", "retention": "3d free / 30d Production / custom Enterprise", "caveat": "Self-serve toggle suppresses log payloads; the strongest 'nothing stored' guarantee is enablement-on-request.", "sources": ["https://portkey.ai/docs/introduction/what-is-portkey", "https://portkey.ai/pricing"]},
-    {"name": "Vercel AI Gateway", "type": "hosted", "logs_bodies_by_default": "no", "zdr": "default (own layer); enforce upstream-ZDR via toggle/per-request", "trains_on_prompts": "no (own); upstream opt-in filter (`disallowPromptTraining:true`)", "retention": "0d at gateway layer; upstreams vary", "caveat": "'ZDR by default' = Vercel's own handling only; requests can still hit non-ZDR upstreams unless you enable the filters. Team-wide ZDR + training controls launched 2025-26.", "sources": ["https://vercel.com/docs/ai-gateway/security-and-compliance/zdr", "https://vercel.com/docs/ai-gateway/security-and-compliance/disallow-prompt-training"]},
-    {"name": "Helicone (cloud)", "type": "hosted", "logs_bodies_by_default": "yes", "zdr": "none (branded); omit headers `Helicone-Omit-Request/Response:true`", "trains_on_prompts": "not documented", "retention": "7d free / 1mo Pro / 3mo Team / configurable Enterprise", "caveat": "It's a logging proxy — stores bodies by default. Retention numbers live only on the pricing page; binding legal docs are 2023-24 vintage and silent on LLM data/training.", "sources": ["https://docs.helicone.ai/features/advanced-usage/omit-logs", "https://www.helicone.ai/pricing"]},
-    {"name": "Requesty", "type": "hosted", "logs_bodies_by_default": "no", "zdr": "default (self-serve)", "trains_on_prompts": "no (own); upstream opt-in per project", "retention": "0d default; 30d encrypted (EU) if logging enabled; upstreams vary", "caveat": "Router defaults to no body storage, but enabling logging or routing to a retaining upstream means prompts persist downstream.", "sources": ["https://www.requesty.ai/security", "https://www.requesty.ai/privacy/subprocessors"]},
-    {"name": "OpenRouter", "type": "hosted", "logs_bodies_by_default": "no", "zdr": "opt-in (self-serve: global / per-model-group / per-request `zdr:true`)", "trains_on_prompts": "no (own); upstream-depends — some free-tier routes train", "retention": "0d unless prompt-logging opted in; upstream shown per-endpoint", "caveat": "Opt-outs govern WHICH upstreams get data, not what they do — verify the specific endpoint; free-tier routes can still train. Policy actively maintained (updated 2026-07-06).", "sources": ["https://openrouter.ai/privacy", "https://openrouter.ai/docs/guides/features/zdr"]},
-    {"name": "Eden AI", "type": "hosted", "logs_bodies_by_default": "no", "zdr": "default", "trains_on_prompts": "no (own); upstream = customer's responsibility", "retention": "not retained after processing (only billing/security metadata)", "caveat": "ZDR covers Eden AI's own layer only; the chosen upstream's practices are separate and explicitly excluded from Eden AI's responsibility.", "sources": ["https://www.edenai.co/privacy", "https://www.edenai.co/dpa"]},
-    {"name": "Martian", "type": "hosted", "logs_bodies_by_default": "not documented", "zdr": "not documented", "trains_on_prompts": "yes-by-tos", "retention": "not documented ('as long as you use our Services')", "caveat": "⚠️ Public ToS defines 'Customer Materials' to include your Input Data and grants Martian a license to use it 'to train and improve Martian's models' — no documented opt-out or ZDR toggle; only relief is a negotiated DPA. Do not send sensitive prompts without one.", "sources": ["https://www.withmartian.com/terms-of-service", "https://withmartian.com/privacy-policy"]},
-    {"name": "Azure OpenAI", "type": "first-party", "logs_bodies_by_default": "configurable (only human-review-flagged content stored)", "zdr": "approval-gated (Modified Abuse Monitoring; Limited Access form)", "trains_on_prompts": "no (not used to train foundation models; not shared with OpenAI)", "retention": "no fixed day-count on current pages (the previously-documented 30-day figure is gone)", "caveat": "⚠️ CHANGED 2025-26: rebranded 'Foundry Models sold by Azure' (Oct 2025); the '30 days' figure is no longer stated — storage now conditional on abuse-flagging, ZDR via approval only.", "sources": ["https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/abuse-monitoring", "https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/data-privacy"]},
-    {"name": "AWS Bedrock", "type": "first-party", "logs_bodies_by_default": "no", "zdr": "config via API (`data_retention_mode: none`)", "trains_on_prompts": "no (providers can't access prompts/completions); except opt-in `provider_data_share` models", "retention": "0d default; up to 30d if `provider_data_share`; your own logs persist until deleted", "caveat": "New 2025-26 retention-mode system; some newer models REQUIRE `provider_data_share` and are blocked under `none` — ZDR and model access can conflict per-model.", "sources": ["https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html", "https://docs.aws.amazon.com/bedrock/latest/userguide/data-retention.html"]},
-    {"name": "Google Vertex AI", "type": "first-party", "logs_bodies_by_default": "configurable (⚠️ standard non-invoiced accounts ARE logged for abuse monitoring)", "zdr": "opt-in / enterprise-gated (disable caching + invoiced billing; DPA amendment)", "trains_on_prompts": "no (not used to train foundation models without permission)", "retention": "abuse logs up to 90d; default I/O caching up to 24h; 0d under full ZDR config", "caveat": "The permissive default is for enterprise/invoiced accounts; standard GCP-ToS accounts WITHOUT invoiced billing get prompts logged (up to 90d) unless they file the opt-out form, and caching must be disabled separately.", "sources": ["https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance", "https://cloud.google.com/vertex-ai/generative-ai/docs/learn/abuse-monitoring"]},
-    {"name": "OpenAI (direct API)", "type": "first-party", "logs_bodies_by_default": "yes (30-day abuse monitoring)", "zdr": "approval-gated (via sales; then `store` is always false)", "trains_on_prompts": "no (API data not used to train, since 2023-03-01, unless you opt in — differs from ChatGPT consumer)", "retention": "30d default; 0d with approved ZDR — but see caveat", "caveat": "⚠️ NYT v. OpenAI preservation order (May 2025, affirmed Jun 2025, narrowed Sep 2025) forces OpenAI to PRESERVE output-log data — including API content normally deleted at 30d — under legal hold. Not reflected in the standard data-usage doc; the '0/30-day' deletion promise is currently subject to a litigation override for affected data.", "sources": ["https://developers.openai.com/api/docs/guides/your-data", "https://openai.com/index/response-to-nyt-data-demands/"]}
+    {
+      "name": "Cloudflare AI Gateway",
+      "type": "hosted",
+      "logs_bodies_by_default": "yes",
+      "zdr": "opt-in (self-serve) — a formal ZDR mode now exists: dashboard Settings toggle, API `zdr:true`, or per-request `cf-aig-zdr` header. Two hard limits: it is scoped to Unified Billing traffic and covers OpenAI + Anthropic only; enabling it for an unsupported provider silently falls back to the standard non-ZDR path",
+      "trains_on_prompts": "no (now documented, company-wide Trust Hub rather than product docs): Cloudflare states it does not use customer content to train LLMs, and does not use Customer Content to train ML-based products \"without customer consent\" — note that qualifier, and that the same page reserves the right to train its WAF models on transiting data samples",
+      "retention": "storage-limit based (Free 100k logs/acct, Paid 10M/gateway), no time period",
+      "caveat": "Bodies persist by default — you must opt out (`cf-aig-collect-log-payload: false`); no documented ZDR guarantee or training statement.",
+      "sources": [
+        "https://developers.cloudflare.com/ai-gateway/observability/logging/",
+        "https://developers.cloudflare.com/ai-gateway/reference/limits/",
+        "https://www.cloudflare.com/trust-hub/"
+      ]
+    },
+    {
+      "name": "Portkey (cloud)",
+      "type": "hosted",
+      "logs_bodies_by_default": "yes",
+      "zdr": "opt-in (self-serve `x-portkey-debug:false`; full 'nothing stored' is sales-gated)",
+      "trains_on_prompts": "not documented",
+      "retention": "3d free / 30d Production / custom Enterprise",
+      "caveat": "Self-serve toggle suppresses log payloads; the strongest 'nothing stored' guarantee is enablement-on-request.",
+      "sources": [
+        "https://portkey.ai/docs/introduction/what-is-portkey",
+        "https://portkey.ai/pricing"
+      ]
+    },
+    {
+      "name": "Vercel AI Gateway",
+      "type": "hosted",
+      "logs_bodies_by_default": "no",
+      "zdr": "split: Vercel's OWN layer is ZDR at no cost and needs no action; enforcing ZDR on the **upstream** is Pro/Enterprise-only, off by default, and metered ($0.10 / 1,000 requests team-wide)",
+      "trains_on_prompts": "no (own); upstream opt-in filter (`disallowPromptTraining:true`)",
+      "retention": "0d at the gateway layer; upstreams vary — 30d for the models carved out of ZDR entirely",
+      "caveat": "⚠️ Upstream ZDR **fails open**: Vercel's docs say models or features excluded from a provider's ZDR policy are not blocked — the request still runs. `anthropic/claude-fable-5` supports ZDR on no provider at all (Anthropic, Vertex or Bedrock); its prompts and completions are retained 30 days (not used to train Claude). BYOK requests are skipped by the ZDR filter unless individually marked ZDR-compliant. The separate no-training filter IS free and universal, but is also off by default.",
+      "sources": [
+        "https://vercel.com/docs/ai-gateway/security-and-compliance/zdr",
+        "https://vercel.com/docs/ai-gateway/security-and-compliance/disallow-prompt-training"
+      ]
+    },
+    {
+      "name": "Helicone (cloud)",
+      "type": "hosted",
+      "logs_bodies_by_default": "yes",
+      "zdr": "none (branded); omit headers `Helicone-Omit-Request/Response:true`",
+      "trains_on_prompts": "not documented",
+      "retention": "7d Hobby (free) / 1mo Pro / 3mo Team / **Forever** on Enterprise (configurable retention is sold as an Enterprise add-on)",
+      "caveat": "It's a logging proxy — stores bodies by default. Retention numbers live only on the pricing page; binding legal docs are 2023-24 vintage and silent on LLM data/training.",
+      "sources": [
+        "https://docs.helicone.ai/features/advanced-usage/omit-logs",
+        "https://www.helicone.ai/pricing"
+      ]
+    },
+    {
+      "name": "Requesty",
+      "type": "hosted",
+      "logs_bodies_by_default": "no",
+      "zdr": "default (self-serve)",
+      "trains_on_prompts": "no (own); upstream opt-in per project",
+      "retention": "0d default; 30d encrypted (EU) if logging enabled; upstreams vary",
+      "caveat": "Router defaults to no body storage, but enabling logging or routing to a retaining upstream means prompts persist downstream.",
+      "sources": [
+        "https://www.requesty.ai/security",
+        "https://www.requesty.ai/privacy/subprocessors"
+      ]
+    },
+    {
+      "name": "OpenRouter",
+      "type": "hosted",
+      "logs_bodies_by_default": "no",
+      "zdr": "opt-in (self-serve: global / per-model-group / per-request `zdr:true`)",
+      "trains_on_prompts": "no (own policy); upstream-depends — OpenRouter documents separate privacy settings for free vs paid models, which is why free routes need checking; it does not itself state that free routes train, so treat that as inference, not vendor text",
+      "retention": "0d unless prompt-logging opted in; upstream shown per-endpoint",
+      "caveat": "Opt-outs govern WHICH upstreams get data, not what they do — verify the specific endpoint; free-tier routes can still train. Policy actively maintained (updated 2026-07-06).",
+      "sources": [
+        "https://openrouter.ai/privacy",
+        "https://openrouter.ai/docs/guides/features/zdr"
+      ]
+    },
+    {
+      "name": "Eden AI",
+      "type": "hosted",
+      "logs_bodies_by_default": "no",
+      "zdr": "default",
+      "trains_on_prompts": "no (own); upstream = customer's responsibility",
+      "retention": "not retained after processing (only billing/security metadata)",
+      "caveat": "ZDR covers Eden AI's own layer only; the chosen upstream's practices are separate and explicitly excluded from Eden AI's responsibility.",
+      "sources": [
+        "https://www.edenai.co/privacy",
+        "https://www.edenai.co/dpa"
+      ]
+    },
+    {
+      "name": "Martian",
+      "type": "hosted",
+      "logs_bodies_by_default": "not documented",
+      "zdr": "not documented",
+      "trains_on_prompts": "yes-by-tos",
+      "retention": "not documented ('as long as you use our Services')",
+      "caveat": "⚠️ Public ToS defines 'Customer Materials' to include your Input Data and grants Martian a license to use it 'to train and improve Martian's models' — no documented opt-out or ZDR toggle; only relief is a negotiated DPA. Do not send sensitive prompts without one.",
+      "sources": [
+        "https://www.withmartian.com/terms-of-service",
+        "https://withmartian.com/privacy-policy"
+      ]
+    },
+    {
+      "name": "Azure OpenAI",
+      "type": "first-party",
+      "logs_bodies_by_default": "configurable (only human-review-flagged content stored)",
+      "zdr": "approval-gated (Modified Abuse Monitoring; Limited Access form)",
+      "trains_on_prompts": "no (not used to train foundation models; not shared with OpenAI)",
+      "retention": "no fixed day-count on current pages (the previously-documented 30-day figure is gone)",
+      "caveat": "⚠️ CHANGED 2025-26: rebranded 'Foundry Models sold by Azure' (Oct 2025); the '30 days' figure is no longer stated — storage now conditional on abuse-flagging, ZDR via approval only.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/abuse-monitoring",
+        "https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/limited-access",
+        "https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/data-privacy"
+      ]
+    },
+    {
+      "name": "AWS Bedrock",
+      "type": "first-party",
+      "logs_bodies_by_default": "depends on the model — ⚠️ the account/project default is `inherit`, NOT zero retention: the effective mode is the first non-inherit value up the project → account → model-default chain, and under `default` AWS may retain data for abuse prevention",
+      "zdr": "config via API (`data_retention_mode: none`) for most models, but **approval-gated** for models that require retention — AWS evaluates ZDR access per account and per model via your account manager",
+      "trains_on_prompts": "no (providers can't access prompts/completions); except opt-in `provider_data_share` models",
+      "retention": "0d only where you set (and are permitted) retention mode `none`; otherwise model-dependent under `inherit`/`default`; your own invocation logs persist until you delete them",
+      "caveat": "New 2025-26 retention-mode system; some newer models REQUIRE `provider_data_share` and are blocked under `none` — ZDR and model access can conflict per-model.",
+      "sources": [
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/data-retention.html"
+      ]
+    },
+    {
+      "name": "Google Vertex AI",
+      "type": "first-party",
+      "logs_bodies_by_default": "configurable — ⚠️ the axis is the CONTRACT, not invoiced billing: only customers governed by the Google Cloud Platform Terms of Service are in scope for prompt logging, and customers with a Google Cloud Master Agreement are exempt by default",
+      "zdr": "opt-in / enterprise-gated (disable caching + the DPA path) — ⚠️ overridden for models designated \"Advanced AI\": under the Advanced AI Safety Addendum all prompts and responses are logged and stored up to 30 days for abuse monitoring, and Google states ZDR \"may not be possible\" for some of those features",
+      "trains_on_prompts": "no (not used to train foundation models without permission)",
+      "retention": "abuse logs up to 90d; in-memory caching 24h TTL (on by default, disableable); up to 30d under the Advanced AI Safety Addendum regardless of ZDR; 0d only under a full ZDR config on non-Advanced-AI models",
+      "caveat": "The permissive default follows the contract you signed (Master Agreement customers are exempt; GCP-ToS customers are in scope), logging is conditional on safety classifiers firing rather than blanket, caching must be disabled separately, and the Advanced AI Safety Addendum can override ZDR entirely for designated models. Docs moved to docs.cloud.google.com under the \"Gemini Enterprise Agent Platform\" branding.",
+      "sources": [
+        "https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention",
+        "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring"
+      ]
+    },
+    {
+      "name": "OpenAI (direct API)",
+      "type": "first-party",
+      "logs_bodies_by_default": "yes (30-day abuse monitoring)",
+      "zdr": "approval-gated (via sales; then `store` is always false)",
+      "trains_on_prompts": "no (API data not used to train, since 2023-03-01, unless you opt in — differs from ChatGPT consumer)",
+      "retention": "30d default (standard path restored after the going-forward hold ended 2025-09-26); 0d with approved ZDR; longer under Safety Retention or the residual holds above",
+      "caveat": "⚠️ CORRECTED 2026-07-29: the going-forward NYT preservation order is **no longer in force**. Per the Stipulation and Order in 1:23-cv-11195-SHS-OTW / 25-md-03143 (Doc 922, filed 2025-10-09), OpenAI's obligation to preserve output-log data that would otherwise be deleted was terminated as of 2025-09-26 — so ordinary API traffic sent today follows the standard 30-day path. Residual holds remain: data already preserved before 2025-09-26 is still retained (except EEA/Switzerland/UK-origin output logs), and going-forward preservation continues for accounts on the order's Appendix A domains. Historical exposure is live (a Jan-2026 order compelling production of the 20M-log sample was affirmed; a July-2026 sanctions motion alleging deletion is pending). Separately, the data page documents a \"Safety Retention\" path under which flagged content can be kept beyond 30 days.",
+      "sources": [
+        "https://developers.openai.com/api/docs/guides/your-data",
+        "https://openai.com/index/response-to-nyt-data-demands/",
+        "https://www.courtlistener.com/docket/68117049/in-re-openai-inc-copyright-infringement-litigation/"
+      ]
+    }
   ]
 }

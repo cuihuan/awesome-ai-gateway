@@ -1,6 +1,6 @@
 {
   "_comment": "Verified free-tier / rate-limit table for programmatic LLM API access. Every entry re-verified against the provider's OWN public docs on the as_of date — no third-hand listicle numbers. 'unpublished' means the provider hides the figures behind a login; we say so instead of quoting rumors. Free tiers are the most volatile numbers in this repo: if a row drifted, open an issue.",
-  "as_of": "2026-07-09",
+  "as_of": "2026-07-29",
   "free_tiers": [
     {
       "provider": "OpenRouter (:free models)",
@@ -19,7 +19,7 @@
       "provider": "Google Gemini API (AI Studio)",
       "free_offer": "Flash-class models free of charge on the API free tier",
       "limits": "per-model RPM/RPD no longer published publicly — visible only in AI Studio after login (aistudio.google.com/rate-limit); measured in RPM / input TPM / RPD, per project; RPD resets midnight Pacific; preview/experimental models throttled tighter",
-      "models": "Gemini 3.5 Flash, 3.1 Flash-Lite, 2.5 Flash / Flash-Lite, Gemma 4, Gemini Embedding",
+      "models": "Gemini 3.6 Flash, 3.5 Flash, 3.5 Flash-Lite, 3.1 Flash-Lite, 3 Flash Preview, 2.5 Pro, 2.5 Flash, 2.5 Flash-Lite (+preview), Gemma 4, Gemini Embedding 2, plus several Live/TTS previews. Note 2.5 Pro does carry a free tier; the 2.0 Flash family is gone (shut down 2026-06-01).",
       "card_required": "no (Tier 1 upgrade requires a billing account)",
       "catch": "free-tier content is 'used to improve our products' (pricing-page wording); paid tier is not",
       "sources": [
@@ -31,9 +31,9 @@
     {
       "provider": "Groq (GroqCloud Free Plan)",
       "free_offer": "All hosted open-weight models usable on the Free Plan with per-model caps",
-      "limits": "per-model, e.g. llama-3.3-70b 30 RPM / 1K RPD / 12K TPM / 100K TPD; gpt-oss-120b 30 RPM / 1K RPD / 8K TPM / 200K TPD; llama-3.1-8b-instant 30 RPM / 14.4K RPD / 6K TPM / 500K TPD; qwen3-32b 60 RPM / 1K RPD / 6K TPM / 500K TPD; limits are org-level",
-      "models": "GPT-OSS-120B/20B, Llama-4-Scout, Llama-3.3-70B, Qwen3-32B, Whisper Large V3",
-      "card_required": "no for free use per billing FAQ (payment method needed only to upgrade to Developer tier)",
+      "limits": "per-model, org-level: llama-3.3-70b 30 RPM / 1K RPD / 12K TPM / 100K TPD · gpt-oss-120b 30 / 1K / 8K / 200K · llama-3.1-8b-instant 30 / 14.4K / 6K / 500K · qwen3.6-27b (preview) 30 / 1K / 8K / 200K",
+      "models": "production: GPT-OSS-120B/20B, Llama-3.3-70B, Llama-3.1-8B-Instant, Whisper Large V3 (+turbo); preview: Qwen3.6-27B, MiniMax-M2.7, GPT-OSS-Safeguard-20B, Orpheus TTS, Llama-Prompt-Guard-2, compound(-mini). ⚠️ Llama-4-Scout and Qwen3-32B were removed from the catalog since 2026-07-09.",
+      "card_required": "no — free plan works without one; the billing page documents only the upgrade path, so read this as 'no card needed to start', not as an explicit vendor promise",
       "catch": "daily token caps burn fast on 70B+ models (100K-200K tokens/day); positioned as a trial",
       "sources": [
         "https://console.groq.com/docs/rate-limits",
@@ -45,19 +45,20 @@
       "provider": "Cerebras Inference (Free Trial tier)",
       "free_offer": "Free Trial tier, flat limits across listed models",
       "limits": "5 RPM / 30K TPM / 1M tokens per hour / 1M tokens per day, org-level",
-      "models": "gpt-oss-120b, zai-glm-4.7, gemma-4-31b (the three on the official free-trial limits table)",
-      "card_required": "not stated on any official page",
+      "models": "gpt-oss-120b, zai-glm-4.7, gemma-4-31b (the free-trial limits table). ⚠️ Z.ai GLM 4.7 is scheduled for deprecation 2026-08-17 — the free list drops to two models after that date.",
+      "card_required": "yes (changed) — docs: \"If you skip adding a payment method at sign-up, Playground and API access remain inactive until you do\"; \"$5 in free credits after adding a verified payment method\", credits expire 30 days after grant. ⚠️ cerebras.ai/pricing contradicts this (\"$5 in free credits after making an account\") — marketing is the weaker claim; trust the docs.",
       "catch": "5 RPM is single-user interactive only; 'access to all models' marketing vs 3 models on the actual limits table; paid Developer tier starts at $10 with ~10x limits",
       "sources": [
         "https://inference-docs.cerebras.ai/support/rate-limits",
-        "https://www.cerebras.ai/pricing"
+        "https://www.cerebras.ai/pricing",
+        "https://inference-docs.cerebras.ai/models/overview"
       ],
       "confidence": "verified (limits and model list)"
     },
     {
       "provider": "GitHub Models",
       "free_offer": "Free playground + API for anyone with a GitHub account, tiered by Copilot plan",
-      "limits": "low-tier models 15 RPM / 150 RPD (Copilot Free/Pro; 300 Business, 450 Enterprise), high-tier models 10 RPM / 50 RPD; 8K tokens in / 4K out per request; 5 (low) / 2 (high) concurrent",
+      "limits": "low-tier 15 RPM / 150 RPD (Free, Pro), 15/300 (Business), 20/450 (Enterprise); high-tier 10 RPM / 50 RPD (Free, Pro), 10/100 (Business), 15/150 (Enterprise); 8K in / 4K out per request except Enterprise (8K/8K low, 16K/8K high); concurrency 5 low / 2 high (Enterprise 8 / 4); embeddings 15 RPM / 150 RPD (Free, Pro) up to 64K tokens per request",
       "models": "GPT-4.1 / GPT-5 / o3 / o4-mini, Llama 4 Scout & Maverick, Phi-4, DeepSeek-R1, Mistral Small/Medium (no Anthropic models in catalog)",
       "card_required": "no",
       "catch": "docs call it experimentation-only; 8K-in/4K-out per-request caps rule out long context; production path = paid opt-in or bring-your-own Azure/OpenAI key",
@@ -85,10 +86,10 @@
       "limits": "unpublished — docs state the dimensions (req/s, tokens/min, tokens/month) but actual values are shown per-account in the Admin Console; widely-cited figures (1 RPS / 500K TPM / 1B tokens-month) are NOT on any public official page",
       "models": "officially unscoped in public docs; third parties report all API models rate-limited free (unverified scope)",
       "card_required": "no (official: 'API access is enabled by default with no credit card required')",
-      "catch": "free-plan data is used for model training BY DEFAULT — you must manually disable the training toggle; Scale-plan customers are opted out by default",
+      "catch": "free-plan data is used for model training BY DEFAULT — opt out via the \"Anonymous improvement data\" toggle in Admin Console → Privacy. Scale-plan (API) and Vibe Teams/Enterprise customers are opted out by default.",
       "sources": [
         "https://docs.mistral.ai/getting-started/quickstarts/studio/activate-and-generate-api-key",
-        "https://docs.mistral.ai/admin/user-management-finops/tier",
+        "https://docs.mistral.ai/getting-started/quickstarts/studio/activate-and-generate-api-key",
         "https://help.mistral.ai/en/articles/455207-can-i-opt-out-of-my-input-or-output-data-being-used-for-training"
       ],
       "confidence": "mixed (free mode / no card / default-training verified; exact numbers login-walled)"
@@ -145,7 +146,7 @@
   "trial_credits_not_free_tiers": [
     {
       "provider": "NVIDIA build.nvidia.com (NIM APIs)",
-      "note": "trial API credits at signup (1,000 requests; +4,000 with a business email — figures from NVIDIA staff forum answers, not a docs page), prototyping-only license, 90-day enterprise-eval path; browser playground use is free and unmetered",
+      "note": "the FAQ now promises only \"free credits ... for application prototyping\" with NO number; the widely-quoted 1,000/+4,000-request figures are staff-forum answers, never documented. The 90-day NVIDIA AI Enterprise evaluation license is still documented.",
       "sources": [
         "https://docs.api.nvidia.com/nim/docs/faq",
         "https://forums.developer.nvidia.com/t/nim-api-credits/305703"
@@ -154,7 +155,7 @@
     },
     {
       "provider": "Alibaba Cloud Model Studio (international)",
-      "note": "new-user per-model free token quotas, hard 90-day expiry from activation, Singapore region only, real-time inference only",
+      "note": "new-user per-model free token quotas, valid \"30 to 90 days\" from activation (new activations move to 90-day validity from 2026-09-08 03:00 UTC), Singapore region only, real-time inference only; an account and its RAM users share one quota.",
       "sources": [
         "https://www.alibabacloud.com/help/en/model-studio/new-free-quota"
       ],
@@ -181,7 +182,7 @@
     },
     {
       "provider": "Chutes.ai",
-      "note": "the free daily allowance tied to a $5 deposit was discontinued; now subscription plans from $3/month",
+      "note": "no free tier as of 2026-07 (verified on the official pricing page): plans are Plus $10/mo (6% off PAYG), Pro $20/mo (10% off PAYG), Enterprise. The earlier \"$3/month\" figure is stale; the claim that a $5-deposit free daily allowance was discontinued remains community-reported, not documented.",
       "sources": [
         "https://chutes.ai"
       ],
