@@ -246,14 +246,14 @@ This is the part buyers actually lose sleep over. Models are interchangeable; th
 
 | Gateway | Compliance | Security | Stability | Obsv | One-line |
 |---|---|---|---|---|---|
-| **Portkey Gateway** (OSS) | ★★★🏠 | ★★★★ | ★★★★ | ★★ | MIT; full guardrails, MCP OAuth, fallbacks free; <1ms overhead |
+| **Portkey Gateway** (OSS) | ★★★🏠 | ★★★★ | ★★★★ | ★★ | MIT; full guardrails, MCP OAuth, fallbacks free; 2.65 ms measured overhead (the marketed <1 ms did not reproduce) |
 | **Kong AI Gateway** | ★★★½ | ★★★★ | ★★★★ | ★★★½ | Prompt Guard + mature general security plugins (OSS); PII sanitization, Model Armor and RBAC are Enterprise-only (verified absent from the OSS tree, 2026-07-28) |
 | **Envoy AI Gateway** | ★★★🏠 | ★★★★ | ★★★★ | ★★★★ | Multi-provider + MCP gateway w/ OAuth+CEL authz; native K8s/Istio |
-| **Bifrost** (Maxim) | ★★★🏠 | ★★★½ | ★★★★½ | ★★★★★ | Go; ~11µs overhead benchmark, cluster mode; no known CVEs |
+| **Bifrost** (Maxim) | ★★★🏠 | ★★★½ | ★★★★½ | ★★★★★ | Go; measured 0.62 ms overhead (the ~11µs figure is the vendor's own benchmark); cluster mode; one high SSRF advisory, fixed 1.5.16 |
 | **TensorZero** | ★★★🏠 | ★★★ | ★★★★ | ★★★★½ | Rust; <1ms p99 at 10k+ QPS; routing + built-in observability; ⚠️ archived Jun 2026 |
 | **Higress** | ★★★🏠 | ★★★½ | ★★★★ | ★★★★½ | Istio/Envoy AI-native, Wasm plugins, console; Alibaba-backed |
 | **Apache APISIX** | ★★★🏠 | ★★★ | ★★★★ | ★★★½ | ai-proxy / ai-prompt-guard plugins on mature ASF gateway |
-| **LiteLLM** | ★★★🏠 | ★★½ ⚠️ | ★★★★ | ★★★★★ | SOC 2 I + ISO (Enterprise); **patch to ≥v1.83.7** — 2 serious 2026 CVEs (1 RCE on CISA KEV), both fixed |
+| **LiteLLM** | ★★★🏠 | ★★½ ⚠️ | ★★★★ | ★★★★★ | SOC 2 I + ISO (Enterprise); **run ≥1.84.0** — 12 advisories published in 2026, 3 of them critical (one RCE chain on CISA's KEV list); all fixed, but the floor moved past 1.83.7 |
 | **GPT-Load** | ★★🏠 | ★★½ | ★★★½ | ★½ | Go key-pool rotation + encrypted key store + dual auth; proxy-level only |
 | **new-api** | ★★🏠 | ★½ ⚠️ | ★★★ | ★★½ | ~38k★ & active, but **cluster of 2026 CVEs** (IDOR/SSRF/SQLi) — sandbox + patch fast |
 | **one-api** | ★★🏠 | ★★ | ★★½ | ★★ | The MIT original; maintenance slowed — new-api is the more active successor |

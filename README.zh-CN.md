@@ -394,7 +394,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 
 ### 💾 缓存过网关——钱的问题
 
-_痛点："Anthropic/OpenAI 的缓存折扣有 75–90%——过一层路由之后还拿得到吗？"_
+_痛点："Anthropic/OpenAI 的缓存读取折扣约 90%——过一层路由之后还拿得到吗？而且它到底划不划算？"_
 
 **经常拿不到，而且失败是无声的。** 这是生态里问得最多、答得最差的问题之一——用户反复发现折扣在中转途中消失：Zed 里经 OpenRouter `native_tokens_cached` 恒为 0（[zed#52576](https://github.com/zed-industries/zed/issues/52576)）、OpenRouter 官方 AI-SDK 的缓存选项失效（[ai-sdk-provider#35](https://github.com/OpenRouterTeam/ai-sdk-provider/issues/35)）、还有一长串"[缓存不生效](https://www.reddit.com/r/ChatGPTCoding/comments/1j4f45r/)"的帖子——有时其实生效了，只是路由不*回报*。生产尺度上，[仅 28% 的 LLM 调用有任何缓存命中，而系统提示词占输入 token 的 69%](https://www.datadoghq.com/state-of-ai-engineering/)——多数 AI 账单里最大的一笔没领的折扣。
 
@@ -408,7 +408,7 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 第二次还是 0 = 你在付全价——换路由（直连厂商，或换成会透传 `cache_control` 的网关）再测。
 
 **两种"缓存"，可以叠加：**
-1. **厂商提示词缓存**（上面 75–90% 的折扣）——网关必须*透传*缓存头/参数并*回报* usage 字段。LiteLLM 支持 Anthropic `cache_control` 透传；任何网关都用上面的自测法验证。
+1. **厂商提示词缓存**（读取按基础输入价的 0.1× 计费、即 9 折优惠中的九成，但**写入要 1.25–2×**，所以只有命中率过了盈亏平衡点才划算，见[缓存经济学](docs/caching-economics.zh-CN.md)）——网关必须*透传*缓存头/参数并*回报* usage 字段。LiteLLM 支持 Anthropic `cache_control` 透传；任何网关都用上面的自测法验证。
 2. **网关侧响应缓存**（精确或语义）——Kong、Bifrost、Zuplo、Cloudflare AI Gateway 用*自己的*缓存以 ~$0 服务重复/相似请求；与厂商缓存叠加。见[快速对比](#快速对比)缓存列。
 
 ### 📊 可观测与成本核算
@@ -452,7 +452,7 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 | [LiteLLM](https://github.com/BerriAI/litellm) | 开源代理 + SDK | <!--s:BerriAI/litellm-->⭐ 55k<!--/s--> | MIT¹ | ✅ 100+ | ✅ | ✅ | ✅ | ✅ | ✅ 需数据库 | ✅ |
 | [new-api](https://github.com/QuantumNous/new-api) | 开源中转/计费 | <!--s:QuantumNous/new-api-->⭐ 43.7k<!--/s--> | AGPL-3.0 | ✅ | ✅ | ➕ | ➕ | ✅ | ✅ | 未注明 |
 | [one-api](https://github.com/songquanpeng/one-api) | 开源中转/计费 | <!--s:songquanpeng/one-api-->⭐ 36k<!--/s--> | MIT | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
-| [Kong AI Gateway](https://github.com/Kong/kong) | 开源 API 网关 | <!--s:Kong/kong-->⭐ 43.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ 语义缓存 | ✅ | ✅ | ✅ Kong Manager | ✅ |
+| [Kong AI Gateway](https://github.com/Kong/kong) | 开源 API 网关 | <!--s:Kong/kong-->⭐ 43.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | 💰 语义缓存（企业版） | ✅ | ✅ | ✅ Kong Manager | ✅ |
 | [Apache APISIX](https://github.com/apache/apisix) | 开源 API 网关 | <!--s:apache/apisix-->⭐ 16.9k<!--/s--> | Apache-2.0 | ✅ | ✅ | ➕ | ➕ | ➕ | ➕ 独立 Dashboard | ➕ OpenAI 兼容 |
 | [Portkey Gateway](https://github.com/Portkey-AI/gateway) | 开源网关 + SaaS | <!--s:Portkey-AI/gateway-->⭐ 12.6k<!--/s--> | MIT | ✅ 1600+ | ✅ | ✅ | ✅ 50+ | ➕ SaaS | ✅ 日志控制台 | ✅ |
 | [TensorZero](https://github.com/tensorzero/tensorzero) | 开源 LLMOps · ⚠️ 已归档'26 | <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ | ➕ | ✅ | ✅ | ✅ OpenAI 兼容 |
@@ -467,7 +467,7 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 
 ¹ LiteLLM 核心为 MIT，仓库内含单独授权的企业版目录。
 
-**部署重量**（自托管各行，均出自各自的部署文档——家用服务器上这往往是决定性因素）：单进程 + SQLite/配置文件即可——**Bifrost**（npx 或 Docker，零配置起步）、**GPT-Load**、**new-api**、**one-api**（默认 SQLite；可选 MySQL/Postgres）、**Portkey OSS**（Node/npx）；需要外部组件——**LiteLLM**（虚拟 Key/预算/管理界面需 Postgres）、**Kong**（Postgres，或 DB-less 声明式配置）、**APISIX**（etcd，或 standalone YAML 模式）、**TensorZero**（ClickHouse）、**Helicone**（All-in-one Docker 镜像，内含 Postgres + ClickHouse + MinIO）、**Higress**（Docker Compose 或 K8s）。「本地模型（Ollama）」= 项目自己的文档明确写了 Ollama（或如注明，走通用 OpenAI 兼容/自托管后端路径）。
+💰 = 仅企业版/付费档 · **部署重量**（自托管各行，均出自各自的部署文档——家用服务器上这往往是决定性因素）：单进程 + SQLite/配置文件即可——**Bifrost**（npx 或 Docker，零配置起步）、**GPT-Load**、**new-api**、**one-api**（默认 SQLite；可选 MySQL/Postgres）、**Portkey OSS**（Node/npx）；需要外部组件——**LiteLLM**（虚拟 Key/预算/管理界面需 Postgres）、**Kong**（Postgres，或 DB-less 声明式配置）、**APISIX**（etcd，或 standalone YAML 模式）、**TensorZero**（ClickHouse）、**Helicone**（All-in-one Docker 镜像，内含 Postgres + ClickHouse + MinIO）、**Higress**（Docker Compose 或 K8s）。「本地模型（Ollama）」= 项目自己的文档明确写了 Ollama（或如注明，走通用 OpenAI 兼容/自托管后端路径）。
 
 > 📂 **浏览原始数据**（机器可读，CC0）：[模型与价格 JSON](data/models.json) · [成本表 CSV](data/cost_table.csv) · [网关评分卡 CSV](data/gateways_scorecard.csv)。每个成本数字都由[带单测的脚本](scripts/cost_calc.py)从这些数据重新生成。
 
