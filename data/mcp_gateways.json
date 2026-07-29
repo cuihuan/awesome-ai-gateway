@@ -7,11 +7,15 @@
     "tag_published": "2026-07-28T16:47:49Z",
     "what_it_changed": "Removed protocol-level sessions and the Mcp-Session-Id header, removed the initialize/notifications-initialized handshake (per-request _meta instead), added server/discover, removed server-initiated requests (MRTR), removed stream resumability (Last-Event-ID ignored, GET/DELETE answered 405), deprecated Roots/Sampling/Logging and OAuth DCR, moved Tasks to an extension, and set a minimum twelve-month deprecation window.",
     "why_it_matters_for_this_file": "Two of the six client-era x server-era combinations the spec's own compatibility matrix enumerates fail outright, so 'dual-era translation' is a gateway duty through at least mid-2027. handles_2026_07_28_rewrite is therefore the single most load-bearing column here.",
-    "source": ["https://modelcontextprotocol.io/specification/2026-07-28/changelog", "https://modelcontextprotocol.io/specification/2026-07-28/basic/versioning", "docs/mcp-agent-gateways.md#2-the-protocol-surface-a-gateway-must-govern"]
+    "source": [
+      "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+      "https://modelcontextprotocol.io/specification/2026-07-28/basic/versioning",
+      "docs/mcp-agent-gateways.md#2-the-protocol-surface-a-gateway-must-govern"
+    ]
   },
   "legend": {
     "readme_section": "which README section lists this entry — 'MCP & agent gateways' unless noted; two adjacent rows (Envoy AI Gateway, Kong AI Gateway) are listed elsewhere in the repo but were source-read by chapter 8 and carry the most complete MCP evidence in the file",
-    "verification": "source_read = files read at the pinned commit named in pinned_commit | vendor_docs = vendor documentation only | readme_only = the project's own README at a pinned commit | not_assessed = no verification performed, fields are placeholders",
+    "verification": "how this row was established — source_read (code read at pinned_commit) | docs_read (vendor documentation) | readme_only (this repo's own entry, no independent check) | not_assessed (not examined; capability cells stay unknown). Any nuance about a particular verification lives in evidence_note, never in this field — consumers filter on it.",
     "pinned_commit": "the exact commit every source_read claim in the row is anchored to; carried through from chapter 8's appendix where chapter 8 established the fact",
     "transports": "stdio / streamable_http / legacy_sse per direction where known. downstream = client-facing (agent -> gateway); upstream = server-facing (gateway -> MCP server). yes | no | unknown",
     "spec_revision": "which MCP revision the gateway speaks, and specifically whether it handles the 2026-07-28 stateless rewrite (no sessions, no initialize handshake, per-request _meta, server/discover). dual_era = translates between the modern and legacy eras",
@@ -29,8 +33,16 @@
     "rows_source_read_or_vendor_doc_verified": 9,
     "rows_not_assessed": 20,
     "rows_with_spec_revision_established": 6,
-    "gateways_verified_to_handle_the_2026_07_28_rewrite": ["agentgateway", "ToolHive (incl. Virtual MCP)", "Archestra"],
-    "gateways_evidenced_NOT_to_handle_it_yet": ["Lunar.dev MCPX", "IBM ContextForge (its own roadmap dates it 'late Q3 2026')", "Envoy AI Gateway (hard-coded 2025-06-18 tracing constant; leaning no, not proven)"],
+    "gateways_verified_to_handle_the_2026_07_28_rewrite": [
+      "agentgateway",
+      "ToolHive (incl. Virtual MCP)",
+      "Archestra"
+    ],
+    "gateways_evidenced_NOT_to_handle_it_yet": [
+      "Lunar.dev MCPX",
+      "IBM ContextForge (its own roadmap dates it 'late Q3 2026')",
+      "Envoy AI Gateway (hard-coded 2025-06-18 tracing constant; leaning no, not proven)"
+    ],
     "note": "27 rows mirror the README 'MCP & agent gateways' section 1:1; 2 extra rows (Envoy AI Gateway, Kong AI Gateway) are the adjacent entries chapter 8 §9 says belong in that section and for which it holds the most evidence."
   },
   "gateways": [
@@ -42,8 +54,16 @@
       "pinned_commit": "7cd564709f4834962d411e7a6219b30febdbd02f (2026-07-28)",
       "licence": "Apache-2.0. Linux Foundation project, NOT CNCF — CHARTER.md at this commit opens 'Technical Charter (the \"Charter\") for agentgateway a Series of LF Projects, LLC'; the README section currently calls it a 'CNCF proxy' and is wrong (chapter 8 §9 note)",
       "transports": {
-        "downstream": {"stdio": "no", "streamable_http": "yes", "legacy_sse": "yes"},
-        "upstream": {"stdio": "yes", "streamable_http": "yes", "legacy_sse": "yes"},
+        "downstream": {
+          "stdio": "no",
+          "streamable_http": "yes",
+          "legacy_sse": "yes"
+        },
+        "upstream": {
+          "stdio": "yes",
+          "streamable_http": "yes",
+          "legacy_sse": "yes"
+        },
         "extra": "OpenAPI upstreams in addition to MCP",
         "evidence": "crates/agentgateway/src/mcp/upstream/ at the pinned commit contains exactly client.rs, mod.rs, openapi/, sse.rs, stdio.rs, streamablehttp.rs (directory listing verified 2026-07-29); crates/agentgateway/src/mcp/ itself carries sse.rs and streamablehttp.rs for the client-facing side",
         "tier": "oss"
@@ -96,8 +116,16 @@
       "pinned_commit": "c825cce7de2192b1e36c5ac7d6f333bde02a4579 (2026-07-28)",
       "licence": "MIT (mcpx/LICENSE.MD) — but the repo README says 'It remains open-source at its core and free for non-production/personal use. For production environments, we offer advanced features through guided onboarding and platform tiers', which MIT does not restrict. No separate licence file gates the paid features, so WHICH capabilities are commercially gated is unresolved from the repo alone (chapter 8 §9)",
       "transports": {
-        "downstream": {"stdio": "no", "streamable_http": "yes", "legacy_sse": "yes"},
-        "upstream": {"stdio": "yes", "streamable_http": "yes", "legacy_sse": "yes"},
+        "downstream": {
+          "stdio": "no",
+          "streamable_http": "yes",
+          "legacy_sse": "yes"
+        },
+        "upstream": {
+          "stdio": "yes",
+          "streamable_http": "yes",
+          "legacy_sse": "yes"
+        },
         "evidence": "mcpx/packages/mcpx-server/src/server/downstream-transports.ts at the pinned commit imports StreamableHTTPServerTransport and SSEServerTransport, registers /sse routes, and carries registerLegacySseMessagesRoute with the in-file comment 'Backward compatibility for legacy SSE clients posting to /messages?sessionId=...' (verified 2026-07-29). Upstream set from chapter 8 §9.",
         "tier": "oss"
       },
@@ -149,8 +177,16 @@
       "pinned_commit": "2bd20fe83dd04870e8d87dc1ed059d4d19fc7c68 (2026-07-23)",
       "licence": "MIT",
       "transports": {
-        "downstream": {"stdio": "yes (default)", "streamable_http": "yes", "legacy_sse": "yes"},
-        "upstream": {"stdio": "yes", "streamable_http": "unknown", "legacy_sse": "unknown"},
+        "downstream": {
+          "stdio": "yes (default)",
+          "streamable_http": "yes",
+          "legacy_sse": "yes"
+        },
+        "upstream": {
+          "stdio": "yes",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
         "evidence": "docs/generator/reference/mcp_gateway_run.md at the pinned commit documents `--transport` string, default `stdio`, help text verbatim: 'stdio, sse or streaming. Uses MCP_GATEWAY_AUTH_TOKEN environment variable for localhost authentication to prevent dns rebinding attacks.' `--port` int default 0 with '(default is to listen on stdio)'. Verified 2026-07-29. Upstream is containerised MCP servers (chapter 8 §9); their transports were not enumerated.",
         "tier": "oss",
         "correction": "chapter 8 §9's transport table leaves Docker MCP Gateway's downstream cell empty. The flag reference states it explicitly, and its help text also documents the DNS-rebinding mitigation that §8.1 identifies as the dominant 2026 failure class."
@@ -168,7 +204,11 @@
         "tier": "oss",
         "correction": "This is the entry chapter 8 §4 flags as described wrong in the README: the README says 'per-tool access control'. Per-tool enablement is a deployment-time list; per-tool authorization answers 'which caller'. Only the first is what --tools provides."
       },
-      "oauth_obo_token_exchange": {"value": "no", "evidence": "chapter 8 §5.3 found none at the pinned commit", "tier": "n/a"},
+      "oauth_obo_token_exchange": {
+        "value": "no",
+        "evidence": "chapter 8 §5.3 found none at the pinned commit",
+        "tier": "n/a"
+      },
       "secret_brokering": {
         "agent_holds_downstream_credential": "no",
         "value": "yes — a credstore plus an outbound secret filter that is on by default",
@@ -197,8 +237,16 @@
       "pinned_commit": "abbc8bf07c5b02c78a58385cf9ab36710b58fce0 (2026-07-28)",
       "licence": "Apache-2.0 tree carries the MCP code",
       "transports": {
-        "downstream": {"stdio": "no", "streamable_http": "yes", "legacy_sse": "unknown"},
-        "upstream": {"stdio": "no", "streamable_http": "unknown", "legacy_sse": "unknown"},
+        "downstream": {
+          "stdio": "no",
+          "streamable_http": "yes",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "no",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
         "evidence": "authorize/evaluator/mcp.go at the pinned commit gates on `if ht.Method != http.MethodPost` before parsing the JSON-RPC body — an HTTP POST path. internal/mcp/ contains an extproc/ subpackage (Envoy ext_proc integration) and no stdio bridge. Verified 2026-07-29. Chapter 8 §9 records downstream as HTTP and upstream as unread.",
         "tier": "oss"
       },
@@ -249,8 +297,16 @@
       "pinned_commit": "0a0cbd94929c050fa56e46b7f7da01c9b69f2dec",
       "licence": "Apache-2.0",
       "transports": {
-        "downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"},
-        "upstream": {"stdio": "yes (containerised MCP servers)", "streamable_http": "unknown", "legacy_sse": "unknown"},
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "yes (containerised MCP servers)",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
         "evidence": "Only the operator CRD types were read at this commit (cmd/thv-operator/api/v1beta1/), which do not enumerate transports. Chapter 8 §9 records upstream as 'containerised MCP servers' and leaves downstream blank. The MCP spec's own stdio-proxy escalation warning (chapter 8 §5.4) reads as a specification for exactly this containerisation model.",
         "tier": "oss"
       },
@@ -299,8 +355,16 @@
       "pinned_commit": "eb1e212bbab90bbcdb410d5b577eac27bf677b03 (2026-07-28)",
       "licence": "Apache-2.0 (README line 1063: 'Licensed under the **Apache License 2.0**')",
       "transports": {
-        "downstream": {"stdio": "yes", "streamable_http": "yes", "legacy_sse": "yes"},
-        "upstream": {"stdio": "yes", "streamable_http": "yes", "legacy_sse": "yes"},
+        "downstream": {
+          "stdio": "yes",
+          "streamable_http": "yes",
+          "legacy_sse": "yes"
+        },
+        "upstream": {
+          "stdio": "yes",
+          "streamable_http": "yes",
+          "legacy_sse": "yes"
+        },
         "extra": "HTTP, JSON-RPC and WebSocket in addition to the MCP transports; gRPC-to-MCP translation via reflection-based service discovery",
         "evidence": "README.md at the pinned commit, verified verbatim 2026-07-29 — line 76: 'Transport over HTTP, JSON-RPC, WebSocket, SSE (with configurable keepalive), stdio and streamable-HTTP'; lines 288-296: `python3 -m mcpgateway.translate --stdio \"uvx mcp-server-git\" --expose-sse --expose-streamable-http` with '# Now accessible via both /sse (SSE) and /mcp (streamable HTTP) endpoints'; line 654: 'The `mcpgateway.wrapper` lets you connect to the gateway over **stdio** while keeping JWT authentication'; line 984 shows a transports/ package 'SSE, WebSocket, stdio, streamable HTTP'.",
         "tier": "oss",
@@ -350,8 +414,16 @@
       "pinned_commit": "d45667b329fa9bf8d83ddf05b7d09c57d27e52b9 (2026-07-29)",
       "licence": "AGPL-3.0-only by default per LICENSE.md's SPDX-header routing, with 59 enterprise-marked paths (chapter 8 §5.3/§9). The licence is per-FILE: a file carrying `// SPDX-License-Identifier: LicenseRef-Archestra-Enterprise` is commercial; a file with no SPDX header takes the AGPL default",
       "transports": {
-        "downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"},
-        "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"},
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
         "what_we_tried": "Only three backend files were read at the pinned commit (the two exchange strategies and dual-llm.ts); none touches transport. Chapter 8 §9 leaves both cells blank.",
         "tier": "unknown"
       },
@@ -407,8 +479,16 @@
       "pinned_commit": "6722cca8d33896c4464c12f2de5aaf1238a569b6 (2026-07-23)",
       "licence": "Apache-2.0. v1.0.0 released 2026-06-23, but the MCP CRD is still api/v1beta1 at this commit",
       "transports": {
-        "downstream": {"stdio": "no", "streamable_http": "yes", "legacy_sse": "no"},
-        "upstream": {"stdio": "via the aigw CLI only", "streamable_http": "yes", "legacy_sse": "unknown"},
+        "downstream": {
+          "stdio": "no",
+          "streamable_http": "yes",
+          "legacy_sse": "no"
+        },
+        "upstream": {
+          "stdio": "via the aigw CLI only",
+          "streamable_http": "yes",
+          "legacy_sse": "unknown"
+        },
         "evidence": "api/v1beta1/mcp_route.go:56 at the pinned commit, verified verbatim: 'Path is the HTTP endpoint path that serves MCP requests over the Streamable HTTP transport.' (default /mcp). SSE is a response streaming mode here, not a transport. Chapter 8 §9: stdio only via the aigw CLI, which 'run[s] local Streamable HTTP proxies for each command'.",
         "tier": "oss"
       },
@@ -452,12 +532,20 @@
       "gateway": "Kong AI Gateway",
       "repo": "Kong/kong (OSS) — the MCP capability is not in it",
       "readme_section": "Enterprise & compliance — NOT the MCP section, and the entry currently mentions MCP nowhere. Chapter 8 §9 says it belongs in the MCP section with its tier answer attached",
-      "verification": "vendor_docs (carried from chapter 8, retrieved 2026-07-29; not independently re-fetched this pass) + one source-read negative",
+      "verification": "docs_read",
       "pinned_commit": "391ee48d3a68e8d0bbd0405ec1d02d75f768aa92 (2026-07-22) — used only to establish the negative",
       "licence": "Every MCP capability below is Enterprise. The OSS repo has none of it",
       "transports": {
-        "downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"},
-        "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"},
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
         "what_we_tried": "Chapter 8 §9 leaves both cells blank; the ai-mcp-proxy plugin docs were not re-read for transport detail this pass.",
         "tier": "commercial"
       },
@@ -495,7 +583,7 @@
         "reproduce": "gh api \"repos/Kong/kong/git/trees/391ee48d3a68e8d0bbd0405ec1d02d75f768aa92?recursive=1\" --jq '.tree[].path' | grep -i mcp"
       },
       "own_cve": "CVE-2026-13341 — assigned by Kong against its own Konnect MCP server, published 2026-07-03, CVSS 7.4 HIGH: 'A vulnerability exists in the Kong Konnect Model Context Protocol (MCP) server prior to version 1.0.0, which could allow a remote attacker to perform an indirect prompt injection attack and execute unintended API requests.' The injected content arrives inside analytics data the tool RETURNS — the rear channel, not the user prompt (chapter 8 §6.2).",
-      "evidence_note": "The clearest commercial-tier row in the file: every MCP capability is Enterprise, and the OSS negative is machine-checkable in one call. Also the only vendor here that has filed a prompt-injection CVE against its own MCP server, which is a transparency signal, not a demerit.",
+      "evidence_note": "Verification detail: vendor_docs (carried from chapter 8, retrieved 2026-07-29; not independently re-fetched this pass) + one source-read negative. The clearest commercial-tier row in the file: every MCP capability is Enterprise, and the OSS negative is machine-checkable in one call. Also the only vendor here that has filed a prompt-injection CVE against its own MCP server, which is a transparency signal, not a demerit.",
       "sources": [
         "https://developer.konghq.com/plugins/ai-mcp-proxy/",
         "https://developer.konghq.com/plugins/ai-mcp-oauth2/",
@@ -511,15 +599,48 @@
       "verification": "not_assessed",
       "not_assessed": true,
       "inherits_from": "Envoy AI Gateway — the vendor describes it as a managed fleet of that engine, so the Envoy AI Gateway row above is the best available proxy for its capabilities. We did NOT verify that the managed service exposes them, and a managed service can and does diverge from its upstream.",
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "commercial"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "commercial"},
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "commercial"},
-      "oauth_obo_token_exchange": {"value": "unknown", "tier": "commercial"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "commercial"},
-      "audit_of_tool_invocations": {"value": "unknown", "tier": "commercial"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "commercial"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "commercial"
+      },
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "commercial"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown",
+        "tier": "commercial"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "commercial"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "tier": "commercial"
+      },
       "what_we_tried": "Chapter 8 §9 records that router.tetrate.ai/pricing returned HTTP 404 on 2026-07-29, so even the pricing figure ('model cost plus a 5% fee') is blog/product-page sourced rather than from a live pricing page. No trial account was opened and no MCP endpoint was exercised. Capability verification for a SaaS requires either an account or vendor documentation at that level of detail, and neither was obtained.",
       "evidence_note": "Listed in the MCP section while the open-source engine it resells is listed elsewhere — chapter 8 §9's point. Do not infer Envoy's default-Deny posture applies here without testing it.",
-      "sources": ["https://tetrate.io/products/tetrate-agent-router-service", "docs/mcp-agent-gateways.md"]
+      "sources": [
+        "https://tetrate.io/products/tetrate-agent-router-service",
+        "docs/mcp-agent-gateways.md"
+      ]
     },
     {
       "gateway": "Zuplo AI Gateway",
@@ -527,15 +648,47 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "commercial"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "commercial"},
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "commercial"},
-      "oauth_obo_token_exchange": {"value": "unknown", "tier": "commercial"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "commercial"},
-      "audit_of_tool_invocations": {"value": "unknown", "tier": "commercial"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "commercial"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "commercial"
+      },
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "commercial"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown",
+        "tier": "commercial"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "commercial"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "tier": "commercial"
+      },
       "readme_claims_unverified": "Programmable policies: USD spend limits, prompt-injection detection, secret masking, MCP support — the repo's own list entry, restated here as a vendor claim, not as data.",
       "what_we_tried": "Nothing beyond the repo's existing list entry. Chapter 8 does not source-read or vendor-doc-read Zuplo anywhere, so there was no evidence to carry through; no closed-source platform was exercised this pass.",
-      "sources": ["https://zuplo.com/ai-gateway"]
+      "sources": [
+        "https://zuplo.com/ai-gateway"
+      ]
     },
     {
       "gateway": "NetFoundry MCP/LLM Gateways",
@@ -543,15 +696,47 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "commercial"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "commercial"},
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "commercial"},
-      "oauth_obo_token_exchange": {"value": "unknown", "tier": "commercial"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "commercial"},
-      "audit_of_tool_invocations": {"value": "unknown", "tier": "commercial"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "commercial"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "commercial"
+      },
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "commercial"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown",
+        "tier": "commercial"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "commercial"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "tier": "commercial"
+      },
       "readme_claims_unverified": "Zero-trust gateways for AI deployments (launched June 2026).",
       "what_we_tried": "Nothing beyond the repo's existing list entry; chapter 8 carries no NetFoundry evidence.",
-      "sources": ["https://netfoundry.io"]
+      "sources": [
+        "https://netfoundry.io"
+      ]
     },
     {
       "gateway": "AWS AgentCore Gateway",
@@ -559,14 +744,46 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "commercial"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "commercial"},
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "commercial"},
-      "oauth_obo_token_exchange": {"value": "unknown", "tier": "commercial"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "commercial"},
-      "audit_of_tool_invocations": {"value": "unknown", "tier": "commercial"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "commercial"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "commercial"
+      },
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "commercial"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown",
+        "tier": "commercial"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "commercial"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "tier": "commercial"
+      },
       "what_we_tried": "Nothing beyond the repo's existing list entry; chapter 8 carries no AgentCore evidence. Adjacent AWS data point on record but NOT about this product: CVE-2026-15643 against the AWS HealthLake MCP Server (CVSS 9.2) appears in chapter 8 §8.1's NVD sweep.",
-      "sources": ["docs/mcp-agent-gateways.md"]
+      "sources": [
+        "docs/mcp-agent-gateways.md"
+      ]
     },
     {
       "gateway": "MetaMCP",
@@ -574,14 +791,46 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
-      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
-      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "unknown"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "unknown"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
       "what_we_tried": "One uniform probe, run 2026-07-29: GitHub code search for the literal '2026-07-28' scoped to the repo returned 0 hits, and a search for 'protocolVersion' also returned 0, at default-branch HEAD ff4ff2de9d25453c52dcc7be32680b30700a6012 (2026-06-22T16:50:48Z). Both are weak signals — code search covers the default branch and a project can implement a revision without the date string appearing. No source file was read. Named as a federating gateway in chapter 8 §8.3 (tool-name collision handling) but not source-read there.",
-      "sources": ["https://github.com/metatool-ai/metamcp"]
+      "sources": [
+        "https://github.com/metatool-ai/metamcp"
+      ]
     },
     {
       "gateway": "Microsoft MCP Gateway",
@@ -589,15 +838,48 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
-      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
-      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "unknown"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "unknown"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
       "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' and 1 for 'protocolVersion' at default-branch HEAD 6f1b11afa3a8c852393e37c1105a1d56f89e2b59 (2026-06-26T23:51:11Z). No source read.",
       "flag_for_reassessment": "The repo's list entry sells 'session-aware stateful routing' — the exact property the 2026-07-28 revision deleted (chapter 8 §7: 'Servers MUST NOT rely on prior requests over the same connection to establish context'). This is one of the two entries chapter 8 §7 says its demoted inference is directly testable against, and it says plainly: we have not tested it. Highest-value row in the not_assessed set.",
-      "sources": ["https://github.com/microsoft/mcp-gateway", "docs/mcp-agent-gateways.md"]
+      "sources": [
+        "https://github.com/microsoft/mcp-gateway",
+        "docs/mcp-agent-gateways.md"
+      ]
     },
     {
       "gateway": "1MCP",
@@ -605,14 +887,46 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
-      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
-      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "unknown"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "unknown"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
       "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' but 52 for 'protocolVersion' at default-branch HEAD d31877a776828bb4d874670aa0e21839f670b992 (2026-07-27T15:21:17Z) — an actively version-aware codebase with no trace of the new revision at that HEAD. Suggestive of legacy-era only; NOT established, because code search does not prove absence. No source read. Named as a federating gateway in chapter 8 §8.3.",
-      "sources": ["https://github.com/1mcp-app/agent"]
+      "sources": [
+        "https://github.com/1mcp-app/agent"
+      ]
     },
     {
       "gateway": "mcpproxy-go",
@@ -620,19 +934,48 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "unknown"
+      },
       "spec_revision": {
         "revision_supported": "unknown — but the strongest positive signal in the not_assessed set",
         "handles_2026_07_28_rewrite": "unknown",
         "what_we_tried": "Uniform probe, 2026-07-29: 17 code-search hits for the literal '2026-07-28' and 28 for 'protocolVersion' at default-branch HEAD 255d11d8ba3a27fea3318074bd3960b81a7b41b8 (2026-07-29T08:39:38Z — committed the same day). The hits were NOT disambiguated between spec-revision constants and ordinary changelog dates, and code search covers the default branch, not a pinned commit. This is a lead, not a finding.",
         "tier": "unknown"
       },
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
-      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
-      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "unknown"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
       "repo_sourced_claims_unverified": "Tool integrity checks plus auto-quarantine of newly-seen servers — chapter 8 §6.3 lists this as the direct answer to the Day-1/Day-7 tool-description rug pull, explicitly marked 'repo-sourced from the list, not source-read this pass'. Also named as a federating gateway in chapter 8 §8.3.",
-      "sources": ["https://github.com/smart-mcp-proxy/mcpproxy-go", "docs/mcp-agent-gateways.md"]
+      "sources": [
+        "https://github.com/smart-mcp-proxy/mcpproxy-go",
+        "docs/mcp-agent-gateways.md"
+      ]
     },
     {
       "gateway": "MCPJungle",
@@ -640,14 +983,46 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
-      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
-      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "unknown"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "unknown"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
       "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28', 7 for 'protocolVersion', at default-branch HEAD c2a2c8d9fba162c97ad043269ea0c7f3e347437e (2026-05-20T08:25:04Z) — the oldest HEAD of any GitHub-hosted entry in this file, predating the revision by two months. No source read.",
-      "sources": ["https://github.com/mcpjungle/MCPJungle"]
+      "sources": [
+        "https://github.com/mcpjungle/MCPJungle"
+      ]
     },
     {
       "gateway": "Obot",
@@ -655,14 +1030,46 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
-      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
-      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "unknown"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "unknown"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
       "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD eaabf13f780afba710b99aef27740112ea8e7531 (2026-07-29T02:09:20Z — same-day commit). No source read.",
-      "sources": ["https://github.com/obot-platform/obot"]
+      "sources": [
+        "https://github.com/obot-platform/obot"
+      ]
     },
     {
       "gateway": "Director",
@@ -670,14 +1077,46 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
-      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
-      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "unknown"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "unknown"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
       "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD d0f1fdf471098eaf3aa83508524fc6392ec0c7af (2026-07-10T06:22:20Z). No source read.",
-      "sources": ["https://github.com/fdmtl/director"]
+      "sources": [
+        "https://github.com/fdmtl/director"
+      ]
     },
     {
       "gateway": "Lasso MCP Gateway",
@@ -685,15 +1124,48 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
-      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
-      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "unknown"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "unknown"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
       "repo_sourced_claims_unverified": "Plugin guardrails plus secret masking — chapter 8 §6.3, explicitly marked 'repo-sourced from the list, not source-read this pass'. Efficacy caveat applies (§6.1).",
       "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD 7e7f1f6e5314819b3d0928128bb88eaea874b600 (2026-01-22T13:07:00Z) — six months stale, the least-recently-updated HEAD in this file. No source read.",
-      "sources": ["https://github.com/lasso-security/mcp-gateway", "docs/mcp-agent-gateways.md"]
+      "sources": [
+        "https://github.com/lasso-security/mcp-gateway",
+        "docs/mcp-agent-gateways.md"
+      ]
     },
     {
       "gateway": "Armorer Guard",
@@ -701,15 +1173,48 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "claimed (wraps stdio servers) — unverified", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "claimed — unverified", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
-      "oauth_obo_token_exchange": {"value": "unknown — likely n/a: the spec says stdio implementations 'SHOULD NOT' follow the authorization specification and should retrieve credentials from the environment (chapter 8 §5.4)", "tier": "unknown"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
-      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "transports": {
+        "downstream": {
+          "stdio": "claimed (wraps stdio servers) — unverified",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "claimed — unverified",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "unknown"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "unknown"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown — likely n/a: the spec says stdio implementations 'SHOULD NOT' follow the authorization specification and should retrieve credentials from the environment (chapter 8 §5.4)",
+        "tier": "unknown"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
       "repo_sourced_claims_unverified": "Local Rust proxy that wraps stdio servers and inspects tool-call arguments for prompt injection, credential leakage, exfiltration and risky actions — chapter 8 §6.3, 'repo-sourced from the list, not source-read this pass'. Efficacy caveat applies (§6.1).",
       "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD 674eb1009a56b50a54bc28163ea99e55c57f9d2a (2026-06-22T20:39:36Z). No source read.",
-      "sources": ["https://github.com/ArmorerLabs/Armorer-Guard", "docs/mcp-agent-gateways.md"]
+      "sources": [
+        "https://github.com/ArmorerLabs/Armorer-Guard",
+        "docs/mcp-agent-gateways.md"
+      ]
     },
     {
       "gateway": "fak",
@@ -717,19 +1222,48 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "unknown"
+      },
       "spec_revision": {
         "revision_supported": "unknown — second-strongest positive signal in the not_assessed set",
         "handles_2026_07_28_rewrite": "unknown",
         "what_we_tried": "Uniform probe, 2026-07-29: 9 code-search hits for the literal '2026-07-28' at default-branch HEAD 3769eb47ec970767d1e742424dbc286b8dc1c2ec (2026-07-29T09:05:56Z — committed hours before this file was written). Not disambiguated between spec-revision constants and dates. A lead, not a finding.",
         "tier": "unknown"
       },
-      "tool_level_authorization": {"value": "unknown — README claims a default-deny capability allow-list adjudicating every tool call", "default_posture": "claimed default-deny; unverified", "tier": "unknown (Apache-2.0 repo, single binary)"},
-      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
-      "audit_of_tool_invocations": {"value": "unknown — README claims an X-Trace-Id audit trail plus Prometheus /metrics", "tier": "unknown"},
+      "tool_level_authorization": {
+        "value": "unknown — README claims a default-deny capability allow-list adjudicating every tool call",
+        "default_posture": "claimed default-deny; unverified",
+        "tier": "unknown (Apache-2.0 repo, single binary)"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown — README claims an X-Trace-Id audit trail plus Prometheus /metrics",
+        "tier": "unknown"
+      },
       "repo_sourced_claims_unverified": "Default-deny capability allow-list with quarantine of suspicious tool results out of the model's context — chapter 8 §6.3, 'repo-sourced from the list, not source-read this pass'. If verified, the default-deny claim would put it in the same posture class as Envoy AI Gateway and the opposite of agentgateway.",
-      "sources": ["https://github.com/anthony-chaudhary/fak", "docs/mcp-agent-gateways.md"]
+      "sources": [
+        "https://github.com/anthony-chaudhary/fak",
+        "docs/mcp-agent-gateways.md"
+      ]
     },
     {
       "gateway": "Unla",
@@ -737,15 +1271,48 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
-      "oauth_obo_token_exchange": {"value": "unknown — README claims OAuth without naming a grant", "tier": "unknown"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
-      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "unknown"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "unknown"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown — README claims OAuth without naming a grant",
+        "tier": "unknown"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
       "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD 96f0bb64ece764949fef2d6bce9c40bfc94110f9 (2026-06-08T05:31:53Z). No source read.",
       "flag_for_reassessment": "The repo's list entry sells 'multi-tenant sessions' — the second of the two session-selling entries chapter 8 §7 identifies as directly testable against the statelessness change, and which it did not test.",
-      "sources": ["https://github.com/AmoyLab/Unla", "docs/mcp-agent-gateways.md"]
+      "sources": [
+        "https://github.com/AmoyLab/Unla",
+        "docs/mcp-agent-gateways.md"
+      ]
     },
     {
       "gateway": "Jarvis Registry",
@@ -753,14 +1320,46 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "claimed (MCP-over-SSE/HTTP) — unverified", "legacy_sse": "claimed — unverified"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
-      "tool_level_authorization": {"value": "unknown — README claims tool-level RBAC/ACL, which if verified would be a genuine per-verb control", "default_posture": "unknown", "tier": "unknown"},
-      "oauth_obo_token_exchange": {"value": "unknown — README claims OAuth2/OIDC identity (Keycloak/Cognito/Entra) but names no exchange grant", "tier": "unknown"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
-      "audit_of_tool_invocations": {"value": "unknown — README claims OpenTelemetry/Prometheus observability, which is telemetry, not audit (chapter 8 §8.4)", "tier": "unknown"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "claimed (MCP-over-SSE/HTTP) — unverified",
+          "legacy_sse": "claimed — unverified"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "unknown"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {
+        "value": "unknown — README claims tool-level RBAC/ACL, which if verified would be a genuine per-verb control",
+        "default_posture": "unknown",
+        "tier": "unknown"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown — README claims OAuth2/OIDC identity (Keycloak/Cognito/Entra) but names no exchange grant",
+        "tier": "unknown"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown — README claims OpenTelemetry/Prometheus observability, which is telemetry, not audit (chapter 8 §8.4)",
+        "tier": "unknown"
+      },
       "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD cb8cdb8ed2ce56a3928b106aded77430ec8e3061 (2026-07-29T01:57:14Z — same-day commit). No source read.",
-      "sources": ["https://github.com/ascending-llc/jarvis-registry"]
+      "sources": [
+        "https://github.com/ascending-llc/jarvis-registry"
+      ]
     },
     {
       "gateway": "MCP Gateway & Registry",
@@ -768,13 +1367,46 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "what_we_tried": "Uniform probe, 2026-07-29: 1 code-search hit for '2026-07-28' at default-branch HEAD 0d1e5bfe9d05102a2903954196c13d36690ed3c6 (2026-07-29T05:32:08Z — same-day commit). A single hit is as likely to be a changelog date as a constant; not disambiguated.", "tier": "unknown"},
-      "tool_level_authorization": {"value": "unknown — README claims fine-grained governance", "default_posture": "unknown", "tier": "unknown"},
-      "oauth_obo_token_exchange": {"value": "unknown — README claims an OAuth-protected endpoint but names no exchange grant", "tier": "unknown"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
-      "audit_of_tool_invocations": {"value": "unknown — README claims governance/audit; content unverified", "tier": "unknown"},
-      "sources": ["https://github.com/agentic-community/mcp-gateway-registry"]
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "unknown"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "what_we_tried": "Uniform probe, 2026-07-29: 1 code-search hit for '2026-07-28' at default-branch HEAD 0d1e5bfe9d05102a2903954196c13d36690ed3c6 (2026-07-29T05:32:08Z — same-day commit). A single hit is as likely to be a changelog date as a constant; not disambiguated.",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {
+        "value": "unknown — README claims fine-grained governance",
+        "default_posture": "unknown",
+        "tier": "unknown"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown — README claims an OAuth-protected endpoint but names no exchange grant",
+        "tier": "unknown"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown — README claims governance/audit; content unverified",
+        "tier": "unknown"
+      },
+      "sources": [
+        "https://github.com/agentic-community/mcp-gateway-registry"
+      ]
     },
     {
       "gateway": "Nexus (Grafbase)",
@@ -782,14 +1414,47 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "claimed — unverified", "legacy_sse": "claimed — unverified"}, "upstream": {"stdio": "claimed (STDIO/SSE/HTTP aggregation) — unverified", "streamable_http": "claimed — unverified", "legacy_sse": "claimed — unverified"}, "tier": "unknown"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
-      "oauth_obo_token_exchange": {"value": "unknown — README claims OAuth2/TLS security but names no exchange grant", "tier": "unknown"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown", "value": "unknown", "tier": "unknown"},
-      "audit_of_tool_invocations": {"value": "unknown — README claims OpenTelemetry, which is telemetry, not audit", "tier": "unknown"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "claimed — unverified",
+          "legacy_sse": "claimed — unverified"
+        },
+        "upstream": {
+          "stdio": "claimed (STDIO/SSE/HTTP aggregation) — unverified",
+          "streamable_http": "claimed — unverified",
+          "legacy_sse": "claimed — unverified"
+        },
+        "tier": "unknown"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "unknown"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown — README claims OAuth2/TLS security but names no exchange grant",
+        "tier": "unknown"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown",
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown — README claims OpenTelemetry, which is telemetry, not audit",
+        "tier": "unknown"
+      },
       "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD 70f9a2c915e432cabf13ddb2e301581235efccb9 (2025-10-21T13:08:58Z) — nine months stale, the oldest HEAD in this file. Named as a federating gateway in chapter 8 §8.3. No source read.",
-      "sources": ["https://github.com/Nexus-Router/nexus", "docs/mcp-agent-gateways.md"]
+      "sources": [
+        "https://github.com/Nexus-Router/nexus",
+        "docs/mcp-agent-gateways.md"
+      ]
     },
     {
       "gateway": "Open Connector",
@@ -797,14 +1462,46 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
-      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown (Apache-2.0 repo)"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown — this is the row where the question matters most, since the product's stated job is governing agent-to-SaaS tool credentials across 1000+ providers", "value": "unknown", "tier": "unknown"},
-      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "unknown"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "unknown"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown",
+        "tier": "unknown (Apache-2.0 repo)"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown — this is the row where the question matters most, since the product's stated job is governing agent-to-SaaS tool credentials across 1000+ providers",
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
       "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD 14eb1981bd858d446dc3c92c9cfc0d4849485ce2 (2026-07-29T10:17:52Z — the most recent HEAD of any entry in this file, committed while this file was being written). A zero hit count is a weak signal and is not recorded as a 'no'. No source file was read; chapter 8 carries no Open Connector evidence.",
-      "sources": ["https://github.com/oomol-lab/open-connector"]
+      "sources": [
+        "https://github.com/oomol-lab/open-connector"
+      ]
     },
     {
       "gateway": "toolport",
@@ -812,15 +1509,48 @@
       "readme_section": "MCP & agent gateways",
       "verification": "not_assessed",
       "not_assessed": true,
-      "transports": {"downstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "upstream": {"stdio": "unknown", "streamable_http": "unknown", "legacy_sse": "unknown"}, "tier": "unknown"},
-      "spec_revision": {"revision_supported": "unknown", "handles_2026_07_28_rewrite": "unknown", "tier": "unknown"},
-      "tool_level_authorization": {"value": "unknown", "default_posture": "unknown", "tier": "unknown"},
-      "oauth_obo_token_exchange": {"value": "unknown", "tier": "unknown (MIT)"},
-      "secret_brokering": {"agent_holds_downstream_credential": "unknown — README claims secrets are kept in the OS keychain, which would put the credential in the local gateway rather than the agent process; unverified", "value": "unknown", "tier": "unknown"},
-      "audit_of_tool_invocations": {"value": "unknown", "tier": "unknown"},
+      "transports": {
+        "downstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "upstream": {
+          "stdio": "unknown",
+          "streamable_http": "unknown",
+          "legacy_sse": "unknown"
+        },
+        "tier": "unknown"
+      },
+      "spec_revision": {
+        "revision_supported": "unknown",
+        "handles_2026_07_28_rewrite": "unknown",
+        "tier": "unknown"
+      },
+      "tool_level_authorization": {
+        "value": "unknown",
+        "default_posture": "unknown",
+        "tier": "unknown"
+      },
+      "oauth_obo_token_exchange": {
+        "value": "unknown",
+        "tier": "unknown (MIT)"
+      },
+      "secret_brokering": {
+        "agent_holds_downstream_credential": "unknown — README claims secrets are kept in the OS keychain, which would put the credential in the local gateway rather than the agent process; unverified",
+        "value": "unknown",
+        "tier": "unknown"
+      },
+      "audit_of_tool_invocations": {
+        "value": "unknown",
+        "tier": "unknown"
+      },
       "repo_sourced_claims_unverified": "Tool integrity checks plus quarantine of newly-seen servers — chapter 8 §6.3, 'repo-sourced from the list, not source-read this pass'. Also claims ~90% token savings from lazy tool discovery, which is the vendor's own figure and is not a security property.",
       "what_we_tried": "Uniform probe, 2026-07-29: 0 code-search hits for '2026-07-28' at default-branch HEAD 2f1ecf3223ff3e567da4a433bfa94aee36414cba (2026-07-29T05:06:12Z — same-day commit). Weak signal, not recorded as a 'no'. No source read.",
-      "sources": ["https://github.com/tsouth89/toolport", "docs/mcp-agent-gateways.md"]
+      "sources": [
+        "https://github.com/tsouth89/toolport",
+        "docs/mcp-agent-gateways.md"
+      ]
     }
   ],
   "category_findings": {

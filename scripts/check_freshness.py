@@ -46,6 +46,9 @@ TRACKED = [
     # Advisory counts and "fixed in X" claims rot with every new CVE; a signing
     # posture can flip in one release (LiteLLM gained cosign mid-incident).
     ("data/supply_chain.json (supply-chain security posture matrix)", "data/supply_chain.json"),
+    # Transport support and spec-revision claims move with every MCP release,
+    # and the 2026-07-28 stateless rewrite reset the whole category.
+    ("data/mcp_gateways.json (MCP/agent gateway capability matrix)", "data/mcp_gateways.json"),
 ]
 
 

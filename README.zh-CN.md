@@ -331,7 +331,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 
 *痛点："Agent 开始调工具了——像治理 API 一样治理 MCP 流量。"* 2025–2026 最新品类。
 
-- [agentgateway](https://github.com/agentgateway/agentgateway) <!--s:agentgateway/agentgateway-->⭐ 4.1k<!--/s--> — CNCF Agent 流量代理：MCP 治理与 Agent 间（A2A）通信。
+- [agentgateway](https://github.com/agentgateway/agentgateway) <!--s:agentgateway/agentgateway-->⭐ 4.1k<!--/s--> — Linux Foundation 旗下的 Agent 流量代理（据其 CHARTER 属 LF Projects，并非 CNCF 托管项目）：MCP 治理与 Agent 间（A2A）通信。
 - [Lunar.dev MCPX](https://github.com/TheLunarCompany/lunar) <!--s:TheLunarCompany/lunar-->⭐ 474<!--/s--> — 管理 MCP server 消费的网关。
 - [Tetrate Agent Router Service](https://tetrate.io/products/tetrate-agent-router-service) — 托管 Envoy AI Gateway 集群：LLM + MCP 网关与护栏（约 5% 费率）。
 - [Zuplo AI Gateway](https://zuplo.com/ai-gateway) — 可编程策略：美元消费上限、Prompt 注入检测、密钥脱敏、MCP 支持。
@@ -841,6 +841,7 @@ OpenRouter 是托管（零运维、约 5.5% 手续费、<!--omc-->~340<!--/omc--
 | 网关事故/现实核查 | [`data/gateway_reality.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/gateway_reality.json) | 变更即更新（drift 门） |
 | **数据留存 / ZDR / 日志姿态**（逐托管网关 + 云） | [`data/data_retention.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/data_retention.json) | 政策变更时 |
 | **供应链安全姿态**（逐开源网关的签名/SBOM/公告 + 事件记录） | [`data/supply_chain.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/supply_chain.json) | ≤30 天复审（CI 强制） |
+| **MCP / Agent 网关能力矩阵**（传输、规范版本、工具级授权、凭证代持） | [`data/mcp_gateways.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/mcp_gateways.json) | ≤30 天复审（CI 强制） |
 | **核实版免费额度 / 限流表**（11 家厂商 + 已取消名单） | [`data/free_tiers.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/free_tiers.json) | ≤30 天复审（CI 强制） |
 | ~80 个网关的星标 + 最新版本 | [`data/projects.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/projects.json) · [`data/releases.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/releases.json) | 每日 |
 | **网关开销实测**（Bifrost/Portkey/LiteLLM） | [`overhead.json`](https://raw.githubusercontent.com/cuihuan/llm-gateway-bench/main/data/overhead.json) | 每月 CI |
