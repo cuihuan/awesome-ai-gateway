@@ -35,6 +35,9 @@ node scripts/build_toc.mjs README.md
 echo "→ tests"
 python3 -m unittest discover -s scripts -p 'test_*.py' -q
 
+echo "→ bilingual figure diff (advisory)"
+python3 scripts/bilingual_figure_diff.py
+
 echo "→ freshness (advisory)"
 python3 scripts/check_freshness.py --max-age-days 30 || echo "  (stale snapshot — re-review and bump as_of)"
 
