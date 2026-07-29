@@ -48,6 +48,7 @@ Use it to pick an AI gateway by need (cost-first, self-hosted, enterprise & comp
 HANDBOOK = f"""## Handbook (how gateways work — theory with sources)
 - [Chapter map (HANDBOOK.md)]({BLOB}/HANDBOOK.md): reading order and the evidence contract every chapter keeps (dated, sourced, verify-it-yourself).
 - [The compatibility surface]({BLOB}/docs/protocol-translation.md): the three wire protocols (OpenAI chat.completions / Anthropic messages / Gemini generateContent) field by field, the five translation failure modes that break coding agents — each anchored to a real issue — and a 10-minute self-test.
+- [Anatomy of an AI gateway]({BLOB}/docs/gateway-anatomy.md): the canonical request lifecycle (auth, virtual key + budget, guardrails, routing, cache, translation, retry/failover, streaming, metering, telemetry) read from seven gateways' source at pinned commits — where each stage actually sits, why metering rarely survives a crash, and the six conditions under which running no gateway is the right call.
 - [Routing & model selection]({BLOB}/docs/routing-landscape.md): cost-aware cascades, learned routers, ensembling and self-routing, with the counter-evidence on when routing does not pay.
 - [Observability]({BLOB}/docs/observability-landscape.md): the OpenTelemetry GenAI conventions, the metric tiers that separate instrumented from blind, and silent model drift.
 """

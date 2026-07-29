@@ -6,6 +6,30 @@ structural and editorial changes.
 
 ## [Unreleased]
 
+### 2026-07-29 (later) — Chapter 4, and a stale measurement caught
+
+- **Handbook Chapter 4: "Anatomy of an AI gateway"** (EN+中文) — the canonical request
+  lifecycle read from **seven gateways' source at pinned commits**: where the cache sits
+  relative to budget enforcement (in two of them a cache hit escapes it entirely), which
+  budget mechanism is actually safe under concurrency (one of three), whether metering
+  survives a crash (mostly no), and where the retry boundary sits relative to translation.
+  Includes a mermaid request-lifecycle diagram, the data-plane/control-plane split, the
+  three deployment topologies, and an honest six-condition **case against running a
+  gateway at all** — with the patch burden measured (LiteLLM ships 33 releases in 30 days,
+  Bifrost 129).
+- **⏱️ Overhead numbers corrected repo-wide** — the independent measurement is
+  **0.62 / 2.65 / 5.83 ms** (Bifrost / Portkey OSS / LiteLLM, measured 2026-07-10). Every
+  surface still quoted 0.56 / 2.69 / 5.41 from an earlier run of the same harness; 23
+  references across 8 files now match the data file they cite.
+- **Privacy & free-tier matrices re-verified** — the OpenAI NYT preservation order ended
+  2025-09-26 (our table still said API content was being preserved); Vercel's upstream ZDR
+  is plan-gated and fails open; Cloudflare now has a real ZDR mode; Bedrock's default is
+  `inherit`, not zero retention. Groq dropped two models; Cerebras now needs a payment
+  method to activate.
+- **8 catalog entries regained their links**, lost to the previous day's lint dedup.
+- Internal: llms.txt now advertises the handbook and the three newer datasets, and the
+  daily job regenerates it so the staleness gate stops failing.
+
 ### 2026-07-29 — the Handbook turn: Learn layer + Chapter 1 + trust hardening
 
 - **📖 Learn layer** — new README section + `HANDBOOK.md` chapter map: the repo now teaches

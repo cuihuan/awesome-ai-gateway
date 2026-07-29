@@ -79,7 +79,7 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 │
 └─ 要部署 — 自托管 / 开源
     ├─ Python 技术栈、功能最全 ─────▶ LiteLLM
-    ├─ 追求极致性能（Go/Rust/TS）──▶ Bifrost（实测 0.56ms）· Portkey Gateway（2.69ms；保真度 1/3）
+    ├─ 追求极致性能（Go/Rust/TS）──▶ Bifrost（实测 0.62 ms）· Portkey Gateway（2.65 ms；保真度 1/3）
     ├─ 自带评测 + 可观测 ───────────▶ Helicone · LiteLLM · Bifrost
     ├─ 多用户 Key + 预算 + 管理面板 ─▶ LiteLLM · new-api（家庭/小团队）
     ├─ 国产模型、人民币计费 ────────▶ new-api · one-api · GPT-Load
@@ -113,7 +113,7 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 | "现在最便宜地打通一堆模型？" | **OpenRouter**（~5.5% 充值费、<!--omc-->~340<!--/omc--> 模型）——或**自己的 key 0 加价**：Vercel / Cloudflare AI Gateway → [性价比优先](#-性价比优先) |
 | "哪些免费额度还活着，真实限流是多少？" | OpenRouter `:free`：**50 次/天**（充值 <$10）或 **1,000 次/天**（充值 $10+），共享 20 次/分钟（[官方限流文档](https://openrouter.ai/docs/api-reference/limits)）。11 家厂商逐行核实见[免费额度表](#-哪些免费额度还活着-核实限额表)。"免费"的代价：你的 prompt 可能被拿去训练——看清条款 |
 | "选*模型*到底差多少钱？" | **106×**——同一份 10 万 token 报告，DeepSeek $0.03 vs GPT-5.5 $3.01 → [脚本算的表](BENCHMARKS.zh-CN.md) · [计算器](https://cuihuan.github.io/awesome-ai-gateway/cost-calculator.zh-CN.html) |
-| "网关本身加多少延迟？" | **独立实测**（全网仅此一家）：每请求 Bifrost **0.56ms** · Portkey OSS **2.69ms** · LiteLLM **5.41ms** → [数据](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json) |
+| "网关本身加多少延迟？" | **独立实测**（全网仅此一家）：每请求 Bifrost **0.62 ms** · Portkey OSS **2.65 ms** · LiteLLM **5.83 ms** → [数据](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json) |
 | "缓存折扣过了网关还在吗？" | **经常不在——而且悄无声息。** 多数账单里最大的一笔没领的折扣 → [缓存过网关](#-缓存过网关钱的问题) |
 | "谁看得到我的 prompt？" | 网关永远看得到——而且路由从**默认 ZDR**到**按 ToS 拿去训练**都有。见[数据留存矩阵](#-谁看得到你的-prompt-数据留存矩阵) |
 | "受够 LiteLLM 了，还有啥？" | [LiteLLM 替代品诚实对比](compare/litellm-alternatives-2026.md)（开销实测：它比 Bifrost 重 10×） |
@@ -126,7 +126,8 @@ _清单告诉你**选哪个**网关；这几章教你**它们如何工作、为�
 - 📕 [兼容性表面](docs/protocol-translation.zh-CN.md) — 为什么网关会弄坏 Claude Code：三大 wire 协议逐字段对照、五种翻译失效模式（每种都锚定一个已验证的真实 issue）、实测保真度结果、以及给你自己网关的 10 分钟自检。
 - 📗 [路由与模型选择：研究全景](docs/routing-landscape.zh-CN.md) — 成本感知级联、学习型路由器、模型集成与自路由——以及"路由什么时候不划算"的诚实反面证据。
 - 📘 [可观测性：测什么、为什么](docs/observability-landscape.zh-CN.md) — OTel GenAI 约定、区分"有仪表"与"裸奔"的指标分层、静默模型漂移。
-- 🚧 后续每月约一章：网关解剖 · 故障转移与可靠性 · 缓存经济学 · 虚拟 Key 与多租户 · MCP/Agent 网关——完整地图见 `HANDBOOK.md`。
+- 📙 [网关解剖](docs/gateway-anatomy.md)（英文）— 在固定 commit 上直读七个网关的源码还原请求生命周期：缓存、预算校验与重试边界到底落在哪一环，为什么计量很少能挺过一次崩溃，以及“不该上网关”的六个条件。
+- 🚧 后续每月约一章：故障转移与可靠性 · 缓存经济学 · 虚拟 Key 与多租户 · MCP/Agent 网关——完整地图见 `HANDBOOK.md`。
 
 ## 🔥 最高星网关（按 Star 排序）
 
@@ -606,7 +607,7 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 | 2026-07-10 | 🔌 跨格式 | **最难的路径，横跨 3 个网关实测**——Anthropic 客户端（如 Claude Code）路由到 OpenAI 模型，被报最多的"工具调用坏了"。中立 CI 跑机：**LiteLLM v1.91.1 — 3/3 · Bifrost — 3/3 · Portkey OSS — 不提供该路径**（其 `/v1/messages` 只认 anthropic provider）。LiteLLM 与 Bifrost 都能干净翻译；Portkey OSS 在 header 自托管配置下不暴露这条路。版本提醒：LiteLLM 的 `/v1/messages` 传输路径变过（≤1.57.x 走 Chat Completions → ≥~1.9x 与 Bifrost 都走 OpenAI **Responses API**，指向只支持 chat-completions 的上游会 `KeyError('created_at')`）——**务必锁版本**。可复现：`node probe/xformat.mjs`。 | [xformat.json](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/xformat.json) |
 | 2026-07-09 | 🆓 免费额度 | **11 家厂商免费额度逐行审计，全部对照厂商自己的文档核实**：Google 已把 Gemini 免费档限额藏进登录后台；Mistral 免费模式**默认拿你的数据训练**（需手动关闭）；Together AI 的 `-free` 模型**已全部下线**（最低预充 $5）；Kimi 从来不免费（先充 $1）。机器可读，CI 强制 ≤30 天复审。 | [free_tiers.json](data/free_tiers.json) |
 | 2026-07 | 🔌 保真度 | **首个独立协议保真度测试**——网关能否完整转发工具调用/流式/usage（第一大真实故障）？**LiteLLM 3/3 · Bifrost 3/3 · Portkey OSS 1/3**——Portkey OSS 的 custom-host 流式在干净 CI 跑机上抛内部错误（非流式正常；托管产品未测）。可复现：`node probe/fidelity.mjs`。 | [llm-gateway-bench](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/fidelity.json) |
-| 2026-07 | ⏱️ 性能 | **首个独立网关开销横评**（同一中立 CI 跑机、mock 上游、不含厂商宣传）：每请求增加 **Bifrost 0.56ms** · **Portkey OSS 2.69ms** · **LiteLLM 5.41ms**。Bifrost「最快」方向属实（比 LiteLLM 低 ~10×，而非宣传的 50×）；Portkey「<1ms」在共享 CI 硬件上未复现。`node probe/overhead.mjs` 可复现；欢迎 PR 加测。 | [llm-gateway-bench](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json) |
+| 2026-07 | ⏱️ 性能 | **首个独立网关开销横评**（同一中立 CI 跑机、mock 上游、不含厂商宣传）：每请求增加 **Bifrost 0.62 ms** · **Portkey OSS 2.65 ms** · **LiteLLM 5.83 ms**。Bifrost「最快」方向属实（比 LiteLLM 低 ~10×，而非宣传的 50×）；Portkey「<1ms」在共享 CI 硬件上未复现。`node probe/overhead.mjs` 可复现；欢迎 PR 加测。 | [llm-gateway-bench](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json) |
 | 2026-07 | 📈 采用 | **多模型已是默认架构**——1,000+ 受访 AI 工程师中 **87% 在同时使用多个模型**（44% 按任务类型路由、11% 按成本），**75% 因成本调整用量**，成本是生产环境**第二大被监控指标**（仅次于质量）。只有 20% 把可靠性放进选型前三——故障转移仍被低估。 | [Amplify Partners](https://www.amplifypartners.com/blog-posts/the-2026-ai-engineering-report) |
 | 2026-07-02 | 🛡️ 可靠性 | **Anthropic 曾依出口管制令全球下线 Fable 5 与 Mythos 5** 约 3 周，商务部撤销管制后恢复（7 月 2 日回到 Claude 平台/Code）——单厂商架构没有退路、多厂商路由才是对冲，这是最鲜活的提醒。 | [CNBC](https://www.cnbc.com/2026/06/30/anthropic-says-trump-admin-has-lifted-export-controls-on-claude-fable-5-and-mythos-5.html) |
 | 2026-06-23 | 🚀 网关 | **Envoy AI Gateway 发布 v1.0**（生产 GA）——CNCF/Envoy 生态、Kubernetes 原生的多厂商数据面（厂商故障转移、token 限流、MCP 支持）正式转入稳定版。 | [Envoy](https://aigateway.envoyproxy.io/blog/v1.0-release-announcement/) |

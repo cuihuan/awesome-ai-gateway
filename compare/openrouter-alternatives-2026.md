@@ -42,7 +42,7 @@ Here's the honest, data-backed map. Scores are ★1–5 from the [scorecard rubr
 ## If your reason is keys-on-your-infra (self-host)
 
 - **[LiteLLM](https://github.com/BerriAI/litellm)** — the default self-hosted proxy: virtual keys, budgets, load balancing, 100+ providers, **$0 markup**. Patch to current stable (it had two 2026 CVEs, both fixed in v1.83.7) and keep the admin panel private. See [LiteLLM alternatives](litellm-alternatives-2026.md) if you want a self-hosted option with a cleaner CVE record.
-- **[Bifrost](https://github.com/maximhq/bifrost)** — Go-native, **0.56 ms** measured added latency per request ([independent harness](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json); the vendor's ~11µs claim did not reproduce there), adaptive load balancing, cluster mode, 1000+ models, no known CVEs. Pick it when throughput matters.
+- **[Bifrost](https://github.com/maximhq/bifrost)** — Go-native, **0.62 ms** measured added latency per request ([independent harness](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json); the vendor's ~11µs claim did not reproduce there), adaptive load balancing, cluster mode, 1000+ models, no known CVEs. Pick it when throughput matters.
 
 ## If your reason is enterprise governance
 

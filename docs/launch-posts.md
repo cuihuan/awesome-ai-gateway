@@ -261,7 +261,7 @@ Submit the **live site** (unfurls with the social preview), not the bare repo.
 ```
 Maintainer here. Started this after burning $788 on AI coding in one day. Everything opinionated in
 it is backed by something you can run: cost tables come from a unit-tested script over open pricing
-data, gateway overhead was measured independently (0.56 ms vs 5.41 ms per request is a real gap),
+data, gateway overhead was measured independently (0.62 ms vs 5.83 ms per request is a real gap),
 and the coding-agent router page classifies claude-code-router / OmniRoute / 9router / CLIProxyAPI /
 sub2api by ban-risk mechanism with dated reports from their own issue trackers. CC0, no affiliate
 links. Tell me what's missing.
