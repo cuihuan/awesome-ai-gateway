@@ -258,6 +258,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [TokenHub](https://github.com/astaxie/TokenHub) <!--s:astaxie/TokenHub-->⭐ 793<!--/s--> — 私有化企业 AI 网关（Apache-2.0），带面向普通用户、团队负责人与管理员的角色制工作区——作者 astaxie 是 beego 框架的创造者。
 - [dario](https://github.com/askalf/dario) <!--s:askalf/dario-->⭐ 333<!--/s--> — 本地 OpenAI/Anthropic 双兼容代理（MIT），把 Claude Pro/Max 订阅接入 Cursor、Cline、Aider 与 Agent SDK，带会话亲和路由、多账号池与漂移检测。⚠️ 把 OAuth 编码订阅档经 API 路由存在厂商 ToS / 封号风险（与 CLIProxyAPI 同类）。
 - [Aurora Gateway](https://github.com/aurorallm/aurora) <!--s:aurorallm/aurora-->⭐ 16<!--/s--> — Go 单二进制网关，从环境变量自动发现提供商，带提供商池、精确/语义/提示词缓存、护栏、审计日志与用量分析（Apache-2.0）。早期项目（2026 年中发布、单人维护）；其「比 LiteLLM 快」的性能数据为厂商自测。
+- [Swobu](https://github.com/swobuforge/swobu) <!--s:swobuforge/swobu-->⭐ 1<!--/s--> — 本地优先的 Go 网关（单二进制，AGPL-3.0）：终结 OpenAI / Anthropic Messages / 远程 MCP 客户端流量，并按提供商、区域、账户与本地模型进行路由与故障转移；客户端指向一个工作区端点并指定路由名称。自带密钥，不转售配额。早期项目（公开仓库于 2026 年 7 月开放）。
 - ⚠️ 已停滞但有历史意义：[BricksLLM](https://github.com/bricks-cloud/BricksLLM) <!--s:bricks-cloud/BricksLLM-->⭐ 1.2k<!--/s-->（PII 脱敏、按 Key 限额；2025 年初起不再活跃）、[Glide](https://github.com/EinStack/glide) <!--s:EinStack/glide-->⭐ 159<!--/s-->（2024 年起停更）。
 
 ## 🏢 企业合规
