@@ -5,21 +5,98 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-08-05T00:48:29Z</updated>
+  <updated>2026-08-06T05:13:43Z</updated>
   <author><name>Awesome AI Gateway</name></author>
+  <entry>
+    <title>lidge-jun/opencodex v2.10.2</title>
+    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.10.2" />
+    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.10.2</id>
+    <updated>2026-08-06T05:13:43Z</updated>
+    <summary>lidge-jun/opencodex released v2.10.2.</summary>
+  </entry>
+  <entry>
+    <title>archestra-ai/archestra platform-v1.3.28</title>
+    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.28" />
+    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.28</id>
+    <updated>2026-08-06T02:27:53Z</updated>
+    <summary>archestra-ai/archestra released platform: v1.3.28.</summary>
+  </entry>
+  <entry>
+    <title>ai-dynamo/dynamo v1.3.1</title>
+    <link href="https://github.com/ai-dynamo/dynamo/releases/tag/v1.3.1" />
+    <id>https://github.com/ai-dynamo/dynamo/releases/tag/v1.3.1</id>
+    <updated>2026-08-06T00:16:12Z</updated>
+    <summary>ai-dynamo/dynamo released Dynamo v1.3.1.</summary>
+  </entry>
+  <entry>
+    <title>IBM/mcp-context-forge v1.0.7</title>
+    <link href="https://github.com/IBM/mcp-context-forge/releases/tag/v1.0.7" />
+    <id>https://github.com/IBM/mcp-context-forge/releases/tag/v1.0.7</id>
+    <updated>2026-08-05T18:07:27Z</updated>
+    <summary>IBM/mcp-context-forge released v1.0.7 - Release Security Hardening, Unified Search, OAuth Improvements, Dataplane Enhancements, and Operational Reliability.</summary>
+  </entry>
+  <entry>
+    <title>router-for-me/CLIProxyAPI v7.2.120</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.120" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.120</id>
+    <updated>2026-08-05T16:18:50Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v7.2.120.</summary>
+  </entry>
+  <entry>
+    <title>mnfst/manifest manifest@6.18.0</title>
+    <link href="https://github.com/mnfst/manifest/releases/tag/manifest%406.18.0" />
+    <id>https://github.com/mnfst/manifest/releases/tag/manifest%406.18.0</id>
+    <updated>2026-08-05T14:34:23Z</updated>
+    <summary>mnfst/manifest released manifest v6.18.0.</summary>
+  </entry>
+  <entry>
+    <title>smart-mcp-proxy/mcpproxy-go v0.53.0</title>
+    <link href="https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.53.0" />
+    <id>https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.53.0</id>
+    <updated>2026-08-05T14:34:10Z</updated>
+    <summary>smart-mcp-proxy/mcpproxy-go released v0.53.0.</summary>
+  </entry>
+  <entry>
+    <title>tashfeenahmed/freellmapi v0.6.8</title>
+    <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.6.8" />
+    <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.6.8</id>
+    <updated>2026-08-05T14:13:09Z</updated>
+    <summary>tashfeenahmed/freellmapi released v0.6.8.</summary>
+  </entry>
+  <entry>
+    <title>yym68686/uni-api v1.7.215</title>
+    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.215" />
+    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.215</id>
+    <updated>2026-08-05T13:40:56Z</updated>
+    <summary>yym68686/uni-api released Release 1.7.215.</summary>
+  </entry>
+  <entry>
+    <title>stacklok/toolhive v0.42.0</title>
+    <link href="https://github.com/stacklok/toolhive/releases/tag/v0.42.0" />
+    <id>https://github.com/stacklok/toolhive/releases/tag/v0.42.0</id>
+    <updated>2026-08-05T13:26:20Z</updated>
+    <summary>stacklok/toolhive released v0.42.0.</summary>
+  </entry>
+  <entry>
+    <title>maximhq/bifrost ent-v1.5.8-base</title>
+    <link href="https://github.com/maximhq/bifrost/releases/tag/ent-v1.5.8-base" />
+    <id>https://github.com/maximhq/bifrost/releases/tag/ent-v1.5.8-base</id>
+    <updated>2026-08-05T12:41:24Z</updated>
+    <summary>maximhq/bifrost released Enterprise v1.5.8 base version.</summary>
+  </entry>
+  <entry>
+    <title>musistudio/claude-code-router v3.0.19</title>
+    <link href="https://github.com/musistudio/claude-code-router/releases/tag/v3.0.19" />
+    <id>https://github.com/musistudio/claude-code-router/releases/tag/v3.0.19</id>
+    <updated>2026-08-05T11:02:25Z</updated>
+    <summary>musistudio/claude-code-router released v3.0.19.</summary>
+  </entry>
   <entry>
     <title>askalf/dario v5.4.29</title>
     <link href="https://github.com/askalf/dario/releases/tag/v5.4.29" />
     <id>https://github.com/askalf/dario/releases/tag/v5.4.29</id>
     <updated>2026-08-05T00:48:29Z</updated>
     <summary>askalf/dario released v5.4.29.</summary>
-  </entry>
-  <entry>
-    <title>router-for-me/CLIProxyAPI v7.2.119</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.119" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.119</id>
-    <updated>2026-08-04T22:08:06Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v7.2.119.</summary>
   </entry>
   <entry>
     <title>ENTERPILOT/GoModel v0.1.68</title>
@@ -41,13 +118,6 @@
     <id>https://github.com/AmoyLab/Unla/releases/tag/v0.10.0</id>
     <updated>2026-08-04T14:48:10Z</updated>
     <summary>AmoyLab/Unla released v0.10.0.</summary>
-  </entry>
-  <entry>
-    <title>archestra-ai/archestra platform-v1.3.26</title>
-    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.26" />
-    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.26</id>
-    <updated>2026-08-04T14:13:44Z</updated>
-    <summary>archestra-ai/archestra released platform: v1.3.26.</summary>
   </entry>
   <entry>
     <title>Wei-Shaw/sub2api v0.1.171</title>
@@ -85,13 +155,6 @@
     <summary>obot-platform/obot released v0.25.1.</summary>
   </entry>
   <entry>
-    <title>tashfeenahmed/freellmapi v0.6.7</title>
-    <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.6.7" />
-    <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.6.7</id>
-    <updated>2026-08-03T18:08:18Z</updated>
-    <summary>tashfeenahmed/freellmapi released v0.6.7.</summary>
-  </entry>
-  <entry>
     <title>mlflow/mlflow v3.15.1</title>
     <link href="https://github.com/mlflow/mlflow/releases/tag/v3.15.1" />
     <id>https://github.com/mlflow/mlflow/releases/tag/v3.15.1</id>
@@ -118,13 +181,6 @@
     <id>https://github.com/mcpjungle/MCPJungle/releases/tag/0.4.6</id>
     <updated>2026-08-02T15:34:24Z</updated>
     <summary>mcpjungle/MCPJungle released 0.4.6.</summary>
-  </entry>
-  <entry>
-    <title>lidge-jun/opencodex v2.10.0</title>
-    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.10.0" />
-    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.10.0</id>
-    <updated>2026-08-02T07:37:00Z</updated>
-    <summary>lidge-jun/opencodex released v2.10.0.</summary>
   </entry>
   <entry>
     <title>agentic-community/mcp-gateway-registry 1.28.0</title>
@@ -155,66 +211,10 @@
     <summary>gpustack/gpustack released v2.2.3.</summary>
   </entry>
   <entry>
-    <title>musistudio/claude-code-router v3.0.18</title>
-    <link href="https://github.com/musistudio/claude-code-router/releases/tag/v3.0.18" />
-    <id>https://github.com/musistudio/claude-code-router/releases/tag/v3.0.18</id>
-    <updated>2026-07-31T07:48:02Z</updated>
-    <summary>musistudio/claude-code-router released v3.0.18.</summary>
-  </entry>
-  <entry>
     <title>seakee/CPA-Manager-Plus v1.11.11</title>
     <link href="https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.11.11" />
     <id>https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.11.11</id>
     <updated>2026-07-31T05:22:56Z</updated>
     <summary>seakee/CPA-Manager-Plus released v1.11.11.</summary>
-  </entry>
-  <entry>
-    <title>maximhq/bifrost helm-chart-v2.1.33</title>
-    <link href="https://github.com/maximhq/bifrost/releases/tag/helm-chart-v2.1.33" />
-    <id>https://github.com/maximhq/bifrost/releases/tag/helm-chart-v2.1.33</id>
-    <updated>2026-07-30T21:11:24Z</updated>
-    <summary>maximhq/bifrost released Helm Chart v2.1.33.</summary>
-  </entry>
-  <entry>
-    <title>lightseekorg/smg v1.9.0</title>
-    <link href="https://github.com/smg-project/smg/releases/tag/v1.9.0" />
-    <id>https://github.com/smg-project/smg/releases/tag/v1.9.0</id>
-    <updated>2026-07-30T16:09:56Z</updated>
-    <summary>lightseekorg/smg released v1.9.0.</summary>
-  </entry>
-  <entry>
-    <title>diegosouzapw/OmniRoute v3.8.49</title>
-    <link href="https://github.com/diegosouzapw/OmniRoute/releases/tag/v3.8.49" />
-    <id>https://github.com/diegosouzapw/OmniRoute/releases/tag/v3.8.49</id>
-    <updated>2026-07-30T00:37:16Z</updated>
-    <summary>diegosouzapw/OmniRoute released v3.8.49.</summary>
-  </entry>
-  <entry>
-    <title>agentgateway/agentgateway v1.4.1</title>
-    <link href="https://github.com/agentgateway/agentgateway/releases/tag/v1.4.1" />
-    <id>https://github.com/agentgateway/agentgateway/releases/tag/v1.4.1</id>
-    <updated>2026-07-29T21:48:46Z</updated>
-    <summary>agentgateway/agentgateway released v1.4.1.</summary>
-  </entry>
-  <entry>
-    <title>ascending-llc/jarvis-registry asc0.5.4</title>
-    <link href="https://github.com/ascending-llc/jarvis-registry/releases/tag/asc0.5.4" />
-    <id>https://github.com/ascending-llc/jarvis-registry/releases/tag/asc0.5.4</id>
-    <updated>2026-07-29T01:53:09Z</updated>
-    <summary>ascending-llc/jarvis-registry released Jarvis Registry asc0.5.4.</summary>
-  </entry>
-  <entry>
-    <title>stacklok/toolhive v0.41.0</title>
-    <link href="https://github.com/stacklok/toolhive/releases/tag/v0.41.0" />
-    <id>https://github.com/stacklok/toolhive/releases/tag/v0.41.0</id>
-    <updated>2026-07-28T17:10:55Z</updated>
-    <summary>stacklok/toolhive released v0.41.0.</summary>
-  </entry>
-  <entry>
-    <title>looplj/axonhub v1.0.0-beta6</title>
-    <link href="https://github.com/looplj/axonhub/releases/tag/v1.0.0-beta6" />
-    <id>https://github.com/looplj/axonhub/releases/tag/v1.0.0-beta6</id>
-    <updated>2026-07-28T15:43:55Z</updated>
-    <summary>looplj/axonhub released v1.0.0-beta6.</summary>
   </entry>
 </feed>
