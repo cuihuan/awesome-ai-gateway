@@ -244,6 +244,7 @@ _One of the most-asked questions in the ecosystem, and the internet's answers ar
 **Trial credits ≠ free tiers** (they expire): NVIDIA [build.nvidia.com](https://docs.api.nvidia.com/nim/docs/faq) (1,000 requests at signup, +4,000 with a business email — staff-forum figures; prototyping-only license) and Alibaba Cloud [Model Studio international](https://www.alibabacloud.com/help/en/model-studio/new-free-quota) (per-model quotas, hard 90-day expiry, Singapore region). **Recently discontinued — ignore stale listicles:** Together AI killed its `-free` models (now $5 minimum prepaid, _"does not currently offer free trials"_), Moonshot/Kimi requires a $1 top-up to start, and xAI's much-cited data-sharing credits are no longer documented on any public page. Full evidence per row: `data/free_tiers.json`. A wrong row is a bug — [report it](https://github.com/cuihuan/awesome-ai-gateway/issues/new).
 
 ## 🔓 Self-hosted open source
+- [Token Efficiency](https://github.com/zangxin75/token-efficiency) — Unified gateway with token compression, semantic caching, multi-tenant SaaS portal, cost analytics. Supports OpenAI/Anthropic/MiniMax/GLM/Kimi/DeepSeek.
 
 _Pain point: "My keys, my infra, no per-token middleman fee."_
 
