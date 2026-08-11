@@ -50,6 +50,13 @@
     <summary>maximhq/bifrost released Core v1.7.8.</summary>
   </entry>
   <entry>
+    <title>caozhiyuan/copilot-api v2.1.0</title>
+    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.1.0" />
+    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.1.0</id>
+    <updated>2026-08-10T15:17:35Z</updated>
+    <summary>caozhiyuan/copilot-api released v2.1.0.</summary>
+  </entry>
+  <entry>
     <title>router-for-me/CLIProxyAPI v7.2.128</title>
     <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.128" />
     <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.128</id>
@@ -127,6 +134,13 @@
     <summary>Wei-Shaw/sub2api released Sub2API 0.1.173.</summary>
   </entry>
   <entry>
+    <title>kittors/CliRelay v0.4.22</title>
+    <link href="https://github.com/kittors/CliRelay/releases/tag/v0.4.22" />
+    <id>https://github.com/kittors/CliRelay/releases/tag/v0.4.22</id>
+    <updated>2026-08-09T01:06:53Z</updated>
+    <summary>kittors/CliRelay released v0.4.22.</summary>
+  </entry>
+  <entry>
     <title>labring/aiproxy v0.6.9</title>
     <link href="https://github.com/labring/aiproxy/releases/tag/v0.6.9" />
     <id>https://github.com/labring/aiproxy/releases/tag/v0.6.9</id>
@@ -190,31 +204,17 @@
     <summary>kserve/kserve released v0.20.0.</summary>
   </entry>
   <entry>
+    <title>liaohch3/claude-tap v0.1.142</title>
+    <link href="https://github.com/liaohch3/claude-tap/releases/tag/v0.1.142" />
+    <id>https://github.com/liaohch3/claude-tap/releases/tag/v0.1.142</id>
+    <updated>2026-08-06T13:14:24Z</updated>
+    <summary>liaohch3/claude-tap released v0.1.142.</summary>
+  </entry>
+  <entry>
     <title>ai-dynamo/dynamo v1.3.1</title>
     <link href="https://github.com/ai-dynamo/dynamo/releases/tag/v1.3.1" />
     <id>https://github.com/ai-dynamo/dynamo/releases/tag/v1.3.1</id>
     <updated>2026-08-06T00:16:12Z</updated>
     <summary>ai-dynamo/dynamo released Dynamo v1.3.1.</summary>
-  </entry>
-  <entry>
-    <title>IBM/mcp-context-forge v1.0.7</title>
-    <link href="https://github.com/IBM/mcp-context-forge/releases/tag/v1.0.7" />
-    <id>https://github.com/IBM/mcp-context-forge/releases/tag/v1.0.7</id>
-    <updated>2026-08-05T18:07:27Z</updated>
-    <summary>IBM/mcp-context-forge released v1.0.7 - Release Security Hardening, Unified Search, OAuth Improvements, Dataplane Enhancements, and Operational Reliability.</summary>
-  </entry>
-  <entry>
-    <title>mnfst/manifest manifest@6.18.0</title>
-    <link href="https://github.com/mnfst/manifest/releases/tag/manifest%406.18.0" />
-    <id>https://github.com/mnfst/manifest/releases/tag/manifest%406.18.0</id>
-    <updated>2026-08-05T14:34:23Z</updated>
-    <summary>mnfst/manifest released manifest v6.18.0.</summary>
-  </entry>
-  <entry>
-    <title>AmoyLab/Unla v0.10.0</title>
-    <link href="https://github.com/AmoyLab/Unla/releases/tag/v0.10.0" />
-    <id>https://github.com/AmoyLab/Unla/releases/tag/v0.10.0</id>
-    <updated>2026-08-04T14:48:10Z</updated>
-    <summary>AmoyLab/Unla released v0.10.0.</summary>
   </entry>
 </feed>

@@ -93,6 +93,13 @@
     "askalf/dario",
     "tsouth89/toolport",
     "swobuforge/swobu",
-    "happy520ai/unified-ai-system"
+    "happy520ai/unified-ai-system",
+    "headroomlabs-ai/headroom",
+    "liaohch3/claude-tap",
+    "romgX/openrelay",
+    "kittors/CliRelay",
+    "caozhiyuan/copilot-api",
+    "beizhu-1209/AIHelms",
+    "LianjiaTech/bella-openapi"
   ]
 }
