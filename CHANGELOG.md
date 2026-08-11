@@ -6,6 +6,44 @@ structural and editorial changes.
 
 ## [Unreleased]
 
+### 2026-08-11 — community submission batch: three self-hosted gateways, one relay
+
+Five PRs and one submission issue cleared. Every entry was verified against the GitHub API
+(license, activity, real code on the request path) or a live endpoint probe before listing;
+each was applied by hand on `main` rather than merged, because the daily star refresh
+conflicts with any content branch within a day.
+
+- **Swobu** (local-first Go gateway, AGPL-3.0) added by [@metrofun](https://github.com/metrofun) in
+  [#50](https://github.com/cuihuan/awesome-ai-gateway/pull/50) — terminates OpenAI / Anthropic
+  Messages / remote-MCP traffic and routes across providers, regions, accounts and local engines;
+  BYOK, no resold quota. Active (v1.0.0-rc.10), listed with an early-stage note. 🙏
+- **Unified AI System** (Node.js gateway + MCP server, Apache-2.0) added by
+  [@happy520ai](https://github.com/happy520ai) in [#48](https://github.com/cuihuan/awesome-ai-gateway/pull/48)
+  — starts credential-free against a fake provider; self-caveated preview, kept as written. 🙏
+- **Token Efficiency** (Python/Vue gateway, MIT) added by [@zangxin75](https://github.com/zangxin75) in
+  [#52](https://github.com/cuihuan/awesome-ai-gateway/pull/52) — token compression, semantic caching,
+  multi-tenant portal. Placement corrected (the submitted line sat between the section heading and
+  its pain-point line) and the maturity signal made explicit: repo opened 2026-08, single maintainer,
+  compression figures vendor-run, hosted edition shares the name. 🙏
+- **AllRouter** (hosted relay, at-list-price resale + own-GPU free tier) submitted by
+  [@toptok369-jpg](https://github.com/toptok369-jpg) in [#49](https://github.com/cuihuan/awesome-ai-gateway/issues/49)
+  with disclosure — endpoint independently probed (`allrouter.ai/v1` → `new_api_error`, i.e.
+  new-api-based) before listing; the submitted repo is a docs/marketing mirror, not the gateway
+  source, so it is treated as a closed hosted relay. New & unverified, on the watch-list. 🙏
+
+### Changed
+- **FlowBar**'s entry now names payment reach as its differentiator (Alipay/WeChat, USDT/USDC,
+  PayPal, Apple/Google Pay) — a real selection criterion for buyers outside the US card system.
+  The rest of [#47](https://github.com/cuihuan/awesome-ai-gateway/pull/47) was declined: top-up
+  bonus tiers, referral rewards and the processor's own coverage figure are promotions that go
+  stale and read as marketing, which CONTRIBUTING rules out.
+- **FlintAPI** unchanged; [#51](https://github.com/cuihuan/awesome-ai-gateway/pull/51) closed. The
+  smart-routing repositioning it asked for was already in the entry (attributed to the operator).
+  Declined: promotional framing, a vendor blog link, and promotion out of the new-and-unverified
+  block — that block is a verification status, and entries leave it on an independent canary-diff
+  reproduction, never on request.
+- New & unverified relay count 16 → 17; watch-list rows added for AllRouter and updated for FlowBar.
+
 ### 2026-07-29 (night) — the handbook is complete: chapters 7 and 8
 
 - **Chapter 7: "Virtual Keys, Budgets & Metering"** — how a gateway counts your money and
