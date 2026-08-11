@@ -6,6 +6,45 @@ structural and editorial changes.
 
 ## [Unreleased]
 
+### 2026-08-11 (later) — ecosystem sweep: eight additions, and the top table's rule enforced
+
+A search sweep over the `ai-gateway` / `llm-gateway` / `llm-proxy` / `llm-router` topics,
+diffed against everything already listed. Each addition was checked against the GitHub API
+(license, activity, repo substance) and its link resolved before listing.
+
+- **headroom** (Apache-2.0) — context-compression layer that ships as library, local proxy
+  and MCP server. Listed as **"not a router"**: it cuts tokens per call rather than spanning
+  providers, and reading it as a gateway would send people to the wrong tool. Its savings
+  figures are marked as the project's own.
+- **OpenRelay** (MIT) — aggregates AI quota you already own (Claude Desktop/Code, Kiro,
+  Copilot, Cursor, Codex…). Verified BYO-accounts, not resold quota, so it clears the
+  inclusion bar — with the same provider-ToS / account-ban flag as CLIProxyAPI.
+- **Paritok** (Apache-2.0) — compression gateway for coding agents driven by an open-weights
+  4B code model; same niche as headroom, different mechanism. Savings curve is vendor-run.
+- **copilot-api** (MIT) — re-exposes a GitHub Copilot subscription as OpenAI/Anthropic APIs;
+  ToS flag applies.
+- **CliRelay** (MIT) — coding-CLI gateway with a multi-tenant console, request logs and
+  per-tenant spend quotas.
+- **claude-tap** (MIT) — intercepting proxy + trace viewer across eight coding agents; wider
+  agent coverage than ccglass, debugging-first rather than spend-first. → Observability.
+- **AIHelms** (GPL-3.0) — enterprise AI-asset governance: dual internal/external pricing,
+  cost attribution, SSO, audit logging, MCP/skill distribution. → China ecosystem.
+- **Bella OpenAPI** (MIT, Lianjia/Beike) — one API over chat, embedding, ASR, TTS and image
+  generation, out of a large operator's production stack. → China ecosystem.
+
+Two projects were checked and **not** listed: an agent control plane whose org claims a
+LiteLLM affiliation that could not be independently confirmed, and a repo that is an IAM
+product first and a gateway second.
+
+### Changed
+- **Top gateways (by stars)** had drifted from its own stated rule: five projects in the list
+  cleared the table's floor but were missing (**headroom**, **freellmapi**, **Chat Nio (CoAI)**,
+  **opencodex**, **Manifest**). All five added, ToS flags carried over. The intro now states the
+  real rule and why archived projects are held back, instead of an unfalsifiable
+  "most-authoritative" claim.
+- Star markers verified end-to-end: a full refresh fetched **115/115** repos with no dead
+  markers, and every hand-entered count in this batch matched the API exactly.
+
 ### 2026-08-11 — community submission batch: three self-hosted gateways, one relay
 
 Five PRs and one submission issue cleared. Every entry was verified against the GitHub API
