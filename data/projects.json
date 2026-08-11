@@ -91,6 +91,8 @@
     "oomol-lab/open-connector",
     "seakee/CPA-Manager-Plus",
     "askalf/dario",
-    "tsouth89/toolport"
+    "tsouth89/toolport",
+    "swobuforge/swobu",
+    "happy520ai/unified-ai-system"
   ]
 }
