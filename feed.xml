@@ -71,11 +71,25 @@
     <summary>thushan/olla released Olla v0.0.29.</summary>
   </entry>
   <entry>
+    <title>swobuforge/swobu v1.0.0-rc.10</title>
+    <link href="https://github.com/swobuforge/swobu/releases/tag/v1.0.0-rc.10" />
+    <id>https://github.com/swobuforge/swobu/releases/tag/v1.0.0-rc.10</id>
+    <updated>2026-08-10T11:35:43Z</updated>
+    <summary>swobuforge/swobu released v1.0.0-rc.10.</summary>
+  </entry>
+  <entry>
     <title>stacklok/toolhive v0.42.1</title>
     <link href="https://github.com/stacklok/toolhive/releases/tag/v0.42.1" />
     <id>https://github.com/stacklok/toolhive/releases/tag/v0.42.1</id>
     <updated>2026-08-10T10:21:23Z</updated>
     <summary>stacklok/toolhive released v0.42.1.</summary>
+  </entry>
+  <entry>
+    <title>happy520ai/unified-ai-system v0.4.9</title>
+    <link href="https://github.com/happy520ai/unified-ai-system/releases/tag/v0.4.9" />
+    <id>https://github.com/happy520ai/unified-ai-system/releases/tag/v0.4.9</id>
+    <updated>2026-08-10T10:08:44Z</updated>
+    <summary>happy520ai/unified-ai-system released v0.4.9: Verified OpenAI SDK compatibility.</summary>
   </entry>
   <entry>
     <title>theopenco/llmgateway v1.12.0</title>
@@ -202,19 +216,5 @@
     <id>https://github.com/AmoyLab/Unla/releases/tag/v0.10.0</id>
     <updated>2026-08-04T14:48:10Z</updated>
     <summary>AmoyLab/Unla released v0.10.0.</summary>
-  </entry>
-  <entry>
-    <title>kgateway-dev/kgateway v2.4.2</title>
-    <link href="https://github.com/kgateway-dev/kgateway/releases/tag/v2.4.2" />
-    <id>https://github.com/kgateway-dev/kgateway/releases/tag/v2.4.2</id>
-    <updated>2026-08-03T21:11:39Z</updated>
-    <summary>kgateway-dev/kgateway released v2.4.2.</summary>
-  </entry>
-  <entry>
-    <title>obot-platform/obot v0.25.1</title>
-    <link href="https://github.com/obot-platform/obot/releases/tag/v0.25.1" />
-    <id>https://github.com/obot-platform/obot/releases/tag/v0.25.1</id>
-    <updated>2026-08-03T19:28:33Z</updated>
-    <summary>obot-platform/obot released v0.25.1.</summary>
   </entry>
 </feed>
