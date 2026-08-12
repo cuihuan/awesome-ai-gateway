@@ -6,6 +6,41 @@ structural and editorial changes.
 
 ## [Unreleased]
 
+### 2026-08-12 (audit) — reader-persona audit: what it found, and what it has not checked yet
+
+Six reader personas plus two sweeps were run against the repo, then each claimed gap
+was sent to an independent agent told to refute it. Four of seven readers came back
+"partial" — they could not finish the job the list promises.
+
+Confirmed by hand and fixed in this batch:
+
+- **The EU AI Act framing sold urgency that no longer exists.** Annex III high-risk
+  duties — the Article 12 event logging most audit-gateway shortlists exist to satisfy
+  — moved to 2027-12-02. Corrected in both languages.
+- **The cost data quoted pre-cut GPT-5.6 prices.** Terra and Luna were cut on
+  2026-07-30; both are now priced rows, and Luna lands second-cheapest.
+- **TensorZero carried two archiving dates** 580 lines apart, in both languages.
+- **The FAQPage JSON-LD quoted OpenRouter's marketing "400+ models"** — the number
+  this repo's own data file records as marketing. index.html now sits in the refresh
+  pipeline so its numbers cannot drift again.
+- **Requesty's SOC 2 status differed between languages**, and the Chinese row stated a
+  quarter that expired six weeks ago as if it were current.
+
+Not yet checked — recorded so it is not mistaken for a clean bill of health. The
+orchestration capped verification at eight findings and 20 were dropped before anyone
+looked at them. The most concrete of those:
+
+- the "verify your own gateway in 10 minutes" probe command is published with no
+  arguments and reportedly exits immediately;
+- LANDSCAPE.md tells readers the bus-factor check is done for them, but most entries
+  carry no activity date;
+- the Article 12 retention bar and the per-vendor retention figures live in different
+  files and are never joined, which is the one column a regulated buyer needs;
+- Envoy AI Gateway, elevated here as the CNCF-backed pick, has no row in either
+  security-evidence dataset;
+- no branch anywhere answers the split domestic/overseas architecture question, and
+  the China-market compliance vocabulary is EU/US only.
+
 ### 2026-08-11 (later) — ecosystem sweep: eight additions, and the top table's rule enforced
 
 A search sweep over the `ai-gateway` / `llm-gateway` / `llm-proxy` / `llm-router` topics,

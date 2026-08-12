@@ -234,7 +234,7 @@ This is the part buyers actually lose sleep over. Models are interchangeable; th
 | **Portkey** (cloud) | ★★★★½ | usage-based | ★★★★½ | ★★★★ | ★★★★★ | SOC 2 II + ISO + HIPAA; 50+ guardrail marketplace, RBAC/SSO; 99.99% SLA |
 | **Vercel AI Gateway** | ★★★★ | **0%** | ★★★½ | ★★★★ | ★★★★ | SOC 2 II + 99.99% SLA (Enterprise); true 0% even on BYOK |
 | **Helicone** (cloud) | ★★★½ | **0%** passthrough | ★★★½ | ★★★ | ★★★★½ | SOC 2 + HIPAA (Team); PII detection; OSS core → VPC/self-host option |
-| **Requesty** | ★★★½ | ~5% | ★★★½ | ★★★ | ★★★ | EU residency + PII masking + ZDR; SOC 2 Type II "in progress — expected Q3 2026" (slipped from Q2; the vendor's own FAQ markup contradicts the badge) |
+| **Requesty** | ★★★½ | ~5% | ★★★½ | ★★★ | ★★★ | EU residency + PII masking + ZDR; SOC 2 Type II "in progress — expected Q3 2026" (slipped from Q2; the vendor's own FAQ markup contradicts the badge). Q3 is the current quarter — re-verify before relying on it |
 | **OpenRouter** | ★★★½ | ~5.5% credit fee | ★★★ | ★★★ | ★★★★½ | ~90 providers, auto-failover, free ZDR; **no public SLA** (enterprise only) |
 | **Eden AI** | ★★★½ | ~5.5% platform fee | ★★★ | ★★★½ | ★★★ | France-based, EU-default residency, GDPR-first; SOC 2 UNVERIFIED |
 | **Martian** | ★★★ | volume (undisclosed) | ★★★½ | ★★★ | ★★½ | "Airlock" compliance vetting + cost-routing; certs UNVERIFIED |
