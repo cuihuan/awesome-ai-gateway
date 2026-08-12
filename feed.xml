@@ -5,8 +5,15 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-08-12T01:13:03Z</updated>
+  <updated>2026-08-12T04:07:34Z</updated>
   <author><name>Awesome AI Gateway</name></author>
+  <entry>
+    <title>router-for-me/CLIProxyAPI v7.2.129</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.129" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.129</id>
+    <updated>2026-08-12T04:07:34Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v7.2.129.</summary>
+  </entry>
   <entry>
     <title>archestra-ai/archestra platform-v1.3.32</title>
     <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.32" />
@@ -90,13 +97,6 @@
     <id>https://github.com/maximhq/bifrost/releases/tag/core/v1.7.8</id>
     <updated>2026-08-10T15:21:56Z</updated>
     <summary>maximhq/bifrost released Core v1.7.8.</summary>
-  </entry>
-  <entry>
-    <title>router-for-me/CLIProxyAPI v7.2.128</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.128" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.128</id>
-    <updated>2026-08-10T14:54:57Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v7.2.128.</summary>
   </entry>
   <entry>
     <title>lidge-jun/opencodex v2.12.0</title>

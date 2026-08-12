@@ -42,7 +42,7 @@ Here's the honest, data-backed map. Scores are ★1–5 from the [scorecard rubr
 
 ## If you need a China-friendly relay panel
 
-- **[new-api](https://github.com/QuantumNous/new-api)** (<!--s:QuantumNous/new-api-->⭐ 44.9k<!--/s-->) is the most active successor to **[one-api](https://github.com/songquanpeng/one-api)** (<!--s:songquanpeng/one-api-->⭐ 36.3k<!--/s-->), the MIT original. They're great for multi-key, multi-provider reselling panels — but be clear-eyed: new-api carries a **cluster of 2026 CVEs** (IDOR auth-bypass, two SSRF, a SQLi/DoS), so sandbox it, restrict egress, and patch aggressively. See the dedicated [one-api vs new-api vs LiteLLM (Chinese)](one-api-vs-new-api-vs-litellm.zh-CN.md) breakdown.
+- **[new-api](https://github.com/QuantumNous/new-api)** (<!--s:QuantumNous/new-api-->⭐ 45k<!--/s-->) is the most active successor to **[one-api](https://github.com/songquanpeng/one-api)** (<!--s:songquanpeng/one-api-->⭐ 36.3k<!--/s-->), the MIT original. They're great for multi-key, multi-provider reselling panels — but be clear-eyed: new-api carries a **cluster of 2026 CVEs** (IDOR auth-bypass, two SSRF, a SQLi/DoS), so sandbox it, restrict egress, and patch aggressively. See the dedicated [one-api vs new-api vs LiteLLM (Chinese)](one-api-vs-new-api-vs-litellm.zh-CN.md) breakdown.
 
 ## So, should you actually leave LiteLLM?
 
