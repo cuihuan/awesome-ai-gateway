@@ -45,7 +45,7 @@ Consolidation, not collapse — the same year produced clear winners:
 
 ## What it means when you pick today
 
-1. **Bus factor is a selection criterion, not a footnote.** Two projects above went read-only while still being recommended in current blog posts. Check the last commit date before the feature matrix. Every entry in the list carries a dated state for exactly this reason.
+1. **Bus factor is a selection criterion, not a footnote.** Two projects above went read-only while still being recommended in current blog posts. Check the last commit date before the feature matrix — the list now does that check for you and publishes the result: [Maintenance signal](README.md#-maintenance-signal--what-the-star-count-hides) lists every tracked repo that is archived or has gone six months without a commit, refreshed daily from the GitHub API. Stars are cumulative and never fall when a project stops shipping; that table is the correction.
 2. **Prefer the layer you can keep.** Permissively licensed code with forks survives its company; a hosted control plane does not. TensorZero's code is still usable, its company is not.
 3. **If your traffic lives in one cloud, the native gateway is now a real answer.** Bedrock, Azure API Management, Vertex and Databricks Unity all shipped routing plus spend caps during 2026. Worse portability, far less to operate — a trade worth making explicitly rather than by default.
 4. **Star count is popularity, not fitness.** The most-starred project in the list is a compression proxy that cannot route between providers. Read what a thing *is* before reading how popular it is.

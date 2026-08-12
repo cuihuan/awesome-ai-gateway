@@ -2,6 +2,7 @@
 
 import re
 import unittest
+from datetime import datetime, timezone
 from pathlib import Path
 
 from update_readme import (
@@ -14,6 +15,9 @@ from update_readme import (
     load_retention_as_of,
     parse_displayed_stars,
     render_openrouter_model_count,
+    days_since,
+    quiet_entries,
+    render_maintenance_block,
     render_releases_block,
     replace_between_markers,
     replace_model_count_markers,
@@ -279,3 +283,55 @@ class TestRenderReleases(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestMaintenanceSignal(unittest.TestCase):
+    """The quiet/archived table — the one number stars cannot give you.
+
+    Stars are cumulative: a project that stopped shipping keeps its 36k and reads
+    as healthy. LANDSCAPE.md tells readers to check the last commit before the
+    feature matrix, so the list has to actually publish that check.
+    """
+
+    NOW = datetime(2026, 8, 12, tzinfo=timezone.utc)
+
+    def _activity(self):
+        return {
+            "live/active": {"pushed_at": "2026-08-11T00:00:00Z", "archived": False},
+            "quiet/sixmonths": {"pushed_at": "2026-01-09T00:00:00Z", "archived": False},
+            "dead/archived": {"pushed_at": "2026-06-11T00:00:00Z", "archived": True},
+        }
+
+    def test_days_since_counts_whole_days(self):
+        self.assertEqual(days_since("2026-08-02T00:00:00Z", self.NOW), 10)
+
+    def test_active_repo_is_not_listed(self):
+        rows = quiet_entries(self._activity(), now=self.NOW)
+        self.assertNotIn("live/active", [r["repo"] for r in rows])
+
+    def test_archived_sorts_before_merely_quiet(self):
+        rows = quiet_entries(self._activity(), now=self.NOW)
+        self.assertEqual([r["repo"] for r in rows], ["dead/archived", "quiet/sixmonths"])
+
+    def test_archived_is_listed_even_when_recently_pushed(self):
+        """An archive can be days old — recency must not hide it."""
+        rows = quiet_entries(
+            {"x/y": {"pushed_at": "2026-08-10T00:00:00Z", "archived": True}}, now=self.NOW
+        )
+        self.assertEqual(len(rows), 1)
+
+    def test_render_marks_archived_and_quiet_differently(self):
+        block = render_maintenance_block(quiet_entries(self._activity(), now=self.NOW))
+        self.assertIn("archived", block.lower())
+        self.assertIn("Quiet for", block)
+
+    def test_render_says_so_when_everything_is_healthy(self):
+        self.assertIn("No listed project", render_maintenance_block([]))
+        self.assertIn("没有条目", render_maintenance_block([], zh=True))
+
+    def test_both_readmes_carry_the_markers(self):
+        for name in ("README.md", "README.zh-CN.md"):
+            text = (REPO_ROOT / name).read_text(encoding="utf-8")
+            with self.subTest(file=name):
+                self.assertIn("<!-- MAINTENANCE:START -->", text)
+                self.assertIn("<!-- MAINTENANCE:END -->", text)

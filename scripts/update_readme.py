@@ -19,6 +19,12 @@ Updates, in README.md, README.zh-CN.md and compare/*.md:
   3. READMEs only: the "Recent releases" block between
      ``<!-- RELEASES:START -->`` and ``<!-- RELEASES:END -->`` (latest
      releases of repos listed in data/projects.json).
+  4. READMEs only: the "Maintenance signal" table between
+     ``<!-- MAINTENANCE:START -->`` and ``<!-- MAINTENANCE:END -->`` — every
+     tracked repo that is archived or has taken no commit in QUIET_AFTER_DAYS.
+     Star counts only ever go up, so a project that stopped shipping looks
+     identical to one that did not; this is the correction, and it comes from
+     the same /repos/{slug} response the star refresh already fetches.
 
 Also writes data/releases.json for programmatic consumers.
 
@@ -48,6 +54,10 @@ RELEASES_FILE = ROOT / "data" / "releases.json"
 STAR_MARKER_RE = re.compile(r"<!--s:([\w.\-]+/[\w.\-]+)-->.*?<!--/s-->", re.DOTALL)
 RELEASES_START = "<!-- RELEASES:START -->"
 RELEASES_END = "<!-- RELEASES:END -->"
+MAINTENANCE_START = "<!-- MAINTENANCE:START -->"
+MAINTENANCE_END = "<!-- MAINTENANCE:END -->"
+#: A project this long without a commit is a selection signal, not a footnote.
+QUIET_AFTER_DAYS = 180
 TOP_GATEWAYS_START = "<!-- TOP-GATEWAYS:START -->"
 TOP_GATEWAYS_END = "<!-- TOP-GATEWAYS:END -->"
 DISPLAYED_STARS_RE = re.compile(r"<!--s:[\w.\-]+/[\w.\-]+-->[^0-9<]*([0-9.]+)\s*(k?)", re.IGNORECASE)
@@ -239,13 +249,74 @@ def github_get(path: str) -> dict | None:
         return None
 
 
-def fetch_stars(repos: list[str]) -> dict[str, int]:
+def fetch_repo_meta(repos: list[str]) -> tuple[dict[str, int], dict[str, dict]]:
+    """One pass over /repos/{slug}: star counts, plus last-push date and archived flag.
+
+    The activity half costs nothing extra — it is in the same response the star
+    refresh already fetches — and it is what the star count cannot tell you. A
+    project can sit at 36k stars and not have taken a commit in seven months.
+    """
     stars: dict[str, int] = {}
+    activity: dict[str, dict] = {}
     for slug in repos:
         data = github_get(f"/repos/{slug}")
-        if data and isinstance(data.get("stargazers_count"), int):
+        if not data:
+            continue
+        if isinstance(data.get("stargazers_count"), int):
             stars[slug] = data["stargazers_count"]
-    return stars
+        if data.get("pushed_at"):
+            activity[slug] = {
+                "pushed_at": data["pushed_at"],
+                "archived": bool(data.get("archived")),
+            }
+    return stars, activity
+
+
+def days_since(iso_ts: str, now: datetime | None = None) -> int:
+    """Whole days between an ISO-8601 UTC timestamp and now."""
+    then = datetime.strptime(iso_ts, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    return ((now or datetime.now(timezone.utc)) - then).days
+
+
+def quiet_entries(activity: dict[str, dict], quiet_after_days: int = QUIET_AFTER_DAYS,
+                  now: datetime | None = None) -> list[dict]:
+    """Tracked repos that are archived, or have taken no commit in a long while.
+
+    Sorted worst-first: archived before merely quiet, then by how long it has been.
+    """
+    rows = []
+    for slug, meta in activity.items():
+        stale_days = days_since(meta["pushed_at"], now)
+        if meta["archived"] or stale_days >= quiet_after_days:
+            rows.append({
+                "repo": slug,
+                "days": stale_days,
+                "last_commit": meta["pushed_at"][:10],
+                "archived": meta["archived"],
+            })
+    rows.sort(key=lambda r: (not r["archived"], -r["days"]))
+    return rows
+
+
+def render_maintenance_block(rows: list[dict], zh: bool = False) -> str:
+    """Markdown table of the quiet/archived entries, or an all-clear line."""
+    if not rows:
+        return ("*当前没有条目处于归档或长期停更状态。*" if zh
+                else "*No listed project is currently archived or long-quiet.*")
+    head = (["项目", "最后提交", "状态"] if zh else ["Project", "Last commit", "Status"])
+    out = ["| " + " | ".join(head) + " |", "|---|---|---|"]
+    for r in rows:
+        months = r["days"] // 30
+        if r["archived"]:
+            status = "⛔ 仓库已归档（只读）" if zh else "⛔ Repo archived (read-only)"
+        elif zh:
+            status = f"⚠️ 已静默约 {months} 个月"
+        else:
+            status = f"⚠️ Quiet for ~{months} months"
+        # Slug as code, not a link: every one of these repos is already linked from its
+        # own entry, and awesome-lint (correctly) rejects a second link to the same URL.
+        out.append(f"| `{r['repo']}` | {r['last_commit']} | {status} |")
+    return "\n".join(out)
 
 
 def fetch_latest_releases(repos: list[str]) -> list[dict]:
@@ -278,7 +349,9 @@ def main() -> int:
                 marked_repos.append(slug)
 
     print(f"fetching stars for {len(marked_repos)} repos...")
-    stars = fetch_stars(marked_repos)
+    stars, activity = fetch_repo_meta(marked_repos)
+    quiet = quiet_entries(activity)
+    print(f"quiet/archived among tracked repos: {len(quiet)}")
     print(f"fetching latest releases for {len(tracked)} repos...")
     releases = fetch_latest_releases(tracked)
 
@@ -294,6 +367,10 @@ def main() -> int:
         if path in README_FILES:  # table + releases blocks only exist there
             updated = sort_top_gateways_table(updated)
             updated = replace_between_markers(updated, RELEASES_START, RELEASES_END, block)
+            updated = replace_between_markers(
+                updated, MAINTENANCE_START, MAINTENANCE_END,
+                render_maintenance_block(quiet, zh=path.name.endswith("zh-CN.md")),
+            )
         if updated != original:
             path.write_text(updated, encoding="utf-8")
             changed_files.append(path.name)
@@ -303,6 +380,8 @@ def main() -> int:
             {
                 "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 "stars": stars,
+                "activity": activity,
+                "quiet": quiet,
                 "releases": releases,
             },
             indent=2,
