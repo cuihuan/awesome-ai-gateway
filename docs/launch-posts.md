@@ -275,3 +275,71 @@ the ranking signal.*
 sindresorhus/awesome (after list ≥30d + lint pass) · tensorchord/Awesome-LLMOps · InftyAI/Awesome-LLMOps ·
 Hannibal046/Awesome-LLM · punkpeye/ & appcypher/awesome-mcp-servers (MCP section). Each: one-line entry in
 their format, `[Awesome AI Gateway](https://github.com/cuihuan/awesome-ai-gateway) - …`.
+
+---
+
+## 9. The landscape angle (2026-08) — a second, sharper hook than "I made a list"
+
+_Why this one is worth a separate post: "awesome list" is a saturated genre and reads as
+self-promotion. "Here is what happened to a whole product category this year, with the repo
+states to prove it" is news, and the list is the footnote. Same repo, a reason to click._
+
+**The hook, in one line:** the independent AI gateway consolidated in 2026 — TensorZero and
+Pydantic AI Gateway archived, Helicone and Portkey acquired, BricksLLM and Glide quietly
+stopped shipping — while token-compression proxies became the most-starred thing in the
+category. Three of the six kept their code and lost their company; that distinction is the
+part you can actually act on.
+
+**Where to post:** Hacker News (Show HN is the wrong tag here — this is a post, not a launch;
+use a plain submission of `LANDSCAPE.md`), r/LocalLLaMA, r/selfhosted, X. Chinese venues get
+`LANDSCAPE.zh-CN.md`.
+
+### HN title options (pick one, keep it flat and factual)
+
+- `The independent AI gateway consolidated in 2026 — what archived, what got acquired`
+- `AI gateways in 2026: what died, what grew, and six checks before you pick one`
+
+### HN body (paste, then edit in your own voice)
+
+> I maintain a vendor-neutral list of AI gateways, and while re-verifying every entry against
+> the GitHub API I noticed the entries were telling a story the list itself wasn't: the
+> independent layer had consolidated over about six months.
+>
+> TensorZero (VC-backed, $7.3M seed) archived its repo on 2026-06-11. Pydantic AI Gateway
+> archived on 2026-03-30 and became a Logfire feature. Helicone was acquired by Mintlify;
+> Portkey by Palo Alto Networks. BricksLLM and Glide never announced anything — they just
+> stopped committing, in 2025-01 and 2024-08 respectively, which is the failure mode nobody
+> writes a blog post about.
+>
+> It isn't a collapse. Over the same period LiteLLM kept compounding, Bifrost won on measured
+> per-request overhead, Envoy AI Gateway hit v1.0 as the first CNCF-backed production-stable
+> option, and the coding-agent tier out-starred most of the "serious" infrastructure. The
+> most-starred project in my own list is now a token-compression proxy that cannot route
+> between providers at all.
+>
+> Two things I took from it. First, bus factor belongs in the selection criteria, not the
+> footnotes — two of those projects were read-only while still being recommended in current
+> blog posts. Second, prefer the layer you can keep: permissively licensed code survives its
+> company, a hosted control plane does not.
+>
+> I also wrote down the six checks I use on anything in this category — protocol fidelity,
+> added latency, cache economics, metering honesty, failure behaviour, trust surface — each
+> with how to reproduce it yourself, so it works on gateways I haven't found.
+>
+> Everything is dated and linked, and the three predictions at the end are published with the
+> observation that would prove each one wrong. Corrections welcome; evidence changes the page.
+>
+> https://github.com/cuihuan/awesome-ai-gateway/blob/main/LANDSCAPE.md
+
+### Reply notes (prepare before posting)
+
+- **"This is just an ad for your list."** Fair prior. The page links the disproof conditions
+  for its own claims and names what is growing, including projects that compete with nothing
+  I run. Point at a specific claim and I will show its source or correct it.
+- **"TensorZero didn't die, the code is right there."** That is exactly the distinction the
+  page draws — the code survived, the company did not, and only one of those is something you
+  can depend on for a roadmap.
+- **"Stripe/OpenRouter is a rumour."** Yes, and it is labelled unconfirmed in the table. It is
+  in there as a signal about where value is accruing, not as a fact.
+- **"Star counts are meaningless."** Agreed, which is why the page says the most-starred entry
+  is not a router at all. Stars measure popularity; the six checks measure fitness.
