@@ -43,6 +43,7 @@ Use it to pick an AI gateway by need (cost-first, self-hosted, enterprise & comp
 - [Full list & decision tree (README)]({BLOB}/README.md): 100+ gateways across 9 categories, a "which gateway should I use?" decision tree, FAQ and glossary.
 - [Evaluation set (BENCHMARKS)]({BLOB}/BENCHMARKS.md): model benchmark scores, reproducible per-task token-cost tables, the gateway scorecard rubric, and Part 5 real-world production reviews.
 - [How to choose safely]({BLOB}/README.md#how-to-choose-safely): trust-tier-to-data matching, the canary model-fidelity test, and the gray-relay exclusion policy.
+- [State of the landscape 2026 (LANDSCAPE)]({BLOB}/LANDSCAPE.md): which independent gateways consolidated, were acquired or went quiet in 2026 (each dated and verified against the GitHub API), which categories grew instead, the six-check evaluation standard that applies to any gateway on any list, and three dated predictions each published with the observation that would prove it wrong.
 """
 
 HANDBOOK = f"""## Handbook (how gateways work — theory with sources)

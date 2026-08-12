@@ -9,6 +9,7 @@ Use it to pick an AI gateway by need (cost-first, self-hosted, enterprise & comp
 - [Full list & decision tree (README)](https://github.com/cuihuan/awesome-ai-gateway/blob/main/README.md): 100+ gateways across 9 categories, a "which gateway should I use?" decision tree, FAQ and glossary.
 - [Evaluation set (BENCHMARKS)](https://github.com/cuihuan/awesome-ai-gateway/blob/main/BENCHMARKS.md): model benchmark scores, reproducible per-task token-cost tables, the gateway scorecard rubric, and Part 5 real-world production reviews.
 - [How to choose safely](https://github.com/cuihuan/awesome-ai-gateway/blob/main/README.md#how-to-choose-safely): trust-tier-to-data matching, the canary model-fidelity test, and the gray-relay exclusion policy.
+- [State of the landscape 2026 (LANDSCAPE)](https://github.com/cuihuan/awesome-ai-gateway/blob/main/LANDSCAPE.md): which independent gateways consolidated, were acquired or went quiet in 2026 (each dated and verified against the GitHub API), which categories grew instead, the six-check evaluation standard that applies to any gateway on any list, and three dated predictions each published with the observation that would prove it wrong.
 
 ## Comparisons
 - [编码 Agent 省钱路由器对比(2026):claude-code-router vs OmniRoute vs 9router vs CLIProxyAPI vs sub2api——省多少 vs 封号风险](https://cuihuan.github.io/awesome-ai-gateway/compare/coding-agent-routers-2026.zh-CN.html): 📊 关键数字 · 省钱的来源不是路由器本身——同一个编码 Agent 会话,换个模型成本就从 $0.021 到 $1.75,差 ~83 倍(实测,单测脚本可复算)。风险的来源也不是路由器的牌子,而是机制:自带 API key(BYOK)是官方支持的用法;把自己订阅的 OAuth…

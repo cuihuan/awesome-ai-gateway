@@ -2,7 +2,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/cuihuan/awesome-ai-gateway?style=social)](https://github.com/cuihuan/awesome-ai-gateway/stargazers)
 [![Evaluation set](https://img.shields.io/badge/📊-evaluation%20set-orange)](BENCHMARKS.md)
-[![Data verified](https://img.shields.io/github/last-commit/cuihuan/awesome-ai-gateway?label=data%20verified&color=success&logo=githubactions&logoColor=white)](.github/workflows/daily-update.yml) [![CI](https://img.shields.io/github/actions/workflow/status/cuihuan/awesome-ai-gateway/ci.yml?label=168%20tests)](https://github.com/cuihuan/awesome-ai-gateway/actions/workflows/ci.yml)
+[![Data verified](https://img.shields.io/github/last-commit/cuihuan/awesome-ai-gateway?label=data%20verified&color=success&logo=githubactions&logoColor=white)](.github/workflows/daily-update.yml) [![CI](https://img.shields.io/github/actions/workflow/status/cuihuan/awesome-ai-gateway/ci.yml?label=259%20tests)](https://github.com/cuihuan/awesome-ai-gateway/actions/workflows/ci.yml)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md) [![License: CC0](https://img.shields.io/badge/license-CC0-lightgrey.svg)](LICENSE)
 
 > **Pick one in ~10 seconds, understand why, and check every number yourself.** A decision tree over 100+ gateways, a handbook that explains how they actually work (and fail), and a reproducible cost benchmark plus dated evidence behind every claim — including what we exclude and why. CC0, no vendor money, no affiliate links.
@@ -13,6 +13,7 @@
 
 <p align="center">
 <a href="#which-gateway-should-i-use"><kbd> &nbsp; 🧭 Pick one &nbsp; </kbd></a> &nbsp;
+<a href="LANDSCAPE.md"><kbd> &nbsp; 🌍 State of the space &nbsp; </kbd></a> &nbsp;
 <a href="#-learn-how-ai-gateways-work"><kbd> &nbsp; 📖 Learn how they work &nbsp; </kbd></a> &nbsp;
 <a href="BENCHMARKS.md"><kbd> &nbsp; 📊 Verify the numbers &nbsp; </kbd></a> &nbsp;
 <a href="https://cuihuan.github.io/awesome-ai-gateway/"><kbd> &nbsp; 🚀 Live site &nbsp; </kbd></a>
@@ -26,6 +27,7 @@
 
 - [Which gateway should I use](#which-gateway-should-i-use)
   - [✅ Why trust this list](#-why-trust-this-list)
+- [🌍 State of the landscape (2026)](#-state-of-the-landscape-2026)
 - [⚡ 10-second answers](#-10-second-answers)
 - [📖 Learn: how AI gateways work](#-learn-how-ai-gateways-work)
 - [🔥 Top gateways (by stars)](#-top-gateways-by-stars)
@@ -120,6 +122,25 @@ Do you want to self-host?
 </p>
 
 ⭐ **Found this useful? [Star it](https://github.com/cuihuan/awesome-ai-gateway)** — that's how the next engineer choosing a gateway finds it. CC0, no signup, no tracking, no vendor money.
+
+## 🌍 State of the landscape (2026)
+
+The standalone AI gateway is being squeezed from both ends. Underneath, hyperscalers now ship routing and spend caps natively; above, the coding-agent wave produced a faster-growing class of gateway that most round-ups miss. The part that consolidated is the independent middle — a company whose entire product was the gateway.
+
+| 2026                                                                    | What happened                                    | State                                         |
+| ----------------------------------------------------------------------- | ------------------------------------------------ | --------------------------------------------- |
+| TensorZero <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s-->               | VC-backed OSS gateway archived its repo (Jun 11) | Read-only; Apache-2.0 code and forks live on  |
+| Pydantic AI Gateway <!--s:pydantic/pydantic-ai-gateway-->⭐ 192<!--/s--> | Archived (Mar 30), folded into Logfire           | The gateway became a platform feature         |
+| Helicone <!--s:Helicone/helicone-->⭐ 6.1k<!--/s-->                      | Acquired by Mintlify (Mar)                       | Still committing — roadmap risk, not liveness |
+| Portkey                                                                 | Acquired by Palo Alto Networks (closed May 29)   | Now a security platform's control plane       |
+| OpenRouter                                                              | Stripe reportedly in talks, ~$10B (Jul 23)       | Unconfirmed — a signal, not a fact            |
+| BricksLLM, Glide                                                        | No commits since 2025-01 / 2024-08               | Never archived; the failure mode is silence   |
+
+Not a collapse — the same year, LiteLLM <!--s:BerriAI/litellm-->⭐ 56.1k<!--/s--> kept compounding, Bifrost <!--s:maximhq/bifrost-->⭐ 7.2k<!--/s--> won on measured overhead, Envoy AI Gateway reached v1.0 (Jun 23) as the first CNCF-backed production-stable option, and the coding-agent tier plus token-compression proxies became the fastest-growing categories in this list.
+
+**Three things that changes for you:** check the last commit before the feature matrix; prefer code you can keep over a control plane you cannot; and if your traffic already lives in one cloud, that cloud's native gateway is now a real answer.
+
+📉 **The full picture — the consolidation evidence, the six-check evaluation standard, and three dated predictions with their disproof conditions: [LANDSCAPE.md](LANDSCAPE.md)**
 
 ## ⚡ 10-second answers
 
@@ -683,7 +704,7 @@ How many **input+output tokens** ¥100 buys, by model (blended estimate · snaps
 
 ## 📰 What's new
 
-_Curated monthly. Last review: 2026-07-29._
+_Reverse-chronological, last ~3 months. Older items retire into the chapter or data file that carries their evidence — they are not deleted, just moved out of "new". Item review: 2026-07-29 · last prune: 2026-08-12._
 
 - 2026-07-28 · **MCP went stateless — the biggest protocol break since it shipped.** Spec revision [2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28/changelog) removes protocol-level sessions and the `Mcp-Session-Id` header, deletes the `initialize`/`notifications/initialized` handshake (every request now carries its protocol version and capabilities in `_meta`), adds a mandatory `server/discover` RPC, replaces the HTTP GET stream and `resources/subscribe` with a single `subscriptions/listen` POST stream, and **drops SSE resumability** (`Last-Event-ID` and event IDs) — a broken stream now means starting over. Verified against the repo at the tagged commit on 2026-07-29: the new `schema/2026-07-28/schema.ts` contains zero references to `InitializeRequest` or `sessionId`, where 2025-11-25 had four. For anyone running an [MCP gateway](#-mcp--agent-gateways) this is structural: session-affinity routing stops being necessary and stateless requests load-balance freely, but resumability is now the gateway's problem, not the protocol's. ([changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog))
 - 2026-07-28 · **The July flagship wave rebased the whole scoreboard** — Claude Opus 5 (Jul 24) takes the AA-Index top spot (60.7 on the v4.1 scale) _and_ the SWE-bench Verified lead (96.0), Fable 5 settles in at Arena #1 (1508±6), Kimi K3 (Jul 16, weights on HF Jul 27) becomes the top open-weights model, and GPT-5.6 Sol/Terra/Luna (Jul 9), Grok 4.5 (Jul 8) and Gemini 3.6 Flash (Jul 21) fill out the month. Our scoreboard + cost tables are rebuilt on the v4.1 scale with single-source columns (see `BENCHMARKS.md`); the monthly pricing re-verification came back **12/13 exact** — see the evaluations digest for the one that broke.
@@ -693,14 +714,10 @@ _Curated monthly. Last review: 2026-07-29._
 - 2026-06 · **Hyperscalers converged on AI-gateway governance** — Databricks shipped **Unity AI Gateway** (smart routing + hard spend caps) at Data+AI Summit, Azure **API Management's AI-gateway** features reached GA at Build, and AWS extended **Bedrock AgentCore Gateway** at Summit NY. Runtime governance is now table stakes. ([Databricks](https://www.databricks.com/blog/ai-governance-data-ai-summit-2026-whats-new-unity-ai-gateway))
 - 2026-06 · **Anthropic pulled Fable 5 & Mythos 5 offline globally** under a US export-control directive (Jun 12–13), then restored them after the Dept of Commerce lifted the controls (Jun 30) — Fable 5 was back on the Claude platform, Claude.ai and Claude Code by Jul 2. The canonical "this is why you keep multi-provider failover" event of the year. ([Fortune](https://fortune.com/2026/06/13/anthropic-disables-fable-mythos-export-controls-national-security-threat/), CNBC)
 - 2026-06 · **GLM-5.2 is the new leading open-weight model** — Z.ai's MIT-licensed 744B-param MoE (40B active, 1M context, open-weighted mid-June) tops the open-weight tier of the Artificial Analysis Intelligence Index (score 51), taking the crown from the previous open leaders. ([Artificial Analysis](https://artificialanalysis.ai/articles/glm-5-2-is-the-new-leading-open-weights-model-on-the-artificial-analysis-intelligence-index))
-- 2026-02 · **OpenRouter hit two more outages (Feb 17 & 19)** — its caching layer dropped all DB connections, returning 401 "User not found" with request-failure rates up to ~80–90% (a DoS was ramping during the first). Even the dominant aggregator carries no SLA — a reason the cost-first picks here stay paired with self-host fallbacks. ([postmortem](https://openrouter.ai/blog/announcements/openrouter-outages-on-february-17-and-19-2026/))
 - 2026-06 · **TensorZero shut down** — the VC-backed open-source LLMOps gateway ($7.3M seed) archived its repo on June 12, as first-party clouds ship native gateway/observability features and squeeze independents. ([byteiota](https://byteiota.com/tensorzero-shuts-down-what-oss-llmops-cant-survive/))
-- 2026-03 · **Helicone acquired by Mintlify** (now maintenance mode); the same month **LiteLLM hit a PyPI supply-chain attack** — v1.82.7/1.82.8 were backdoored via a CI-token compromise and quarantined in ~3h, a sharp reminder to pin gateway versions. ([Mintlify](https://www.mintlify.com/blog/mintlify-acquires-helicone), [Trend Micro](https://www.trendmicro.com/en/research/26/c/inside-litellm-supply-chain-compromise.html))
+- 2026-06 · NetFoundry launched **zero-trust MCP and LLM gateways**; Cisco Investments joined its Series A. ([PR Newswire](https://www.prnewswire.com/news-releases/netfoundry-launches-enterprise-class-mcp-and-llm-gateways-bringing-zero-trust-to-ai-deployments-302789053.html))
 - 2026-05 · **Palo Alto Networks completed its acquisition of Portkey** (announced Apr 30, closed May 29), making the AI gateway the control plane for its Prisma AIRS security platform — a sign gateways are becoming core security infrastructure. ([Palo Alto Networks](https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-completes-acquisition-of-portkey-to-secure-ai-agents))
 - 2026-05 · OpenRouter raised a **$113M Series B** led by CapitalG at a $1.3B valuation — ~8M users, ~100T tokens/month. ([TechCrunch](https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/))
-- 2026-06 · NetFoundry launched **zero-trust MCP and LLM gateways**; Cisco Investments joined its Series A. ([PR Newswire](https://www.prnewswire.com/news-releases/netfoundry-launches-enterprise-class-mcp-and-llm-gateways-bringing-zero-trust-to-ai-deployments-302789053.html))
-- 2026 · Cloudflare AI Gateway shipped **dollar-denominated spend limits** (public beta) on top of dynamic routing and unified billing. ([Cloudflare blog](https://blog.cloudflare.com/ai-gateway-spend-limits/))
-- 2025-11 · Pydantic AI Gateway went open beta and has since merged into **Logfire**. ([Pydantic Logfire](https://pydantic.dev/logfire))
 - Trend · MCP gateways emerged as a distinct category; spend-limit enforcement became table stakes; the **EU AI Act (enforceable Aug 2026)** is driving the compliance bucket; **new-api overtook one-api** as the most active China-ecosystem relay; and an **independent-gateway shakeout** is underway — Portkey (→Palo Alto) and Helicone (→Mintlify) acquired, TensorZero shut down, and the consolidation kept going (Katanemo→DigitalOcean, TrueFoundry→Seldon, Langfuse→ClickHouse).
 
 ## 🚀 Recent releases (auto-updated)

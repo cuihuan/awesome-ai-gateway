@@ -2,7 +2,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/cuihuan/awesome-ai-gateway?style=social)](https://github.com/cuihuan/awesome-ai-gateway/stargazers)
 [![Evaluation set](https://img.shields.io/badge/📊-评测集-orange)](BENCHMARKS.zh-CN.md)
-[![Data verified](https://img.shields.io/github/last-commit/cuihuan/awesome-ai-gateway?label=%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81&color=success&logo=githubactions&logoColor=white)](.github/workflows/daily-update.yml) [![CI](https://img.shields.io/github/actions/workflow/status/cuihuan/awesome-ai-gateway/ci.yml?label=168%20tests)](https://github.com/cuihuan/awesome-ai-gateway/actions/workflows/ci.yml)
+[![Data verified](https://img.shields.io/github/last-commit/cuihuan/awesome-ai-gateway?label=%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81&color=success&logo=githubactions&logoColor=white)](.github/workflows/daily-update.yml) [![CI](https://img.shields.io/github/actions/workflow/status/cuihuan/awesome-ai-gateway/ci.yml?label=259%20tests)](https://github.com/cuihuan/awesome-ai-gateway/actions/workflows/ci.yml)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md) [![License: CC0](https://img.shields.io/badge/license-CC0-lightgrey.svg)](LICENSE)
 
 > **约 10 秒选对，弄懂为什么，每个数字都能自己复核。** 一棵覆盖 100+ 网关的决策树、一本讲清它们如何工作与如何失效的手册，加上可复现的成本评测与每条主张背后带日期的证据——包括我们排除了什么、为什么排除。CC0，无厂商赞助，无返利链接。
@@ -13,6 +13,7 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 
 <p align="center">
 <a href="#我该用哪个网关"><kbd> &nbsp; 🧭 选一个 &nbsp; </kbd></a> &nbsp;
+<a href="LANDSCAPE.zh-CN.md"><kbd> &nbsp; 🌍 赛道现状 &nbsp; </kbd></a> &nbsp;
 <a href="#-学ai-网关是怎么工作的"><kbd> &nbsp; 📖 学它怎么工作 &nbsp; </kbd></a> &nbsp;
 <a href="BENCHMARKS.zh-CN.md"><kbd> &nbsp; 📊 自己验数字 &nbsp; </kbd></a> &nbsp;
 <a href="https://cuihuan.github.io/awesome-ai-gateway/"><kbd> &nbsp; 🚀 在线交互页 &nbsp; </kbd></a>
@@ -104,6 +105,25 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 </p>
 
 ⭐ **觉得有用就点个 [Star](https://github.com/cuihuan/awesome-ai-gateway)** —— 下一个在选网关的工程师就是这样找到它的。CC0 授权，无需注册、无追踪、不收厂商一分钱。
+
+## 🌍 赛道现状（2026）
+
+独立 AI 网关正被上下两头挤压。下面，云厂商已把路由与消费上限做进自家平台;上面，编码 Agent 浪潮催生出一类增长更快的网关，而多数盘点根本没收录它们。真正整合掉的，是中间那层——整个产品就是网关的公司。
+
+| 2026 | 发生了什么 | 现状 |
+| --- | --- | --- |
+| TensorZero <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s--> | VC 支持的开源网关归档仓库（6/11） | 只读;Apache-2.0 代码与 fork 仍在 |
+| Pydantic AI Gateway <!--s:pydantic/pydantic-ai-gateway-->⭐ 192<!--/s--> | 归档（3/30），并入 Logfire | 网关变成平台的一个功能 |
+| Helicone <!--s:Helicone/helicone-->⭐ 6.1k<!--/s--> | 被 Mintlify 收购（3 月） | 仍在提交——是路线图风险，不是存活风险 |
+| Portkey | 被 Palo Alto Networks 收购（5/29 完成） | 成了安全平台的控制面 |
+| OpenRouter | 传闻 Stripe 洽购，约 100 亿美元（7/23） | 未经证实——是信号，不是事实 |
+| BricksLLM、Glide | 2025-01 / 2024-08 起无提交 | 从未归档;失败形态是沉默 |
+
+但这不是崩塌——同一年，LiteLLM <!--s:BerriAI/litellm-->⭐ 56.1k<!--/s--> 继续复利增长，Bifrost <!--s:maximhq/bifrost-->⭐ 7.2k<!--/s--> 靠实测开销取胜，Envoy AI Gateway 于 6/23 发布 v1.0 成为首个 CNCF 背书的生产级稳定选项，而编码 Agent 档与 token 压缩代理成了本清单里增长最快的品类。
+
+**这改变了你的三件事:** 先看最后提交日期再看功能矩阵;优先选你能留住的代码而不是留不住的控制面;如果你的流量本来就在某一朵云上，那朵云的原生网关现在是真答案。
+
+📉 **完整版——整合的证据链、六项衡量标准、以及三个带证伪条件的预测:[LANDSCAPE.zh-CN.md](LANDSCAPE.zh-CN.md)**
 
 ## ⚡ 10 秒答案
 
@@ -665,7 +685,7 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 
 ## 📰 行业动态
 
-*人工每月更新。最近审阅：2026-07-29。*
+*倒序排列，只留最近约 3 个月。更早的条目退回到承载其证据的章节或数据文件——不是删除，只是移出「最新」。条目审阅：2026-07-29 · 最近一次清理：2026-08-12。*
 
 - **2026-07-28** · **MCP 转向无状态——发布以来最大的一次协议破坏性变更。** 规范新版 [2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28/changelog) 移除了协议级会话与 `Mcp-Session-Id` 头、删掉了 `initialize`/`notifications/initialized` 握手（每个请求改为在 `_meta` 里自带协议版本与能力声明）、新增必须实现的 `server/discover` RPC、用单条 `subscriptions/listen` POST 流取代 HTTP GET 流与 `resources/subscribe`，并**取消了 SSE 断点续传**（`Last-Event-ID` 与事件 ID）——流断了就得重来。已于 2026-07-29 对着打标签的那个 commit 核实：新的 `schema/2026-07-28/schema.ts` 里 `InitializeRequest` 与 `sessionId` 出现 0 次，而 2025-11-25 版有 4 处。对所有跑 [MCP 网关](#-mcp-与-agent-网关)的人这是结构性影响：会话亲和路由不再必要、无状态请求可以自由负载均衡，但断流续传从此是网关的问题，不再是协议的问题。
 - **2026-07-28** · **7 月旗舰潮把整个记分板重排了** ——Claude Opus 5（7 月 24 日）同时拿下 AA 指数第一（v4.1 口径 60.7）与 SWE-bench Verified 榜首（96.0），Fable 5 在 Arena 稳定登顶（1508±6），Kimi K3（7 月 16 日发布、27 日开源权重）成为开源权重新王，GPT-5.6 Sol/Terra/Luna（7 月 9 日）、Grok 4.5（7 月 8 日）、Gemini 3.6 Flash（7 月 21 日）补齐这个月。本清单的记分板与成本表已按 v4.1 口径、单一来源列重建（[BENCHMARKS](BENCHMARKS.zh-CN.md)）；月度定价核验 **13 项里 12 项与官方页完全一致**——唯一破的那项见评测速递。
@@ -675,14 +695,10 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 - **2026-06** · **云厂商齐齐押注 AI 网关治理** —— Databricks 在 Data+AI Summit 上线 **Unity AI Gateway**（智能路由 + 硬性消费上限），Azure **API Management 的 AI 网关**能力在 Build 上转正 GA，AWS 在纽约峰会扩展 **Bedrock AgentCore Gateway**。运行时治理已成标配。（[Databricks](https://www.databricks.com/blog/ai-governance-data-ai-summit-2026-whats-new-unity-ai-gateway)）
 - **2026-06** · **Anthropic 依美国出口管制指令全球下线 Fable 5 与 Mythos 5**（6 月 12–13 日），后于商务部撤销管制后恢复（6 月 30 日）——Fable 5 已于 7 月 2 日重新上线 Claude 平台、Claude.ai 与 Claude Code。今年最典型的"这就是为什么要保留多供应商故障转移"事件。（[Fortune](https://fortune.com/2026/06/13/anthropic-disables-fable-mythos-export-controls-national-security-threat/)、[CNBC](https://www.cnbc.com/2026/06/30/anthropic-says-trump-admin-has-lifted-export-controls-on-claude-fable-5-and-mythos-5.html)）
 - **2026-06** · **GLM-5.2 成为最强开源权重模型** —— 智谱 Z.ai 的 MIT 许可 744B 参数 MoE（40B 激活，1M 上下文，6 月中旬开源）在 Artificial Analysis 智能指数的开源档位登顶（得分 51），接棒此前的开源领跑者。（[Artificial Analysis](https://artificialanalysis.ai/articles/glm-5-2-is-the-new-leading-open-weights-model-on-the-artificial-analysis-intelligence-index)）
-- **2026-02** · **OpenRouter 再遇两次宕机（2 月 17、19 日）** —— 缓存层把数据库连接全部打满，返回 401 "User not found"，请求失败率一度升至 ~80–90%（首次宕机期间还伴随 DoS）。即便最主流的聚合器也没有 SLA——这正是本页性价比首选始终搭配自托管兜底的原因。（[复盘](https://openrouter.ai/blog/announcements/openrouter-outages-on-february-17-and-19-2026/)）
 - **2026-06** · **TensorZero 关停** —— 这家 VC 支持的开源 LLMOps 网关（730 万美元种子轮）于 6 月 12 日归档仓库；原厂云纷纷内置网关/可观测能力，挤压独立玩家。（[byteiota](https://byteiota.com/tensorzero-shuts-down-what-oss-llmops-cant-survive/)）
-- **2026-03** · **Helicone 被 Mintlify 收购**（转入维护模式）；同月 **LiteLLM 遭 PyPI 供应链投毒** —— v1.82.7/1.82.8 经 CI 令牌被窃植入后门、约 3 小时内被隔离，提醒务必锁定网关版本。（[Mintlify](https://www.mintlify.com/blog/mintlify-acquires-helicone)、[Trend Micro](https://www.trendmicro.com/en/research/26/c/inside-litellm-supply-chain-compromise.html)）
+- **2026-06** · NetFoundry 发布**零信任 MCP 与 LLM 网关**，思科投资部跟投其 A 轮。（[PR Newswire](https://www.prnewswire.com/news-releases/netfoundry-launches-enterprise-class-mcp-and-llm-gateways-bringing-zero-trust-to-ai-deployments-302789053.html)）
 - **2026-05** · **Palo Alto Networks 完成对 Portkey 的收购**（4/30 宣布、5/29 完成），将这个 AI 网关作为其 Prisma AIRS 安全平台的控制面——标志着网关正成为核心安全基础设施。（[Palo Alto Networks](https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-completes-acquisition-of-portkey-to-secure-ai-agents)）
 - **2026-05** · OpenRouter 完成 CapitalG 领投的 **1.13 亿美元 B 轮**，估值 13 亿美元——约 800 万用户、月均 ~100 万亿 token。（[TechCrunch](https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/)）
-- **2026-06** · NetFoundry 发布**零信任 MCP 与 LLM 网关**，思科投资部跟投其 A 轮。（[PR Newswire](https://www.prnewswire.com/news-releases/netfoundry-launches-enterprise-class-mcp-and-llm-gateways-bringing-zero-trust-to-ai-deployments-302789053.html)）
-- **2026** · Cloudflare AI Gateway 上线**美元计价消费上限**（公测），叠加动态路由与统一账单。（[Cloudflare 博客](https://blog.cloudflare.com/ai-gateway-spend-limits/)）
-- **2025-11** · Pydantic AI Gateway 开放公测，随后并入 **Logfire**。（[Pydantic Logfire](https://pydantic.dev/logfire)）
 - **趋势** · MCP 网关成为独立品类；消费上限成为标配；**欧盟 AI 法案（2026 年 8 月起强制执行）**推高合规需求；**new-api 星数反超 one-api**，成为国内最活跃的中转系统；同时**独立网关洗牌**正在发生——Portkey（→Palo Alto）、Helicone（→Mintlify）被收购，TensorZero 关停，且整合仍在继续（Katanemo→DigitalOcean、TrueFoundry→Seldon、Langfuse→ClickHouse）。
 
 ## 🚀 最新版本发布（自动更新）
