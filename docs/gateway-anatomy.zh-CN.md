@@ -324,7 +324,7 @@ APISIX(etcd,或独立 YAML)、TensorZero(ClickHouse;按清单标注已于 2026 �
    gh api --paginate repos/<owner>/<repo>/releases --jq '.[].published_at' | grep -c '^"2026-07'
    gh api repos/<owner>/<repo>/security-advisories --jq 'length'
    ```
-8. **跑黑盒保真度探针**(不需要 API key):`git clone https://github.com/cuihuan/llm-gateway-bench && node probe/fidelity.mjs && node probe/xformat.mjs`。开销探针请在不同日子跑 3 次——我们在完全相同的版本上都测出了 ±8–15% 的波动。
+8. **跑黑盒保真度探针**(不需要 API key):`git clone https://github.com/cuihuan/llm-gateway-bench && cd llm-gateway-bench && node probe/fidelity.mjs --gateway self-test`（这条可独立运行；要指向你自己的网关需加 `--gateway-url` / `--messages-url`，见[兼容面](protocol-translation.zh-CN.md#5-十分钟验证你自己的网关)）。开销探针请在不同日子跑 3 次——我们在完全相同的版本上都测出了 ±8–15% 的波动。
 
 ---
 

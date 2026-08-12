@@ -325,7 +325,7 @@ Nothing above requires taking our word for it. Ordered by how fast they pay off:
    gh api --paginate repos/<owner>/<repo>/releases --jq '.[].published_at' | grep -c '^"2026-07'
    gh api repos/<owner>/<repo>/security-advisories --jq 'length'
    ```
-8. **Run the black-box fidelity probes** (no API keys): `git clone https://github.com/cuihuan/llm-gateway-bench && node probe/fidelity.mjs && node probe/xformat.mjs`. Run the overhead probe 3× on different days — ours varied ±8–15% on identical versions.
+8. **Run the black-box fidelity probes** (no API keys): `git clone https://github.com/cuihuan/llm-gateway-bench && cd llm-gateway-bench && node probe/fidelity.mjs --gateway self-test` (that one runs standalone; pointing the probes at your own gateway takes `--gateway-url` / `--messages-url` — see [the compatibility surface](protocol-translation.md#5-how-to-verify-your-gateway-in-10-minutes)). Run the overhead probe 3× on different days — ours varied ±8–15% on identical versions.
 
 ---
 

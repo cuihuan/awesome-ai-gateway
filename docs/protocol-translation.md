@@ -187,10 +187,20 @@ Don't trust this chapter — or any vendor README. The whole point of the failur
 2. **Run the black-box probes (no API keys needed):**
    ```bash
    git clone https://github.com/cuihuan/llm-gateway-bench && cd llm-gateway-bench
-   node probe/fidelity.mjs   # same-format passthrough: tool_calls / streaming / usage
-   node probe/xformat.mjs    # the Claude Code path: Anthropic client → OpenAI upstream
+
+   # 1. Sanity-check the probe itself — runs standalone, nothing to configure:
+   node probe/fidelity.mjs --gateway self-test            # expect: 3/3
+
+   # 2. Same-format passthrough through YOUR gateway (tool_calls / streaming / usage).
+   #    Configure the gateway's openai provider to point at http://127.0.0.1:9020/v1 first:
+   node probe/fidelity.mjs --gateway mine \
+     --gateway-url http://localhost:4000/v1/chat/completions
+
+   # 3. The Claude Code path (Anthropic client → OpenAI upstream), mock on port 9010:
+   node probe/xformat.mjs --gateway mine \
+     --messages-url http://localhost:4000/v1/messages
    ```
-   Point them at your gateway; they run a spec-correct mock upstream locally and score the same 3 checks as §4.
+   Both probes stand up a spec-correct mock upstream locally and score the same 3 checks as §4 — no provider API key is needed, but steps 2 and 3 do need your gateway running with the mock configured as its openai provider. `--help` prints every flag.
 3. **Run your real agent through it** — a trivial Claude Code task in a scratch repo (`claude -p "list the files here and read one"`) exercises parallel tools, streaming, system prompt, and caching in one shot. Run it twice back-to-back (the second run is the cache check).
 4. **Reconcile one request's usage** against the provider's own console — the only way to catch [failure mode 3](#failure-3).
 

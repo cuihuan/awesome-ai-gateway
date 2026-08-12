@@ -187,10 +187,20 @@ data: {"type":"message_stop"}
 2. **跑黑盒探针(不需要 API key):**
    ```bash
    git clone https://github.com/cuihuan/llm-gateway-bench && cd llm-gateway-bench
-   node probe/fidelity.mjs   # 同格式透传:tool_calls / 流式 / usage
-   node probe/xformat.mjs    # Claude Code 路径:Anthropic 客户端 → OpenAI 上游
+
+   # 1. 先自测探针本身——可独立运行，无需任何配置：
+   node probe/fidelity.mjs --gateway self-test            # 预期输出 3/3
+
+   # 2. 让流量经过"你的"网关做同格式透传（tool_calls / 流式 / usage）。
+   #    先把网关的 openai provider 指向 http://127.0.0.1:9020/v1：
+   node probe/fidelity.mjs --gateway mine \
+     --gateway-url http://localhost:4000/v1/chat/completions
+
+   # 3. Claude Code 路径（Anthropic 客户端 → OpenAI 上游），mock 端口 9010：
+   node probe/xformat.mjs --gateway mine \
+     --messages-url http://localhost:4000/v1/messages
    ```
-   把它们指向你的网关;它们在本地起一个符合 spec 的 mock 上游,打分与 §4 相同的 3 项检查。
+   两个探针都会在本地起一个符合 spec 的 mock 上游，打分与 §4 相同的 3 项检查——不需要厂商 API key，但第 2、3 步需要你的网关处于运行状态、且已把 mock 配成它的 openai provider。`--help` 可列出全部参数。
 3. **把你真实的 Agent 跑过去**——在草稿仓库里跑一个最小的 Claude Code 任务(`claude -p "list the files here and read one"`),一次性覆盖并行工具、流式、system prompt 和缓存。背靠背连跑两遍(第二遍就是缓存检查)。
 4. **拿一笔请求的 usage 对账**——对着厂商自己的控制台。这是抓[失败模式 3](#failure-3)的唯一办法。
 
