@@ -3,7 +3,7 @@ title: "Awesome AI Gateway"
 message: "If you use this list or its data, please cite it."
 type: dataset
 abstract: >-
-  A curated, bilingual, vendor-neutral directory of 100+ AI gateways / LLM
+  A curated, bilingual, vendor-neutral directory of 160+ AI gateways / LLM
   proxies, with a reproducible token-cost benchmark, a 4-axis (compliance,
   price, security, stability) gateway scorecard, dated real-world production
   reviews, and data-backed comparison guides.

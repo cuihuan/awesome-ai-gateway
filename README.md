@@ -5,7 +5,7 @@
 [![Data verified](https://img.shields.io/github/last-commit/cuihuan/awesome-ai-gateway?label=data%20verified&color=success&logo=githubactions&logoColor=white)](.github/workflows/daily-update.yml) [![CI](https://img.shields.io/github/actions/workflow/status/cuihuan/awesome-ai-gateway/ci.yml?label=259%20tests)](https://github.com/cuihuan/awesome-ai-gateway/actions/workflows/ci.yml)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md) [![License: CC0](https://img.shields.io/badge/license-CC0-lightgrey.svg)](LICENSE)
 
-> **Pick one in ~10 seconds, understand why, and check every number yourself.** A decision tree over 100+ gateways, a handbook that explains how they actually work (and fail), and a reproducible cost benchmark plus dated evidence behind every claim — including what we exclude and why. CC0, no vendor money, no affiliate links.
+> **Pick one in ~10 seconds, understand why, and check every number yourself.** A decision tree over 160+ gateways, a handbook that explains how they actually work (and fail), and a reproducible cost benchmark plus dated evidence behind every claim — including what we exclude and why. CC0, no vendor money, no affiliate links.
 
 💸 _Built the hard way: **I burned $788 on AI coding in a single day** — one flagship model ate 78% of it, just because I'd defaulted everything to the priciest option. So I mapped the whole gateway landscape. → full story in **Why this exists** below · [the full comparison](compare/coding-agent-routers-2026.md#the-three-mechanism-tiers)_
 
@@ -528,7 +528,7 @@ Stars auto-refresh daily. ✅ built-in · ➕ via plugin/paid tier · ❌ not av
 > 📂 **Browse the raw data** (machine-readable, CC0): models & pricing JSON · [cost table CSV](data/cost_table.csv) · [gateway scorecard CSV](data/gateways_scorecard.csv). Every cost cell is regenerated from this data by a unit-tested script.
 
 <p align="center">
-  <img src="assets/landscape.png" alt="The AI Gateway Landscape: 100+ gateways across 9 categories — hosted aggregators (OpenRouter, Vercel, Cloudflare, AIMLAPI, Novita), self-hosted OSS (LiteLLM, Portkey, Bifrost, Plano), enterprise & API gateways (Kong, APISIX, Envoy, Tyk, Gravitee, KrakenD), first-party clouds (Bedrock, Azure, Vertex, Databricks), China ecosystem (new-api, one-api, Higress, GPT-Load, VoAPI), smart routing (Not Diamond, Martian, RouteLLM, Claude Code Router, NVIDIA LLM Router), observability (Helicone, MLflow, Respan), MCP & agent (agentgateway, Lunar.dev, IBM ContextForge, MetaMCP, Pomerium), and K8s & inference (KServe, GPUStack, llm-d, AIBrix)." width="900">
+  <img src="assets/landscape.png" alt="The AI Gateway Landscape: 160+ gateways across 9 categories — hosted aggregators (OpenRouter, Vercel, Cloudflare, AIMLAPI, Novita), self-hosted OSS (LiteLLM, Portkey, Bifrost, Plano), enterprise & API gateways (Kong, APISIX, Envoy, Tyk, Gravitee, KrakenD), first-party clouds (Bedrock, Azure, Vertex, Databricks), China ecosystem (new-api, one-api, Higress, GPT-Load, VoAPI), smart routing (Not Diamond, Martian, RouteLLM, Claude Code Router, NVIDIA LLM Router), observability (Helicone, MLflow, Respan), MCP & agent (agentgateway, Lunar.dev, IBM ContextForge, MetaMCP, Pomerium), and K8s & inference (KServe, GPUStack, llm-d, AIBrix)." width="900">
 </p>
 
 > _The full directory at a glance — browse the sections below by your need._

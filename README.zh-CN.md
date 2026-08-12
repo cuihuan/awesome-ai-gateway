@@ -5,7 +5,7 @@
 [![Data verified](https://img.shields.io/github/last-commit/cuihuan/awesome-ai-gateway?label=%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81&color=success&logo=githubactions&logoColor=white)](.github/workflows/daily-update.yml) [![CI](https://img.shields.io/github/actions/workflow/status/cuihuan/awesome-ai-gateway/ci.yml?label=259%20tests)](https://github.com/cuihuan/awesome-ai-gateway/actions/workflows/ci.yml)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md) [![License: CC0](https://img.shields.io/badge/license-CC0-lightgrey.svg)](LICENSE)
 
-> **约 10 秒选对，弄懂为什么，每个数字都能自己复核。** 一棵覆盖 100+ 网关的决策树、一本讲清它们如何工作与如何失效的手册，加上可复现的成本评测与每条主张背后带日期的证据——包括我们排除了什么、为什么排除。CC0，无厂商赞助，无返利链接。
+> **约 10 秒选对，弄懂为什么，每个数字都能自己复核。** 一棵覆盖 160+ 网关的决策树、一本讲清它们如何工作与如何失效的手册，加上可复现的成本评测与每条主张背后带日期的证据——包括我们排除了什么、为什么排除。CC0，无厂商赞助，无返利链接。
 
 _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**——一个旗舰模型就吃掉 78%，只因为我把所有请求都默认打给了最贵的那个。于是我把整个网关生态摸了一遍。→ [完整故事](#为什么做这个) · [完整对比](compare/coding-agent-routers-2026.zh-CN.md)_
 
@@ -509,7 +509,7 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 > 📂 **浏览原始数据**（机器可读，CC0）：[模型与价格 JSON](data/models.json) · [成本表 CSV](data/cost_table.csv) · [网关评分卡 CSV](data/gateways_scorecard.csv)。每个成本数字都由[带单测的脚本](scripts/cost_calc.py)从这些数据重新生成。
 
 <p align="center">
-  <img src="assets/landscape.zh-CN.png" alt="AI 网关全景图：9 大类 100+ 网关——托管聚合（OpenRouter、Vercel、Cloudflare、AIMLAPI、Novita）、自托管开源（LiteLLM、Portkey、Bifrost、Plano）、企业 & API 网关（Kong、APISIX、Envoy、Tyk、Gravitee、KrakenD）、原厂云（Bedrock、Azure、Vertex、Databricks）、国内生态（new-api、one-api、Higress、GPT-Load、VoAPI）、智能路由（Not Diamond、Martian、RouteLLM、Claude Code Router、NVIDIA LLM Router）、可观测（Helicone、MLflow、Respan）、MCP & Agent（agentgateway、Lunar.dev、IBM ContextForge、MetaMCP、Pomerium）、K8s & 推理（KServe、GPUStack、llm-d、AIBrix）。" width="900">
+  <img src="assets/landscape.zh-CN.png" alt="AI 网关全景图：9 大类 160+ 网关——托管聚合（OpenRouter、Vercel、Cloudflare、AIMLAPI、Novita）、自托管开源（LiteLLM、Portkey、Bifrost、Plano）、企业 & API 网关（Kong、APISIX、Envoy、Tyk、Gravitee、KrakenD）、原厂云（Bedrock、Azure、Vertex、Databricks）、国内生态（new-api、one-api、Higress、GPT-Load、VoAPI）、智能路由（Not Diamond、Martian、RouteLLM、Claude Code Router、NVIDIA LLM Router）、可观测（Helicone、MLflow、Respan）、MCP & Agent（agentgateway、Lunar.dev、IBM ContextForge、MetaMCP、Pomerium）、K8s & 推理（KServe、GPUStack、llm-d、AIBrix）。" width="900">
 </p>
 
 > _全景速览 —— 按你的需求浏览下面的分区。_

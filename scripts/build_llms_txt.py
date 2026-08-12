@@ -34,13 +34,13 @@ BLOB = REPO + "/blob/main"
 
 HEADER = f"""# Awesome AI Gateway
 
-> A curated, bilingual, vendor-neutral directory of 100+ AI gateways / LLM proxies, with a reproducible token-cost benchmark, a 5-axis (compliance · price · security · stability · observability) gateway scorecard, dated real-world production reviews (incidents / CVEs / acquisitions), and data-backed comparison guides. CC0, no affiliate links.
+> A curated, bilingual, vendor-neutral directory of 160+ AI gateways / LLM proxies, with a reproducible token-cost benchmark, a 5-axis (compliance · price · security · stability · observability) gateway scorecard, dated real-world production reviews (incidents / CVEs / acquisitions), and data-backed comparison guides. CC0, no affiliate links.
 
 Use it to pick an AI gateway by need (cost-first, self-hosted, enterprise & compliance, first-party clouds, China ecosystem, MCP & agent gateways), verify the one you pick with the companion tools, then route to the cheapest capable model. Every cost figure is computed by a unit-tested script from open pricing data; every gateway claim is dated and sourced. An AI gateway sits between your code and LLM providers (one OpenAI-compatible endpoint and key for many models), adding routing, failover, caching, rate limits, cost tracking and guardrails.
 
 ## Core
 - [Interactive site — cost, scorecard & production reality]({SITE}): sortable model-cost table, the 5-axis gateway scorecard, and dated incident/CVE/acquisition data.
-- [Full list & decision tree (README)]({BLOB}/README.md): 100+ gateways across 9 categories, a "which gateway should I use?" decision tree, FAQ and glossary.
+- [Full list & decision tree (README)]({BLOB}/README.md): 160+ gateways across 9 categories, a "which gateway should I use?" decision tree, FAQ and glossary.
 - [Evaluation set (BENCHMARKS)]({BLOB}/BENCHMARKS.md): model benchmark scores, reproducible per-task token-cost tables, the gateway scorecard rubric, and Part 5 real-world production reviews.
 - [How to choose safely]({BLOB}/README.md#how-to-choose-safely): trust-tier-to-data matching, the canary model-fidelity test, and the gray-relay exclusion policy.
 - [State of the landscape 2026 (LANDSCAPE)]({BLOB}/LANDSCAPE.md): which independent gateways consolidated, were acquired or went quiet in 2026 (each dated and verified against the GitHub API), which categories grew instead, the six-check evaluation standard that applies to any gateway on any list, and three dated predictions each published with the observation that would prove it wrong.
