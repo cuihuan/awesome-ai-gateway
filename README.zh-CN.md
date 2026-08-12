@@ -61,6 +61,7 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 | 自托管、开销最低 | **Bifrost**（Go） | [自托管开源](#-自托管开源) |
 | 把 Claude Code / Codex 路由到别的模型 | **LiteLLM** / **Bifrost**（均实测 3/3） | [智能路由](#-智能路由与模型选择) |
 | 给 Claude Code / Cursor 省钱——还不想被封号 | **claude-code-router**（自带 API key，零封号记录） | [编码 Agent 路由器对比](compare/coding-agent-routers-2026.zh-CN.md) |
+| 不换模型、不换厂商，只想少花 token | **headroom**（压缩代理——攻击上下文长度而非单价） | 自托管 |
 | 国产模型 + 团队 Key 计费 | **new-api** | [国内生态](#-国内生态) |
 | 企业 K8s + 审计 | **Kong** / **Higress**——两者的审计日志均在付费/云版档([档位明细](BENCHMARKS.zh-CN.md#第七部分--身份与治理sso-税对照表)) | [企业合规](#-企业合规) |
 | 最强合规（HIPAA/FedRAMP） | **Azure** / **Bedrock** | [原厂直连](#-原厂直连云厂商模型厂商) |
