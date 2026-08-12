@@ -74,7 +74,12 @@ def star_span_files(root: Path = ROOT) -> list[Path]:
     and tables; giving those spans too means one pipeline feeds every
     reader-facing count instead of leaving hand-typed copies to rot."""
     readmes = [root / p.name for p in README_FILES]
-    return readmes + sorted((root / "compare").glob("*.md"))
+    # index.html too: its FAQPage JSON-LD is the artifact built to be quoted verbatim
+    # by AI answers, and it carried a hand-typed "400+ models" — OpenRouter's marketing
+    # figure, which data/models.json explicitly records as marketing and contradicts.
+    # A number in the citation surface that nothing refreshes is a number that will drift.
+    landing = [root / "index.html"]
+    return readmes + landing + sorted((root / "compare").glob("*.md"))
 
 
 def collect_marked_repos(text: str) -> list[str]:

@@ -81,12 +81,17 @@ class TestReplaceBetweenMarkers(unittest.TestCase):
 
 
 class TestStarSpanFiles(unittest.TestCase):
-    def test_covers_readmes_then_every_compare_source(self):
+    def test_covers_readmes_landing_page_then_every_compare_source(self):
         files = star_span_files()
-        self.assertEqual([p.name for p in files[:2]], ["README.md", "README.zh-CN.md"])
+        self.assertEqual(
+            [p.name for p in files[:3]],
+            ["README.md", "README.zh-CN.md", "index.html"],
+            "index.html carries the FAQPage JSON-LD that AI answers quote verbatim; if it "
+            "leaves the refresh set, its numbers go back to being hand-typed and drifting",
+        )
         compare_sources = sorted((REPO_ROOT / "compare").glob("*.md"))
         self.assertTrue(compare_sources, "compare/*.md sources vanished?")
-        self.assertEqual(files[2:], compare_sources)
+        self.assertEqual(files[3:], compare_sources)
 
 
 class TestNoHandTypedStarCounts(unittest.TestCase):
