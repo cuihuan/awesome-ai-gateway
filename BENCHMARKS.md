@@ -95,19 +95,21 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 | # | Model | Provider | Cost |
 |---|---|---|---|
 | 1 | DeepSeek V4-Flash | DeepSeek | $0.028 |
-| 2 | GPT-5.4 nano | OpenAI | $0.13 |
-| 3 | Mistral Large 3 | Mistral | $0.15 |
-| 4 | Kimi K2.6 | Moonshot | $0.40 |
-| 5 | GLM-5.2 | Z.ai (Zhipu) | $0.44 |
-| 6 | Claude Haiku 4.5 | Anthropic | $0.50 |
-| 7 | Grok 4.5 | xAI | $0.60 |
-| 8 | Gemini 3.6 Flash | Google | $0.75 |
-| 9 | Gemini 3.1 Pro | Google | $1.20 |
-| 10 | Kimi K3 | Moonshot | $1.51 |
-| 11 | Claude Opus 5 | Anthropic | $2.51 |
-| 12 | Claude Opus 4.8 | Anthropic | $2.51 |
-| 13 | GPT-5.6 Sol | OpenAI | $3.01 |
-| 14 | GPT-5.5 | OpenAI | $3.01 |
+| 2 | GPT-5.6 Luna | OpenAI | $0.12 |
+| 3 | GPT-5.4 nano | OpenAI | $0.13 |
+| 4 | Mistral Large 3 | Mistral | $0.15 |
+| 5 | Kimi K2.6 | Moonshot | $0.40 |
+| 6 | GLM-5.2 | Z.ai (Zhipu) | $0.44 |
+| 7 | Claude Haiku 4.5 | Anthropic | $0.50 |
+| 8 | Grok 4.5 | xAI | $0.60 |
+| 9 | Gemini 3.6 Flash | Google | $0.75 |
+| 10 | GPT-5.6 Terra | OpenAI | $1.20 |
+| 11 | Gemini 3.1 Pro | Google | $1.20 |
+| 12 | Kimi K3 | Moonshot | $1.51 |
+| 13 | Claude Opus 5 | Anthropic | $2.51 |
+| 14 | Claude Opus 4.8 | Anthropic | $2.51 |
+| 15 | GPT-5.6 Sol | OpenAI | $3.01 |
+| 16 | GPT-5.5 | OpenAI | $3.01 |
 
 > 📊 Cheapest is **~106×** less than the most expensive for this task.
 <!-- COST:email:END -->
@@ -120,19 +122,21 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 | # | Model | Provider | Cost |
 |---|---|---|---|
 | 1 | DeepSeek V4-Flash | DeepSeek | $0.015 |
-| 2 | GPT-5.4 nano | OpenAI | $0.023 |
-| 3 | Mistral Large 3 | Mistral | $0.053 |
-| 4 | Kimi K2.6 | Moonshot | $0.10 |
-| 5 | Claude Haiku 4.5 | Anthropic | $0.11 |
-| 6 | GLM-5.2 | Z.ai (Zhipu) | $0.15 |
-| 7 | Gemini 3.6 Flash | Google | $0.17 |
-| 8 | Grok 4.5 | xAI | $0.21 |
-| 9 | Gemini 3.1 Pro | Google | $0.22 |
-| 10 | Kimi K3 | Moonshot | $0.33 |
-| 11 | Claude Opus 5 | Anthropic | $0.55 |
-| 12 | Claude Opus 4.8 | Anthropic | $0.55 |
-| 13 | GPT-5.6 Sol | OpenAI | $0.56 |
-| 14 | GPT-5.5 | OpenAI | $0.56 |
+| 2 | GPT-5.6 Luna | OpenAI | $0.022 |
+| 3 | GPT-5.4 nano | OpenAI | $0.023 |
+| 4 | Mistral Large 3 | Mistral | $0.053 |
+| 5 | Kimi K2.6 | Moonshot | $0.10 |
+| 6 | Claude Haiku 4.5 | Anthropic | $0.11 |
+| 7 | GLM-5.2 | Z.ai (Zhipu) | $0.15 |
+| 8 | Gemini 3.6 Flash | Google | $0.17 |
+| 9 | Grok 4.5 | xAI | $0.21 |
+| 10 | GPT-5.6 Terra | OpenAI | $0.22 |
+| 11 | Gemini 3.1 Pro | Google | $0.22 |
+| 12 | Kimi K3 | Moonshot | $0.33 |
+| 13 | Claude Opus 5 | Anthropic | $0.55 |
+| 14 | Claude Opus 4.8 | Anthropic | $0.55 |
+| 15 | GPT-5.6 Sol | OpenAI | $0.56 |
+| 16 | GPT-5.5 | OpenAI | $0.56 |
 
 > 📊 Cheapest is **~38×** less than the most expensive for this task.
 <!-- COST:summarize:END -->
@@ -152,18 +156,20 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 |---|---|---|---|
 | 1 | DeepSeek V4-Flash | DeepSeek | $0.021 |
 | 2 | Mistral Large 3 | Mistral | $0.055 |
-| 3 | GPT-5.4 nano | OpenAI | $0.073 |
-| 4 | Kimi K2.6 | Moonshot | $0.13 |
-| 5 | Claude Haiku 4.5 | Anthropic | $0.15 |
-| 6 | GLM-5.2 | Z.ai (Zhipu) | $0.29 |
-| 7 | Grok 4.5 | xAI | $0.40 |
-| 8 | Gemini 3.6 Flash | Google | $0.45 |
-| 9 | Gemini 3.1 Pro | Google | $0.70 |
-| 10 | Kimi K3 | Moonshot | $0.90 |
-| 11 | Claude Opus 5 | Anthropic | $1.50 |
-| 12 | Claude Opus 4.8 | Anthropic | $1.50 |
-| 13 | GPT-5.6 Sol | OpenAI | $1.75 |
-| 14 | GPT-5.5 | OpenAI | $1.75 |
+| 3 | GPT-5.6 Luna | OpenAI | $0.07 |
+| 4 | GPT-5.4 nano | OpenAI | $0.073 |
+| 5 | Kimi K2.6 | Moonshot | $0.13 |
+| 6 | Claude Haiku 4.5 | Anthropic | $0.15 |
+| 7 | GLM-5.2 | Z.ai (Zhipu) | $0.29 |
+| 8 | Grok 4.5 | xAI | $0.40 |
+| 9 | Gemini 3.6 Flash | Google | $0.45 |
+| 10 | GPT-5.6 Terra | OpenAI | $0.70 |
+| 11 | Gemini 3.1 Pro | Google | $0.70 |
+| 12 | Kimi K3 | Moonshot | $0.90 |
+| 13 | Claude Opus 5 | Anthropic | $1.50 |
+| 14 | Claude Opus 4.8 | Anthropic | $1.50 |
+| 15 | GPT-5.6 Sol | OpenAI | $1.75 |
+| 16 | GPT-5.5 | OpenAI | $1.75 |
 
 > 📊 Cheapest is **~83×** less than the most expensive for this task.
 <!-- COST:coding:END -->
@@ -176,19 +182,21 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 | # | Model | Provider | Cost |
 |---|---|---|---|
 | 1 | DeepSeek V4-Flash | DeepSeek | $0.21 |
-| 2 | GPT-5.4 nano | OpenAI | $0.72 |
-| 3 | Mistral Large 3 | Mistral | $1.00 |
-| 4 | Kimi K2.6 | Moonshot | $2.48 |
-| 5 | GLM-5.2 | Z.ai (Zhipu) | $2.90 |
-| 6 | Claude Haiku 4.5 | Anthropic | $3.00 |
-| 7 | Grok 4.5 | xAI | $4.00 |
-| 8 | Gemini 3.6 Flash | Google | $4.50 |
-| 9 | Gemini 3.1 Pro | Google | $7.00 |
-| 10 | Kimi K3 | Moonshot | $9.00 |
-| 11 | Claude Opus 5 | Anthropic | $15.00 |
-| 12 | Claude Opus 4.8 | Anthropic | $15.00 |
-| 13 | GPT-5.6 Sol | OpenAI | $17.50 |
-| 14 | GPT-5.5 | OpenAI | $17.50 |
+| 2 | GPT-5.6 Luna | OpenAI | $0.70 |
+| 3 | GPT-5.4 nano | OpenAI | $0.72 |
+| 4 | Mistral Large 3 | Mistral | $1.00 |
+| 5 | Kimi K2.6 | Moonshot | $2.48 |
+| 6 | GLM-5.2 | Z.ai (Zhipu) | $2.90 |
+| 7 | Claude Haiku 4.5 | Anthropic | $3.00 |
+| 8 | Grok 4.5 | xAI | $4.00 |
+| 9 | Gemini 3.6 Flash | Google | $4.50 |
+| 10 | GPT-5.6 Terra | OpenAI | $7.00 |
+| 11 | Gemini 3.1 Pro | Google | $7.00 |
+| 12 | Kimi K3 | Moonshot | $9.00 |
+| 13 | Claude Opus 5 | Anthropic | $15.00 |
+| 14 | Claude Opus 4.8 | Anthropic | $15.00 |
+| 15 | GPT-5.6 Sol | OpenAI | $17.50 |
+| 16 | GPT-5.5 | OpenAI | $17.50 |
 
 > 📊 Cheapest is **~83×** less than the most expensive for this task.
 <!-- COST:chatbot:END -->

@@ -1,9 +1,9 @@
 {
   "_comment": "Benchmark + pricing snapshot for the evaluation set. Pricing drives scripts/cost_calc.py (reproducible cost tables). Benchmarks are dated public figures; null = not published by the source at review time (never interpolated). Prices USD per 1M tokens. Benchmark sourcing convention (since 2026-07-28): aa_index = Artificial Analysis Intelligence Index v4.1 scale (rebased 2026-06-15, ~5 pts lower than v4.0 — never compare across scales); gpqa_diamond + hle = AA independent runs; swe_bench_verified + swe_bench_pro = BenchLM boards (independent; a model absent from the board is null even if a vendor card claims a score); arena_elo = arena.ai text/overall style-control board.",
-  "as_of": "2026-07-28",
+  "as_of": "2026-08-12",
   "sources": {
     "benchmarks": "Artificial Analysis Intelligence Index v4.1 (artificialanalysis.ai/models) · Arena (arena.ai/leaderboard) · BenchLM SWE-bench Verified/Pro (benchlm.ai, boards dated 2026-07-27) · AA independent GPQA-Diamond/HLE runs — all extracted 2026-07-28",
-    "pricing": "Official provider pricing pages only; all 16 headline prices re-verified 2026-07-28 (12/13 pre-existing entries matched exactly; the exception was the retired Grok 4 — see the Grok 4.5 entry). Aggregator conflicts resolved in favor of the official page."
+    "pricing": "Official provider pricing pages only; all 16 headline prices re-verified 2026-07-28 (12/13 pre-existing entries matched exactly; the exception was the retired Grok 4 — see the Grok 4.5 entry). Aggregator conflicts resolved in favor of the official page. Re-checked 2026-08-12 against OpenAI's pricing page after the 2026-07-30 GPT-5.6 price cut; Terra ($2/$12) and Luna ($0.20/$1.20) added as separate rows."
   },
   "openrouter_model_count": {
     "_comment": "Single source of truth for every 'OpenRouter has N models' mention; rendered into <!--omc-->...<!--/omc--> spans by scripts/update_readme.py as ~(count rounded to the nearest 10).",
@@ -17,8 +17,21 @@
       "provider": "Anthropic",
       "open": false,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 60.7, "gpqa_diamond": 0.932, "swe_bench_verified": 0.96, "swe_bench_pro": 0.792, "hle": 0.526, "arena_elo": 1495, "aime": null, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 5.0, "output": 25.0, "cached_input": 0.5},
+      "benchmarks": {
+        "aa_index": 60.7,
+        "gpqa_diamond": 0.932,
+        "swe_bench_verified": 0.96,
+        "swe_bench_pro": 0.792,
+        "hle": 0.526,
+        "arena_elo": 1495,
+        "aime": null,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 5.0,
+        "output": 25.0,
+        "cached_input": 0.5
+      },
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": true,
@@ -29,8 +42,21 @@
       "provider": "Anthropic",
       "open": false,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 59.9, "gpqa_diamond": 0.926, "swe_bench_verified": 0.95, "swe_bench_pro": 0.80, "hle": 0.533, "arena_elo": 1508, "aime": null, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 10.0, "output": 50.0, "cached_input": 1.0},
+      "benchmarks": {
+        "aa_index": 59.9,
+        "gpqa_diamond": 0.926,
+        "swe_bench_verified": 0.95,
+        "swe_bench_pro": 0.8,
+        "hle": 0.533,
+        "arena_elo": 1508,
+        "aime": null,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 10.0,
+        "output": 50.0,
+        "cached_input": 1.0
+      },
       "reasoning": true,
       "scenario_cost": false,
       "benchmark_table": true,
@@ -41,20 +67,96 @@
       "provider": "OpenAI",
       "open": false,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 58.9, "gpqa_diamond": 0.941, "swe_bench_verified": null, "swe_bench_pro": 0.646, "hle": 0.472, "arena_elo": 1485, "aime": null, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 5.0, "output": 30.0, "cached_input": 0.5},
+      "benchmarks": {
+        "aa_index": 58.9,
+        "gpqa_diamond": 0.941,
+        "swe_bench_verified": null,
+        "swe_bench_pro": 0.646,
+        "hle": 0.472,
+        "arena_elo": 1485,
+        "aime": null,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 5.0,
+        "output": 30.0,
+        "cached_input": 0.5
+      },
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": true,
-      "notes": "Released 2026-07-09; OpenAI's current flagship (GPT-5.6 family: Sol / Terra $2.50/$15 / Luna $1/$6). Same list price as GPT-5.5. AA score is the max-effort config."
+      "notes": "Released 2026-07-09; OpenAI's current flagship. Sol's own list price is unchanged (same as GPT-5.5), but on 2026-07-30 OpenAI cut the rest of the family: Terra $2.50/$15 -> $2/$12 and Luna $1/$6 -> $0.20/$1.20 — both now priced separately below. AA score is the max-effort config."
+    },
+    {
+      "name": "GPT-5.6 Terra",
+      "provider": "OpenAI",
+      "open": false,
+      "context_tokens": 1000000,
+      "benchmarks": {
+        "aa_index": null,
+        "gpqa_diamond": null,
+        "swe_bench_verified": null,
+        "swe_bench_pro": null,
+        "hle": null,
+        "arena_elo": null,
+        "aime": null,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 2.0,
+        "output": 12.0,
+        "cached_input": 0.2
+      },
+      "reasoning": true,
+      "scenario_cost": true,
+      "benchmark_table": false,
+      "notes": "Mid tier of the GPT-5.6 family. Cut 20% on 2026-07-30 (was $2.50/$15). No independently published benchmark scores yet, so it is priced here but absent from the benchmark table."
+    },
+    {
+      "name": "GPT-5.6 Luna",
+      "provider": "OpenAI",
+      "open": false,
+      "context_tokens": 1000000,
+      "benchmarks": {
+        "aa_index": null,
+        "gpqa_diamond": null,
+        "swe_bench_verified": null,
+        "swe_bench_pro": null,
+        "hle": null,
+        "arena_elo": null,
+        "aime": null,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 0.2,
+        "output": 1.2,
+        "cached_input": 0.02
+      },
+      "reasoning": true,
+      "scenario_cost": true,
+      "benchmark_table": false,
+      "notes": "Cheapest tier of the GPT-5.6 family, cut 80% on 2026-07-30 (was $1/$6) — a frontier-family model at budget-tier pricing, which resets the cheap end of routing maths. No independently published benchmark scores yet, so it is priced here but absent from the benchmark table."
     },
     {
       "name": "Kimi K3",
       "provider": "Moonshot",
       "open": true,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 57.1, "gpqa_diamond": 0.935, "swe_bench_verified": null, "swe_bench_pro": null, "hle": 0.444, "arena_elo": 1486, "aime": null, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 3.0, "output": 15.0, "cached_input": 0.3},
+      "benchmarks": {
+        "aa_index": 57.1,
+        "gpqa_diamond": 0.935,
+        "swe_bench_verified": null,
+        "swe_bench_pro": null,
+        "hle": 0.444,
+        "arena_elo": 1486,
+        "aime": null,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 3.0,
+        "output": 15.0,
+        "cached_input": 0.3
+      },
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": true,
@@ -65,8 +167,21 @@
       "provider": "Anthropic",
       "open": false,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 55.7, "gpqa_diamond": 0.920, "swe_bench_verified": 0.886, "swe_bench_pro": 0.692, "hle": 0.457, "arena_elo": 1484, "aime": null, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 5.0, "output": 25.0, "cached_input": 0.5},
+      "benchmarks": {
+        "aa_index": 55.7,
+        "gpqa_diamond": 0.92,
+        "swe_bench_verified": 0.886,
+        "swe_bench_pro": 0.692,
+        "hle": 0.457,
+        "arena_elo": 1484,
+        "aime": null,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 5.0,
+        "output": 25.0,
+        "cached_input": 0.5
+      },
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": true,
@@ -77,8 +192,21 @@
       "provider": "OpenAI",
       "open": false,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 54.8, "gpqa_diamond": 0.935, "swe_bench_verified": null, "swe_bench_pro": 0.586, "hle": 0.443, "arena_elo": 1482, "aime": null, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 5.0, "output": 30.0, "cached_input": 0.5},
+      "benchmarks": {
+        "aa_index": 54.8,
+        "gpqa_diamond": 0.935,
+        "swe_bench_verified": null,
+        "swe_bench_pro": 0.586,
+        "hle": 0.443,
+        "arena_elo": 1482,
+        "aime": null,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 5.0,
+        "output": 30.0,
+        "cached_input": 0.5
+      },
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": true,
@@ -89,8 +217,21 @@
       "provider": "xAI",
       "open": false,
       "context_tokens": 500000,
-      "benchmarks": {"aa_index": 53.8, "gpqa_diamond": 0.931, "swe_bench_verified": null, "swe_bench_pro": 0.647, "hle": 0.403, "arena_elo": 1468, "aime": null, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 2.0, "output": 6.0, "cached_input": 0.3},
+      "benchmarks": {
+        "aa_index": 53.8,
+        "gpqa_diamond": 0.931,
+        "swe_bench_verified": null,
+        "swe_bench_pro": 0.647,
+        "hle": 0.403,
+        "arena_elo": 1468,
+        "aime": null,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 2.0,
+        "output": 6.0,
+        "cached_input": 0.3
+      },
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": true,
@@ -101,8 +242,21 @@
       "provider": "Z.ai (Zhipu)",
       "open": true,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 51.1, "gpqa_diamond": 0.895, "swe_bench_verified": null, "swe_bench_pro": 0.621, "hle": 0.401, "arena_elo": 1469, "aime": null, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 1.4, "output": 4.4, "cached_input": 0.26},
+      "benchmarks": {
+        "aa_index": 51.1,
+        "gpqa_diamond": 0.895,
+        "swe_bench_verified": null,
+        "swe_bench_pro": 0.621,
+        "hle": 0.401,
+        "arena_elo": 1469,
+        "aime": null,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 1.4,
+        "output": 4.4,
+        "cached_input": 0.26
+      },
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": true,
@@ -113,7 +267,16 @@
       "provider": "Meta (Superintelligence Labs)",
       "open": false,
       "context_tokens": 262000,
-      "benchmarks": {"aa_index": 50.6, "gpqa_diamond": 0.898, "swe_bench_verified": null, "swe_bench_pro": 0.615, "hle": 0.451, "arena_elo": 1491, "aime": null, "mmlu_pro": null},
+      "benchmarks": {
+        "aa_index": 50.6,
+        "gpqa_diamond": 0.898,
+        "swe_bench_verified": null,
+        "swe_bench_pro": 0.615,
+        "hle": 0.451,
+        "arena_elo": 1491,
+        "aime": null,
+        "mmlu_pro": null
+      },
       "reasoning": true,
       "scenario_cost": false,
       "benchmark_table": true,
@@ -124,8 +287,21 @@
       "provider": "Google",
       "open": false,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 50.2, "gpqa_diamond": 0.922, "swe_bench_verified": null, "swe_bench_pro": 0.551, "hle": 0.410, "arena_elo": 1476, "aime": null, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 1.5, "output": 9.0, "cached_input": 0.15},
+      "benchmarks": {
+        "aa_index": 50.2,
+        "gpqa_diamond": 0.922,
+        "swe_bench_verified": null,
+        "swe_bench_pro": 0.551,
+        "hle": 0.41,
+        "arena_elo": 1476,
+        "aime": null,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 1.5,
+        "output": 9.0,
+        "cached_input": 0.15
+      },
       "reasoning": true,
       "scenario_cost": false,
       "benchmark_table": true,
@@ -136,8 +312,21 @@
       "provider": "Google",
       "open": false,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 50.1, "gpqa_diamond": 0.928, "swe_bench_verified": null, "swe_bench_pro": null, "hle": 0.383, "arena_elo": 1482, "aime": null, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 1.5, "output": 7.5, "cached_input": 0.15},
+      "benchmarks": {
+        "aa_index": 50.1,
+        "gpqa_diamond": 0.928,
+        "swe_bench_verified": null,
+        "swe_bench_pro": null,
+        "hle": 0.383,
+        "arena_elo": 1482,
+        "aime": null,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 1.5,
+        "output": 7.5,
+        "cached_input": 0.15
+      },
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": true,
@@ -148,8 +337,22 @@
       "provider": "Google",
       "open": false,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 46.5, "gpqa_diamond": 0.941, "swe_bench_verified": null, "swe_bench_pro": null, "hle": 0.447, "arena_elo": 1486, "aime": 0.982, "aime_year": 2026, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 2.0, "output": 12.0, "cached_input": 0.2},
+      "benchmarks": {
+        "aa_index": 46.5,
+        "gpqa_diamond": 0.941,
+        "swe_bench_verified": null,
+        "swe_bench_pro": null,
+        "hle": 0.447,
+        "arena_elo": 1486,
+        "aime": 0.982,
+        "aime_year": 2026,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 2.0,
+        "output": 12.0,
+        "cached_input": 0.2
+      },
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": true,
@@ -160,7 +363,17 @@
       "provider": "Alibaba",
       "open": false,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 46.0, "gpqa_diamond": 0.923, "swe_bench_verified": 0.804, "swe_bench_pro": 0.606, "hle": 0.381, "arena_elo": 1475, "aime": 0.75, "aime_year": 2025, "mmlu_pro": 0.838},
+      "benchmarks": {
+        "aa_index": 46.0,
+        "gpqa_diamond": 0.923,
+        "swe_bench_verified": 0.804,
+        "swe_bench_pro": 0.606,
+        "hle": 0.381,
+        "arena_elo": 1475,
+        "aime": 0.75,
+        "aime_year": 2025,
+        "mmlu_pro": 0.838
+      },
       "reasoning": false,
       "scenario_cost": false,
       "benchmark_table": true,
@@ -171,8 +384,22 @@
       "provider": "DeepSeek",
       "open": true,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 44.3, "gpqa_diamond": 0.888, "swe_bench_verified": 0.806, "swe_bench_pro": 0.554, "hle": 0.359, "arena_elo": 1457, "aime": 0.893, "aime_year": 2025, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 0.435, "output": 0.87, "cached_input": 0.003625},
+      "benchmarks": {
+        "aa_index": 44.3,
+        "gpqa_diamond": 0.888,
+        "swe_bench_verified": 0.806,
+        "swe_bench_pro": 0.554,
+        "hle": 0.359,
+        "arena_elo": 1457,
+        "aime": 0.893,
+        "aime_year": 2025,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 0.435,
+        "output": 0.87,
+        "cached_input": 0.003625
+      },
       "reasoning": true,
       "scenario_cost": false,
       "benchmark_table": true,
@@ -183,8 +410,22 @@
       "provider": "Moonshot",
       "open": true,
       "context_tokens": 256000,
-      "benchmarks": {"aa_index": 44.2, "gpqa_diamond": 0.911, "swe_bench_verified": 0.802, "swe_bench_pro": 0.586, "hle": 0.359, "arena_elo": 1461, "aime": 0.964, "aime_year": 2026, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 0.95, "output": 4.0, "cached_input": 0.16},
+      "benchmarks": {
+        "aa_index": 44.2,
+        "gpqa_diamond": 0.911,
+        "swe_bench_verified": 0.802,
+        "swe_bench_pro": 0.586,
+        "hle": 0.359,
+        "arena_elo": 1461,
+        "aime": 0.964,
+        "aime_year": 2026,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 0.95,
+        "output": 4.0,
+        "cached_input": 0.16
+      },
       "reasoning": false,
       "scenario_cost": true,
       "benchmark_table": true,
@@ -195,8 +436,22 @@
       "provider": "Z.ai (Zhipu)",
       "open": true,
       "context_tokens": 200000,
-      "benchmarks": {"aa_index": 40.2, "gpqa_diamond": 0.868, "swe_bench_verified": null, "swe_bench_pro": 0.584, "hle": 0.280, "arena_elo": 1469, "aime": 0.953, "aime_year": 2026, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 1.4, "output": 4.4, "cached_input": 0.26},
+      "benchmarks": {
+        "aa_index": 40.2,
+        "gpqa_diamond": 0.868,
+        "swe_bench_verified": null,
+        "swe_bench_pro": 0.584,
+        "hle": 0.28,
+        "arena_elo": 1469,
+        "aime": 0.953,
+        "aime_year": 2026,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 1.4,
+        "output": 4.4,
+        "cached_input": 0.26
+      },
       "reasoning": true,
       "scenario_cost": false,
       "benchmark_table": true,
@@ -207,8 +462,21 @@
       "provider": "xAI",
       "open": false,
       "context_tokens": 1000000,
-      "benchmarks": {"aa_index": 37.6, "gpqa_diamond": 0.901, "swe_bench_verified": null, "swe_bench_pro": null, "hle": 0.350, "arena_elo": 1443, "aime": null, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 1.25, "output": 2.5, "cached_input": 0.2},
+      "benchmarks": {
+        "aa_index": 37.6,
+        "gpqa_diamond": 0.901,
+        "swe_bench_verified": null,
+        "swe_bench_pro": null,
+        "hle": 0.35,
+        "arena_elo": 1443,
+        "aime": null,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 1.25,
+        "output": 2.5,
+        "cached_input": 0.2
+      },
       "reasoning": true,
       "scenario_cost": false,
       "benchmark_table": true,
@@ -219,8 +487,21 @@
       "provider": "Anthropic",
       "open": false,
       "context_tokens": 200000,
-      "benchmarks": {"aa_index": 29.6, "gpqa_diamond": 0.672, "swe_bench_verified": 0.733, "swe_bench_pro": null, "hle": 0.097, "arena_elo": 1412, "aime": null, "mmlu_pro": null},
-      "pricing_usd_per_mtok": {"input": 1.0, "output": 5.0, "cached_input": 0.1},
+      "benchmarks": {
+        "aa_index": 29.6,
+        "gpqa_diamond": 0.672,
+        "swe_bench_verified": 0.733,
+        "swe_bench_pro": null,
+        "hle": 0.097,
+        "arena_elo": 1412,
+        "aime": null,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 1.0,
+        "output": 5.0,
+        "cached_input": 0.1
+      },
       "reasoning": false,
       "scenario_cost": true,
       "benchmark_table": true,
@@ -231,8 +512,21 @@
       "provider": "Mistral",
       "open": true,
       "context_tokens": 256000,
-      "benchmarks": {"aa_index": 15.9, "gpqa_diamond": 0.680, "swe_bench_verified": null, "swe_bench_pro": null, "hle": 0.041, "arena_elo": 1415, "aime": null, "mmlu_pro": 0.807},
-      "pricing_usd_per_mtok": {"input": 0.5, "output": 1.5, "cached_input": null},
+      "benchmarks": {
+        "aa_index": 15.9,
+        "gpqa_diamond": 0.68,
+        "swe_bench_verified": null,
+        "swe_bench_pro": null,
+        "hle": 0.041,
+        "arena_elo": 1415,
+        "aime": null,
+        "mmlu_pro": 0.807
+      },
+      "pricing_usd_per_mtok": {
+        "input": 0.5,
+        "output": 1.5,
+        "cached_input": null
+      },
       "reasoning": false,
       "scenario_cost": true,
       "benchmark_table": true,
@@ -244,7 +538,11 @@
       "open": false,
       "context_tokens": 400000,
       "benchmarks": {},
-      "pricing_usd_per_mtok": {"input": 0.2, "output": 1.25, "cached_input": 0.02},
+      "pricing_usd_per_mtok": {
+        "input": 0.2,
+        "output": 1.25,
+        "cached_input": 0.02
+      },
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": false,
@@ -256,7 +554,11 @@
       "open": true,
       "context_tokens": 1000000,
       "benchmarks": {},
-      "pricing_usd_per_mtok": {"input": 0.14, "output": 0.28, "cached_input": 0.0028},
+      "pricing_usd_per_mtok": {
+        "input": 0.14,
+        "output": 0.28,
+        "cached_input": 0.0028
+      },
       "reasoning": true,
       "scenario_cost": true,
       "benchmark_table": false,

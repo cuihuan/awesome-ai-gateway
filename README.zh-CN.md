@@ -297,7 +297,9 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 
 ## 🏢 企业合规
 
-*痛点："审计日志、PII 脱敏、RBAC、私有化部署，外加 2026 年 8 月生效的欧盟 AI 法案。"*
+*痛点："审计日志、PII 脱敏、RBAC、私有化部署，外加欧盟 AI 法案。"*
+
+> ⚠️ **欧盟 AI 法案的期限已经改了——别再按旧时间点的紧迫性下单。** [Digital Omnibus](https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/)（Regulation (EU) 2026/1744，2026-07-27 生效）把 **Annex III 高风险**义务——也就是要求 Article 12 事件日志、多数团队因此才来选可审计网关的那部分——从 2026-08-02 推迟到 **2027-12-02**；嵌入 Annex I 受监管产品的 AI 推迟到 2028-08-02。真正在 [2026-08-02](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50) 开始适用的是 **Article 50 透明度义务**：披露正在与 AI 交互、标记合成内容、标注深度伪造。这些主要是应用层的义务，网关基本替你履行不了。核实于 2026-08-12。
 
 > ⚖️ **覆盖诚实度：** 下列厂商中只有 **Kong** 与 **Apache APISIX** 进入了五维记分卡——其余为**收录展示、未经评估**（多为闭源平台，我们的证据规则无法独立核验）。其能力描述请当作厂商口径看待；我们能核验的身份/治理付费墙在 SSO 税表里。
 
@@ -688,6 +690,10 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 
 *倒序排列，只留最近约 3 个月。更早的条目退回到承载其证据的章节或数据文件——不是删除，只是移出「最新」。条目审阅：2026-07-29 · 最近一次清理：2026-08-12。*
 
+- **2026-08-07** · **Cloudflare 把 Workers AI 与 AI Gateway 合并为一个钱包** —— AI Gateway 的预付额度现在可直接支付 Workers AI 推理，共用一个余额；用额度调用的前沿模型（Kimi K2.6、Kimi K2.7-code、GLM-5.2）享 **每账号每模型 50 RPM**，而标准 Workers AI 计费为 20 RPM。如果你当初正是把 Cloudflare 当作自带 Key 前面那层*免费*控制面来选的，注意它现在也是一层计费。（[changelog](https://developers.cloudflare.com/changelog/post/2026-08-07-workers-ai-unified-billing/)）
+- **2026-08-03** · **agentgateway 打通 MCP 新旧两代协议** —— v1.4/v1.4.1 支持 [2026-07-28 无状态版本](https://modelcontextprotocol.io/specification/2026-07-28/changelog)，通过 `server/discover` 探测对端是否支持新协议，并可在一个网关后面同时联邦新旧两代 MCP server。在 session、initialize 握手与 SSE 断点续传都被删掉之后，这条混合舰队路径就是现实可行的迁移路线。（[公告](https://agentgateway.dev/blog/2026-08-03-new-mcp-spec-revision/)）
+- **2026-08-02** · **真正驱动网关采购的那条欧盟 AI 法案期限，推迟了 16 个月** —— Digital Omnibus（Regulation (EU) 2026/1744，2026-07-27 生效）把 **Annex III 高风险**义务——包括绝大多数「可审计网关」候选名单赖以存在的 Article 12 事件日志——从 2026-08-02 推到 **2027-12-02**（Annex I 嵌入式系统推到 2028-08-02）。按原计划生效的是 [Article 50 透明度义务](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50)：披露 AI 交互、标记合成内容、标注深度伪造——这些主要在应用层，网关替你履行不了。（[分析](https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/)）
+- **2026-07-30** · **OpenAI 下调 GPT-5.6 API 价格** —— Luna 从 **$1/$6 降至 $0.20/$1.20**（每百万 token，−80%），Terra 从 **$2.50/$15 降至 $2/$12**（−20%）；Sol 维持 $5/$30。前沿系列模型下探到 Luna 这个价位，会重置很多路由测算的低价端——凡是日期早于此的成本表都请自行重算，**包括本仓这份快照**。（[CNBC](https://www.cnbc.com/2026/07/30/open-ai-price-cut-gpt.html) · [OpenAI](https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/)）
 - **2026-07-28** · **MCP 转向无状态——发布以来最大的一次协议破坏性变更。** 规范新版 [2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28/changelog) 移除了协议级会话与 `Mcp-Session-Id` 头、删掉了 `initialize`/`notifications/initialized` 握手（每个请求改为在 `_meta` 里自带协议版本与能力声明）、新增必须实现的 `server/discover` RPC、用单条 `subscriptions/listen` POST 流取代 HTTP GET 流与 `resources/subscribe`，并**取消了 SSE 断点续传**（`Last-Event-ID` 与事件 ID）——流断了就得重来。已于 2026-07-29 对着打标签的那个 commit 核实：新的 `schema/2026-07-28/schema.ts` 里 `InitializeRequest` 与 `sessionId` 出现 0 次，而 2025-11-25 版有 4 处。对所有跑 [MCP 网关](#-mcp-与-agent-网关)的人这是结构性影响：会话亲和路由不再必要、无状态请求可以自由负载均衡，但断流续传从此是网关的问题，不再是协议的问题。
 - **2026-07-28** · **7 月旗舰潮把整个记分板重排了** ——Claude Opus 5（7 月 24 日）同时拿下 AA 指数第一（v4.1 口径 60.7）与 SWE-bench Verified 榜首（96.0），Fable 5 在 Arena 稳定登顶（1508±6），Kimi K3（7 月 16 日发布、27 日开源权重）成为开源权重新王，GPT-5.6 Sol/Terra/Luna（7 月 9 日）、Grok 4.5（7 月 8 日）、Gemini 3.6 Flash（7 月 21 日）补齐这个月。本清单的记分板与成本表已按 v4.1 口径、单一来源列重建（[BENCHMARKS](BENCHMARKS.zh-CN.md)）；月度定价核验 **13 项里 12 项与官方页完全一致**——唯一破的那项见评测速递。
 - **2026-07** · **据报道 Stripe 正洽购 OpenRouter，估值约 100 亿美元**（华尔街日报，7 月 23 日——**未经证实**：谈判仍可能破裂，也可能出现其他买家）——约为其 5 月 B 轮 13 亿美元估值的 7.7 倍，也是下方整合趋势线（Portkey→Palo Alto、Helicone→Mintlify、TensorZero 关停）迄今最强的信号。（[TNW](https://thenextweb.com/news/stripe-openrouter-10-billion-ai-model-marketplace-acquisition)、[PYMNTS](https://www.pymnts.com/news/artificial-intelligence/2026/stripe-eyes-10-billion-deal-for-ai-model-marketplace-openrouter/)）
@@ -700,7 +706,7 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 - **2026-06** · NetFoundry 发布**零信任 MCP 与 LLM 网关**，思科投资部跟投其 A 轮。（[PR Newswire](https://www.prnewswire.com/news-releases/netfoundry-launches-enterprise-class-mcp-and-llm-gateways-bringing-zero-trust-to-ai-deployments-302789053.html)）
 - **2026-05** · **Palo Alto Networks 完成对 Portkey 的收购**（4/30 宣布、5/29 完成），将这个 AI 网关作为其 Prisma AIRS 安全平台的控制面——标志着网关正成为核心安全基础设施。（[Palo Alto Networks](https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-completes-acquisition-of-portkey-to-secure-ai-agents)）
 - **2026-05** · OpenRouter 完成 CapitalG 领投的 **1.13 亿美元 B 轮**，估值 13 亿美元——约 800 万用户、月均 ~100 万亿 token。（[TechCrunch](https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/)）
-- **趋势** · MCP 网关成为独立品类；消费上限成为标配；**欧盟 AI 法案（2026 年 8 月起强制执行）**推高合规需求；**new-api 星数反超 one-api**，成为国内最活跃的中转系统；同时**独立网关洗牌**正在发生——Portkey（→Palo Alto）、Helicone（→Mintlify）被收购，TensorZero 关停，且整合仍在继续（Katanemo→DigitalOcean、TrueFoundry→Seldon、Langfuse→ClickHouse）。
+- **趋势** · MCP 网关成为独立品类；消费上限成为标配；**欧盟 AI 法案**推高合规需求（但其高风险义务已推迟至 2027-12-02）；**new-api 星数反超 one-api**，成为国内最活跃的中转系统；同时**独立网关洗牌**正在发生——Portkey（→Palo Alto）、Helicone（→Mintlify）被收购，TensorZero 关停，且整合仍在继续（Katanemo→DigitalOcean、TrueFoundry→Seldon、Langfuse→ClickHouse）。
 
 ## 🚀 最新版本发布（自动更新）
 
