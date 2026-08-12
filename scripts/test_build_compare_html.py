@@ -2,6 +2,8 @@
 
 import unittest
 
+import build_compare_html as bch
+
 from build_compare_html import (
     build_sitemap,
     extract_description,
@@ -347,6 +349,47 @@ class TestSitemap(unittest.TestCase):
         for kept in ("litellm-vs-openrouter.zh-CN.html", "openrouter-alternatives.zh-CN.html",
                      "self-hosted-llm-gateway.zh-CN.html", "reduce-llm-api-costs.html"):
             self.assertIn(f"awesome-ai-gateway/{kept}", xml)
+
+
+class TestLastmodIsCommitOrderIndependent(unittest.TestCase):
+    """A dirty file must report its mtime, not its last commit's date.
+
+    Regression guard: the sitemap is generated from these dates, so when a dirty
+    file reported its *previous* commit's date, generating the sitemap and then
+    committing the source left the just-committed sitemap stale — the same command
+    would now compute today. That reddened CI twice before the cause was found.
+    """
+
+    def test_dirty_file_reports_today_not_last_commit(self):
+        import subprocess
+        from datetime import datetime, timezone
+
+        rel = "README.md"
+        dirty = subprocess.run(
+            ["git", "status", "--porcelain", "--", rel],
+            cwd=bch.ROOT, capture_output=True, text=True,
+        ).stdout.strip()
+        if not dirty:
+            self.skipTest("README.md is clean; nothing to assert about dirty-file dating")
+        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        self.assertEqual(bch.git_lastmod(rel), today)
+
+    def test_clean_tracked_file_uses_its_commit_date(self):
+        import subprocess
+
+        rel = "LICENSE"  # rarely touched, so reliably clean
+        if subprocess.run(
+            ["git", "status", "--porcelain", "--", rel],
+            cwd=bch.ROOT, capture_output=True, text=True,
+        ).stdout.strip():
+            self.skipTest("LICENSE is dirty in this tree")
+        expected = subprocess.run(
+            ["git", "log", "-1", "--format=%cs", "--", rel],
+            cwd=bch.ROOT, capture_output=True, text=True,
+        ).stdout.strip()
+        if not expected:
+            self.skipTest("no git history available (shallow clone)")
+        self.assertEqual(bch.git_lastmod(rel), expected)
 
 
 if __name__ == "__main__":

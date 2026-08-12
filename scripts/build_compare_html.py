@@ -29,6 +29,7 @@ import html
 import re
 import subprocess
 import sys
+from datetime import datetime, timezone
 from functools import lru_cache
 from pathlib import Path
 
@@ -590,12 +591,40 @@ def _full_git_history() -> bool:
         return False
 
 
+def _has_uncommitted_changes(rel_path: str) -> bool:
+    """True when the working tree's copy of a file differs from HEAD."""
+    try:
+        out = subprocess.run(
+            ["git", "status", "--porcelain", "--", rel_path],
+            cwd=ROOT, capture_output=True, text=True, check=True,
+        ).stdout.strip()
+        return bool(out)
+    except Exception:
+        return False
+
+
 def git_lastmod(rel_path: str) -> str | None:
-    """Last git commit date (YYYY-MM-DD) of a repo-relative file — the honest
-    <lastmod> for hand-edited pages. None (lastmod omitted, never fabricated)
-    for uncommitted files or when history is unavailable/shallow."""
+    """Last-modified date (YYYY-MM-DD) of a repo-relative file, for <lastmod>.
+
+    Normally the last commit date. But a file with uncommitted changes has *not*
+    last changed on its last commit's date — reporting that would be wrong, and
+    it also makes the build non-idempotent across a commit: generate the sitemap,
+    commit the source file, and the committed sitemap is instantly stale because
+    the same command would now compute today. That failed CI twice.
+
+    So a dirty file reports its filesystem mtime — the date it genuinely changed,
+    and the date its imminent commit will carry. Committing then recomputes the
+    same value, and the sitemap stops depending on the order of two commands.
+
+    Returns None (element omitted, never a fabricated date) for untracked files
+    or when history is unavailable or shallow.
+    """
     if not _full_git_history():
         return None
+    if _has_uncommitted_changes(rel_path):
+        path = ROOT / rel_path
+        if path.exists():
+            return datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc).strftime("%Y-%m-%d")
     try:
         out = subprocess.run(
             ["git", "log", "-1", "--format=%cs", "--", rel_path],
