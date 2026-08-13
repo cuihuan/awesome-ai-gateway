@@ -955,6 +955,7 @@ This list lives in the awesome-list ecosystem. If it doesn't have what you need,
 - [awesome-langchain](https://github.com/kyrolabs/awesome-langchain) - LangChain tools and LLM app frameworks that call through these gateways.
 - [awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) - MCP servers to put _behind_ the MCP & agent gateways here.
 - [awesome-free-llm-apis](https://github.com/mnfst/awesome-free-llm-apis) - CC0 list of permanently-free LLM APIs, from the team behind the Manifest router listed here; pairs with our verified free-tier limits table.
+- [AI4S for Programmers](https://github.com/Runix-lab/ai4s-for-programmers) - Free two-day course on the data-engineering side of AI for Science (antibody/protein data), for programmers with zero biology background; six runnable labs over a reproducible public dataset.
 
 Maintain a related list and think this belongs in yours? Open an issue — cross-linking helps every list's readers.
 
