@@ -1,121 +1,121 @@
 {
-  "generated_at": "2026-08-14T04:20:20Z",
+  "generated_at": "2026-08-15T03:08:38Z",
   "stars": {
-    "tensorzero/tensorzero": 11725,
+    "tensorzero/tensorzero": 11723,
     "pydantic/pydantic-ai-gateway": 192,
-    "Helicone/helicone": 6064,
-    "BerriAI/litellm": 56294,
-    "maximhq/bifrost": 7301,
-    "headroomlabs-ai/headroom": 66262,
-    "router-for-me/CLIProxyAPI": 47226,
-    "diegosouzapw/OmniRoute": 47386,
-    "QuantumNous/new-api": 45112,
-    "Kong/kong": 43981,
-    "Wei-Shaw/sub2api": 36978,
-    "musistudio/claude-code-router": 36642,
-    "songquanpeng/one-api": 36376,
-    "mlflow/mlflow": 27505,
-    "decolua/9router": 25389,
-    "tashfeenahmed/freellmapi": 18477,
-    "apache/apisix": 16988,
-    "andrewyng/aisuite": 16091,
-    "Portkey-AI/gateway": 12709,
-    "lidge-jun/opencodex": 9860,
+    "Helicone/helicone": 6071,
+    "BerriAI/litellm": 56363,
+    "maximhq/bifrost": 7321,
+    "headroomlabs-ai/headroom": 66380,
+    "diegosouzapw/OmniRoute": 48072,
+    "router-for-me/CLIProxyAPI": 47318,
+    "QuantumNous/new-api": 45175,
+    "Kong/kong": 43984,
+    "Wei-Shaw/sub2api": 37068,
+    "musistudio/claude-code-router": 36660,
+    "songquanpeng/one-api": 36382,
+    "mlflow/mlflow": 27522,
+    "decolua/9router": 25454,
+    "tashfeenahmed/freellmapi": 18522,
+    "apache/apisix": 16995,
+    "andrewyng/aisuite": 16093,
+    "Portkey-AI/gateway": 12723,
+    "lidge-jun/opencodex": 9991,
     "coaidev/coai": 9273,
-    "higress-group/higress": 9099,
-    "ai-dynamo/dynamo": 7759,
-    "mnfst/manifest": 7439,
-    "tbphp/gpt-load": 6277,
+    "higress-group/higress": 9102,
+    "ai-dynamo/dynamo": 7769,
+    "mnfst/manifest": 7444,
+    "tbphp/gpt-load": 6278,
     "nullsink/nullsink": 12,
-    "seakee/CPA-Manager-Plus": 2558,
-    "mozilla-ai/otari": 381,
-    "traceloop/hub": 226,
+    "seakee/CPA-Manager-Plus": 2571,
+    "mozilla-ai/otari": 382,
+    "traceloop/hub": 225,
     "Helicone/ai-gateway": 620,
-    "katanemo/plano": 6998,
-    "looplj/axonhub": 4971,
-    "theopenco/llmgateway": 1532,
-    "APIParkLab/APIPark": 1798,
-    "algorithmicsuperintelligence/optillm": 4238,
+    "katanemo/plano": 6999,
+    "looplj/axonhub": 4977,
+    "theopenco/llmgateway": 1534,
+    "APIParkLab/APIPark": 1799,
+    "algorithmicsuperintelligence/optillm": 4239,
     "lightseekorg/smg": 461,
     "RelayPlane/proxy": 197,
     "nehadangwal/sentrynode-gateway": 0,
     "ENTERPILOT/GoModel": 1053,
     "etalab-ia/OpenGateLLM": 180,
-    "astaxie/TokenHub": 1052,
-    "askalf/dario": 343,
-    "aurorallm/aurora": 33,
+    "astaxie/TokenHub": 1069,
+    "askalf/dario": 344,
+    "aurorallm/aurora": 34,
     "romgX/openrelay": 2288,
-    "Paritok-official/paritok-4b-v1": 1163,
+    "Paritok-official/paritok-4b-v1": 1322,
     "caozhiyuan/copilot-api": 967,
-    "kittors/CliRelay": 913,
+    "kittors/CliRelay": 917,
     "swobuforge/swobu": 6,
     "happy520ai/unified-ai-system": 4,
     "zangxin75/token-efficiency": 0,
     "bricks-cloud/BricksLLM": 1221,
     "EinStack/glide": 160,
-    "envoyproxy/ai-gateway": 1926,
+    "envoyproxy/ai-gateway": 1927,
     "kgateway-dev/kgateway": 5661,
     "TheLunarCompany/lunar": 482,
-    "krakend/krakend-ce": 2663,
+    "krakend/krakend-ce": 2662,
     "emissary-ingress/emissary": 4518,
-    "MartialBE/one-hub": 2875,
-    "fruitbars/simple-one-api": 2327,
-    "bestruirui/octopus": 2362,
-    "Veloera/Veloera": 1626,
-    "yym68686/uni-api": 1250,
-    "HotRiceNoodles/CrossLink": 405,
+    "MartialBE/one-hub": 2876,
+    "fruitbars/simple-one-api": 2325,
+    "bestruirui/octopus": 2363,
+    "Veloera/Veloera": 1627,
+    "yym68686/uni-api": 1252,
+    "HotRiceNoodles/CrossLink": 408,
     "VoAPI/VoAPI": 1071,
-    "deanxv/done-hub": 802,
-    "beizhu-1209/AIHelms": 964,
+    "deanxv/done-hub": 803,
+    "beizhu-1209/AIHelms": 974,
     "LianjiaTech/bella-openapi": 237,
     "labring/aiproxy": 526,
-    "cita-777/metapi": 3182,
-    "agentgateway/agentgateway": 4346,
-    "IBM/mcp-context-forge": 4315,
-    "docker/mcp-gateway": 1527,
-    "metatool-ai/metamcp": 2603,
-    "stacklok/toolhive": 2010,
+    "cita-777/metapi": 3185,
+    "agentgateway/agentgateway": 4359,
+    "IBM/mcp-context-forge": 4322,
+    "docker/mcp-gateway": 1529,
+    "metatool-ai/metamcp": 2605,
+    "stacklok/toolhive": 2014,
     "microsoft/mcp-gateway": 783,
     "1mcp-app/agent": 483,
     "smart-mcp-proxy/mcpproxy-go": 314,
-    "mcpjungle/MCPJungle": 1203,
+    "mcpjungle/MCPJungle": 1205,
     "obot-platform/obot": 943,
     "fdmtl/director": 481,
     "lasso-security/mcp-gateway": 385,
     "ArmorerLabs/Armorer-Guard": 42,
     "anthony-chaudhary/fak": 30,
-    "archestra-ai/archestra": 4182,
-    "AmoyLab/Unla": 2201,
+    "archestra-ai/archestra": 4186,
+    "AmoyLab/Unla": 2202,
     "ascending-llc/jarvis-registry": 2808,
     "agentic-community/mcp-gateway-registry": 862,
     "Nexus-Router/nexus": 434,
-    "pomerium/pomerium": 4954,
-    "oomol-lab/open-connector": 4665,
-    "tsouth89/toolport": 165,
-    "lm-sys/RouteLLM": 5345,
-    "BlockRunAI/ClawRouter": 6615,
-    "workweave/router": 950,
-    "CommonstackAI/UncommonRoute": 686,
-    "Continuum-AI-Corp/OrcaRouter-Lite": 419,
+    "pomerium/pomerium": 4956,
+    "oomol-lab/open-connector": 4685,
+    "tsouth89/toolport": 167,
+    "lm-sys/RouteLLM": 5347,
+    "BlockRunAI/ClawRouter": 6609,
+    "workweave/router": 952,
+    "CommonstackAI/UncommonRoute": 685,
+    "Continuum-AI-Corp/OrcaRouter-Lite": 456,
     "RouteWorks/RouterArena": 118,
-    "vllm-project/semantic-router": 5151,
+    "vllm-project/semantic-router": 5158,
     "NVIDIA-AI-Blueprints/llm-router": 338,
-    "ulab-uiuc/LLMRouter": 2341,
-    "NadirRouter/NadirClaw": 641,
+    "ulab-uiuc/LLMRouter": 2347,
+    "NadirRouter/NadirClaw": 642,
     "vllora/vllora": 812,
     "braintrustdata/braintrust-proxy": 408,
-    "liaohch3/claude-tap": 3055,
-    "jianshuo/ccglass": 684,
-    "kubernetes-sigs/gateway-api-inference-extension": 739,
-    "vllm-project/aibrix": 5008,
-    "llm-d/llm-d": 4024,
+    "liaohch3/claude-tap": 3058,
+    "jianshuo/ccglass": 685,
+    "kubernetes-sigs/gateway-api-inference-extension": 740,
+    "vllm-project/aibrix": 5010,
+    "llm-d/llm-d": 4028,
     "inference-gateway/inference-gateway": 229,
-    "thushan/olla": 274,
-    "kserve/kserve": 5790,
-    "gpustack/gpustack": 5483,
-    "vllm-project/production-stack": 2509,
+    "thushan/olla": 275,
+    "kserve/kserve": 5794,
+    "gpustack/gpustack": 5484,
+    "vllm-project/production-stack": 2508,
     "InftyAI/llmaz": 308,
-    "toby-bridges/api-relay-audit": 788
+    "toby-bridges/api-relay-audit": 789
   },
   "activity": {
     "tensorzero/tensorzero": {
@@ -131,27 +131,27 @@
       "archived": false
     },
     "BerriAI/litellm": {
-      "pushed_at": "2026-08-14T04:05:32Z",
+      "pushed_at": "2026-08-15T03:07:16Z",
       "archived": false
     },
     "maximhq/bifrost": {
-      "pushed_at": "2026-08-14T03:22:22Z",
+      "pushed_at": "2026-08-15T01:49:00Z",
       "archived": false
     },
     "headroomlabs-ai/headroom": {
-      "pushed_at": "2026-08-14T04:11:54Z",
-      "archived": false
-    },
-    "router-for-me/CLIProxyAPI": {
-      "pushed_at": "2026-08-13T19:19:40Z",
+      "pushed_at": "2026-08-14T21:40:49Z",
       "archived": false
     },
     "diegosouzapw/OmniRoute": {
-      "pushed_at": "2026-08-14T04:10:49Z",
+      "pushed_at": "2026-08-15T02:10:45Z",
+      "archived": false
+    },
+    "router-for-me/CLIProxyAPI": {
+      "pushed_at": "2026-08-14T21:46:19Z",
       "archived": false
     },
     "QuantumNous/new-api": {
-      "pushed_at": "2026-08-13T14:06:41Z",
+      "pushed_at": "2026-08-14T14:48:45Z",
       "archived": false
     },
     "Kong/kong": {
@@ -159,11 +159,11 @@
       "archived": false
     },
     "Wei-Shaw/sub2api": {
-      "pushed_at": "2026-08-14T03:31:44Z",
+      "pushed_at": "2026-08-15T01:00:16Z",
       "archived": false
     },
     "musistudio/claude-code-router": {
-      "pushed_at": "2026-08-14T03:28:53Z",
+      "pushed_at": "2026-08-14T15:21:11Z",
       "archived": false
     },
     "songquanpeng/one-api": {
@@ -171,19 +171,19 @@
       "archived": false
     },
     "mlflow/mlflow": {
-      "pushed_at": "2026-08-14T03:57:25Z",
+      "pushed_at": "2026-08-14T16:55:19Z",
       "archived": false
     },
     "decolua/9router": {
-      "pushed_at": "2026-08-05T09:50:53Z",
+      "pushed_at": "2026-08-14T10:08:34Z",
       "archived": false
     },
     "tashfeenahmed/freellmapi": {
-      "pushed_at": "2026-08-12T10:24:25Z",
+      "pushed_at": "2026-08-14T16:54:40Z",
       "archived": false
     },
     "apache/apisix": {
-      "pushed_at": "2026-08-14T03:43:19Z",
+      "pushed_at": "2026-08-14T09:59:27Z",
       "archived": false
     },
     "andrewyng/aisuite": {
@@ -195,7 +195,7 @@
       "archived": false
     },
     "lidge-jun/opencodex": {
-      "pushed_at": "2026-08-14T04:19:27Z",
+      "pushed_at": "2026-08-15T02:43:39Z",
       "archived": false
     },
     "coaidev/coai": {
@@ -203,31 +203,31 @@
       "archived": false
     },
     "higress-group/higress": {
-      "pushed_at": "2026-08-14T01:32:04Z",
+      "pushed_at": "2026-08-14T10:03:57Z",
       "archived": false
     },
     "ai-dynamo/dynamo": {
-      "pushed_at": "2026-08-14T04:07:41Z",
+      "pushed_at": "2026-08-15T03:07:52Z",
       "archived": false
     },
     "mnfst/manifest": {
-      "pushed_at": "2026-08-13T22:04:29Z",
+      "pushed_at": "2026-08-14T07:30:58Z",
       "archived": false
     },
     "tbphp/gpt-load": {
-      "pushed_at": "2026-08-14T00:35:22Z",
+      "pushed_at": "2026-08-15T02:31:40Z",
       "archived": false
     },
     "nullsink/nullsink": {
-      "pushed_at": "2026-08-13T12:44:33Z",
+      "pushed_at": "2026-08-14T12:45:52Z",
       "archived": false
     },
     "seakee/CPA-Manager-Plus": {
-      "pushed_at": "2026-08-13T15:14:43Z",
+      "pushed_at": "2026-08-15T02:29:47Z",
       "archived": false
     },
     "mozilla-ai/otari": {
-      "pushed_at": "2026-08-13T17:19:17Z",
+      "pushed_at": "2026-08-14T19:20:19Z",
       "archived": false
     },
     "traceloop/hub": {
@@ -243,11 +243,11 @@
       "archived": false
     },
     "looplj/axonhub": {
-      "pushed_at": "2026-08-14T04:17:55Z",
+      "pushed_at": "2026-08-15T02:49:57Z",
       "archived": false
     },
     "theopenco/llmgateway": {
-      "pushed_at": "2026-08-14T01:11:01Z",
+      "pushed_at": "2026-08-14T23:03:23Z",
       "archived": false
     },
     "APIParkLab/APIPark": {
@@ -259,7 +259,7 @@
       "archived": false
     },
     "lightseekorg/smg": {
-      "pushed_at": "2026-08-14T02:52:17Z",
+      "pushed_at": "2026-08-14T23:19:01Z",
       "archived": false
     },
     "RelayPlane/proxy": {
@@ -271,7 +271,7 @@
       "archived": false
     },
     "ENTERPILOT/GoModel": {
-      "pushed_at": "2026-08-13T22:18:24Z",
+      "pushed_at": "2026-08-14T22:08:33Z",
       "archived": false
     },
     "etalab-ia/OpenGateLLM": {
@@ -279,11 +279,11 @@
       "archived": false
     },
     "astaxie/TokenHub": {
-      "pushed_at": "2026-08-14T01:39:40Z",
+      "pushed_at": "2026-08-15T03:06:22Z",
       "archived": false
     },
     "askalf/dario": {
-      "pushed_at": "2026-08-14T02:10:29Z",
+      "pushed_at": "2026-08-15T00:33:14Z",
       "archived": false
     },
     "aurorallm/aurora": {
@@ -295,15 +295,15 @@
       "archived": false
     },
     "Paritok-official/paritok-4b-v1": {
-      "pushed_at": "2026-08-12T10:29:02Z",
+      "pushed_at": "2026-08-14T22:15:08Z",
       "archived": false
     },
     "caozhiyuan/copilot-api": {
-      "pushed_at": "2026-08-14T01:48:41Z",
+      "pushed_at": "2026-08-15T03:01:45Z",
       "archived": false
     },
     "kittors/CliRelay": {
-      "pushed_at": "2026-08-14T04:02:52Z",
+      "pushed_at": "2026-08-14T15:33:35Z",
       "archived": false
     },
     "swobuforge/swobu": {
@@ -311,11 +311,11 @@
       "archived": false
     },
     "happy520ai/unified-ai-system": {
-      "pushed_at": "2026-08-14T04:13:04Z",
+      "pushed_at": "2026-08-14T17:44:26Z",
       "archived": false
     },
     "zangxin75/token-efficiency": {
-      "pushed_at": "2026-08-14T03:58:54Z",
+      "pushed_at": "2026-08-14T18:25:23Z",
       "archived": false
     },
     "bricks-cloud/BricksLLM": {
@@ -327,19 +327,19 @@
       "archived": false
     },
     "envoyproxy/ai-gateway": {
-      "pushed_at": "2026-08-13T22:53:16Z",
+      "pushed_at": "2026-08-14T05:13:51Z",
       "archived": false
     },
     "kgateway-dev/kgateway": {
-      "pushed_at": "2026-08-13T16:38:06Z",
+      "pushed_at": "2026-08-14T23:20:29Z",
       "archived": false
     },
     "TheLunarCompany/lunar": {
-      "pushed_at": "2026-08-13T12:10:49Z",
+      "pushed_at": "2026-08-14T12:59:05Z",
       "archived": false
     },
     "krakend/krakend-ce": {
-      "pushed_at": "2026-08-04T15:23:11Z",
+      "pushed_at": "2026-08-14T11:25:42Z",
       "archived": false
     },
     "emissary-ingress/emissary": {
@@ -355,7 +355,7 @@
       "archived": false
     },
     "bestruirui/octopus": {
-      "pushed_at": "2026-08-14T03:16:43Z",
+      "pushed_at": "2026-08-14T06:46:24Z",
       "archived": false
     },
     "Veloera/Veloera": {
@@ -363,7 +363,7 @@
       "archived": false
     },
     "yym68686/uni-api": {
-      "pushed_at": "2026-08-13T16:48:03Z",
+      "pushed_at": "2026-08-14T22:30:31Z",
       "archived": false
     },
     "HotRiceNoodles/CrossLink": {
@@ -379,7 +379,7 @@
       "archived": false
     },
     "beizhu-1209/AIHelms": {
-      "pushed_at": "2026-08-13T07:52:17Z",
+      "pushed_at": "2026-08-14T08:28:43Z",
       "archived": false
     },
     "LianjiaTech/bella-openapi": {
@@ -387,7 +387,7 @@
       "archived": false
     },
     "labring/aiproxy": {
-      "pushed_at": "2026-08-13T17:08:28Z",
+      "pushed_at": "2026-08-14T07:16:21Z",
       "archived": false
     },
     "cita-777/metapi": {
@@ -395,11 +395,11 @@
       "archived": false
     },
     "agentgateway/agentgateway": {
-      "pushed_at": "2026-08-14T02:09:42Z",
+      "pushed_at": "2026-08-14T19:46:39Z",
       "archived": false
     },
     "IBM/mcp-context-forge": {
-      "pushed_at": "2026-08-13T18:44:55Z",
+      "pushed_at": "2026-08-14T16:50:34Z",
       "archived": false
     },
     "docker/mcp-gateway": {
@@ -411,7 +411,7 @@
       "archived": false
     },
     "stacklok/toolhive": {
-      "pushed_at": "2026-08-14T03:32:12Z",
+      "pushed_at": "2026-08-15T00:43:28Z",
       "archived": false
     },
     "microsoft/mcp-gateway": {
@@ -419,11 +419,11 @@
       "archived": false
     },
     "1mcp-app/agent": {
-      "pushed_at": "2026-08-13T16:14:39Z",
+      "pushed_at": "2026-08-15T02:16:02Z",
       "archived": false
     },
     "smart-mcp-proxy/mcpproxy-go": {
-      "pushed_at": "2026-08-13T14:52:34Z",
+      "pushed_at": "2026-08-14T20:33:39Z",
       "archived": false
     },
     "mcpjungle/MCPJungle": {
@@ -431,7 +431,7 @@
       "archived": false
     },
     "obot-platform/obot": {
-      "pushed_at": "2026-08-13T23:49:19Z",
+      "pushed_at": "2026-08-14T19:52:28Z",
       "archived": false
     },
     "fdmtl/director": {
@@ -447,11 +447,11 @@
       "archived": false
     },
     "anthony-chaudhary/fak": {
-      "pushed_at": "2026-08-14T04:06:11Z",
+      "pushed_at": "2026-08-15T03:05:34Z",
       "archived": false
     },
     "archestra-ai/archestra": {
-      "pushed_at": "2026-08-14T01:42:25Z",
+      "pushed_at": "2026-08-15T01:07:03Z",
       "archived": false
     },
     "AmoyLab/Unla": {
@@ -459,11 +459,11 @@
       "archived": false
     },
     "ascending-llc/jarvis-registry": {
-      "pushed_at": "2026-08-13T17:05:25Z",
+      "pushed_at": "2026-08-14T21:29:59Z",
       "archived": false
     },
     "agentic-community/mcp-gateway-registry": {
-      "pushed_at": "2026-08-14T01:08:13Z",
+      "pushed_at": "2026-08-15T01:30:44Z",
       "archived": false
     },
     "Nexus-Router/nexus": {
@@ -471,15 +471,15 @@
       "archived": false
     },
     "pomerium/pomerium": {
-      "pushed_at": "2026-08-14T02:35:06Z",
+      "pushed_at": "2026-08-15T02:08:22Z",
       "archived": false
     },
     "oomol-lab/open-connector": {
-      "pushed_at": "2026-08-14T03:48:38Z",
+      "pushed_at": "2026-08-14T08:50:21Z",
       "archived": false
     },
     "tsouth89/toolport": {
-      "pushed_at": "2026-08-14T04:05:37Z",
+      "pushed_at": "2026-08-14T23:01:00Z",
       "archived": false
     },
     "lm-sys/RouteLLM": {
@@ -491,7 +491,7 @@
       "archived": false
     },
     "workweave/router": {
-      "pushed_at": "2026-08-14T03:25:12Z",
+      "pushed_at": "2026-08-15T03:00:22Z",
       "archived": false
     },
     "CommonstackAI/UncommonRoute": {
@@ -507,7 +507,7 @@
       "archived": false
     },
     "vllm-project/semantic-router": {
-      "pushed_at": "2026-08-14T04:04:46Z",
+      "pushed_at": "2026-08-15T03:05:28Z",
       "archived": false
     },
     "NVIDIA-AI-Blueprints/llm-router": {
@@ -515,7 +515,7 @@
       "archived": false
     },
     "ulab-uiuc/LLMRouter": {
-      "pushed_at": "2026-08-10T03:59:18Z",
+      "pushed_at": "2026-08-14T18:11:11Z",
       "archived": false
     },
     "NadirRouter/NadirClaw": {
@@ -527,7 +527,7 @@
       "archived": false
     },
     "braintrustdata/braintrust-proxy": {
-      "pushed_at": "2026-08-14T01:46:15Z",
+      "pushed_at": "2026-08-14T15:39:23Z",
       "archived": false
     },
     "liaohch3/claude-tap": {
@@ -543,15 +543,15 @@
       "archived": false
     },
     "vllm-project/aibrix": {
-      "pushed_at": "2026-08-13T22:43:15Z",
+      "pushed_at": "2026-08-14T22:19:59Z",
       "archived": false
     },
     "llm-d/llm-d": {
-      "pushed_at": "2026-08-14T04:17:13Z",
+      "pushed_at": "2026-08-14T22:27:13Z",
       "archived": false
     },
     "inference-gateway/inference-gateway": {
-      "pushed_at": "2026-08-13T22:01:12Z",
+      "pushed_at": "2026-08-15T02:22:41Z",
       "archived": false
     },
     "thushan/olla": {
@@ -559,11 +559,11 @@
       "archived": false
     },
     "kserve/kserve": {
-      "pushed_at": "2026-08-13T20:36:47Z",
+      "pushed_at": "2026-08-14T23:54:55Z",
       "archived": false
     },
     "gpustack/gpustack": {
-      "pushed_at": "2026-08-14T01:24:08Z",
+      "pushed_at": "2026-08-14T10:35:14Z",
       "archived": false
     },
     "vllm-project/production-stack": {
@@ -575,50 +575,50 @@
       "archived": false
     },
     "toby-bridges/api-relay-audit": {
-      "pushed_at": "2026-08-11T17:50:13Z",
+      "pushed_at": "2026-08-14T11:15:30Z",
       "archived": false
     }
   },
   "quiet": [
     {
       "repo": "pydantic/pydantic-ai-gateway",
-      "days": 136,
+      "days": 137,
       "last_commit": "2026-03-30",
       "archived": true
     },
     {
       "repo": "tensorzero/tensorzero",
-      "days": 64,
+      "days": 65,
       "last_commit": "2026-06-11",
       "archived": true
     },
     {
       "repo": "lm-sys/RouteLLM",
-      "days": 733,
+      "days": 734,
       "last_commit": "2024-08-10",
       "archived": false
     },
     {
       "repo": "EinStack/glide",
-      "days": 731,
+      "days": 732,
       "last_commit": "2024-08-12",
       "archived": false
     },
     {
       "repo": "bricks-cloud/BricksLLM",
-      "days": 585,
+      "days": 586,
       "last_commit": "2025-01-05",
       "archived": false
     },
     {
       "repo": "Helicone/ai-gateway",
-      "days": 266,
+      "days": 267,
       "last_commit": "2025-11-21",
       "archived": false
     },
     {
       "repo": "fruitbars/simple-one-api",
-      "days": 232,
+      "days": 233,
       "last_commit": "2025-12-25",
       "archived": false
     },
@@ -630,7 +630,7 @@
     },
     {
       "repo": "lasso-security/mcp-gateway",
-      "days": 203,
+      "days": 204,
       "last_commit": "2026-01-22",
       "archived": false
     },
@@ -642,45 +642,101 @@
     },
     {
       "repo": "VoAPI/VoAPI",
-      "days": 198,
+      "days": 199,
       "last_commit": "2026-01-27",
       "archived": false
     },
     {
       "repo": "Veloera/Veloera",
-      "days": 183,
+      "days": 184,
       "last_commit": "2026-02-11",
       "archived": false
     }
   ],
   "releases": [
     {
+      "repo": "caozhiyuan/copilot-api",
+      "tag": "v2.1.12",
+      "name": "v2.1.12",
+      "published_at": "2026-08-15T03:02:26Z",
+      "url": "https://github.com/caozhiyuan/copilot-api/releases/tag/v2.1.12"
+    },
+    {
+      "repo": "lidge-jun/opencodex",
+      "tag": "v2.19.0",
+      "name": "v2.19.0",
+      "published_at": "2026-08-15T01:06:08Z",
+      "url": "https://github.com/lidge-jun/opencodex/releases/tag/v2.19.0"
+    },
+    {
+      "repo": "askalf/dario",
+      "tag": "v5.5.16",
+      "name": "v5.5.16",
+      "published_at": "2026-08-14T22:35:35Z",
+      "url": "https://github.com/askalf/dario/releases/tag/v5.5.16"
+    },
+    {
+      "repo": "yym68686/uni-api",
+      "tag": "v1.7.239",
+      "name": "Release 1.7.239",
+      "published_at": "2026-08-14T22:30:31Z",
+      "url": "https://github.com/yym68686/uni-api/releases/tag/v1.7.239"
+    },
+    {
+      "repo": "router-for-me/CLIProxyAPI",
+      "tag": "v7.2.132",
+      "name": "v7.2.132",
+      "published_at": "2026-08-14T20:36:46Z",
+      "url": "https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.132"
+    },
+    {
+      "repo": "ENTERPILOT/GoModel",
+      "tag": "v0.1.75",
+      "name": "v0.1.75",
+      "published_at": "2026-08-14T20:14:05Z",
+      "url": "https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.75"
+    },
+    {
+      "repo": "maximhq/bifrost",
+      "tag": "ent-v1.5.11-base",
+      "name": "Enterprise v1.5.11 base",
+      "published_at": "2026-08-14T20:00:03Z",
+      "url": "https://github.com/maximhq/bifrost/releases/tag/ent-v1.5.11-base"
+    },
+    {
+      "repo": "stacklok/toolhive",
+      "tag": "v0.43.0",
+      "name": "v0.43.0",
+      "published_at": "2026-08-14T15:58:12Z",
+      "url": "https://github.com/stacklok/toolhive/releases/tag/v0.43.0"
+    },
+    {
+      "repo": "kittors/CliRelay",
+      "tag": "v0.4.25",
+      "name": "v0.4.25",
+      "published_at": "2026-08-14T15:38:24Z",
+      "url": "https://github.com/kittors/CliRelay/releases/tag/v0.4.25"
+    },
+    {
+      "repo": "krakend/krakend-ce",
+      "tag": "v2.13.9",
+      "name": "v2.13.9",
+      "published_at": "2026-08-14T11:26:24Z",
+      "url": "https://github.com/krakend/krakend-ce/releases/tag/v2.13.9"
+    },
+    {
+      "repo": "musistudio/claude-code-router",
+      "tag": "v3.0.21",
+      "name": "v3.0.21",
+      "published_at": "2026-08-14T09:55:16Z",
+      "url": "https://github.com/musistudio/claude-code-router/releases/tag/v3.0.21"
+    },
+    {
       "repo": "liaohch3/claude-tap",
       "tag": "v0.1.144",
       "name": "v0.1.144",
       "published_at": "2026-08-14T02:50:49Z",
       "url": "https://github.com/liaohch3/claude-tap/releases/tag/v0.1.144"
-    },
-    {
-      "repo": "lidge-jun/opencodex",
-      "tag": "v2.15.0",
-      "name": "v2.15.0",
-      "published_at": "2026-08-14T02:48:07Z",
-      "url": "https://github.com/lidge-jun/opencodex/releases/tag/v2.15.0"
-    },
-    {
-      "repo": "askalf/dario",
-      "tag": "v5.5.14",
-      "name": "v5.5.14",
-      "published_at": "2026-08-14T02:10:30Z",
-      "url": "https://github.com/askalf/dario/releases/tag/v5.5.14"
-    },
-    {
-      "repo": "caozhiyuan/copilot-api",
-      "tag": "v2.1.8",
-      "name": "v2.1.8",
-      "published_at": "2026-08-14T01:49:20Z",
-      "url": "https://github.com/caozhiyuan/copilot-api/releases/tag/v2.1.8"
     },
     {
       "repo": "higress-group/higress",
@@ -697,13 +753,6 @@
       "url": "https://github.com/tsouth89/toolport/releases/tag/v1.13.0"
     },
     {
-      "repo": "maximhq/bifrost",
-      "tag": "ent-v2.0.0-prerelease3-base",
-      "name": "Enterprise v2.0.0-prerelease3 base",
-      "published_at": "2026-08-13T20:52:23Z",
-      "url": "https://github.com/maximhq/bifrost/releases/tag/ent-v2.0.0-prerelease3-base"
-    },
-    {
       "repo": "agentic-community/mcp-gateway-registry",
       "tag": "1.29.0",
       "name": "1.29.0 - Reusable Egress Hardening & IdP-Authenticated Embeddings",
@@ -718,13 +767,6 @@
       "url": "https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.36"
     },
     {
-      "repo": "yym68686/uni-api",
-      "tag": "v1.7.237",
-      "name": "Release 1.7.237",
-      "published_at": "2026-08-13T16:48:04Z",
-      "url": "https://github.com/yym68686/uni-api/releases/tag/v1.7.237"
-    },
-    {
       "repo": "smart-mcp-proxy/mcpproxy-go",
       "tag": "v0.56.0",
       "name": "v0.56.0",
@@ -732,25 +774,11 @@
       "url": "https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.56.0"
     },
     {
-      "repo": "router-for-me/CLIProxyAPI",
-      "tag": "v7.2.131",
-      "name": "v7.2.131",
-      "published_at": "2026-08-13T06:39:54Z",
-      "url": "https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.131"
-    },
-    {
       "repo": "headroomlabs-ai/headroom",
       "tag": "v0.35.0",
       "name": "Release v0.35.0",
       "published_at": "2026-08-13T03:47:18Z",
       "url": "https://github.com/headroomlabs-ai/headroom/releases/tag/v0.35.0"
-    },
-    {
-      "repo": "kittors/CliRelay",
-      "tag": "v0.4.24",
-      "name": "v0.4.24 - xAI SuperGrok plan_type hotfix",
-      "published_at": "2026-08-13T01:58:53Z",
-      "url": "https://github.com/kittors/CliRelay/releases/tag/v0.4.24"
     },
     {
       "repo": "Wei-Shaw/sub2api",
@@ -802,13 +830,6 @@
       "url": "https://github.com/swobuforge/swobu/releases/tag/v1.0.0"
     },
     {
-      "repo": "ENTERPILOT/GoModel",
-      "tag": "v0.1.74",
-      "name": "v0.1.74",
-      "published_at": "2026-08-11T12:34:48Z",
-      "url": "https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.74"
-    },
-    {
       "repo": "looplj/axonhub",
       "tag": "v1.0.0-beta7",
       "name": "v1.0.0-beta7",
@@ -821,13 +842,6 @@
       "name": "Olla v0.0.29",
       "published_at": "2026-08-10T12:01:28Z",
       "url": "https://github.com/thushan/olla/releases/tag/v0.0.29"
-    },
-    {
-      "repo": "stacklok/toolhive",
-      "tag": "v0.42.1",
-      "name": "v0.42.1",
-      "published_at": "2026-08-10T10:21:23Z",
-      "url": "https://github.com/stacklok/toolhive/releases/tag/v0.42.1"
     },
     {
       "repo": "happy520ai/unified-ai-system",
@@ -870,13 +884,6 @@
       "name": "v1.3.5",
       "published_at": "2026-08-07T08:59:52Z",
       "url": "https://github.com/oomol-lab/open-connector/releases/tag/v1.3.5"
-    },
-    {
-      "repo": "musistudio/claude-code-router",
-      "tag": "v3.0.20",
-      "name": "v3.0.20",
-      "published_at": "2026-08-07T07:53:13Z",
-      "url": "https://github.com/musistudio/claude-code-router/releases/tag/v3.0.20"
     },
     {
       "repo": "seakee/CPA-Manager-Plus",
@@ -1066,13 +1073,6 @@
       "name": "0.10.1",
       "published_at": "2026-07-15T11:46:36Z",
       "url": "https://github.com/traceloop/hub/releases/tag/0.10.1"
-    },
-    {
-      "repo": "krakend/krakend-ce",
-      "tag": "v2.13.8",
-      "name": "v2.13.8",
-      "published_at": "2026-07-08T13:47:27Z",
-      "url": "https://github.com/krakend/krakend-ce/releases/tag/v2.13.8"
     },
     {
       "repo": "etalab-ia/OpenGateLLM",
