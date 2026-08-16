@@ -5,49 +5,91 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-08-15T03:02:26Z</updated>
+  <updated>2026-08-16T02:51:04Z</updated>
   <author><name>Awesome AI Gateway</name></author>
   <entry>
-    <title>caozhiyuan/copilot-api v2.1.12</title>
-    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.1.12" />
-    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.1.12</id>
-    <updated>2026-08-15T03:02:26Z</updated>
-    <summary>caozhiyuan/copilot-api released v2.1.12.</summary>
+    <title>BerriAI/litellm v1.97.0</title>
+    <link href="https://github.com/BerriAI/litellm/releases/tag/v1.97.0" />
+    <id>https://github.com/BerriAI/litellm/releases/tag/v1.97.0</id>
+    <updated>2026-08-16T02:51:04Z</updated>
+    <summary>BerriAI/litellm released v1.97.0.</summary>
   </entry>
   <entry>
-    <title>lidge-jun/opencodex v2.19.0</title>
-    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.19.0" />
-    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.19.0</id>
-    <updated>2026-08-15T01:06:08Z</updated>
-    <summary>lidge-jun/opencodex released v2.19.0.</summary>
+    <title>archestra-ai/archestra platform-v1.3.38</title>
+    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.38" />
+    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.38</id>
+    <updated>2026-08-16T02:16:59Z</updated>
+    <summary>archestra-ai/archestra released platform: v1.3.38.</summary>
   </entry>
   <entry>
-    <title>askalf/dario v5.5.16</title>
-    <link href="https://github.com/askalf/dario/releases/tag/v5.5.16" />
-    <id>https://github.com/askalf/dario/releases/tag/v5.5.16</id>
-    <updated>2026-08-14T22:35:35Z</updated>
-    <summary>askalf/dario released v5.5.16.</summary>
+    <title>ai-dynamo/dynamo v1.4.0</title>
+    <link href="https://github.com/ai-dynamo/dynamo/releases/tag/v1.4.0" />
+    <id>https://github.com/ai-dynamo/dynamo/releases/tag/v1.4.0</id>
+    <updated>2026-08-15T22:13:28Z</updated>
+    <summary>ai-dynamo/dynamo released Dynamo v1.4.0.</summary>
   </entry>
   <entry>
-    <title>yym68686/uni-api v1.7.239</title>
-    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.239" />
-    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.239</id>
-    <updated>2026-08-14T22:30:31Z</updated>
-    <summary>yym68686/uni-api released Release 1.7.239.</summary>
+    <title>yym68686/uni-api v1.7.244</title>
+    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.244" />
+    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.244</id>
+    <updated>2026-08-15T20:46:21Z</updated>
+    <summary>yym68686/uni-api released Release 1.7.244.</summary>
   </entry>
   <entry>
-    <title>router-for-me/CLIProxyAPI v7.2.132</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.132" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.132</id>
-    <updated>2026-08-14T20:36:46Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v7.2.132.</summary>
+    <title>router-for-me/CLIProxyAPI v7.2.133</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.133" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.133</id>
+    <updated>2026-08-15T19:07:37Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v7.2.133.</summary>
   </entry>
   <entry>
-    <title>ENTERPILOT/GoModel v0.1.75</title>
-    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.75" />
-    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.75</id>
-    <updated>2026-08-14T20:14:05Z</updated>
-    <summary>ENTERPILOT/GoModel released v0.1.75.</summary>
+    <title>ENTERPILOT/GoModel v0.1.76</title>
+    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.76" />
+    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.76</id>
+    <updated>2026-08-15T18:42:25Z</updated>
+    <summary>ENTERPILOT/GoModel released v0.1.76.</summary>
+  </entry>
+  <entry>
+    <title>lidge-jun/opencodex v2.21.0</title>
+    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.21.0" />
+    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.21.0</id>
+    <updated>2026-08-15T16:19:19Z</updated>
+    <summary>lidge-jun/opencodex released v2.21.0.</summary>
+  </entry>
+  <entry>
+    <title>caozhiyuan/copilot-api v2.2.0</title>
+    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.2.0" />
+    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.2.0</id>
+    <updated>2026-08-15T14:33:56Z</updated>
+    <summary>caozhiyuan/copilot-api released v2.2.0.</summary>
+  </entry>
+  <entry>
+    <title>happy520ai/unified-ai-system v0.5.0</title>
+    <link href="https://github.com/happy520ai/unified-ai-system/releases/tag/v0.5.0" />
+    <id>https://github.com/happy520ai/unified-ai-system/releases/tag/v0.5.0</id>
+    <updated>2026-08-15T14:16:51Z</updated>
+    <summary>happy520ai/unified-ai-system released v0.5.0 — The Gateway Release.</summary>
+  </entry>
+  <entry>
+    <title>Wei-Shaw/sub2api v0.1.177</title>
+    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.177" />
+    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.177</id>
+    <updated>2026-08-15T13:40:05Z</updated>
+    <summary>Wei-Shaw/sub2api released Sub2API 0.1.177.</summary>
+  </entry>
+  <entry>
+    <title>askalf/dario v5.5.17</title>
+    <link href="https://github.com/askalf/dario/releases/tag/v5.5.17" />
+    <id>https://github.com/askalf/dario/releases/tag/v5.5.17</id>
+    <updated>2026-08-15T13:15:41Z</updated>
+    <summary>askalf/dario released v5.5.17.</summary>
+  </entry>
+  <entry>
+    <title>smart-mcp-proxy/mcpproxy-go v0.57.0</title>
+    <link href="https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.57.0" />
+    <id>https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.57.0</id>
+    <updated>2026-08-15T06:25:06Z</updated>
+    <summary>smart-mcp-proxy/mcpproxy-go released v0.57.0.</summary>
   </entry>
   <entry>
     <title>maximhq/bifrost ent-v1.5.11-base</title>
@@ -113,32 +155,11 @@
     <summary>agentic-community/mcp-gateway-registry released 1.29.0 - Reusable Egress Hardening &amp; IdP-Authenticated Embeddings.</summary>
   </entry>
   <entry>
-    <title>archestra-ai/archestra platform-v1.3.36</title>
-    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.36" />
-    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.36</id>
-    <updated>2026-08-13T17:57:11Z</updated>
-    <summary>archestra-ai/archestra released platform: v1.3.36.</summary>
-  </entry>
-  <entry>
-    <title>smart-mcp-proxy/mcpproxy-go v0.56.0</title>
-    <link href="https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.56.0" />
-    <id>https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.56.0</id>
-    <updated>2026-08-13T13:12:54Z</updated>
-    <summary>smart-mcp-proxy/mcpproxy-go released v0.56.0.</summary>
-  </entry>
-  <entry>
     <title>headroomlabs-ai/headroom v0.35.0</title>
     <link href="https://github.com/headroomlabs-ai/headroom/releases/tag/v0.35.0" />
     <id>https://github.com/headroomlabs-ai/headroom/releases/tag/v0.35.0</id>
     <updated>2026-08-13T03:47:18Z</updated>
     <summary>headroomlabs-ai/headroom released Release v0.35.0.</summary>
-  </entry>
-  <entry>
-    <title>Wei-Shaw/sub2api v0.1.176</title>
-    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.176" />
-    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.176</id>
-    <updated>2026-08-13T01:46:35Z</updated>
-    <summary>Wei-Shaw/sub2api released Sub2API 0.1.176.</summary>
   </entry>
   <entry>
     <title>BlockRunAI/ClawRouter v0.12.245</title>
@@ -153,13 +174,6 @@
     <id>https://github.com/romgX/openrelay/releases/tag/v0.10.64</id>
     <updated>2026-08-12T10:24:55Z</updated>
     <summary>romgX/openrelay released v0.10.64.</summary>
-  </entry>
-  <entry>
-    <title>BerriAI/litellm v1.96.2</title>
-    <link href="https://github.com/BerriAI/litellm/releases/tag/v1.96.2" />
-    <id>https://github.com/BerriAI/litellm/releases/tag/v1.96.2</id>
-    <updated>2026-08-11T22:09:16Z</updated>
-    <summary>BerriAI/litellm released v1.96.2.</summary>
   </entry>
   <entry>
     <title>tashfeenahmed/freellmapi v0.7.0</title>
@@ -197,24 +211,10 @@
     <summary>thushan/olla released Olla v0.0.29.</summary>
   </entry>
   <entry>
-    <title>happy520ai/unified-ai-system v0.4.9</title>
-    <link href="https://github.com/happy520ai/unified-ai-system/releases/tag/v0.4.9" />
-    <id>https://github.com/happy520ai/unified-ai-system/releases/tag/v0.4.9</id>
-    <updated>2026-08-10T10:08:44Z</updated>
-    <summary>happy520ai/unified-ai-system released v0.4.9: Verified OpenAI SDK compatibility.</summary>
-  </entry>
-  <entry>
     <title>theopenco/llmgateway v1.12.0</title>
     <link href="https://github.com/theopenco/llmgateway/releases/tag/v1.12.0" />
     <id>https://github.com/theopenco/llmgateway/releases/tag/v1.12.0</id>
     <updated>2026-08-10T09:36:56Z</updated>
     <summary>theopenco/llmgateway released v1.12.0.</summary>
-  </entry>
-  <entry>
-    <title>labring/aiproxy v0.6.9</title>
-    <link href="https://github.com/labring/aiproxy/releases/tag/v0.6.9" />
-    <id>https://github.com/labring/aiproxy/releases/tag/v0.6.9</id>
-    <updated>2026-08-08T19:03:35Z</updated>
-    <summary>labring/aiproxy released Version 0.6.9.</summary>
   </entry>
 </feed>
