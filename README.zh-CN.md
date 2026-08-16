@@ -318,6 +318,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Unified AI System](https://github.com/happy520ai/unified-ai-system) <!--s:happy520ai/unified-ai-system-->⭐ 5<!--/s--> — Apache-2.0、本地优先的 Node.js 网关兼 MCP 服务器，面向 Codex/Cursor/Cline：显式选择提供商/模型、流式对话、九个受治理的 MCP 工具，以及无需调用厂商即可完成的提示词增强。可在零凭据下用假提供商启动，试用成本低。早期公开预览——目前只报告回退候选，尚不会自动执行回退。
 - [Token Efficiency](https://github.com/zangxin75/token-efficiency) <!--s:zangxin75/token-efficiency-->⭐ 0<!--/s--> — MIT 的 Python/Vue 网关，把 prompt token 压缩、语义缓存、多租户门户与成本分析打包在一起，覆盖 OpenAI/Anthropic/MiniMax/GLM/Kimi/DeepSeek；自带 docker-compose 与 Grafana 面板。早期项目（仓库 2026-08 开放、单人维护）；其压缩/省钱数据为厂商自测，另有同名托管版。
 - ⚠️ 已停滞但有历史意义：[BricksLLM](https://github.com/bricks-cloud/BricksLLM) <!--s:bricks-cloud/BricksLLM-->⭐ 1.2k<!--/s-->（PII 脱敏、按 Key 限额；2025 年初起不再活跃）、[Glide](https://github.com/EinStack/glide) <!--s:EinStack/glide-->⭐ 160<!--/s-->（2024 年起停更）。
+- [Ollama Herd](https://github.com/geeks-accelerator/ollama-herd) <!--s:geeks-accelerator/ollama-herd-->⭐ ~20<!--/s--> - MIT 许可的自托管路由器（Python），面向自有机器而非托管服务商：通过 mDNS 在局域网自动发现节点，无需配置文件；按内存余量、温度状态、队列深度以及各节点已加载的模型进行打分，从而避免在别处已预热的模型上再次冷加载。提供兼容 OpenAI / Ollama / Anthropic 的接口，并支持图像生成、语音转文字与向量嵌入；由于没有第三方服务商，也就不需要管理任何 API Key。
 
 ## 🏢 企业合规
 
