@@ -231,6 +231,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [AIMLAPI](https://aimlapi.com) — 一个 OpenAI/Anthropic 兼容端点打通 400+ 模型（对话/图像/视频/音频/向量）；预付费，OpenRouter 式聚合器。
 - [Novita AI](https://novita.ai) — 统一 API 接入 200+ 开源模型（DeepSeek/Qwen/Llama…），自带负载均衡、弹性扩缩与故障转移；另有 GPU 云。
 - [Glama Gateway](https://glama.ai/ai/gateway) — OpenAI 兼容网关，接入 100+ 模型，统一账单、缓存与日志（开源内核 [glama-ai/lightport](https://github.com/glama-ai/lightport)）。
+- [SayGM](https://saygm.com) — 即插即用的 OpenAI 兼容网关，接入前沿模型与开源模型；请求经 Intel TDX 机密计算 enclave 路由，并提供公开的硬件认证（attestation），因此无论是 SayGM 还是宿主方都无法在传输过程中看到你的 prompt。按 token 计费，价格不高于各模型官方公开定价，无订阅。
 
 <details>
 <summary><b>新且未经核实的中转（17 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
