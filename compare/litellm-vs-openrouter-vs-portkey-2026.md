@@ -2,7 +2,7 @@
 
 *Last updated 2026-07-07 · Part of [Awesome AI Gateway](../README.md) — the only AI-gateway list with a [reproducible cost benchmark](../BENCHMARKS.md). [⭐ Star it](https://github.com/cuihuan/awesome-ai-gateway).*
 
-> 📊 **Key numbers** · Writing a 100K-token report costs **$0.03** on DeepSeek V4-Flash vs **$3.01** on GPT-5.5 — a **~106× spread** ([reproducible benchmark](../BENCHMARKS.md#part-3--real-world-token-cost-computed), computed 2026-06). OpenRouter adds **~5.5%** on credits; self-hosted **LiteLLM** (<!--s:BerriAI/litellm-->⭐ 56.9k<!--/s-->) and BYOK gateways add **0%** per-token markup. The model you route to moves the bill far more than the gateway fee. Real gateway traffic backs this up: in OpenRouter's own 100-trillion-token study, a 10% price cut moved usage only ~0.5–0.7% — **quality, not price, drives model switching** ([arXiv 2601.10088](https://arxiv.org/abs/2601.10088)).
+> 📊 **Key numbers** · Writing a 100K-token report costs **$0.03** on DeepSeek V4-Flash vs **$3.01** on GPT-5.5 — a **~106× spread** ([reproducible benchmark](../BENCHMARKS.md#part-3--real-world-token-cost-computed), computed 2026-06). OpenRouter adds **~5.5%** on credits; self-hosted **LiteLLM** (<!--s:BerriAI/litellm-->⭐ 57k<!--/s-->) and BYOK gateways add **0%** per-token markup. The model you route to moves the bill far more than the gateway fee. Real gateway traffic backs this up: in OpenRouter's own 100-trillion-token study, a 10% price cut moved usage only ~0.5–0.7% — **quality, not price, drives model switching** ([arXiv 2601.10088](https://arxiv.org/abs/2601.10088)).
 
 The three names everyone compares when they pick an AI gateway are **LiteLLM, OpenRouter, and Portkey**. They solve the same surface problem — one endpoint for many LLMs — but they sit at completely different points on the self-host ↔ managed axis. Here's the honest, data-backed breakdown.
 
@@ -16,7 +16,7 @@ The three names everyone compares when they pick an AI gateway are **LiteLLM, Op
 | **Models** | 100+ providers | <!--omc-->~340<!--/omc--> models | 1,600+ models |
 | **Best for** | Full control, no middleman fee | Zero ops, fastest start | Guardrails + observability at scale |
 | **License** | MIT (core) | Commercial | MIT (gateway) |
-| **Stars** | <!--s:BerriAI/litellm-->⭐ 56.9k<!--/s--> | — (closed) | <!--s:Portkey-AI/gateway-->⭐ 12.8k<!--/s--> |
+| **Stars** | <!--s:BerriAI/litellm-->⭐ 57k<!--/s--> | — (closed) | <!--s:Portkey-AI/gateway-->⭐ 12.8k<!--/s--> |
 
 > Note (2026): Portkey was **acquired by Palo Alto Networks** (closed May 2026) and is being folded into its Prisma AIRS security platform — a signal that gateways are becoming security infrastructure.
 
