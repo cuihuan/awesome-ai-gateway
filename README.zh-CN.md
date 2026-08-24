@@ -318,6 +318,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Swobu](https://github.com/swobuforge/swobu) <!--s:swobuforge/swobu-->⭐ 6<!--/s--> — 本地优先的 Go 网关（单二进制，AGPL-3.0）：承接 OpenAI、Anthropic Messages 与远程 MCP 客户端流量，跨提供商、区域、账号与本地引擎（Ollama、LM Studio、vLLM）路由并故障转移；客户端只指向一个 workspace 端点并指定路由名，目标是切换时不丢工具调用、推理内容与会话状态。自带 Key，不转售配额。早期项目（仍处 1.0 RC 阶段、单人维护）。
 - [Unified AI System](https://github.com/happy520ai/unified-ai-system) <!--s:happy520ai/unified-ai-system-->⭐ 6<!--/s--> — Apache-2.0、本地优先的 Node.js 网关兼 MCP 服务器，面向 Codex/Cursor/Cline：显式选择提供商/模型、流式对话、九个受治理的 MCP 工具，以及无需调用厂商即可完成的提示词增强。可在零凭据下用假提供商启动，试用成本低。早期公开预览——目前只报告回退候选，尚不会自动执行回退。
 - [Token Efficiency](https://github.com/zangxin75/token-efficiency) <!--s:zangxin75/token-efficiency-->⭐ 0<!--/s--> — MIT 的 Python/Vue 网关，把 prompt token 压缩、语义缓存、多租户门户与成本分析打包在一起，覆盖 OpenAI/Anthropic/MiniMax/GLM/Kimi/DeepSeek；自带 docker-compose 与 Grafana 面板。早期项目（仓库 2026-08 开放、单人维护）；其压缩/省钱数据为厂商自测，另有同名托管版。
+- [OrcaRouter Lite](https://github.com/Continuum-AI-Corp/OrcaRouter-Lite) <!--s:Continuum-AI-Corp/OrcaRouter-Lite-->⭐ 590<!--/s--> — MIT 自托管 Python/FastAPI 网关：BYOK 接入 OpenAI、Anthropic、Google、Groq、Together、Fireworks，统一到一个 OpenAI 兼容端点；自动故障转移、流式输出，`model="auto"` 按成本/延迟/质量选模型；自带本地分析面板且不上报任何遥测。可选把厂商的托管服务作为额外上游兜底。
 - ⚠️ 已停滞但有历史意义：[BricksLLM](https://github.com/bricks-cloud/BricksLLM) <!--s:bricks-cloud/BricksLLM-->⭐ 1.2k<!--/s-->（PII 脱敏、按 Key 限额；2025 年初起不再活跃）、[Glide](https://github.com/EinStack/glide) <!--s:EinStack/glide-->⭐ 160<!--/s-->（2024 年起停更）。
 
 ## 🏢 企业合规
