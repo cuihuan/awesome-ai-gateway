@@ -59,6 +59,7 @@
 - [FAQ](#faq)
 - [Glossary](#glossary)
 - [Why this exists](#why-this-exists)
+- [Who maintains this — and the conflict of interest](#who-maintains-this--and-the-conflict-of-interest)
 - [🔌 Use the data — it's an API](#-use-the-data--its-an-api)
 - [🔗 Related lists](#-related-lists)
 - [Star history](#star-history)
@@ -920,6 +921,18 @@ On **June 10 I ran Claude Code hard for ~13 hours, and the bill came to ≈ $788
 The fix wasn't "stop using good models." It was **route by task** — default to a cheap model, escalate to a flagship only when the work is genuinely hard. That's exactly what an AI gateway is for. While I was at it, I couldn't find a single gateway list organized by _what you actually need_, that scored the options honestly (CVEs and all), and shipped _reproducible_ cost numbers instead of vibes. So I built one — that's this repo.
 
 No vendor money, no affiliate links, CC0. If it saves you one surprise bill, it did its job. ⭐ **Star it** so the next person mid-$788-day finds it.
+
+## Who maintains this — and the conflict of interest
+
+Maintained by [Cui Huan](https://github.com/cuihuan), who also runs [Runix](https://runixcloud.io) (Runix AI Inc, Wyoming) — a commercial LLM gateway. That is a conflict of interest with a list that ranks gateways, so here is exactly how it is handled.
+
+**Runix Router is not on this list, and will not be added while I maintain it.** On paper it would clear the inclusion criteria in `CONTRIBUTING.md` — it is a commercial gateway with public docs — but a maintainer scoring their own product against competitors is not a score anyone should trust, and no disclosure line fixes that. It is excluded on principle, not on merit.
+
+No entry here is paid, sponsored, or affiliate-linked. Scores follow the published [scoring rubric](BENCHMARKS.md#scoring-rubric-apply-consistently) and dated evidence, and the raw data is CC0 so you can recompute any of them. The two companion tools listed further up are mine and labeled as such, because they are things you run against _your own_ gateway rather than products competing for the same buyer.
+
+If a judgement here reads like it was bent toward or against a competitor, open an issue and quote it — that correction is worth more to the list than any entry.
+
+The engineering that comes out of running a gateway in production gets written up on the [Runix blog](https://runixcloud.io/blog/) — retry budgets, cost attribution, prompt-cache accounting, why a token bill misses the price list. Those posts are one operator's numbers; this list is the neutral map.
 
 ## 🔌 Use the data — it's an API
 
