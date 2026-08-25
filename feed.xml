@@ -5,14 +5,91 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-08-24T01:23:48Z</updated>
+  <updated>2026-08-25T01:50:42Z</updated>
   <author><name>Awesome AI Gateway</name></author>
   <entry>
-    <title>askalf/dario v5.5.55</title>
-    <link href="https://github.com/askalf/dario/releases/tag/v5.5.55" />
-    <id>https://github.com/askalf/dario/releases/tag/v5.5.55</id>
-    <updated>2026-08-24T01:23:48Z</updated>
-    <summary>askalf/dario released v5.5.55.</summary>
+    <title>lidge-jun/opencodex v2.32.1</title>
+    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.32.1" />
+    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.32.1</id>
+    <updated>2026-08-25T01:50:42Z</updated>
+    <summary>lidge-jun/opencodex released v2.32.1.</summary>
+  </entry>
+  <entry>
+    <title>askalf/dario v5.5.61</title>
+    <link href="https://github.com/askalf/dario/releases/tag/v5.5.61" />
+    <id>https://github.com/askalf/dario/releases/tag/v5.5.61</id>
+    <updated>2026-08-25T01:13:30Z</updated>
+    <summary>askalf/dario released v5.5.61.</summary>
+  </entry>
+  <entry>
+    <title>caozhiyuan/copilot-api v2.3.3</title>
+    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.3.3" />
+    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.3.3</id>
+    <updated>2026-08-24T23:29:59Z</updated>
+    <summary>caozhiyuan/copilot-api released v2.3.3.</summary>
+  </entry>
+  <entry>
+    <title>ENTERPILOT/GoModel v0.1.81</title>
+    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.81" />
+    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.81</id>
+    <updated>2026-08-24T21:09:49Z</updated>
+    <summary>ENTERPILOT/GoModel released v0.1.81.</summary>
+  </entry>
+  <entry>
+    <title>Wei-Shaw/sub2api v0.1.181</title>
+    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.181" />
+    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.181</id>
+    <updated>2026-08-24T14:35:41Z</updated>
+    <summary>Wei-Shaw/sub2api released Sub2API 0.1.181.</summary>
+  </entry>
+  <entry>
+    <title>musistudio/claude-code-router v3.0.22</title>
+    <link href="https://github.com/musistudio/claude-code-router/releases/tag/v3.0.22" />
+    <id>https://github.com/musistudio/claude-code-router/releases/tag/v3.0.22</id>
+    <updated>2026-08-24T12:23:19Z</updated>
+    <summary>musistudio/claude-code-router released v3.0.22.</summary>
+  </entry>
+  <entry>
+    <title>tashfeenahmed/freellmapi v0.8.7</title>
+    <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.8.7" />
+    <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.8.7</id>
+    <updated>2026-08-24T10:50:28Z</updated>
+    <summary>tashfeenahmed/freellmapi released v0.8.7.</summary>
+  </entry>
+  <entry>
+    <title>theopenco/llmgateway v1.14.0</title>
+    <link href="https://github.com/theopenco/llmgateway/releases/tag/v1.14.0" />
+    <id>https://github.com/theopenco/llmgateway/releases/tag/v1.14.0</id>
+    <updated>2026-08-24T09:21:25Z</updated>
+    <summary>theopenco/llmgateway released v1.14.0.</summary>
+  </entry>
+  <entry>
+    <title>router-for-me/CLIProxyAPI v7.2.141</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.141" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.141</id>
+    <updated>2026-08-24T08:38:39Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v7.2.141.</summary>
+  </entry>
+  <entry>
+    <title>beizhu-1209/AIHelms 0.1.21</title>
+    <link href="https://github.com/beizhu-1209/AIHelms/releases/tag/0.1.21" />
+    <id>https://github.com/beizhu-1209/AIHelms/releases/tag/0.1.21</id>
+    <updated>2026-08-24T08:27:49Z</updated>
+    <summary>beizhu-1209/AIHelms released 0.1.21 DeepSeek Harness.</summary>
+  </entry>
+  <entry>
+    <title>bestruirui/octopus v0.12.0</title>
+    <link href="https://github.com/bestruirui/octopus/releases/tag/v0.12.0" />
+    <id>https://github.com/bestruirui/octopus/releases/tag/v0.12.0</id>
+    <updated>2026-08-24T07:32:28Z</updated>
+    <summary>bestruirui/octopus released v0.12.0.</summary>
+  </entry>
+  <entry>
+    <title>BlockRunAI/ClawRouter v0.12.247</title>
+    <link href="https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.247" />
+    <id>https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.247</id>
+    <updated>2026-08-24T04:51:18Z</updated>
+    <summary>BlockRunAI/ClawRouter released v0.12.247 — image picker resync (#254) + /cr-imagegen slow-model polling.</summary>
   </entry>
   <entry>
     <title>tsouth89/toolport v1.17.0</title>
@@ -29,25 +106,11 @@
     <summary>1mcp-app/agent released Release v0.36.0.</summary>
   </entry>
   <entry>
-    <title>caozhiyuan/copilot-api v2.3.0</title>
-    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.3.0" />
-    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.3.0</id>
-    <updated>2026-08-23T13:53:49Z</updated>
-    <summary>caozhiyuan/copilot-api released v2.3.0.</summary>
-  </entry>
-  <entry>
     <title>fruitbars/simple-one-api v0.11.0</title>
     <link href="https://github.com/fruitbars/simple-one-api/releases/tag/v0.11.0" />
     <id>https://github.com/fruitbars/simple-one-api/releases/tag/v0.11.0</id>
     <updated>2026-08-23T13:46:41Z</updated>
     <summary>fruitbars/simple-one-api released v0.11.0.</summary>
-  </entry>
-  <entry>
-    <title>tashfeenahmed/freellmapi v0.8.6</title>
-    <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.8.6" />
-    <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.8.6</id>
-    <updated>2026-08-23T11:38:52Z</updated>
-    <summary>tashfeenahmed/freellmapi released v0.8.6.</summary>
   </entry>
   <entry>
     <title>seakee/CPA-Manager-Plus v1.12.3</title>
@@ -78,13 +141,6 @@
     <summary>ai-dynamo/dynamo released Dynamo v1.4.1.</summary>
   </entry>
   <entry>
-    <title>BlockRunAI/ClawRouter v0.12.246</title>
-    <link href="https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.246" />
-    <id>https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.246</id>
-    <updated>2026-08-22T16:20:09Z</updated>
-    <summary>BlockRunAI/ClawRouter released v0.12.246 — new installs default to the Solana payment chain.</summary>
-  </entry>
-  <entry>
     <title>kittors/CliRelay v0.4.28</title>
     <link href="https://github.com/kittors/CliRelay/releases/tag/v0.4.28" />
     <id>https://github.com/kittors/CliRelay/releases/tag/v0.4.28</id>
@@ -92,32 +148,11 @@
     <summary>kittors/CliRelay released v0.4.28 - Codex default endpoint, honest streaming labels, keep failure diagnostics.</summary>
   </entry>
   <entry>
-    <title>router-for-me/CLIProxyAPI v7.2.140</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.140" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.140</id>
-    <updated>2026-08-22T14:50:34Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v7.2.140.</summary>
-  </entry>
-  <entry>
-    <title>bestruirui/octopus v0.11.0</title>
-    <link href="https://github.com/bestruirui/octopus/releases/tag/v0.11.0" />
-    <id>https://github.com/bestruirui/octopus/releases/tag/v0.11.0</id>
-    <updated>2026-08-22T11:35:42Z</updated>
-    <summary>bestruirui/octopus released v0.11.0.</summary>
-  </entry>
-  <entry>
     <title>smart-mcp-proxy/mcpproxy-go v0.60.0</title>
     <link href="https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.60.0" />
     <id>https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.60.0</id>
     <updated>2026-08-22T08:32:03Z</updated>
     <summary>smart-mcp-proxy/mcpproxy-go released v0.60.0.</summary>
-  </entry>
-  <entry>
-    <title>lidge-jun/opencodex v2.31.0</title>
-    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.31.0" />
-    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.31.0</id>
-    <updated>2026-08-22T07:32:41Z</updated>
-    <summary>lidge-jun/opencodex released v2.31.0.</summary>
   </entry>
   <entry>
     <title>yym68686/uni-api v1.7.252</title>
@@ -132,13 +167,6 @@
     <id>https://github.com/envoyproxy/ai-gateway/releases/tag/v1.1.0</id>
     <updated>2026-08-21T18:23:16Z</updated>
     <summary>envoyproxy/ai-gateway released v1.1.0.</summary>
-  </entry>
-  <entry>
-    <title>ENTERPILOT/GoModel v0.1.80</title>
-    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.80" />
-    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.80</id>
-    <updated>2026-08-21T16:01:37Z</updated>
-    <summary>ENTERPILOT/GoModel released v0.1.80.</summary>
   </entry>
   <entry>
     <title>kgateway-dev/kgateway v2.4.3</title>
@@ -160,13 +188,6 @@
     <id>https://github.com/apache/apisix/releases/tag/3.18.0</id>
     <updated>2026-08-20T07:57:26Z</updated>
     <summary>apache/apisix released 3.18.0.</summary>
-  </entry>
-  <entry>
-    <title>Wei-Shaw/sub2api v0.1.179</title>
-    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.179" />
-    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.1.179</id>
-    <updated>2026-08-20T07:06:32Z</updated>
-    <summary>Wei-Shaw/sub2api released Sub2API 0.1.179.</summary>
   </entry>
   <entry>
     <title>oomol-lab/open-connector v1.4.0</title>
@@ -195,26 +216,5 @@
     <id>https://github.com/maximhq/bifrost/releases/tag/ent-v1.5.12-base</id>
     <updated>2026-08-19T05:38:08Z</updated>
     <summary>maximhq/bifrost released Enterprise 1.5.12 base.</summary>
-  </entry>
-  <entry>
-    <title>pomerium/pomerium v0.33.1</title>
-    <link href="https://github.com/pomerium/pomerium/releases/tag/v0.33.1" />
-    <id>https://github.com/pomerium/pomerium/releases/tag/v0.33.1</id>
-    <updated>2026-08-18T22:12:03Z</updated>
-    <summary>pomerium/pomerium released v0.33.1.</summary>
-  </entry>
-  <entry>
-    <title>swobuforge/swobu v1.1.3</title>
-    <link href="https://github.com/swobuforge/swobu/releases/tag/v1.1.3" />
-    <id>https://github.com/swobuforge/swobu/releases/tag/v1.1.3</id>
-    <updated>2026-08-18T16:57:59Z</updated>
-    <summary>swobuforge/swobu released v1.1.3.</summary>
-  </entry>
-  <entry>
-    <title>stacklok/toolhive v0.44.0</title>
-    <link href="https://github.com/stacklok/toolhive/releases/tag/v0.44.0" />
-    <id>https://github.com/stacklok/toolhive/releases/tag/v0.44.0</id>
-    <updated>2026-08-18T16:37:51Z</updated>
-    <summary>stacklok/toolhive released v0.44.0.</summary>
   </entry>
 </feed>
