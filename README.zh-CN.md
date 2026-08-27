@@ -234,7 +234,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [Glama Gateway](https://glama.ai/ai/gateway) — OpenAI 兼容网关，接入 100+ 模型，统一账单、缓存与日志（开源内核 [glama-ai/lightport](https://github.com/glama-ai/lightport)）。
 
 <details>
-<summary><b>新且未经核实的中转（17 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
+<summary><b>新且未经核实的中转（18 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
 
 - [Loop Gateway](https://api.loopxxi.com) — OpenAI 兼容代理，每个请求以比特币 sats（而非美元）计费。经 OpenRouter 接入 311 个模型、加价 15%。无需账号/邮箱/银行卡；用闪电网络充值即得 bearer token。三种鉴权（预付 bearer、L402、Cashu）。线上托管于 [api.loopxxi.com](https://api.loopxxi.com)。 **新且未经核实**（匿名；其公开 GitHub 仓库现已删除，按闭源托管中转看待）——它*通过运营者自己的 OpenRouter 账号*转售前沿模型并加价 15%，无账号+加密货币预付意味着一旦偷换模型或跑路都无从追索；投产前请用 [canary_check.py](scripts/canary_check.py) 验证保真度，且只充值你能承受损失的金额。
 - [nullsink](https://nullsink.is) ([仓库](https://github.com/nullsink/nullsink)) — 无账号的前沿模型 API 计费代理，用门罗币（Monero）或比特币（Bitcoin）付费。无需账号/邮箱/银行卡；生成 bearer token、链上预付，改一个 base URL 即可用官方 SDK 调用。加价约 10%，仅在充值时收取一次；不记录 IP、不记录请求日志；付款与 token 不可关联。单文件可执行、可自托管（TypeScript/Bun，AGPL-3.0），线上服务 [nullsink.is](https://nullsink.is)。 **新且未经核实**（仓库 2026-06 新建、<!--s:nullsink/nullsink-->⭐ 11<!--/s-->）——无账号+加密货币预付+无日志，一旦偷换模型或跑路都无从追索；投产前请用 [canary_check.py](scripts/canary_check.py) 验证保真度，且只充值你能承受损失的金额。
@@ -243,6 +243,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [KeepRouter](https://keeprouter.com) — OpenAI 与 Anthropic 双兼容网关：一个密钥聚合 50+ 模型（Claude、GPT、Gemini、Mistral、Qwen、Kimi、GLM、DeepSeek、MiMo、MiniMax）。原生 /v1/messages，可直接用于 Claude Code 和 Anthropic SDK，不止 OpenAI SDK。预付费按量计费、按成本 **0% token 加价**（充值费 8%+$0.35）；含一个真正 $0 的免费模型，新账户另有试用额度。中英双语，收单方 Paddle；中国大陆不可用。**新服务，尚未验证** — 投产前请用 [canary_check.py](scripts/canary_check.py) 核实真伪。
 - [AI快站 (aifast.club)](https://www.aifast.club) — 运营方自荐的 OpenAI/Anthropic 兼容中转，面向国内市场（提供 Cursor / Claude Code / Codex / Dify 集成文档）。实时模型清单与倍率见 [`/api/ratio_config`](https://www.aifast.club/api/ratio_config)，运行状态见 [`/api/status`](https://www.aifast.club/api/status)——以这两处为准，不引用固定快照。**新服务，尚未验证**（闭源、自荐）— 投产前请用 [canary_check.py](scripts/canary_check.py) 核实真伪。
 - [ApiFlux](https://apiflux.ai) — 托管的 OpenAI / Anthropic / Gemini 兼容网关，提供 Claude Code、Codex CLI、OpenCode 的专门接入指南，控制台按 Key 提供用量与请求日志；运营方宣称全部模型按官方定价的 85% 计费。**新服务，尚未验证**（自荐；低于官方定价更需独立核实模型保真度）— 投产前请用 [canary_check.py](scripts/canary_check.py) 核实真伪。
+- [XiuRouter](https://router.xiu.ai/) — 托管的按量计费网关，在一个账户下提供 OpenAI Chat Completions、OpenAI Responses、Anthropic Messages 和 Gemini GenerateContent，并支持受限 Key、逐请求用量与费用记录，以及 14 个开发工具和 Agent 的接入指引。实时价格页并列展示服务分组价格和厂商参考价。**新服务，尚未验证**（自荐；模型保真度和所宣称的节省比例尚未经过独立核实）——投产前请用 [canary_check.py](scripts/canary_check.py) 核实。
 - [NovAI](https://aiapi-pro.com) — 托管 OpenAI 兼容中转，一个 key 接入国产前沿模型（DeepSeek、Qwen、GLM、Kimi、MiniMax、Doubao、Hunyuan）；与此处其它国产模型中转不同，它在同一端点上还提供图像（Doubao Seedream）与视频（Doubao Seedance）生成，按 token 计费，新账户赠体验额度。较新且未经核实（自荐）——投产前请先验证模型保真度（可用 [canary_check.py](scripts/canary_check.py)）。
 - [FlintAPI](https://flintapi.ai) ([仓库](https://github.com/moozechen/flintapi)) — 托管 OpenAI 兼容中转，覆盖国产大模型（DeepSeek、Qwen、Kimi、GLM、MiniMax）；运营方现称其为"智能路由"引擎——把每个 prompt 分派给最适合的模型，而非单纯聚合，新账户赠体验额度。较新且未经核实（"智能路由"为运营方自述）——投产前请先验证模型保真度（可用 [canary_check.py](scripts/canary_check.py)）。
 - [FlowBar](https://flowbarai.com) — 托管 OpenAI 兼容中转，转售数十个模型（GPT、Claude、Gemini、DeepSeek、Qwen、GLM、Kimi），定价低于 OpenRouter。其差异点在支付覆盖面（面向没有美国信用卡的买家）：支付宝/微信、USDT/USDC、PayPal，以及经本地收单方接入的 Apple/Google Pay。较新且未经核实——投产前请先验证模型保真度（可用 [canary_check.py](scripts/canary_check.py)）。
@@ -663,6 +664,7 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 | [TierUp](https://tierup.ai) | 性价比优先 | ⚠️ 未验证——用前自测 | 档位制中转，经 OpenRouter 转售、约零售价 50%（透明补贴、个人开发、生产用户约零——均为自我披露）；`api.tierup.ai/v1` 在线（OpenAI 格式）；转售访问，模型保真度未经核实。 |
 | [OpenPaths](https://openpaths.io) ([仓库](https://github.com/lee101/openpaths)) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管的多厂商路由（15+ 厂商、多模态）带自动路由；其"开源"GitHub 仓库实为无代码、无协议的展示镜像，指向第三方平台，应视作闭源托管；模型保真度未经核实。 |
 | [ApiFlux](https://apiflux.ai) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管多协议中转（OpenAI/Anthropic/Gemini），提供 Claude Code / Codex CLI / OpenCode 接入指南；`apiflux.ai/v1` 存活（401）；运营方宣称全部模型按官方定价 85% 计费——低于官方定价本身即需权衡的信号；自荐；模型保真度未经核实。 |
+| [XiuRouter](https://router.xiu.ai/) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管多协议网关，支持受限 Key、逐请求用量/费用记录和 14 个开发工具及 Agent 的接入指引；`router-api.xiu.ai/v1/models` 存活（401）；自荐；模型保真度和所宣称的节省比例未经独立核实。 |
 | [AllRouter](https://allrouter.ai) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管 OpenAI+Anthropic 双兼容中转，约 25 个模型宣称按厂商官方标价、不加价，另有自有 GPU 的 GLM/Gemma 免费档；`allrouter.ai/v1` 存活（401，`new_api_error` → 基于 new-api）；自荐时给出的仓库为文档镜像而非源码；模型保真度未经核实。 |
 
 *目前没有 ⛔ 确认有问题 的条目——该状态需要可复现的 canary 判定或有据可查的事故，绝不凭传闻。*
