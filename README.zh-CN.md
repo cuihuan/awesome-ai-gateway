@@ -232,10 +232,9 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [AIMLAPI](https://aimlapi.com) — 一个 OpenAI/Anthropic 兼容端点打通 400+ 模型（对话/图像/视频/音频/向量）；预付费，OpenRouter 式聚合器。
 - [Novita AI](https://novita.ai) — 统一 API 接入 200+ 开源模型（DeepSeek/Qwen/Llama…），自带负载均衡、弹性扩缩与故障转移；另有 GPU 云。
 - [Glama Gateway](https://glama.ai/ai/gateway) — OpenAI 兼容网关，接入 100+ 模型，统一账单、缓存与日志（开源内核 [glama-ai/lightport](https://github.com/glama-ai/lightport)）。
-- [SayGM](https://saygm.com) — 即插即用的 OpenAI 兼容网关，接入前沿模型与开源模型；请求经 Intel TDX 机密计算 enclave 路由，并提供公开的硬件认证（attestation），因此无论是 SayGM 还是宿主方都无法在传输过程中看到你的 prompt。按 token 计费，价格不高于各模型官方公开定价，无订阅。
 
 <details>
-<summary><b>新且未经核实的中转（18 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
+<summary><b>新且未经核实的中转（19 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
 
 - [Loop Gateway](https://api.loopxxi.com) — OpenAI 兼容代理，每个请求以比特币 sats（而非美元）计费。经 OpenRouter 接入 311 个模型、加价 15%。无需账号/邮箱/银行卡；用闪电网络充值即得 bearer token。三种鉴权（预付 bearer、L402、Cashu）。线上托管于 [api.loopxxi.com](https://api.loopxxi.com)。 **新且未经核实**（匿名；其公开 GitHub 仓库现已删除，按闭源托管中转看待）——它*通过运营者自己的 OpenRouter 账号*转售前沿模型并加价 15%，无账号+加密货币预付意味着一旦偷换模型或跑路都无从追索；投产前请用 [canary_check.py](scripts/canary_check.py) 验证保真度，且只充值你能承受损失的金额。
 - [nullsink](https://nullsink.is) ([仓库](https://github.com/nullsink/nullsink)) — 无账号的前沿模型 API 计费代理，用门罗币（Monero）或比特币（Bitcoin）付费。无需账号/邮箱/银行卡；生成 bearer token、链上预付，改一个 base URL 即可用官方 SDK 调用。加价约 10%，仅在充值时收取一次；不记录 IP、不记录请求日志；付款与 token 不可关联。单文件可执行、可自托管（TypeScript/Bun，AGPL-3.0），线上服务 [nullsink.is](https://nullsink.is)。 **新且未经核实**（仓库 2026-06 新建、<!--s:nullsink/nullsink-->⭐ 11<!--/s-->）——无账号+加密货币预付+无日志，一旦偷换模型或跑路都无从追索；投产前请用 [canary_check.py](scripts/canary_check.py) 验证保真度，且只充值你能承受损失的金额。
@@ -255,6 +254,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [RouterPlex](https://routerplex.com) — 托管 OpenAI 兼容网关，一个密钥接入 11 家厂商的 25+ 模型（GPT、Claude、Gemini、DeepSeek、Qwen、Kimi 等）；预付费，按官方厂商标价逐 token 计费，无订阅。新账户赠送 $5 免费额度。较新且未经核实，闭源——投产前请先验证模型保真度（可用 [canary_check.py](scripts/canary_check.py)）。
 - [TierUp](https://tierup.ai) — 托管的 OpenAI 兼容网关，用四个固定性能档位（tier-1…tier-4）取代模型名，每个档位在服务端映射到当前性价比最高的模型；底层通过 OpenRouter 路由，定价约为底层模型零售价的 50%，在早期产品市场契合阶段内透明补贴（个人开发、生产用户约为零、tier 1 目前免费）。较新且未经核实——投产前请先验证模型保真度（可用 [canary_check.py](scripts/canary_check.py)）。
 - [AllRouter](https://allrouter.ai) — 托管的 OpenAI / Anthropic 双兼容中转：一个 key 接入约 25 个模型（Kimi K3、Claude、GPT、Gemini、DeepSeek、GLM、Grok），宣称按各厂商官方标价计费、不加价；另有 GLM/Gemma 免费档，运营方称跑在自有 GPU 上；支持支付宝/微信支付，并提供 MCP 入口（`npx @allrouter/mcp-server`）。其 `/v1` 端点返回 `new_api_error`，疑似基于 [new-api](https://github.com/QuantumNous/new-api)。**新服务，尚未验证**（自荐；其给出的 GitHub 仓库是文档/宣传镜像而非网关源码，故应视作闭源托管中转）——按官方标价转售意味着没有可见毛利，更值得做一次独立保真度验证；投产前请用 [canary_check.py](scripts/canary_check.py) 核实。
+- [SayGM](https://saygm.com) — 即插即用的 OpenAI 兼容网关，接入前沿模型与开源模型；请求经 Intel TDX 机密计算 enclave 路由，并提供公开的硬件认证（attestation），使 SayGM 与宿主方都无法在传输过程中读取你的 prompt。按 token 计费，价格不高于各模型官方公开定价，无订阅。**新且未经核实**（自荐；其机密性声明依赖的 attestation 尚无人在此独立复现）——请先用 [canary_check.py](scripts/canary_check.py) 确认模型保真度；在能自行复跑的 attestation 验证方法公开之前，enclave 保证视为未经核实。
 
 </details>
 
@@ -320,8 +320,10 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Unified AI System](https://github.com/happy520ai/unified-ai-system) <!--s:happy520ai/unified-ai-system-->⭐ 6<!--/s--> — Apache-2.0、本地优先的 Node.js 网关兼 MCP 服务器，面向 Codex/Cursor/Cline：显式选择提供商/模型、流式对话、九个受治理的 MCP 工具，以及无需调用厂商即可完成的提示词增强。可在零凭据下用假提供商启动，试用成本低。早期公开预览——目前只报告回退候选，尚不会自动执行回退。
 - [Token Efficiency](https://github.com/zangxin75/token-efficiency) <!--s:zangxin75/token-efficiency-->⭐ 0<!--/s--> — MIT 的 Python/Vue 网关，把 prompt token 压缩、语义缓存、多租户门户与成本分析打包在一起，覆盖 OpenAI/Anthropic/MiniMax/GLM/Kimi/DeepSeek；自带 docker-compose 与 Grafana 面板。早期项目（仓库 2026-08 开放、单人维护）；其压缩/省钱数据为厂商自测，另有同名托管版。
 - [OrcaRouter Lite](https://github.com/Continuum-AI-Corp/OrcaRouter-Lite) <!--s:Continuum-AI-Corp/OrcaRouter-Lite-->⭐ 590<!--/s--> — MIT 自托管 Python/FastAPI 网关：BYOK 接入 OpenAI、Anthropic、Google、Groq、Together、Fireworks，统一到一个 OpenAI 兼容端点；自动故障转移、流式输出，`model="auto"` 按成本/延迟/质量选模型；自带本地分析面板且不上报任何遥测。可选把厂商的托管服务作为额外上游兜底。
-- ⚠️ 已停滞但有历史意义：[BricksLLM](https://github.com/bricks-cloud/BricksLLM) <!--s:bricks-cloud/BricksLLM-->⭐ 1.2k<!--/s-->（PII 脱敏、按 Key 限额；2025 年初起不再活跃）、[Glide](https://github.com/EinStack/glide) <!--s:EinStack/glide-->⭐ 160<!--/s-->（2024 年起停更）。
 - [Ollama Herd](https://github.com/geeks-accelerator/ollama-herd) <!--s:geeks-accelerator/ollama-herd-->⭐ ~20<!--/s--> - MIT 许可的自托管路由器（Python），面向自有机器而非托管服务商：通过 mDNS 在局域网自动发现节点，无需配置文件；按内存余量、温度状态、队列深度以及各节点已加载的模型进行打分，从而避免在别处已预热的模型上再次冷加载。提供兼容 OpenAI / Ollama / Anthropic 的接口，并支持图像生成、语音转文字与向量嵌入；由于没有第三方服务商，也就不需要管理任何 API Key。
+- [TrustGate](https://github.com/NeuralTrust/TrustGate) <!--s:NeuralTrust/TrustGate-->⭐ 6<!--/s--> — NeuralTrust 出品的 Go/Apache-2.0 Agent 网关：Admin/Proxy/MCP 三平面分离、多提供商 OpenAI 兼容路由、消费者鉴权与策略插件（限流/Token 限额、语义缓存）；强在治理与 MCP 聚合，而非提供商覆盖面。以星数看仍属早期，但三平面拆分是真实的架构选择而非改名。
+- [Company AI Hub](https://github.com/Ghost011118/company-ai-hub) <!--s:Ghost011118/company-ai-hub-->⭐ 0<!--/s--> — Apache-2.0 的 TypeScript 网关，面向 Codex 与 OpenAI 兼容客户端：在服务端注入经统一批准的 Agent、Skill 与 Prompt，员工投稿留有不可变的审核快照，并带网页管理台。早期项目（2026-08 开放、单人维护），目前只代理一个已配置的上游提供商——它的看点是治理模型，不是提供商覆盖面。
+- ⚠️ 已停滞但有历史意义：[BricksLLM](https://github.com/bricks-cloud/BricksLLM) <!--s:bricks-cloud/BricksLLM-->⭐ 1.2k<!--/s-->（PII 脱敏、按 Key 限额；2025 年初起不再活跃）、[Glide](https://github.com/EinStack/glide) <!--s:EinStack/glide-->⭐ 160<!--/s-->（2024 年起停更）。
 
 ## 🏢 企业合规
 
@@ -399,6 +401,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 *痛点："Agent 开始调工具了——像治理 API 一样治理 MCP 流量。"* 2025–2026 最新品类。
 
 - [agentgateway](https://github.com/agentgateway/agentgateway) <!--s:agentgateway/agentgateway-->⭐ 4.6k<!--/s--> — Linux Foundation 旗下的 Agent 流量代理（据其 CHARTER 属 LF Projects，并非 CNCF 托管项目）：MCP 治理与 Agent 间（A2A）通信。
+- [TrustGate](https://github.com/NeuralTrust/TrustGate) <!--s:NeuralTrust/TrustGate-->⭐ 6<!--/s--> — 自托管 Go 网关：MCP 平面把上游 MCP 服务聚合到单一端点，并与其 LLM 代理共享租户、鉴权与策略模型——两类流量共用一套治理面，而不是各搭一套。
 - [Lunar.dev MCPX](https://github.com/TheLunarCompany/lunar) <!--s:TheLunarCompany/lunar-->⭐ 483<!--/s--> — 管理 MCP server 消费的网关。
 - [Tetrate Agent Router Service](https://tetrate.io/products/tetrate-agent-router-service) — 托管 Envoy AI Gateway 集群：LLM + MCP 网关与护栏（约 5% 费率）。
 - [Zuplo AI Gateway](https://zuplo.com/ai-gateway) — 可编程策略：美元消费上限、Prompt 注入检测、密钥脱敏、MCP 支持。
