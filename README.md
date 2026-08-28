@@ -447,6 +447,7 @@ _Pain point: "Agents call tools now — govern MCP traffic like you govern APIs.
 - [Pomerium](https://github.com/pomerium/pomerium) <!--s:pomerium/pomerium-->⭐ 5k<!--/s--> - Identity-aware access proxy with MCP support: policy-based auth in front of MCP servers.
 - [Open Connector](https://github.com/oomol-lab/open-connector) <!--s:oomol-lab/open-connector-->⭐ 5.3k<!--/s--> - Open-source auth gateway (Apache-2.0, OOMOL Lab) connecting AI agents to 1000+ SaaS providers through SDK, CLI, MCP, HTTP and OpenAPI — it governs agent→SaaS tool credentials and access rather than LLM completion traffic.
 - [toolport](https://github.com/tsouth89/toolport) <!--s:tsouth89/toolport-->⭐ 188<!--/s--> - Local-first MCP gateway (MIT): one port for every tool and every AI client, with lazy tool discovery (~90% token savings, per its docs), tool integrity checks + quarantine, and secrets kept in the OS keychain.
+- [SandBase CLI](https://github.com/sandbaseai/cli) <!--s:sandbaseai/cli-->⭐ 66<!--/s--> - Provider-agnostic CLI and local MCP bridge connecting 25 AI clients to SandBase's catalog of 2,000+ models and APIs, with OAuth onboarding and rollback.
 
 ## 🔧 More by capability (cross-cutting)
 
