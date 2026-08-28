@@ -244,6 +244,7 @@ _Stars are cumulative; they never go down when a project stops shipping. Every t
 - [Vercel AI Gateway](https://vercel.com/ai-gateway) - Hundreds of models at **provider list price (0% markup)**, $5/month free credits, zero-data-retention option; pairs naturally with the AI SDK.
 - [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) - Free control plane in front of your own provider keys: caching, dynamic routing, unified billing, and dollar-denominated spend limits (2026 beta).
 - [Requesty](https://requesty.ai) - EU-friendly OpenRouter alternative: 400+ models, sub-20ms failover, ~5% markup.
+- [SandBase CLI](https://github.com/sandbaseai/cli) - Open-source CLI and MCP bridge exposing an OpenAI-compatible endpoint for 2,000+ AI models, with usage-based billing and a free plan. New and unverified (self-submitted); confirm model fidelity and data handling before production use.
 - [Eden AI](https://www.edenai.co) - Unified API for 500+ models plus vision/OCR/speech; EU-based, ~5.5% platform fee.
 - [Helicone AI Gateway (cloud)](https://www.helicone.ai) - Passthrough billing at **0% markup** with observability bundled. Acquired by Mintlify (2026-03) and in maintenance mode — fine to use today, but weigh the roadmap risk.
 - [GPT-Load](https://github.com/tbphp/gpt-load) <!--s:tbphp/gpt-load-->⭐ 6.3k<!--/s--> - High-performance Go proxy that rotates pools of API keys across channels to maximize quota usage.
