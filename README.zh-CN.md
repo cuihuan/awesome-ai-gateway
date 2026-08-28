@@ -401,7 +401,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 *痛点："Agent 开始调工具了——像治理 API 一样治理 MCP 流量。"* 2025–2026 最新品类。
 
 - [agentgateway](https://github.com/agentgateway/agentgateway) <!--s:agentgateway/agentgateway-->⭐ 4.6k<!--/s--> — Linux Foundation 旗下的 Agent 流量代理（据其 CHARTER 属 LF Projects，并非 CNCF 托管项目）：MCP 治理与 Agent 间（A2A）通信。
-- [TrustGate](https://github.com/NeuralTrust/TrustGate) <!--s:NeuralTrust/TrustGate-->⭐ 6<!--/s--> — 自托管 Go 网关：MCP 平面把上游 MCP 服务聚合到单一端点，并与其 LLM 代理共享租户、鉴权与策略模型——两类流量共用一套治理面，而不是各搭一套。
+- [TrustGate](https://docs.neuraltrust.ai/trustgate) <!--s:NeuralTrust/TrustGate-->⭐ 6<!--/s--> — 自托管 Go 网关：MCP 平面把上游 MCP 服务聚合到单一端点，并与其 LLM 代理共享租户、鉴权与策略模型——两类流量共用一套治理面，而不是各搭一套。
 - [Lunar.dev MCPX](https://github.com/TheLunarCompany/lunar) <!--s:TheLunarCompany/lunar-->⭐ 483<!--/s--> — 管理 MCP server 消费的网关。
 - [Tetrate Agent Router Service](https://tetrate.io/products/tetrate-agent-router-service) — 托管 Envoy AI Gateway 集群：LLM + MCP 网关与护栏（约 5% 费率）。
 - [Zuplo AI Gateway](https://zuplo.com/ai-gateway) — 可编程策略：美元消费上限、Prompt 注入检测、密钥脱敏、MCP 支持。
@@ -453,7 +453,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [ClawRouter](https://github.com/BlockRunAI/ClawRouter) <!--s:BlockRunAI/ClawRouter-->⭐ 6.6k<!--/s--> — Agent 原生 LLM 路由（TypeScript），本地亚毫秒级在 41+ 模型间路由，专为自主 Agent 设计：通过 x402/USDC 按次付费，无需注册或 API key。路由客户端开源——但其无账号托管访问（8 个免费模型 + 加密货币按量付费）属**转售访问**：请用 [canary_check.py](scripts/canary_check.py) 验证模型保真度，生产环境优先用自己的 key。
 - [workweave/router](https://github.com/workweave/router) <!--s:workweave/router-->⭐ 1.5k<!--/s--> — 面向 Agent 系统的 Go 路由：在一个 OpenAI 兼容端点后 <50ms 把每个 prompt 路由到合适的模型，号称仅换端点即可省 40–70% 成本。
 - [UncommonRoute](https://github.com/CommonstackAI/UncommonRoute) <!--s:CommonstackAI/UncommonRoute-->⭐ 686<!--/s--> — MIT 直插式 OpenAI 代理，按 prompt 难度路由；主打硬指标（约省 82% 成本、准确率 79.4%、通过率 93.4%），可接入 Claude Code / Cursor / Codex。
-- [OrcaRouter Lite](https://github.com/Continuum-AI-Corp/OrcaRouter-Lite) <!--s:Continuum-AI-Corp/OrcaRouter-Lite-->⭐ 610<!--/s--> — Continuum AI 出品的 MIT 自托管单工作区路由（BYOK、OpenAI 兼容），提供托管升级路径；在 [RouterArena](https://github.com/RouteWorks/RouterArena) 榜单名列前茅。
+- [OrcaRouter Lite](https://www.orcarouter.ai) <!--s:Continuum-AI-Corp/OrcaRouter-Lite-->⭐ 610<!--/s--> — Continuum AI 出品的 MIT 自托管单工作区路由（BYOK、OpenAI 兼容），提供托管升级路径；在 [RouterArena](https://github.com/RouteWorks/RouterArena) 榜单名列前茅。
 - [RouterArena](https://github.com/RouteWorks/RouterArena) <!--s:RouteWorks/RouterArena-->⭐ 124<!--/s--> — 面向 LLM 路由器的开源评测框架 + 实时榜单（标准化数据集、成本/质量指标）——用数据来挑路由器，契合本清单的 benchmark 精神。
 - [vLLM Semantic Router](https://github.com/vllm-project/semantic-router) <!--s:vllm-project/semantic-router-->⭐ 5.3k<!--/s--> — 按意图/复杂度为每条 prompt 选模型的"模型混合"路由器；vLLM 项目。
 - [NVIDIA LLM Router](https://github.com/NVIDIA-AI-Blueprints/llm-router) <!--s:NVIDIA-AI-Blueprints/llm-router-->⭐ 342<!--/s--> — 基于 NIM 的蓝图，按任务与复杂度把每条 prompt 路由到最合适的模型。
