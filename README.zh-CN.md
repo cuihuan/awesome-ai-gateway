@@ -255,6 +255,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [TierUp](https://tierup.ai) — 托管的 OpenAI 兼容网关，用四个固定性能档位（tier-1…tier-4）取代模型名，每个档位在服务端映射到当前性价比最高的模型；底层通过 OpenRouter 路由，定价约为底层模型零售价的 50%，在早期产品市场契合阶段内透明补贴（个人开发、生产用户约为零、tier 1 目前免费）。较新且未经核实——投产前请先验证模型保真度（可用 [canary_check.py](scripts/canary_check.py)）。
 - [AllRouter](https://allrouter.ai) — 托管的 OpenAI / Anthropic 双兼容中转：一个 key 接入约 25 个模型（Kimi K3、Claude、GPT、Gemini、DeepSeek、GLM、Grok），宣称按各厂商官方标价计费、不加价；另有 GLM/Gemma 免费档，运营方称跑在自有 GPU 上；支持支付宝/微信支付，并提供 MCP 入口（`npx @allrouter/mcp-server`）。其 `/v1` 端点返回 `new_api_error`，疑似基于 [new-api](https://github.com/QuantumNous/new-api)。**新服务，尚未验证**（自荐；其给出的 GitHub 仓库是文档/宣传镜像而非网关源码，故应视作闭源托管中转）——按官方标价转售意味着没有可见毛利，更值得做一次独立保真度验证；投产前请用 [canary_check.py](scripts/canary_check.py) 核实。
 - [SayGM](https://saygm.com) — 即插即用的 OpenAI 兼容网关，接入前沿模型与开源模型；请求经 Intel TDX 机密计算 enclave 路由，并提供公开的硬件认证（attestation），使 SayGM 与宿主方都无法在传输过程中读取你的 prompt。按 token 计费，价格不高于各模型官方公开定价，无订阅。**新且未经核实**（自荐；其机密性声明依赖的 attestation 尚无人在此独立复现）——请先用 [canary_check.py](scripts/canary_check.py) 确认模型保真度；在能自行复跑的 attestation 验证方法公开之前，enclave 保证视为未经核实。
+- [DiscountedTokens](https://discountedtokens.com) — 托管的 OpenAI / Responses / Anthropic 兼容预付费网关，售卖 GPT-5.x 系列（gpt-5.6、gpt-5.5、gpt-5.4、gpt-5.4-mini），宣称较官方标价低 57-66%。实时售价公开于 [/api/pricing](https://discountedtokens.com/api/pricing)（机器可读并附来源策略），可调用模型见 /v1/models，观测状态见 /status，验证证据见 /verification；游客结账付款后即发 Key。**新且未经核实**（自荐；其 readme 披露上游为灰市模型池，模型保真度与计费诚实度需与任何中转一样做 canary-diff 核验）——投产前请用 [canary_check.py](scripts/canary_check.py) 核实真伪。
 
 </details>
 
@@ -671,7 +672,8 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 | [OpenPaths](https://openpaths.io) ([仓库](https://github.com/lee101/openpaths)) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管的多厂商路由（15+ 厂商、多模态）带自动路由；其"开源"GitHub 仓库实为无代码、无协议的展示镜像，指向第三方平台，应视作闭源托管；模型保真度未经核实。 |
 | [ApiFlux](https://apiflux.ai) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管多协议中转（OpenAI/Anthropic/Gemini），提供 Claude Code / Codex CLI / OpenCode 接入指南；`apiflux.ai/v1` 存活（401）；运营方宣称全部模型按官方定价 85% 计费——低于官方定价本身即需权衡的信号；自荐；模型保真度未经核实。 |
 | [XiuRouter](https://router.xiu.ai/) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管多协议网关，支持受限 Key、逐请求用量/费用记录和 14 个开发工具及 Agent 的接入指引；`router-api.xiu.ai/v1/models` 存活（401）；自荐；模型保真度和所宣称的节省比例未经独立核实。 |
-| [AllRouter](https://allrouter.ai) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管 OpenAI+Anthropic 双兼容中转，约 25 个模型宣称按厂商官方标价、不加价，另有自有 GPU 的 GLM/Gemma 免费档；`allrouter.ai/v1` 存活（401，`new_api_error` → 基于 new-api）；自荐时给出的仓库为文档镜像而非源码；模型保真度未经核实。 |
+| [AllRouter](https://allrouter.ai) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管 OpenAI/Anthropic 双兼容中转，约 25 模型按官方标价不加价转售；`allrouter.ai/v1` 在线（401，`new_api_error` 疑似 new-api）；提交的仓库为文档镜像非源码；自荐；模型保真度未经核实。 |
+| [DiscountedTokens](https://discountedtokens.com) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管 OpenAI/Responses/Anthropic 兼容预付费网关（GPT-5.x，宣称较标价低 57-66%）；实时价见 `/api/pricing`、模型见 `/v1/models`、状态见 `/status`；上游为已披露的灰市模型池；自荐；模型保真度未经核实。 |
 
 *目前没有 ⛔ 确认有问题 的条目——该状态需要可复现的 canary 判定或有据可查的事故，绝不凭传闻。*
 
