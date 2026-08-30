@@ -5,14 +5,21 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-08-29T02:30:42Z</updated>
+  <updated>2026-08-30T03:16:04Z</updated>
   <author><name>Awesome AI Gateway</name></author>
   <entry>
-    <title>askalf/dario v5.5.83</title>
-    <link href="https://github.com/askalf/dario/releases/tag/v5.5.83" />
-    <id>https://github.com/askalf/dario/releases/tag/v5.5.83</id>
-    <updated>2026-08-29T02:30:42Z</updated>
-    <summary>askalf/dario released v5.5.83.</summary>
+    <title>askalf/dario v5.5.90</title>
+    <link href="https://github.com/askalf/dario/releases/tag/v5.5.90" />
+    <id>https://github.com/askalf/dario/releases/tag/v5.5.90</id>
+    <updated>2026-08-30T03:16:04Z</updated>
+    <summary>askalf/dario released v5.5.90.</summary>
+  </entry>
+  <entry>
+    <title>QuantumNous/new-api v1.0.0-rc.27</title>
+    <link href="https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.27" />
+    <id>https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.27</id>
+    <updated>2026-08-29T10:55:59Z</updated>
+    <summary>QuantumNous/new-api released v1.0.0-rc.27.</summary>
   </entry>
   <entry>
     <title>kittors/CliRelay v0.4.31</title>
@@ -174,13 +181,6 @@
     <id>https://github.com/ascending-llc/jarvis-registry/releases/tag/asc0.5.6</id>
     <updated>2026-08-26T18:10:39Z</updated>
     <summary>ascending-llc/jarvis-registry released Jarvis Registry asc0.5.6.</summary>
-  </entry>
-  <entry>
-    <title>QuantumNous/new-api v1.0.0-rc.26</title>
-    <link href="https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.26" />
-    <id>https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.26</id>
-    <updated>2026-08-26T13:10:03Z</updated>
-    <summary>QuantumNous/new-api released v1.0.0-rc.26.</summary>
   </entry>
   <entry>
     <title>tashfeenahmed/freellmapi v0.9.0</title>
