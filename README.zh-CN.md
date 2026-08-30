@@ -356,7 +356,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Red Hat Connectivity Link](https://www.redhat.com/en/technologies/cloud-computing/connectivity-link) — 基于 Kuadrant 项目（3scale 的继任者）的 Kubernetes 原生网关，统一 AI 网关、API 管理与多集群连接；作为 OpenShift AI「模型即服务」的前门，治理外部与自托管 LLM 端点。
 - [Sensedia AI Gateway](https://www.sensedia.com/product/ai-gateway) — Gartner 认可的 APIM 厂商出品的中立 AI 网关，以多模型路由、护栏、成本控制与可观测治理 LLM、MCP server 与 AI Agent，构成多云控制面。
 - [Ambassador Edge Stack](https://www.getambassador.io/products/edge-stack/api-gateway) — 基于 Envoy 的 Kubernetes 原生 API 网关（开源内核 [emissary-ingress](https://github.com/emissary-ingress/emissary) <!--s:emissary-ingress/emissary-->⭐ 4.5k<!--/s-->），其 AI Gateway 层增加 LLM 厂商路由、token 限流与兜底——API 厂商阵营里 Kong/Tyk/APISIX 的同类。
-- [Shim](https://getshim.tech) — 面向合规的 AI 网关（闭源，托管/私有化）：PII 与密钥脱敏（覆盖土耳其 TCKN、SSN、云/API key），面向欧盟 AI Act / GDPR / KVKK 举证的审计追踪，并提供语义缓存与成本优化。产品较新——认证类主张请自行向厂商核实。
+- [shim](https://github.com/GetSHIM/shim) <!--s:GetSHIM/shim-->⭐ 1<!--/s--> — 开放内核的 Python 网关（核心 Apache-2.0，`ee/` 为 Elastic License 2.0 源码可见）：不改写负载即施加策略，OpenAI 请求仍以 OpenAI 格式出站，Anthropic 请求仍以 Anthropic 格式出站。对 PII 与厂商密钥（邮箱、电话、银行卡、IBAN、土耳其 TCKN/VKN、AWS key、GitHub token）做占位符脱敏并在返回路径还原，另有 RPM/TPM 准入、基于仓内价格目录的模型白名单与按请求的成本归属。产品处于 alpha 阶段；社区版不保留请求历史，留存审计证据、角色与预算位于源码可见的 `ee/` 层。托管服务见 [getshim.tech](https://getshim.tech)。
 
 ## 🌐 原厂直连（云厂商/模型厂商）
 
