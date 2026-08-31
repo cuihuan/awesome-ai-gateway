@@ -324,6 +324,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Ollama Herd](https://github.com/geeks-accelerator/ollama-herd) <!--s:geeks-accelerator/ollama-herd-->⭐ 19<!--/s--> - MIT 许可的自托管路由器（Python），面向自有机器而非托管服务商：通过 mDNS 在局域网自动发现节点，无需配置文件；按内存余量、温度状态、队列深度以及各节点已加载的模型进行打分，从而避免在别处已预热的模型上再次冷加载。提供兼容 OpenAI / Ollama / Anthropic 的接口，并支持图像生成、语音转文字与向量嵌入；由于没有第三方服务商，也就不需要管理任何 API Key。
 - [TrustGate](https://github.com/NeuralTrust/TrustGate) <!--s:NeuralTrust/TrustGate-->⭐ 6<!--/s--> — NeuralTrust 出品的 Go/Apache-2.0 Agent 网关：Admin/Proxy/MCP 三平面分离、多提供商 OpenAI 兼容路由、消费者鉴权与策略插件（限流/Token 限额、语义缓存）；强在治理与 MCP 聚合，而非提供商覆盖面。以星数看仍属早期，但三平面拆分是真实的架构选择而非改名。
 - [Company AI Hub](https://github.com/Ghost011118/company-ai-hub) <!--s:Ghost011118/company-ai-hub-->⭐ 0<!--/s--> — Apache-2.0 的 TypeScript 网关，面向 Codex 与 OpenAI 兼容客户端：在服务端注入经统一批准的 Agent、Skill 与 Prompt，员工投稿留有不可变的审核快照，并带网页管理台。早期项目（2026-08 开放、单人维护），目前只代理一个已配置的上游提供商——它的看点是治理模型，不是提供商覆盖面。
+- [Agnos](https://github.com/siva010928/agnos-proxy-oss) <!--s:siva010928/agnos-proxy-oss-->⭐ 0<!--/s--> — 自托管控制平面（MIT，Python/FastAPI）：把 LiteLLM、Bifrost 或 Portkey 当作可热插拔的无状态翻译引擎，统一在一个 OpenAI 兼容端点后运行；提供商密钥保存在它自己的加密保险库中、按单次请求注入，而不是留在翻译层里，并带鉴权、按工作区预算、CEL 护栏、成本统计与跨引擎的统一审计日志。早期项目（2026，单人维护）——看点是"自带控制平面、容纳网关"的架构切分，而非提供商覆盖面。
 - ⚠️ 已停滞但有历史意义：[BricksLLM](https://github.com/bricks-cloud/BricksLLM) <!--s:bricks-cloud/BricksLLM-->⭐ 1.2k<!--/s-->（PII 脱敏、按 Key 限额；2025 年初起不再活跃）、[Glide](https://github.com/EinStack/glide) <!--s:EinStack/glide-->⭐ 160<!--/s-->（2024 年起停更）。
 
 ## 🏢 企业合规
