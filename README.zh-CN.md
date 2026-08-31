@@ -53,20 +53,20 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 
 **⚡ 快速答案** —— 每个需求一个稳妥默认项（备选见各分区链接）：
 
-| 我要… | 首选 | 细读 |
-|---|---|---|
-| 最低成本接入多模型、零运维 | **OpenRouter** | [性价比优先](#-性价比优先) |
-| 用自己的 Key、0 加价 | **Vercel** / **Cloudflare** | [性价比优先](#-性价比优先) |
-| 自托管、功能最全 | **LiteLLM** | [自托管开源](#-自托管开源) |
-| 自托管、开销最低 | **Bifrost**（Go） | [自托管开源](#-自托管开源) |
-| 把 Claude Code / Codex 路由到别的模型 | **LiteLLM** / **Bifrost**（均实测 3/3） | [智能路由](#-智能路由与模型选择) |
-| 给 Claude Code / Cursor 省钱——还不想被封号 | **claude-code-router**（自带 API key，零封号记录） | [编码 Agent 路由器对比](compare/coding-agent-routers-2026.zh-CN.md) |
-| 不换模型、不换厂商，只想少花 token | **headroom**（压缩代理——攻击上下文长度而非单价） | 自托管 |
-| 国产模型 + 团队 Key 计费 | **new-api** | [国内生态](#-国内生态) |
-| 企业 K8s + 审计 | **Kong** / **Higress**——两者的审计日志均在付费/云版档([档位明细](BENCHMARKS.zh-CN.md#第七部分--身份与治理sso-税对照表)) | [企业合规](#-企业合规) |
-| 最强合规（HIPAA/FedRAMP） | **Azure** / **Bedrock** | [原厂直连](#-原厂直连云厂商模型厂商) |
-| 敏感 prompt——谁看得到/记录/拿去训练？ | **自托管** 或 **默认零留存**（Vercel / Requesty） | [谁看得到你的 prompt](#-谁看得到你的-prompt-数据留存矩阵) |
-| 治理 Agent / MCP 流量 | **agentgateway** | [MCP 与 Agent](#-mcp-与-agent-网关) |
+| 我要…                               | 首选                                                                                       | 细读                                                           |
+| --------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| 最低成本接入多模型、零运维                     | **OpenRouter**                                                                           | [性价比优先](#-性价比优先)                                             |
+| 用自己的 Key、0 加价                     | **Vercel** / **Cloudflare**                                                              | [性价比优先](#-性价比优先)                                             |
+| 自托管、功能最全                          | **LiteLLM**                                                                              | [自托管开源](#-自托管开源)                                             |
+| 自托管、开销最低                          | **Bifrost**（Go）                                                                          | [自托管开源](#-自托管开源)                                             |
+| 把 Claude Code / Codex 路由到别的模型     | **LiteLLM** / **Bifrost**（均实测 3/3）                                                       | [智能路由](#-智能路由与模型选择)                                          |
+| 给 Claude Code / Cursor 省钱——还不想被封号 | **claude-code-router**（自带 API key，零封号记录）                                                 | [编码 Agent 路由器对比](compare/coding-agent-routers-2026.zh-CN.md) |
+| 不换模型、不换厂商，只想少花 token              | **headroom**（压缩代理——攻击上下文长度而非单价）                                                          | 自托管                                                          |
+| 国产模型 + 团队 Key 计费                  | **new-api**                                                                              | [国内生态](#-国内生态)                                               |
+| 企业 K8s + 审计                       | **Kong** / **Higress**——两者的审计日志均在付费/云版档([档位明细](BENCHMARKS.zh-CN.md#第七部分--身份与治理sso-税对照表)) | [企业合规](#-企业合规)                                               |
+| 最强合规（HIPAA/FedRAMP）               | **Azure** / **Bedrock**                                                                  | [原厂直连](#-原厂直连云厂商模型厂商)                                        |
+| 敏感 prompt——谁看得到/记录/拿去训练？          | **自托管** 或 **默认零留存**（Vercel / Requesty）                                                   | [谁看得到你的 prompt](#-谁看得到你的-prompt-数据留存矩阵)                      |
+| 治理 Agent / MCP 流量                 | **agentgateway**                                                                         | [MCP 与 Agent](#-mcp-与-agent-网关)                              |
 
 <details>
 <summary>📋 完整决策树 —— 每条分支、可复制</summary>
@@ -111,14 +111,14 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 
 独立 AI 网关正被上下两头挤压。下面，云厂商已把路由与消费上限做进自家平台;上面，编码 Agent 浪潮催生出一类增长更快的网关，而多数盘点根本没收录它们。真正整合掉的，是中间那层——整个产品就是网关的公司。
 
-| 2026 | 发生了什么 | 现状 |
-| --- | --- | --- |
-| TensorZero <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s--> | VC 支持的开源网关归档仓库（6/11） | 只读;Apache-2.0 代码与 fork 仍在 |
-| Pydantic AI Gateway <!--s:pydantic/pydantic-ai-gateway-->⭐ 193<!--/s--> | 归档（3/30），并入 Logfire | 网关变成平台的一个功能 |
-| Helicone <!--s:Helicone/helicone-->⭐ 6.1k<!--/s--> | 被 Mintlify 收购（3 月） | 仍在提交——是路线图风险，不是存活风险 |
-| Portkey | 被 Palo Alto Networks 收购（5/29 完成） | 成了安全平台的控制面 |
-| OpenRouter | 传闻 Stripe 洽购，约 100 亿美元（7/23） | 未经证实——是信号，不是事实 |
-| BricksLLM、Glide | 2025-01 / 2024-08 起无提交 | 从未归档;失败形态是沉默 |
+| 2026                                                                    | 发生了什么                            | 现状                        |
+| ----------------------------------------------------------------------- | -------------------------------- | ------------------------- |
+| TensorZero <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s-->               | VC 支持的开源网关归档仓库（6/11）             | 只读;Apache-2.0 代码与 fork 仍在 |
+| Pydantic AI Gateway <!--s:pydantic/pydantic-ai-gateway-->⭐ 193<!--/s--> | 归档（3/30），并入 Logfire              | 网关变成平台的一个功能               |
+| Helicone <!--s:Helicone/helicone-->⭐ 6.1k<!--/s-->                      | 被 Mintlify 收购（3 月）               | 仍在提交——是路线图风险，不是存活风险       |
+| Portkey                                                                 | 被 Palo Alto Networks 收购（5/29 完成） | 成了安全平台的控制面                |
+| OpenRouter                                                              | 传闻 Stripe 洽购，约 100 亿美元（7/23）     | 未经证实——是信号，不是事实            |
+| BricksLLM、Glide                                                         | 2025-01 / 2024-08 起无提交           | 从未归档;失败形态是沉默              |
 
 但这不是崩塌——同一年，LiteLLM <!--s:BerriAI/litellm-->⭐ 57.6k<!--/s--> 继续复利增长，Bifrost <!--s:maximhq/bifrost-->⭐ 7.7k<!--/s--> 靠实测开销取胜，Envoy AI Gateway 于 6/23 发布 v1.0 成为首个 CNCF 背书的生产级稳定选项，而编码 Agent 档与 token 压缩代理成了本清单里增长最快的品类。
 
@@ -130,15 +130,15 @@ _这清单是被账单逼出来的：**我一天在 AI 写代码上烧了 $788**
 
 大家真正在问的问题（[出处见真实帖子](#-必读精选)）——先回答：
 
-| 你在问… | 答案 |
-|---|---|
-| "现在最便宜地打通一堆模型？" | **OpenRouter**（~5.5% 充值费、<!--omc-->~340<!--/omc--> 模型）——或**自己的 key 0 加价**：Vercel / Cloudflare AI Gateway → [性价比优先](#-性价比优先) |
-| "哪些免费额度还活着，真实限流是多少？" | OpenRouter `:free`：**50 次/天**（充值 <$10）或 **1,000 次/天**（充值 $10+），共享 20 次/分钟（[官方限流文档](https://openrouter.ai/docs/api-reference/limits)）。11 家厂商逐行核实见[免费额度表](#-哪些免费额度还活着-核实限额表)。"免费"的代价：你的 prompt 可能被拿去训练——看清条款 |
-| "选*模型*到底差多少钱？" | **106×**——同一份 10 万 token 报告，DeepSeek $0.03 vs GPT-5.5 $3.01 → [脚本算的表](BENCHMARKS.zh-CN.md) · [计算器](https://cuihuan.github.io/awesome-ai-gateway/cost-calculator.zh-CN.html) |
-| "网关本身加多少延迟？" | **独立实测**（全网仅此一家）：每请求 Bifrost **0.62 ms** · Portkey OSS **2.65 ms** · LiteLLM **5.83 ms** → [数据](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json) |
-| "缓存折扣过了网关还在吗？" | **经常不在——而且悄无声息。** 多数账单里最大的一笔没领的折扣 → [缓存过网关](#-缓存过网关钱的问题) |
-| "谁看得到我的 prompt？" | 网关永远看得到——而且路由从**默认 ZDR**到**按 ToS 拿去训练**都有。见[数据留存矩阵](#-谁看得到你的-prompt-数据留存矩阵) |
-| "受够 LiteLLM 了，还有啥？" | [LiteLLM 替代品诚实对比](compare/litellm-alternatives-2026.md)（开销实测：它比 Bifrost 重 10×） |
+| 你在问…                                    | 答案                                                                                                                                                                                                                                                  |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| "现在最便宜地打通一堆模型？"                         | **OpenRouter**（~5.5% 充值费、<!--omc-->~340<!--/omc--> 模型）——或**自己的 key 0 加价**：Vercel / Cloudflare AI Gateway → [性价比优先](#-性价比优先)                                                                                                                         |
+| "哪些免费额度还活着，真实限流是多少？"                    | OpenRouter `:free`：**50 次/天**（充值 <$10）或 **1,000 次/天**（充值 $10+），共享 20 次/分钟（[官方限流文档](https://openrouter.ai/docs/api-reference/limits)）。11 家厂商逐行核实见[免费额度表](#-哪些免费额度还活着-核实限额表)。"免费"的代价：你的 prompt 可能被拿去训练——看清条款                                          |
+| "选*模型*到底差多少钱？"                          | **106×**——同一份 10 万 token 报告，DeepSeek $0.03 vs GPT-5.5 $3.01 → [脚本算的表](BENCHMARKS.zh-CN.md) · [计算器](https://cuihuan.github.io/awesome-ai-gateway/cost-calculator.zh-CN.html)                                                                         |
+| "网关本身加多少延迟？"                            | **独立实测**（全网仅此一家）：每请求 Bifrost **0.62 ms** · Portkey OSS **2.65 ms** · LiteLLM **5.83 ms** → [数据](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json)                                                                          |
+| "缓存折扣过了网关还在吗？"                          | **经常不在——而且悄无声息。** 多数账单里最大的一笔没领的折扣 → [缓存过网关](#-缓存过网关钱的问题)                                                                                                                                                                                            |
+| "谁看得到我的 prompt？"                        | 网关永远看得到——而且路由从**默认 ZDR**到**按 ToS 拿去训练**都有。见[数据留存矩阵](#-谁看得到你的-prompt-数据留存矩阵)                                                                                                                                                                         |
+| "受够 LiteLLM 了，还有啥？"                     | [LiteLLM 替代品诚实对比](compare/litellm-alternatives-2026.md)（开销实测：它比 Bifrost 重 10×）                                                                                                                                                                      |
 | "会不会弄坏我的 Claude Code / Codex / Cursor？" | **头号故障——但我们实测过了。** 把 Claude Code 指向 OpenAI 模型，**LiteLLM 与 Bifrost 都能干净翻译（3/3），Portkey OSS 不提供这条路** → [独立实测](https://cuihuan.github.io/llm-gateway-bench/article.html?slug=does-your-gateway-break-claude-code)。仍建议拿你自己的 Agent（带工具 + 流式）过一遍，并**锁版本** |
 
 ## 📖 学：AI 网关是怎么工作的
@@ -160,29 +160,29 @@ _清单告诉你**选哪个**网关；这几章教你**它们如何工作、为�
 清单中星标能进入末行门槛的全部项目，按 Star 排序——快速定位。已归档项目不进此表（TensorZero 于 2026 年 6 月转为只读），以保证这里列的都是你现在还能落地采用的东西。Star 每天自动刷新；完整信息（功能、许可、注意事项）见各自所在小节。⚠️ 标记的项目，其订阅号/账号池路由可能触碰厂商 ToS 或封号风险。
 
 <!-- TOP-GATEWAYS:START -->
-| 网关 | Star | 是什么 | 跳转 |
-|---|---|---|---|
-| [headroom](https://github.com/headroomlabs-ai/headroom) | <!--s:headroomlabs-ai/headroom-->⭐ 68k<!--/s--> | 上下文压缩代理，不是路由——每次调用少发 token | [自托管](#-自托管开源) |
-| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) ⚠️ | <!--s:diegosouzapw/OmniRoute-->⭐ 58.2k<!--/s--> | 编码 Agent 省 token，231+ 家上游 | [自托管](#-自托管开源) |
-| [LiteLLM](https://github.com/BerriAI/litellm) | <!--s:BerriAI/litellm-->⭐ 57.6k<!--/s--> | 事实标准的开源代理 + SDK，OpenAI 格式接 100+ 家 | [自托管](#-自托管开源) |
-| [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) ⚠️ | <!--s:router-for-me/CLIProxyAPI-->⭐ 49.3k<!--/s--> | 把编码 CLI 订阅（Claude Code、Codex…）包成 API | [自托管](#-自托管开源) |
-| [new-api](https://github.com/QuantumNous/new-api) | <!--s:QuantumNous/new-api-->⭐ 46.8k<!--/s--> | 最活跃的中转/计费面板 | [国内](#-国内生态) |
-| [Kong](https://github.com/Kong/kong) | <!--s:Kong/kong-->⭐ 44.1k<!--/s--> | 成熟 API 网关 + AI 插件（语义缓存、护栏） | [企业](#-企业合规) |
-| [sub2api](https://github.com/Wei-Shaw/sub2api) ⚠️ | <!--s:Wei-Shaw/sub2api-->⭐ 39.8k<!--/s--> | 把订阅账号拼车池化到一个端点 | [国内](#-国内生态) |
-| [Claude Code Router](https://github.com/musistudio/claude-code-router) | <!--s:musistudio/claude-code-router-->⭐ 37k<!--/s--> | 把 Claude Code 及各 Agent CLI 路由到任意模型 | [智能路由](#-智能路由与模型选择) |
-| [one-api](https://github.com/songquanpeng/one-api) | <!--s:songquanpeng/one-api-->⭐ 36.6k<!--/s--> | 最早的 LLM API 管理/分发系统 | [国内](#-国内生态) |
-| [MLflow AI Gateway](https://github.com/mlflow/mlflow) | <!--s:mlflow/mlflow-->⭐ 27.7k<!--/s--> | MLflow 平台内的统一端点 + 治理 | [可观测](#-可观测与成本核算) |
-| [9router](https://github.com/decolua/9router) ⚠️ | <!--s:decolua/9router-->⭐ 26.7k<!--/s--> | BYOK 本地代理，订阅→便宜→免费兜底 | [自托管](#-自托管开源) |
-| [freellmapi](https://github.com/tashfeenahmed/freellmapi) ⚠️ | <!--s:tashfeenahmed/freellmapi-->⭐ 22.3k<!--/s--> | 把 28 家的免费额度叠在一个端点后面 | [性价比优先](#-性价比优先) |
-| [Apache APISIX](https://github.com/apache/apisix) | <!--s:apache/apisix-->⭐ 17.1k<!--/s--> | 云原生 API + AI 网关（ai-proxy 插件） | [企业](#-企业合规) |
-| [aisuite](https://github.com/andrewyng/aisuite) | <!--s:andrewyng/aisuite-->⭐ 16.2k<!--/s--> | 吴恩达的统一多厂商客户端（是个库） | [自托管](#-自托管开源) |
-| [Portkey Gateway](https://github.com/Portkey-AI/gateway) | <!--s:Portkey-AI/gateway-->⭐ 12.9k<!--/s--> | 高性能 TypeScript 网关，1600+ 模型、50+ 护栏 | [自托管](#-自托管开源) |
-| [opencodex](https://github.com/lidge-jun/opencodex) | <!--s:lidge-jun/opencodex-->⭐ 12.6k<!--/s--> | 把 Codex 的 Responses API 转译到任意厂商 | [智能路由](#-智能路由与模型选择) |
-| [Chat Nio (CoAI)](https://github.com/coaidev/coai) | <!--s:coaidev/coai-->⭐ 9.3k<!--/s--> | 多租户网关，自带额度/订阅计费面板 | [自托管](#-自托管开源) |
-| [Higress](https://github.com/higress-group/higress) | <!--s:higress-group/higress-->⭐ 9.2k<!--/s--> | 阿里的 AI 原生网关，基于 Envoy/Istio | [国内](#-国内生态) |
-| [NVIDIA Dynamo](https://github.com/ai-dynamo/dynamo) | <!--s:ai-dynamo/dynamo-->⭐ 7.9k<!--/s--> | 数据中心级、KV-cache 感知的推理路由 | [K8s](#-kubernetes-原生与推理基础设施) |
-| [Bifrost](https://github.com/maximhq/bifrost) | <!--s:maximhq/bifrost-->⭐ 7.7k<!--/s--> | Go 网关，实测开销最低 | [自托管](#-自托管开源) |
-| [Manifest](https://github.com/mnfst/manifest) ⚠️ | <!--s:mnfst/manifest-->⭐ 7.5k<!--/s--> | 自托管 TS 路由，一个 `/auto` 端点接 300+ 模型 | [自托管](#-自托管开源) |
+| 网关                                                                     | Star                                                 | 是什么                                  | 跳转                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------ | ----------------------------- |
+| [headroom](https://github.com/headroomlabs-ai/headroom)                | <!--s:headroomlabs-ai/headroom-->⭐ 68k<!--/s-->      | 上下文压缩代理，不是路由——每次调用少发 token           | [自托管](#-自托管开源)                |
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) ⚠️              | <!--s:diegosouzapw/OmniRoute-->⭐ 58.2k<!--/s-->      | 编码 Agent 省 token，231+ 家上游            | [自托管](#-自托管开源)                |
+| [LiteLLM](https://github.com/BerriAI/litellm)                          | <!--s:BerriAI/litellm-->⭐ 57.6k<!--/s-->             | 事实标准的开源代理 + SDK，OpenAI 格式接 100+ 家    | [自托管](#-自托管开源)                |
+| [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) ⚠️         | <!--s:router-for-me/CLIProxyAPI-->⭐ 49.3k<!--/s-->   | 把编码 CLI 订阅（Claude Code、Codex…）包成 API | [自托管](#-自托管开源)                |
+| [new-api](https://github.com/QuantumNous/new-api)                      | <!--s:QuantumNous/new-api-->⭐ 46.8k<!--/s-->         | 最活跃的中转/计费面板                          | [国内](#-国内生态)                  |
+| [Kong](https://github.com/Kong/kong)                                   | <!--s:Kong/kong-->⭐ 44.1k<!--/s-->                   | 成熟 API 网关 + AI 插件（语义缓存、护栏）           | [企业](#-企业合规)                  |
+| [sub2api](https://github.com/Wei-Shaw/sub2api) ⚠️                      | <!--s:Wei-Shaw/sub2api-->⭐ 39.8k<!--/s-->            | 把订阅账号拼车池化到一个端点                       | [国内](#-国内生态)                  |
+| [Claude Code Router](https://github.com/musistudio/claude-code-router) | <!--s:musistudio/claude-code-router-->⭐ 37k<!--/s--> | 把 Claude Code 及各 Agent CLI 路由到任意模型   | [智能路由](#-智能路由与模型选择)           |
+| [one-api](https://github.com/songquanpeng/one-api)                     | <!--s:songquanpeng/one-api-->⭐ 36.6k<!--/s-->        | 最早的 LLM API 管理/分发系统                  | [国内](#-国内生态)                  |
+| [MLflow AI Gateway](https://github.com/mlflow/mlflow)                  | <!--s:mlflow/mlflow-->⭐ 27.7k<!--/s-->               | MLflow 平台内的统一端点 + 治理                 | [可观测](#-可观测与成本核算)             |
+| [9router](https://github.com/decolua/9router) ⚠️                       | <!--s:decolua/9router-->⭐ 26.7k<!--/s-->             | BYOK 本地代理，订阅→便宜→免费兜底                 | [自托管](#-自托管开源)                |
+| [freellmapi](https://github.com/tashfeenahmed/freellmapi) ⚠️           | <!--s:tashfeenahmed/freellmapi-->⭐ 22.3k<!--/s-->    | 把 28 家的免费额度叠在一个端点后面                  | [性价比优先](#-性价比优先)              |
+| [Apache APISIX](https://github.com/apache/apisix)                      | <!--s:apache/apisix-->⭐ 17.1k<!--/s-->               | 云原生 API + AI 网关（ai-proxy 插件）         | [企业](#-企业合规)                  |
+| [aisuite](https://github.com/andrewyng/aisuite)                        | <!--s:andrewyng/aisuite-->⭐ 16.2k<!--/s-->           | 吴恩达的统一多厂商客户端（是个库）                    | [自托管](#-自托管开源)                |
+| [Portkey Gateway](https://github.com/Portkey-AI/gateway)               | <!--s:Portkey-AI/gateway-->⭐ 12.9k<!--/s-->          | 高性能 TypeScript 网关，1600+ 模型、50+ 护栏    | [自托管](#-自托管开源)                |
+| [opencodex](https://github.com/lidge-jun/opencodex)                    | <!--s:lidge-jun/opencodex-->⭐ 12.6k<!--/s-->         | 把 Codex 的 Responses API 转译到任意厂商      | [智能路由](#-智能路由与模型选择)           |
+| [Chat Nio (CoAI)](https://github.com/coaidev/coai)                     | <!--s:coaidev/coai-->⭐ 9.3k<!--/s-->                 | 多租户网关，自带额度/订阅计费面板                    | [自托管](#-自托管开源)                |
+| [Higress](https://github.com/higress-group/higress)                    | <!--s:higress-group/higress-->⭐ 9.2k<!--/s-->        | 阿里的 AI 原生网关，基于 Envoy/Istio           | [国内](#-国内生态)                  |
+| [NVIDIA Dynamo](https://github.com/ai-dynamo/dynamo)                   | <!--s:ai-dynamo/dynamo-->⭐ 7.9k<!--/s-->             | 数据中心级、KV-cache 感知的推理路由               | [K8s](#-kubernetes-原生与推理基础设施) |
+| [Bifrost](https://github.com/maximhq/bifrost)                          | <!--s:maximhq/bifrost-->⭐ 7.7k<!--/s-->              | Go 网关，实测开销最低                         | [自托管](#-自托管开源)                |
+| [Manifest](https://github.com/mnfst/manifest) ⚠️                       | <!--s:mnfst/manifest-->⭐ 7.5k<!--/s-->               | 自托管 TS 路由，一个 `/auto` 端点接 300+ 模型     | [自托管](#-自托管开源)                |
 <!-- TOP-GATEWAYS:END -->
 
 > **托管型头部**（SaaS，无 GitHub star）：[OpenRouter](https://openrouter.ai)（<!--omc-->~340<!--/omc--> 模型，约 5.5% 费）· [Vercel AI Gateway](https://vercel.com/ai-gateway) 与 [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/)（0 加价）→ [性价比优先](#-性价比优先)。
@@ -195,20 +195,20 @@ _清单告诉你**选哪个**网关；这几章教你**它们如何工作、为�
 _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪的仓库，要么已归档，要么半年内没有任何提交。每天随星数刷新一并从 GitHub API 更新——所以它不会在星数保持新鲜的同时悄悄过期。_
 
 <!-- MAINTENANCE:START -->
-| 项目 | 最后提交 | 状态 |
-|---|---|---|
-| `pydantic/pydantic-ai-gateway` | 2026-03-30 | ⛔ 仓库已归档（只读） |
-| `tensorzero/tensorzero` | 2026-06-11 | ⛔ 仓库已归档（只读） |
-| `nullsink/nullsink` | 2026-08-20 | ⛔ 仓库已归档（只读） |
-| `lm-sys/RouteLLM` | 2024-08-10 | ⚠️ 已静默约 24 个月 |
-| `EinStack/glide` | 2024-08-12 | ⚠️ 已静默约 24 个月 |
-| `bricks-cloud/BricksLLM` | 2025-01-05 | ⚠️ 已静默约 20 个月 |
-| `Helicone/ai-gateway` | 2025-11-21 | ⚠️ 已静默约 9 个月 |
-| `songquanpeng/one-api` | 2026-01-09 | ⚠️ 已静默约 7 个月 |
-| `lasso-security/mcp-gateway` | 2026-01-22 | ⚠️ 已静默约 7 个月 |
-| `VoAPI/VoAPI` | 2026-01-27 | ⚠️ 已静默约 7 个月 |
-| `Veloera/Veloera` | 2026-02-11 | ⚠️ 已静默约 6 个月 |
-| `MartialBE/one-hub` | 2026-02-19 | ⚠️ 已静默约 6 个月 |
+| 项目                             | 最后提交       | 状态            |
+| ------------------------------ | ---------- | ------------- |
+| `pydantic/pydantic-ai-gateway` | 2026-03-30 | ⛔ 仓库已归档（只读）   |
+| `tensorzero/tensorzero`        | 2026-06-11 | ⛔ 仓库已归档（只读）   |
+| `nullsink/nullsink`            | 2026-08-20 | ⛔ 仓库已归档（只读）   |
+| `lm-sys/RouteLLM`              | 2024-08-10 | ⚠️ 已静默约 24 个月 |
+| `EinStack/glide`               | 2024-08-12 | ⚠️ 已静默约 24 个月 |
+| `bricks-cloud/BricksLLM`       | 2025-01-05 | ⚠️ 已静默约 20 个月 |
+| `Helicone/ai-gateway`          | 2025-11-21 | ⚠️ 已静默约 9 个月  |
+| `songquanpeng/one-api`         | 2026-01-09 | ⚠️ 已静默约 7 个月  |
+| `lasso-security/mcp-gateway`   | 2026-01-22 | ⚠️ 已静默约 7 个月  |
+| `VoAPI/VoAPI`                  | 2026-01-27 | ⚠️ 已静默约 7 个月  |
+| `Veloera/Veloera`              | 2026-02-11 | ⚠️ 已静默约 6 个月  |
+| `MartialBE/one-hub`            | 2026-02-19 | ⚠️ 已静默约 6 个月  |
 <!-- MAINTENANCE:END -->
 
 > 静默不等于不能选——一个稳定的代理可能只是"做完了"，也可能把工作挪到了别处。它是你依赖它之前该问的一个问题，不是判决。
@@ -265,19 +265,20 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 
 _生态里被问得最多的问题之一，而网上的答案大多已过期。下表每一行都对照厂商**自己的**文档重新核实（[机器可读](data/free_tiers.json)，2026-07-09 核验，CI 强制 ≤30 天复审）。标注"未公开"表示厂商已把数字藏进登录后台——我们如实说明，而不是转抄三手数字。_
 
-| 厂商 | 免费内容（核实限额） | 代表性免费模型 | 要卡？ | 代价 |
-|---|---|---|---|---|
-| [OpenRouter `:free`](https://openrouter.ai/docs/api-reference/limits) | **50 次/天**（累计充值 <$10）→ **1,000 次/天**（一次性充 $10+）；所有 `:free` 模型共享 20 次/分 | 轮换的 `:free` 池 | ❌ | 免费线路打到的第三方**可能拿你的数据训练**（按各家政策——检查免费/付费路由设置） |
-| [Google Gemini API](https://ai.google.dev/gemini-api/docs/rate-limits) | Flash 系列免费；逐模型 RPM/RPD 自 2026 起**未公开**（登录 AI Studio 才可见）；每日配额太平洋时间午夜重置 | Gemini 3.5 Flash · 3.1 Flash-Lite · 2.5 Flash · Gemma 4 | ❌ | 免费档内容_"用于改进我们的产品"_（定价页原话） |
-| [Groq](https://console.groq.com/docs/rate-limits) | 逐模型：Llama-3.3-70B **30 次/分 / 1K 次/天 / 10 万 token/天** · GPT-OSS-120B 30 RPM / 1K RPD / 20 万 TPD · Llama-3.1-8B 14.4K RPD / 50 万 TPD | GPT-OSS-120B/20B · Llama-4-Scout · Llama-3.3-70B · Qwen3-32B | ❌（升级才要卡） | 70B+ 模型的每日 token 上限烧得很快；限额按组织计 |
-| [Cerebras](https://inference-docs.cerebras.ai/support/rate-limits) | **5 次/分 / 3 万 TPM / 每天 100 万 token**，全模型统一 | GPT-OSS-120B · GLM-4.7 · Gemma-4-31B | ❔ 未说明 | 5 RPM 只够单人交互；宣传"全部模型"但限额表上只有 3 个 |
-| [GitHub Models](https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models) | 任意 GitHub 账号：低档模型 **15 次/分 / 150 次/天**，高档 **10 次/分 / 50 次/天**；单请求 8K 进 / 4K 出 | GPT-5 · o4-mini · Llama 4 · Phi-4 · DeepSeek-R1 | ❌ | 官方明说仅供实验；单请求 8K/4K 上限用不了长上下文 |
-| [Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai/platform/pricing/) | **每天 10,000 neurons**（按官方费率折算：Llama-3.2-1B 约 400 万输入 token/天，GPT-OSS-120B 约 31.4 万——除法是我们做的） | Llama-3.3-70B · GPT-OSS-120B/20B · DeepSeek-R1-distill | ❔ 未说明 | neurons 按算力计——输出比输入烧得快 5–10 倍 |
-| [Mistral](https://docs.mistral.ai/getting-started/quickstarts/studio/activate-and-generate-api-key) | 免费 Experiment 模式；具体限额**未公开**（按账号，Admin Console 可见） | Large · Small · Codestral（第三方报告） | ❌ | **默认拿你的数据训练**——免费用户必须手动关掉开关 |
-| [Cohere](https://docs.cohere.com/docs/rate-limits) | 试用 key：**每月 1,000 次调用**；Chat 20 次/分 | Command A · Command R+ | ❌ | 只够评估用 |
-| [SambaNova](https://docs.sambanova.ai/docs/en/models/rate-limits) | **20 次/分 / 每天 20 次 / 每天 20 万 token** | DeepSeek-V3.1 · Llama-3.3-70B · GPT-OSS-120B | ❌ | 每天 20 次 = 只够演示（推理速度倒是很快） |
-| [Hugging Face](https://huggingface.co/docs/inference-providers/en/pricing) | **每月 $0.10** 的透传额度（PRO：$2/月） | 200+ 路由模型（DeepSeek-V3 …） | ❌ | $0.10 ≈ 大模型几次请求 |
-| [Z.ai（GLM）](https://docs.z.ai/guides/overview/pricing) | GLM Flash 系列**输入输出全 $0**；限流未公开（按 key，登录可见） | GLM-4.7-Flash · GLM-4.5-Flash · GLM-4.6V-Flash | ❔ 未说明 | 并发限制不透明且多变；中国大陆厂商——自行权衡数据敏感度 |
+| 厂商                                                                                                  | 免费内容（核实限额）                                                                                                                         | 代表性免费模型                                                      | 要卡？      | 代价                                          |
+| --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | -------- | ------------------------------------------- |
+| [OpenRouter `:free`](https://openrouter.ai/docs/api-reference/limits)                               | **50 次/天**（累计充值 <$10）→ **1,000 次/天**（一次性充 $10+）；所有 `:free` 模型共享 20 次/分                                                             | 轮换的 `:free` 池                                                | ❌        | 免费线路打到的第三方**可能拿你的数据训练**（按各家政策——检查免费/付费路由设置） |
+| [Google Gemini API](https://ai.google.dev/gemini-api/docs/rate-limits)                              | Flash 系列免费；逐模型 RPM/RPD 自 2026 起**未公开**（登录 AI Studio 才可见）；每日配额太平洋时间午夜重置                                                             | Gemini 3.5 Flash · 3.1 Flash-Lite · 2.5 Flash · Gemma 4      | ❌        | 免费档内容_"用于改进我们的产品"_（定价页原话）                   |
+| [Groq](https://console.groq.com/docs/rate-limits)                                                   | 逐模型：Llama-3.3-70B **30 次/分 / 1K 次/天 / 10 万 token/天** · GPT-OSS-120B 30 RPM / 1K RPD / 20 万 TPD · Llama-3.1-8B 14.4K RPD / 50 万 TPD | GPT-OSS-120B/20B · Llama-4-Scout · Llama-3.3-70B · Qwen3-32B | ❌（升级才要卡） | 70B+ 模型的每日 token 上限烧得很快；限额按组织计              |
+| [Cerebras](https://inference-docs.cerebras.ai/support/rate-limits)                                  | **5 次/分 / 3 万 TPM / 每天 100 万 token**，全模型统一                                                                                         | GPT-OSS-120B · GLM-4.7 · Gemma-4-31B                         | ❔ 未说明    | 5 RPM 只够单人交互；宣传"全部模型"但限额表上只有 3 个            |
+| [Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai/platform/pricing/)             | **每天 10,000 neurons**（按官方费率折算：Llama-3.2-1B 约 400 万输入 token/天，GPT-OSS-120B 约 31.4 万——除法是我们做的）                                       | Llama-3.3-70B · GPT-OSS-120B/20B · DeepSeek-R1-distill       | ❔ 未说明    | neurons 按算力计——输出比输入烧得快 5–10 倍               |
+| [Mistral](https://docs.mistral.ai/getting-started/quickstarts/studio/activate-and-generate-api-key) | 免费 Experiment 模式；具体限额**未公开**（按账号，Admin Console 可见）                                                                                 | Large · Small · Codestral（第三方报告）                             | ❌        | **默认拿你的数据训练**——免费用户必须手动关掉开关                 |
+| [Cohere](https://docs.cohere.com/docs/rate-limits)                                                  | 试用 key：**每月 1,000 次调用**；Chat 20 次/分                                                                                                | Command A · Command R+                                       | ❌        | 只够评估用                                       |
+| [SambaNova](https://docs.sambanova.ai/docs/en/models/rate-limits)                                   | **20 次/分 / 每天 20 次 / 每天 20 万 token**                                                                                               | DeepSeek-V3.1 · Llama-3.3-70B · GPT-OSS-120B                 | ❌        | 每天 20 次 = 只够演示（推理速度倒是很快）                    |
+| [Hugging Face](https://huggingface.co/docs/inference-providers/en/pricing)                          | **每月 $0.10** 的透传额度（PRO：$2/月）                                                                                                       | 200+ 路由模型（DeepSeek-V3 …）                                     | ❌        | $0.10 ≈ 大模型几次请求                             |
+| [Z.ai（GLM）](https://docs.z.ai/guides/overview/pricing)                                              | GLM Flash 系列**输入输出全 $0**；限流未公开（按 key，登录可见）                                                                                         | GLM-4.7-Flash · GLM-4.5-Flash · GLM-4.6V-Flash               | ❔ 未说明    | 并发限制不透明且多变；中国大陆厂商——自行权衡数据敏感度                |
+
+**已退役:** GitHub Models 已于 **2026-07-30 完全退役**——playground、模型目录、推理 API 与 BYOK 全部下线（[GitHub 公告](https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models)；推理端点现返回 HTTP 410）。注意 `github.com/marketplace/models` 仍返回 200，光点页面看不出它已死。GitHub 建议新项目改用 Azure AI Foundry。
 
 **试用额度 ≠ 免费档**（会过期）：NVIDIA [build.nvidia.com](https://docs.api.nvidia.com/nim/docs/faq)（注册送 1,000 次请求，企业邮箱 +4,000——数字来自官方论坛员工答复；仅限原型用途）、阿里云 [Model Studio 国际版](https://www.alibabacloud.com/help/en/model-studio/new-free-quota)（逐模型额度，激活后 90 天硬性过期，仅新加坡区）。**近期已取消——别信过期榜单：** Together AI 已下线全部 `-free` 模型（现在最低预充 $5，官方原话 _"does not currently offer free trials"_），Moonshot/Kimi 需先充 $1 才能用，xAI 广为流传的数据共享额度已从所有公开页面消失。逐行证据：[`data/free_tiers.json`](data/free_tiers.json)。发现哪行过期了？[提 issue](https://github.com/cuihuan/awesome-ai-gateway/issues/new)。
 
@@ -520,23 +521,23 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 
 星数每日自动刷新。✅ 内置 · ➕ 插件/付费版 · ❌ 不支持 · **未注明** = 项目自己的文档没写。
 
-| 项目 | 类型 | 星数 | 协议 | 多厂商 | 故障转移/负载均衡 | 缓存 | 护栏 | 成本核算 | Web 管理界面 | 本地模型（Ollama） |
-|---|---|---|---|---|---|---|---|---|---|---|
-| [LiteLLM](https://github.com/BerriAI/litellm) | 开源代理 + SDK | <!--s:BerriAI/litellm-->⭐ 57.6k<!--/s--> | MIT¹ | ✅ 100+ | ✅ | ✅ | ✅ | ✅ | ✅ 需数据库 | ✅ |
-| [new-api](https://github.com/QuantumNous/new-api) | 开源中转/计费 | <!--s:QuantumNous/new-api-->⭐ 46.8k<!--/s--> | AGPL-3.0 | ✅ | ✅ | ➕ | ➕ | ✅ | ✅ | 未注明 |
-| [one-api](https://github.com/songquanpeng/one-api) | 开源中转/计费 | <!--s:songquanpeng/one-api-->⭐ 36.6k<!--/s--> | MIT | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
-| [Kong AI Gateway](https://github.com/Kong/kong) | 开源 API 网关 | <!--s:Kong/kong-->⭐ 44.1k<!--/s--> | Apache-2.0 | ✅ | ✅ | 💰 语义缓存（企业版） | ✅ | ✅ | ✅ Kong Manager | ✅ |
-| [Apache APISIX](https://github.com/apache/apisix) | 开源 API 网关 | <!--s:apache/apisix-->⭐ 17.1k<!--/s--> | Apache-2.0 | ✅ | ✅ | ➕ | ➕ | ➕ | ➕ 独立 Dashboard | ➕ OpenAI 兼容 |
-| [Portkey Gateway](https://github.com/Portkey-AI/gateway) | 开源网关 + SaaS | <!--s:Portkey-AI/gateway-->⭐ 12.9k<!--/s--> | MIT | ✅ 1600+ | ✅ | ✅ | ✅ 50+ | ➕ SaaS | ✅ 日志控制台 | ✅ |
-| [TensorZero](https://github.com/tensorzero/tensorzero) | 开源 LLMOps · ⚠️ 已归档'26 | <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ | ➕ | ✅ | ✅ | ✅ OpenAI 兼容 |
-| [Higress](https://github.com/higress-group/higress) | 开源 AI 原生网关 | <!--s:higress-group/higress-->⭐ 9.2k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ 控制台 | ✅ |
-| [GPT-Load](https://github.com/tbphp/gpt-load) | 开源密钥池代理 | <!--s:tbphp/gpt-load-->⭐ 6.3k<!--/s--> | MIT | ✅ | ✅ 密钥轮询 | ❌ | ❌ | ➕ | ✅ | 未注明 |
-| [Bifrost](https://github.com/maximhq/bifrost) | 开源网关（Go） | <!--s:maximhq/bifrost-->⭐ 7.7k<!--/s--> | Apache-2.0 | ✅ | ✅ 自适应 | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [Helicone](https://github.com/Helicone/helicone) | 开源可观测 + 网关 | <!--s:Helicone/helicone-->⭐ 6.1k<!--/s--> | Apache-2.0 | ✅ | ✅ | ✅ | ➕ | ✅ | ✅ | ➕ SDK 记录 |
-| [Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway) | 开源 K8s 网关 | <!--s:envoyproxy/ai-gateway-->⭐ 2k<!--/s--> | Apache-2.0 | ✅ | ✅ | ➕ | ➕ | ✅ | ❌ | ➕ OpenAI 格式 |
-| [OpenRouter](https://openrouter.ai) | SaaS 模型市场 | — | 商业 | ✅ <!--omc-->~340<!--/omc--> | ✅ | ✅ | ➕ | ✅ | ✅ | ❌ |
-| [Vercel AI Gateway](https://vercel.com/ai-gateway) | SaaS（0 加价） | — | 商业 | ✅ 数百 | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ |
-| [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) | SaaS 控制面 | — | 商业（免费档） | ✅ | ✅ 动态路由 | ✅ | ✅ | ✅ 预算 | ✅ | 未注明 |
+| 项目                                                                     | 类型                    | 星数                                             | 协议         | 多厂商                         | 故障转移/负载均衡 | 缓存           | 护栏    | 成本核算   | Web 管理界面       | 本地模型（Ollama） |
+| ---------------------------------------------------------------------- | --------------------- | ---------------------------------------------- | ---------- | --------------------------- | --------- | ------------ | ----- | ------ | -------------- | ------------ |
+| [LiteLLM](https://github.com/BerriAI/litellm)                          | 开源代理 + SDK            | <!--s:BerriAI/litellm-->⭐ 57.6k<!--/s-->       | MIT¹       | ✅ 100+                      | ✅         | ✅            | ✅     | ✅      | ✅ 需数据库         | ✅            |
+| [new-api](https://github.com/QuantumNous/new-api)                      | 开源中转/计费               | <!--s:QuantumNous/new-api-->⭐ 46.8k<!--/s-->   | AGPL-3.0   | ✅                           | ✅         | ➕            | ➕     | ✅      | ✅              | 未注明          |
+| [one-api](https://github.com/songquanpeng/one-api)                     | 开源中转/计费               | <!--s:songquanpeng/one-api-->⭐ 36.6k<!--/s-->  | MIT        | ✅                           | ✅         | ❌            | ❌     | ✅      | ✅              | ✅            |
+| [Kong AI Gateway](https://github.com/Kong/kong)                        | 开源 API 网关             | <!--s:Kong/kong-->⭐ 44.1k<!--/s-->             | Apache-2.0 | ✅                           | ✅         | 💰 语义缓存（企业版） | ✅     | ✅      | ✅ Kong Manager | ✅            |
+| [Apache APISIX](https://github.com/apache/apisix)                      | 开源 API 网关             | <!--s:apache/apisix-->⭐ 17.1k<!--/s-->         | Apache-2.0 | ✅                           | ✅         | ➕            | ➕     | ➕      | ➕ 独立 Dashboard | ➕ OpenAI 兼容  |
+| [Portkey Gateway](https://github.com/Portkey-AI/gateway)               | 开源网关 + SaaS           | <!--s:Portkey-AI/gateway-->⭐ 12.9k<!--/s-->    | MIT        | ✅ 1600+                     | ✅         | ✅            | ✅ 50+ | ➕ SaaS | ✅ 日志控制台        | ✅            |
+| [TensorZero](https://github.com/tensorzero/tensorzero)                 | 开源 LLMOps · ⚠️ 已归档'26 | <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s--> | Apache-2.0 | ✅                           | ✅         | ✅            | ➕     | ✅      | ✅              | ✅ OpenAI 兼容  |
+| [Higress](https://github.com/higress-group/higress)                    | 开源 AI 原生网关            | <!--s:higress-group/higress-->⭐ 9.2k<!--/s-->  | Apache-2.0 | ✅                           | ✅         | ✅            | ✅     | ✅      | ✅ 控制台          | ✅            |
+| [GPT-Load](https://github.com/tbphp/gpt-load)                          | 开源密钥池代理               | <!--s:tbphp/gpt-load-->⭐ 6.3k<!--/s-->         | MIT        | ✅                           | ✅ 密钥轮询    | ❌            | ❌     | ➕      | ✅              | 未注明          |
+| [Bifrost](https://github.com/maximhq/bifrost)                          | 开源网关（Go）              | <!--s:maximhq/bifrost-->⭐ 7.7k<!--/s-->        | Apache-2.0 | ✅                           | ✅ 自适应     | ✅            | ✅     | ✅      | ✅              | ✅            |
+| [Helicone](https://github.com/Helicone/helicone)                       | 开源可观测 + 网关            | <!--s:Helicone/helicone-->⭐ 6.1k<!--/s-->      | Apache-2.0 | ✅                           | ✅         | ✅            | ➕     | ✅      | ✅              | ➕ SDK 记录     |
+| [Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway)           | 开源 K8s 网关             | <!--s:envoyproxy/ai-gateway-->⭐ 2k<!--/s-->    | Apache-2.0 | ✅                           | ✅         | ➕            | ➕     | ✅      | ❌              | ➕ OpenAI 格式  |
+| [OpenRouter](https://openrouter.ai)                                    | SaaS 模型市场             | —                                              | 商业         | ✅ <!--omc-->~340<!--/omc--> | ✅         | ✅            | ➕     | ✅      | ✅              | ❌            |
+| [Vercel AI Gateway](https://vercel.com/ai-gateway)                     | SaaS（0 加价）            | —                                              | 商业         | ✅ 数百                        | ✅         | ❌            | ❌     | ✅      | ✅              | ❌            |
+| [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) | SaaS 控制面              | —                                              | 商业（免费档）    | ✅                           | ✅ 动态路由    | ✅            | ✅     | ✅ 预算   | ✅              | 未注明          |
 
 ¹ LiteLLM 核心为 MIT，仓库内含单独授权的企业版目录。
 
@@ -554,18 +555,18 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 
 网关被买单，本质上是为了**九件不同的事**。找到你的那件，直达证据：
 
-| 你的诉求 | 它回答的问题 | 去哪看 |
-|---|---|---|
-| 🔀 **路由与故障转移** | "一家厂商挂了——我的应用挂了吗？" | [快速对比](#快速对比) · [智能路由](#-智能路由与模型选择) |
-| 💰 **成本控制** | "谁能花多少钱，花到哪里会被拦住？" | [性价比优先](#-性价比优先) · [成本表](BENCHMARKS.zh-CN.md) · [计算器](https://cuihuan.github.io/awesome-ai-gateway/cost-calculator.zh-CN.html) |
-| 📊 **可观测性** | "哪个 key、哪个模型、哪条 prompt——质量为什么掉了？" | [可观测章节](#-可观测与成本核算) · [该测什么](BENCHMARKS.zh-CN.md) · [研究综述](docs/observability-landscape.zh-CN.md) |
-| 🛡️ **安全与合规** | "能向审计员证明 prompt 都去了哪里吗？" | [企业合规](#-企业合规) · [评分卡](BENCHMARKS.zh-CN.md) |
-| 📦 **供应链可信** | "网关本身跑起来安全吗？" | [🔐 供应链矩阵](#-供应链安全谁给发布签名谁真被打穿过)（谁签名、谁被打穿过） |
-| ⚡ **缓存与限流** | "别为同一个答案付两次钱；扛住 429" | [快速对比](#快速对比) 缓存列 |
-| 🏠 **单机本地模型**（Ollama / LM Studio） | "家用服务器上一个代理，前置 OpenAI + Anthropic + 本地 Ollama" | [快速对比](#快速对比)的**本地模型（Ollama）**列——如 LiteLLM、Bifrost、one-api——另见 [Manifest](#-自托管开源) 与 [Olla](#-kubernetes-原生与推理基础设施) |
-| ☸️ **K8s / GPU 集群** | "把请求路由到集群里的 vLLM/Ollama，感知 GPU" | [Kubernetes 原生与推理基础设施](#-kubernetes-原生与推理基础设施) |
-| 🤖 **Agent 与 MCP 治理** | "我的 Agent 在调工具——谁在看这些流量？" | [MCP 与 Agent 网关](#-mcp-与-agent-网关) |
-| 🔍 **模型保真 / 中转可信** | "我拿到的真是我付钱买的那个模型吗？" | [canary_check.py](scripts/canary_check.py) · [观察名单](#社区中转避雷观察名单) |
+| 你的诉求                              | 它回答的问题                                         | 去哪看                                                                                                                            |
+| --------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| 🔀 **路由与故障转移**                    | "一家厂商挂了——我的应用挂了吗？"                             | [快速对比](#快速对比) · [智能路由](#-智能路由与模型选择)                                                                                            |
+| 💰 **成本控制**                       | "谁能花多少钱，花到哪里会被拦住？"                             | [性价比优先](#-性价比优先) · [成本表](BENCHMARKS.zh-CN.md) · [计算器](https://cuihuan.github.io/awesome-ai-gateway/cost-calculator.zh-CN.html) |
+| 📊 **可观测性**                       | "哪个 key、哪个模型、哪条 prompt——质量为什么掉了？"              | [可观测章节](#-可观测与成本核算) · [该测什么](BENCHMARKS.zh-CN.md) · [研究综述](docs/observability-landscape.zh-CN.md)                              |
+| 🛡️ **安全与合规**                     | "能向审计员证明 prompt 都去了哪里吗？"                       | [企业合规](#-企业合规) · [评分卡](BENCHMARKS.zh-CN.md)                                                                                    |
+| 📦 **供应链可信**                      | "网关本身跑起来安全吗？"                                  | [🔐 供应链矩阵](#-供应链安全谁给发布签名谁真被打穿过)（谁签名、谁被打穿过）                                                                                     |
+| ⚡ **缓存与限流**                       | "别为同一个答案付两次钱；扛住 429"                           | [快速对比](#快速对比) 缓存列                                                                                                              |
+| 🏠 **单机本地模型**（Ollama / LM Studio） | "家用服务器上一个代理，前置 OpenAI + Anthropic + 本地 Ollama" | [快速对比](#快速对比)的**本地模型（Ollama）**列——如 LiteLLM、Bifrost、one-api——另见 [Manifest](#-自托管开源) 与 [Olla](#-kubernetes-原生与推理基础设施)            |
+| ☸️ **K8s / GPU 集群**               | "把请求路由到集群里的 vLLM/Ollama，感知 GPU"                | [Kubernetes 原生与推理基础设施](#-kubernetes-原生与推理基础设施)                                                                                 |
+| 🤖 **Agent 与 MCP 治理**             | "我的 Agent 在调工具——谁在看这些流量？"                      | [MCP 与 Agent 网关](#-mcp-与-agent-网关)                                                                                             |
+| 🔍 **模型保真 / 中转可信**                | "我拿到的真是我付钱买的那个模型吗？"                            | [canary_check.py](scripts/canary_check.py) · [观察名单](#社区中转避雷观察名单)                                                               |
 
 > **每件事有多普遍？有调研背书。** 据 [Amplify Partners《2026 AI 工程报告》](https://www.amplifypartners.com/blog-posts/the-2026-ai-engineering-report)（联合 Notion 与 Vercel，调研 1,000+ 工程师）：**87% 的人在同时使用多个模型**——多模型路由已是默认架构而非边缘场景（44% 按任务类型路由、11% 按成本路由）。**75% 的人因为成本在调整 AI 的使用力度**（40% 表示成本_经常_左右野心），且**成本是生产环境第二大被监控指标**（仅次于质量）——这正是[可观测维度](BENCHMARKS.zh-CN.md)以「按 key 归集成本」为核心的原因。**89% 跑 Agent 的团队已给出写权限**而护栏仍然原始——这就是 [Agent/MCP 治理](#-mcp-与-agent-网关)的必要性。还有一个值得读两遍的数字：只有 **20%** 的人把可靠性放进选型前三——但同行评审的状态页测量显示，OpenAI 与 Anthropic 的 API **约每 2 天故障一次**（中位 MTBF 1.99 / 2.09 天）、中位恢复约 1 小时，且仅 6.15% 的事故有复盘（[ICPE 2025](https://arxiv.org/abs/2501.12469)）；生产流量里，仅限流一项就占了 **LLM 错误的约 ⅓**（[Datadog，2026-03](https://www.datadoghq.com/state-of-ai-engineering/)）。工程师系统性低估故障转移，直到 [2026 年 6 月 Fable 5 下线事件](#-行业动态)让单厂商架构停摆三周。多厂商路由是便宜的保险，_恰恰因为_它被低估了。
 
@@ -573,11 +574,11 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 
 **先把网关的信任级别和你数据的敏感度对上**——这一刀基本决定了后面大部分：
 
-| 你的数据 | 走这个 | 别 |
-|---|---|---|
-| 🔴 **机密 / 受监管**（PII、医疗、财务、源码、密钥） | 原厂**直连 + ZDR**（Azure / Bedrock / Vertex），或**自托管在你自己 VPC** 里的网关 | …走*任何*第三方中转——没得商量 |
-| 🟡 **内部 / 业务** | 合规托管（Cloudflare、Vercel、Portkey）**或**自托管（LiteLLM、Bifrost） | …用没核验过的中转；要书面 ZDR |
-| 🟢 **不重要 / 公开 / 一次性**（demo、公开抓取的文本） | 便宜的赢——这种场景下用灰产中转甚至*经济上合理* | …不做 [canary 验真](#如何安全选型) 就用：在你证明之前，默认它在换模型 + 收数据 |
+| 你的数据                                | 走这个                                                            | 别                                                |
+| ----------------------------------- | -------------------------------------------------------------- | ------------------------------------------------ |
+| 🔴 **机密 / 受监管**（PII、医疗、财务、源码、密钥）    | 原厂**直连 + ZDR**（Azure / Bedrock / Vertex），或**自托管在你自己 VPC** 里的网关 | …走*任何*第三方中转——没得商量                                |
+| 🟡 **内部 / 业务**                      | 合规托管（Cloudflare、Vercel、Portkey）**或**自托管（LiteLLM、Bifrost）       | …用没核验过的中转；要书面 ZDR                                |
+| 🟢 **不重要 / 公开 / 一次性**（demo、公开抓取的文本） | 便宜的赢——这种场景下用灰产中转甚至*经济上合理*                                      | …不做 [canary 验真](#如何安全选型) 就用：在你证明之前，默认它在换模型 + 收数据 |
 
 > 错误是对所有流量用同一个信任档。敏感 prompt 走 $0.50/M 的中转，就是密钥泄露的方式；一次性 prompt 走 FedRAMP 端点，就是多付 100× 的方式。**按数据匹配档位。**
 
@@ -594,25 +595,25 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 
 ### 🔒 谁看得到你的 prompt？—— 数据留存矩阵
 
-_第一大信任问题，而全网没有一份中立的跨厂商答案。这里有一份，全部来自一手来源（[机器可读](data/data_retention.json)，<!--rvd-->2026-07-29<!--/rvd--> 核验）。自托管网关不列——数据面你自己掌控。_
+_第一大信任问题，而全网没有一份中立的跨厂商答案。这里有一份，全部来自一手来源（[机器可读](data/data_retention.json)，<!--rvd-->2026-08-31<!--/rvd--> 核验）。自托管网关不列——数据面你自己掌控。_
 
-| 托管网关 | 默认记录正文 | ZDR / 无日志 | 训练你的 prompt | 默认留存 |
-|---|---|---|---|---|
-| [Vercel AI Gateway](https://vercel.com/docs/ai-gateway/security-and-compliance/zdr) | ❌ 否 | ⚠️ 拆开看：自身层 ✅ 免费默认；**上游** ZDR 属 Pro/企业版 + $0.10/千次请求 | ❌ 否（自身）；上游需开过滤 | 自身层 0 天；被 ZDR 排除的模型 30 天 |
-| [Eden AI](https://www.edenai.co/privacy) | ❌ 否 | ✅ **默认** | ❌ 否（自身） | 处理后不留存 |
-| [Requesty](https://www.requesty.ai/security) | ❌ 否（正文） | ✅ **默认** | ❌ 否（自身）；上游需开 | 0 天（开日志则欧盟 30 天） |
-| [OpenRouter](https://openrouter.ai/privacy) | ❌ 否 | ✅ 可选开（`zdr:true`，全局/单请求） | ❌ 否（自身）；⚠️ **取决于上游**（免费/付费为两套隐私设置，务必逐一确认） | 0 天，除非你开日志 |
-| [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/observability/logging/) | ✅ **是** | ✅ 可自助开启（`zdr:true`/请求头）——**仅 OpenAI + Anthropic**，其他厂商静默回落 | ❌ 否（Trust Hub，附「未经客户同意」限定语） | 按存储上限 |
-| [Portkey（云）](https://portkey.ai/docs/introduction/what-is-portkey) | ✅ **是** | ⚠️ 可选开关（完整"不存"需销售开通） | ❔ 未说明 | 免费 3 天 · 生产 30 天 |
-| [Helicone（云）](https://docs.helicone.ai/features/advanced-usage/omit-logs) | ✅ **是**（日志代理） | ⚠️ 仅 omit 头，无品牌 ZDR | ❔ 未说明（2023-24 法律文件未涉及） | 免费 7 天 · Pro 1 月 · Team 3 月 · 企业版**永久** |
-| [Martian](https://www.withmartian.com/terms-of-service) | ❔ 未说明 | ❌ **未说明** | 🔴 **是——按 ToS**（授权用你的 Input Data 训练其模型） | 未说明 |
+| 托管网关                                                                                         | 默认记录正文        | ZDR / 无日志                                                  | 训练你的 prompt                               | 默认留存                                    |
+| -------------------------------------------------------------------------------------------- | ------------- | ---------------------------------------------------------- | ----------------------------------------- | --------------------------------------- |
+| [Vercel AI Gateway](https://vercel.com/docs/ai-gateway/security-and-compliance/zdr)          | ❌ 否           | ⚠️ 拆开看：自身层 ✅ 免费默认；**上游** ZDR 属 Pro/企业版 + $0.10/千次请求        | ❌ 否（自身）；上游需开过滤                            | 自身层 0 天；被 ZDR 排除的模型 30 天                |
+| [Eden AI](https://www.edenai.co/privacy)                                                     | ❌ 否           | ✅ **默认**                                                   | ❌ 否（自身）                                   | 处理后不留存                                  |
+| [Requesty](https://www.requesty.ai/security)                                                 | ❌ 否（正文）       | ✅ **默认**                                                   | ❌ 否（自身）；上游需开                              | 0 天（开日志则欧盟 30 天）                        |
+| [OpenRouter](https://openrouter.ai/privacy)                                                  | ❌ 否           | ✅ 可选开（`zdr:true`，全局/单请求）                                   | ❌ 否（自身）；⚠️ **取决于上游**（免费/付费为两套隐私设置，务必逐一确认） | 0 天，除非你开日志                              |
+| [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/observability/logging/) | ✅ **是**       | ✅ 可自助开启（`zdr:true`/请求头）——**仅 OpenAI + Anthropic**，其他厂商静默回落 | ❌ 否（Trust Hub，附「未经客户同意」限定语）               | 按存储上限                                   |
+| [Portkey（云）](https://portkey.ai/docs/introduction/what-is-portkey)                           | ✅ **是**       | ⚠️ 可选开关（完整"不存"需销售开通）                                       | ❔ 未说明                                     | 免费 3 天 · 生产 30 天                        |
+| [Helicone（云）](https://docs.helicone.ai/features/advanced-usage/omit-logs)                    | ✅ **是**（日志代理） | ⚠️ 仅 omit 头，无品牌 ZDR                                        | ❔ 未说明（2023-24 法律文件未涉及）                    | 免费 7 天 · Pro 1 月 · Team 3 月 · 企业版**永久** |
+| [Martian](https://www.withmartian.com/terms-of-service)                                      | ❔ 未说明         | ❌ **未说明**                                                  | 🔴 **是——按 ToS**（授权用你的 Input Data 训练其模型）   | 未说明                                     |
 
-| 原厂云 | 默认记录正文 | ZDR | 训练你的 prompt | 默认留存 |
-|---|---|---|---|---|
-| [AWS Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/data-retention.html) | ⚠️ **取决于模型**——默认 `inherit`，并非零留存 | ⚠️ 可配置（`data_retention_mode: none`）——强制留存的模型需申请审批 | ❌ 否（除非开 `provider_data_share`） | 仅在你设置且获准 `none` 时为 0 天 |
-| [Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/data-privacy) | ⚙️ 仅人工复核标记内容 | ⚠️ 需审批（Limited Access 申请） | ❌ 否 | 有条件（⚠️ 旧的"30 天"表述已于 2025-10 移除） |
-| [Google Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention) | ⚙️ 可配置——⚠️ 分界在**合同**：GCP 服务条款客户在范围内，Master Agreement 客户默认豁免 | ⚠️ 需申请/企业版——⚠️ 对「Advanced AI」模型**被覆盖**（30 天滥用日志） | ❌ 否 | 滥用日志 90 天 · 缓存 24 小时 · Advanced-AI 附录下 30 天 · 其余才 0 天 |
-| [OpenAI（直连 API）](https://developers.openai.com/api/docs/guides/your-data) | ✅ **是**（30 天滥用监控） | ⚠️ 需审批（走销售） | ❌ 否（API，自 2023 起） | 30 天——✅ 纽约时报案**向前保全令已于 2025-09-26 终止**；残留保全与 Safety Retention 仍在 |
+| 原厂云                                                                                                              | 默认记录正文                                                      | ZDR                                               | 训练你的 prompt                    | 默认留存                                                             |
+| ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------- | ------------------------------ | ---------------------------------------------------------------- |
+| [AWS Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/data-retention.html)                          | ⚠️ **取决于模型**——默认 `inherit`，并非零留存                            | ⚠️ 可配置（`data_retention_mode: none`）——强制留存的模型需申请审批 | ❌ 否（除非开 `provider_data_share`） | 仅在你设置且获准 `none` 时为 0 天                                           |
+| [Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/openai/data-privacy)            | ⚙️ 仅人工复核标记内容                                                | ⚠️ 需审批（Limited Access 申请）                         | ❌ 否                            | 有条件（⚠️ 旧的"30 天"表述已于 2025-10 移除）                                  |
+| [Google Vertex AI](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention) | ⚙️ 可配置——⚠️ 分界在**合同**：GCP 服务条款客户在范围内，Master Agreement 客户默认豁免 | ⚠️ 需申请/企业版——⚠️ 对「Advanced AI」模型**被覆盖**（30 天滥用日志）  | ❌ 否                            | 滥用日志 90 天 · 缓存 24 小时 · Advanced-AI 附录下 30 天 · 其余才 0 天            |
+| [OpenAI（直连 API）](https://developers.openai.com/api/docs/guides/your-data)                                        | ✅ **是**（30 天滥用监控）                                           | ⚠️ 需审批（走销售）                                       | ❌ 否（API，自 2023 起）              | 30 天——✅ 纽约时报案**向前保全令已于 2025-09-26 终止**；残留保全与 Safety Retention 仍在 |
 
 > **所有人都漏掉的两点：** (1) **在任何路由上，你的真实暴露面取决于你路由到的_上游_，而非路由自身的政策**——"默认 ZDR"的路由，只要不开 ZDR-only / 禁训练过滤，照样会打到会留存（或训练）的上游。(2) **"30 天后删除"未必有约束力**——OpenAI 的 API 删除当前被法院保全令覆盖，Azure 也悄悄撤掉了 30 天承诺。真要紧时，把 ZDR 写进_合同_，并读你具体上游端点的政策，而不是看门面营销。逐行证据 + 来源链接见 [`data/data_retention.json`](data/data_retention.json)。
 
@@ -622,18 +623,18 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 
 **先学会读"公告数"这一列：** 公告多 + 修得快 = *披露流程在正常运转*，不是更危险；这张表里最糟的一行，是那个"一条 CVE 没修、仓库停摆"的。
 
-| 网关 | 发布签名 | SBOM / 溯源 | SECURITY.md | 2025–26 安全公告（要点） |
-|---|---|---|---|---|
-| [LiteLLM](https://github.com/BerriAI/litellm/security/advisories) | ✅ cosign（Docker，v1.83.0 起） | ❌ | ✅ | **12** 条——3 条 critical（Host 头认证绕过、key 校验 SQL 注入、OIDC 缓存碰撞）+ 进 KEV 的 MCP RCE 链；修复很快——跑 ≥1.84.0 |
-| [new-api](https://github.com/QuantumNous/new-api/security/advisories) | ✅ cosign | ✅ SBOM + 校验和 | ✅ | **14** 条——critical 计费整数溢出（可自充负账单）与 root token 泄漏；Stripe webhook 签名绕过；4 次 SSRF——靠它卖额度的请立刻升级 |
-| [9router](https://github.com/decolua/9router/security/advisories) | ❌ 未发现 | ❌ | ❌ | **19 条**——6 条 critical、11 条 high；其中 12 条在 2026 年 7 月。反复出现的类型：未认证访问代理及其持有的密钥。⚠️ **3 条未登记修复、2 条为 critical**（含 `/api/providers` 未认证增删改查、泄露全部 API key） |
-| [one-api](https://www.cve.org/CVERecord?id=CVE-2025-3801) | ❌ 裸二进制、无校验和 | ❌ | ❌ | **1 条——未修复** XSS；最后一次发版 2025 年 2 月 |
-| [Kong](https://developer.konghq.com/how-to/verify-build-provenance-for-signed-images/) | ✅ cosign（企业版镜像） | ✅ SLSA 有文档 | ✅ | 1 条（企业版请求走私，按分支修复）；OSS 仓库：无公开公告 |
-| [APISIX](https://downloads.apache.org/apisix/) | ✅ GPG（ASF） | ASF 流程 | ✅ | **7** 条——2026 年集中在认证插件绕过（jwt-auth、openid-connect、cas-auth）——LLM 路由前挂了认证插件的请跑 ≥3.17.0 |
-| [Portkey Gateway](https://github.com/advisories/GHSA-hhh5-2cvx-vmfp) | ❌ npm 无 attestation | ❌ | ✅ | 1 条（SSRF，1.14.0 已修） |
-| [Bifrost](https://github.com/maximhq/bifrost/security/advisories) | ❌ 未发现 | ❌ | ✅ | 1 条（SSRF 黑名单缺口，1.5.16 已修） |
-| [Higress](https://github.com/higress-group/higress/security) | ❌ 未发现 | ❌ | ✅ | 0 条公开——没有公告 ≠ 没有漏洞 |
-| [Helicone ai-gateway](https://github.com/advisories/GHSA-9fxj-mchq-843p) | ❔ 未知 | ❌ | ❌ | 1 条低危 SSRF——**未列出修复版本** |
+| 网关                                                                                     | 发布签名                       | SBOM / 溯源    | SECURITY.md | 2025–26 安全公告（要点）                                                                                                                                   |
+| -------------------------------------------------------------------------------------- | -------------------------- | ------------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [LiteLLM](https://github.com/BerriAI/litellm/security/advisories)                      | ✅ cosign（Docker，v1.83.0 起） | ❌            | ✅           | **12** 条——3 条 critical（Host 头认证绕过、key 校验 SQL 注入、OIDC 缓存碰撞）+ 进 KEV 的 MCP RCE 链；修复很快——跑 ≥1.84.0                                                      |
+| [new-api](https://github.com/QuantumNous/new-api/security/advisories)                  | ✅ cosign                   | ✅ SBOM + 校验和 | ✅           | **14** 条——critical 计费整数溢出（可自充负账单）与 root token 泄漏；Stripe webhook 签名绕过；4 次 SSRF——靠它卖额度的请立刻升级                                                         |
+| [9router](https://github.com/decolua/9router/security/advisories)                      | ❌ 未发现                      | ❌            | ❌           | **19 条**——6 条 critical、11 条 high；其中 12 条在 2026 年 7 月。反复出现的类型：未认证访问代理及其持有的密钥。⚠️ **3 条未登记修复、2 条为 critical**（含 `/api/providers` 未认证增删改查、泄露全部 API key） |
+| [one-api](https://www.cve.org/CVERecord?id=CVE-2025-3801)                              | ❌ 裸二进制、无校验和                | ❌            | ❌           | **1 条——未修复** XSS；最后一次发版 2025 年 2 月                                                                                                                 |
+| [Kong](https://developer.konghq.com/how-to/verify-build-provenance-for-signed-images/) | ✅ cosign（企业版镜像）            | ✅ SLSA 有文档   | ✅           | 1 条（企业版请求走私，按分支修复）；OSS 仓库：无公开公告                                                                                                                    |
+| [APISIX](https://downloads.apache.org/apisix/)                                         | ✅ GPG（ASF）                 | ASF 流程       | ✅           | **7** 条——2026 年集中在认证插件绕过（jwt-auth、openid-connect、cas-auth）——LLM 路由前挂了认证插件的请跑 ≥3.17.0                                                               |
+| [Portkey Gateway](https://github.com/advisories/GHSA-hhh5-2cvx-vmfp)                   | ❌ npm 无 attestation        | ❌            | ✅           | 1 条（SSRF，1.14.0 已修）                                                                                                                                |
+| [Bifrost](https://github.com/maximhq/bifrost/security/advisories)                      | ❌ 未发现                      | ❌            | ✅           | 1 条（SSRF 黑名单缺口，1.5.16 已修）                                                                                                                          |
+| [Higress](https://github.com/higress-group/higress/security)                           | ❌ 未发现                      | ❌            | ✅           | 0 条公开——没有公告 ≠ 没有漏洞                                                                                                                                 |
+| [Helicone ai-gateway](https://github.com/advisories/GHSA-9fxj-mchq-843p)               | ❔ 未知                       | ❌            | ❌           | 1 条低危 SSRF——**未列出修复版本**                                                                                                                            |
 
 三张"真实收据"，说明这是选型维度、不是被害妄想：
 
@@ -654,26 +655,26 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 
 **只认证据，不认传闻。** 那些较新或异常便宜、我们*已收录但尚未独立验真*的中转放在这里，标为"用前自测"。跑一遍 [canary 对比测试](scripts/canary_check.py) 并 [提交你的判定](https://github.com/cuihuan/awesome-ai-gateway/issues/new?template=report-relay.yml)，即可把条目移到 ✅ 已验真 或 ⛔ 确认有问题。脚本支持一次跑多个模型（`--model a,b`），并附带 tokenizer/指纹探针——比对 `system_fingerprint` 是否一致、相同 prompt 下 `prompt_tokens` 是否偏离，作为文本相似度之外的独立佐证。项目方自己跑出的通过结果只记为*自报*（self-reported）——升级到 ✅ 已验真，需由无利益相关的第三方**独立复现**。
 
-| 中转 | 收录于 | 状态 | 为何在此 |
-|---|---|---|---|
-| [FlintAPI](https://flintapi.ai) | 性价比优先 | ⚠️ 未验证——用前自测 | 覆盖国产大模型（DeepSeek/Qwen/Kimi/GLM/MiniMax）的中转；运营方自述"智能路由"（prompt→最适合的模型），未经独立核实；模型保真度未经核实。 |
-| [RunAPI](https://runapi.ai) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管多模态 OpenAI 兼容中转（LLM + 图像/视频/音频）；`runapi.ai/v1` 在线（401 未授权）；有活跃的 CLI/SDK 仓库但网关闭源/托管；自荐；模型保真度未经核实。 |
-| [NovAI](https://aiapi-pro.com) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管国产模型中转（DeepSeek/Qwen/GLM/Kimi/MiniMax/Doubao/Hunyuan）+ 豆包图像/视频，同一端点；`aiapi-pro.com/v1` 在线；自荐；模型保真度未经核实。 |
-| [TeamoRouter](https://teamorouter.cn) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管多协议（OpenAI/Anthropic/Gemini）中转，覆盖 500+ 供应商；主端点 `api.teamorouter.cn/v1` 在线（无效 key 返回 401），旧 `teamorouter.com/v1` 仍在线作后备；运营方自述智能路由 + 通道稀释检测，未经核实；模型保真度未经核实。 |
-| [FlowBar](https://flowbarai.com) | 性价比优先 | ⚠️ 未验证——用前自测 | 转售前沿模型（GPT/Claude/Gemini），定价低于 OpenRouter，差异点在支付覆盖（支付宝/微信、USDT/USDC、PayPal、Apple/Google Pay）；闭源；模型保真度未经核实。 |
-| [lxg2it ModelRouter](https://api.lxg2it.com) ([repo](https://github.com/lxg2it/modelrouter-core)) | 性价比优先 | ⚠️ 未验证——[自报 canary 通过](https://github.com/cuihuan/awesome-ai-gateway/issues/8)（2026-06-22）；待独立复现 | 个人开发者打造、转售 Anthropic/OpenAI/Google 前沿模型、自称 0% 加价（可能另收充值手续费）。项目方自己跑的 canary 对比通过（Opus 4.8 平均相似度 1.0）；尚未由第三方独立复现。公开仓库为精简无协议占位（2026-06 又有提交）——路由已闭源托管。 |
-| [Loop Gateway](https://api.loopxxi.com) | 性价比优先 | ⚠️ 未验证——用前自测 | 匿名闭源中转（公开 GitHub 仓库已删除），*通过自己的 OpenRouter 账号*转售 311 个前沿模型并加价 15%，无账号 + 仅加密货币；模型保真度未经核实。 |
-| [nullsink](https://nullsink.is) ([仓库](https://github.com/nullsink/nullsink)) | 性价比优先 | ⚠️ 未验证——用前自测 | 无账号、无日志、仅门罗币/比特币的中转，*通过运营者自己的账号*代理 OpenAI/Anthropic 并加价约 10%；仓库 <!--s:nullsink/nullsink-->⭐ 11<!--/s-->，模型保真度未经核实。 |
-| [Meshs One](https://api.meshs.one) | 性价比优先 | ⚠️ 未验证——用前自测 | 新的托管中转（疑似基于 new-api），按 token 转售国产前沿模型（DeepSeek/Qwen/MiniMax）；闭源、由关联方自荐，模型保真度未经核实。 |
-| [CoderPlan](https://coderplan.ai) | 性价比优先 | ⚠️ 未验证——用前自测 | 面向国内、按 token 转售 Claude/GPT/Gemini/DeepSeek/Grok；API 基址 `api.coderplan.ai/v1` 返回 `new_api_error`（基于 new-api）、闭源；模型保真度未经核实。 |
-| [KeepRouter](https://keeprouter.com) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管 OpenAI+Anthropic 双兼容网关（原生 `/v1/messages`），聚合 50+ 模型、按成本 0% 加价（充值费 8%+$0.35）；`/v1/models` 端点在线（OpenAI 格式）；模型保真度未经核实。 |
-| [RouterPlex](https://routerplex.com) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管中转，按厂商标价接入 11 家 25+ 模型；`api.routerplex.com/v1` 在线（LiteLLM 式鉴权错误，疑似基于 LiteLLM）；闭源、自荐，模型保真度未经核实。 |
-| [AI快站 (aifast.club)](https://www.aifast.club) | 性价比优先 | ⚠️ 未验证——用前自测 | 运营方自荐的国内中转（OpenAI+Anthropic 双兼容）；实时模型清单/倍率见 `/api/ratio_config`，状态见 `/api/status`；闭源，模型保真度未经核实。 |
-| [TierUp](https://tierup.ai) | 性价比优先 | ⚠️ 未验证——用前自测 | 档位制中转，经 OpenRouter 转售、约零售价 50%（透明补贴、个人开发、生产用户约零——均为自我披露）；`api.tierup.ai/v1` 在线（OpenAI 格式）；转售访问，模型保真度未经核实。 |
-| [OpenPaths](https://openpaths.io) ([仓库](https://github.com/lee101/openpaths)) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管的多厂商路由（15+ 厂商、多模态）带自动路由；其"开源"GitHub 仓库实为无代码、无协议的展示镜像，指向第三方平台，应视作闭源托管；模型保真度未经核实。 |
-| [ApiFlux](https://apiflux.ai) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管多协议中转（OpenAI/Anthropic/Gemini），提供 Claude Code / Codex CLI / OpenCode 接入指南；`apiflux.ai/v1` 存活（401）；运营方宣称全部模型按官方定价 85% 计费——低于官方定价本身即需权衡的信号；自荐；模型保真度未经核实。 |
-| [XiuRouter](https://router.xiu.ai/) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管多协议网关，支持受限 Key、逐请求用量/费用记录和 14 个开发工具及 Agent 的接入指引；`router-api.xiu.ai/v1/models` 存活（401）；自荐；模型保真度和所宣称的节省比例未经独立核实。 |
-| [AllRouter](https://allrouter.ai) | 性价比优先 | ⚠️ 未验证——用前自测 | 托管 OpenAI+Anthropic 双兼容中转，约 25 个模型宣称按厂商官方标价、不加价，另有自有 GPU 的 GLM/Gemma 免费档；`allrouter.ai/v1` 存活（401，`new_api_error` → 基于 new-api）；自荐时给出的仓库为文档镜像而非源码；模型保真度未经核实。 |
+| 中转                                                                                                | 收录于   | 状态                                                                                               | 为何在此                                                                                                                                                         |
+| ------------------------------------------------------------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [FlintAPI](https://flintapi.ai)                                                                   | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 覆盖国产大模型（DeepSeek/Qwen/Kimi/GLM/MiniMax）的中转；运营方自述"智能路由"（prompt→最适合的模型），未经独立核实；模型保真度未经核实。                                                                      |
+| [RunAPI](https://runapi.ai)                                                                       | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 托管多模态 OpenAI 兼容中转（LLM + 图像/视频/音频）；`runapi.ai/v1` 在线（401 未授权）；有活跃的 CLI/SDK 仓库但网关闭源/托管；自荐；模型保真度未经核实。                                                           |
+| [NovAI](https://aiapi-pro.com)                                                                    | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 托管国产模型中转（DeepSeek/Qwen/GLM/Kimi/MiniMax/Doubao/Hunyuan）+ 豆包图像/视频，同一端点；`aiapi-pro.com/v1` 在线；自荐；模型保真度未经核实。                                                    |
+| [TeamoRouter](https://teamorouter.cn)                                                             | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 托管多协议（OpenAI/Anthropic/Gemini）中转，覆盖 500+ 供应商；主端点 `api.teamorouter.cn/v1` 在线（无效 key 返回 401），旧 `teamorouter.com/v1` 仍在线作后备；运营方自述智能路由 + 通道稀释检测，未经核实；模型保真度未经核实。  |
+| [FlowBar](https://flowbarai.com)                                                                  | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 转售前沿模型（GPT/Claude/Gemini），定价低于 OpenRouter，差异点在支付覆盖（支付宝/微信、USDT/USDC、PayPal、Apple/Google Pay）；闭源；模型保真度未经核实。                                                   |
+| [lxg2it ModelRouter](https://api.lxg2it.com) ([repo](https://github.com/lxg2it/modelrouter-core)) | 性价比优先 | ⚠️ 未验证——[自报 canary 通过](https://github.com/cuihuan/awesome-ai-gateway/issues/8)（2026-06-22）；待独立复现 | 个人开发者打造、转售 Anthropic/OpenAI/Google 前沿模型、自称 0% 加价（可能另收充值手续费）。项目方自己跑的 canary 对比通过（Opus 4.8 平均相似度 1.0）；尚未由第三方独立复现。公开仓库为精简无协议占位（2026-06 又有提交）——路由已闭源托管。          |
+| [Loop Gateway](https://api.loopxxi.com)                                                           | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 匿名闭源中转（公开 GitHub 仓库已删除），*通过自己的 OpenRouter 账号*转售 311 个前沿模型并加价 15%，无账号 + 仅加密货币；模型保真度未经核实。                                                                      |
+| [nullsink](https://nullsink.is) ([仓库](https://github.com/nullsink/nullsink))                      | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 无账号、无日志、仅门罗币/比特币的中转，*通过运营者自己的账号*代理 OpenAI/Anthropic 并加价约 10%；仓库 <!--s:nullsink/nullsink-->⭐ 11<!--/s-->，模型保真度未经核实。                                           |
+| [Meshs One](https://api.meshs.one)                                                                | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 新的托管中转（疑似基于 new-api），按 token 转售国产前沿模型（DeepSeek/Qwen/MiniMax）；闭源、由关联方自荐，模型保真度未经核实。                                                                            |
+| [CoderPlan](https://coderplan.ai)                                                                 | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 面向国内、按 token 转售 Claude/GPT/Gemini/DeepSeek/Grok；API 基址 `api.coderplan.ai/v1` 返回 `new_api_error`（基于 new-api）、闭源；模型保真度未经核实。                                    |
+| [KeepRouter](https://keeprouter.com)                                                              | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 托管 OpenAI+Anthropic 双兼容网关（原生 `/v1/messages`），聚合 50+ 模型、按成本 0% 加价（充值费 8%+$0.35）；`/v1/models` 端点在线（OpenAI 格式）；模型保真度未经核实。                                       |
+| [RouterPlex](https://routerplex.com)                                                              | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 托管中转，按厂商标价接入 11 家 25+ 模型；`api.routerplex.com/v1` 在线（LiteLLM 式鉴权错误，疑似基于 LiteLLM）；闭源、自荐，模型保真度未经核实。                                                             |
+| [AI快站 (aifast.club)](https://www.aifast.club)                                                     | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 运营方自荐的国内中转（OpenAI+Anthropic 双兼容）；实时模型清单/倍率见 `/api/ratio_config`，状态见 `/api/status`；闭源，模型保真度未经核实。                                                              |
+| [TierUp](https://tierup.ai)                                                                       | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 档位制中转，经 OpenRouter 转售、约零售价 50%（透明补贴、个人开发、生产用户约零——均为自我披露）；`api.tierup.ai/v1` 在线（OpenAI 格式）；转售访问，模型保真度未经核实。                                                    |
+| [OpenPaths](https://openpaths.io) ([仓库](https://github.com/lee101/openpaths))                     | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 托管的多厂商路由（15+ 厂商、多模态）带自动路由；其"开源"GitHub 仓库实为无代码、无协议的展示镜像，指向第三方平台，应视作闭源托管；模型保真度未经核实。                                                                            |
+| [ApiFlux](https://apiflux.ai)                                                                     | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 托管多协议中转（OpenAI/Anthropic/Gemini），提供 Claude Code / Codex CLI / OpenCode 接入指南；`apiflux.ai/v1` 存活（401）；运营方宣称全部模型按官方定价 85% 计费——低于官方定价本身即需权衡的信号；自荐；模型保真度未经核实。     |
+| [XiuRouter](https://router.xiu.ai/)                                                               | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 托管多协议网关，支持受限 Key、逐请求用量/费用记录和 14 个开发工具及 Agent 的接入指引；`router-api.xiu.ai/v1/models` 存活（401）；自荐；模型保真度和所宣称的节省比例未经独立核实。                                            |
+| [AllRouter](https://allrouter.ai)                                                                 | 性价比优先 | ⚠️ 未验证——用前自测                                                                                     | 托管 OpenAI+Anthropic 双兼容中转，约 25 个模型宣称按厂商官方标价、不加价，另有自有 GPU 的 GLM/Gemma 免费档；`allrouter.ai/v1` 存活（401，`new_api_error` → 基于 new-api）；自荐时给出的仓库为文档镜像而非源码；模型保真度未经核实。 |
 
 *目前没有 ⛔ 确认有问题 的条目——该状态需要可复现的 canary 判定或有据可查的事故，绝不凭传闻。*
 
@@ -681,40 +682,40 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 
 *持续更新的模型 / 定价 / 网关评测摘要——**最新在前，每条都标注日期与来源。** 这是变化最快的「信号层」；想要我们自己**可复现**的成本表与模型评分卡，见[完整评测集](BENCHMARKS.zh-CN.md)。发现值得收录的新评测？[来提交](CONTRIBUTING.md)。*
 
-| 日期 | 分类 | 结论 | 来源 |
-|---|---|---|---|
-| 2026-07-29 | 🤖 MCP | **五个 MCP 网关里只有一个跟进了无状态重写，而且是在规范发布次日。** 用 2026-07-28 版新增与删除的两个标记做代码搜索探测——`server/discover` 与 `Mcp-Session-Id`：**agentgateway** 实现了新的发现 RPC（3 处命中）**并同时保留**旧握手，还写了一份版本协商设计，把重写前后的客户端与服务端桥接起来；**Lunar MCPX、Envoy AI Gateway 与 Docker MCP Gateway** 的 `server/discover` 命中为零，仍停在规范已删除的会话模型上。如果你现在的 Agent 集群是混版本的，这层协商就是"代理能用"与"退回兜底路径"的区别。逐网关证据见 [`data/mcp_gateways.json`](data/mcp_gateways.json)。 | [agentgateway MCP README](https://github.com/agentgateway/agentgateway/blob/main/crates/agentgateway/src/mcp/README.md) |
-| 2026-07-29 | 💰 定价 | **本周最便宜的模型没进我们的成本表，而"为什么没进"才是重点。** Qwen3.7 Flash（2026-07-27 上架，100 万上下文，阿里官方模型页列出五个地域）按**输入长度分档**计价：32K 以下 $0.03/$0.13、到 256K 为 $0.10/$0.40、256K 以上 $0.20/$0.80。放进我们四个场景一算，"最便宜"就分裂了：生成密集的报告任务它赢（**$0.013 vs $0.028**）、输入密集的总结也赢（$0.011 vs $0.015），但编码 Agent 会话输给 DeepSeek V4-Flash（$0.025 vs $0.021）、百万 token 对话月更是输一倍多（**$0.50 vs $0.21**）——因为 DeepSeek 在整个 100 万窗口内是平价不分档。在阿里计费页收录它之前，它不进 [BENCHMARKS](BENCHMARKS.zh-CN.md)：那个页面目前只到 3.6-Flash，所以上面的数字来自 OpenRouter 的机读接口，而非厂商价格表。 | [OpenRouter API](https://openrouter.ai/api/v1/models) |
-| 2026-07-28 | 💰 定价 | **月度核验：13 项模型定价逐一对照官方页，12 项完全一致。** 唯一破的不是涨价而是**静默退役**——Grok 4（2026-05-15 退役）旧 slug 仍在服务、按 grok-4.3 计费（$1.25/$2.50），**比我们记录的 $3/$15 便宜 2.4 倍**。给网关配置的教训：按带日期的 slug 固定模型、盯退役公告而不只是价格页——退役 slug 会同时悄悄换模型和换账单。 | [models.json](data/models.json) |
-| 2026-07-27 | 💰 定价 | API 定价市场已覆盖 **15 家供应商、194 个模型**——全输入/输出区间价差约 **2,500×**：在列最便宜输入 **Llama 3.1 8B（$0.02/百万）** vs 最贵输出 **Claude Mythos 5（$50.00/百万）**（据站内标价自行计算）；最便宜旗舰输入仍是 **DeepSeek V4 Flash（$0.14/百万）**。 | [aipricing.guru](https://aipricing.guru) |
-| 2026-07-10 | 🔌 跨格式 | **最难的路径，横跨 3 个网关实测**——Anthropic 客户端（如 Claude Code）路由到 OpenAI 模型，被报最多的"工具调用坏了"。中立 CI 跑机：**LiteLLM v1.91.1 — 3/3 · Bifrost — 3/3 · Portkey OSS — 不提供该路径**（其 `/v1/messages` 只认 anthropic provider）。LiteLLM 与 Bifrost 都能干净翻译；Portkey OSS 在 header 自托管配置下不暴露这条路。版本提醒：LiteLLM 的 `/v1/messages` 传输路径变过（≤1.57.x 走 Chat Completions → ≥~1.9x 与 Bifrost 都走 OpenAI **Responses API**，指向只支持 chat-completions 的上游会 `KeyError('created_at')`）——**务必锁版本**。可复现：`node probe/xformat.mjs --gateway <名称> --messages-url <你的 /v1/messages>`（方法见[十分钟自测](docs/protocol-translation.zh-CN.md#5-十分钟验证你自己的网关)）。 | [xformat.json](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/xformat.json) |
-| 2026-07-09 | 🆓 免费额度 | **11 家厂商免费额度逐行审计，全部对照厂商自己的文档核实**：Google 已把 Gemini 免费档限额藏进登录后台；Mistral 免费模式**默认拿你的数据训练**（需手动关闭）；Together AI 的 `-free` 模型**已全部下线**（最低预充 $5）；Kimi 从来不免费（先充 $1）。机器可读，CI 强制 ≤30 天复审。 | [free_tiers.json](data/free_tiers.json) |
-| 2026-07 | 🔌 保真度 | **首个独立协议保真度测试**——网关能否完整转发工具调用/流式/usage（第一大真实故障）？**LiteLLM 3/3 · Bifrost 3/3 · Portkey OSS 1/3**——Portkey OSS 的 custom-host 流式在干净 CI 跑机上抛内部错误（非流式正常；托管产品未测）。可复现：`node probe/fidelity.mjs --gateway <名称> --gateway-url <你的 /v1/chat/completions>`；`--gateway self-test` 一条命令即可自测探针本身。 | [llm-gateway-bench](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/fidelity.json) |
-| 2026-07 | ⏱️ 性能 | **首个独立网关开销横评**（同一中立 CI 跑机、mock 上游、不含厂商宣传）：每请求增加 **Bifrost 0.62 ms** · **Portkey OSS 2.65 ms** · **LiteLLM 5.83 ms**。Bifrost「最快」方向属实（比 LiteLLM 低 ~10×，而非宣传的 50×）；Portkey「<1ms」在共享 CI 硬件上未复现。`node probe/overhead.mjs` 可复现；欢迎 PR 加测。 | [llm-gateway-bench](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json) |
-| 2026-07 | 📈 采用 | **多模型已是默认架构**——1,000+ 受访 AI 工程师中 **87% 在同时使用多个模型**（44% 按任务类型路由、11% 按成本），**75% 因成本调整用量**，成本是生产环境**第二大被监控指标**（仅次于质量）。只有 20% 把可靠性放进选型前三——故障转移仍被低估。 | [Amplify Partners](https://www.amplifypartners.com/blog-posts/the-2026-ai-engineering-report) |
-| 2026-07-02 | 🛡️ 可靠性 | **Anthropic 曾依出口管制令全球下线 Fable 5 与 Mythos 5** 约 3 周，商务部撤销管制后恢复（7 月 2 日回到 Claude 平台/Code）——单厂商架构没有退路、多厂商路由才是对冲，这是最鲜活的提醒。 | [CNBC](https://www.cnbc.com/2026/06/30/anthropic-says-trump-admin-has-lifted-export-controls-on-claude-fable-5-and-mythos-5.html) |
-| 2026-06-23 | 🚀 网关 | **Envoy AI Gateway 发布 v1.0**（生产 GA）——CNCF/Envoy 生态、Kubernetes 原生的多厂商数据面（厂商故障转移、token 限流、MCP 支持）正式转入稳定版。 | [Envoy](https://aigateway.envoyproxy.io/blog/v1.0-release-announcement/) |
-| 2026-06 | 📈 采用 | ChatGPT 周活已达 **~9 亿**、日处理 **>25 亿次查询**——需求扩张与价差几乎同速。 | [DemandSage](https://www.demandsage.com/chatgpt-statistics/) |
-| 2026-04 | 📡 遥测 | **生产遥测印证了调研结论**——基于 1,000+ 企业的真实 LLM 流量：**>70% 在用 3+ 个模型**，OpenAI 份额一年内 **75% → 63%**（Gemini +20pp、Claude +23pp），3 月**限流占全部 LLM 错误约 ⅓**（840 万次），且**仅 28% 的调用有缓存命中**、系统提示词吃掉 69% 的输入 token——路由、故障转移和缓存被可测量地低配了。 | [Datadog](https://www.datadoghq.com/state-of-ai-engineering/) |
-| 2026-01 | 📡 遥测 | **100 万亿 token 真实网关流量研究**（OpenRouter × a16z）：开源权重模型已占 **~⅓ token 量**；没有单个开源模型能长期占 20–25% 以上（快速轮替）；降价 10% 只带来 ~0.5–0.7% 用量增长——**驱动换模型的是质量，不是价格**。 | [arXiv](https://arxiv.org/abs/2601.10088) |
-| 2025-12 | 💰 支出 | **企业 LLM API 支出在持续换厂商**——Anthropic 40% · OpenAI 27%（2023 年曾 50%）· Google 21%（$125 亿企业模型 API 支出，n=495；披露：Menlo 是 Anthropic 投资方）。这种规模的厂商轮替，就是别把单一厂商写死的商业理由。 | [Menlo Ventures](https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/) |
+| 日期         | 分类      | 结论                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 来源                                                                                                                                |
+| ---------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-07-29 | 🤖 MCP  | **五个 MCP 网关里只有一个跟进了无状态重写，而且是在规范发布次日。** 用 2026-07-28 版新增与删除的两个标记做代码搜索探测——`server/discover` 与 `Mcp-Session-Id`：**agentgateway** 实现了新的发现 RPC（3 处命中）**并同时保留**旧握手，还写了一份版本协商设计，把重写前后的客户端与服务端桥接起来；**Lunar MCPX、Envoy AI Gateway 与 Docker MCP Gateway** 的 `server/discover` 命中为零，仍停在规范已删除的会话模型上。如果你现在的 Agent 集群是混版本的，这层协商就是"代理能用"与"退回兜底路径"的区别。逐网关证据见 [`data/mcp_gateways.json`](data/mcp_gateways.json)。                                                                                                                                                                                       | [agentgateway MCP README](https://github.com/agentgateway/agentgateway/blob/main/crates/agentgateway/src/mcp/README.md)           |
+| 2026-07-29 | 💰 定价   | **本周最便宜的模型没进我们的成本表，而"为什么没进"才是重点。** Qwen3.7 Flash（2026-07-27 上架，100 万上下文，阿里官方模型页列出五个地域）按**输入长度分档**计价：32K 以下 $0.03/$0.13、到 256K 为 $0.10/$0.40、256K 以上 $0.20/$0.80。放进我们四个场景一算，"最便宜"就分裂了：生成密集的报告任务它赢（**$0.013 vs $0.028**）、输入密集的总结也赢（$0.011 vs $0.015），但编码 Agent 会话输给 DeepSeek V4-Flash（$0.025 vs $0.021）、百万 token 对话月更是输一倍多（**$0.50 vs $0.21**）——因为 DeepSeek 在整个 100 万窗口内是平价不分档。在阿里计费页收录它之前，它不进 [BENCHMARKS](BENCHMARKS.zh-CN.md)：那个页面目前只到 3.6-Flash，所以上面的数字来自 OpenRouter 的机读接口，而非厂商价格表。                                                                                                  | [OpenRouter API](https://openrouter.ai/api/v1/models)                                                                             |
+| 2026-07-28 | 💰 定价   | **月度核验：13 项模型定价逐一对照官方页，12 项完全一致。** 唯一破的不是涨价而是**静默退役**——Grok 4（2026-05-15 退役）旧 slug 仍在服务、按 grok-4.3 计费（$1.25/$2.50），**比我们记录的 $3/$15 便宜 2.4 倍**。给网关配置的教训：按带日期的 slug 固定模型、盯退役公告而不只是价格页——退役 slug 会同时悄悄换模型和换账单。                                                                                                                                                                                                                                                                                                                                                                             | [models.json](data/models.json)                                                                                                   |
+| 2026-07-27 | 💰 定价   | API 定价市场已覆盖 **15 家供应商、194 个模型**——全输入/输出区间价差约 **2,500×**：在列最便宜输入 **Llama 3.1 8B（$0.02/百万）** vs 最贵输出 **Claude Mythos 5（$50.00/百万）**（据站内标价自行计算）；最便宜旗舰输入仍是 **DeepSeek V4 Flash（$0.14/百万）**。                                                                                                                                                                                                                                                                                                                                                                                                | [aipricing.guru](https://aipricing.guru)                                                                                          |
+| 2026-07-10 | 🔌 跨格式  | **最难的路径，横跨 3 个网关实测**——Anthropic 客户端（如 Claude Code）路由到 OpenAI 模型，被报最多的"工具调用坏了"。中立 CI 跑机：**LiteLLM v1.91.1 — 3/3 · Bifrost — 3/3 · Portkey OSS — 不提供该路径**（其 `/v1/messages` 只认 anthropic provider）。LiteLLM 与 Bifrost 都能干净翻译；Portkey OSS 在 header 自托管配置下不暴露这条路。版本提醒：LiteLLM 的 `/v1/messages` 传输路径变过（≤1.57.x 走 Chat Completions → ≥~1.9x 与 Bifrost 都走 OpenAI **Responses API**，指向只支持 chat-completions 的上游会 `KeyError('created_at')`）——**务必锁版本**。可复现：`node probe/xformat.mjs --gateway <名称> --messages-url <你的 /v1/messages>`（方法见[十分钟自测](docs/protocol-translation.zh-CN.md#5-十分钟验证你自己的网关)）。 | [xformat.json](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/xformat.json)                                          |
+| 2026-07-09 | 🆓 免费额度 | **11 家厂商免费额度逐行审计，全部对照厂商自己的文档核实**：Google 已把 Gemini 免费档限额藏进登录后台；Mistral 免费模式**默认拿你的数据训练**（需手动关闭）；Together AI 的 `-free` 模型**已全部下线**（最低预充 $5）；Kimi 从来不免费（先充 $1）。机器可读，CI 强制 ≤30 天复审。                                                                                                                                                                                                                                                                                                                                                                                                        | [free_tiers.json](data/free_tiers.json)                                                                                           |
+| 2026-07    | 🔌 保真度  | **首个独立协议保真度测试**——网关能否完整转发工具调用/流式/usage（第一大真实故障）？**LiteLLM 3/3 · Bifrost 3/3 · Portkey OSS 1/3**——Portkey OSS 的 custom-host 流式在干净 CI 跑机上抛内部错误（非流式正常；托管产品未测）。可复现：`node probe/fidelity.mjs --gateway <名称> --gateway-url <你的 /v1/chat/completions>`；`--gateway self-test` 一条命令即可自测探针本身。                                                                                                                                                                                                                                                                                                    | [llm-gateway-bench](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/fidelity.json)                                    |
+| 2026-07    | ⏱️ 性能   | **首个独立网关开销横评**（同一中立 CI 跑机、mock 上游、不含厂商宣传）：每请求增加 **Bifrost 0.62 ms** · **Portkey OSS 2.65 ms** · **LiteLLM 5.83 ms**。Bifrost「最快」方向属实（比 LiteLLM 低 ~10×，而非宣传的 50×）；Portkey「<1ms」在共享 CI 硬件上未复现。`node probe/overhead.mjs` 可复现；欢迎 PR 加测。                                                                                                                                                                                                                                                                                                                                                     | [llm-gateway-bench](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json)                                    |
+| 2026-07    | 📈 采用   | **多模型已是默认架构**——1,000+ 受访 AI 工程师中 **87% 在同时使用多个模型**（44% 按任务类型路由、11% 按成本），**75% 因成本调整用量**，成本是生产环境**第二大被监控指标**（仅次于质量）。只有 20% 把可靠性放进选型前三——故障转移仍被低估。                                                                                                                                                                                                                                                                                                                                                                                                                                        | [Amplify Partners](https://www.amplifypartners.com/blog-posts/the-2026-ai-engineering-report)                                     |
+| 2026-07-02 | 🛡️ 可靠性 | **Anthropic 曾依出口管制令全球下线 Fable 5 与 Mythos 5** 约 3 周，商务部撤销管制后恢复（7 月 2 日回到 Claude 平台/Code）——单厂商架构没有退路、多厂商路由才是对冲，这是最鲜活的提醒。                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | [CNBC](https://www.cnbc.com/2026/06/30/anthropic-says-trump-admin-has-lifted-export-controls-on-claude-fable-5-and-mythos-5.html) |
+| 2026-06-23 | 🚀 网关   | **Envoy AI Gateway 发布 v1.0**（生产 GA）——CNCF/Envoy 生态、Kubernetes 原生的多厂商数据面（厂商故障转移、token 限流、MCP 支持）正式转入稳定版。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | [Envoy](https://aigateway.envoyproxy.io/blog/v1.0-release-announcement/)                                                          |
+| 2026-06    | 📈 采用   | ChatGPT 周活已达 **~9 亿**、日处理 **>25 亿次查询**——需求扩张与价差几乎同速。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | [DemandSage](https://www.demandsage.com/chatgpt-statistics/)                                                                      |
+| 2026-04    | 📡 遥测   | **生产遥测印证了调研结论**——基于 1,000+ 企业的真实 LLM 流量：**>70% 在用 3+ 个模型**，OpenAI 份额一年内 **75% → 63%**（Gemini +20pp、Claude +23pp），3 月**限流占全部 LLM 错误约 ⅓**（840 万次），且**仅 28% 的调用有缓存命中**、系统提示词吃掉 69% 的输入 token——路由、故障转移和缓存被可测量地低配了。                                                                                                                                                                                                                                                                                                                                                                         | [Datadog](https://www.datadoghq.com/state-of-ai-engineering/)                                                                     |
+| 2026-01    | 📡 遥测   | **100 万亿 token 真实网关流量研究**（OpenRouter × a16z）：开源权重模型已占 **~⅓ token 量**；没有单个开源模型能长期占 20–25% 以上（快速轮替）；降价 10% 只带来 ~0.5–0.7% 用量增长——**驱动换模型的是质量，不是价格**。                                                                                                                                                                                                                                                                                                                                                                                                                                       | [arXiv](https://arxiv.org/abs/2601.10088)                                                                                         |
+| 2025-12    | 💰 支出   | **企业 LLM API 支出在持续换厂商**——Anthropic 40% · OpenAI 27%（2023 年曾 50%）· Google 21%（$125 亿企业模型 API 支出，n=495；披露：Menlo 是 Anthropic 投资方）。这种规模的厂商轮替，就是别把单一厂商写死的商业理由。                                                                                                                                                                                                                                                                                                                                                                                                                              | [Menlo Ventures](https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/)                              |
 
 <details>
 <summary>💸 <b>同样 ¥100（≈ $14.66），各模型能读多少？</b> 把 400× 价差讲具体。</summary>
 
 ¥100 能买到的**输入+输出 token** 量，按模型（混合估算 · 数据快照 **2026-06-21** · [aipricing.guru](https://aipricing.guru)）：
 
-| 级别 | 模型 | ¥100 能买 token | ≈ 中文字数 |
-|---|---|---|---|
-| 🥇 极致省钱 | **DeepSeek V4 Flash** | 3521 万 | ~2639 万 |
-| 🥇 极致省钱 | GPT-4.1 nano | 2958 万 | ~2218 万 |
-| 🥇 极致省钱 | GPT-5.4 nano | 1020 万 | ~765 万 |
-| 💚 性价比 | GPT-5.4 mini | 283 万 | ~212 万 |
-| 💚 性价比 | DeepSeek V4 Pro | 283 万 | ~212 万 |
-| 🧠 推理 | o3 | 148 万 | ~111 万 |
-| 🏁 旗舰 | Gemini 2.5 Pro | 131 万 | ~98 万 |
-| 🏁 旗舰 | GPT-5.5 | 42 万 | ~32 万 |
-| 🏁 旗舰 | GPT-5.5 Pro | 7 万 | ~5 万 |
+| 级别      | 模型                    | ¥100 能买 token | ≈ 中文字数  |
+| ------- | --------------------- | ------------- | ------- |
+| 🥇 极致省钱 | **DeepSeek V4 Flash** | 3521 万        | ~2639 万 |
+| 🥇 极致省钱 | GPT-4.1 nano          | 2958 万        | ~2218 万 |
+| 🥇 极致省钱 | GPT-5.4 nano          | 1020 万        | ~765 万  |
+| 💚 性价比  | GPT-5.4 mini          | 283 万         | ~212 万  |
+| 💚 性价比  | DeepSeek V4 Pro       | 283 万         | ~212 万  |
+| 🧠 推理   | o3                    | 148 万         | ~111 万  |
+| 🏁 旗舰   | Gemini 2.5 Pro        | 131 万         | ~98 万   |
+| 🏁 旗舰   | GPT-5.5               | 42 万          | ~32 万   |
+| 🏁 旗舰   | GPT-5.5 Pro           | 7 万           | ~5 万    |
 
 > **一句话：** ¥100 在 DeepSeek V4 Flash 上能读 **~2639 万字**（约 **52 套《三体》**），在 GPT-5.5 Pro 上只够 **~5 万字**（一篇短篇小说）。选模型就是选「钱的缩放比例」——[性价比优先](#-性价比优先)那一档的网关，存在的意义正是吃下这个价差。
 
@@ -924,19 +925,19 @@ OpenRouter 是托管（零运维、约 5.5% 手续费、<!--omc-->~340<!--/omc--
 
 表格背后的一切都机器可读、CC0、CI 自动刷新——像 [models.dev](https://models.dev) 一样，原始文件*就是* API：
 
-| 数据集 | 原始 URL | 刷新 |
-|---|---|---|
-| 五维网关评分卡 + 逐网关可观测证据 | [`data/gateways_eval.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/gateways_eval.json) · [CSV](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/gateways_scorecard.csv) | ≤30 天复审（CI 强制） |
-| 模型定价 + 基准快照 | [`data/models.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/models.json) · [成本 CSV](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/cost_table.csv) | ≤30 天复审（CI 强制） |
-| 网关事故/现实核查 | [`data/gateway_reality.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/gateway_reality.json) | 变更即更新（drift 门） |
-| **数据留存 / ZDR / 日志姿态**（逐托管网关 + 云） | [`data/data_retention.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/data_retention.json) | 政策变更时 |
-| **供应链安全姿态**（逐开源网关的签名/SBOM/公告 + 事件记录） | [`data/supply_chain.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/supply_chain.json) | ≤30 天复审（CI 强制） |
-| **MCP / Agent 网关能力矩阵**（传输、规范版本、工具级授权、凭证代持） | [`data/mcp_gateways.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/mcp_gateways.json) | ≤30 天复审（CI 强制） |
-| **核实版免费额度 / 限流表**（11 家厂商 + 已取消名单） | [`data/free_tiers.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/free_tiers.json) | ≤30 天复审（CI 强制） |
-| ~80 个网关的星标 + 最新版本 | [`data/projects.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/projects.json) · [`data/releases.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/releases.json) | 每日 |
-| **网关开销实测**（Bifrost/Portkey/LiteLLM） | [`overhead.json`](https://raw.githubusercontent.com/cuihuan/llm-gateway-bench/main/data/overhead.json) | 每月 CI |
-| **协议保真度结果**（工具调用/流式/usage 转发） | [`fidelity.json`](https://raw.githubusercontent.com/cuihuan/llm-gateway-bench/main/data/fidelity.json) | 每月 CI |
-| 多源价格三角校验（litellm/openrouter/models.dev） | [`prices.json`](https://raw.githubusercontent.com/cuihuan/llm-gateway-bench/main/data/prices.json) | 每 6 小时 |
+| 数据集                                        | 原始 URL                                                                                                                                                                                                                        | 刷新             |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| 五维网关评分卡 + 逐网关可观测证据                         | [`data/gateways_eval.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/gateways_eval.json) · [CSV](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/gateways_scorecard.csv) | ≤30 天复审（CI 强制） |
+| 模型定价 + 基准快照                                | [`data/models.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/models.json) · [成本 CSV](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/cost_table.csv)                    | ≤30 天复审（CI 强制） |
+| 网关事故/现实核查                                  | [`data/gateway_reality.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/gateway_reality.json)                                                                                                    | 变更即更新（drift 门） |
+| **数据留存 / ZDR / 日志姿态**（逐托管网关 + 云）           | [`data/data_retention.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/data_retention.json)                                                                                                      | 政策变更时          |
+| **供应链安全姿态**（逐开源网关的签名/SBOM/公告 + 事件记录）       | [`data/supply_chain.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/supply_chain.json)                                                                                                          | ≤30 天复审（CI 强制） |
+| **MCP / Agent 网关能力矩阵**（传输、规范版本、工具级授权、凭证代持） | [`data/mcp_gateways.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/mcp_gateways.json)                                                                                                          | ≤30 天复审（CI 强制） |
+| **核实版免费额度 / 限流表**（11 家厂商 + 已取消名单）          | [`data/free_tiers.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/free_tiers.json)                                                                                                              | ≤30 天复审（CI 强制） |
+| ~80 个网关的星标 + 最新版本                          | [`data/projects.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/projects.json) · [`data/releases.json`](https://raw.githubusercontent.com/cuihuan/awesome-ai-gateway/main/data/releases.json)   | 每日             |
+| **网关开销实测**（Bifrost/Portkey/LiteLLM）        | [`overhead.json`](https://raw.githubusercontent.com/cuihuan/llm-gateway-bench/main/data/overhead.json)                                                                                                                        | 每月 CI          |
+| **协议保真度结果**（工具调用/流式/usage 转发）              | [`fidelity.json`](https://raw.githubusercontent.com/cuihuan/llm-gateway-bench/main/data/fidelity.json)                                                                                                                        | 每月 CI          |
+| 多源价格三角校验（litellm/openrouter/models.dev）    | [`prices.json`](https://raw.githubusercontent.com/cuihuan/llm-gateway-bench/main/data/prices.json)                                                                                                                            | 每 6 小时         |
 
 欢迎但不强制署名。基于它做了东西？[告诉我们](https://github.com/cuihuan/awesome-ai-gateway/issues)——我们回链你。
 

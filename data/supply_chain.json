@@ -1,6 +1,7 @@
 {
   "_comment": "Supply-chain security posture per major OSS gateway, from primary sources (repo files, release assets, registry attestations, published security advisories — machine-checked via the GitHub API and CVE.org). Answers 'who signs their releases, publishes SBOMs, runs a disclosure process — and what actually got exploited?'. IMPORTANT reading rule: a high advisory count with fast fixes signals a working disclosure process (transparency), NOT extra danger; the worst posture is an unpatched advisory on a dormant repo. 'none found' = we searched the repo, workflows, release assets and registries and found no evidence — not proof of absence.",
-  "as_of": "2026-07-29",
+  "as_of": "2026-08-31",
+  "review_note": "本轮复核 2026-08-31(上一版 2026-07-29)。**这是部分复核,不是全量重验**:实际回查了 6/10 条记录,依据各条自带的 sources 重新取证。结果:2 条已更正、3 条经取证确认不变、1 条取证后仍无法判定。 **未复核(7 项)**:Portkey-AI/gateway、maximhq/bifrost、higress-group/higress、Helicone/ai-gateway、all rows、incidents list、debunked list——这些条目的值仍是上一版的,下一轮优先补。 LiteLLM 与 new-api 的顾问数经 GitHub security-advisories API 独立复核(14 / 15),非仅页面抓取。",
   "legend": {
     "signed_releases": "release artifacts cryptographically signed (cosign/GPG): yes (how) | none found | unknown",
     "provenance_sbom": "SLSA provenance and/or SBOM published: yes (how) | none found",
@@ -14,7 +15,7 @@
       "signed_releases": "yes — cosign-signed Docker images since v1.83.0 (introduced after the March 2026 PyPI compromise; fixed public key cosign.pub, verify commands embedded in every release)",
       "provenance_sbom": "none found (no SLSA, no SBOM)",
       "security_md": "yes",
-      "advisories_2025_26": "12 published GHSAs, all 2026 — 3 critical: auth bypass via Host header injection (CVE-2026-49468, 9.8, fixed 1.84.0), SQL injection in proxy key verification (CVE-2026-42208, 9.8, fixed 1.83.7), OIDC cache-key-collision auth bypass (CVE-2026-35030, fixed 1.83.0); plus the KEV-listed MCP command-exec chain (CVE-2026-42271, fixed 1.83.7)",
+      "advisories_2025_26": "14 published GHSAs, all 2026 — 3 critical: auth bypass via Host header injection (CVE-2026-49468, 9.8, fixed 1.84.0), SQL injection in proxy key verification (CVE-2026-42208, 9.8, fixed 1.83.7), OIDC cache-key-collision auth bypass (CVE-2026-35030, fixed 1.83.0); plus the KEV-listed MCP command-exec chain (CVE-2026-42271, fixed 1.83.7) | +2 published 2026-08-26 (moderate): GHSA-3cv6-jpf6-8222 'Authenticated SSRF and provider-credential exfiltration via unvalidated request-body routing parameters' and CVE-2026-59823 / GHSA-hx8v-g79f-8w5f 'SSRF via the user_config request parameter'. Moderate by CVSS, but credential exfiltration from the component that holds every provider key is worth weighing above its score.",
       "posture_note": "Most-deployed OSS gateway = most-attacked; disclosure process works and fixes land fast — pin >=1.84.0 and keep the control plane off the public internet",
       "sources": [
         "https://github.com/BerriAI/litellm/security/advisories",
@@ -27,7 +28,7 @@
       "signed_releases": "yes — cosign-signed Docker images + manifests",
       "provenance_sbom": "yes — buildx SBOM enabled; release binaries ship checksums",
       "security_md": "yes",
-      "advisories_2025_26": "14 published GHSAs — critical: quota-billing integer overflow enabling negative charges / self-crediting (GHSA-8r8v-xf7q-rcpr, fixed 1.0.0-rc.18), User-List API leaking the root access token (CVE-2026-64859, fixed v1.0.0-rc.7); high: Stripe webhook signature bypass = unlimited quota fraud (CVE-2026-41432, fixed 0.12.10), unauthenticated payment-webhook DoS, four separate SSRF bypasses (2025-10 through 2026-07)",
+      "advisories_2025_26": "15 published GHSAs — critical: quota-billing integer overflow enabling negative charges / self-crediting (GHSA-8r8v-xf7q-rcpr, fixed 1.0.0-rc.18), User-List API leaking the root access token (CVE-2026-64859, fixed v1.0.0-rc.7); high: Stripe webhook signature bypass = unlimited quota fraud (CVE-2026-41432, fixed 0.12.10), unauthenticated payment-webhook DoS, four separate SSRF bypasses (2025-10 through 2026-07) | +1 published 2026-08-07 (high): GHSA-j6gc-4893-qwmp 'Redis user quota cache overwrite via PUT /api/user/self allows quota bypass' — lands directly in the billing surface this row already flags.",
       "posture_note": "Strong release hygiene (cosign + SBOM), but the billing/webhook attack surface is where its critical bugs cluster — if you sell quota through it, patch immediately and egress-restrict",
       "sources": [
         "https://github.com/QuantumNous/new-api/security/advisories"
