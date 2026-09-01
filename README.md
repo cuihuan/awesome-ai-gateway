@@ -250,6 +250,7 @@ _Stars are cumulative; they never go down when a project stops shipping. Every t
 - [freellmapi](https://github.com/tashfeenahmed/freellmapi) <!--s:tashfeenahmed/freellmapi-->⭐ 23.4k<!--/s--> - OpenAI-compatible proxy (MIT) that stacks the free tiers of 28 LLM providers behind one `/v1` endpoint — smart routing, automatic failover, per-key quota tracking, encrypted key storage. ⚠️ Stacking provider free quotas behind one endpoint can carry provider-ToS / account-ban risk — the repo itself says "personal experimentation only" — and the operator sells a paid live-catalog subscription ($19/yr; the router itself stays MIT, self-hosted, on your own keys).
 - [AIMLAPI](https://aimlapi.com) - One OpenAI/Anthropic-compatible endpoint fronting 400+ models (chat, image, video, audio, embeddings); prepaid, OpenRouter-style aggregator.
 - [Novita AI](https://novita.ai) - Unified API to 200+ open-source models (DeepSeek/Qwen/Llama…) with load balancing, autoscaling and failover; also a GPU cloud.
+- [Gonka Broker](https://gonkabroker.com) - OpenAI- and Anthropic-compatible gateway to open-weight models (MiniMax, Kimi, DeepSeek, ...) served on the decentralized Gonka GPU network; flat pay-as-you-go pricing with input and output at the same rate, locked in at top-up, paid by card with no crypto wallet.
 - [Glama Gateway](https://glama.ai/ai/gateway) - OpenAI-compatible gateway to 100+ models with consolidated billing, caching and logging (OSS core [glama-ai/lightport](https://github.com/glama-ai/lightport)).
 
 <details>
