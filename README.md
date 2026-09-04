@@ -361,6 +361,7 @@ _Pain point: "Audit logs, PII redaction, RBAC, on-prem, and the EU AI Act."_
 - [Apache APISIX](https://github.com/apache/apisix) <!--s:apache/apisix-->⭐ 17.1k<!--/s--> - Cloud-native API + AI gateway with `ai-proxy` / `ai-proxy-multi` plugins.
 - [Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway) <!--s:envoyproxy/ai-gateway-->⭐ 2k<!--/s--> - CNCF-aligned GenAI access on Envoy Gateway, backed by Tetrate and Bloomberg.
 - [kgateway](https://github.com/kgateway-dev/kgateway) <!--s:kgateway-dev/kgateway-->⭐ 5.7k<!--/s--> - CNCF API/AI gateway, the base of Solo.io's commercial [Gloo AI Gateway](https://www.solo.io).
+- [AI Gateway HQ](https://aigatewayhq.com/platform/) - Hosted OpenAI-compatible gateway for customer-owned OpenAI, Anthropic and Gemini credentials or prepaid managed Amazon Bedrock, with workload keys, pre-request budget enforcement, health fallback, policy simulation, SAML/OIDC, SCIM and company-approved portfolio reporting. **New and unverified (self-submitted).**
 - [TrueFoundry AI Gateway](https://www.truefoundry.com) - Enterprise gateway with routing, guardrails and RBAC, deployable into your K8s/VPC.
 - [nexos.ai](https://nexos.ai) - Enterprise AI gateway/orchestration from the Nord Security founders (€30M Series A, Oct 2025).
 - [Tyk AI Studio](https://tyk.io) - AI governance suite: budgets, model catalogs, guardrails on Tyk's gateway.
