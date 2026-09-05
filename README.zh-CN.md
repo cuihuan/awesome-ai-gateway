@@ -234,7 +234,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [Glama Gateway](https://glama.ai/ai/gateway) — OpenAI 兼容网关，接入 100+ 模型，统一账单、缓存与日志（开源内核 [glama-ai/lightport](https://github.com/glama-ai/lightport)）。
 
 <details>
-<summary><b>新且未经核实的中转（20 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
+<summary><b>新且未经核实的中转（21 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
 
 - [Loop Gateway](https://api.loopxxi.com) — OpenAI 兼容代理，每个请求以比特币 sats（而非美元）计费。经 OpenRouter 接入 311 个模型、加价 15%。无需账号/邮箱/银行卡；用闪电网络充值即得 bearer token。三种鉴权（预付 bearer、L402、Cashu）。线上托管于 [api.loopxxi.com](https://api.loopxxi.com)。 **新且未经核实**（匿名；其公开 GitHub 仓库现已删除，按闭源托管中转看待）——它*通过运营者自己的 OpenRouter 账号*转售前沿模型并加价 15%，无账号+加密货币预付意味着一旦偷换模型或跑路都无从追索；投产前请用 [canary_check.py](scripts/canary_check.py) 验证保真度，且只充值你能承受损失的金额。
 - [nullsink](https://nullsink.is) ([仓库](https://github.com/nullsink/nullsink)) — 无账号的前沿模型 API 计费代理，用门罗币（Monero）或比特币（Bitcoin）付费。无需账号/邮箱/银行卡；生成 bearer token、链上预付，改一个 base URL 即可用官方 SDK 调用。加价约 10%，仅在充值时收取一次；不记录 IP、不记录请求日志；付款与 token 不可关联。单文件可执行、可自托管（TypeScript/Bun，AGPL-3.0），线上服务 [nullsink.is](https://nullsink.is)。 **新且未经核实**（仓库 2026-06 新建、<!--s:nullsink/nullsink-->⭐ 11<!--/s-->）——无账号+加密货币预付+无日志，一旦偷换模型或跑路都无从追索；投产前请用 [canary_check.py](scripts/canary_check.py) 验证保真度，且只充值你能承受损失的金额。
@@ -255,6 +255,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [TierUp](https://tierup.ai) — 托管的 OpenAI 兼容网关，用四个固定性能档位（tier-1…tier-4）取代模型名，每个档位在服务端映射到当前性价比最高的模型；底层通过 OpenRouter 路由，定价约为底层模型零售价的 50%，在早期产品市场契合阶段内透明补贴（个人开发、生产用户约为零、tier 1 目前免费）。较新且未经核实——投产前请先验证模型保真度（可用 [canary_check.py](scripts/canary_check.py)）。
 - [AllRouter](https://allrouter.ai) — 托管的 OpenAI / Anthropic 双兼容中转：一个 key 接入约 25 个模型（Kimi K3、Claude、GPT、Gemini、DeepSeek、GLM、Grok），宣称按各厂商官方标价计费、不加价；另有 GLM/Gemma 免费档，运营方称跑在自有 GPU 上；支持支付宝/微信支付，并提供 MCP 入口（`npx @allrouter/mcp-server`）。其 `/v1` 端点返回 `new_api_error`，疑似基于 [new-api](https://github.com/QuantumNous/new-api)。**新服务，尚未验证**（自荐；其给出的 GitHub 仓库是文档/宣传镜像而非网关源码，故应视作闭源托管中转）——按官方标价转售意味着没有可见毛利，更值得做一次独立保真度验证；投产前请用 [canary_check.py](scripts/canary_check.py) 核实。
 - [SayGM](https://saygm.com) — 即插即用的 OpenAI 兼容网关，接入前沿模型与开源模型；请求经 Intel TDX 机密计算 enclave 路由，并提供公开的硬件认证（attestation），使 SayGM 与宿主方都无法在传输过程中读取你的 prompt。按 token 计费，价格不高于各模型官方公开定价，无订阅。**新且未经核实**（自荐；其机密性声明依赖的 attestation 尚无人在此独立复现）——请先用 [canary_check.py](scripts/canary_check.py) 确认模型保真度；在能自行复跑的 attestation 验证方法公开之前，enclave 保证视为未经核实。
+- [Argolink](https://argolink.io/zh-cn?utm_source=github&utm_medium=resource-list&utm_campaign=gh-cuihuan-awesome-ai-gateway-pr&utm_content=readme-zh) — 托管式多模型 API 网关，提供公开的实时模型与价格目录，并支持 OpenAI Responses、Chat Completions、Anthropic Messages 及 Gemini 兼容的模型列表接口。**新且未经核实**（运营方自荐）——投入生产前请先验证模型保真度。
 - [EidosStack AI Gateway](https://www.eidosstack.com/en/ai-gateway) — 托管式 OpenAI 兼容网关：48+ 模型（DeepSeek、Anthropic、OpenAI、Google、Qwen、Kimi、GLM 七家厂商），令牌价格表（输入/输出/缓存）每 30 秒刷新，按量计费并支持按 Key 消费上限。**新且未经核实**（自荐）——投入生产前请先用 [canary_check.py](scripts/canary_check.py) 确认模型保真度。
 
 </details>
