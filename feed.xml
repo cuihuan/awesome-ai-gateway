@@ -5,8 +5,85 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-09-05T05:15:37Z</updated>
+  <updated>2026-09-06T06:44:22Z</updated>
   <author><name>Awesome AI Gateway</name></author>
+  <entry>
+    <title>askalf/dario v6.0.25</title>
+    <link href="https://github.com/askalf/dario/releases/tag/v6.0.25" />
+    <id>https://github.com/askalf/dario/releases/tag/v6.0.25</id>
+    <updated>2026-09-06T06:44:22Z</updated>
+    <summary>askalf/dario released v6.0.25.</summary>
+  </entry>
+  <entry>
+    <title>looplj/axonhub v1.0.0-beta10</title>
+    <link href="https://github.com/looplj/axonhub/releases/tag/v1.0.0-beta10" />
+    <id>https://github.com/looplj/axonhub/releases/tag/v1.0.0-beta10</id>
+    <updated>2026-09-06T05:50:53Z</updated>
+    <summary>looplj/axonhub released v1.0.0-beta10.</summary>
+  </entry>
+  <entry>
+    <title>BerriAI/litellm v1.100.0</title>
+    <link href="https://github.com/BerriAI/litellm/releases/tag/v1.100.0" />
+    <id>https://github.com/BerriAI/litellm/releases/tag/v1.100.0</id>
+    <updated>2026-09-06T05:33:17Z</updated>
+    <summary>BerriAI/litellm released v1.100.0.</summary>
+  </entry>
+  <entry>
+    <title>caozhiyuan/copilot-api v2.4.2</title>
+    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.4.2" />
+    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.4.2</id>
+    <updated>2026-09-06T01:10:25Z</updated>
+    <summary>caozhiyuan/copilot-api released v2.4.2.</summary>
+  </entry>
+  <entry>
+    <title>BlockRunAI/ClawRouter v0.12.275</title>
+    <link href="https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.275" />
+    <id>https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.275</id>
+    <updated>2026-09-05T22:58:24Z</updated>
+    <summary>BlockRunAI/ClawRouter released v0.12.275 — every rail says which gateway it is using.</summary>
+  </entry>
+  <entry>
+    <title>lidge-jun/opencodex v2.43.0</title>
+    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.43.0" />
+    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.43.0</id>
+    <updated>2026-09-05T16:39:03Z</updated>
+    <summary>lidge-jun/opencodex released v2.43.0.</summary>
+  </entry>
+  <entry>
+    <title>tbphp/gpt-load v2.0.0-rc.7</title>
+    <link href="https://github.com/tbphp/gpt-load/releases/tag/v2.0.0-rc.7" />
+    <id>https://github.com/tbphp/gpt-load/releases/tag/v2.0.0-rc.7</id>
+    <updated>2026-09-05T13:57:48Z</updated>
+    <summary>tbphp/gpt-load released v2.0.0-rc.7.</summary>
+  </entry>
+  <entry>
+    <title>seakee/CPA-Manager-Plus v1.12.9</title>
+    <link href="https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.12.9" />
+    <id>https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.12.9</id>
+    <updated>2026-09-05T13:23:51Z</updated>
+    <summary>seakee/CPA-Manager-Plus released v1.12.9.</summary>
+  </entry>
+  <entry>
+    <title>RelayPlane/proxy v1.9.56</title>
+    <link href="https://github.com/RelayPlane/proxy/releases/tag/v1.9.56" />
+    <id>https://github.com/RelayPlane/proxy/releases/tag/v1.9.56</id>
+    <updated>2026-09-05T11:49:03Z</updated>
+    <summary>RelayPlane/proxy released v1.9.56.</summary>
+  </entry>
+  <entry>
+    <title>yym68686/uni-api v1.7.266</title>
+    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.266" />
+    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.266</id>
+    <updated>2026-09-05T10:05:21Z</updated>
+    <summary>yym68686/uni-api released Release 1.7.266.</summary>
+  </entry>
+  <entry>
+    <title>Wei-Shaw/sub2api v0.2.1</title>
+    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.2.1" />
+    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.2.1</id>
+    <updated>2026-09-05T09:45:01Z</updated>
+    <summary>Wei-Shaw/sub2api released Sub2API 0.2.1.</summary>
+  </entry>
   <entry>
     <title>smart-mcp-proxy/mcpproxy-go v0.65.0</title>
     <link href="https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.65.0" />
@@ -29,46 +106,11 @@
     <summary>QuantumNous/new-api released v1.0.0-rc.33.</summary>
   </entry>
   <entry>
-    <title>caozhiyuan/copilot-api v2.4.0</title>
-    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.4.0" />
-    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.4.0</id>
-    <updated>2026-09-05T03:43:22Z</updated>
-    <summary>caozhiyuan/copilot-api released v2.4.0.</summary>
-  </entry>
-  <entry>
-    <title>tbphp/gpt-load v2.0.0-rc.6</title>
-    <link href="https://github.com/tbphp/gpt-load/releases/tag/v2.0.0-rc.6" />
-    <id>https://github.com/tbphp/gpt-load/releases/tag/v2.0.0-rc.6</id>
-    <updated>2026-09-05T01:33:21Z</updated>
-    <summary>tbphp/gpt-load released v2.0.0-rc.6.</summary>
-  </entry>
-  <entry>
     <title>tashfeenahmed/freellmapi v0.9.7</title>
     <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.9.7" />
     <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.9.7</id>
     <updated>2026-09-04T23:24:20Z</updated>
     <summary>tashfeenahmed/freellmapi released v0.9.7.</summary>
-  </entry>
-  <entry>
-    <title>askalf/dario v6.0.21</title>
-    <link href="https://github.com/askalf/dario/releases/tag/v6.0.21" />
-    <id>https://github.com/askalf/dario/releases/tag/v6.0.21</id>
-    <updated>2026-09-04T21:31:55Z</updated>
-    <summary>askalf/dario released v6.0.21.</summary>
-  </entry>
-  <entry>
-    <title>yym68686/uni-api v1.7.264</title>
-    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.264" />
-    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.264</id>
-    <updated>2026-09-04T20:36:29Z</updated>
-    <summary>yym68686/uni-api released Release 1.7.264.</summary>
-  </entry>
-  <entry>
-    <title>RelayPlane/proxy v1.9.52</title>
-    <link href="https://github.com/RelayPlane/proxy/releases/tag/v1.9.52" />
-    <id>https://github.com/RelayPlane/proxy/releases/tag/v1.9.52</id>
-    <updated>2026-09-04T20:17:23Z</updated>
-    <summary>RelayPlane/proxy released v1.9.52.</summary>
   </entry>
   <entry>
     <title>router-for-me/CLIProxyAPI v7.2.151</title>
@@ -120,20 +162,6 @@
     <summary>mlflow/mlflow released MLflow 3.16.0.</summary>
   </entry>
   <entry>
-    <title>lidge-jun/opencodex v2.42.0</title>
-    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.42.0" />
-    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.42.0</id>
-    <updated>2026-09-04T05:40:45Z</updated>
-    <summary>lidge-jun/opencodex released v2.42.0.</summary>
-  </entry>
-  <entry>
-    <title>BlockRunAI/ClawRouter v0.12.269</title>
-    <link href="https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.269" />
-    <id>https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.269</id>
-    <updated>2026-09-04T03:32:57Z</updated>
-    <summary>BlockRunAI/ClawRouter released v0.12.269 — shared spend ledger, onPayment fires, BlockRun defined.</summary>
-  </entry>
-  <entry>
     <title>happy520ai/unified-ai-system v0.7.0</title>
     <link href="https://github.com/happy520ai/unified-ai-system/releases/tag/v0.7.0" />
     <id>https://github.com/happy520ai/unified-ai-system/releases/tag/v0.7.0</id>
@@ -141,25 +169,11 @@
     <summary>happy520ai/unified-ai-system released v0.7.0 — Terminal-First Operations Surface.</summary>
   </entry>
   <entry>
-    <title>looplj/axonhub v1.0.0-beta9</title>
-    <link href="https://github.com/looplj/axonhub/releases/tag/v1.0.0-beta9" />
-    <id>https://github.com/looplj/axonhub/releases/tag/v1.0.0-beta9</id>
-    <updated>2026-09-03T11:26:24Z</updated>
-    <summary>looplj/axonhub released v1.0.0-beta9.</summary>
-  </entry>
-  <entry>
     <title>NadirRouter/NadirClaw v0.23.1</title>
     <link href="https://github.com/NadirRouter/NadirClaw/releases/tag/v0.23.1" />
     <id>https://github.com/NadirRouter/NadirClaw/releases/tag/v0.23.1</id>
     <updated>2026-09-02T14:46:30Z</updated>
     <summary>NadirRouter/NadirClaw released v0.23.1 — prompt cache key correctness.</summary>
-  </entry>
-  <entry>
-    <title>seakee/CPA-Manager-Plus v1.12.8</title>
-    <link href="https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.12.8" />
-    <id>https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.12.8</id>
-    <updated>2026-09-02T14:26:59Z</updated>
-    <summary>seakee/CPA-Manager-Plus released v1.12.8.</summary>
   </entry>
   <entry>
     <title>bestruirui/octopus v0.13.2</title>
@@ -174,20 +188,6 @@
     <id>https://github.com/labring/aiproxy/releases/tag/v0.6.11</id>
     <updated>2026-09-02T09:13:12Z</updated>
     <summary>labring/aiproxy released Version 0.6.11.</summary>
-  </entry>
-  <entry>
-    <title>BerriAI/litellm v1.99.1</title>
-    <link href="https://github.com/BerriAI/litellm/releases/tag/v1.99.1" />
-    <id>https://github.com/BerriAI/litellm/releases/tag/v1.99.1</id>
-    <updated>2026-09-02T06:17:51Z</updated>
-    <summary>BerriAI/litellm released v1.99.1.</summary>
-  </entry>
-  <entry>
-    <title>Wei-Shaw/sub2api v0.2.0</title>
-    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.2.0" />
-    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.2.0</id>
-    <updated>2026-09-02T03:24:41Z</updated>
-    <summary>Wei-Shaw/sub2api released Sub2API 0.2.0.</summary>
   </entry>
   <entry>
     <title>ascending-llc/jarvis-registry asc0.5.7</title>
