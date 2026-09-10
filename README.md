@@ -424,6 +424,7 @@ _Pain point: "Domestic models (Qwen/DeepSeek/GLM/Kimi), CNY payment, key distrib
 _Pain point: "Agents call tools now — govern MCP traffic like you govern APIs."_ The newest category (2025–2026).
 
 - [agentgateway](https://github.com/agentgateway/agentgateway) <!--s:agentgateway/agentgateway-->⭐ 4.8k<!--/s--> - Linux Foundation proxy for agentic traffic (LF Projects, per its own CHARTER — not a CNCF-hosted project): MCP governance and agent-to-agent (A2A) communication.
+- [Speakeasy MCP Gateway](https://www.speakeasy.com/product/mcp-gateway) - Managed MCP gateway that routes agents and tool calls through one governed entry point, with SSO, role-based access, runtime guardrails, and audit logs.
 - [TrustGate](https://docs.neuraltrust.ai/trustgate) <!--s:NeuralTrust/TrustGate-->⭐ 9<!--/s--> - Self-hosted Go gateway whose MCP plane aggregates upstream MCP servers behind one endpoint, sharing the tenancy, auth and policy model of its LLM proxy — one governance surface for both traffic types rather than two.
 - [Lunar.dev MCPX](https://lunar.dev) <!--s:TheLunarCompany/lunar-->⭐ 491<!--/s--> - Gateway for managing MCP server consumption.
 - [Tetrate Agent Router Service](https://tetrate.io/products/tetrate-agent-router-service) - Managed Envoy AI Gateway fleet: LLM + MCP gateway with guardrails (~5% fee).
