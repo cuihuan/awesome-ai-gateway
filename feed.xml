@@ -5,8 +5,92 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-09-09T07:04:53Z</updated>
+  <updated>2026-09-10T06:26:21Z</updated>
   <author><name>Awesome AI Gateway</name></author>
+  <entry>
+    <title>musistudio/claude-code-router v3.1.0</title>
+    <link href="https://github.com/musistudio/claude-code-router/releases/tag/v3.1.0" />
+    <id>https://github.com/musistudio/claude-code-router/releases/tag/v3.1.0</id>
+    <updated>2026-09-10T06:26:21Z</updated>
+    <summary>musistudio/claude-code-router released v3.1.0.</summary>
+  </entry>
+  <entry>
+    <title>yym68686/uni-api v1.7.271</title>
+    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.271" />
+    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.271</id>
+    <updated>2026-09-10T05:16:59Z</updated>
+    <summary>yym68686/uni-api released Release 1.7.271.</summary>
+  </entry>
+  <entry>
+    <title>bestruirui/octopus v0.13.4</title>
+    <link href="https://github.com/bestruirui/octopus/releases/tag/v0.13.4" />
+    <id>https://github.com/bestruirui/octopus/releases/tag/v0.13.4</id>
+    <updated>2026-09-10T02:54:57Z</updated>
+    <summary>bestruirui/octopus released v0.13.4.</summary>
+  </entry>
+  <entry>
+    <title>router-for-me/CLIProxyAPI v7.2.156</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.156" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.156</id>
+    <updated>2026-09-10T02:41:41Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v7.2.156.</summary>
+  </entry>
+  <entry>
+    <title>RelayPlane/proxy v1.9.59</title>
+    <link href="https://github.com/RelayPlane/proxy/releases/tag/v1.9.59" />
+    <id>https://github.com/RelayPlane/proxy/releases/tag/v1.9.59</id>
+    <updated>2026-09-10T00:50:37Z</updated>
+    <summary>RelayPlane/proxy released v1.9.59.</summary>
+  </entry>
+  <entry>
+    <title>askalf/dario v6.0.45</title>
+    <link href="https://github.com/askalf/dario/releases/tag/v6.0.45" />
+    <id>https://github.com/askalf/dario/releases/tag/v6.0.45</id>
+    <updated>2026-09-09T22:19:14Z</updated>
+    <summary>askalf/dario released v6.0.45.</summary>
+  </entry>
+  <entry>
+    <title>pomerium/pomerium v0.33.3</title>
+    <link href="https://github.com/pomerium/pomerium/releases/tag/v0.33.3" />
+    <id>https://github.com/pomerium/pomerium/releases/tag/v0.33.3</id>
+    <updated>2026-09-09T17:38:15Z</updated>
+    <summary>pomerium/pomerium released v0.33.3.</summary>
+  </entry>
+  <entry>
+    <title>obot-platform/obot v0.25.5</title>
+    <link href="https://github.com/obot-platform/obot/releases/tag/v0.25.5" />
+    <id>https://github.com/obot-platform/obot/releases/tag/v0.25.5</id>
+    <updated>2026-09-09T16:06:54Z</updated>
+    <summary>obot-platform/obot released v0.25.5.</summary>
+  </entry>
+  <entry>
+    <title>tbphp/gpt-load v2.0.0-rc.11</title>
+    <link href="https://github.com/tbphp/gpt-load/releases/tag/v2.0.0-rc.11" />
+    <id>https://github.com/tbphp/gpt-load/releases/tag/v2.0.0-rc.11</id>
+    <updated>2026-09-09T15:35:25Z</updated>
+    <summary>tbphp/gpt-load released v2.0.0-rc.11.</summary>
+  </entry>
+  <entry>
+    <title>archestra-ai/archestra platform-v1.3.55</title>
+    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.55" />
+    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.55</id>
+    <updated>2026-09-09T13:55:51Z</updated>
+    <summary>archestra-ai/archestra released platform: v1.3.55.</summary>
+  </entry>
+  <entry>
+    <title>lidge-jun/opencodex v2.49.0</title>
+    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.49.0" />
+    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.49.0</id>
+    <updated>2026-09-09T12:53:28Z</updated>
+    <summary>lidge-jun/opencodex released v2.49.0.</summary>
+  </entry>
+  <entry>
+    <title>maximhq/bifrost ent-v2.1.1-base</title>
+    <link href="https://github.com/maximhq/bifrost/releases/tag/ent-v2.1.1-base" />
+    <id>https://github.com/maximhq/bifrost/releases/tag/ent-v2.1.1-base</id>
+    <updated>2026-09-09T12:25:51Z</updated>
+    <summary>maximhq/bifrost released Enterprise v2.1.1 base version.</summary>
+  </entry>
   <entry>
     <title>Wei-Shaw/sub2api v0.2.4</title>
     <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.2.4" />
@@ -22,25 +106,11 @@
     <summary>APIParkLab/APIPark released v1.9.7-beta.</summary>
   </entry>
   <entry>
-    <title>askalf/dario v6.0.43</title>
-    <link href="https://github.com/askalf/dario/releases/tag/v6.0.43" />
-    <id>https://github.com/askalf/dario/releases/tag/v6.0.43</id>
-    <updated>2026-09-09T05:17:43Z</updated>
-    <summary>askalf/dario released v6.0.43.</summary>
-  </entry>
-  <entry>
     <title>agentic-community/mcp-gateway-registry 1.30.0</title>
     <link href="https://github.com/agentic-community/mcp-gateway-registry/releases/tag/1.30.0" />
     <id>https://github.com/agentic-community/mcp-gateway-registry/releases/tag/1.30.0</id>
     <updated>2026-09-09T03:38:18Z</updated>
     <summary>agentic-community/mcp-gateway-registry released 1.30.0 - The Gateway for Any Resource: Inference, MCP, A2A, and REST.</summary>
-  </entry>
-  <entry>
-    <title>archestra-ai/archestra platform-v1.3.54</title>
-    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.54" />
-    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.54</id>
-    <updated>2026-09-09T02:53:49Z</updated>
-    <summary>archestra-ai/archestra released platform: v1.3.54.</summary>
   </entry>
   <entry>
     <title>ENTERPILOT/GoModel v0.1.90</title>
@@ -64,20 +134,6 @@
     <summary>mozilla-ai/otari released v0.5.1.</summary>
   </entry>
   <entry>
-    <title>router-for-me/CLIProxyAPI v7.2.155</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.155" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.2.155</id>
-    <updated>2026-09-08T17:37:47Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v7.2.155.</summary>
-  </entry>
-  <entry>
-    <title>maximhq/bifrost ent-v2.1.0-base</title>
-    <link href="https://github.com/maximhq/bifrost/releases/tag/ent-v2.1.0-base" />
-    <id>https://github.com/maximhq/bifrost/releases/tag/ent-v2.1.0-base</id>
-    <updated>2026-09-08T16:03:53Z</updated>
-    <summary>maximhq/bifrost released Enterprise v2.1.0 base version.</summary>
-  </entry>
-  <entry>
     <title>caozhiyuan/copilot-api v2.5.3</title>
     <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.5.3" />
     <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.5.3</id>
@@ -90,20 +146,6 @@
     <id>https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.36</id>
     <updated>2026-09-08T13:01:52Z</updated>
     <summary>QuantumNous/new-api released v1.0.0-rc.36 - Task Plugins, Pricing Configuration, and Quota.</summary>
-  </entry>
-  <entry>
-    <title>tbphp/gpt-load v2.0.0-rc.10</title>
-    <link href="https://github.com/tbphp/gpt-load/releases/tag/v2.0.0-rc.10" />
-    <id>https://github.com/tbphp/gpt-load/releases/tag/v2.0.0-rc.10</id>
-    <updated>2026-09-08T11:45:13Z</updated>
-    <summary>tbphp/gpt-load released v2.0.0-rc.10.</summary>
-  </entry>
-  <entry>
-    <title>lidge-jun/opencodex v2.48.0</title>
-    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.48.0" />
-    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.48.0</id>
-    <updated>2026-09-08T10:27:27Z</updated>
-    <summary>lidge-jun/opencodex released v2.48.0.</summary>
   </entry>
   <entry>
     <title>krakend/krakend-ce v2.13.11</title>
@@ -142,8 +184,8 @@
   </entry>
   <entry>
     <title>mnfst/manifest manifest@6.23.0</title>
-    <link href="https://github.com/mnfst/manifest/releases/tag/manifest%406.23.0" />
-    <id>https://github.com/mnfst/manifest/releases/tag/manifest%406.23.0</id>
+    <link href="https://github.com/mnfst/llm-gateway/releases/tag/manifest%406.23.0" />
+    <id>https://github.com/mnfst/llm-gateway/releases/tag/manifest%406.23.0</id>
     <updated>2026-09-07T09:59:26Z</updated>
     <summary>mnfst/manifest released manifest v6.23.0.</summary>
   </entry>
@@ -169,52 +211,10 @@
     <summary>BlockRunAI/ClawRouter released v0.12.277 — opt-in TWZRD AutoGate, with the availability fix it needed.</summary>
   </entry>
   <entry>
-    <title>RelayPlane/proxy v1.9.58</title>
-    <link href="https://github.com/RelayPlane/proxy/releases/tag/v1.9.58" />
-    <id>https://github.com/RelayPlane/proxy/releases/tag/v1.9.58</id>
-    <updated>2026-09-06T16:30:54Z</updated>
-    <summary>RelayPlane/proxy released v1.9.58.</summary>
-  </entry>
-  <entry>
     <title>labring/aiproxy v0.7.1</title>
     <link href="https://github.com/labring/aiproxy/releases/tag/v0.7.1" />
     <id>https://github.com/labring/aiproxy/releases/tag/v0.7.1</id>
     <updated>2026-09-06T11:18:30Z</updated>
     <summary>labring/aiproxy released Version 0.7.1.</summary>
-  </entry>
-  <entry>
-    <title>looplj/axonhub v1.0.0-beta10</title>
-    <link href="https://github.com/looplj/axonhub/releases/tag/v1.0.0-beta10" />
-    <id>https://github.com/looplj/axonhub/releases/tag/v1.0.0-beta10</id>
-    <updated>2026-09-06T05:50:53Z</updated>
-    <summary>looplj/axonhub released v1.0.0-beta10.</summary>
-  </entry>
-  <entry>
-    <title>BerriAI/litellm v1.100.0</title>
-    <link href="https://github.com/BerriAI/litellm/releases/tag/v1.100.0" />
-    <id>https://github.com/BerriAI/litellm/releases/tag/v1.100.0</id>
-    <updated>2026-09-06T05:33:17Z</updated>
-    <summary>BerriAI/litellm released v1.100.0.</summary>
-  </entry>
-  <entry>
-    <title>yym68686/uni-api v1.7.266</title>
-    <link href="https://github.com/yym68686/uni-api/releases/tag/v1.7.266" />
-    <id>https://github.com/yym68686/uni-api/releases/tag/v1.7.266</id>
-    <updated>2026-09-05T10:05:21Z</updated>
-    <summary>yym68686/uni-api released Release 1.7.266.</summary>
-  </entry>
-  <entry>
-    <title>smart-mcp-proxy/mcpproxy-go v0.65.0</title>
-    <link href="https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.65.0" />
-    <id>https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.65.0</id>
-    <updated>2026-09-05T05:15:37Z</updated>
-    <summary>smart-mcp-proxy/mcpproxy-go released v0.65.0.</summary>
-  </entry>
-  <entry>
-    <title>oomol-lab/open-connector v1.5.0</title>
-    <link href="https://github.com/oomol-lab/open-connector/releases/tag/v1.5.0" />
-    <id>https://github.com/oomol-lab/open-connector/releases/tag/v1.5.0</id>
-    <updated>2026-09-04T10:22:23Z</updated>
-    <summary>oomol-lab/open-connector released v1.5.0.</summary>
   </entry>
 </feed>
