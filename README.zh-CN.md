@@ -405,6 +405,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 *痛点："Agent 开始调工具了——像治理 API 一样治理 MCP 流量。"* 2025–2026 最新品类。
 
 - [agentgateway](https://github.com/agentgateway/agentgateway) <!--s:agentgateway/agentgateway-->⭐ 4.8k<!--/s--> — Linux Foundation 旗下的 Agent 流量代理（据其 CHARTER 属 LF Projects，并非 CNCF 托管项目）：MCP 治理与 Agent 间（A2A）通信。
+- [Speakeasy MCP Gateway](https://www.speakeasy.com/product/mcp-gateway) — 托管 MCP 网关，将 Agent 和工具调用汇聚到一个受管控入口，提供 SSO、基于角色的访问控制、运行时护栏和审计日志。
 - [TrustGate](https://docs.neuraltrust.ai/trustgate) <!--s:NeuralTrust/TrustGate-->⭐ 9<!--/s--> — 自托管 Go 网关：MCP 平面把上游 MCP 服务聚合到单一端点，并与其 LLM 代理共享租户、鉴权与策略模型——两类流量共用一套治理面，而不是各搭一套。
 - [Lunar.dev MCPX](https://github.com/TheLunarCompany/lunar) <!--s:TheLunarCompany/lunar-->⭐ 491<!--/s--> — 管理 MCP server 消费的网关。
 - [Tetrate Agent Router Service](https://tetrate.io/products/tetrate-agent-router-service) — 托管 Envoy AI Gateway 集群：LLM + MCP 网关与护栏（约 5% 费率）。
