@@ -521,6 +521,7 @@ _Pain point: "Who spent what, on which model, and why did quality drop?"_
 - [Respan](https://www.respan.ai/ai-gateway) (ex–Keywords AI) - One endpoint to 250+ models with routing/fallback/caching, plus built-in observability and evals.
 - [claude-tap](https://github.com/liaohch3/claude-tap) <!--s:liaohch3/claude-tap-->⭐ 3.2k<!--/s--> - MIT local intercepting proxy and trace viewer for coding-agent traffic (Claude Code, Codex CLI, Gemini CLI, Cursor CLI, OpenCode, Kimi, Pi, Hermes): the exact requests, responses and tool calls your agent sends. Wider agent coverage than ccglass; debugging-first rather than spend-first.
 - [ccglass](https://github.com/jianshuo/ccglass) <!--s:jianshuo/ccglass-->⭐ 787<!--/s--> - Local proxy + web dashboard (MIT) that shows exactly what your coding agent (Claude Code, Codex, Kimi) sends to the model.
+- [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) <!--s:Continuum-AI-Corp/OrcaReplay-->⭐ 173<!--/s--> - Apache-2.0 local proxy that records coding-agent traffic and, unlike a viewer, serves the recording back: the same run re-executes with no model called, or forks from a checkpoint onto other models with a verify command as the verdict.
 
 ### 🚢 Kubernetes-native & inference infra
 
