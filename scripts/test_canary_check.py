@@ -1,11 +1,15 @@
 """Unit tests for canary_check.py pure logic (no network)."""
 
+import json
 import unittest
 
 from canary_check import (
+    USER_AGENT,
     Reply,
+    build_request,
     capability_hit,
     fingerprint_summary,
+    is_temperature_refusal,
     normalize,
     parse_models,
     parse_reply,
@@ -161,6 +165,50 @@ class TestFingerprintSummary(unittest.TestCase):
         ])
         self.assertEqual(s["max_prompt_token_skew"], 0.4)
         self.assertIn("prompt_tokens", s["flags"])
+
+
+class TestBuildRequest(unittest.TestCase):
+    """Two canary reporters had to patch this script before it would run at all
+    (#70, #82). These tests pin the two things they had to change."""
+
+    def _req(self, **kw):
+        return build_request("https://relay.example/v1/", "sk-secret", "gpt-5.5", "hi", **kw)
+
+    def test_sends_an_explicit_user_agent(self):
+        # the default Python-urllib UA is what the WAFs rejected
+        self.assertEqual(self._req().get_header("User-agent"), USER_AGENT)
+        self.assertNotIn("urllib", USER_AGENT.lower())
+
+    def test_url_joined_without_double_slash(self):
+        self.assertEqual(self._req().full_url, "https://relay.example/v1/chat/completions")
+
+    def test_temperature_zero_by_default(self):
+        self.assertEqual(json.loads(self._req().data)["temperature"], 0)
+
+    def test_temperature_omitted_entirely_when_none(self):
+        # not "temperature": null — models that refuse the field reject that too
+        self.assertNotIn("temperature", json.loads(self._req(temperature=None).data))
+
+    def test_key_travels_in_the_header_not_the_body(self):
+        self.assertNotIn("sk-secret", self._req().data.decode())
+
+
+class TestIsTemperatureRefusal(unittest.TestCase):
+    def test_openai_wording(self):
+        self.assertTrue(is_temperature_refusal(
+            '{"error":{"message":"Unsupported value: \'temperature\' does not support 0 '
+            'with this model. Only the default (1) value is supported."}}'))
+
+    def test_generic_unsupported_wording(self):
+        self.assertTrue(is_temperature_refusal("temperature is not supported for this model"))
+
+    def test_unrelated_error_is_not_a_refusal(self):
+        # a dead key or a missing model must not silently drop temperature
+        self.assertFalse(is_temperature_refusal('{"error":{"message":"Invalid API key"}}'))
+        self.assertFalse(is_temperature_refusal('{"error":{"message":"model not found"}}'))
+
+    def test_unsupported_but_not_about_temperature(self):
+        self.assertFalse(is_temperature_refusal("unsupported value: 'top_k' is not supported"))
 
 
 if __name__ == "__main__":

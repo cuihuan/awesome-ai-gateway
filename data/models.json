@@ -1,9 +1,9 @@
 {
   "_comment": "Benchmark + pricing snapshot for the evaluation set. Pricing drives scripts/cost_calc.py (reproducible cost tables). Benchmarks are dated public figures; null = not published by the source at review time (never interpolated). Prices USD per 1M tokens. Benchmark sourcing convention (since 2026-07-28): aa_index = Artificial Analysis Intelligence Index v4.1 scale (rebased 2026-06-15, ~5 pts lower than v4.0 — never compare across scales); gpqa_diamond + hle = AA independent runs; swe_bench_verified + swe_bench_pro = BenchLM boards (independent; a model absent from the board is null even if a vendor card claims a score); arena_elo = arena.ai text/overall style-control board.",
-  "as_of": "2026-08-12",
+  "as_of": "2026-09-14",
   "sources": {
     "benchmarks": "Artificial Analysis Intelligence Index v4.1 (artificialanalysis.ai/models) · Arena (arena.ai/leaderboard) · BenchLM SWE-bench Verified/Pro (benchlm.ai, boards dated 2026-07-27) · AA independent GPQA-Diamond/HLE runs — all extracted 2026-07-28",
-    "pricing": "Official provider pricing pages only; all 16 headline prices re-verified 2026-07-28 (12/13 pre-existing entries matched exactly; the exception was the retired Grok 4 — see the Grok 4.5 entry). Aggregator conflicts resolved in favor of the official page. Re-checked 2026-08-12 against OpenAI's pricing page after the 2026-07-30 GPT-5.6 price cut; Terra ($2/$12) and Luna ($0.20/$1.20) added as separate rows."
+    "pricing": "Official provider pricing pages only; all 16 headline prices re-verified 2026-07-28 (12/13 pre-existing entries matched exactly; the exception was the retired Grok 4 — see the Grok 4.5 entry). Aggregator conflicts resolved in favor of the official page. Re-checked 2026-08-12 against OpenAI's pricing page after the 2026-07-30 GPT-5.6 price cut; Terra ($2/$12) and Luna ($0.20/$1.20) added as separate rows. Re-reviewed 2026-09-14: pre-existing rows unchanged against their official pages; added Claude Fable 5.1 ($10/$50, Anthropic tier price, corroborated by a live at-list gateway catalog) and GPT-6 Astra ($10/$50 — third-party trackers only, openai.com blocks automated fetches, labelled as such in the row's notes)."
   },
   "openrouter_model_count": {
     "_comment": "Single source of truth for every 'OpenRouter has N models' mention; rendered into <!--omc-->...<!--/omc--> spans by scripts/update_readme.py as ~(count rounded to the nearest 10).",
@@ -12,6 +12,56 @@
     "as_of": "2026-07-28"
   },
   "models": [
+    {
+      "name": "GPT-6 Astra",
+      "provider": "OpenAI",
+      "open": false,
+      "context_tokens": 1000000,
+      "benchmarks": {
+        "aa_index": null,
+        "gpqa_diamond": null,
+        "swe_bench_verified": null,
+        "swe_bench_pro": null,
+        "hle": null,
+        "arena_elo": null,
+        "aime": null,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 10.0,
+        "output": 50.0,
+        "cached_input": 1.0
+      },
+      "reasoning": true,
+      "scenario_cost": true,
+      "benchmark_table": true,
+      "notes": "Released 2026-09-03 (staged rollout). First model OpenAI classifies at the Critical cybersecurity threshold under its Preparedness Framework; external deployment carries misalignment monitoring on all tool-using inference. Price is third-party-corroborated only — openai.com blocks automated fetches, so $10/$50 comes from multiple independent trackers rather than the official pricing page; treat as unverified-official. Long context (>272K input) is reported at $20/$75. Benchmarks not yet recorded here."
+    },
+    {
+      "name": "Claude Fable 5.1",
+      "provider": "Anthropic",
+      "open": false,
+      "context_tokens": 1000000,
+      "benchmarks": {
+        "aa_index": null,
+        "gpqa_diamond": null,
+        "swe_bench_verified": null,
+        "swe_bench_pro": null,
+        "hle": null,
+        "arena_elo": null,
+        "aime": null,
+        "mmlu_pro": null
+      },
+      "pricing_usd_per_mtok": {
+        "input": 10.0,
+        "output": 50.0,
+        "cached_input": 1.0
+      },
+      "reasoning": true,
+      "scenario_cost": true,
+      "benchmark_table": true,
+      "notes": "Released 2026-09-01. Same price as Claude Fable 5 ($10/$50); 1M context, 128K max output. Thinking is always on and the raw chain of thought is never returned. Corroborated against a gateway billing at provider list price (aigateway.sh live catalog, 2026-09-14)."
+    },
     {
       "name": "Claude Opus 5",
       "provider": "Anthropic",

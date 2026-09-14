@@ -110,8 +110,10 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 | 14 | Claude Opus 4.8 | Anthropic | $2.51 |
 | 15 | GPT-5.6 Sol | OpenAI | $3.01 |
 | 16 | GPT-5.5 | OpenAI | $3.01 |
+| 17 | GPT-6 Astra | OpenAI | $5.02 |
+| 18 | Claude Fable 5.1 | Anthropic | $5.02 |
 
-> 📊 Cheapest is **~106×** less than the most expensive for this task.
+> 📊 Cheapest is **~178×** less than the most expensive for this task.
 <!-- COST:email:END -->
 
 ### 3.2 Summarize a 100K-token document (input-heavy)
@@ -137,8 +139,10 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 | 14 | Claude Opus 4.8 | Anthropic | $0.55 |
 | 15 | GPT-5.6 Sol | OpenAI | $0.56 |
 | 16 | GPT-5.5 | OpenAI | $0.56 |
+| 17 | GPT-6 Astra | OpenAI | $1.10 |
+| 18 | Claude Fable 5.1 | Anthropic | $1.10 |
 
-> 📊 Cheapest is **~38×** less than the most expensive for this task.
+> 📊 Cheapest is **~76×** less than the most expensive for this task.
 <!-- COST:summarize:END -->
 
 ### 3.3 Coding-agent session (mixed + reasoning tokens)
@@ -170,8 +174,10 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 | 14 | Claude Opus 4.8 | Anthropic | $1.50 |
 | 15 | GPT-5.6 Sol | OpenAI | $1.75 |
 | 16 | GPT-5.5 | OpenAI | $1.75 |
+| 17 | GPT-6 Astra | OpenAI | $3.00 |
+| 18 | Claude Fable 5.1 | Anthropic | $3.00 |
 
-> 📊 Cheapest is **~83×** less than the most expensive for this task.
+> 📊 Cheapest is **~143×** less than the most expensive for this task.
 <!-- COST:coding:END -->
 
 ### 3.4 1M-token chatbot month (balanced)
@@ -197,8 +203,10 @@ Benchmarks rank capability in the abstract; most teams have one concrete job. Th
 | 14 | Claude Opus 4.8 | Anthropic | $15.00 |
 | 15 | GPT-5.6 Sol | OpenAI | $17.50 |
 | 16 | GPT-5.5 | OpenAI | $17.50 |
+| 17 | GPT-6 Astra | OpenAI | $30.00 |
+| 18 | Claude Fable 5.1 | Anthropic | $30.00 |
 
-> 📊 Cheapest is **~83×** less than the most expensive for this task.
+> 📊 Cheapest is **~143×** less than the most expensive for this task.
 <!-- COST:chatbot:END -->
 
 **Pricing gotchas a gateway buyer must know**

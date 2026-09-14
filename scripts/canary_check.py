@@ -34,6 +34,7 @@ import json
 import os
 import re
 import sys
+import urllib.error
 import urllib.request
 from dataclasses import dataclass
 
@@ -176,32 +177,89 @@ def fingerprint_summary(pairs: list[tuple[Reply, Reply]], prompt_token_tol: floa
 
 # ── Live call (thin wrapper; not unit-tested) ────────────────────────────────
 
-def call_chat(base_url: str, api_key: str, model: str, prompt: str, timeout: int = 60) -> dict:
+# Two independent canary reports (#70, #82) could not run this script at all
+# until they patched it: the gateways sat behind a WAF whose bot rules reject
+# the default `Python-urllib/3.x` User-Agent, while curl passed.
+# Any explicit UA gets through, so send one rather than making every
+# contributor rediscover the workaround.
+USER_AGENT = "awesome-ai-gateway-canary/1.0 (+https://github.com/cuihuan/awesome-ai-gateway)"
+
+
+def build_request(base_url: str, api_key: str, model: str, prompt: str,
+                  temperature: int | None = 0) -> urllib.request.Request:
+    """Build the POST for one canary prompt. Pure, so it is unit-tested.
+
+    `temperature=None` omits the field entirely — see negotiate_temperature.
+    """
+    payload: dict = {"model": model, "messages": [{"role": "user", "content": prompt}]}
+    if temperature is not None:
+        payload["temperature"] = temperature
+    return urllib.request.Request(
+        base_url.rstrip("/") + "/chat/completions",
+        data=json.dumps(payload).encode(),
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+            "User-Agent": USER_AGENT,
+        },
+    )
+
+
+def is_temperature_refusal(body: str) -> bool:
+    """Does this error body mean "I won't accept an explicit temperature"?
+
+    Newer reasoning models reject `temperature: 0` outright ("Only the default
+    (1) value is supported"), which used to abort the whole run.
+    """
+    low = body.lower()
+    return "temperature" in low and any(
+        s in low for s in ("only the default", "unsupported", "not supported", "does not support")
+    )
+
+
+def call_chat(base_url: str, api_key: str, model: str, prompt: str, timeout: int = 60,
+              temperature: int | None = 0) -> dict:
     """POST one chat completion and return the raw decoded JSON body (parsing into
     a Reply is done by the pure parse_reply so it stays unit-testable)."""
-    body = json.dumps({
-        "model": model,
-        "messages": [{"role": "user", "content": prompt}],
-        "temperature": 0,
-    }).encode()
-    req = urllib.request.Request(
-        base_url.rstrip("/") + "/chat/completions",
-        data=body,
-        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-    )
+    req = build_request(base_url, api_key, model, prompt, temperature)
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         return json.loads(resp.read())
+
+
+def negotiate_temperature(endpoints, model: str, timeout: int = 60) -> int | None:
+    """Return 0 if every endpoint accepts an explicit temperature, else None.
+
+    Determinism is worth having — temperature 0 is what makes the output diff
+    meaningful — but only if both sides get the *same* treatment. If one
+    endpoint refuses temperature and the other honours 0, the two replies
+    diverge for a reason that has nothing to do with model identity: a false
+    positive on the exact thing this script exists to measure. So one cheap
+    probe per endpoint decides it for both.
+    """
+    for base_url, api_key in endpoints:
+        try:
+            call_chat(base_url, api_key, model, "ping", timeout=timeout, temperature=0)
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8", "replace")
+            if is_temperature_refusal(body):
+                print(f"note: {base_url} rejects an explicit temperature; "
+                      "running both sides on provider defaults")
+                return None
+        except Exception:  # noqa: BLE001 - a dead endpoint is the canary loop's problem to report
+            pass
+    return 0
 
 
 def run_model(relay_url, relay_key, ref_url, ref_key, model) -> dict:
     """Run the full canary set for one model. Returns {verdict, fingerprint, ok}."""
     rows = []
     pairs = []
+    temp = negotiate_temperature([(relay_url, relay_key), (ref_url, ref_key)], model)
     print(f"canary check · model={model}\n{'id':10} {'sim':>5}  relay  ref")
     for c in CANARIES:
         try:
-            relay = parse_reply(call_chat(relay_url, relay_key, model, c.prompt))
-            ref = parse_reply(call_chat(ref_url, ref_key, model, c.prompt))
+            relay = parse_reply(call_chat(relay_url, relay_key, model, c.prompt, temperature=temp))
+            ref = parse_reply(call_chat(ref_url, ref_key, model, c.prompt, temperature=temp))
         except Exception as e:  # noqa: BLE001 - surface any endpoint/network error per-canary
             print(f"{c.id:10}  ERROR  {e}")
             continue

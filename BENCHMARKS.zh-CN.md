@@ -110,8 +110,10 @@
 | 14 | Claude Opus 4.8 | Anthropic | $2.51 |
 | 15 | GPT-5.6 Sol | OpenAI | $3.01 |
 | 16 | GPT-5.5 | OpenAI | $3.01 |
+| 17 | GPT-6 Astra | OpenAI | $5.02 |
+| 18 | Claude Fable 5.1 | Anthropic | $5.02 |
 
-> 📊 最便宜的比最贵的低约 **106×**。
+> 📊 最便宜的比最贵的低约 **178×**。
 <!-- COST:email:END -->
 
 ### 3.2 总结一份 10 万 token 的文档（输入密集）
@@ -137,8 +139,10 @@
 | 14 | Claude Opus 4.8 | Anthropic | $0.55 |
 | 15 | GPT-5.6 Sol | OpenAI | $0.56 |
 | 16 | GPT-5.5 | OpenAI | $0.56 |
+| 17 | GPT-6 Astra | OpenAI | $1.10 |
+| 18 | Claude Fable 5.1 | Anthropic | $1.10 |
 
-> 📊 最便宜的比最贵的低约 **38×**。
+> 📊 最便宜的比最贵的低约 **76×**。
 <!-- COST:summarize:END -->
 
 ### 3.3 编码 Agent 会话（混合 + 推理 token）
@@ -170,8 +174,10 @@
 | 14 | Claude Opus 4.8 | Anthropic | $1.50 |
 | 15 | GPT-5.6 Sol | OpenAI | $1.75 |
 | 16 | GPT-5.5 | OpenAI | $1.75 |
+| 17 | GPT-6 Astra | OpenAI | $3.00 |
+| 18 | Claude Fable 5.1 | Anthropic | $3.00 |
 
-> 📊 最便宜的比最贵的低约 **83×**。
+> 📊 最便宜的比最贵的低约 **143×**。
 <!-- COST:coding:END -->
 
 ### 3.4 百万 token 的聊天机器人月度（均衡）
@@ -197,8 +203,10 @@
 | 14 | Claude Opus 4.8 | Anthropic | $15.00 |
 | 15 | GPT-5.6 Sol | OpenAI | $17.50 |
 | 16 | GPT-5.5 | OpenAI | $17.50 |
+| 17 | GPT-6 Astra | OpenAI | $30.00 |
+| 18 | Claude Fable 5.1 | Anthropic | $30.00 |
 
-> 📊 最便宜的比最贵的低约 **83×**。
+> 📊 最便宜的比最贵的低约 **143×**。
 <!-- COST:chatbot:END -->
 
 **买网关前必须知道的计价陷阱**
