@@ -11,6 +11,7 @@
     "songquanpeng/one-api",
     "Kong/kong",
     "apache/apisix",
+    "api7/aisix",
     "Portkey-AI/gateway",
     "tensorzero/tensorzero",
     "higress-group/higress",
