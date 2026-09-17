@@ -228,7 +228,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) — 免费控制面套在你自己的厂商 Key 之上：缓存、动态路由、统一账单、美元计价的预算上限（2026 公测）。
 - [Requesty](https://requesty.ai) — 面向欧盟的 OpenRouter 替代：400+ 模型、20ms 内故障转移、约 5% 加价。
 - [Eden AI](https://www.edenai.co) — 统一 API 接入 500+ 模型及视觉/OCR/语音；欧盟公司，平台费约 5.5%。
-- [Opper](https://opper.ai) — 瑞典（斯德哥尔摩）托管网关，运行于 AWS eu-north-1：一个 OpenAI 兼容端点接入 43 家提供商的约 890 条模型路由，其中 200+ 条为欧盟境内驻留。按提供商 token 原价计费、无加价；充值时收取 3% 费用（启用可选控制平面时为 5.5%）。公开且无需鉴权的 [`/v3/models`](https://api.opper.ai/v3/models) 目录为每条路由提供 `compliance` 字段（推理所在地、是否用于训练、日志、零数据保留标记），数据驻留可按路由而非按厂商核验。
+- [Opper](https://opper.ai) — 瑞典网关，托管于欧盟境内（AWS 斯德哥尔摩），分两档。**Gateway：** 一个 OpenAI 兼容端点接入 43 家提供商的约 890 条模型路由（200+ 条为欧盟境内驻留），按提供商 token 原价计费，充值时收取 3% 费用，不存储提示词与响应。**Control Plane**（可选启用，费用由 3% 变为 5.5%）：增加链路追踪、LLM 评审打分、按项目配置的模型路由规则与回退、PII 脱敏与内容过滤，以及提供商/地区白名单、预算上限、仅 ZDR 模式等策略控制。公开的 [`/v3/models`](https://api.opper.ai/v3/models) 目录按路由列出数据驻留、日志与训练条款。
 - [Helicone AI Gateway（云版）](https://www.helicone.ai) — **0 加价**直通计费，可观测能力打包赠送。
 - [GPT-Load](https://github.com/tbphp/gpt-load) <!--s:tbphp/gpt-load-->⭐ 6.8k<!--/s--> — Go 写的高性能多渠道密钥轮询代理，把每把 Key 的额度榨干。
 - [freellmapi](https://github.com/tashfeenahmed/freellmapi) <!--s:tashfeenahmed/freellmapi-->⭐ 26.8k<!--/s--> — OpenAI 兼容代理（MIT），把 28 家厂商的免费额度叠加在一个 `/v1` 端点之后——智能路由、自动故障转移、按 Key 额度追踪、密钥加密存储。⚠️ 把各家免费额度池化到一个端点可能触碰厂商 ToS / 封号风险——仓库自己就标注"仅供个人实验"——运营方另售付费实时模型目录订阅（$19/年；路由器本体始终 MIT、自托管、用自己的 Key）。
