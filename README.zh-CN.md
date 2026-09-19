@@ -228,6 +228,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) — 免费控制面套在你自己的厂商 Key 之上：缓存、动态路由、统一账单、美元计价的预算上限（2026 公测）。
 - [Requesty](https://requesty.ai) — 面向欧盟的 OpenRouter 替代：400+ 模型、20ms 内故障转移、约 5% 加价。
 - [Eden AI](https://www.edenai.co) — 统一 API 接入 500+ 模型及视觉/OCR/语音；欧盟公司，平台费约 5.5%。
+- [Opper](https://opper.ai) — 总部位于欧洲的路由网关，提供 470+ 模型（约 890 条提供商路由），专注于前沿模型与开放权重模型的高质量路由；可选启用控制平面，用于数据策略、地区合规要求、调用记录留存（system of record）与成本分析。按提供商 token 原价计费；充值时收取 3% 费用（启用控制平面时为 5.5%）。
 - [Helicone AI Gateway（云版）](https://www.helicone.ai) — **0 加价**直通计费，可观测能力打包赠送。
 - [GPT-Load](https://github.com/tbphp/gpt-load) <!--s:tbphp/gpt-load-->⭐ 6.9k<!--/s--> — Go 写的高性能多渠道密钥轮询代理，把每把 Key 的额度榨干。
 - [freellmapi](https://github.com/tashfeenahmed/freellmapi) <!--s:tashfeenahmed/freellmapi-->⭐ 27.2k<!--/s--> — OpenAI 兼容代理（MIT），把 28 家厂商的免费额度叠加在一个 `/v1` 端点之后——智能路由、自动故障转移、按 Key 额度追踪、密钥加密存储。⚠️ 把各家免费额度池化到一个端点可能触碰厂商 ToS / 封号风险——仓库自己就标注"仅供个人实验"——运营方另售付费实时模型目录订阅（$19/年；路由器本体始终 MIT、自托管、用自己的 Key）。
