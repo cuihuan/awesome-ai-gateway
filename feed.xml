@@ -5,8 +5,85 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-09-19T05:09:09Z</updated>
+  <updated>2026-09-20T07:46:14Z</updated>
   <author><name>Awesome AI Gateway</name></author>
+  <entry>
+    <title>mnfst/manifest manifest@6.25.4</title>
+    <link href="https://github.com/mnfst/llm-gateway/releases/tag/manifest%406.25.4" />
+    <id>https://github.com/mnfst/llm-gateway/releases/tag/manifest%406.25.4</id>
+    <updated>2026-09-20T07:46:14Z</updated>
+    <summary>mnfst/manifest released manifest v6.25.4.</summary>
+  </entry>
+  <entry>
+    <title>oomol-lab/open-connector v1.6.2</title>
+    <link href="https://github.com/oomol-lab/open-connector/releases/tag/v1.6.2" />
+    <id>https://github.com/oomol-lab/open-connector/releases/tag/v1.6.2</id>
+    <updated>2026-09-20T07:33:04Z</updated>
+    <summary>oomol-lab/open-connector released v1.6.2.</summary>
+  </entry>
+  <entry>
+    <title>lidge-jun/opencodex v2.60.0</title>
+    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.60.0" />
+    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.60.0</id>
+    <updated>2026-09-20T04:05:15Z</updated>
+    <summary>lidge-jun/opencodex released v2.60.0.</summary>
+  </entry>
+  <entry>
+    <title>bestruirui/octopus v0.13.6</title>
+    <link href="https://github.com/bestruirui/octopus/releases/tag/v0.13.6" />
+    <id>https://github.com/bestruirui/octopus/releases/tag/v0.13.6</id>
+    <updated>2026-09-20T01:22:15Z</updated>
+    <summary>bestruirui/octopus released v0.13.6.</summary>
+  </entry>
+  <entry>
+    <title>router-for-me/CLIProxyAPI v7.3.9</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.3.9" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.3.9</id>
+    <updated>2026-09-19T18:08:09Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v7.3.9.</summary>
+  </entry>
+  <entry>
+    <title>swobuforge/swobu swobu-v2.4.3</title>
+    <link href="https://github.com/swobuforge/swobu/releases/tag/swobu-v2.4.3" />
+    <id>https://github.com/swobuforge/swobu/releases/tag/swobu-v2.4.3</id>
+    <updated>2026-09-19T14:59:10Z</updated>
+    <summary>swobuforge/swobu released swobu-v2.4.3.</summary>
+  </entry>
+  <entry>
+    <title>archestra-ai/archestra platform-v1.3.65</title>
+    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.65" />
+    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.65</id>
+    <updated>2026-09-19T13:32:02Z</updated>
+    <summary>archestra-ai/archestra released platform: v1.3.65.</summary>
+  </entry>
+  <entry>
+    <title>caozhiyuan/copilot-api v2.6.2</title>
+    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.6.2" />
+    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.6.2</id>
+    <updated>2026-09-19T13:05:44Z</updated>
+    <summary>caozhiyuan/copilot-api released v2.6.2.</summary>
+  </entry>
+  <entry>
+    <title>romgX/openrelay v0.10.66</title>
+    <link href="https://github.com/romgX/openrelay/releases/tag/v0.10.66" />
+    <id>https://github.com/romgX/openrelay/releases/tag/v0.10.66</id>
+    <updated>2026-09-19T10:41:10Z</updated>
+    <summary>romgX/openrelay released v0.10.66.</summary>
+  </entry>
+  <entry>
+    <title>1mcp-app/agent v0.38.2</title>
+    <link href="https://github.com/1mcp-app/agent/releases/tag/v0.38.2" />
+    <id>https://github.com/1mcp-app/agent/releases/tag/v0.38.2</id>
+    <updated>2026-09-19T10:16:50Z</updated>
+    <summary>1mcp-app/agent released Release v0.38.2.</summary>
+  </entry>
+  <entry>
+    <title>seakee/CPA-Manager-Plus v1.13.1</title>
+    <link href="https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.13.1" />
+    <id>https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.13.1</id>
+    <updated>2026-09-19T08:18:41Z</updated>
+    <summary>seakee/CPA-Manager-Plus released v1.13.1.</summary>
+  </entry>
   <entry>
     <title>askalf/dario v6.8.18</title>
     <link href="https://github.com/askalf/dario/releases/tag/v6.8.18" />
@@ -22,13 +99,6 @@
     <summary>Wei-Shaw/sub2api released Sub2API 0.2.7.</summary>
   </entry>
   <entry>
-    <title>1mcp-app/agent v0.38.1</title>
-    <link href="https://github.com/1mcp-app/agent/releases/tag/v0.38.1" />
-    <id>https://github.com/1mcp-app/agent/releases/tag/v0.38.1</id>
-    <updated>2026-09-19T02:56:35Z</updated>
-    <summary>1mcp-app/agent released Release v0.38.1.</summary>
-  </entry>
-  <entry>
     <title>maximhq/bifrost framework/v1.7.2</title>
     <link href="https://github.com/maximhq/bifrost/releases/tag/framework/v1.7.2" />
     <id>https://github.com/maximhq/bifrost/releases/tag/framework/v1.7.2</id>
@@ -36,25 +106,11 @@
     <summary>maximhq/bifrost released Framework v1.7.2.</summary>
   </entry>
   <entry>
-    <title>router-for-me/CLIProxyAPI v7.3.8</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.3.8" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v7.3.8</id>
-    <updated>2026-09-18T21:17:57Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v7.3.8.</summary>
-  </entry>
-  <entry>
     <title>ENTERPILOT/GoModel v0.1.94</title>
     <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.94" />
     <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.94</id>
     <updated>2026-09-18T18:10:31Z</updated>
     <summary>ENTERPILOT/GoModel released v0.1.94.</summary>
-  </entry>
-  <entry>
-    <title>lidge-jun/opencodex v2.59.0</title>
-    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.59.0" />
-    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.59.0</id>
-    <updated>2026-09-18T17:13:46Z</updated>
-    <summary>lidge-jun/opencodex released v2.59.0.</summary>
   </entry>
   <entry>
     <title>stacklok/toolhive v0.50.0</title>
@@ -85,32 +141,11 @@
     <summary>tbphp/gpt-load released v2.0.0-rc.24.</summary>
   </entry>
   <entry>
-    <title>swobuforge/swobu swobu-v2.4.2</title>
-    <link href="https://github.com/swobuforge/swobu/releases/tag/swobu-v2.4.2" />
-    <id>https://github.com/swobuforge/swobu/releases/tag/swobu-v2.4.2</id>
-    <updated>2026-09-18T09:41:10Z</updated>
-    <summary>swobuforge/swobu released swobu-v2.4.2.</summary>
-  </entry>
-  <entry>
     <title>RelayPlane/proxy v1.9.61</title>
     <link href="https://github.com/RelayPlane/proxy/releases/tag/v1.9.61" />
     <id>https://github.com/RelayPlane/proxy/releases/tag/v1.9.61</id>
     <updated>2026-09-18T09:17:55Z</updated>
     <summary>RelayPlane/proxy released v1.9.61.</summary>
-  </entry>
-  <entry>
-    <title>romgX/openrelay v0.10.65</title>
-    <link href="https://github.com/romgX/openrelay/releases/tag/v0.10.65" />
-    <id>https://github.com/romgX/openrelay/releases/tag/v0.10.65</id>
-    <updated>2026-09-18T00:50:23Z</updated>
-    <summary>romgX/openrelay released v0.10.65.</summary>
-  </entry>
-  <entry>
-    <title>archestra-ai/archestra platform-v1.3.64</title>
-    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.64" />
-    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.64</id>
-    <updated>2026-09-17T21:35:48Z</updated>
-    <summary>archestra-ai/archestra released platform: v1.3.64.</summary>
   </entry>
   <entry>
     <title>kubernetes-sigs/gateway-api-inference-extension v1.6.2</title>
@@ -120,32 +155,11 @@
     <summary>kubernetes-sigs/gateway-api-inference-extension released v1.6.2.</summary>
   </entry>
   <entry>
-    <title>mnfst/manifest manifest@6.25.3</title>
-    <link href="https://github.com/mnfst/llm-gateway/releases/tag/manifest%406.25.3" />
-    <id>https://github.com/mnfst/llm-gateway/releases/tag/manifest%406.25.3</id>
-    <updated>2026-09-17T15:54:36Z</updated>
-    <summary>mnfst/manifest released manifest v6.25.3.</summary>
-  </entry>
-  <entry>
-    <title>seakee/CPA-Manager-Plus v1.13.0</title>
-    <link href="https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.13.0" />
-    <id>https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.13.0</id>
-    <updated>2026-09-17T10:26:12Z</updated>
-    <summary>seakee/CPA-Manager-Plus released v1.13.0.</summary>
-  </entry>
-  <entry>
     <title>smart-mcp-proxy/mcpproxy-go v0.67.0</title>
     <link href="https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.67.0" />
     <id>https://github.com/smart-mcp-proxy/mcpproxy-go/releases/tag/v0.67.0</id>
     <updated>2026-09-17T07:41:01Z</updated>
     <summary>smart-mcp-proxy/mcpproxy-go released v0.67.0.</summary>
-  </entry>
-  <entry>
-    <title>oomol-lab/open-connector v1.6.1</title>
-    <link href="https://github.com/oomol-lab/open-connector/releases/tag/v1.6.1" />
-    <id>https://github.com/oomol-lab/open-connector/releases/tag/v1.6.1</id>
-    <updated>2026-09-17T03:47:42Z</updated>
-    <summary>oomol-lab/open-connector released v1.6.1.</summary>
   </entry>
   <entry>
     <title>mlflow/mlflow v3.16.1</title>
@@ -197,24 +211,10 @@
     <summary>tsouth89/toolport released Toolport v1.19.0.</summary>
   </entry>
   <entry>
-    <title>caozhiyuan/copilot-api v2.6.1</title>
-    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.6.1" />
-    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.6.1</id>
-    <updated>2026-09-15T12:30:09Z</updated>
-    <summary>caozhiyuan/copilot-api released v2.6.1.</summary>
-  </entry>
-  <entry>
     <title>BerriAI/litellm v1.101.0</title>
     <link href="https://github.com/BerriAI/litellm/releases/tag/v1.101.0" />
     <id>https://github.com/BerriAI/litellm/releases/tag/v1.101.0</id>
     <updated>2026-09-15T03:41:59Z</updated>
     <summary>BerriAI/litellm released v1.101.0.</summary>
-  </entry>
-  <entry>
-    <title>ascending-llc/jarvis-registry asc0.5.8</title>
-    <link href="https://github.com/ascending-llc/jarvis-registry/releases/tag/asc0.5.8" />
-    <id>https://github.com/ascending-llc/jarvis-registry/releases/tag/asc0.5.8</id>
-    <updated>2026-09-14T18:48:23Z</updated>
-    <summary>ascending-llc/jarvis-registry released Jarvis Registry asc0.5.8.</summary>
   </entry>
 </feed>
