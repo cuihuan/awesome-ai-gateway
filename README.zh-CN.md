@@ -502,6 +502,7 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 - [Helicone](https://github.com/Helicone/helicone) <!--s:Helicone/helicone-->⭐ 6.2k<!--/s--> — 日志、成本、会话、Prompt 实验；一行代码接入。
 - [TensorZero](https://github.com/tensorzero/tensorzero) <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s--> — ⚠️ **2026 年 6 月已归档**（仓库只读，Apache-2.0 代码与社区分支尚存）。网关+可观测+评测一体（Rust），数据留在你自己的 ClickHouse。
 - [Portkey](https://portkey.ai) — 基于其开源网关的完整 LLMOps：链路追踪、预算、Prompt 管理。
+- [BytesBrains Cruise](https://bytesbrains.com/cruise) — 托管的 OpenAI 兼容网关：项目达到支出上限后拒绝调用（返回 `429` 并注明项目），并通过 `x-cruise-*` 响应头返回每次请求的 lane、模型和预算状态。
 - [vLLora（原 LangDB）](https://github.com/vllora/vllora) <!--s:vllora/vllora-->⭐ 813<!--/s--> — LangDB 团队的 Agent 调试与可观测工具。
 - [Braintrust Proxy](https://github.com/braintrustdata/braintrust-proxy) <!--s:braintrustdata/braintrust-proxy-->⭐ 410<!--/s--> — 带缓存的代理，与 Braintrust 评测打通。
 - [MLflow AI Gateway](https://github.com/mlflow/mlflow) <!--s:mlflow/mlflow-->⭐ 28.1k<!--/s--> — MLflow 平台内的统一端点与治理组件。
