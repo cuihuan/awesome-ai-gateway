@@ -523,6 +523,7 @@ _Pain point: "Who spent what, on which model, and why did quality drop?"_
 - [Helicone](https://docs.helicone.ai) <!--s:Helicone/helicone-->⭐ 6.2k<!--/s--> - Logs, costs, sessions, prompt experiments; one-line proxy integration.
 - [TensorZero](https://tensorzero.com) <!--s:tensorzero/tensorzero-->⭐ 11.7k<!--/s--> - **Archived June 2026** ⚠️ (repo read-only; Apache-2.0 code + community forks remain). Gateway + observability + evals in one Rust binary, data stays in your ClickHouse.
 - [Portkey](https://portkey.ai) - Full LLMOps suite over its OSS gateway: traces, budgets, prompt management.
+- [BytesBrains Cruise](https://bytesbrains.com/cruise) - Hosted OpenAI-compatible gateway that refuses calls once a project's spend cap is reached (`429`, message naming the project) and reports each response's lane, model and budget state in `x-cruise-*` headers.
 - [vLLora (ex-LangDB)](https://github.com/vllora/vllora) <!--s:vllora/vllora-->⭐ 813<!--/s--> - Agent debugging and observability from the LangDB team.
 - [Braintrust Proxy](https://github.com/braintrustdata/braintrust-proxy) <!--s:braintrustdata/braintrust-proxy-->⭐ 410<!--/s--> - Caching proxy wired into Braintrust evals.
 - [MLflow AI Gateway](https://github.com/mlflow/mlflow) <!--s:mlflow/mlflow-->⭐ 28.1k<!--/s--> - Unified endpoints + governance inside the MLflow platform.
