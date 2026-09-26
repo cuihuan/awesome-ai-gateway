@@ -11,7 +11,7 @@ If you want one OpenAI-compatible endpoint for every model — but on **your own
 | Gateway | Language | Best at | Overhead (measured¹) | License | Stars |
 |---|---|---|---|---|---|
 | **LiteLLM** | Python | Breadth (100+ providers), features | 5.83 ms | MIT | <!--s:BerriAI/litellm-->⭐ 59.6k<!--/s--> |
-| **Bifrost** | Go | Raw throughput | 0.62 ms | Apache-2.0 | <!--s:maximhq/bifrost-->⭐ 8.3k<!--/s--> |
+| **Bifrost** | Go | Raw throughput | 0.62 ms | Apache-2.0 | <!--s:maximhq/bifrost-->⭐ 8.4k<!--/s--> |
 | **Portkey Gateway** | TypeScript | Guardrails + governance built in | 2.65 ms | MIT | <!--s:Portkey-AI/gateway-->⭐ 13.1k<!--/s--> |
 | **Kong AI Gateway** | Lua/Go | Enterprise K8s + mature plugins | low | Apache-2.0 | <!--s:Kong/kong-->⭐ 44.2k<!--/s--> |
 
