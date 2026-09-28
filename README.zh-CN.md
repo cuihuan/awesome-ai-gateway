@@ -473,6 +473,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Orq.ai](https://orq.ai) — 托管路由控制面：30+ 厂商 500+ 模型，带重试、兜底、缓存与治理（BYOK）。
 - [NadirClaw](https://github.com/NadirRouter/NadirClaw) <!--s:NadirRouter/NadirClaw-->⭐ 653<!--/s--> — 自托管、OpenAI 兼容的路由器（Python）：简单 prompt 走便宜/本地模型、复杂的走高端，配训练过的级联校验器，省 40–70% API 成本。
 - [ngrok AI Gateway](https://ngrok.com/docs/ai-gateway/overview) — 托管代理，路由到 OpenAI/Anthropic/Google 及本地 Ollama/vLLM/LM Studio，带自动兜底、密钥轮换与 CEL 流量策略（PII 脱敏）。
+- [Infere](https://infere.com) — 兼容 OpenAI 的网关，按提示复杂度与所需能力（视觉、工具调用）为每个请求选择提供商，支持上下文压缩、按错误类型划分的故障转移链、以 Git 文件形式管理的提示词版本，并在调用提供商之前执行按 token 的预算限制。
 
 ### 💾 缓存过网关——钱的问题
 
