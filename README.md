@@ -838,6 +838,7 @@ _Reverse-chronological, last ~3 months. Older items retire into the chapter or d
 - [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) - OWASP, 2025 — the standard risk taxonomy; prompt injection is LLM01, the checklist any gateway's guardrails must answer to.
 - [Design patterns for securing LLM agents against prompt injection](https://simonwillison.net/2025/Jun/13/prompt-injection-design-patterns/) - Simon Willison, 2025-06 — six concrete architectural defenses (Dual LLM, Plan-Then-Execute, Action-Selector, …).
 - [LLM Prompt Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html) - OWASP — a defense-in-depth checklist for what a gateway's guardrail layer should implement.
+- [agentgateway CEL Gotchas: Fail-Open + 403 Fix](https://webofmike.com/agentgateway-cel-authorization-gotchas/) - Mike Moore, 2026-09 — two authorization-policy mistakes that both report `Accepted` and `Attached`, verified on Solo Enterprise for agentgateway v2026.8.2: `matchExpressions` entries are OR'ed, so one entry per rule fails open, and `llm.requestModel` is empty at the `traffic.authorization` phase, so a model check denies every request. Includes a four-request test that catches both.
 
 **MCP & agent gateways**
 - [Model Context Protocol — specification](https://modelcontextprotocol.io/specification/2025-03-26) - The open standard any MCP gateway must speak and govern.
@@ -848,6 +849,7 @@ _Reverse-chronological, last ~3 months. Older items retire into the chapter or d
 - [AI Gateway observability](https://developers.cloudflare.com/ai-gateway/observability/) - Cloudflare — per-request logs, token usage, cost estimation and OpenTelemetry export across all providers.
 - [How to monitor your LLM API costs](https://www.helicone.ai/blog/monitor-and-optimize-llm-costs) - Helicone — practical cost-per-query tracking and spotting caching / model-downgrade opportunities.
 - [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) - Hamel Husain, 2024 — why systematic evals (not vibes) are how you actually catch quality regressions in the request/response data your gateway logs.
+- [Cap LLM Spend per API Key: agentgateway 1.5](https://webofmike.com/agentgateway-per-key-llm-budgets/) - Mike Moore, 2026-09 — per-key token and USD budgets (HTTP 429 on overage, or an `Audit` mode that records without blocking) and per-key model allowlists (HTTP 403) in open-source agentgateway v1.5.0, with a Docker demo against a mock LLM. Notes that a model missing from the price catalog never charges a USD budget.
 
 **Self-hosting economics**
 - [Automatic prefix caching](https://docs.vllm.ai/en/stable/design/prefix_caching/) - vLLM — KV-block prefix caching (and per-request cache isolation), the mechanism behind the savings when you self-host behind your own gateway.

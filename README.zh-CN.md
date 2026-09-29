@@ -817,6 +817,7 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 - [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — OWASP，2025 — 业界标准风险分类，prompt injection 为 LLM01，任何网关护栏都要对照。
 - [Design patterns for securing LLM agents against prompt injection](https://simonwillison.net/2025/Jun/13/prompt-injection-design-patterns/) — Simon Willison，2025-06 — 六种具体架构防御（Dual LLM、Plan-Then-Execute、Action-Selector…）。
 - [LLM Prompt Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html) — OWASP — 网关护栏层该实现的纵深防御清单。
+- [agentgateway CEL Gotchas: Fail-Open + 403 Fix](https://webofmike.com/agentgateway-cel-authorization-gotchas/) — Mike Moore，2026-09 — 两个都显示 `Accepted`、`Attached` 的授权策略错误（在 Solo Enterprise for agentgateway v2026.8.2 上验证）：`matchExpressions` 各条目是 OR 关系，每条规则单独写一条会 fail-open；`traffic.authorization` 阶段 `llm.requestModel` 为空，据此校验模型会拒绝所有请求。附一套能同时抓出两者的四请求测试。
 
 **MCP 与 Agent 网关**
 - [Model Context Protocol — specification](https://modelcontextprotocol.io/specification/2025-03-26) — 任何 MCP 网关都必须理解并治理的开放标准。
@@ -827,6 +828,7 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 - [AI Gateway observability](https://developers.cloudflare.com/ai-gateway/observability/) — Cloudflare — 逐请求日志、token 用量、成本估算与跨供应商的 OpenTelemetry 导出。
 - [How to monitor your LLM API costs](https://www.helicone.ai/blog/monitor-and-optimize-llm-costs) — Helicone — 单次查询成本追踪，以及发现缓存/模型降级机会的实操。
 - [Your AI Product Needs Evals](https://hamel.dev/blog/posts/evals/) — Hamel Husain，2024 — 为什么系统化的 evals（而非凭感觉）才是从网关记录的请求/响应数据里真正抓出质量回退的办法。
+- [Cap LLM Spend per API Key: agentgateway 1.5](https://webofmike.com/agentgateway-per-key-llm-budgets/) — Mike Moore，2026-09 — 开源 agentgateway v1.5.0 的按 key token/美元预算（超额返回 HTTP 429，或仅记录不拦截的 `Audit` 模式）与按 key 模型白名单（HTTP 403），附基于 mock LLM 的 Docker 演示。价格目录中缺失的模型不会计入美元预算。
 
 **自托管经济学**
 - [Automatic prefix caching](https://docs.vllm.ai/en/stable/design/prefix_caching/) — vLLM — KV-block 前缀缓存（及逐请求缓存隔离），自托管时省钱的底层机制。
