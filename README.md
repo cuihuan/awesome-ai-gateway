@@ -253,6 +253,7 @@ _Stars are cumulative; they never go down when a project stops shipping. Every t
 - [AIMLAPI](https://aimlapi.com) - One OpenAI/Anthropic-compatible endpoint fronting 400+ models (chat, image, video, audio, embeddings); prepaid, OpenRouter-style aggregator.
 - [Novita AI](https://novita.ai) - Unified API to 200+ open-source models (DeepSeek/Qwen/Llama…) with load balancing, autoscaling and failover; also a GPU cloud.
 - [Glama Gateway](https://glama.ai/ai/gateway) - OpenAI-compatible gateway to 100+ models with consolidated billing, caching and logging (OSS core [glama-ai/lightport](https://github.com/glama-ai/lightport)).
+- [NanoRoute](https://github.com/robgilmore26/nanoroute) <!--s:robgilmore26/nanoroute-->⭐ 4<!--/s--> - Open-source x402 facilitator (MIT, TypeScript) that gates an agent-facing API on the request path with HTTP 402 and settles each call in Nano (XNO) — zero-fee L1, sub-second finality — so an operator can charge sub-cent per-request micropayments that card rails can't carry. One-line Express middleware (`nanoroute-express`), or run the bundled facilitator with a public node. Uses the same x402 402-challenge shape as the L402/Lightning and USDC entries on this list, with no gas and no fee floor.
 
 <details>
 <summary><b>New &amp; unverified relays (24)</b> — transparent resellers awaiting independent fidelity checks; read the <a href="#community-relay-watch-list">relay watch-list</a> first</summary>
