@@ -367,6 +367,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Ambassador Edge Stack](https://www.getambassador.io/products/edge-stack/api-gateway) — 基于 Envoy 的 Kubernetes 原生 API 网关（开源内核 [emissary-ingress](https://github.com/emissary-ingress/emissary) <!--s:emissary-ingress/emissary-->⭐ 4.5k<!--/s-->），其 AI Gateway 层增加 LLM 厂商路由、token 限流与兜底——API 厂商阵营里 Kong/Tyk/APISIX 的同类。
 - [shim](https://github.com/GetSHIM/shim) <!--s:GetSHIM/shim-->⭐ 8<!--/s--> — 开放内核的 Python 网关（核心 Apache-2.0，`ee/` 为 Elastic License 2.0 源码可见）：不改写负载即施加策略，OpenAI 请求仍以 OpenAI 格式出站，Anthropic 请求仍以 Anthropic 格式出站。对 PII 与厂商密钥（邮箱、电话、银行卡、IBAN、土耳其 TCKN/VKN、AWS key、GitHub token）做占位符脱敏并在返回路径还原，另有 RPM/TPM 准入、基于仓内价格目录的模型白名单与按请求的成本归属。产品处于 alpha 阶段；社区版不保留请求历史，留存审计证据、角色与预算位于源码可见的 `ee/` 层。托管服务见 [getshim.tech](https://getshim.tech)。
 - [AI Gateway HQ](https://aigatewayhq.com/platform/) — 托管网关，切入点是企业采购问题而不是路由问题:它前置的是**你自己的** OpenAI、Anthropic、Gemini 凭据（BYOK 推理由厂商直接计费，网关不再抽成），或者一份可选的预付费托管 Bedrock（余额到零即硬停），并在**真正花钱之前**先判定调用方、允许的模型与剩余预算。按工作负载隔离的 Key、基于健康度的故障转移、策略仿真，Company 档提供 OIDC + SAML + SCIM 与内置角色。价格是公开的而非"联系销售":免费评估工作区，Flex 档无月费、$0.10/1,000 次请求，Company $499/月，Portfolio 基础价 $1,500/月。**新增且未经核实**（自荐）。
+- [Dome Systems](https://docs.domesystems.ai/tutorials/production/use-dome-as-a-model-broker) — 模型代理（Model Broker），将 LLM 调用路由到多个供应商资源池，支持故障转移、配额以及请求/响应护栏，并与其 MCP 网关共用同一套 Cedar 规则和审计记录。
 
 ## 🌐 原厂直连（云厂商/模型厂商）
 
@@ -440,6 +441,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Open Connector](https://github.com/oomol-lab/open-connector) <!--s:oomol-lab/open-connector-->⭐ 5.9k<!--/s--> — 开源鉴权网关（Apache-2.0，OOMOL Lab），通过 SDK、CLI、MCP、HTTP 与 OpenAPI 把 AI Agent 接到 1000+ SaaS 服务——治理的是 Agent→SaaS 的工具凭证与访问，而非 LLM 补全流量。
 - [toolport](https://github.com/tsouth89/toolport) <!--s:tsouth89/toolport-->⭐ 223<!--/s--> — 本地优先的 MCP 网关（MIT）：一个端口收口所有工具与 AI 客户端，带懒加载工具发现（按其文档约省 90% token）、工具完整性校验 + 隔离，密钥存放在系统钥匙串。
 - [Speakeasy MCP Gateway](https://www.speakeasy.com/product/mcp-gateway) — 来自 OpenAPI 工具链厂商的托管 MCP 网关，定位是"AI 控制平面"里的分发层:通过你现有的 IdP 代理 OAuth 2.1，权限**按服务、按工具、按团队**分级，每次工具调用都过策略，未经批准的影子 MCP 服务默认拦截。把它放进正文而非长尾的理由是它公开的 MoonPay 案例:200+ 个 MCP 服务经 Okta 收口到一个网关，安全团队可见 60K+ 次 Agent 会话。有免费档，之上为商业版。
+- [Dome Systems](https://www.domesystems.ai) — 托管的 Agent 运营平台，其网关把 MCP/API 工具调用与模型调用放在同一条受治理的路径上:每次调用都按工具参数评估 Cedar 授权规则，每个 Agent 拥有独立身份与可吊销凭据，并提供可导出的审计记录。有免费档，之上为商业版。
 
 ## 🔧 更多按能力分（横切关注点）
 
