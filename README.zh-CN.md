@@ -661,6 +661,7 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 
 - **[llm-gateway-bench](https://github.com/cuihuan/llm-gateway-bench)**([在线榜单](https://cuihuan.github.io/llm-gateway-bench/))——黑盒拨测任意 OpenAI 兼容网关/中转:TTFT 与吞吐、成功率、价格倍率,外加保真度探针(模型回显、假流式、虚报 usage、上下文截断)。用你自己的 key 测自己的网关,并和"最好的"逐维对比。
 - **[modelprobe](https://github.com/cuihuan/modelprobe)**——一个零依赖的 Go 可用性拨测小工具:给它 base URL + key,逐模型告诉你*在不在线、有多快*。单个静态二进制——丢进 CI 或 $5 VM 的 cron 即可。
+- **[cocodot-llmprobe](https://github.com/cocodot2026/cocodot-llmprobe)**([托管版,中文界面](https://probe.cocodot.co))——任意 OpenAI 兼容端点、只需该端点自己 key 的冒烟测试:6 道各有唯一可判答案的固定题(指令、Base64、约 3.5k 字符捞针、推理、算术、代码),字符串比对判分,不用裁判模型;`smoke` 子命令,只用 Python 标准库。能暴露明显答错,但分辨不出实际是哪个模型在回答。MIT;出自中转 cocodot 的运营方(已披露)。
 
 ### 社区中转避雷观察名单
 
