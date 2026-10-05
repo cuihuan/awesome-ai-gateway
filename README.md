@@ -494,6 +494,7 @@ _Pain point: "Send each prompt to the cheapest model that can handle it."_
 - [Orq.ai](https://orq.ai) - Hosted routing control plane: 500+ models across 30+ providers with retries, fallbacks, caching and governance (BYOK).
 - [NadirClaw](https://github.com/NadirRouter/NadirClaw) <!--s:NadirRouter/NadirClaw-->⭐ 655<!--/s--> - Self-hosted, OpenAI-compatible router (Python) that sends simple prompts to cheap/local models and hard ones to premium, with a trained cascade verifier to cut API cost 40–70%.
 - [ngrok AI Gateway](https://ngrok.com/docs/ai-gateway/overview) - Managed proxy routing to OpenAI/Anthropic/Google + local Ollama/vLLM/LM Studio, with automatic failover, key rotation, and CEL traffic-policy controls (PII redaction).
+- [Infere](https://infere.com) - OpenAI-compatible gateway that routes each request to a provider by prompt complexity and required capabilities such as vision or tool calling, with context compression, fallback chains scoped by error type, prompts versioned as files in Git, and per-token budgets enforced before the provider call.
 
 ### 💾 Prompt caching through a gateway — the money question
 
