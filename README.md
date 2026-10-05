@@ -851,6 +851,7 @@ _Reverse-chronological, last ~3 months. Older items retire into the chapter or d
 
 **Self-hosting economics**
 - [Automatic prefix caching](https://docs.vllm.ai/en/stable/design/prefix_caching/) - vLLM — KV-block prefix caching (and per-request cache isolation), the mechanism behind the savings when you self-host behind your own gateway.
+- [HostDeFi](https://hostdefi.com) — free token-safety scanner grading tokens A+–F from on-chain checks (mint/freeze authority, liquidity, holder concentration) across Solana + 7 EVM chains. Keyless REST API, hosted MCP, x402 endpoints.
 
 ## Guides & comparisons
 
