@@ -288,6 +288,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 
 **试用额度 ≠ 免费档**（会过期）：NVIDIA [build.nvidia.com](https://docs.api.nvidia.com/nim/docs/faq)（注册送 1,000 次请求，企业邮箱 +4,000——数字来自官方论坛员工答复；仅限原型用途）、阿里云 [Model Studio 国际版](https://www.alibabacloud.com/help/en/model-studio/new-free-quota)（逐模型额度，激活后 90 天硬性过期，仅新加坡区）。**近期已取消——别信过期榜单：** Together AI 已下线全部 `-free` 模型（现在最低预充 $5，官方原话 _"does not currently offer free trials"_），Moonshot/Kimi 需先充 $1 才能用，xAI 广为流传的数据共享额度已从所有公开页面消失。逐行证据：[`data/free_tiers.json`](data/free_tiers.json)。发现哪行过期了？[提 issue](https://github.com/cuihuan/awesome-ai-gateway/issues/new)。
 
+- [TideLink](https://tidelink.xyz?cid=gh) — 按量计费的 OpenAI 兼容 LLM API 网关，含永久免费层（GLM-4-Flash）与 BYOK，覆盖 20+ 供应商。
 ## 🔓 自托管开源
 
 *痛点："Key 在我手里、跑在我机器上，不交按量过路费。"*
