@@ -332,6 +332,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [TrustGate](https://github.com/NeuralTrust/TrustGate) <!--s:NeuralTrust/TrustGate-->⭐ 10<!--/s--> — NeuralTrust 出品的 Go/Apache-2.0 Agent 网关：Admin/Proxy/MCP 三平面分离、多提供商 OpenAI 兼容路由、消费者鉴权与策略插件（限流/Token 限额、语义缓存）；强在治理与 MCP 聚合，而非提供商覆盖面。以星数看仍属早期，但三平面拆分是真实的架构选择而非改名。
 - [Company AI Hub](https://github.com/Ghost011118/company-ai-hub) <!--s:Ghost011118/company-ai-hub-->⭐ 0<!--/s--> — Apache-2.0 的 TypeScript 网关，面向 Codex 与 OpenAI 兼容客户端：在服务端注入经统一批准的 Agent、Skill 与 Prompt，员工投稿留有不可变的审核快照，并带网页管理台。早期项目（2026-08 开放、单人维护），目前只代理一个已配置的上游提供商——它的看点是治理模型，不是提供商覆盖面。
 - [Agnos](https://github.com/siva010928/agnos-proxy-oss) <!--s:siva010928/agnos-proxy-oss-->⭐ 3<!--/s--> — 自托管控制平面（MIT，Python/FastAPI）：把 LiteLLM、Bifrost 或 Portkey 当作可热插拔的无状态翻译引擎，统一在一个 OpenAI 兼容端点后运行；提供商密钥保存在它自己的加密保险库中、按单次请求注入，而不是留在翻译层里，并带鉴权、按工作区预算、CEL 护栏、成本统计与跨引擎的统一审计日志。早期项目（2026，单人维护）——看点是"自带控制平面、容纳网关"的架构切分，而非提供商覆盖面。
+- [One Switch](https://github.com/yinxulai/one-switch) <!--s:yinxulai/one-switch-->⭐ 168<!--/s--> — 本地桌面网关（macOS/Windows/Linux），把你自己手上的 OpenAI 与 Anthropic 兼容渠道统一到一个 `127.0.0.1` 地址后面：渠道按优先级排序，某次尝试失败（网络异常、超时、限流、额度耗尽、密钥被拒或上游 5xx）就自动换下一个，客户端只会看到成功的那次；已经开始流式输出的响应绝不会从第二个渠道拼接。请求日志记录真正服务的渠道与模型、TTFT、tokens/秒 与缓存命中比例，并可用请求改写规则与带版本、可回滚的路由规则图应对厂商差异。无账号、无云端中转，密钥存放在系统凭据库。采用 **PolyForm Noncommercial 1.0.0**（源码可见，非 OSI 开源）。早期项目，单人维护。
 - ⚠️ 已停滞但有历史意义：[BricksLLM](https://github.com/bricks-cloud/BricksLLM) <!--s:bricks-cloud/BricksLLM-->⭐ 1.2k<!--/s-->（PII 脱敏、按 Key 限额；2025 年初起不再活跃）、[Glide](https://github.com/EinStack/glide) <!--s:EinStack/glide-->⭐ 160<!--/s-->（2024 年起停更）。
 
 ## 🏢 企业合规
