@@ -436,6 +436,7 @@ _Pain point: "Agents call tools now — govern MCP traffic like you govern APIs.
 - [Tetrate Agent Router Service](https://tetrate.io/products/tetrate-agent-router-service) - Managed Envoy AI Gateway fleet: LLM + MCP gateway with guardrails (~5% fee).
 - [Zuplo AI Gateway](https://zuplo.com/ai-gateway) - Programmable policies: USD spend limits, prompt-injection detection, secret masking, MCP support.
 - [NetFoundry MCP/LLM Gateways](https://netfoundry.io) - Zero-trust gateways for AI deployments (launched June 2026).
+- [Intercis](https://intercis.io) - Hosted policy proxy for Anthropic/OpenAI API traffic: a denied tool call is removed from the model response before the agent runtime sees it (commercial; publishes a false-positive rate and a limitations page).
 - AWS AgentCore Gateway — Tool/MCP gateway inside Bedrock AgentCore.
 - [IBM ContextForge](https://github.com/IBM/mcp-context-forge) <!--s:IBM/mcp-context-forge-->⭐ 4.6k<!--/s--> - MCP gateway/registry federating many MCP servers behind one endpoint with auth, rate limits and observability.
 - [Docker MCP Gateway](https://github.com/docker/mcp-gateway) <!--s:docker/mcp-gateway-->⭐ 1.6k<!--/s--> - Docker-maintained `docker mcp` CLI plugin that runs and federates MCP servers as containers behind one endpoint, with secret management, call interception and a deployment-time per-tool enable-list (identity-free — not per-caller authorization).
