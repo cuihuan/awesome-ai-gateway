@@ -509,6 +509,7 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 - [claude-tap](https://github.com/liaohch3/claude-tap) <!--s:liaohch3/claude-tap-->⭐ 3.3k<!--/s--> — MIT 的本地拦截代理 + 链路查看器,覆盖编码 Agent 流量（Claude Code、Codex CLI、Gemini CLI、Cursor CLI、OpenCode、Kimi、Pi、Hermes）:看清 agent 实际发出的请求、响应与工具调用。比 ccglass 覆盖的 agent 更广,定位偏排障而非记账。
 - [ccglass](https://github.com/jianshuo/ccglass) <!--s:jianshuo/ccglass-->⭐ 862<!--/s--> — 本地代理 + Web 仪表盘（MIT），让你看清编码 Agent（Claude Code、Codex、Kimi）到底发了什么给模型。
 - [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) <!--s:Continuum-AI-Corp/OrcaReplay-->⭐ 279<!--/s--> — Apache-2.0 本地代理，逐字节保存原始请求与响应，因此和上面两个"查看器"不同,它能**把录制回放出去**:同一次 Agent 运行可以重新执行而不调用任何厂商、不花一分钱,也可以从任意检查点分叉到别的模型上继续,以校验命令的退出码作为判定。对本节那个痛点——"质量为什么下降了"——它的回答方式是把同一份活重跑一遍,而不是事后画图。其 README 自己标注的边界:`egress=blocked` 只拦模型厂商出口,录制到的工具调用仍会真实执行,所以它不是沙箱。
+- [ABTO](https://abto.app/en/?utm_source=community&utm_medium=link&utm_content=gateway-list) — 托管的 OpenAI 兼容网关（OpenAI、Anthropic、Gemini、DeepSeek、Kimi），按设备 ID 把终端用户固定分配到不同的模型/Prompt 选项，并按功能将每次调用成本与下游产品事件（注册、付费、留存）对照展示；厂商 API Key 随请求透传，不写入调用日志。
 
 ### 🚢 Kubernetes 原生与推理基础设施
 
