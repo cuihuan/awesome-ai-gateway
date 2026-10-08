@@ -236,7 +236,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [Glama Gateway](https://glama.ai/ai/gateway) — OpenAI 兼容网关，接入 100+ 模型，统一账单、缓存与日志（开源内核 [glama-ai/lightport](https://github.com/glama-ai/lightport)）。
 
 <details>
-<summary><b>新且未经核实的中转（24 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
+<summary><b>新且未经核实的中转（25 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
 
 - [Loop Gateway](https://api.loopxxi.com) — OpenAI 兼容代理，每个请求以比特币 sats（而非美元）计费。经 OpenRouter 接入 311 个模型、加价 15%。无需账号/邮箱/银行卡；用闪电网络充值即得 bearer token。三种鉴权（预付 bearer、L402、Cashu）。线上托管于 [api.loopxxi.com](https://api.loopxxi.com)。 **新且未经核实**（匿名；其公开 GitHub 仓库现已删除，按闭源托管中转看待）——它*通过运营者自己的 OpenRouter 账号*转售前沿模型并加价 15%，无账号+加密货币预付意味着一旦偷换模型或跑路都无从追索；投产前请用 [canary_check.py](scripts/canary_check.py) 验证保真度，且只充值你能承受损失的金额。
 - [nullsink](https://nullsink.is) ([仓库](https://github.com/nullsink/nullsink)) — 无账号的前沿模型 API 计费代理，用门罗币（Monero）或比特币（Bitcoin）付费。无需账号/邮箱/银行卡；生成 bearer token、链上预付，改一个 base URL 即可用官方 SDK 调用。加价约 10%，仅在充值时收取一次；不记录 IP、不记录请求日志；付款与 token 不可关联。单文件可执行、可自托管（TypeScript/Bun，AGPL-3.0），线上服务 [nullsink.is](https://nullsink.is)。 **新且未经核实**（仓库 2026-06 新建、<!--s:nullsink/nullsink-->⭐ 12<!--/s-->）——无账号+加密货币预付+无日志，一旦偷换模型或跑路都无从追索；投产前请用 [canary_check.py](scripts/canary_check.py) 验证保真度，且只充值你能承受损失的金额。
@@ -262,6 +262,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [HeFu](https://www.hefu.hk) — 托管中转（`https://api.hefu.hk/v1`，在线），聚合十家厂商的 126+ 模型（OpenAI、Anthropic、Google、阿里、字节、DeepSeek、MiniMax、月之暗面…），提供 OpenAI 与 Anthropic 兼容端点，宣称**按官网原价、零加价**，并带成本/延迟/健康度打分的故障转移、团队子账号与逐笔充值 PDF 收据。**新且未经核实**（自荐;站点未披露任何运营主体，且按原价转售意味着没有可见毛利——这是"该去验保真度"的理由，而不是"该假定它有问题"的理由）——投产前请先用 [canary_check.py](scripts/canary_check.py) 核实。
 - [Standard Compute](https://standardcompute.com) — 固定月费订阅（$19–$2,499/月），背后是**公开且具名**的模型目录（[`/models`](https://standardcompute.com/models):Claude Fable 5.1、GPT-6 Astra、Gemini 3.1 Pro、GLM 5.3、Kimi K3、DeepSeek V4 Flash…），OpenAI 兼容并带 Anthropic Messages 端点（`api.stdcmpt.com/v1`，在线）。路由用哪些模型由你决定——最多选五个，或锁定单个模型让全部请求都走它。⚠️ 套餐价买到的是**每月算力预算，不是无限吞吐**:用完即停到下个计费周期，不超额计费——这一点是厂商自己的定价页与 FAQ 写明的，而[如何安全地选](#如何安全选型)里那类固定费率套餐通常正是隐瞒这一点。**新且未经核实**——运营方[自测 canary 通过](https://gist.github.com/henrikdukefoss/4f92ba7849a6378c834864be26794a2e)（锁定 `deepseek/deepseek-v4-pro`，以 OpenRouter 为参照，2026-09-09）;仍需第三方独立复现。
 - [Gonka Broker](https://gonkabroker.com) — 接入去中心化 Gonka GPU 网络的 OpenAI / Anthropic 兼容端点，**只提供开源权重模型**（[实时目录](https://proxy.gonkabroker.com/v1/models):MiniMax-M2.7、Kimi-K2.6、DeepSeek-V4-Flash，以及 BGE-M3 嵌入）。两点足够特殊、也正是值得一看的理由:**输入与输出同价**，且单价在**充值时锁定**、覆盖该笔余额全程，上游调价不会重新定价你已买的额度。刷卡支付，无需加密钱包。**新且未经核实**（自荐）——由于它自托管开源权重而非转售前沿模型额度，这里的保真度问题是**量化精度，而非模型替换**:请用 [canary_check.py](scripts/canary_check.py) 与同一权重的官方托管方做对比。
+- [Vynaris](https://vynaris.com) — 托管的 OpenAI 兼容网关，自托管去审查的开源权重模型（Qwen3.8-27B、DeepSeek-V4-Flash-0731、Qwen3.6-35B-A3B；[模型页](https://vynaris.com/uncensored-models)），面向经授权的安全测试与红队，运营方称这些托管模型不留存 prompt 和输出；同时可路由到更广的模型目录，每次请求附成本明细。按量预付。**新且未经核实**（自荐；不留存的说法来自运营方）——因为是开源权重自托管，保真度问题在于量化与微调行为，而非模型替换。
 
 </details>
 
