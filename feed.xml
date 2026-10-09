@@ -5,8 +5,78 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-10-08T08:39:07Z</updated>
+  <updated>2026-10-09T08:29:31Z</updated>
   <author><name>Awesome AI Gateway</name></author>
+  <entry>
+    <title>seakee/CPA-Manager-Plus v1.14.5</title>
+    <link href="https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.14.5" />
+    <id>https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.14.5</id>
+    <updated>2026-10-09T08:29:31Z</updated>
+    <summary>seakee/CPA-Manager-Plus released v1.14.5.</summary>
+  </entry>
+  <entry>
+    <title>Wei-Shaw/sub2api v0.2.15</title>
+    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.2.15" />
+    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.2.15</id>
+    <updated>2026-10-09T03:35:49Z</updated>
+    <summary>Wei-Shaw/sub2api released Sub2API 0.2.15.</summary>
+  </entry>
+  <entry>
+    <title>router-for-me/CLIProxyAPI v8.0.22</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.22" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.22</id>
+    <updated>2026-10-08T21:33:42Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v8.0.22.</summary>
+  </entry>
+  <entry>
+    <title>lidge-jun/opencodex v2.81.0</title>
+    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.81.0" />
+    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.81.0</id>
+    <updated>2026-10-08T21:30:25Z</updated>
+    <summary>lidge-jun/opencodex released v2.81.0.</summary>
+  </entry>
+  <entry>
+    <title>archestra-ai/archestra platform-v1.3.71</title>
+    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.71" />
+    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.71</id>
+    <updated>2026-10-08T21:11:09Z</updated>
+    <summary>archestra-ai/archestra released platform: v1.3.71.</summary>
+  </entry>
+  <entry>
+    <title>askalf/dario v6.13.9</title>
+    <link href="https://github.com/askalf/dario/releases/tag/v6.13.9" />
+    <id>https://github.com/askalf/dario/releases/tag/v6.13.9</id>
+    <updated>2026-10-08T20:40:50Z</updated>
+    <summary>askalf/dario released v6.13.9.</summary>
+  </entry>
+  <entry>
+    <title>caozhiyuan/copilot-api v2.7.10</title>
+    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.7.10" />
+    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.7.10</id>
+    <updated>2026-10-08T13:50:29Z</updated>
+    <summary>caozhiyuan/copilot-api released v2.7.10.</summary>
+  </entry>
+  <entry>
+    <title>mozilla-ai/otari v0.18.0</title>
+    <link href="https://github.com/mozilla-ai/otari/releases/tag/v0.18.0" />
+    <id>https://github.com/mozilla-ai/otari/releases/tag/v0.18.0</id>
+    <updated>2026-10-08T13:08:50Z</updated>
+    <summary>mozilla-ai/otari released v0.18.0.</summary>
+  </entry>
+  <entry>
+    <title>musistudio/claude-code-router v3.1.2</title>
+    <link href="https://github.com/musistudio/claude-code-router/releases/tag/v3.1.2" />
+    <id>https://github.com/musistudio/claude-code-router/releases/tag/v3.1.2</id>
+    <updated>2026-10-08T10:46:54Z</updated>
+    <summary>musistudio/claude-code-router released v3.1.2.</summary>
+  </entry>
+  <entry>
+    <title>QuantumNous/new-api v1.0.0-rc.42</title>
+    <link href="https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.42" />
+    <id>https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.42</id>
+    <updated>2026-10-08T10:10:46Z</updated>
+    <summary>QuantumNous/new-api released v1.0.0-rc.42.</summary>
+  </entry>
   <entry>
     <title>BerriAI/litellm v1.104.2</title>
     <link href="https://github.com/BerriAI/litellm/releases/tag/v1.104.2" />
@@ -36,32 +106,11 @@
     <summary>obot-platform/obot released v0.26.3.</summary>
   </entry>
   <entry>
-    <title>askalf/dario v6.13.4</title>
-    <link href="https://github.com/askalf/dario/releases/tag/v6.13.4" />
-    <id>https://github.com/askalf/dario/releases/tag/v6.13.4</id>
-    <updated>2026-10-07T19:43:12Z</updated>
-    <summary>askalf/dario released v6.13.4.</summary>
-  </entry>
-  <entry>
-    <title>router-for-me/CLIProxyAPI v8.0.20</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.20" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.20</id>
-    <updated>2026-10-07T19:01:11Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v8.0.20.</summary>
-  </entry>
-  <entry>
     <title>kittors/CliRelay v0.5.7</title>
     <link href="https://github.com/kittors/CliRelay/releases/tag/v0.5.7" />
     <id>https://github.com/kittors/CliRelay/releases/tag/v0.5.7</id>
     <updated>2026-10-07T18:40:16Z</updated>
     <summary>kittors/CliRelay released v0.5.7 - Monitor Center API, Credential Imports, and Faster Recovery From Dead Connections.</summary>
-  </entry>
-  <entry>
-    <title>mozilla-ai/otari v0.17.0</title>
-    <link href="https://github.com/mozilla-ai/otari/releases/tag/v0.17.0" />
-    <id>https://github.com/mozilla-ai/otari/releases/tag/v0.17.0</id>
-    <updated>2026-10-07T16:51:25Z</updated>
-    <summary>mozilla-ai/otari released v0.17.0.</summary>
   </entry>
   <entry>
     <title>mnfst/manifest manifest@6.28.5</title>
@@ -71,25 +120,11 @@
     <summary>mnfst/manifest released manifest v6.28.5.</summary>
   </entry>
   <entry>
-    <title>caozhiyuan/copilot-api v2.7.8</title>
-    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.7.8" />
-    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.7.8</id>
-    <updated>2026-10-07T14:45:01Z</updated>
-    <summary>caozhiyuan/copilot-api released v2.7.8.</summary>
-  </entry>
-  <entry>
     <title>envoyproxy/ai-gateway v1.2.0</title>
     <link href="https://github.com/theagentrouter/agent-router/releases/tag/v1.2.0" />
     <id>https://github.com/theagentrouter/agent-router/releases/tag/v1.2.0</id>
     <updated>2026-10-07T11:58:00Z</updated>
     <summary>envoyproxy/ai-gateway released v1.2.0.</summary>
-  </entry>
-  <entry>
-    <title>lidge-jun/opencodex v2.80.0</title>
-    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.80.0" />
-    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.80.0</id>
-    <updated>2026-10-07T10:45:35Z</updated>
-    <summary>lidge-jun/opencodex released v2.80.0.</summary>
   </entry>
   <entry>
     <title>bestruirui/octopus v0.13.10</title>
@@ -111,13 +146,6 @@
     <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.1.100</id>
     <updated>2026-10-07T07:31:25Z</updated>
     <summary>ENTERPILOT/GoModel released v0.1.100.</summary>
-  </entry>
-  <entry>
-    <title>Wei-Shaw/sub2api v0.2.14</title>
-    <link href="https://github.com/Wei-Shaw/sub2api/releases/tag/v0.2.14" />
-    <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.2.14</id>
-    <updated>2026-10-07T02:02:43Z</updated>
-    <summary>Wei-Shaw/sub2api released Sub2API 0.2.14.</summary>
   </entry>
   <entry>
     <title>tsouth89/toolport v1.24.0</title>
@@ -146,20 +174,6 @@
     <id>https://github.com/kgateway-dev/kgateway/releases/tag/v2.4.6</id>
     <updated>2026-10-06T20:17:11Z</updated>
     <summary>kgateway-dev/kgateway released v2.4.6.</summary>
-  </entry>
-  <entry>
-    <title>seakee/CPA-Manager-Plus v1.14.4</title>
-    <link href="https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.14.4" />
-    <id>https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.14.4</id>
-    <updated>2026-10-06T16:41:51Z</updated>
-    <summary>seakee/CPA-Manager-Plus released v1.14.4.</summary>
-  </entry>
-  <entry>
-    <title>archestra-ai/archestra platform-v1.3.70</title>
-    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.70" />
-    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.3.70</id>
-    <updated>2026-10-06T15:52:36Z</updated>
-    <summary>archestra-ai/archestra released platform: v1.3.70.</summary>
   </entry>
   <entry>
     <title>NadirRouter/NadirClaw v0.24.0</title>
@@ -202,19 +216,5 @@
     <id>https://github.com/theopenco/llmgateway/releases/tag/v1.20.0</id>
     <updated>2026-10-05T09:30:02Z</updated>
     <summary>theopenco/llmgateway released v1.20.0.</summary>
-  </entry>
-  <entry>
-    <title>BlockRunAI/ClawRouter v0.12.282</title>
-    <link href="https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.282" />
-    <id>https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.282</id>
-    <updated>2026-10-05T09:15:29Z</updated>
-    <summary>BlockRunAI/ClawRouter released v0.12.282 — security: the local proxy only answers local clients.</summary>
-  </entry>
-  <entry>
-    <title>higress-group/higress v2.2.5</title>
-    <link href="https://github.com/higress-group/higress/releases/tag/v2.2.5" />
-    <id>https://github.com/higress-group/higress/releases/tag/v2.2.5</id>
-    <updated>2026-10-04T19:46:14Z</updated>
-    <summary>higress-group/higress released v2.2.5.</summary>
   </entry>
 </feed>
