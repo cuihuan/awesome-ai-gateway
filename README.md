@@ -253,7 +253,6 @@ _Stars are cumulative; they never go down when a project stops shipping. Every t
 - [AIMLAPI](https://aimlapi.com) - One OpenAI/Anthropic-compatible endpoint fronting 400+ models (chat, image, video, audio, embeddings); prepaid, OpenRouter-style aggregator.
 - [Novita AI](https://novita.ai) - Unified API to 200+ open-source models (DeepSeek/Qwen/Llama…) with load balancing, autoscaling and failover; also a GPU cloud.
 - [Glama Gateway](https://glama.ai/ai/gateway) - OpenAI-compatible gateway to 100+ models with consolidated billing, caching and logging (OSS core [glama-ai/lightport](https://github.com/glama-ai/lightport)).
-- [NanoRoute](https://github.com/robgilmore26/nanoroute) <!--s:robgilmore26/nanoroute-->⭐ 4<!--/s--> - Open-source x402 facilitator (MIT, TypeScript) that gates an agent-facing API on the request path with HTTP 402 and settles each call in Nano (XNO) — zero-fee L1, sub-second finality — so an operator can charge sub-cent per-request micropayments that card rails can't carry. One-line Express middleware (`nanoroute-express`), or run the bundled facilitator with a public node. Uses the same x402 402-challenge shape as the L402/Lightning and USDC entries on this list, with no gas and no fee floor.
 
 <details>
 <summary><b>New &amp; unverified relays (24)</b> — transparent resellers awaiting independent fidelity checks; read the <a href="#community-relay-watch-list">relay watch-list</a> first</summary>
@@ -460,6 +459,7 @@ _Pain point: "Agents call tools now — govern MCP traffic like you govern APIs.
 - [Open Connector](https://github.com/oomol-lab/open-connector) <!--s:oomol-lab/open-connector-->⭐ 5.9k<!--/s--> - Open-source auth gateway (Apache-2.0, OOMOL Lab) connecting AI agents to 1000+ SaaS providers through SDK, CLI, MCP, HTTP and OpenAPI — it governs agent→SaaS tool credentials and access rather than LLM completion traffic.
 - [toolport](https://github.com/tsouth89/toolport) <!--s:tsouth89/toolport-->⭐ 221<!--/s--> - Local-first MCP gateway (MIT): one port for every tool and every AI client, with lazy tool discovery (~90% token savings, per its docs), tool integrity checks + quarantine, and secrets kept in the OS keychain.
 - [Speakeasy MCP Gateway](https://www.speakeasy.com/product/mcp-gateway) - Managed MCP gateway from the OpenAPI-tooling vendor, positioned as the distribution plane of an "AI control plane": OAuth 2.1 brokered through your existing IdP, access scoped **per server, per tool and per team**, policy enforced on every tool call, and unsanctioned shadow MCP servers blocked by default. Its published MoonPay case study is the reason it is here rather than in the long tail — 200+ MCP servers brought under one gateway via Okta, 60K+ agent sessions visible to the security team. Free tier; commercial above it.
+- [NanoRoute](https://github.com/robgilmore26/nanoroute) <!--s:robgilmore26/nanoroute-->⭐ 4<!--/s--> - x402 facilitator and Express middleware (MIT, TypeScript) that sits on the request path of an agent-facing API, answers unpaid calls with HTTP 402, and settles each paid call in Nano (XNO), which charges no transaction fee.
 
 ## 🔧 More by capability (cross-cutting)
 
