@@ -682,6 +682,7 @@ This list tells you _which_ gateway to start with; these two open-source tools �
 
 - 🧰 **[llm-gateway-bench](https://github.com/cuihuan/llm-gateway-bench)** ([live dashboard](https://cuihuan.github.io/llm-gateway-bench/)) — black-box benchmark for any OpenAI-compatible gateway/relay: TTFT & throughput, success rate, price multiple, plus fidelity probes (model-echo, fake-streaming, usage inflation, context truncation). Test your own gateway with your own key and compare it to the best.
 - 🧰 **[modelprobe](https://github.com/cuihuan/modelprobe)** - a tiny, dependency-free Go availability prober: point it at a base URL + key and it reports, per model, _is it up and how fast_. One static binary — drop it in CI or a cron on a $5 VM.
+- 🧰 **[cocodot-llmprobe](https://github.com/cocodot2026/cocodot-llmprobe)** ([hosted, Chinese UI](https://probe.cocodot.co)) — smoke test for any OpenAI-compatible endpoint that needs only that endpoint's key: six fixed prompts with one checkable answer each (instruction, Base64, ~3.5k-char needle, reasoning, arithmetic, code), string-matched, no judge model; `smoke` subcommand, stdlib-only Python. Flags obviously wrong answers; cannot tell which model answered. MIT; by the cocodot relay's operator (disclosed).
 
 ### Community relay watch-list
 
