@@ -440,6 +440,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Open Connector](https://github.com/oomol-lab/open-connector) <!--s:oomol-lab/open-connector-->⭐ 6k<!--/s--> — 开源鉴权网关（Apache-2.0，OOMOL Lab），通过 SDK、CLI、MCP、HTTP 与 OpenAPI 把 AI Agent 接到 1000+ SaaS 服务——治理的是 Agent→SaaS 的工具凭证与访问，而非 LLM 补全流量。
 - [toolport](https://github.com/tsouth89/toolport) <!--s:tsouth89/toolport-->⭐ 221<!--/s--> — 本地优先的 MCP 网关（MIT）：一个端口收口所有工具与 AI 客户端，带懒加载工具发现（按其文档约省 90% token）、工具完整性校验 + 隔离，密钥存放在系统钥匙串。
 - [Speakeasy MCP Gateway](https://www.speakeasy.com/product/mcp-gateway) — 来自 OpenAPI 工具链厂商的托管 MCP 网关，定位是"AI 控制平面"里的分发层:通过你现有的 IdP 代理 OAuth 2.1，权限**按服务、按工具、按团队**分级，每次工具调用都过策略，未经批准的影子 MCP 服务默认拦截。把它放进正文而非长尾的理由是它公开的 MoonPay 案例:200+ 个 MCP 服务经 Okta 收口到一个网关，安全团队可见 60K+ 次 Agent 会话。有免费档，之上为商业版。
+- [NanoRoute](https://github.com/robgilmore26/nanoroute) <!--s:robgilmore26/nanoroute-->⭐ 4<!--/s--> — x402 facilitator 与 Express 中间件（MIT，TypeScript）：位于面向 Agent 的 API 请求路径上，对未付费调用返回 HTTP 402，并以 Nano（XNO）逐次结算已付费调用，Nano 不收交易手续费。
 
 ## 🔧 更多按能力分（横切关注点）
 
