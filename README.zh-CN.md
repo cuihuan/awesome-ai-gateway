@@ -262,6 +262,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [HeFu](https://www.hefu.hk) — 托管中转（`https://api.hefu.hk/v1`，在线），聚合十家厂商的 126+ 模型（OpenAI、Anthropic、Google、阿里、字节、DeepSeek、MiniMax、月之暗面…），提供 OpenAI 与 Anthropic 兼容端点，宣称**按官网原价、零加价**，并带成本/延迟/健康度打分的故障转移、团队子账号与逐笔充值 PDF 收据。**新且未经核实**（自荐;站点未披露任何运营主体，且按原价转售意味着没有可见毛利——这是"该去验保真度"的理由，而不是"该假定它有问题"的理由）——投产前请先用 [canary_check.py](scripts/canary_check.py) 核实。
 - [Standard Compute](https://standardcompute.com) — 固定月费订阅（$19–$2,499/月），背后是**公开且具名**的模型目录（[`/models`](https://standardcompute.com/models):Claude Fable 5.1、GPT-6 Astra、Gemini 3.1 Pro、GLM 5.3、Kimi K3、DeepSeek V4 Flash…），OpenAI 兼容并带 Anthropic Messages 端点（`api.stdcmpt.com/v1`，在线）。路由用哪些模型由你决定——最多选五个，或锁定单个模型让全部请求都走它。⚠️ 套餐价买到的是**每月算力预算，不是无限吞吐**:用完即停到下个计费周期，不超额计费——这一点是厂商自己的定价页与 FAQ 写明的，而[如何安全地选](#如何安全选型)里那类固定费率套餐通常正是隐瞒这一点。**新且未经核实**——运营方[自测 canary 通过](https://gist.github.com/henrikdukefoss/4f92ba7849a6378c834864be26794a2e)（锁定 `deepseek/deepseek-v4-pro`，以 OpenRouter 为参照，2026-09-09）;仍需第三方独立复现。
 - [Gonka Broker](https://gonkabroker.com) — 接入去中心化 Gonka GPU 网络的 OpenAI / Anthropic 兼容端点，**只提供开源权重模型**（[实时目录](https://proxy.gonkabroker.com/v1/models):MiniMax-M2.7、Kimi-K2.6、DeepSeek-V4-Flash，以及 BGE-M3 嵌入）。两点足够特殊、也正是值得一看的理由:**输入与输出同价**，且单价在**充值时锁定**、覆盖该笔余额全程，上游调价不会重新定价你已买的额度。刷卡支付，无需加密钱包。**新且未经核实**（自荐）——由于它自托管开源权重而非转售前沿模型额度，这里的保真度问题是**量化精度，而非模型替换**:请用 [canary_check.py](scripts/canary_check.py) 与同一权重的官方托管方做对比。
+- [Leanroute](https://leanroute.dev) - 托管的 OpenAI 兼容网关（新加坡区域），覆盖 14 家供应商的 100+ 模型。托管密钥按供应商标价从预付余额扣费，充值收取 5% 手续费；BYOK 方案为每月固定 $15 或 $25。另提供兼容 Claude Code 的 Anthropic Messages 端点。**新提交，未验证**（自荐）。
 
 </details>
 
@@ -440,6 +441,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Open Connector](https://github.com/oomol-lab/open-connector) <!--s:oomol-lab/open-connector-->⭐ 6k<!--/s--> — 开源鉴权网关（Apache-2.0，OOMOL Lab），通过 SDK、CLI、MCP、HTTP 与 OpenAPI 把 AI Agent 接到 1000+ SaaS 服务——治理的是 Agent→SaaS 的工具凭证与访问，而非 LLM 补全流量。
 - [toolport](https://github.com/tsouth89/toolport) <!--s:tsouth89/toolport-->⭐ 222<!--/s--> — 本地优先的 MCP 网关（MIT）：一个端口收口所有工具与 AI 客户端，带懒加载工具发现（按其文档约省 90% token）、工具完整性校验 + 隔离，密钥存放在系统钥匙串。
 - [Speakeasy MCP Gateway](https://www.speakeasy.com/product/mcp-gateway) — 来自 OpenAPI 工具链厂商的托管 MCP 网关，定位是"AI 控制平面"里的分发层:通过你现有的 IdP 代理 OAuth 2.1，权限**按服务、按工具、按团队**分级，每次工具调用都过策略，未经批准的影子 MCP 服务默认拦截。把它放进正文而非长尾的理由是它公开的 MoonPay 案例:200+ 个 MCP 服务经 Okta 收口到一个网关，安全团队可见 60K+ 次 Agent 会话。有免费档，之上为商业版。
+- [Leanroute](https://leanroute.dev) - 在网关侧执行 MCP 工具循环的托管 LLM 网关：请求传入 `mcp_servers`，网关按组织级白名单和花费上限执行工具调用，适用于其路由到的任意模型（GPT、Gemini、DeepSeek 等，不限于 Claude）。
 
 ## 🔧 更多按能力分（横切关注点）
 
