@@ -814,6 +814,7 @@ _Reverse-chronological, last ~3 months. Older items retire into the chapter or d
 - [LLM Gateway: The One Decision That Removes 100 AI Engineering Decisions](https://www.latent.space/p/gateway) - Latent.Space (swyx), 2025-02 — why one gateway choice collapses routing, caching, observability and guardrails into a single control plane.
 - AI Gateway — overview — Cloudflare — first-party docs defining the pattern: one endpoint in front of many providers, with caching, rate limiting, analytics and cost tracking.
 - [AI Gateway documentation](https://developer.konghq.com/ai-gateway/) - Kong — how gateway concerns (provider-agnostic routing, PII sanitization, token rate-limiting) map onto mature API-gateway infrastructure.
+- [AI gateway vs API gateway: what changes when the traffic is tokens](https://thefrontierwire.com/articles/llm-gateway-vs-api-gateway/) - The Frontier Wire, 2026-09 — a mechanism-by-mechanism comparison (per-token pricing, long streams, provider-specific errors) grounded in AWS, Kong, NGINX, OpenAI and Anthropic docs.
 
 **Routing & fallback**
 - [Routing & load balancing](https://docs.litellm.ai/docs/routing-load-balancing) - LiteLLM — cross-provider routing, weighted load balancing and tiered fallbacks from the most-deployed open-source gateway.
