@@ -682,6 +682,7 @@ This list tells you _which_ gateway to start with; these two open-source tools �
 
 - 🧰 **[llm-gateway-bench](https://github.com/cuihuan/llm-gateway-bench)** ([live dashboard](https://cuihuan.github.io/llm-gateway-bench/)) — black-box benchmark for any OpenAI-compatible gateway/relay: TTFT & throughput, success rate, price multiple, plus fidelity probes (model-echo, fake-streaming, usage inflation, context truncation). Test your own gateway with your own key and compare it to the best.
 - 🧰 **[modelprobe](https://github.com/cuihuan/modelprobe)** - a tiny, dependency-free Go availability prober: point it at a base URL + key and it reports, per model, _is it up and how fast_. One static binary — drop it in CI or a cron on a $5 VM.
+- 🧰 **[oneapi-key-monitor](https://github.com/wyl743405571-cpu/oneapi-key-monitor)** — single-file Python monitor for One API / New API / LiteLLM gateways: tracks pool quota and **live-probes a real customer key** with a 1-token chat call, so silent key failures (upstream disabled the key while your balance page looks green) actually alert instead of surfacing as user tickets. Stdlib-only, opens the gateway DB read-only, MIT.
 
 ### Community relay watch-list
 
