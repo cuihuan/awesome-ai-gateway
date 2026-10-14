@@ -37,6 +37,7 @@
     "TheLunarCompany/lunar",
     "mlflow/mlflow",
     "andrewyng/aisuite",
+    "yinxulai/one-switch",
     "vllora/vllora",
     "braintrustdata/braintrust-proxy",
     "pydantic/pydantic-ai-gateway",
