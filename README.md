@@ -530,6 +530,7 @@ _Pain point: "Who spent what, on which model, and why did quality drop?"_
 - [claude-tap](https://github.com/liaohch3/claude-tap) <!--s:liaohch3/claude-tap-->⭐ 3.3k<!--/s--> - MIT local intercepting proxy and trace viewer for coding-agent traffic (Claude Code, Codex CLI, Gemini CLI, Cursor CLI, OpenCode, Kimi, Pi, Hermes): the exact requests, responses and tool calls your agent sends. Wider agent coverage than ccglass; debugging-first rather than spend-first.
 - [ccglass](https://github.com/jianshuo/ccglass) <!--s:jianshuo/ccglass-->⭐ 851<!--/s--> - Local proxy + web dashboard (MIT) that shows exactly what your coding agent (Claude Code, Codex, Kimi) sends to the model.
 - [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) <!--s:Continuum-AI-Corp/OrcaReplay-->⭐ 284<!--/s--> - Apache-2.0 local proxy that keeps the verbatim bytes, so unlike the two viewers above it can **serve the recording back**: the same agent run re-executes with no provider called and nothing spent, or forks from any checkpoint onto other models with a verify command's exit code as the verdict. Answers "why did quality drop?" by re-running the work rather than charting it afterwards. Scope note from its own README: `egress=blocked` covers model-provider egress only — recorded tool calls still execute for real, so it is not a sandbox.
+- [Spendline](https://www.spendline.ai) - AI cost per customer, budgets that block calls before they run, and month-end invoice checks.
 
 ### 🚢 Kubernetes-native & inference infra
 
