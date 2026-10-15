@@ -332,6 +332,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [TrustGate](https://github.com/NeuralTrust/TrustGate) <!--s:NeuralTrust/TrustGate-->⭐ 11<!--/s--> — NeuralTrust 出品的 Go/Apache-2.0 Agent 网关：Admin/Proxy/MCP 三平面分离、多提供商 OpenAI 兼容路由、消费者鉴权与策略插件（限流/Token 限额、语义缓存）；强在治理与 MCP 聚合，而非提供商覆盖面。以星数看仍属早期，但三平面拆分是真实的架构选择而非改名。
 - [Company AI Hub](https://github.com/Ghost011118/company-ai-hub) <!--s:Ghost011118/company-ai-hub-->⭐ 0<!--/s--> — Apache-2.0 的 TypeScript 网关，面向 Codex 与 OpenAI 兼容客户端：在服务端注入经统一批准的 Agent、Skill 与 Prompt，员工投稿留有不可变的审核快照，并带网页管理台。早期项目（2026-08 开放、单人维护），目前只代理一个已配置的上游提供商——它的看点是治理模型，不是提供商覆盖面。
 - [Agnos](https://github.com/siva010928/agnos-proxy-oss) <!--s:siva010928/agnos-proxy-oss-->⭐ 3<!--/s--> — 自托管控制平面（MIT，Python/FastAPI）：把 LiteLLM、Bifrost 或 Portkey 当作可热插拔的无状态翻译引擎，统一在一个 OpenAI 兼容端点后运行；提供商密钥保存在它自己的加密保险库中、按单次请求注入，而不是留在翻译层里，并带鉴权、按工作区预算、CEL 护栏、成本统计与跨引擎的统一审计日志。早期项目（2026，单人维护）——看点是"自带控制平面、容纳网关"的架构切分，而非提供商覆盖面。
+- [App AI Gateway](https://github.com/maxceem/app-ai-gateway) <!--s:maxceem/app-ai-gateway-->⭐ 0<!--/s--> — Apache-2.0 的 TypeScript 网关，面向 iOS 应用，可自托管在你自己的 Cloudflare 账号上，也可使用托管服务：应用调用网关而不是提供商，提供商密钥不会随应用分发。每个请求都带 Apple App Attest 签名并由网关校验，支持按安装和按用户的限流与消费预算，覆盖 OpenAI、Anthropic、Gemini 等提供商。早期项目（2026-09 开放、单人维护），目前只支持 Apple 平台，暂不支持 Android。
 - ⚠️ 已停滞但有历史意义：[BricksLLM](https://github.com/bricks-cloud/BricksLLM) <!--s:bricks-cloud/BricksLLM-->⭐ 1.2k<!--/s-->（PII 脱敏、按 Key 限额；2025 年初起不再活跃）、[Glide](https://github.com/EinStack/glide) <!--s:EinStack/glide-->⭐ 160<!--/s-->（2024 年起停更）。
 
 ## 🏢 企业合规
