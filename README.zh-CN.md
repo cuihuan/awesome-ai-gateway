@@ -440,6 +440,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Open Connector](https://github.com/oomol-lab/open-connector) <!--s:oomol-lab/open-connector-->⭐ 6k<!--/s--> — 开源鉴权网关（Apache-2.0，OOMOL Lab），通过 SDK、CLI、MCP、HTTP 与 OpenAPI 把 AI Agent 接到 1000+ SaaS 服务——治理的是 Agent→SaaS 的工具凭证与访问，而非 LLM 补全流量。
 - [toolport](https://github.com/tsouth89/toolport) <!--s:tsouth89/toolport-->⭐ 228<!--/s--> — 本地优先的 MCP 网关（MIT）：一个端口收口所有工具与 AI 客户端，带懒加载工具发现（按其文档约省 90% token）、工具完整性校验 + 隔离，密钥存放在系统钥匙串。
 - [Speakeasy MCP Gateway](https://www.speakeasy.com/product/mcp-gateway) — 来自 OpenAPI 工具链厂商的托管 MCP 网关，定位是"AI 控制平面"里的分发层:通过你现有的 IdP 代理 OAuth 2.1，权限**按服务、按工具、按团队**分级，每次工具调用都过策略，未经批准的影子 MCP 服务默认拦截。把它放进正文而非长尾的理由是它公开的 MoonPay 案例:200+ 个 MCP 服务经 Okta 收口到一个网关，安全团队可见 60K+ 次 Agent 会话。有免费档，之上为商业版。
+- [Aident Loadout](https://aident.ai) — 托管的 MCP 服务加 `aident` CLI，位于 Agent（Claude Code、Codex、Cursor、ChatGPT）与其调用的应用之间：账号只需连接一次即可在多个 Agent 间复用，OAuth token 与 API key 保存在服务端保险库中，Agent 拿到的是结果而非原始凭证；每个操作执行前会显示费用，审计日志记录执行了什么、来源、是否成功及花费。闭源托管服务，提供免费的按量付费档；客户端 skill（[Aident-AI/aident-skill](https://github.com/Aident-AI/aident-skill)）为 MIT 许可。
 
 ## 🔧 更多按能力分（横切关注点）
 
