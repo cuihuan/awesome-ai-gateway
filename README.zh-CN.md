@@ -236,7 +236,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [Glama Gateway](https://glama.ai/ai/gateway) — OpenAI 兼容网关，接入 100+ 模型，统一账单、缓存与日志（开源内核 [glama-ai/lightport](https://github.com/glama-ai/lightport)）。
 
 <details>
-<summary><b>新且未经核实的中转（40 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
+<summary><b>新且未经核实的中转（41 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
 
 - [Loop Gateway](https://api.loopxxi.com) — OpenAI 兼容代理，每个请求以比特币 sats（而非美元）计费。经 OpenRouter 接入 311 个模型、加价 15%。无需账号/邮箱/银行卡；用闪电网络充值即得 bearer token。三种鉴权（预付 bearer、L402、Cashu）。线上托管于 [api.loopxxi.com](https://api.loopxxi.com)。 **新且未经核实**（匿名；其公开 GitHub 仓库现已删除，按闭源托管中转看待）——它*通过运营者自己的 OpenRouter 账号*转售前沿模型并加价 15%，无账号+加密货币预付意味着一旦偷换模型或跑路都无从追索；投产前请用 [canary_check.py](scripts/canary_check.py) 验证保真度，且只充值你能承受损失的金额。
 - [nullsink](https://nullsink.is) ([仓库](https://github.com/nullsink/nullsink)) — 无账号的前沿模型 API 计费代理，用门罗币（Monero）或比特币（Bitcoin）付费。无需账号/邮箱/银行卡；生成 bearer token、链上预付，改一个 base URL 即可用官方 SDK 调用。加价约 10%，仅在充值时收取一次；不记录 IP、不记录请求日志；付款与 token 不可关联。单文件可执行、可自托管（TypeScript/Bun，AGPL-3.0），线上服务 [nullsink.is](https://nullsink.is)。 **新且未经核实**（仓库 2026-06 新建、<!--s:nullsink/nullsink-->⭐ 12<!--/s-->）——无账号+加密货币预付+无日志，一旦偷换模型或跑路都无从追索；投产前请用 [canary_check.py](scripts/canary_check.py) 验证保真度，且只充值你能承受损失的金额。
@@ -278,6 +278,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [AICraft](https://aicraftapi.net) — 托管 OpenAI 兼容聚合网关，以预付美元余额按量计费，可选自动模型路由，也可直接指定模型名。**新且未经核实**（运营方提交），路由、节省费用与模型保真度尚未独立测试。（[来源](https://aicraftapi.net/docs)，核对于 2026-10-22）。
 - [onomeo](https://onomeo.com) — 单人运营的托管 OpenAI 兼容网关，结合有调用限额的厂商免费层与付费模型。最低充值 $5，余额不过期、不自动续费，较长的免费模型请求消耗更多调用次数。公开测试中，需注意上游服务条款、数据使用政策及共享额度耗尽。**新且未经核实**（运营方提交）。（[来源](https://onomeo.com/integrations#docs)，核对于 2026-10-22）。
 - [Infere](https://infere.com) — 托管 OpenAI 兼容网关，使用预付余额，可明确指定模型，也可按 Token 配置、Prompt 复杂度与路由模式自动选择，支持 Git 原生 Prompt 管理。**新且未经核实**（厂商提交），本清单未独立验证模型保真度、节省费用或预算执行。（[入门文档](https://infere.com/documentation/getting-started/)，核对于 2026-10-22）。
+- [Gisoo](https://gisoo.pro) — 波斯语 AI 应用及托管的 OpenAI 兼容 API（`https://gisoo.pro/api/v1`，另有 Anthropic 兼容端点），覆盖 72 家提供商的 682 个模型，可选自动模式按消息选择模型并告知实际应答的模型。预付费，以伊朗里亚尔通过伊朗银行卡结算，无免费额度。**新且未经核实**（运营方提交），模型保真度与价格声明尚未独立测试。（[文档](https://gisoo.pro/docs)，核对于 2026-10-24）。
 
 </details>
 
