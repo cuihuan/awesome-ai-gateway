@@ -278,6 +278,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [AICraft](https://aicraftapi.net) — 托管 OpenAI 兼容聚合网关，以预付美元余额按量计费，可选自动模型路由，也可直接指定模型名。**新且未经核实**（运营方提交），路由、节省费用与模型保真度尚未独立测试。（[来源](https://aicraftapi.net/docs)，核对于 2026-10-22）。
 - [onomeo](https://onomeo.com) — 单人运营的托管 OpenAI 兼容网关，结合有调用限额的厂商免费层与付费模型。最低充值 $5，余额不过期、不自动续费，较长的免费模型请求消耗更多调用次数。公开测试中，需注意上游服务条款、数据使用政策及共享额度耗尽。**新且未经核实**（运营方提交）。（[来源](https://onomeo.com/integrations#docs)，核对于 2026-10-22）。
 - [Infere](https://infere.com) — 托管 OpenAI 兼容网关，使用预付余额，可明确指定模型，也可按 Token 配置、Prompt 复杂度与路由模式自动选择，支持 Git 原生 Prompt 管理。**新且未经核实**（厂商提交），本清单未独立验证模型保真度、节省费用或预算执行。（[入门文档](https://infere.com/documentation/getting-started/)，核对于 2026-10-22）。
+- [Roteo](https://roteo.ai) - Hosted OpenAI-compatible API (`https://api.roteo.ai/v1`) for Claude, GPT, open-weight (DeepSeek, Qwen, Kimi, GLM), image and video models on one `sk_` key. Each request is paid in stablecoins (USDC on Base, Arbitrum or Solana; USDG on Robinhood Chain) from a self-custodied wallet via x402; no subscription or minimum top-up, $0.001 minimum charge per request, no free tier, no card payment. The Anthropic-compatible `/v1/messages` endpoint serves Claude Code only, and agent frameworks are refused on Claude models. Upstream providers are not disclosed. **New & unverified** (user-submitted, not operator) — confirm fidelity with canary_check.py before relying on it in production. ([Source](https://www.roteo.ai/docs/overview), checked 2026-10-24).
 
 </details>
 
