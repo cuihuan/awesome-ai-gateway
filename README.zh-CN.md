@@ -373,6 +373,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 
 - ⚠️ 已停滞但有历史意义：[BricksLLM](https://github.com/bricks-cloud/BricksLLM) <!--s:bricks-cloud/BricksLLM-->⭐ 1.2k<!--/s-->（PII 脱敏、按 Key 限额；2025 年初起不再活跃）、[Glide](https://github.com/EinStack/glide) <!--s:EinStack/glide-->⭐ 160<!--/s-->（2024 年起停更）。
 
+- [relay-failover](https://github.com/huangjinpeng216/relay-failover) <!--s:huangjinpeng216/relay-failover-->⭐ 0<!--/s--> — 零依赖 Node.js 代理（MIT），把多个 OpenAI 兼容中转站聚合成一个本地端点，遇 5xx、超时或流中断时自动切换下一个，带加权轮询、连续失败后单站冷却与 `/health` 报告；会按目标端点自动切换 `Bearer` / `x-api-key` / `x-goog-api-key` 三种鉴权头，OpenAI、Anthropic、Gemini 客户端共用一跳。刻意收窄范围——不做预算、虚拟 Key 与界面——覆盖的是「余额分散在几家、一家挂了自动切走」这一场景，而非替代完整网关。早期项目、单人维护。
 ## 🏢 企业合规
 
 *痛点："审计日志、PII 脱敏、RBAC、私有化部署，外加欧盟 AI 法案。"*
