@@ -371,9 +371,10 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [AISIX AI Gateway](https://github.com/api7/aisix) <!--s:api7/aisix-->⭐ 204<!--/s--> — 由 API7.ai 维护的 Apache-2.0 许可 Rust 网关，提供 OpenAI 兼容端点和 Anthropic 兼容的 Messages 端点、声明式自托管、模型路由与故障转移、护栏、Prometheus 指标及 OTLP/HTTP Trace 导出。（来源核对于 2026-10-22）。
 - [GPROXY](https://github.com/LeenHawk/gproxy) <!--s:LeenHawk/gproxy-->⭐ 267<!--/s--> — AGPL-3.0 Rust 网关，接收 OpenAI Chat / Responses、Anthropic Messages 与 Gemini 格式，带凭据池、用户 / 团队 / 组织配额和管理控制台。早期项目，自有 OAuth 订阅渠道存在厂商条款与封号风险。（来源核对于 2026-10-22）。
 
+- [relay-failover](https://github.com/huangjinpeng216/relay-failover) <!--s:huangjinpeng216/relay-failover-->⭐ 0<!--/s--> — 零依赖 Node.js 代理（MIT），把多个 OpenAI 兼容中转站聚合成一个本地端点，遇 5xx、超时或流中断时自动切换下一个，带加权轮询、连续失败后单站冷却与 `/health` 报告；会按目标端点自动切换 `Bearer` / `x-api-key` / `x-goog-api-key` 三种鉴权头，OpenAI、Anthropic、Gemini 客户端共用一跳。刻意收窄范围——不做预算、虚拟 Key 与界面——覆盖的是「余额分散在几家、一家挂了自动切走」这一场景，而非替代完整网关。早期项目、单人维护。
+
 - ⚠️ 已停滞但有历史意义：[BricksLLM](https://github.com/bricks-cloud/BricksLLM) <!--s:bricks-cloud/BricksLLM-->⭐ 1.2k<!--/s-->（PII 脱敏、按 Key 限额；2025 年初起不再活跃）、[Glide](https://github.com/EinStack/glide) <!--s:EinStack/glide-->⭐ 160<!--/s-->（2024 年起停更）。
 
-- [relay-failover](https://github.com/huangjinpeng216/relay-failover) <!--s:huangjinpeng216/relay-failover-->⭐ 0<!--/s--> — 零依赖 Node.js 代理（MIT），把多个 OpenAI 兼容中转站聚合成一个本地端点，遇 5xx、超时或流中断时自动切换下一个，带加权轮询、连续失败后单站冷却与 `/health` 报告；会按目标端点自动切换 `Bearer` / `x-api-key` / `x-goog-api-key` 三种鉴权头，OpenAI、Anthropic、Gemini 客户端共用一跳。刻意收窄范围——不做预算、虚拟 Key 与界面——覆盖的是「余额分散在几家、一家挂了自动切走」这一场景，而非替代完整网关。早期项目、单人维护。
 ## 🏢 企业合规
 
 *痛点："审计日志、PII 脱敏、RBAC、私有化部署，外加欧盟 AI 法案。"*
