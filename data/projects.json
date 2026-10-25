@@ -1,5 +1,6 @@
 {
   "release_tracked_repos": [
+    "respanai/respan-gateway",
     "diegosouzapw/OmniRoute",
     "coaidev/coai",
     "workweave/router",
