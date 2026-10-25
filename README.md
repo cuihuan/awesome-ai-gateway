@@ -394,6 +394,7 @@ _Pain point: "My keys, my infra, no per-token middleman fee."_
 
 - ⚠️ Stale but historically notable: [BricksLLM](https://github.com/bricks-cloud/BricksLLM) <!--s:bricks-cloud/BricksLLM-->⭐ 1.2k<!--/s--> (PII masking, per-key limits; inactive since early 2025), [Glide](https://github.com/EinStack/glide) <!--s:EinStack/glide-->⭐ 160<!--/s--> (inactive since 2024).
 
+- [relay-failover](https://github.com/huangjinpeng216/relay-failover) <!--s:huangjinpeng216/relay-failover-->⭐ 0<!--/s--> - Zero-dependency Node.js proxy (MIT) that pools several OpenAI-compatible relays behind one local endpoint and fails over on 5xx, timeout or a broken stream, with weighted round-robin, per-upstream cooldown after repeated failures and a `/health` report; it swaps the upstream auth header automatically (`Bearer` / `x-api-key` / `x-goog-api-key`) so OpenAI, Anthropic and Gemini clients share one hop. Deliberately narrow scope - no budgets, virtual keys or UI - it covers the "spread balance across several relay stations, fail over when one goes dark" case rather than replacing a full gateway. Early-stage, single maintainer.
 ## 🏢 Enterprise & compliance
 
 _Pain point: "Audit logs, PII redaction, RBAC, on-prem, and the EU AI Act."_
