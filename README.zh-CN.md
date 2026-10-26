@@ -278,6 +278,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [AICraft](https://aicraftapi.net) — 托管 OpenAI 兼容聚合网关，以预付美元余额按量计费，可选自动模型路由，也可直接指定模型名。**新且未经核实**（运营方提交），路由、节省费用与模型保真度尚未独立测试。（[来源](https://aicraftapi.net/docs)，核对于 2026-10-22）。
 - [onomeo](https://onomeo.com) — 单人运营的托管 OpenAI 兼容网关，结合有调用限额的厂商免费层与付费模型。最低充值 $5，余额不过期、不自动续费，较长的免费模型请求消耗更多调用次数。公开测试中，需注意上游服务条款、数据使用政策及共享额度耗尽。**新且未经核实**（运营方提交）。（[来源](https://onomeo.com/integrations#docs)，核对于 2026-10-22）。
 - [Infere](https://infere.com) — 托管 OpenAI 兼容网关，使用预付余额，可明确指定模型，也可按 Token 配置、Prompt 复杂度与路由模式自动选择，支持 Git 原生 Prompt 管理。**新且未经核实**（厂商提交），本清单未独立验证模型保真度、节省费用或预算执行。（[入门文档](https://infere.com/documentation/getting-started/)，核对于 2026-10-22）。
+- [TeapotRouter](https://teapotrouter.com) — 托管式按量计费网关，同一个 Key 同时提供 Anthropic Messages 与 OpenAI `/v1` 两种协议（Claude Code 设 `ANTHROPIC_BASE_URL`、OpenAI SDK 设 `base_url` 即可接入）；逐模型价目以无需登录的 JSON 公开（[`/api/pricing`](https://teapotrouter.com/api/pricing)），每笔请求都有可查询的成本记录，支持组织级发 Key 与审计日志，多上游自动故障转移；$1 起充，支付宝或国际信用卡均可；独立开发者项目（域名注册于 2026-10-17）。**新且未经核实**（运营方提交）——接入生产前请先用 [canary_check.py](scripts/canary_check.py) 核验模型保真度。（[来源](https://teapotrouter.com/api/pricing)，核对于 2026-10-27）。
 
 </details>
 
