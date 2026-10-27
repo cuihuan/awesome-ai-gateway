@@ -868,6 +868,8 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 - [AI gateway vs API gateway: what changes when the traffic is tokens](https://thefrontierwire.com/articles/llm-gateway-vs-api-gateway/) — The Frontier Wire，2026-09 — 逐机制对比 AI 网关与 API 网关（按 token 计费、长时流式、各供应商不同的错误语义），依据 AWS、Kong、NGINX、OpenAI 与 Anthropic 官方文档。（来源核对于 2026-10-22）。
 - [agentgateway CEL Gotchas: Fail-Open + 403 Fix](https://webofmike.com/agentgateway-cel-authorization-gotchas/) — Mike Moore，2026-09 — 两个都显示 `Accepted`、`Attached` 的授权策略错误（在 Solo Enterprise for agentgateway v2026.8.2 上验证）：`matchExpressions` 各条目是 OR 关系，每条规则单独写一条会 fail-open；`traffic.authorization` 阶段 `llm.requestModel` 为空，据此校验模型会拒绝所有请求。附一套能同时抓出两者的四请求测试。（来源核对于 2026-10-22）。
 - [Cap LLM Spend per API Key: agentgateway 1.5](https://webofmike.com/agentgateway-per-key-llm-budgets/) — Mike Moore，2026-09 — 开源 agentgateway v1.5.0 的按 key token/美元预算（超额返回 HTTP 429，或仅记录不拦截的 `Audit` 模式）与按 key 模型白名单（HTTP 403），附基于 mock LLM 的 Docker 演示。价格目录中缺失的模型不会计入美元预算。（来源核对于 2026-10-22）。
+- [Load Test an LLM API Without Misleading Results](https://modelflare.dev/articles/llm-api-load-testing) — Modelflare，2026-10 — LLM API 压测的评审清单：记录负载构成（输入/输出长度分布、流式占比、工具调用）、到达模型、并发、预热与区域、路由与重试策略，并以明确的分母报告错误率、p50/p95/p99 与首个输出时间；只压测自己拥有的端点与已获批的容量。
+- [Apply Backpressure to AI API Workloads](https://modelflare.dev/articles/ai-api-backpressure) — Modelflare，2026-10 — 按故障域限制在途请求数，队列保持短小并感知截止时间，在发起任何上游请求前拒绝无法在调用方剩余时间内完成的工作，并按租户或优先级预留容量；说明背压与限流的区别。
 
 **AI 网关到底是什么**
 - [The 2026 AI Engineering Report](https://www.amplifypartners.com/blog-posts/the-2026-ai-engineering-report) — Amplify Partners（联合 Notion 与 Vercel），2026 — 本清单默认前提背后的调研数据：1,000+ 工程师中 87% 多模型并用、75% 受成本约束、成本是生产第二大监控指标、推理层是全栈中最倾向「买而非造」的一层。
