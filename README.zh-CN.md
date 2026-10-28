@@ -370,6 +370,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [PrivAiTe](https://github.com/crp4222/PrivAiTe) <!--s:crp4222/PrivAiTe-->⭐ 58<!--/s--> - BSD-3 许可的 Python 代理：在请求离开本机前把 PII 替换为可还原的占位符（含工具调用参数与多模态文本），并在回复中还原真实值；原生支持 Claude Code 与 Codex 路由，检测全部在本地运行（Presidio + ONNX 模型），无遥测。早期项目、单人维护；召回率为项目自测，但测试工具与语料公开且可复现。（来源核对于 2026-10-22）。
 - [AISIX AI Gateway](https://github.com/api7/aisix) <!--s:api7/aisix-->⭐ 207<!--/s--> — 由 API7.ai 维护的 Apache-2.0 许可 Rust 网关，提供 OpenAI 兼容端点和 Anthropic 兼容的 Messages 端点、声明式自托管、模型路由与故障转移、护栏、Prometheus 指标及 OTLP/HTTP Trace 导出。（来源核对于 2026-10-22）。
 - [GPROXY](https://github.com/LeenHawk/gproxy) <!--s:LeenHawk/gproxy-->⭐ 269<!--/s--> — AGPL-3.0 Rust 网关，接收 OpenAI Chat / Responses、Anthropic Messages 与 Gemini 格式，带凭据池、用户 / 团队 / 组织配额和管理控制台。早期项目，自有 OAuth 订阅渠道存在厂商条款与封号风险。（来源核对于 2026-10-22）。
+- [Argus](https://github.com/karmendra8386/argus) <!--s:karmendra8386/argus-->⭐ 0<!--/s--> — OpenAI 兼容的 Python 网关（MIT），对每一次 LLM 调用执行安全策略：拦截密钥、脱敏个人隐私信息（PII）、标记提示词注入，并提供 YAML 策略配置与完整的决策审计日志。
 
 - ⚠️ 已停滞但有历史意义：[BricksLLM](https://github.com/bricks-cloud/BricksLLM) <!--s:bricks-cloud/BricksLLM-->⭐ 1.2k<!--/s-->（PII 脱敏、按 Key 限额；2025 年初起不再活跃）、[Glide](https://github.com/EinStack/glide) <!--s:EinStack/glide-->⭐ 160<!--/s-->（2024 年起停更）。
 
