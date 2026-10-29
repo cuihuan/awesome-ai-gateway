@@ -239,7 +239,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [Glama Gateway](https://glama.ai/ai/gateway) — OpenAI 兼容网关，接入 100+ 模型，统一账单、缓存与日志（开源内核 [glama-ai/lightport](https://github.com/glama-ai/lightport)）。
 
 <details>
-<summary><b>新且未经核实的中转（45 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
+<summary><b>新且未经核实的中转（46 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
 
 - [Loop Gateway](https://api.loopxxi.com) — OpenAI 兼容代理，每个请求以比特币 sats（而非美元）计费。经 OpenRouter 接入 311 个模型、加价 15%。无需账号/邮箱/银行卡；用闪电网络充值即得 bearer token。三种鉴权（预付 bearer、L402、Cashu）。线上托管于 [api.loopxxi.com](https://api.loopxxi.com)。 **新且未经核实**（匿名；其公开 GitHub 仓库现已删除，按闭源托管中转看待）——它*通过运营者自己的 OpenRouter 账号*转售前沿模型并加价 15%，无账号+加密货币预付意味着一旦偷换模型或跑路都无从追索；投产前请用 [canary_check.py](scripts/canary_check.py) 验证保真度，且只充值你能承受损失的金额。
 - [nullsink](https://nullsink.is) ([仓库](https://github.com/nullsink/nullsink)) — 无账号的前沿模型 API 计费代理，用门罗币（Monero）或比特币（Bitcoin）付费。无需账号/邮箱/银行卡；生成 bearer token、链上预付，改一个 base URL 即可用官方 SDK 调用。加价约 10%，仅在充值时收取一次；不记录 IP、不记录请求日志；付款与 token 不可关联。单文件可执行、可自托管（TypeScript/Bun，AGPL-3.0），线上服务 [nullsink.is](https://nullsink.is)。 **新且未经核实**（仓库 2026-06 新建、<!--s:nullsink/nullsink-->⭐ 12<!--/s-->）——无账号+加密货币预付+无日志，一旦偷换模型或跑路都无从追索；投产前请用 [canary_check.py](scripts/canary_check.py) 验证保真度，且只充值你能承受损失的金额。
@@ -286,6 +286,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [Roteo](https://roteo.ai) — 托管 OpenAI 兼容网关，提供文本、图片和视频模型，按请求从钱包以稳定币支付；文档中的 Anthropic Messages 路径目前面向 Claude Code。**新且未经核实**（社区提交），未独立测试上游身份、模型保真度和结算。（[概览](https://www.roteo.ai/docs/overview)，核对于 2026-10-28）。
 - [TeapotRouter](https://teapotrouter.com) — 托管网关，公开介绍 GPT 与 Claude Code 接入，提供 JSON 模型定价端点。**新且未经核实**（运营方提交）；最低充值、故障转移和模型保真度未获独立确认。（[价格目录](https://teapotrouter.com/api/pricing)，核对于 2026-10-28）。
 - [CloudGPU Model API](https://cloudgpu.app/api) — 托管 OpenAI 兼容模型 API（`https://cloudgpu.app/v1`），提供公开模型目录与 Anthropic Messages 支持，预付余额可同时用于 GPU 租赁。公开测试阶段，无 SLA。**新且未经核实**（运营方提交）；目录可见不代表已验证实际模型身份。（[API 文档](https://cloudgpu.app/api/docs)，核对于 2026-10-28）。
+- [TokenLab](https://tokenlab.sh/?utm_source=awesome-aigw-cuihuan) — 托管的 OpenAI 兼容网关（`https://api.tokenlab.sh/v1`），同时提供 Anthropic Messages 与 Responses 端点，一个密钥覆盖对话、图像、语音和视频模型，预付、按用量计费。运营方自荐；**新且未经核实**。
 
 
 </details>
