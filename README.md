@@ -565,6 +565,7 @@ _Pain point: "Send each prompt to the cheapest model that can handle it."_
 - [NadirClaw](https://github.com/NadirRouter/NadirClaw) <!--s:NadirRouter/NadirClaw-->⭐ 660<!--/s--> - Self-hosted, OpenAI-compatible router (Python) that sends simple prompts to cheap/local models and hard ones to premium, with a trained cascade verifier to cut API cost 40–70%.
 - [ngrok AI Gateway](https://ngrok.com/docs/ai-gateway/overview) - Managed proxy routing to OpenAI/Anthropic/Google + local Ollama/vLLM/LM Studio, with automatic failover, key rotation, and CEL traffic-policy controls (PII redaction).
 - [Infere](https://infere.com/documentation/getting-started/) - Hosted prompt-complexity routing with balanced, cost-optimized and quality-optimized modes; prepaid operator submission, **unverified** (source reviewed 2026-10-22).
+- [PromptUnit](https://www.promptunit.ai) - Hosted OpenAI- and Anthropic-compatible proxy that moves a request type to a cheaper model only after side-by-side checks on the customer's own traffic judge the cheaper answers as good; bring-your-own provider keys (OpenAI, Anthropic, Google, Groq, DeepSeek, OpenRouter). Vendor-submitted.
 
 ### 💾 Prompt caching through a gateway — the money question
 
