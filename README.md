@@ -818,6 +818,7 @@ _Nothing is ⛔ confirmed-problematic yet — that status needs a reproducible c
 | Roteo | Cost-first | ⚠️ Unverified — vet before use | Public documentation reviewed 2026-10-28; model identity, billing and privacy behavior not independently verified. |
 | TeapotRouter | Cost-first | ⚠️ Unverified — vet before use | Public documentation reviewed 2026-10-28; model identity, billing and privacy behavior not independently verified. |
 | CloudGPU Model API | Cost-first | ⚠️ Unverified — vet before use | Public documentation reviewed 2026-10-28; model identity, billing and privacy behavior not independently verified. |
+| GenZi AI | Cost-first | ⚠️ Unverified — vet before use | Operator-submitted; public documentation reviewed 2026-10-30; model identity, billing and privacy behavior not independently verified. |
 
 ## 📊 Latest evaluations
 
