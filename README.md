@@ -260,7 +260,7 @@ _Stars are cumulative; they never go down when a project stops shipping. Every t
 - [Glama Gateway](https://glama.ai/ai/gateway) - OpenAI-compatible gateway to 100+ models with consolidated billing, caching and logging (OSS core [glama-ai/lightport](https://github.com/glama-ai/lightport)).
 
 <details>
-<summary><b>New &amp; unverified relays (45)</b> — transparent resellers awaiting independent fidelity checks; read the <a href="#community-relay-watch-list">relay watch-list</a> first</summary>
+<summary><b>New &amp; unverified relays (46)</b> — transparent resellers awaiting independent fidelity checks; read the <a href="#community-relay-watch-list">relay watch-list</a> first</summary>
 
 - [Loop Gateway](https://api.loopxxi.com) - OpenAI-compatible proxy that meters every request in Bitcoin sats instead of dollars. 311 models via OpenRouter at a 15% markup. No accounts, no email, no card; top up over Lightning, get a bearer token. Three auth rails (prepaid bearer, L402, Cashu). Hosted at api.loopxxi.com. **New & unverified** (anonymous; its public GitHub repo has since been removed, so treat it as a closed hosted relay) — it resells frontier models _through the operator's own OpenRouter account_ at a 15% markup, and account-less + crypto-prepaid means no recourse if it swaps models or vanishes; confirm fidelity with [canary_check.py](scripts/canary_check.py) and only top up what you can afford to lose.
 - [nullsink](https://nullsink.is) ([repo](https://github.com/nullsink/nullsink)) - Account-less, metered proxy for frontier-model APIs, paid in Monero or Bitcoin. No accounts, no email, no card; mint a bearer token, prepay on-chain, and point the official SDKs at one base URL. ~10% markup taken once at top-up; no IP logging, no request logs; payment and token kept unlinkable. Self-hostable single binary (TypeScript/Bun, AGPL-3.0), live at nullsink.is. **New & unverified** (repo created 2026-06, <!--s:nullsink/nullsink-->⭐ 12<!--/s-->) — account-less + crypto-prepaid + no logs means no recourse if it swaps models or vanishes; confirm fidelity with canary_check.py and only top up what you can afford to lose.
@@ -307,6 +307,7 @@ _Stars are cumulative; they never go down when a project stops shipping. Every t
 - [Roteo](https://roteo.ai) - Hosted OpenAI-compatible gateway for text, image and video models with wallet-funded stablecoin payments per request; its documented Anthropic Messages route currently serves Claude Code. **New & unverified** (community-submitted); upstream identity, model fidelity and settlement not independently tested. ([Overview](https://www.roteo.ai/docs/overview), reviewed 2026-10-28).
 - [TeapotRouter](https://teapotrouter.com) - Hosted gateway advertising GPT and Claude Code access, with a public JSON model-pricing endpoint. **New & unverified** (operator-submitted); payment minimums, failover and model fidelity have not been independently established. ([Pricing catalog](https://teapotrouter.com/api/pricing), reviewed 2026-10-28).
 - [CloudGPU Model API](https://cloudgpu.app/api) - Hosted OpenAI-compatible model API at `https://cloudgpu.app/v1`, with a public model catalog, Anthropic Messages support and a prepaid balance shared with GPU rentals. Public beta without an SLA. **New & unverified** (operator-submitted); catalog visibility does not verify served-model identity. ([API docs](https://cloudgpu.app/api/docs), reviewed 2026-10-28).
+- [SinoGate](https://sinogate.ai/?utm_source=awesome-ai-gateway&utm_medium=directory&utm_campaign=backlinks) - Hosted OpenAI-compatible API gateway for Chinese LLMs (Qwen, DeepSeek, Kimi, GLM, MiniMax); change the base URL to use existing OpenAI SDKs; USD Stripe billing; multi-model with failover. **New & unverified** (self-submitted); model fidelity has not been independently tested. ([Source](https://sinogate.ai/), checked 2026-10-30).
 
 
 </details>
@@ -818,6 +819,7 @@ _Nothing is ⛔ confirmed-problematic yet — that status needs a reproducible c
 | Roteo | Cost-first | ⚠️ Unverified — vet before use | Public documentation reviewed 2026-10-28; model identity, billing and privacy behavior not independently verified. |
 | TeapotRouter | Cost-first | ⚠️ Unverified — vet before use | Public documentation reviewed 2026-10-28; model identity, billing and privacy behavior not independently verified. |
 | CloudGPU Model API | Cost-first | ⚠️ Unverified — vet before use | Public documentation reviewed 2026-10-28; model identity, billing and privacy behavior not independently verified. |
+| SinoGate | Cost-first | ⚠️ Unverified — vet before use | Self-submitted hosted OpenAI-compatible gateway for Chinese LLMs with USD Stripe billing; public homepage reviewed 2026-10-30. Listing does not establish model identity, billing correctness or privacy behavior. |
 
 ## 📊 Latest evaluations
 
