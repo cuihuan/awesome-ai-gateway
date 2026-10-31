@@ -542,6 +542,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [NadirClaw](https://github.com/NadirRouter/NadirClaw) <!--s:NadirRouter/NadirClaw-->⭐ 661<!--/s--> — 自托管、OpenAI 兼容的路由器（Python）：简单 prompt 走便宜/本地模型、复杂的走高端，配训练过的级联校验器，省 40–70% API 成本。
 - [ngrok AI Gateway](https://ngrok.com/docs/ai-gateway/overview) — 托管代理，路由到 OpenAI/Anthropic/Google 及本地 Ollama/vLLM/LM Studio，带自动兜底、密钥轮换与 CEL 流量策略（PII 脱敏）。
 - [Infere](https://infere.com/documentation/getting-started/) — 托管的 Prompt 复杂度路由，可选平衡、成本优先或质量优先模式；预付费，运营方提交，**未经核实**（来源核对于 2026-10-22）。
+- [Nivana](https://nivana.one/docs/routing) — 托管路由器，没有 model 参数：按任务与难度给每个请求分类，再按每周评测质量、实时价格与速度在 8 家实验室的 14 个模型中打分，每个响应都附带路由结果与前五候选；兼容 OpenAI 接口并支持工具调用；预付费，按模型价格加 50% 计费；运营方提交，**未经核实**（来源核对于 2026-10-31）。
 
 ### 💾 缓存过网关——钱的问题
 
