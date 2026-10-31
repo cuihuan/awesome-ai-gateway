@@ -386,6 +386,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Respan Gateway](https://github.com/respanai/respan-gateway) <!--s:respanai/respan-gateway-->⭐ 421<!--/s--> — Rust 网关（MIT/Apache-2.0），转换 OpenAI Chat/Responses、Anthropic Messages 与 Gemini 格式，提供路由、故障转移、本地模型后端及 MCP 工具集成。早期项目；能力依据源码文档，本清单未做运行验证（核对于 2026-10-28）。
 - [relay-failover](https://github.com/huangjinpeng216/relay-failover) <!--s:huangjinpeng216/relay-failover-->⭐ 0<!--/s--> — Node.js 代理（MIT），以本地端点汇聚 OpenAI 兼容上游，提供加权路由、冷却、上游鉴权头适配和健康报告。协议透传不等于跨协议转换；本清单未独立测试断流恢复。来源核对于 2026-10-28。
 - [Argus](https://github.com/karmendra8386/argus) <!--s:karmendra8386/argus-->⭐ 0<!--/s--> — Python LLM 策略网关（MIT），提供可配置的密钥/个人信息检测、输入输出策略与审计记录。打包 CLI 仅运行 mock 演示；真实 OpenAI、Anthropic 或兼容后端需在代码中配置，流式支持仍在路线图中。检测效果未经独立测试。来源核对于 2026-10-28。
+- [TapVow](https://github.com/theluckystrike/tapvow) <!--s:theluckystrike/tapvow-->⭐ 0<!--/s--> — 本地 TypeScript 网关（MIT，Node 22.13+，仅监听 127.0.0.1），支持 OpenAI Chat Completions 与 Anthropic Messages：Agent 只拿虚拟密钥，真实密钥留在网关进程；每次调用前按最坏成本在 Ed25519 签名的预算内预留，超出上限的调用在到达上游前以 HTTP 402 拒绝。每笔扣费和拒绝都写入哈希链签名账本，同一预算也覆盖 x402 支付。早期项目（2026-10 启动，单人维护，npm 包尚未发布；x402 仅在 Base Sepolia 测试网结算）。自行提交，未经独立评测。
 
 
 ## 🏢 企业合规
