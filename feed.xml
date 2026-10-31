@@ -5,21 +5,91 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-10-30T05:25:10Z</updated>
+  <updated>2026-10-31T07:55:18Z</updated>
   <author><name>Awesome AI Gateway</name></author>
+  <entry>
+    <title>maxceem/app-ai-gateway v0.10.10</title>
+    <link href="https://github.com/maxceem/app-ai-gateway/releases/tag/v0.10.10" />
+    <id>https://github.com/maxceem/app-ai-gateway/releases/tag/v0.10.10</id>
+    <updated>2026-10-31T07:55:18Z</updated>
+    <summary>maxceem/app-ai-gateway released v0.10.10.</summary>
+  </entry>
+  <entry>
+    <title>caozhiyuan/copilot-api v2.8.3</title>
+    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.8.3" />
+    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.8.3</id>
+    <updated>2026-10-31T04:33:44Z</updated>
+    <summary>caozhiyuan/copilot-api released v2.8.3.</summary>
+  </entry>
+  <entry>
+    <title>archestra-ai/archestra platform-v1.4.14</title>
+    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.4.14" />
+    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.4.14</id>
+    <updated>2026-10-31T03:07:40Z</updated>
+    <summary>archestra-ai/archestra released platform: v1.4.14.</summary>
+  </entry>
+  <entry>
+    <title>lidge-jun/opencodex v2.95.0</title>
+    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.95.0" />
+    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.95.0</id>
+    <updated>2026-10-31T03:01:41Z</updated>
+    <summary>lidge-jun/opencodex released v2.95.0.</summary>
+  </entry>
+  <entry>
+    <title>logicplanes/kaeso v0.4.8</title>
+    <link href="https://github.com/logicplanes/kaeso/releases/tag/v0.4.8" />
+    <id>https://github.com/logicplanes/kaeso/releases/tag/v0.4.8</id>
+    <updated>2026-10-30T21:17:05Z</updated>
+    <summary>logicplanes/kaeso released Kaeso 0.4.8.</summary>
+  </entry>
+  <entry>
+    <title>mcpjungle/MCPJungle 0.4.7</title>
+    <link href="https://github.com/mcpjungle/MCPJungle/releases/tag/0.4.7" />
+    <id>https://github.com/mcpjungle/MCPJungle/releases/tag/0.4.7</id>
+    <updated>2026-10-30T19:11:17Z</updated>
+    <summary>mcpjungle/MCPJungle released 0.4.7.</summary>
+  </entry>
+  <entry>
+    <title>ENTERPILOT/GoModel v0.2.1</title>
+    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.2.1" />
+    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.2.1</id>
+    <updated>2026-10-30T17:28:25Z</updated>
+    <summary>ENTERPILOT/GoModel released v0.2.1.</summary>
+  </entry>
+  <entry>
+    <title>1mcp-app/agent v0.39.7</title>
+    <link href="https://github.com/1mcp-app/agent/releases/tag/v0.39.7" />
+    <id>https://github.com/1mcp-app/agent/releases/tag/v0.39.7</id>
+    <updated>2026-10-30T16:40:18Z</updated>
+    <summary>1mcp-app/agent released Release v0.39.7.</summary>
+  </entry>
+  <entry>
+    <title>askalf/dario v6.19.0</title>
+    <link href="https://github.com/askalf/dario/releases/tag/v6.19.0" />
+    <id>https://github.com/askalf/dario/releases/tag/v6.19.0</id>
+    <updated>2026-10-30T16:02:34Z</updated>
+    <summary>askalf/dario released v6.19.0.</summary>
+  </entry>
+  <entry>
+    <title>router-for-me/CLIProxyAPI v8.0.48</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.48" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.48</id>
+    <updated>2026-10-30T14:37:48Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v8.0.48.</summary>
+  </entry>
+  <entry>
+    <title>tashfeenahmed/freellmapi v0.16.14</title>
+    <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.16.14" />
+    <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.16.14</id>
+    <updated>2026-10-30T10:40:02Z</updated>
+    <summary>tashfeenahmed/freellmapi released v0.16.14 — JamAI and macOS release fix.</summary>
+  </entry>
   <entry>
     <title>maximhq/bifrost ent-v2.4.0-base</title>
     <link href="https://github.com/maximhq/bifrost/releases/tag/ent-v2.4.0-base" />
     <id>https://github.com/maximhq/bifrost/releases/tag/ent-v2.4.0-base</id>
     <updated>2026-10-30T05:25:10Z</updated>
     <summary>maximhq/bifrost released Enterprise v2.4.0 base.</summary>
-  </entry>
-  <entry>
-    <title>logicplanes/kaeso v0.4.7</title>
-    <link href="https://github.com/logicplanes/kaeso/releases/tag/v0.4.7" />
-    <id>https://github.com/logicplanes/kaeso/releases/tag/v0.4.7</id>
-    <updated>2026-10-30T04:40:04Z</updated>
-    <summary>logicplanes/kaeso released Kaeso 0.4.7.</summary>
   </entry>
   <entry>
     <title>LianjiaTech/bella-openapi v1.2.106</title>
@@ -29,25 +99,11 @@
     <summary>LianjiaTech/bella-openapi released Bella OpenAPI v1.2.106.</summary>
   </entry>
   <entry>
-    <title>archestra-ai/archestra platform-v1.4.12</title>
-    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.4.12" />
-    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.4.12</id>
-    <updated>2026-10-30T03:59:21Z</updated>
-    <summary>archestra-ai/archestra released platform: v1.4.12.</summary>
-  </entry>
-  <entry>
     <title>agentic-community/mcp-gateway-registry 1.35.0</title>
     <link href="https://github.com/agentic-community/mcp-gateway-registry/releases/tag/1.35.0" />
     <id>https://github.com/agentic-community/mcp-gateway-registry/releases/tag/1.35.0</id>
     <updated>2026-10-29T22:11:24Z</updated>
     <summary>agentic-community/mcp-gateway-registry released 1.35.0 - Keycloak OBO Token Exchange, Users in Many Groups, and Bounded Registrant Metadata.</summary>
-  </entry>
-  <entry>
-    <title>ENTERPILOT/GoModel v0.2.0</title>
-    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.2.0" />
-    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.2.0</id>
-    <updated>2026-10-29T17:04:59Z</updated>
-    <summary>ENTERPILOT/GoModel released v0.2.0.</summary>
   </entry>
   <entry>
     <title>ascending-llc/jarvis-registry asc0.5.16</title>
@@ -71,20 +127,6 @@
     <summary>api7/aisix released v1.8.0 — MCP on the caller's behalf, PROXY protocol, gateway-side budgets.</summary>
   </entry>
   <entry>
-    <title>askalf/dario v6.18.3</title>
-    <link href="https://github.com/askalf/dario/releases/tag/v6.18.3" />
-    <id>https://github.com/askalf/dario/releases/tag/v6.18.3</id>
-    <updated>2026-10-29T15:13:48Z</updated>
-    <summary>askalf/dario released v6.18.3.</summary>
-  </entry>
-  <entry>
-    <title>caozhiyuan/copilot-api v2.8.2</title>
-    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.8.2" />
-    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.8.2</id>
-    <updated>2026-10-29T12:21:57Z</updated>
-    <summary>caozhiyuan/copilot-api released v2.8.2.</summary>
-  </entry>
-  <entry>
     <title>mnfst/manifest manifest@6.28.11</title>
     <link href="https://github.com/mnfst/llm-gateway/releases/tag/manifest%406.28.11" />
     <id>https://github.com/mnfst/llm-gateway/releases/tag/manifest%406.28.11</id>
@@ -99,13 +141,6 @@
     <summary>mozilla-ai/otari released v0.34.0.</summary>
   </entry>
   <entry>
-    <title>tashfeenahmed/freellmapi v0.16.12</title>
-    <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.16.12" />
-    <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.16.12</id>
-    <updated>2026-10-29T09:28:27Z</updated>
-    <summary>tashfeenahmed/freellmapi released v0.16.12.</summary>
-  </entry>
-  <entry>
     <title>labring/aiproxy v0.7.7</title>
     <link href="https://github.com/labring/aiproxy/releases/tag/v0.7.7" />
     <id>https://github.com/labring/aiproxy/releases/tag/v0.7.7</id>
@@ -118,20 +153,6 @@
     <id>https://github.com/seakee/CPA-Manager-Plus/releases/tag/v1.14.10</id>
     <updated>2026-10-29T04:45:36Z</updated>
     <summary>seakee/CPA-Manager-Plus released v1.14.10.</summary>
-  </entry>
-  <entry>
-    <title>lidge-jun/opencodex v2.94.0</title>
-    <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.94.0" />
-    <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.94.0</id>
-    <updated>2026-10-29T04:19:51Z</updated>
-    <summary>lidge-jun/opencodex released v2.94.0.</summary>
-  </entry>
-  <entry>
-    <title>router-for-me/CLIProxyAPI v8.0.47</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.47" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.47</id>
-    <updated>2026-10-29T00:27:13Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v8.0.47.</summary>
   </entry>
   <entry>
     <title>BerriAI/litellm v1.106.6</title>
@@ -153,13 +174,6 @@
     <id>https://github.com/karmendra8386/argus/releases/tag/v0.1.2</id>
     <updated>2026-10-28T17:01:01Z</updated>
     <summary>karmendra8386/argus released v0.1.2.</summary>
-  </entry>
-  <entry>
-    <title>1mcp-app/agent v0.39.6</title>
-    <link href="https://github.com/1mcp-app/agent/releases/tag/v0.39.6" />
-    <id>https://github.com/1mcp-app/agent/releases/tag/v0.39.6</id>
-    <updated>2026-10-28T15:34:15Z</updated>
-    <summary>1mcp-app/agent released Release v0.39.6.</summary>
   </entry>
   <entry>
     <title>vayungodara/cliproxy-rs v0.4.0</title>
@@ -202,19 +216,5 @@
     <id>https://github.com/pomerium/pomerium/releases/tag/v0.33.6</id>
     <updated>2026-10-27T04:58:18Z</updated>
     <summary>pomerium/pomerium released v0.33.6.</summary>
-  </entry>
-  <entry>
-    <title>oomol-lab/open-connector v1.9.4</title>
-    <link href="https://github.com/oomol-lab/open-connector/releases/tag/v1.9.4" />
-    <id>https://github.com/oomol-lab/open-connector/releases/tag/v1.9.4</id>
-    <updated>2026-10-27T03:56:51Z</updated>
-    <summary>oomol-lab/open-connector released v1.9.4.</summary>
-  </entry>
-  <entry>
-    <title>APIParkLab/APIPark v1.9.8-beta</title>
-    <link href="https://github.com/APIParkLab/APIPark/releases/tag/v1.9.8-beta" />
-    <id>https://github.com/APIParkLab/APIPark/releases/tag/v1.9.8-beta</id>
-    <updated>2026-10-27T02:40:11Z</updated>
-    <summary>APIParkLab/APIPark released v1.9.8-beta.</summary>
   </entry>
 </feed>
