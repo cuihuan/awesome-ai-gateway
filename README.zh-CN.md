@@ -386,6 +386,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Respan Gateway](https://github.com/respanai/respan-gateway) <!--s:respanai/respan-gateway-->⭐ 486<!--/s--> — Rust 网关（MIT/Apache-2.0），转换 OpenAI Chat/Responses、Anthropic Messages 与 Gemini 格式，提供路由、故障转移、本地模型后端及 MCP 工具集成。早期项目；能力依据源码文档，本清单未做运行验证（核对于 2026-10-28）。
 - [relay-failover](https://github.com/huangjinpeng216/relay-failover) <!--s:huangjinpeng216/relay-failover-->⭐ 0<!--/s--> — Node.js 代理（MIT），以本地端点汇聚 OpenAI 兼容上游，提供加权路由、冷却、上游鉴权头适配和健康报告。协议透传不等于跨协议转换；本清单未独立测试断流恢复。来源核对于 2026-10-28。
 - [Argus](https://github.com/karmendra8386/argus) <!--s:karmendra8386/argus-->⭐ 0<!--/s--> — Python LLM 策略网关（MIT），提供可配置的密钥/个人信息检测、输入输出策略与审计记录。打包 CLI 仅运行 mock 演示；真实 OpenAI、Anthropic 或兼容后端需在代码中配置，流式支持仍在路线图中。检测效果未经独立测试。来源核对于 2026-10-28。
+- [Cognipeer Console](https://github.com/Cognipeer/console) <!--s:Cognipeer/console-->⭐ 26<!--/s--> — AGPL-3.0 自托管 TypeScript（Next.js）网关与控制平面，提供 OpenAI 兼容 API（chat completions、embeddings、batch、moderations），可接入包括 OpenAI、AWS Bedrock、Google Vertex AI、vLLM 和 Ollama 在内的多种服务商，带故障转移链、按模型的配额与速率限制、多租户项目、MCP Hub、护栏与 Agent 追踪；默认使用 SQLite，也可用 MongoDB；社区版之外另有提供更多模块的商业企业版。
 
 
 ## 🏢 企业合规
