@@ -170,6 +170,7 @@ _清单告诉你**选哪个**网关；这几章教你**它们如何工作、为�
 | [LiteLLM](https://github.com/BerriAI/litellm)                          | <!--s:BerriAI/litellm-->⭐ 62.7k<!--/s-->             | 事实标准的开源代理 + SDK，OpenAI 格式接 100+ 家    | [自托管](#-自托管开源)                |
 | [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) ⚠️         | <!--s:router-for-me/CLIProxyAPI-->⭐ 57.6k<!--/s-->   | 把编码 CLI 订阅（Claude Code、Codex…）包成 API | [自托管](#-自托管开源)                |
 | [new-api](https://github.com/QuantumNous/new-api)                      | <!--s:QuantumNous/new-api-->⭐ 51.4k<!--/s-->         | 最活跃的中转/计费面板                          | [国内](#-国内生态)                  |
+| [LocalAI](https://github.com/mudler/LocalAI)                           | <!--s:mudler/LocalAI-->⭐ 50.2k<!--/s-->              | 自托管模型的 OpenAI 兼容本地推理 API（MIT，Go）     | [自托管](#-自托管开源)                |
 | [freellmapi](https://github.com/tashfeenahmed/freellmapi) ⚠️           | <!--s:tashfeenahmed/freellmapi-->⭐ 47.7k<!--/s-->    | 把 28 家的免费额度叠在一个端点后面                  | [性价比优先](#-性价比优先)              |
 | [sub2api](https://github.com/Wei-Shaw/sub2api) ⚠️                      | <!--s:Wei-Shaw/sub2api-->⭐ 45.5k<!--/s-->            | 把订阅账号拼车池化到一个端点                       | [国内](#-国内生态)                  |
 | [Kong](https://github.com/Kong/kong)                                   | <!--s:Kong/kong-->⭐ 44.4k<!--/s-->                   | 成熟 API 网关 + AI 插件（语义缓存、护栏）           | [企业](#-企业合规)                  |
@@ -341,6 +342,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 *痛点："Key 在我手里、跑在我机器上，不交按量过路费。"*
 
 - [LiteLLM](https://github.com/BerriAI/litellm) <!--s:BerriAI/litellm-->⭐ 62.7k<!--/s--> — 默认之选：Python SDK + 代理服务，以 OpenAI 格式打通 100+ 厂商（含本地 Ollama），带虚拟 Key、预算、负载均衡与护栏；管理界面/虚拟 Key 需要 Postgres 数据库。
+- [LocalAI](https://github.com/mudler/LocalAI) <!--s:mudler/LocalAI-->⭐ 50.2k<!--/s--> — MIT 许可的 Go 服务，为自行运行的模型提供 OpenAI 与 Anthropic 兼容 API（LLM、嵌入、视觉、音频与图像），可在 CPU 或 GPU 上运行，并按需拉取 llama.cpp、vLLM 等后端。它是本地推理端点，不是多厂商路由器。（来源核对于 2026-11-03）。
 - [Portkey Gateway](https://github.com/Portkey-AI/gateway) <!--s:Portkey-AI/gateway-->⭐ 13.3k<!--/s--> — 高速 TypeScript 网关（1600+ 模型、50+ 护栏），同时是 Portkey 商业 LLMOps 平台的底座。
 - [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) <!--s:router-for-me/CLIProxyAPI-->⭐ 57.6k<!--/s--> — Go 网关，把各家编码 Agent 的 CLI 订阅（Claude Code、Codex、Gemini、Grok、Antigravity）包装成 OpenAI/Gemini/Claude/Codex 兼容 API，带多账号池、轮询负载均衡与管理 API；本领域星数最高的开源网关之一。自带账号——但把 OAuth 编码订阅档通过 API 转发可能违反厂商 ToS，需权衡封号风险。配套工具：[CPA-Manager-Plus](https://github.com/seakee/CPA-Manager-Plus) <!--s:seakee/CPA-Manager-Plus-->⭐ 4k<!--/s--> — 它的自托管管理面板 + 可观测仪表盘（请求、用量、成本、额度、失败、账号健康）；同样适用上述 ToS 注意事项。
 - [9router](https://github.com/decolua/9router) <!--s:decolua/9router-->⭐ 32k<!--/s--> — MIT 自托管 BYOK 本地代理，在 40+ 厂商间按「订阅→便宜→免费」自动回退路由，带多账号负载均衡与 token 压缩；性价比优先、非常热门。两条提醒，安全那条更重要：**已公布 19 条安全公告——6 条 critical、11 条 high，其中 12 条集中在 2026 年 7 月**，问题类型集中在「未认证即可访问代理及其持有的厂商密钥」，且**有 3 条未登记修复版本、其中 2 条是 critical**（详见下方供应链矩阵）。要用就跑在你自己可控的网络里，并锁定到最新版本。另外，它把免费/OAuth 编码档路由（Claude Code、Codex、Kiro）接进来，仍有厂商 ToS/封号风险。
