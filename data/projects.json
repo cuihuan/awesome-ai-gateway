@@ -113,6 +113,7 @@
     "respanai/respan-gateway",
     "huangjinpeng216/relay-failover",
     "karmendra8386/argus",
-    "attnstack/omni-route"
+    "attnstack/omni-route",
+    "Cognipeer/console"
   ]
 }
