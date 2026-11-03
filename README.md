@@ -620,6 +620,8 @@ _Pain point: "Who spent what, on which model, and why did quality drop?"_
 - [Vessel](https://github.com/spenceclark/Vessel) <!--s:spenceclark/Vessel-->⭐ 8<!--/s--> - MIT local reverse proxy (single C#/.NET binary) that forwards Ollama, OpenAI-compatible and Anthropic traffic byte-for-byte and stores every request and response in local SQLite for search, replay across models and side-by-side comparison. Operator-documented; not independently evaluated (source reviewed 2026-10-22).
 - [ABTO](https://abto.app/en/) - Hosted OpenAI-compatible gateway (OpenAI, Anthropic, Gemini, DeepSeek, Kimi) that splits end users across model/prompt options with sticky per-device assignment and reports per-call cost next to downstream product events (signup, purchase, retention), per feature; provider API keys are passed through per request and kept out of call logs. Operator-documented; not independently evaluated (source reviewed 2026-10-22).
 - [BytesBrains Cruise](https://bytesbrains.com/cruise) - Hosted OpenAI-compatible gateway that refuses calls once a project's spend cap is reached (`429`, message naming the project) and reports each response's lane, model and budget state in `x-cruise-*` headers. Operator-documented; not independently evaluated (source reviewed 2026-10-22).
+- [TapVow](https://github.com/theluckystrike/tapvow) <!--s:theluckystrike/tapvow-->⭐ 0<!--/s--> - Local Node.js gateway (MIT) for supported OpenAI chat-completions and Anthropic messages calls, with per-agent virtual keys, signed budgets, estimated-cost admission checks and a signed spend ledger. Early-stage; static prices and provider-reported usage can differ from the final provider bill, and OpenAI Responses/Codex are unsupported. Source reviewed 2026-11-02; not independently runtime-tested.
+
 
 ### 🚢 Kubernetes-native & inference infra
 
@@ -1135,6 +1137,7 @@ This list lives in the awesome-list ecosystem. If it doesn't have what you need,
 - [awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) - MCP servers to put _behind_ the MCP & agent gateways here.
 - [awesome-free-llm-apis](https://github.com/mnfst/awesome-free-llm-apis) - CC0 list of permanently-free LLM APIs, from the team behind the Manifest router listed here; pairs with our verified free-tier limits table.
 - [AI4S for Programmers](https://github.com/Runix-lab/ai4s-for-programmers) - Free two-day course on the data-engineering side of AI for Science (antibody/protein data), for programmers with zero biology background; six runnable labs over a reproducible public dataset.
+- [Awesome AI Gateways](https://github.com/ai-gateways/awesome-ai-gateways) - LLM, MCP and A2A gateways organized by traffic type, with implementation-language and license tags; a complementary directory, not an independent validation of its entries (reviewed 2026-11-02).
 
 Maintain a related list and think this belongs in yours? Open an issue — cross-linking helps every list's readers.
 

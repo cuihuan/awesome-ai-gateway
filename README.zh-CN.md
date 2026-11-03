@@ -597,6 +597,8 @@ Anthropic 系： usage.cache_read_input_tokens               第二次 > 0 吗�
 - [Vessel](https://github.com/spenceclark/Vessel) <!--s:spenceclark/Vessel-->⭐ 8<!--/s--> - MIT 许可的本地反向代理（单个 C#/.NET 可执行文件），逐字节转发 Ollama、OpenAI 兼容和 Anthropic 流量，并将每个请求和响应存入本地 SQLite，支持搜索、跨模型重放和并排对比。 以上为项目方文档所述，本清单未独立评测。（来源核对于 2026-10-22）。
 - [ABTO](https://abto.app/en/) — 托管的 OpenAI 兼容网关（OpenAI、Anthropic、Gemini、DeepSeek、Kimi），按设备 ID 把终端用户固定分配到不同的模型/Prompt 选项，并按功能将每次调用成本与下游产品事件（注册、付费、留存）对照展示；厂商 API Key 随请求透传，不写入调用日志。 以上为项目方文档所述，本清单未独立评测。（来源核对于 2026-10-22）。
 - [BytesBrains Cruise](https://bytesbrains.com/cruise) — 托管的 OpenAI 兼容网关：项目达到支出上限后拒绝调用（返回 `429` 并注明项目），并通过 `x-cruise-*` 响应头返回每次请求的 lane、模型和预算状态。 以上为项目方文档所述，本清单未独立评测。（来源核对于 2026-10-22）。
+- [TapVow](https://github.com/theluckystrike/tapvow) <!--s:theluckystrike/tapvow-->⭐ 0<!--/s--> — 本地 Node.js 网关（MIT），支持 OpenAI Chat Completions 与 Anthropic Messages，提供逐 Agent 虚拟密钥、签名预算、预估费用准入及签名支出账本。早期项目；静态价格与厂商报告用量可能偏离最终账单，不支持 OpenAI Responses/Codex。来源核对于 2026-11-02，未做独立运行验证。
+
 
 ### 🚢 Kubernetes 原生与推理基础设施
 
@@ -1109,6 +1111,7 @@ OpenRouter 是托管（零运维、约 5.5% 手续费、<!--omc-->~340<!--/omc--
 - [awesome-langchain](https://github.com/kyrolabs/awesome-langchain) — LangChain 工具与 LLM 应用框架，它们的请求会穿过这些网关。
 - [awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) — 可放在本清单 [MCP 与 Agent 网关](#-mcp-与-agent-网关)**之后**的 MCP server。
 - [awesome-free-llm-apis](https://github.com/mnfst/awesome-free-llm-apis) — CC0 授权的「永久免费 LLM API」清单，出自本清单已收录的 Manifest 路由器团队；与我们核实过的[免费额度表](#-哪些免费额度还活着-核实限额表)互补。
+- [Awesome AI Gateways](https://github.com/ai-gateways/awesome-ai-gateways) — 按流量类型整理 LLM、MCP 和 A2A 网关，附实现语言及许可证标签；作为补充目录，不代表对其条目的独立验证（核对于 2026-11-02）。
 
 你也维护一份相关清单、觉得本项目该被收录?[提个 issue](https://github.com/cuihuan/awesome-ai-gateway/issues)——互相链接对每份清单的读者都有好处。
 
