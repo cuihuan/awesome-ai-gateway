@@ -519,6 +519,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [SandBase CLI](https://github.com/sandbaseai/cli) <!--s:sandbaseai/cli-->⭐ 185<!--/s--> — Apache-2.0 CLI 与本地 MCP 桥，支持 OAuth 接入、发现与工具执行，将 Agent 连接到 SandBase 托管模型 / API 目录。客户端开源，托管平台是独立的商业服务，本清单未验证其模型保真度。（来源核对于 2026-10-22）。
 - [Switchyard](https://github.com/caelum0x/railyard/tree/main/apps/toolgate) <!--s:caelum0x/railyard-->⭐ 0<!--/s--> — Railyard 单仓库内的 Rust MCP 工具网关（CLI `sy`），通过 Streamable HTTP 暴露工具目录，文档包含 OAuth、自带 key 的工具及预授权/结算计量。以上为项目方所述，本清单未独立测试安全控制与计费行为。来源核对于 2026-10-28。
 - [Scalekit](https://scalekit.com) — 托管 Agent 鉴权网关，在终端用户授权下代理 SaaS 工具调用，提供凭据托管、令牌刷新与 MCP 集成。**厂商自荐，未经评估**；以上控制依据公开文档，本清单未独立进行安全测试。（[AgentKit 概览](https://docs.scalekit.com/agentkit/overview/)，核对于 2026-10-28）。
+- [Agentik](https://www.agentik.cc) — 位于 Agent 与工具之间的托管工具网关：通过一个 MCP 连接（Streamable HTTP；OAuth 或工作区 API key）或 REST API，让 Claude、Claude Code、ChatGPT、Codex 和 Cursor 使用来自 52 家服务商的 2,400+ 个第三方工具。Agent 运行前先查看工具的输入结构与价格；付费调用先从预付余额中预留报价上限，再按实际用量结算；每个 key 可设置消费上限与工具限制；所支持的工具无需另配各服务商的 key。调用不加价；充值收取 5.5% 手续费（最低 $0.80），首次充值 $10 及以下免手续费。闭源；公开发现端点无需账户。**厂商自荐，未经评估**（[接入指南](https://www.agentik.cc/docs/clients)、[定价](https://www.agentik.cc/pricing)，核对于 2026-11-03）。
 
 
 ## 🔧 更多按能力分（横切关注点）
