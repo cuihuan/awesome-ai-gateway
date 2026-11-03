@@ -112,6 +112,7 @@
     "caelum0x/railyard",
     "respanai/respan-gateway",
     "huangjinpeng216/relay-failover",
-    "karmendra8386/argus"
+    "karmendra8386/argus",
+    "attnstack/omni-route"
   ]
 }
