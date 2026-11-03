@@ -435,6 +435,8 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Standard Compute](https://standardcompute.com/eu-llm-api-for-coding-agents) — 可按公司 / 团队 / Key 将推理限制在列出的欧洲或美国厂商端点内，仅在允许列表内故障转移，无可用端点时拒绝请求。**厂商提交，未经评测**。这是推理位置控制；厂商网关与 OpenRouter 仍可能在所选地域外处理请求，不是端到端驻留保证。（[来源](https://standardcompute.com/eu-llm-api-for-coding-agents)，核对于 2026-10-22）。
 - [INFRO](https://infro.io) — 使用客户自有厂商账户的托管 BYOK 控制面，提供 OpenAI 兼容路由、故障转移、上游调用前预算检查、模型策略及逐请求的厂商成本估算。收取软件订阅费，不对厂商用量加价，已支持自助注册，结账后开始 14 天试用。**新且未经核实**（创始人提交）。（[来源](https://infro.io/llms.txt)，核对于 2026-10-22）。
 - [Dome Systems](https://docs.domesystems.ai/tutorials/production/use-dome-as-a-model-broker) — 托管模型代理，在模型连接与连接池前统一执行调用方授权、路由与审计，与其 MCP 网关配套。**厂商提交，未经评测**。（[来源](https://docs.domesystems.ai/tutorials/production/use-dome-as-a-model-broker)，核对于 2026-10-22）。
+- [LowRouter](https://lowrouter.ai) — 托管网关，提供厂商/区域路由策略和碳强度排序。默认自动路由优先选择欧盟主权路径，但可能回落至欧盟以外；文档将带区域范围的模型 ID 或策略门槛定义为硬约束。**厂商提交，未经评估**；数据驻留执行和碳排放估算未经独立验证。（来源核对于 2026-11-02；[文档](https://lowrouter.ai/docs/models/routing)）。
+
 
 ## 🌐 原厂直连（云厂商/模型厂商）
 
