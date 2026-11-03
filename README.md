@@ -573,6 +573,7 @@ _Pain point: "Send each prompt to the cheapest model that can handle it."_
 - [ngrok AI Gateway](https://ngrok.com/docs/ai-gateway/overview) - Managed proxy routing to OpenAI/Anthropic/Google + local Ollama/vLLM/LM Studio, with automatic failover, key rotation, and CEL traffic-policy controls (PII redaction).
 - [Infere](https://infere.com/documentation/getting-started/) - Hosted prompt-complexity routing with balanced, cost-optimized and quality-optimized modes; prepaid operator submission, **unverified** (source reviewed 2026-10-22).
 - [PromptUnit](https://www.promptunit.ai) - Hosted BYOK proxy with OpenAI and Anthropic integration, quality-threshold model routing and optional side-by-side checks on customer traffic. **Vendor-submitted, not evaluated**; routing decisions and savings have not been independently tested. (Source reviewed 2026-11-02; [documentation](https://www.promptunit.ai/docs)).
+- [Nivana](https://nivana.one/docs/routing) - Hosted automatic model router that profiles requests by task and difficulty, ranks its model pool by documented quality, cost and speed signals, and returns route information. Model selection is automatic rather than caller-controlled. **Vendor-submitted, not evaluated**; ranking quality and savings are operator claims. (Source reviewed 2026-11-02).
 
 
 ### 💾 Prompt caching through a gateway — the money question
