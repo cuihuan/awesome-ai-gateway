@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-22",
+  "as_of": "2026-11-04",
   "scope": "Public operator documentation only; not an independent billing test. Not stated means absent from the pages reviewed, not proof that no policy exists. A listing does not endorse a relay.",
   "entries": [
     {
@@ -75,6 +75,19 @@
         "https://infro.io/llms.txt"
       ],
       "checked_on": "2026-10-22"
+    },
+    {
+      "gateway": "AnyAPI.ai",
+      "billing_model": "prepaid",
+      "minimum_topup": "$20 pay-as-you-go; monthly plans from $19.90",
+      "topup_fee": "Not stated on reviewed pricing page",
+      "credit_expiry": "Pay-as-you-go credit never expires; monthly plan tokens roll over while the plan is active and are forfeited when a subscription is cancelled",
+      "refunds": "All payments final and non-refundable except as required by law or stated in the Terms of Service",
+      "sources": [
+        "https://anyapi.ai/pricing",
+        "https://docs.anyapi.ai/get-started/faq"
+      ],
+      "checked_on": "2026-11-04"
     }
   ]
 }
