@@ -239,7 +239,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [Glama Gateway](https://glama.ai/ai/gateway) — OpenAI 兼容网关，接入 100+ 模型，统一账单、缓存与日志（开源内核 [glama-ai/lightport](https://github.com/glama-ai/lightport)）。
 
 <details>
-<summary><b>新且未经核实的中转（53 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
+<summary><b>新且未经核实的中转（54 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
 
 - [Loop Gateway](https://api.loopxxi.com) — OpenAI 兼容代理，每个请求以比特币 sats（而非美元）计费。经 OpenRouter 接入 311 个模型、加价 15%。无需账号/邮箱/银行卡；用闪电网络充值即得 bearer token。三种鉴权（预付 bearer、L402、Cashu）。线上托管于 [api.loopxxi.com](https://api.loopxxi.com)。 **新且未经核实**（匿名；其公开 GitHub 仓库现已删除，按闭源托管中转看待）——它*通过运营者自己的 OpenRouter 账号*转售前沿模型并加价 15%，无账号+加密货币预付意味着一旦偷换模型或跑路都无从追索；投产前请用 [canary_check.py](scripts/canary_check.py) 验证保真度，且只充值你能承受损失的金额。
 - [nullsink](https://nullsink.is) ([仓库](https://github.com/nullsink/nullsink)) — 无账号的前沿模型 API 计费代理，用门罗币（Monero）或比特币（Bitcoin）付费。无需账号/邮箱/银行卡；生成 bearer token、链上预付，改一个 base URL 即可用官方 SDK 调用。加价约 10%，仅在充值时收取一次；不记录 IP、不记录请求日志；付款与 token 不可关联。单文件可执行、可自托管（TypeScript/Bun，AGPL-3.0），线上服务 [nullsink.is](https://nullsink.is)。 **新且未经核实**（仓库 2026-06 新建、<!--s:nullsink/nullsink-->⭐ 12<!--/s-->）——无账号+加密货币预付+无日志，一旦偷换模型或跑路都无从追索；投产前请用 [canary_check.py](scripts/canary_check.py) 验证保真度，且只充值你能承受损失的金额。
@@ -294,6 +294,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [FastSubs](https://fastsubs.org) — 俄语托管中转，提供 OpenAI 兼容 API（`https://api.fastsubs.org/v1`）、文本与媒体模型、套餐额度和余额计费。**新且未经核实**（运营方提交）；上游身份、模型保真度及计费未经独立测试。（来源核对于 2026-11-02；[文档](https://fastsubs.org/docs)）。
 - [HopBase](https://hop-base.com) — 托管网关，公开文档介绍 OpenAI Chat Completions、Responses 与 Anthropic Messages，以及异步图片/视频生成和公开价格。**新且未经核实**（运营方提交）；模型保真度、故障转移和单次费用未经独立测试。（来源核对于 2026-11-02；[文档](https://hop-base.com/llms.txt)）。
 - [BestLLM](https://bestllm.dev) — 托管 OpenAI 兼容网关，接入中国模型系列，文档介绍美国/欧盟路由策略、工作区消费控制及按 token 计费。提交时名为 Maridian Gateway，当前官网使用 BestLLM。**新且未经核实**（运营方提交）；区域策略执行、计费和模型保真度未经独立测试。（来源核对于 2026-11-02；[文档](https://bestllm.dev/)）。
+- [Code By AI](https://www.codebyai.net) — 面向 AI 编码工具的托管网关：一个 Key、一个预付余额调用 Claude、GPT/Codex 与 Gemini 模型，支持 Anthropic Messages、OpenAI Responses、OpenAI Chat Completions 与 Gemini generateContent 四种格式（OpenAI 兼容 base `https://www.codebyai.net/api/agent/v1`），按 token 计费、无订阅；公开价格见 [`/api/model-prices`](https://www.codebyai.net/api/model-prices)。**新且未经核实**（运营方提交）；模型保真度与计费未经独立验证。
 
 
 </details>
