@@ -519,6 +519,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [SandBase CLI](https://github.com/sandbaseai/cli) <!--s:sandbaseai/cli-->⭐ 185<!--/s--> — Apache-2.0 CLI 与本地 MCP 桥，支持 OAuth 接入、发现与工具执行，将 Agent 连接到 SandBase 托管模型 / API 目录。客户端开源，托管平台是独立的商业服务，本清单未验证其模型保真度。（来源核对于 2026-10-22）。
 - [Switchyard](https://github.com/caelum0x/railyard/tree/main/apps/toolgate) <!--s:caelum0x/railyard-->⭐ 0<!--/s--> — Railyard 单仓库内的 Rust MCP 工具网关（CLI `sy`），通过 Streamable HTTP 暴露工具目录，文档包含 OAuth、自带 key 的工具及预授权/结算计量。以上为项目方所述，本清单未独立测试安全控制与计费行为。来源核对于 2026-10-28。
 - [Scalekit](https://scalekit.com) — 托管 Agent 鉴权网关，在终端用户授权下代理 SaaS 工具调用，提供凭据托管、令牌刷新与 MCP 集成。**厂商自荐，未经评估**；以上控制依据公开文档，本清单未独立进行安全测试。（[AgentKit 概览](https://docs.scalekit.com/agentkit/overview/)，核对于 2026-10-28）。
+- [ByMorning](https://github.com/bymorning/bymorning) <!--s:bymorning/bymorning-->⭐ 1<!--/s--> — MIT 许可、可自托管的 TypeScript 网关：提供兼容 OpenAI、Anthropic、Google 的模型端点和远程 MCP 服务器（OAuth）。工具按已登录用户本人的权限运行，支出上限可按工作区、成员和服务账号设置。可部署到 AWS、Azure 或 Kubernetes（Terraform 模块、Helm Chart），发布版本使用 Sigstore 签名。**维护者自荐，未经独立评估。**
 
 
 ## 🔧 更多按能力分（横切关注点）
