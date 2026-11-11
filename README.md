@@ -260,7 +260,7 @@ _Stars are cumulative; they never go down when a project stops shipping. Every t
 - [Glama Gateway](https://glama.ai/ai/gateway) - OpenAI-compatible gateway to 100+ models with consolidated billing, caching and logging (OSS core [glama-ai/lightport](https://github.com/glama-ai/lightport)).
 
 <details>
-<summary><b>New &amp; unverified relays (53)</b> — transparent resellers awaiting independent fidelity checks; read the <a href="#community-relay-watch-list">relay watch-list</a> first</summary>
+<summary><b>New &amp; unverified relays (54)</b> — transparent resellers awaiting independent fidelity checks; read the <a href="#community-relay-watch-list">relay watch-list</a> first</summary>
 
 - [Loop Gateway](https://api.loopxxi.com) - OpenAI-compatible proxy that meters every request in Bitcoin sats instead of dollars. 311 models via OpenRouter at a 15% markup. No accounts, no email, no card; top up over Lightning, get a bearer token. Three auth rails (prepaid bearer, L402, Cashu). Hosted at api.loopxxi.com. **New & unverified** (anonymous; its public GitHub repo has since been removed, so treat it as a closed hosted relay) — it resells frontier models _through the operator's own OpenRouter account_ at a 15% markup, and account-less + crypto-prepaid means no recourse if it swaps models or vanishes; confirm fidelity with [canary_check.py](scripts/canary_check.py) and only top up what you can afford to lose.
 - [nullsink](https://nullsink.is) ([repo](https://github.com/nullsink/nullsink)) - Account-less, metered proxy for frontier-model APIs, paid in Monero or Bitcoin. No accounts, no email, no card; mint a bearer token, prepay on-chain, and point the official SDKs at one base URL. ~10% markup taken once at top-up; no IP logging, no request logs; payment and token kept unlinkable. Self-hostable single binary (TypeScript/Bun, AGPL-3.0), live at nullsink.is. **New & unverified** (repo created 2026-06, <!--s:nullsink/nullsink-->⭐ 12<!--/s-->) — account-less + crypto-prepaid + no logs means no recourse if it swaps models or vanishes; confirm fidelity with canary_check.py and only top up what you can afford to lose.
@@ -315,6 +315,7 @@ _Stars are cumulative; they never go down when a project stops shipping. Every t
 - [FastSubs](https://fastsubs.org) - Russian-language hosted relay with an OpenAI-compatible API at `https://api.fastsubs.org/v1`, text and media models, plan allowances and balance-based usage. **New & unverified** (operator-submitted); provider identity, model fidelity and billing are not independently tested. (Source reviewed 2026-11-02; [documentation](https://fastsubs.org/docs)).
 - [HopBase](https://hop-base.com) - Hosted gateway documenting OpenAI Chat Completions, Responses and Anthropic Messages, alongside asynchronous image/video generation and public pricing. **New & unverified** (operator-submitted); model fidelity, failover and per-request charges are not independently tested. (Source reviewed 2026-11-02; [documentation](https://hop-base.com/llms.txt)).
 - [BestLLM](https://bestllm.dev) - Hosted OpenAI-compatible gateway for Chinese model families, with documented US/EU routing policy, workspace spend controls and per-token billing. Submitted as Maridian Gateway; the current homepage uses BestLLM. **New & unverified** (operator-submitted); regional enforcement, billing and model fidelity are not independently tested. (Source reviewed 2026-11-02; [documentation](https://bestllm.dev/)).
+- [Wiro AI](https://wiro.ai/llm) - Hosted OpenAI-compatible gateway at `https://llm.wiro.ai/v1` serving OpenAI Chat Completions, Responses and Anthropic Messages on one key, with models from OpenAI, Anthropic, Google, DeepSeek, xAI and others, prepaid wallet billing, and per-token prices listed in `GET /v1/models`. **New & unverified** (operator-submitted); model fidelity and billing are not independently tested. (Source reviewed 2026-11-10; [documentation](https://wiro.ai/docs/completions-api)).
 
 
 </details>
@@ -843,6 +844,7 @@ _Nothing is ⛔ confirmed-problematic yet — that status needs a reproducible c
 | SinoGate | Cost-first | ⚠️ Unverified — vet before use | Operator-submitted; primary documentation reviewed 2026-11-02. Model identity, billing and privacy behavior not independently verified. |
 | GenZi AI | Cost-first | ⚠️ Unverified — vet before use | Operator-submitted; primary documentation reviewed 2026-11-02. Model identity, billing and privacy behavior not independently verified. |
 | TokenLab | Cost-first | ⚠️ Unverified — vet before use | Operator-submitted; primary documentation reviewed 2026-11-02. Model identity, billing and privacy behavior not independently verified. |
+| Wiro AI | Cost-first | ⚠️ Unverified — vet before use | Operator-submitted; primary documentation reviewed 2026-11-10. Model identity, billing and privacy behavior not independently verified. |
 
 ## 📊 Latest evaluations
 
