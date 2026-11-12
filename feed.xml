@@ -5,8 +5,106 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-11-11T09:29:44Z</updated>
+  <updated>2026-11-12T08:42:37Z</updated>
   <author><name>Awesome AI Gateway</name></author>
+  <entry>
+    <title>api7/aisix v1.10.0</title>
+    <link href="https://github.com/api7/aisix/releases/tag/v1.10.0" />
+    <id>https://github.com/api7/aisix/releases/tag/v1.10.0</id>
+    <updated>2026-11-12T08:42:37Z</updated>
+    <summary>api7/aisix released v1.10.0 — Semantic routing on Messages and Responses, sliding-window rate limits.</summary>
+  </entry>
+  <entry>
+    <title>oomol-lab/open-connector v1.10.0</title>
+    <link href="https://github.com/oomol-lab/open-connector/releases/tag/v1.10.0" />
+    <id>https://github.com/oomol-lab/open-connector/releases/tag/v1.10.0</id>
+    <updated>2026-11-12T07:10:26Z</updated>
+    <summary>oomol-lab/open-connector released v1.10.0.</summary>
+  </entry>
+  <entry>
+    <title>maxceem/app-ai-gateway v0.17.1</title>
+    <link href="https://github.com/maxceem/app-ai-gateway/releases/tag/v0.17.1" />
+    <id>https://github.com/maxceem/app-ai-gateway/releases/tag/v0.17.1</id>
+    <updated>2026-11-12T03:39:38Z</updated>
+    <summary>maxceem/app-ai-gateway released v0.17.1.</summary>
+  </entry>
+  <entry>
+    <title>archestra-ai/archestra platform-v1.4.28</title>
+    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.4.28" />
+    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.4.28</id>
+    <updated>2026-11-12T03:13:43Z</updated>
+    <summary>archestra-ai/archestra released platform: v1.4.28.</summary>
+  </entry>
+  <entry>
+    <title>agentic-community/mcp-gateway-registry 1.37.0</title>
+    <link href="https://github.com/agentic-community/mcp-gateway-registry/releases/tag/1.37.0" />
+    <id>https://github.com/agentic-community/mcp-gateway-registry/releases/tag/1.37.0</id>
+    <updated>2026-11-12T02:31:08Z</updated>
+    <summary>agentic-community/mcp-gateway-registry released 1.37.0 - MCP 2026-07-28 Support, Session Cookie Hardening and UI Branding.</summary>
+  </entry>
+  <entry>
+    <title>BerriAI/litellm v1.109.1</title>
+    <link href="https://github.com/BerriAI/litellm/releases/tag/v1.109.1" />
+    <id>https://github.com/BerriAI/litellm/releases/tag/v1.109.1</id>
+    <updated>2026-11-12T02:07:01Z</updated>
+    <summary>BerriAI/litellm released v1.109.1.</summary>
+  </entry>
+  <entry>
+    <title>Cognipeer/console v1.32.0-community</title>
+    <link href="https://github.com/Cognipeer/console/releases/tag/v1.32.0-community" />
+    <id>https://github.com/Cognipeer/console/releases/tag/v1.32.0-community</id>
+    <updated>2026-11-12T00:05:03Z</updated>
+    <summary>Cognipeer/console released v1.32.0-community.</summary>
+  </entry>
+  <entry>
+    <title>pomerium/pomerium v0.34.1</title>
+    <link href="https://github.com/pomerium/pomerium/releases/tag/v0.34.1" />
+    <id>https://github.com/pomerium/pomerium/releases/tag/v0.34.1</id>
+    <updated>2026-11-11T17:32:29Z</updated>
+    <summary>pomerium/pomerium released v0.34.1.</summary>
+  </entry>
+  <entry>
+    <title>gpustack/gpustack v2.3.1</title>
+    <link href="https://github.com/gpustack/gpustack/releases/tag/v2.3.1" />
+    <id>https://github.com/gpustack/gpustack/releases/tag/v2.3.1</id>
+    <updated>2026-11-11T16:23:37Z</updated>
+    <summary>gpustack/gpustack released v2.3.1.</summary>
+  </entry>
+  <entry>
+    <title>kittors/CliRelay v0.6.2</title>
+    <link href="https://github.com/kittors/CliRelay/releases/tag/v0.6.2" />
+    <id>https://github.com/kittors/CliRelay/releases/tag/v0.6.2</id>
+    <updated>2026-11-11T16:08:25Z</updated>
+    <summary>kittors/CliRelay released v0.6.2 - Egress Circuit Breaker with Alerts, Recovery from Stalled Upstream Connections, and Tool Limits Kept for Codex.</summary>
+  </entry>
+  <entry>
+    <title>tashfeenahmed/freellmapi v0.16.26</title>
+    <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.16.26" />
+    <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.16.26</id>
+    <updated>2026-11-11T15:56:21Z</updated>
+    <summary>tashfeenahmed/freellmapi released v0.16.26.</summary>
+  </entry>
+  <entry>
+    <title>caozhiyuan/copilot-api v2.9.4</title>
+    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.9.4" />
+    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.9.4</id>
+    <updated>2026-11-11T13:08:13Z</updated>
+    <summary>caozhiyuan/copilot-api released v2.9.4.</summary>
+  </entry>
+  <entry>
+    <title>karmendra8386/argus v0.2.0</title>
+    <link href="https://github.com/karmendra8386/argus/releases/tag/v0.2.0" />
+    <id>https://github.com/karmendra8386/argus/releases/tag/v0.2.0</id>
+    <updated>2026-11-11T13:03:22Z</updated>
+    <summary>karmendra8386/argus released argus-gateway 0.2.0 — tunable detection profiles.</summary>
+  </entry>
+  <entry>
+    <title>apache/apisix 3.20.0</title>
+    <link href="https://github.com/apache/apisix/releases/tag/3.20.0" />
+    <id>https://github.com/apache/apisix/releases/tag/3.20.0</id>
+    <updated>2026-11-11T09:41:20Z</updated>
+    <summary>apache/apisix released 3.20.0.</summary>
+  </entry>
   <entry>
     <title>mozilla-ai/otari v0.44.0</title>
     <link href="https://github.com/mozilla-ai/otari/releases/tag/v0.44.0" />
@@ -29,20 +127,6 @@
     <summary>looplj/axonhub released v1.0.0-rc.3.</summary>
   </entry>
   <entry>
-    <title>Cognipeer/console v1.30.0-community</title>
-    <link href="https://github.com/Cognipeer/console/releases/tag/v1.30.0-community" />
-    <id>https://github.com/Cognipeer/console/releases/tag/v1.30.0-community</id>
-    <updated>2026-11-11T05:57:53Z</updated>
-    <summary>Cognipeer/console released v1.30.0-community.</summary>
-  </entry>
-  <entry>
-    <title>maxceem/app-ai-gateway v0.16.0</title>
-    <link href="https://github.com/maxceem/app-ai-gateway/releases/tag/v0.16.0" />
-    <id>https://github.com/maxceem/app-ai-gateway/releases/tag/v0.16.0</id>
-    <updated>2026-11-11T04:20:26Z</updated>
-    <summary>maxceem/app-ai-gateway released v0.16.0.</summary>
-  </entry>
-  <entry>
     <title>lidge-jun/opencodex v2.100.2</title>
     <link href="https://github.com/lidge-jun/opencodex/releases/tag/v2.100.2" />
     <id>https://github.com/lidge-jun/opencodex/releases/tag/v2.100.2</id>
@@ -55,13 +139,6 @@
     <id>https://github.com/Wei-Shaw/sub2api/releases/tag/v0.2.21</id>
     <updated>2026-11-11T02:21:55Z</updated>
     <summary>Wei-Shaw/sub2api released Sub2API 0.2.21.</summary>
-  </entry>
-  <entry>
-    <title>BerriAI/litellm v1.109.0</title>
-    <link href="https://github.com/BerriAI/litellm/releases/tag/v1.109.0" />
-    <id>https://github.com/BerriAI/litellm/releases/tag/v1.109.0</id>
-    <updated>2026-11-11T00:56:51Z</updated>
-    <summary>BerriAI/litellm released v1.109.0.</summary>
   </entry>
   <entry>
     <title>logicplanes/kaeso v0.6.0</title>
@@ -92,32 +169,11 @@
     <summary>ascending-llc/jarvis-registry released Jarvis Registry asc0.5.18.</summary>
   </entry>
   <entry>
-    <title>kittors/CliRelay v0.6.1</title>
-    <link href="https://github.com/kittors/CliRelay/releases/tag/v0.6.1" />
-    <id>https://github.com/kittors/CliRelay/releases/tag/v0.6.1</id>
-    <updated>2026-11-10T17:02:57Z</updated>
-    <summary>kittors/CliRelay released v0.6.1 - Quota Window Spend, Grok Tools for Codex, Antigravity Project Discovery, and Faster Codex Requests.</summary>
-  </entry>
-  <entry>
-    <title>tashfeenahmed/freellmapi v0.16.24</title>
-    <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.16.24" />
-    <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.16.24</id>
-    <updated>2026-11-10T16:07:18Z</updated>
-    <summary>tashfeenahmed/freellmapi released v0.16.24.</summary>
-  </entry>
-  <entry>
     <title>maximhq/bifrost ent-v2.5.1-base</title>
     <link href="https://github.com/maximhq/bifrost/releases/tag/ent-v2.5.1-base" />
     <id>https://github.com/maximhq/bifrost/releases/tag/ent-v2.5.1-base</id>
     <updated>2026-11-10T15:07:06Z</updated>
     <summary>maximhq/bifrost released Enterprise v2.5.1 base.</summary>
-  </entry>
-  <entry>
-    <title>archestra-ai/archestra platform-v1.4.26</title>
-    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.4.26" />
-    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.4.26</id>
-    <updated>2026-11-10T14:26:51Z</updated>
-    <summary>archestra-ai/archestra released platform: v1.4.26.</summary>
   </entry>
   <entry>
     <title>IBM/mcp-context-forge v1.1.1</title>
@@ -160,61 +216,5 @@
     <id>https://github.com/cita-777/metapi/releases/tag/v1.3.1</id>
     <updated>2026-11-10T03:41:50Z</updated>
     <summary>cita-777/metapi released v1.3.1.</summary>
-  </entry>
-  <entry>
-    <title>BlockRunAI/ClawRouter v0.12.312</title>
-    <link href="https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.312" />
-    <id>https://github.com/BlockRunAI/ClawRouter/releases/tag/v0.12.312</id>
-    <updated>2026-11-10T03:40:50Z</updated>
-    <summary>BlockRunAI/ClawRouter released v0.12.312.</summary>
-  </entry>
-  <entry>
-    <title>higress-group/higress v2.2.6</title>
-    <link href="https://github.com/higress-group/higress/releases/tag/v2.2.6" />
-    <id>https://github.com/higress-group/higress/releases/tag/v2.2.6</id>
-    <updated>2026-11-10T02:48:37Z</updated>
-    <summary>higress-group/higress released v2.2.6.</summary>
-  </entry>
-  <entry>
-    <title>headroomlabs-ai/headroom v0.44.0</title>
-    <link href="https://github.com/headroomlabs-ai/headroom/releases/tag/v0.44.0" />
-    <id>https://github.com/headroomlabs-ai/headroom/releases/tag/v0.44.0</id>
-    <updated>2026-11-10T01:58:31Z</updated>
-    <summary>headroomlabs-ai/headroom released Release v0.44.0.</summary>
-  </entry>
-  <entry>
-    <title>theopenco/llmgateway v1.25.0</title>
-    <link href="https://github.com/theopenco/llmgateway/releases/tag/v1.25.0" />
-    <id>https://github.com/theopenco/llmgateway/releases/tag/v1.25.0</id>
-    <updated>2026-11-09T09:15:04Z</updated>
-    <summary>theopenco/llmgateway released v1.25.0.</summary>
-  </entry>
-  <entry>
-    <title>mnfst/manifest manifest@6.29.1</title>
-    <link href="https://github.com/mnfst/llm-gateway/releases/tag/manifest%406.29.1" />
-    <id>https://github.com/mnfst/llm-gateway/releases/tag/manifest%406.29.1</id>
-    <updated>2026-11-09T08:12:04Z</updated>
-    <summary>mnfst/manifest released manifest v6.29.1.</summary>
-  </entry>
-  <entry>
-    <title>tsouth89/toolport v2.3.4</title>
-    <link href="https://github.com/btsouth/toolport/releases/tag/v2.3.4" />
-    <id>https://github.com/btsouth/toolport/releases/tag/v2.3.4</id>
-    <updated>2026-11-08T20:04:57Z</updated>
-    <summary>tsouth89/toolport released Toolport v2.3.4.</summary>
-  </entry>
-  <entry>
-    <title>ENTERPILOT/GoModel v0.2.3</title>
-    <link href="https://github.com/ENTERPILOT/GoModel/releases/tag/v0.2.3" />
-    <id>https://github.com/ENTERPILOT/GoModel/releases/tag/v0.2.3</id>
-    <updated>2026-11-08T19:21:45Z</updated>
-    <summary>ENTERPILOT/GoModel released v0.2.3.</summary>
-  </entry>
-  <entry>
-    <title>tbphp/gpt-load v2.0.0-rc.63</title>
-    <link href="https://github.com/tbphp/gpt-load/releases/tag/v2.0.0-rc.63" />
-    <id>https://github.com/tbphp/gpt-load/releases/tag/v2.0.0-rc.63</id>
-    <updated>2026-11-08T15:15:25Z</updated>
-    <summary>tbphp/gpt-load released v2.0.0-rc.63.</summary>
   </entry>
 </feed>
