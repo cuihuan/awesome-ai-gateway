@@ -271,7 +271,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [APIGOTO](https://www.china-aiapi.com) — 托管多模型网关，公开文档介绍 OpenAI Responses、Anthropic Messages、BYOK 密钥托管与用量计费。运营方说明国际端点为 `https://api.china-aiapi.com/v1`，中国大陆端点为 `https://api.apigoto.com/v1`；公开首页仍展示后者。**新且未经核实**（运营方提交），地区路由及协议保真度未经独立测试（[运营方更正](https://github.com/cuihuan/awesome-ai-gateway/pull/147)，核对于 2026-10-28）。
 - [Jev Agent](https://jev-agent.com/api-access) — Jev 决策模型托管中转，以一个密钥和额度余额提供 SystemOne、分类及 Decisions 格式端点。**新且未经核实**（作者提交），独立于 TypeSafe AI，模型保真度未经独立验证。（[来源](https://jev-agent.com/docs)，核对于 2026-10-22）。
 - [ModelRush](https://modelrush.ai/docs) — 按预付费额度计费的托管多模态 API，提供兼容 OpenAI 的对话接口，以及独立的图像、视频和音频接口；**新服务，尚未验证（自荐）**，不声称已通过独立模型保真度测试。（来源核对于 2026-10-22）。
-- [TopxAI](https://ai.topxea.com) — 托管 OpenAI / Anthropic 兼容预付费中转，公开[逐路由价格](https://ai.topxea.com/api/pricing)。目录区分共享池、官方线与私有部署；这些名称和折扣不能证明上游身份。**新且未经核实**（运营方提交），使用前需将所选路由与第一方端点独立比对。（[来源](https://ai.topxea.com/pricing)，核对于 2026-10-22）。
+- [TopxAI](https://api.topxai.xyz) — 托管 OpenAI / Anthropic 兼容预付费中转，公开[逐路由价格](https://api.topxai.xyz/api/pricing)。目录区分共享池、官方线与私有部署；这些名称和折扣不能证明上游身份。**新且未经核实**（运营方提交），使用前需将所选路由与第一方端点独立比对。（[来源](https://api.topxai.xyz/pricing)，核对于 2026-10-22）。
 - [codai](https://codai.ro) — 托管编程任务网关，客户端使用统一模型名，在允许的 Claude 部署间路由，并通过响应头报告实际模型。经确认成功的任务收取固定成功费；失败请求仍可能产生原始 token 费用。**新且未经核实**（自荐）。（[来源](https://codai.ro)，核对于 2026-10-22）。
 - [DemonRoute](https://demonroute.com) — 预付费 OpenAI 兼容中转，侧重开源权重微调与去对齐模型，公开模型目录，可选匿名账户与加密货币充值。运营方文档称余额归零即停止；隐私页区分本网关日志与上游处理。**新且未经核实**（运营方提交），模型身份、量化与隐私主张仍需独立核实。（[来源](https://demonroute.com/privacy)，核对于 2026-10-22）。
 - [ZergRouter](https://zergrouter.com) — 为编程客户端提供已配置模型路由的托管端点，带逐 Key 每日预算与已连接 Codex 账户的额度监控。实际可用性取决于凭据、权限和协议支持。**新且未经核实**（自荐），自有订阅账户接入可能涉及厂商条款与封号风险。（[来源](https://zergrouter.com)，核对于 2026-10-22）。
