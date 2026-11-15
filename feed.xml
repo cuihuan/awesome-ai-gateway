@@ -5,14 +5,42 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-11-14T07:56:42Z</updated>
+  <updated>2026-11-15T09:32:30Z</updated>
   <author><name>Awesome AI Gateway</name></author>
   <entry>
-    <title>caozhiyuan/copilot-api v2.9.8</title>
-    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.9.8" />
-    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.9.8</id>
-    <updated>2026-11-14T07:56:42Z</updated>
-    <summary>caozhiyuan/copilot-api released v2.9.8.</summary>
+    <title>maxceem/app-ai-gateway v0.19.1</title>
+    <link href="https://github.com/maxceem/app-ai-gateway/releases/tag/v0.19.1" />
+    <id>https://github.com/maxceem/app-ai-gateway/releases/tag/v0.19.1</id>
+    <updated>2026-11-15T09:32:30Z</updated>
+    <summary>maxceem/app-ai-gateway released v0.19.1.</summary>
+  </entry>
+  <entry>
+    <title>caozhiyuan/copilot-api v2.9.10</title>
+    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.9.10" />
+    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.9.10</id>
+    <updated>2026-11-15T08:10:56Z</updated>
+    <summary>caozhiyuan/copilot-api released v2.9.10.</summary>
+  </entry>
+  <entry>
+    <title>archestra-ai/archestra platform-v1.4.31</title>
+    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.4.31" />
+    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.4.31</id>
+    <updated>2026-11-14T21:07:18Z</updated>
+    <summary>archestra-ai/archestra released platform: v1.4.31.</summary>
+  </entry>
+  <entry>
+    <title>router-for-me/CLIProxyAPI v8.0.72</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.72" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.72</id>
+    <updated>2026-11-14T19:41:47Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v8.0.72.</summary>
+  </entry>
+  <entry>
+    <title>tashfeenahmed/freellmapi v0.16.29</title>
+    <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.16.29" />
+    <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.16.29</id>
+    <updated>2026-11-14T10:39:59Z</updated>
+    <summary>tashfeenahmed/freellmapi released v0.16.29.</summary>
   </entry>
   <entry>
     <title>tsouth89/toolport v2.3.5</title>
@@ -78,13 +106,6 @@
     <summary>stacklok/toolhive released v0.65.0.</summary>
   </entry>
   <entry>
-    <title>tashfeenahmed/freellmapi v0.16.28</title>
-    <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.16.28" />
-    <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.16.28</id>
-    <updated>2026-11-13T10:16:48Z</updated>
-    <summary>tashfeenahmed/freellmapi released v0.16.28 — November catalog adapters.</summary>
-  </entry>
-  <entry>
     <title>QuantumNous/new-api v1.0.0-rc.51</title>
     <link href="https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.51" />
     <id>https://github.com/QuantumNous/new-api/releases/tag/v1.0.0-rc.51</id>
@@ -97,13 +118,6 @@
     <id>https://github.com/Cognipeer/console/releases/tag/v1.35.0-community</id>
     <updated>2026-11-13T09:06:40Z</updated>
     <summary>Cognipeer/console released v1.35.0-community.</summary>
-  </entry>
-  <entry>
-    <title>maxceem/app-ai-gateway v0.18.0</title>
-    <link href="https://github.com/maxceem/app-ai-gateway/releases/tag/v0.18.0" />
-    <id>https://github.com/maxceem/app-ai-gateway/releases/tag/v0.18.0</id>
-    <updated>2026-11-13T07:45:54Z</updated>
-    <summary>maxceem/app-ai-gateway released v0.18.0.</summary>
   </entry>
   <entry>
     <title>vayungodara/cliproxy-rs v0.4.2</title>
@@ -120,13 +134,6 @@
     <summary>kittors/CliRelay released v0.6.3 - Codex History and Claude Cache Fixes.</summary>
   </entry>
   <entry>
-    <title>router-for-me/CLIProxyAPI v8.0.69</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.69" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.69</id>
-    <updated>2026-11-12T18:26:33Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v8.0.69.</summary>
-  </entry>
-  <entry>
     <title>looplj/axonhub v1.0.0-rc.4</title>
     <link href="https://github.com/looplj/axonhub/releases/tag/v1.0.0-rc.4" />
     <id>https://github.com/looplj/axonhub/releases/tag/v1.0.0-rc.4</id>
@@ -139,13 +146,6 @@
     <id>https://github.com/1mcp-app/agent/releases/tag/v0.39.9</id>
     <updated>2026-11-12T17:25:23Z</updated>
     <summary>1mcp-app/agent released Release v0.39.9.</summary>
-  </entry>
-  <entry>
-    <title>archestra-ai/archestra platform-v1.4.29</title>
-    <link href="https://github.com/archestra-ai/archestra/releases/tag/platform-v1.4.29" />
-    <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.4.29</id>
-    <updated>2026-11-12T16:55:36Z</updated>
-    <summary>archestra-ai/archestra released platform: v1.4.29.</summary>
   </entry>
   <entry>
     <title>krakend/krakend-ce v3.0.4</title>
