@@ -520,6 +520,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [SandBase CLI](https://github.com/sandbaseai/cli) <!--s:sandbaseai/cli-->⭐ 186<!--/s--> — Apache-2.0 CLI 与本地 MCP 桥，支持 OAuth 接入、发现与工具执行，将 Agent 连接到 SandBase 托管模型 / API 目录。客户端开源，托管平台是独立的商业服务，本清单未验证其模型保真度。（来源核对于 2026-10-22）。
 - [Switchyard](https://github.com/caelum0x/railyard/tree/main/apps/toolgate) <!--s:caelum0x/railyard-->⭐ 0<!--/s--> — Railyard 单仓库内的 Rust MCP 工具网关（CLI `sy`），通过 Streamable HTTP 暴露工具目录，文档包含 OAuth、自带 key 的工具及预授权/结算计量。以上为项目方所述，本清单未独立测试安全控制与计费行为。来源核对于 2026-10-28。
 - [Scalekit](https://scalekit.com) — 托管 Agent 鉴权网关，在终端用户授权下代理 SaaS 工具调用，提供凭据托管、令牌刷新与 MCP 集成。**厂商自荐，未经评估**；以上控制依据公开文档，本清单未独立进行安全测试。（[AgentKit 概览](https://docs.scalekit.com/agentkit/overview/)，核对于 2026-10-28）。
+- [MAQPNA](https://maqpna.com) — 自托管的 Agent 安全运行时（商业闭源；社区版单集群免费），其网关将 MCP、A2A、HTTP 及 OpenAI 兼容的模型调用统一到一条路径：按工具与参数的默认拒绝策略、DLP 脱敏、人工及双人审批、按会话/用户/租户的预算、紧急停止开关，以及哈希链审计账本；Agent 会话运行在 gVisor、microVM 或机密虚拟机沙箱中。可部署于 Kubernetes（Helm）或本地运行；支持离线环境，无遥测。**厂商自荐，未经评估**（[文档](https://docs.maqpna.com)，核对于 2026-11-16）。
 
 
 ## 🔧 更多按能力分（横切关注点）
