@@ -557,6 +557,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Infere](https://infere.com/documentation/getting-started/) — 托管的 Prompt 复杂度路由，可选平衡、成本优先或质量优先模式；预付费，运营方提交，**未经核实**（来源核对于 2026-10-22）。
 - [PromptUnit](https://www.promptunit.ai) — 托管 BYOK 代理，提供 OpenAI 与 Anthropic 接入、按质量阈值的模型路由，以及可选的客户流量并行对比。**厂商提交，未经评估**；路由决策和节省费用未经独立测试。（来源核对于 2026-11-02；[文档](https://www.promptunit.ai/docs)）。
 - [Nivana](https://nivana.one/docs/routing) — 托管自动模型路由器，按任务及难度分析请求，依文档所述的质量、成本和速度信号对模型池排序，并返回路由信息。模型自动选择，不由调用方指定。**厂商提交，未经评估**；排序质量与节省费用为运营方主张。（来源核对于 2026-11-02）。
+- [Inferbase](https://inferbase.ai/llm-routing) - 内置路由器的托管网关：一个 OpenAI 兼容 API（另支持 Anthropic Messages 格式），后端可接托管模型、调用方自己的厂商密钥，以及其 AWS Bedrock、Azure 或 Google Vertex 账户。`model: "auto"` 会对每个请求分类，在设定的目标（成本、平衡、质量或延迟）下选用通过该任务质量门槛的模型，并随响应返回路由决策；指定模型名则按名直接调用。**厂商提交，未经评估**。（[文档](https://inferbase.ai/docs/api/routing)）。
 
 
 ### 💾 缓存过网关——钱的问题
