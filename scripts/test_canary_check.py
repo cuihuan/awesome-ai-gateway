@@ -55,6 +55,14 @@ class TestCapabilityHit(unittest.TestCase):
     def test_miss(self):
         self.assertFalse(capability_hit("The ball costs $0.10.", "0.05"))
 
+    def test_hit_ignores_punctuation_spacing(self):
+        # regression: a JSON-array answer must match regardless of spaces
+        self.assertTrue(capability_hit("[2,3,5,7,11,13]", "[2, 3, 5, 7, 11, 13]"))
+        self.assertTrue(capability_hit("[2, 3, 5, 7, 11, 13]", "[2, 3, 5, 7, 11, 13]"))
+
+    def test_hit_wrong_numbers_still_miss(self):
+        self.assertFalse(capability_hit("[2,3,5,7,17,13]", "[2, 3, 5, 7, 11, 13]"))
+
     def test_compare_only_returns_none(self):
         self.assertIsNone(capability_hit("anything", None))
 
