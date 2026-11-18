@@ -419,6 +419,8 @@ _Pain point: "My keys, my infra, no per-token middleman fee."_
 - [omni-route](https://github.com/attnstack/omni-route) <!--s:attnstack/omni-route-->⭐ 1<!--/s--> - Go gateway (MIT) with OpenAI-compatible routing over operator-supplied provider keys, task-based cost/quality scoring and model cascades. Cascades are non-streaming; streaming selects a single model. Published mock/local-model benchmarks do not establish cloud-model savings or quality. Source-documented, not runtime-tested here. (Source reviewed 2026-11-02).
 - [Cognipeer Console](https://github.com/Cognipeer/console) <!--s:Cognipeer/console-->⭐ 28<!--/s--> - TypeScript/Next.js gateway and control plane (AGPL-3.0 Community Edition), with OpenAI-compatible client APIs, provider fallback chains, quotas and an MCP hub. SSO, realtime and cost-optimization modules are commercial Enterprise features. Vendor-submitted; documented capabilities, not an independent deployment or isolation test. (Source reviewed 2026-11-02).
 
+- [Yabanin Core](https://github.com/yabaninai/yabanin-core) <!--s:yabaninai/yabanin-core-->⭐ 11<!--/s--> - Self-hosted Go gateway (Apache-2.0; Developer Preview) with OpenAI- and Anthropic-compatible APIs, model routing, access controls, and usage tracking; maintainer-documented capabilities, not independently runtime-verified here (source reviewed 2026-11-17).
+
 
 ## 🏢 Enterprise & compliance
 

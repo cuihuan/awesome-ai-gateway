@@ -398,6 +398,8 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [omni-route](https://github.com/attnstack/omni-route) <!--s:attnstack/omni-route-->⭐ 1<!--/s--> — Go 网关（MIT），通过运营者提供的厂商密钥做 OpenAI 兼容路由，支持按任务的成本/质量评分和模型级联。级联仅覆盖非流式请求；流式选择单个模型。已发布的 mock/本地模型基准不代表云模型节省费用或质量已验证。本清单依据源码文档，未做运行测试。（来源核对于 2026-11-02）。
 - [Cognipeer Console](https://github.com/Cognipeer/console) <!--s:Cognipeer/console-->⭐ 28<!--/s--> — TypeScript/Next.js 网关与控制平面（AGPL-3.0 社区版），提供 OpenAI 兼容客户端 API、厂商故障转移链、配额及 MCP Hub。SSO、实时通信及成本优化模块属于商业企业版。厂商提交；能力依据文档，不代表已独立测试部署或隔离。（来源核对于 2026-11-02）。
 
+- [Yabanin Core](https://github.com/yabaninai/yabanin-core) <!--s:yabaninai/yabanin-core-->⭐ 11<!--/s--> - 可自托管的 Go 网关（Apache-2.0，开发者预览版），提供兼容 OpenAI 和 Anthropic 的 API、模型路由、访问控制与用量记录；功能依据维护者文档，尚未在本清单中独立进行运行时验证（源文档核对日期：2026-11-17）。
+
 
 ## 🏢 企业合规
 
