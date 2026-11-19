@@ -413,6 +413,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Apache APISIX](https://github.com/apache/apisix) <!--s:apache/apisix-->⭐ 17.3k<!--/s--> — 云原生 API + AI 网关，`ai-proxy` / `ai-proxy-multi` 插件。
 - [Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway) <!--s:envoyproxy/ai-gateway-->⭐ 2.4k<!--/s--> — 基于 Envoy Gateway 的 CNCF 系 GenAI 接入层，Tetrate 与彭博背书。
 - [kgateway](https://github.com/kgateway-dev/kgateway) <!--s:kgateway-dev/kgateway-->⭐ 5.7k<!--/s--> — CNCF API/AI 网关，Solo.io 商业版 [Gloo AI Gateway](https://www.solo.io) 的底座。
+- [OpenProxyAI](https://github.com/Rayyan-Oumlil/OpenProxyAI) <!--s:Rayyan-Oumlil/OpenProxyAI-->⭐ 2<!--/s--> - Apache-2.0 自托管、兼容 OpenAI 的网关（Python/FastAPI）：按数据等级路由每个请求，回退也只会用到已获准的模型；含策略拦截、仅追加审计日志、OIDC SSO/SCIM、预算，以及带工具固定（tool pinning）的 MCP 网关。
 - [TrueFoundry AI Gateway](https://www.truefoundry.com) — 企业网关：路由、护栏、RBAC，可部署进你的 K8s/VPC。
 - [nexos.ai](https://nexos.ai) — Nord Security 创始团队的企业 AI 网关/编排（2025 年 10 月 €3000 万 A 轮）。
 - [Tyk AI Studio](https://tyk.io) — AI 治理套件：预算、模型目录、护栏。
