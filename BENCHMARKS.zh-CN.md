@@ -368,6 +368,7 @@
 | **Kong** | 💰 Konnect 企业版（OIDC + SAML）· ❌ 开源版没有 | ❔ 网关侧未见文档记载（Kong 的 SCIM 只属于 Insomnia 产品） | 💰 Konnect Plus 起 / Gateway 企业版 · ❌ 开源 `kong.conf.default` 里零个 `rbac` 配置项 | 💰 企业版（Konnect SIEM webhook，CEF/JSON——⚠️ **仅留存 7 天**即删） |
 | **Apache APISIX / API7** | ❌ 开源版（单一共享 admin key）· 💰 API7 企业版（OIDC/SAML/LDAP） | ❔ 开源版 · 💰 API7 企业版（Okta、Entra ID） | ❌ 开源版 · 💰 API7 企业版（自定义角色 + IAM 式策略） | ❔ 开源版 · 💰 API7 企业版（默认 180 天，JSON/CSV 导出） |
 | **Higress（开源）** | ❌ 单一本地管理员账号（控制台登录管理还在路线图上） | ❔ 未见文档记载 | ❌ 单管理员模型，控制台无角色 | ❔ 未见文档记载 |
+| **Kaeso** | ✅ 免费，每个组织均可（OIDC；各组织管理员自行接入 IdP）· 无付费版 | ✅ 免费（SCIM 2.0；停用时将成员移出组织及其项目并归档其 API Key） | ✅ 免费（6 个组织角色 + 项目角色 + 按成员的单项权限；Auditor 角色看不到提示词） | ✅ 免费（组织、项目与实例审计日志；JSON Lines 导出） |
 
 ### 托管服务
 

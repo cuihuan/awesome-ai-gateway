@@ -207,6 +207,42 @@
       "notes": "Data-plane auth plugins (basic-auth, key-auth, JWT, OIDC) authenticate proxied API traffic, not console operators. 'not documented' reflects vendor silence, not confirmed absence of code."
     },
     {
+      "vendor": "Kaeso",
+      "type": "self-hosted (OSS, MIT; no paid edition)",
+      "pricing_tiers": "Open source only (MIT, self-hosted); no enterprise edition or license key",
+      "sso": {
+        "value": "Console sign-in through each organization's identity provider over OpenID Connect; any organization's admin connects its IdP on the organization's Security page",
+        "tier": "Free, all organizations — exact wording: 'Single sign-on is per organization, not for the install: any organization's admin can connect its identity provider on the organization's Security page'",
+        "source": [
+          "https://docs.kaeso.app/self-hosting/sign-in"
+        ]
+      },
+      "scim": {
+        "value": "SCIM 2.0 (RFC 7644/7643) for organizations with single sign-on; deprovisioning removes the member from the organization and its projects and archives their API keys",
+        "tier": "Free — exact wording: 'When someone leaves the company and the provider deactivates them, Kaeso removes them from the organization and its projects and archives their API keys there, without anyone opening the console.'",
+        "source": [
+          "https://docs.kaeso.app/api/scim"
+        ]
+      },
+      "rbac": {
+        "value": "Organization roles (Owner, Admin, Billing, Developer, Auditor, Member) and project roles, plus single rights added or removed per member; every Platform API operation checks exactly one right",
+        "tier": "Free — exact wording: 'A role is a set of rights, and you can also add or remove single rights for a member.'",
+        "source": [
+          "https://docs.kaeso.app/console/members-and-roles",
+          "https://docs.kaeso.app/concepts/rights"
+        ]
+      },
+      "audit_logs": {
+        "value": "Organization, project and instance audit logs of every change, with who made it and when; export as JSON Lines in the console or through the Platform API",
+        "tier": "Free — exact wording: 'The organization's Audit log, in Organization settings, records every change in the organization.'",
+        "source": [
+          "https://docs.kaeso.app/console/organizations-and-projects#read-the-audit-log",
+          "https://docs.kaeso.app/console/instance-administration#read-the-audit-log"
+        ]
+      },
+      "notes": "Added 2026-11-22 from the project's own docs by its maintainer (disclosed in the PR). Retention of audit logs is not documented."
+    },
+    {
       "vendor": "Higress hosted (Alibaba Cloud APIG)",
       "type": "hosted — Alibaba Cloud Cloud-Native API Gateway / AI Gateway, the commercial version of Higress",
       "pricing_tiers": "Sold by instance capacity; identity/governance inherited from the Alibaba Cloud account plane (RAM / CloudSSO / ActionTrail), not gateway SKUs",
