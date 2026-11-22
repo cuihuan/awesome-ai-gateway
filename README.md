@@ -316,6 +316,7 @@ _Stars are cumulative; they never go down when a project stops shipping. Every t
 - [FastSubs](https://fastsubs.org) - Russian-language hosted relay with an OpenAI-compatible API at `https://api.fastsubs.org/v1`, text and media models, plan allowances and balance-based usage. **New & unverified** (operator-submitted); provider identity, model fidelity and billing are not independently tested. (Source reviewed 2026-11-02; [documentation](https://fastsubs.org/docs)).
 - [HopBase](https://hop-base.com) - Hosted gateway documenting OpenAI Chat Completions, Responses and Anthropic Messages, alongside asynchronous image/video generation and public pricing. **New & unverified** (operator-submitted); model fidelity, failover and per-request charges are not independently tested. (Source reviewed 2026-11-02; [documentation](https://hop-base.com/llms.txt)).
 - [BestLLM](https://bestllm.dev) - Hosted OpenAI-compatible gateway for Chinese model families, with documented US/EU routing policy, workspace spend controls and per-token billing. Submitted as Maridian Gateway; the current homepage uses BestLLM. **New & unverified** (operator-submitted); regional enforcement, billing and model fidelity are not independently tested. (Source reviewed 2026-11-02; [documentation](https://bestllm.dev/)).
+- [Kantro](https://kantro.dev) - Hosted gateway exposing OpenAI Chat Completions (`/v1/chat/completions`), OpenAI Responses (`/v1/responses`), and Anthropic Messages (`/v1/messages`) behind one key, with per-key spend caps, model allowlists, and prepaid token billing. **New & unverified** (operator-submitted); model identity, failover and billing have not been independently tested. ([Docs](https://kantro.dev/docs), [Pricing](https://kantro.dev/pricing), reviewed 2026-11-22).
 
 
 </details>
@@ -844,6 +845,7 @@ _Nothing is ⛔ confirmed-problematic yet — that status needs a reproducible c
 | SinoGate | Cost-first | ⚠️ Unverified — vet before use | Operator-submitted; primary documentation reviewed 2026-11-02. Model identity, billing and privacy behavior not independently verified. |
 | GenZi AI | Cost-first | ⚠️ Unverified — vet before use | Operator-submitted; primary documentation reviewed 2026-11-02. Model identity, billing and privacy behavior not independently verified. |
 | TokenLab | Cost-first | ⚠️ Unverified — vet before use | Operator-submitted; primary documentation reviewed 2026-11-02. Model identity, billing and privacy behavior not independently verified. |
+| Kantro | Cost-first | ⚠️ Unverified — vet before use | Operator-submitted; primary documentation reviewed 2026-11-22. Model identity, billing and privacy behavior not independently verified. |
 
 ## 📊 Latest evaluations
 
