@@ -82,11 +82,23 @@ def token_similarity(a: str, b: str) -> float:
     return len(sa & sb) / len(sa | sb)
 
 
+def answer_form(text: str) -> str:
+    """Normalize for exact-answer matching, where punctuation is a separator.
+
+    `normalize()` deletes punctuation, which fuses adjacent numbers: "[2,3,5]"
+    becomes "235" and can never match the canonical "[2, 3, 5]". Treating any
+    run of non-alphanumerics as a single space keeps token boundaries intact,
+    so "[2,3,5,7,11,13]" and "[2, 3, 5, 7, 11, 13]" compare equal.
+    """
+    t = re.sub(r"[^a-z0-9]+", " ", (text or "").lower())
+    return " ".join(t.split())
+
+
 def capability_hit(output: str, must_contain: str | None) -> bool | None:
     """Did the output contain the exact expected answer? None if not a capability probe."""
     if must_contain is None:
         return None
-    return normalize(must_contain) in normalize(output)
+    return answer_form(must_contain) in answer_form(output)
 
 
 def verdict(rows: list[dict]) -> dict:
