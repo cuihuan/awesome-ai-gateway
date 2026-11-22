@@ -370,6 +370,7 @@ Enterprise evaluations burn hours on four unglamorous questions — **SSO, SCIM,
 | **Kong** | 💰 Konnect Enterprise (OIDC + SAML) · ❌ none in OSS | ❔ not documented for the gateway (Kong's SCIM is Insomnia-only) | 💰 Konnect Plus+ / Gateway Enterprise · ❌ zero `rbac` keys in OSS `kong.conf.default` | 💰 Enterprise (Konnect SIEM webhook, CEF/JSON — ⚠️ **7-day retention**, then deleted) |
 | **Apache APISIX / API7** | ❌ OSS (single shared admin key) · 💰 API7 Enterprise (OIDC/SAML/LDAP) | ❔ OSS · 💰 API7 Enterprise (Okta, Entra ID) | ❌ OSS · 💰 API7 Enterprise (custom roles + IAM-style policies) | ❔ OSS · 💰 API7 Enterprise (180-day default, JSON/CSV export) |
 | **Higress (OSS)** | ❌ single local admin account (console login mgmt is a roadmap item) | ❔ not documented | ❌ single-admin model, no console roles | ❔ not documented |
+| **Kaeso** | ✅ free, every organization (OIDC; each org admin connects its own IdP) · no paid edition | ✅ free (SCIM 2.0; deprovisioning removes the member from the org and its projects and archives their API keys) | ✅ free (6 org roles + project roles + single rights per member; Auditor role never sees prompts) | ✅ free (org, project and instance audit logs; JSON Lines export) |
 
 ### Hosted
 
