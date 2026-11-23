@@ -240,7 +240,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [Glama Gateway](https://glama.ai/ai/gateway) — OpenAI 兼容网关，接入 100+ 模型，统一账单、缓存与日志（开源内核 [glama-ai/lightport](https://github.com/glama-ai/lightport)）。
 
 <details>
-<summary><b>新且未经核实的中转（53 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
+<summary><b>新且未经核实的中转（54 家）</b>——等待独立保真度验证的透明转售；先读<a href="#社区中转避雷观察名单">中转避雷观察名单</a></summary>
 
 - [Loop Gateway](https://api.loopxxi.com) — OpenAI 兼容代理，每个请求以比特币 sats（而非美元）计费。经 OpenRouter 接入 311 个模型、加价 15%。无需账号/邮箱/银行卡；用闪电网络充值即得 bearer token。三种鉴权（预付 bearer、L402、Cashu）。线上托管于 [api.loopxxi.com](https://api.loopxxi.com)。 **新且未经核实**（匿名；其公开 GitHub 仓库现已删除，按闭源托管中转看待）——它*通过运营者自己的 OpenRouter 账号*转售前沿模型并加价 15%，无账号+加密货币预付意味着一旦偷换模型或跑路都无从追索；投产前请用 [canary_check.py](scripts/canary_check.py) 验证保真度，且只充值你能承受损失的金额。
 - [nullsink](https://nullsink.is) ([仓库](https://github.com/nullsink/nullsink)) — 无账号的前沿模型 API 计费代理，用门罗币（Monero）或比特币（Bitcoin）付费。无需账号/邮箱/银行卡；生成 bearer token、链上预付，改一个 base URL 即可用官方 SDK 调用。加价约 10%，仅在充值时收取一次；不记录 IP、不记录请求日志；付款与 token 不可关联。单文件可执行、可自托管（TypeScript/Bun，AGPL-3.0），线上服务 [nullsink.is](https://nullsink.is)。 **新且未经核实**（仓库 2026-06 新建、<!--s:nullsink/nullsink-->⭐ 12<!--/s-->）——无账号+加密货币预付+无日志，一旦偷换模型或跑路都无从追索；投产前请用 [canary_check.py](scripts/canary_check.py) 验证保真度，且只充值你能承受损失的金额。
@@ -271,6 +271,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [APIGOTO](https://www.china-aiapi.com) — 托管多模型网关，公开文档介绍 OpenAI Responses、Anthropic Messages、BYOK 密钥托管与用量计费。运营方说明国际端点为 `https://api.china-aiapi.com/v1`，中国大陆端点为 `https://api.apigoto.com/v1`；公开首页仍展示后者。**新且未经核实**（运营方提交），地区路由及协议保真度未经独立测试（[运营方更正](https://github.com/cuihuan/awesome-ai-gateway/pull/147)，核对于 2026-10-28）。
 - [Jev Agent](https://jev-agent.com/api-access) — Jev 决策模型托管中转，以一个密钥和额度余额提供 SystemOne、分类及 Decisions 格式端点。**新且未经核实**（作者提交），独立于 TypeSafe AI，模型保真度未经独立验证。（[来源](https://jev-agent.com/docs)，核对于 2026-10-22）。
 - [ModelRush](https://modelrush.ai/docs) — 按预付费额度计费的托管多模态 API，提供兼容 OpenAI 的对话接口，以及独立的图像、视频和音频接口；**新服务，尚未验证（自荐）**，不声称已通过独立模型保真度测试。（来源核对于 2026-10-22）。
+- [ModelFold](https://modelfold.ai) — 预付费托管 API（公开定价页 200 积分 = 1 美元），OpenAI 兼容基址为 `https://modelfold.ai/v1`，另有 Anthropic Messages、OpenAI Responses，以及独立的图像、视频和音频接口。按量付费不强制购买可选的对话订阅。钱包可使用 USDC 或 USDT。**新服务，尚未验证（自荐）**，不声称已通过独立模型保真度测试。（公开文档核对于 2026-11-23）。
 - [TopxAI](https://ai.topxea.com) — 托管 OpenAI / Anthropic 兼容预付费中转，公开[逐路由价格](https://ai.topxea.com/api/pricing)。目录区分共享池、官方线与私有部署；这些名称和折扣不能证明上游身份。**新且未经核实**（运营方提交），使用前需将所选路由与第一方端点独立比对。（[来源](https://ai.topxea.com/pricing)，核对于 2026-10-22）。
 - [codai](https://codai.ro) — 托管编程任务网关，客户端使用统一模型名，在允许的 Claude 部署间路由，并通过响应头报告实际模型。经确认成功的任务收取固定成功费；失败请求仍可能产生原始 token 费用。**新且未经核实**（自荐）。（[来源](https://codai.ro)，核对于 2026-10-22）。
 - [DemonRoute](https://demonroute.com) — 预付费 OpenAI 兼容中转，侧重开源权重微调与去对齐模型，公开模型目录，可选匿名账户与加密货币充值。运营方文档称余额归零即停止；隐私页区分本网关日志与上游处理。**新且未经核实**（运营方提交），模型身份、量化与隐私主张仍需独立核实。（[来源](https://demonroute.com/privacy)，核对于 2026-10-22）。
@@ -797,6 +798,7 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 | APIGOTO | 性价比优先 | ⚠️ 未验证——用前自测 | 自荐托管中转，2026-10-22 核对公开文档；收录不代表已验证模型身份、计费正确性或隐私行为。 |
 | Jev Agent | 性价比优先 | ⚠️ 未验证——用前自测 | 自荐托管中转，2026-10-22 核对公开文档；收录不代表已验证模型身份、计费正确性或隐私行为。 |
 | ModelRush | 性价比优先 | ⚠️ 未验证——用前自测 | 自荐托管中转，2026-10-22 核对公开文档；收录不代表已验证模型身份、计费正确性或隐私行为。 |
+| ModelFold | 性价比优先 | ⚠️ 未验证——用前自测 | 自荐托管 API，2026-11-23 核对公开文档；收录不代表已验证模型身份、计费正确性或隐私行为。 |
 | TopxAI | 性价比优先 | ⚠️ 未验证——用前自测 | 自荐托管中转，2026-10-22 核对公开文档；收录不代表已验证模型身份、计费正确性或隐私行为。 |
 | codai | 性价比优先 | ⚠️ 未验证——用前自测 | 自荐托管中转，2026-10-22 核对公开文档；收录不代表已验证模型身份、计费正确性或隐私行为。 |
 | DemonRoute | 性价比优先 | ⚠️ 未验证——用前自测 | 自荐托管中转，2026-10-22 核对公开文档；收录不代表已验证模型身份、计费正确性或隐私行为。 |
