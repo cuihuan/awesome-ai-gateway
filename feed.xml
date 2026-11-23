@@ -5,14 +5,56 @@
   <link href="https://cuihuan.github.io/awesome-ai-gateway/" />
   <link rel="self" type="application/atom+xml" href="https://cuihuan.github.io/awesome-ai-gateway/feed.xml" />
   <id>https://cuihuan.github.io/awesome-ai-gateway/feed.xml</id>
-  <updated>2026-11-22T09:50:24Z</updated>
+  <updated>2026-11-23T10:48:12Z</updated>
   <author><name>Awesome AI Gateway</name></author>
   <entry>
-    <title>caozhiyuan/copilot-api v2.9.19</title>
-    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.9.19" />
-    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.9.19</id>
-    <updated>2026-11-22T09:50:24Z</updated>
-    <summary>caozhiyuan/copilot-api released v2.9.19.</summary>
+    <title>tashfeenahmed/freellmapi v0.16.40</title>
+    <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.16.40" />
+    <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.16.40</id>
+    <updated>2026-11-23T10:48:12Z</updated>
+    <summary>tashfeenahmed/freellmapi released v0.16.40.</summary>
+  </entry>
+  <entry>
+    <title>theopenco/llmgateway v1.27.0</title>
+    <link href="https://github.com/theopenco/llmgateway/releases/tag/v1.27.0" />
+    <id>https://github.com/theopenco/llmgateway/releases/tag/v1.27.0</id>
+    <updated>2026-11-23T09:16:00Z</updated>
+    <summary>theopenco/llmgateway released v1.27.0.</summary>
+  </entry>
+  <entry>
+    <title>caozhiyuan/copilot-api v2.9.20</title>
+    <link href="https://github.com/caozhiyuan/copilot-api/releases/tag/v2.9.20" />
+    <id>https://github.com/caozhiyuan/copilot-api/releases/tag/v2.9.20</id>
+    <updated>2026-11-23T04:35:20Z</updated>
+    <summary>caozhiyuan/copilot-api released v2.9.20.</summary>
+  </entry>
+  <entry>
+    <title>mnfst/manifest manifest@6.29.3</title>
+    <link href="https://github.com/mnfst/llm-gateway/releases/tag/manifest%406.29.3" />
+    <id>https://github.com/mnfst/llm-gateway/releases/tag/manifest%406.29.3</id>
+    <updated>2026-11-22T20:02:11Z</updated>
+    <summary>mnfst/manifest released manifest v6.29.3.</summary>
+  </entry>
+  <entry>
+    <title>sandbaseai/cli v0.3.11</title>
+    <link href="https://github.com/sandbaseai/cli/releases/tag/v0.3.11" />
+    <id>https://github.com/sandbaseai/cli/releases/tag/v0.3.11</id>
+    <updated>2026-11-22T17:12:06Z</updated>
+    <summary>sandbaseai/cli released v0.3.11 — SDK onboarding and dependency maintenance.</summary>
+  </entry>
+  <entry>
+    <title>router-for-me/CLIProxyAPI v8.1.1</title>
+    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.1.1" />
+    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.1.1</id>
+    <updated>2026-11-22T16:10:30Z</updated>
+    <summary>router-for-me/CLIProxyAPI released v8.1.1.</summary>
+  </entry>
+  <entry>
+    <title>1mcp-app/agent v0.40.1</title>
+    <link href="https://github.com/1mcp-app/agent/releases/tag/v0.40.1" />
+    <id>https://github.com/1mcp-app/agent/releases/tag/v0.40.1</id>
+    <updated>2026-11-22T11:28:08Z</updated>
+    <summary>1mcp-app/agent released Release v0.40.1.</summary>
   </entry>
   <entry>
     <title>headroomlabs-ai/headroom v0.45.0</title>
@@ -34,20 +76,6 @@
     <id>https://github.com/archestra-ai/archestra/releases/tag/platform-v1.4.38</id>
     <updated>2026-11-21T19:48:36Z</updated>
     <summary>archestra-ai/archestra released platform: v1.4.38.</summary>
-  </entry>
-  <entry>
-    <title>tashfeenahmed/freellmapi v0.16.38</title>
-    <link href="https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.16.38" />
-    <id>https://github.com/tashfeenahmed/freellmapi/releases/tag/v0.16.38</id>
-    <updated>2026-11-21T19:37:23Z</updated>
-    <summary>tashfeenahmed/freellmapi released v0.16.38.</summary>
-  </entry>
-  <entry>
-    <title>router-for-me/CLIProxyAPI v8.1.0</title>
-    <link href="https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.1.0" />
-    <id>https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.1.0</id>
-    <updated>2026-11-21T19:03:36Z</updated>
-    <summary>router-for-me/CLIProxyAPI released v8.1.0.</summary>
   </entry>
   <entry>
     <title>askalf/dario v6.24.0</title>
@@ -183,38 +211,10 @@
     <summary>kittors/CliRelay released v0.6.5 - More Codex Incremental Hits and Antigravity Requests Without Whole-Payload Rewrites.</summary>
   </entry>
   <entry>
-    <title>1mcp-app/agent v0.40.0</title>
-    <link href="https://github.com/1mcp-app/agent/releases/tag/v0.40.0" />
-    <id>https://github.com/1mcp-app/agent/releases/tag/v0.40.0</id>
-    <updated>2026-11-19T15:24:59Z</updated>
-    <summary>1mcp-app/agent released Release v0.40.0.</summary>
-  </entry>
-  <entry>
     <title>apache/apisix 3.21.0</title>
     <link href="https://github.com/apache/apisix/releases/tag/3.21.0" />
     <id>https://github.com/apache/apisix/releases/tag/3.21.0</id>
     <updated>2026-11-19T14:32:55Z</updated>
     <summary>apache/apisix released 3.21.0.</summary>
-  </entry>
-  <entry>
-    <title>mozilla-ai/otari v0.54.0</title>
-    <link href="https://github.com/mozilla-ai/otari/releases/tag/v0.54.0" />
-    <id>https://github.com/mozilla-ai/otari/releases/tag/v0.54.0</id>
-    <updated>2026-11-19T14:30:49Z</updated>
-    <summary>mozilla-ai/otari released v0.54.0.</summary>
-  </entry>
-  <entry>
-    <title>krakend/krakend-ce v3.0.5</title>
-    <link href="https://github.com/krakend/krakend-ce/releases/tag/v3.0.5" />
-    <id>https://github.com/krakend/krakend-ce/releases/tag/v3.0.5</id>
-    <updated>2026-11-19T13:22:58Z</updated>
-    <summary>krakend/krakend-ce released v3.0.5.</summary>
-  </entry>
-  <entry>
-    <title>Kong/kong 3.9.5</title>
-    <link href="https://github.com/Kong/kong/releases/tag/3.9.5" />
-    <id>https://github.com/Kong/kong/releases/tag/3.9.5</id>
-    <updated>2026-11-19T10:33:35Z</updated>
-    <summary>Kong/kong released 3.9.5.</summary>
   </entry>
 </feed>
