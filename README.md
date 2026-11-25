@@ -435,6 +435,7 @@ _Pain point: "Audit logs, PII redaction, RBAC, on-prem, and the EU AI Act."_
 - [Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway) <!--s:envoyproxy/ai-gateway-->⭐ 2.4k<!--/s--> - CNCF-aligned GenAI access on Envoy Gateway, backed by Tetrate and Bloomberg.
 - [kgateway](https://github.com/kgateway-dev/kgateway) <!--s:kgateway-dev/kgateway-->⭐ 5.8k<!--/s--> - CNCF API/AI gateway, the base of Solo.io's commercial [Gloo AI Gateway](https://www.solo.io).
 - [TrueFoundry AI Gateway](https://www.truefoundry.com) - Enterprise gateway with routing, guardrails and RBAC, deployable into your K8s/VPC.
+- [Anyray](https://anyray.ai) - Commercial AI gateway that compresses agent requests before they reach the provider and keeps the prompt-cache prefix stable; self-hosted on Docker or Kubernetes or single-tenant, with per-user spend attribution and an open MIT benchmark kit.
 - [nexos.ai](https://nexos.ai) - Enterprise AI gateway/orchestration from the Nord Security founders (€30M Series A, Oct 2025).
 - [Tyk AI Studio](https://tyk.io) - AI governance suite: budgets, model catalogs, guardrails on Tyk's gateway.
 - [Gravitee Agent Mesh](https://www.gravitee.io) - LLM Proxy, MCP Proxy and A2A support inside Gravitee APIM.

@@ -414,6 +414,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Envoy AI Gateway](https://github.com/envoyproxy/ai-gateway) <!--s:envoyproxy/ai-gateway-->⭐ 2.4k<!--/s--> — 基于 Envoy Gateway 的 CNCF 系 GenAI 接入层，Tetrate 与彭博背书。
 - [kgateway](https://github.com/kgateway-dev/kgateway) <!--s:kgateway-dev/kgateway-->⭐ 5.8k<!--/s--> — CNCF API/AI 网关，Solo.io 商业版 [Gloo AI Gateway](https://www.solo.io) 的底座。
 - [TrueFoundry AI Gateway](https://www.truefoundry.com) — 企业网关：路由、护栏、RBAC，可部署进你的 K8s/VPC。
+- [Anyray](https://anyray.ai) — 商业 AI 网关：在请求到达模型提供商之前压缩智能体请求，并保持提示缓存前缀稳定；可自托管（Docker 或 Kubernetes）或单租户部署，支持按用户的费用归因，并提供开源（MIT）基准测试工具包。
 - [nexos.ai](https://nexos.ai) — Nord Security 创始团队的企业 AI 网关/编排（2025 年 10 月 €3000 万 A 轮）。
 - [Tyk AI Studio](https://tyk.io) — AI 治理套件：预算、模型目录、护栏。
 - [Gravitee Agent Mesh](https://www.gravitee.io) — APIM 内置 LLM Proxy、MCP Proxy 与 A2A。
