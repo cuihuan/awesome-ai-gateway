@@ -1137,6 +1137,7 @@ This list lives in the awesome-list ecosystem. If it doesn't have what you need,
 - [awesome-langchain](https://github.com/kyrolabs/awesome-langchain) - LangChain tools and LLM app frameworks that call through these gateways.
 - [awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) - MCP servers to put _behind_ the MCP & agent gateways here.
 - [awesome-free-llm-apis](https://github.com/mnfst/awesome-free-llm-apis) - CC0 list of permanently-free LLM APIs, from the team behind the Manifest router listed here; pairs with our verified free-tier limits table.
+- [Free LLM API Hub](https://github.com/pacocartones/free-llm-api-hub) - MIT dataset of free-tier and trial-credit limits for 60+ LLM API providers, each dated and linked to its source; no-auth JSON API and CSV, handy for cross-checking the free-tier table.
 - [AI4S for Programmers](https://github.com/Runix-lab/ai4s-for-programmers) - Free two-day course on the data-engineering side of AI for Science (antibody/protein data), for programmers with zero biology background; six runnable labs over a reproducible public dataset.
 - [Awesome AI Gateways](https://github.com/ai-gateways/awesome-ai-gateways) - LLM, MCP and A2A gateways organized by traffic type, with implementation-language and license tags; a complementary directory, not an independent validation of its entries (reviewed 2026-11-02).
 
