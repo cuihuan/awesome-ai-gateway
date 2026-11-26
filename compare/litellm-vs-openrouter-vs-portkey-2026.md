@@ -16,7 +16,7 @@ The three names everyone compares when they pick an AI gateway are **LiteLLM, Op
 | **Models** | 100+ providers | <!--omc-->~340<!--/omc--> models | 1,600+ models |
 | **Best for** | Full control, no middleman fee | Zero ops, fastest start | Guardrails + observability at scale |
 | **License** | MIT (core) | Commercial | MIT (gateway) |
-| **Stars** | <!--s:BerriAI/litellm-->⭐ 63.9k<!--/s--> | — (closed) | <!--s:Portkey-AI/gateway-->⭐ 13.4k<!--/s--> |
+| **Stars** | <!--s:BerriAI/litellm-->⭐ 63.9k<!--/s--> | — (closed) | <!--s:Portkey-AI/gateway-->⭐ 13.5k<!--/s--> |
 
 > Note (2026): Portkey was **acquired by Palo Alto Networks** (closed May 2026) and is being folded into its Prisma AIRS security platform — a signal that gateways are becoming security infrastructure.
 

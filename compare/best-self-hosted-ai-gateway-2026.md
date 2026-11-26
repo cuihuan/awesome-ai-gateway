@@ -12,7 +12,7 @@ If you want one OpenAI-compatible endpoint for every model — but on **your own
 |---|---|---|---|---|---|
 | **LiteLLM** | Python | Breadth (100+ providers), features | 5.83 ms | MIT | <!--s:BerriAI/litellm-->⭐ 63.9k<!--/s--> |
 | **Bifrost** | Go | Raw throughput | 0.62 ms | Apache-2.0 | <!--s:maximhq/bifrost-->⭐ 10k<!--/s--> |
-| **Portkey Gateway** | TypeScript | Guardrails + governance built in | 2.65 ms | MIT | <!--s:Portkey-AI/gateway-->⭐ 13.4k<!--/s--> |
+| **Portkey Gateway** | TypeScript | Guardrails + governance built in | 2.65 ms | MIT | <!--s:Portkey-AI/gateway-->⭐ 13.5k<!--/s--> |
 | **Kong AI Gateway** | Lua/Go | Enterprise K8s + mature plugins | low | Apache-2.0 | <!--s:Kong/kong-->⭐ 44.4k<!--/s--> |
 
 ¹ Independently measured mean added latency per request ([llm-gateway-bench data](https://github.com/cuihuan/llm-gateway-bench/blob/main/data/overhead.json), self-hosted defaults). The vendor-marketed figures — Bifrost "~11µs @ 5k RPS", Portkey "<1ms" — did not reproduce in that harness; treat cross-vendor "Nx faster" claims as marketing until independently reproduced. Kong: not yet measured ("low" per vendor).
