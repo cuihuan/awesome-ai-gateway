@@ -1112,6 +1112,7 @@ OpenRouter 是托管（零运维、约 5.5% 手续费、<!--omc-->~340<!--/omc--
 - [awesome-langchain](https://github.com/kyrolabs/awesome-langchain) — LangChain 工具与 LLM 应用框架，它们的请求会穿过这些网关。
 - [awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) — 可放在本清单 [MCP 与 Agent 网关](#-mcp-与-agent-网关)**之后**的 MCP server。
 - [awesome-free-llm-apis](https://github.com/mnfst/awesome-free-llm-apis) — CC0 授权的「永久免费 LLM API」清单，出自本清单已收录的 Manifest 路由器团队；与我们核实过的[免费额度表](#-哪些免费额度还活着-核实限额表)互补。
+- [Free LLM API Hub](https://github.com/pacocartones/free-llm-api-hub) — MIT 授权的免费额度与试用额度 LLM API 数据集（60+ 家供应商），每条注明核验日期与来源，提供免鉴权 JSON API 与 CSV，可与免费额度表交叉核对。
 - [Awesome AI Gateways](https://github.com/ai-gateways/awesome-ai-gateways) — 按流量类型整理 LLM、MCP 和 A2A 网关，附实现语言及许可证标签；作为补充目录，不代表对其条目的独立验证（核对于 2026-11-02）。
 
 你也维护一份相关清单、觉得本项目该被收录?[提个 issue](https://github.com/cuihuan/awesome-ai-gateway/issues)——互相链接对每份清单的读者都有好处。
