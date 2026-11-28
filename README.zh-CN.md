@@ -295,6 +295,7 @@ _星数是累计的:项目停更了它也不会往下掉。下面这些被跟踪
 - [FastSubs](https://fastsubs.org) — 俄语托管中转，提供 OpenAI 兼容 API（`https://api.fastsubs.org/v1`）、文本与媒体模型、套餐额度和余额计费。**新且未经核实**（运营方提交）；上游身份、模型保真度及计费未经独立测试。（来源核对于 2026-11-02；[文档](https://fastsubs.org/docs)）。
 - [HopBase](https://hop-base.com) — 托管网关，公开文档介绍 OpenAI Chat Completions、Responses 与 Anthropic Messages，以及异步图片/视频生成和公开价格。**新且未经核实**（运营方提交）；模型保真度、故障转移和单次费用未经独立测试。（来源核对于 2026-11-02；[文档](https://hop-base.com/llms.txt)）。
 - [BestLLM](https://bestllm.dev) — 托管 OpenAI 兼容网关，接入中国模型系列，文档介绍美国/欧盟路由策略、工作区消费控制及按 token 计费。提交时名为 Maridian Gateway，当前官网使用 BestLLM。**新且未经核实**（运营方提交）；区域策略执行、计费和模型保真度未经独立测试。（来源核对于 2026-11-02；[文档](https://bestllm.dev/)）。
+- [Kantro](https://kantro.dev) — 托管网关，通过单 Key 提供原生 OpenAI Chat Completions（`/v1/chat/completions`）、OpenAI Responses（`/v1/responses`）与 Anthropic Messages（`/v1/messages`）端点，支持单 Key 花费上限、模型白名单与预付按量计费。**新且未经核实**（运营方提交）；模型身份、故障转移与计费未经独立测试。（[文档](https://kantro.dev/docs)、[定价](https://kantro.dev/pricing)，核对于 2026-11-22）。
 
 
 </details>
@@ -821,6 +822,7 @@ _第一大信任问题，而全网没有一份中立的跨厂商答案。这里�
 | SinoGate | 成本优先 | ⚠️ 未核实，使用前核验 | 运营方提交；公开文档核对于 2026-11-02。模型身份、计费及隐私行为未经独立验证。 |
 | GenZi AI | 成本优先 | ⚠️ 未核实，使用前核验 | 运营方提交；公开文档核对于 2026-11-02。模型身份、计费及隐私行为未经独立验证。 |
 | TokenLab | 成本优先 | ⚠️ 未核实，使用前核验 | 运营方提交；公开文档核对于 2026-11-02。模型身份、计费及隐私行为未经独立验证。 |
+| Kantro | 成本优先 | ⚠️ 未核实，使用前核验 | 运营方提交；公开文档核对于 2026-11-22。模型身份、计费及隐私行为未经独立验证。 |
 
 ## 📊 评测速递
 
