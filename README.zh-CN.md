@@ -397,6 +397,7 @@ _生态里被问得最多的问题之一，而网上的答案大多已过期。�
 - [Argus](https://github.com/karmendra8386/argus) <!--s:karmendra8386/argus-->⭐ 0<!--/s--> — Python LLM 策略网关（MIT），提供可配置的密钥/个人信息检测、输入输出策略与审计记录。打包 CLI 仅运行 mock 演示；真实 OpenAI、Anthropic 或兼容后端需在代码中配置，流式支持仍在路线图中。检测效果未经独立测试。来源核对于 2026-10-28。
 - [omni-route](https://github.com/attnstack/omni-route) <!--s:attnstack/omni-route-->⭐ 1<!--/s--> — Go 网关（MIT），通过运营者提供的厂商密钥做 OpenAI 兼容路由，支持按任务的成本/质量评分和模型级联。级联仅覆盖非流式请求；流式选择单个模型。已发布的 mock/本地模型基准不代表云模型节省费用或质量已验证。本清单依据源码文档，未做运行测试。（来源核对于 2026-11-02）。
 - [Cognipeer Console](https://github.com/Cognipeer/console) <!--s:Cognipeer/console-->⭐ 28<!--/s--> — TypeScript/Next.js 网关与控制平面（AGPL-3.0 社区版），提供 OpenAI 兼容客户端 API、厂商故障转移链、配额及 MCP Hub。SSO、实时通信及成本优化模块属于商业企业版。厂商提交；能力依据文档，不代表已独立测试部署或隔离。（来源核对于 2026-11-02）。
+- [Enterplace](https://github.com/eliransu/enterplace) <!--s:eliransu/enterplace-->⭐ 2<!--/s--> - MIT 自托管 Rust 网关（单个二进制或容器镜像），为编码 Agent、应用和 MCP 客户端提供 OpenAI、Anthropic、Gemini 兼容端点：每个调用者独立密钥、按人和按团队预算、护栏，以及在转发前写入的哈希链审计日志。`enterprise/` 目录为商业许可。厂商提交。（来源核对于 2026-11-21）。
 
 
 ## 🏢 企业合规
